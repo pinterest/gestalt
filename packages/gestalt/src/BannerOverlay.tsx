@@ -107,7 +107,7 @@ type Props = {
  * [BannerOverlays](https://gestalt.pinterest.systems/web/banneroverlay) displays short educational messages when users have performed actions that indicate some intent, such as a related pin tap or idea pin swipe. It is scrim-less, meaning users can scroll content underneath without having a wash layer on top of the content.
  *
  * BannerOverlay is a sticky component triggered by scroll, on tap or long-press, placed at the bottom of the screen.
- * ![BannerOverlay light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerOverlay.spec.mjs-snapshots/BannerOverlay-chromium-darwin.png)
+ * ![BannerOverlay light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerOverlay.spec.ts-snapshots/BannerOverlay-chromium-darwin.png)
  */
 export default function BannerOverlay({
   message,

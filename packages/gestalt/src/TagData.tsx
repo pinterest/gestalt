@@ -114,8 +114,8 @@ const sizes = {
 /**
  * [TagData](https://gestalt.pinterest.systems/web/tagdata)  enables users to select multiple categories to compare with each other in a graph or chart. It contains a label and can be used as a filter for different sources.
  *
- * ![TagData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata.spec.mjs-snapshots/tagdata-chromium-darwin.png)
- * ![TagData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata-dark.spec.mjs-snapshots/tagdata-dark-chromium-darwin.png)
+ * ![TagData light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata.spec.ts-snapshots/tagdata-chromium-darwin.png)
+ * ![TagData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata-dark.spec.ts-snapshots/tagdata-dark-chromium-darwin.png)
  */
 export default function TagData({
   accessibilityRemoveIconLabel,

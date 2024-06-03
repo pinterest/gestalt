@@ -76,8 +76,8 @@ type Props = {
 /**
  * [SearchField](https://gestalt.pinterest.systems/web/searchfield) allows users to search for free-form content.
  *
- * ![SearchField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField.spec.mjs-snapshots/SearchField-chromium-darwin.png)
- * ![SearchField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField-dark.spec.mjs-snapshots/SearchField-dark-chromium-darwin.png)
+ * ![SearchField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField.spec.ts-snapshots/SearchField-chromium-darwin.png)
+ * ![SearchField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField-dark.spec.ts-snapshots/SearchField-dark-chromium-darwin.png)
  *
  */
 

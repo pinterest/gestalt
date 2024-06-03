@@ -15,8 +15,8 @@ type Props = {
 /**
  * Use the [Label](https://gestalt.pinterest.systems/web/label) component to connect a label with a form component in an accessible way.
  *
- * ![Label light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label.spec.mjs-snapshots/Label-chromium-darwin.png)
- * ![Label dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label-dark.spec.mjs-snapshots/Label-dark-chromium-darwin.png)
+ * ![Label light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label.spec.ts-snapshots/Label-chromium-darwin.png)
+ * ![Label dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label-dark.spec.ts-snapshots/Label-dark-chromium-darwin.png)
  *
  */
 export default function Label({ children, htmlFor }: Props) {

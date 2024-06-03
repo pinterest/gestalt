@@ -32,7 +32,7 @@ type ColumnProps = {
 /**
  * Use [Column](https://gestalt.pinterest.systems/web/column) to implement a 12-column system.
  *
- * ![Column light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Column.spec.mjs-snapshots/Column-chromium-darwin.png)
+ * ![Column light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Column.spec.ts-snapshots/Column-chromium-darwin.png)
  *
  */
 export default function Column(props: ColumnProps) {

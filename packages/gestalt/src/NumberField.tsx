@@ -130,8 +130,8 @@ type Props = {
 /**
  * [NumberField](https://gestalt.pinterest.systems/web/numberfield) allows for numerical input.
  *
- * ![NumberField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField.spec.mjs-snapshots/NumberField-chromium-darwin.png)
- * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.mjs-snapshots/NumberField-dark-chromium-darwin.png)
+ * ![NumberField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField.spec.ts-snapshots/NumberField-chromium-darwin.png)
+ * ![NumberField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/NumberField-dark.spec.ts-snapshots/NumberField-dark-chromium-darwin.png)
  *
  */
 

@@ -160,8 +160,8 @@ function BannerCalloutAction({
 /**
  * [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout) is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention.
  *
- * ![BannerCallout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerCallout.spec.mjs-snapshots/BannerCallout-chromium-darwin.png)
- * ![BannerCallout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerCallout-dark.spec.mjs-snapshots/BannerCallout-dark-chromium-darwin.png)
+ * ![BannerCallout light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerCallout.spec.ts-snapshots/BannerCallout-chromium-darwin.png)
+ * ![BannerCallout dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerCallout-dark.spec.ts-snapshots/BannerCallout-dark-chromium-darwin.png)
  *
  */
 export default function BannerCallout({

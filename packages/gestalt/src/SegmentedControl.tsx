@@ -115,8 +115,8 @@ function SegmentedControlItem({
  *
  * Create layout to convey clear sense of information hierarchy. When a control is engaged, information below the control should also be updated.
  *
- * ![SegmentedControl light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmentedControl.spec.mjs-snapshots/SegmentedControl-chromium-darwin.png)
- * ![SegmentedControl dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmentedControl-dark.spec.mjs-snapshots/SegmentedControl-dark-chromium-darwin.png)
+ * ![SegmentedControl light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmentedControl.spec.ts-snapshots/SegmentedControl-chromium-darwin.png)
+ * ![SegmentedControl dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SegmentedControl-dark.spec.ts-snapshots/SegmentedControl-dark-chromium-darwin.png)
  *
  */
 export default function SegmentedControl({

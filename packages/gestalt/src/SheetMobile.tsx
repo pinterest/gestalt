@@ -121,8 +121,8 @@ type Props = {
  * SheetMobile is a supplementary container that sits on top of the screen’s primary content and can be dismissed in order to interact with the underlying content. Sheets can contain a wide variety of information and layouts, including menu items, actions, and supplemental content.
  *
  *
- * ![SheetMobile light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SheetMobile.spec.mjs-snapshots/SheetMobile-chromium-darwin.png)
- * ![SheetMobile dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SheetMobile-dark.spec.mjs-snapshots/SheetMobile-dark-chromium-darwin.png)
+ * ![SheetMobile light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SheetMobile.spec.ts-snapshots/SheetMobile-chromium-darwin.png)
+ * ![SheetMobile dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SheetMobile-dark.spec.ts-snapshots/SheetMobile-dark-chromium-darwin.png)
  *
  */
 function SheetMobile({

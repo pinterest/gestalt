@@ -106,7 +106,7 @@ type Props = {
  *
  * Toasts do not require user action and primarily acknowledge that a user has performed an action or completed a task.
  *
- * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.mjs-snapshots/Toast-chromium-darwin.png)
+ * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.ts-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
   _dangerouslySetPrimaryAction,

@@ -95,8 +95,8 @@ export type Props = {
 
  * DateField is distributed within the "gestalt-datepicker" package and must be installed separately.
  *
- * ![DateField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateField.spec.mjs-snapshots/DateField-chromium-darwin.png)
- * ![DateField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateField-dark.spec.mjs-snapshots/DateField-dark-chromium-darwin.png)
+ * ![DateField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateField.spec.ts-snapshots/DateField-chromium-darwin.png)
+ * ![DateField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DateField-dark.spec.ts-snapshots/DateField-dark-chromium-darwin.png)
  */
 function DateField({
   autoComplete,

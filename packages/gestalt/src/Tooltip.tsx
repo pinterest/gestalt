@@ -38,8 +38,8 @@ type Props = {
  *
  * **NOTE** Planning to use Tooltip with IconButton? Use [IconButton's built-in tooltip](https://gestalt.pinterest.systems/web/iconbutton#With-Tooltip) instead. **NOTE**
  *
- * ![Tooltip light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip.spec.mjs-snapshots/Tooltip-chromium-darwin.png)
- * ![Tooltip dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip-dark.spec.mjs-snapshots/Tooltip-dark-chromium-darwin.png)
+ * ![Tooltip light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip.spec.ts-snapshots/Tooltip-chromium-darwin.png)
+ * ![Tooltip dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tooltip-dark.spec.ts-snapshots/Tooltip-dark-chromium-darwin.png)
  */
 export default function Tooltip({
   accessibilityLabel,

@@ -30,7 +30,15 @@ const baseRules = {
   'gestalt/only-valid-tokens': ERROR,
   'import/extensions': [
     ERROR,
-    { css: 'always', js: 'never', ts: 'never', tsx: 'never', json: 'always', mjs: 'never' },
+    {
+      css: 'always',
+      svg: 'always',
+      js: 'never',
+      ts: 'never',
+      tsx: 'never',
+      json: 'always',
+      mjs: 'never',
+    },
   ],
   'import/first': ERROR,
   'import/newline-after-import': ERROR,

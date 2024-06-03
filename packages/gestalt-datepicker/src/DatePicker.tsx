@@ -96,8 +96,8 @@ export type Props = {
  * [DatePicker](https://gestalt.pinterest.systems/web/datepicker) is used when the user has to select a date or date range.
  * DatePicker is distributed in its own package and must be installed separately.
  *
- * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.mjs-snapshots/DatePicker-closed-chromium-darwin.png)
- * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.mjs-snapshots/DatePicker-closed-dark-chromium-darwin.png)
+ * ![DatePicker closed light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed.spec.ts-snapshots/DatePicker-closed-chromium-darwin.png)
+ * ![DatePicker closed dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/DatePicker-closed-dark.spec.ts-snapshots/DatePicker-closed-dark-chromium-darwin.png)
  */
 
 const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function DatePicker(

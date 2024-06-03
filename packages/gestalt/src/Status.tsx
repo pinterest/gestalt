@@ -78,8 +78,8 @@ type Props = {
 /**
  * [Status](https://gestalt.pinterest.systems/web/status) is a graphic indicator of an element’s state.
  *
- * ![Status light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status.spec.mjs-snapshots/Status-chromium-darwin.png)
- * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.mjs-snapshots/Status-dark-chromium-darwin.png)
+ * ![Status light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status.spec.ts-snapshots/Status-chromium-darwin.png)
+ * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.ts-snapshots/Status-dark-chromium-darwin.png)
  *
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props) {

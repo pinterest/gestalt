@@ -117,8 +117,8 @@ type Props = {
 
 /**
  * [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducationaleducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.
- * ![PopoverEducational light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational.spec.mjs-snapshots/PopoverEducational-chromium-darwin.png)
- * ![PopoverEducational dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational-dark.spec.mjs-snapshots/PopoverEducational-dark-chromium-darwin.png)
+ * ![PopoverEducational light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational.spec.ts-snapshots/PopoverEducational-chromium-darwin.png)
+ * ![PopoverEducational dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational-dark.spec.ts-snapshots/PopoverEducational-dark-chromium-darwin.png)
  */
 export default function PopoverEducational({
   accessibilityLabel = 'Popover',

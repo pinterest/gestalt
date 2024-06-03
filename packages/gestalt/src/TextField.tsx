@@ -112,8 +112,8 @@ type Props = {
 /**
  * [TextField](https://gestalt.pinterest.systems/web/textfield) allows for multiple types of text input.
  *
- * ![TextField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField.spec.mjs-snapshots/TextField-chromium-darwin.png)
- * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.mjs-snapshots/TextField-dark-chromium-darwin.png)
+ * ![TextField light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField.spec.ts-snapshots/TextField-chromium-darwin.png)
+ * ![TextField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextField-dark.spec.ts-snapshots/TextField-dark-chromium-darwin.png)
  *
  */
 
