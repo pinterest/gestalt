@@ -171,7 +171,6 @@ export default function HelpButton({
     );
 
   const popoverElement = (
-    // @ts-expect-error - TS2786 - 'InternalPopover' cannot be used as a JSX component.
     <InternalPopover
       accessibilityLabel={accessibilityPopoverLabel}
       anchor={tapAreaRef.current}

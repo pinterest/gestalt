@@ -7,7 +7,6 @@ InternalDismissIconButton aims to replace "dismiss" IconButtons in components th
 import {
   ComponentProps,
   forwardRef,
-  ReactNode,
   useImperativeHandle,
   useRef,
   useState,
@@ -30,7 +29,6 @@ type Props = {
 };
 
 const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(
-  // @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityControls, iconColor, onClick, size, }: Props, ref: ForwardedRef<HTMLButtonElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLButtonElement, Props>'.
   function IconButton(
     {
       accessibilityLabel,
@@ -40,7 +38,7 @@ const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Pr
       size = 'lg',
     }: Props,
     ref,
-  ): ReactNode {
+  ) {
     const innerRef = useRef<HTMLButtonElement | null>(null);
 
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

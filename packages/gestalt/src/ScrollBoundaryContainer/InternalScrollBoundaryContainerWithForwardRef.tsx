@@ -17,7 +17,6 @@ type InternalProps = {
 // ScrollBoundaryContainerWithForwardRef is the ScrollBoundaryContainer to be used internally, within components (e. Modal, OverlayPanel).
 // It has an extended API with private props (onScroll, padding, and ref) to maintain border shadows in the component main content container.
 const ScrollBoundaryContainerWithForwardRef = forwardRef<HTMLElement, InternalProps>(
-  // @ts-expect-error - TS2345 - Argument of type '({ children, onScroll, includesFooter, padding, height, overflow, }: InternalProps, ref: ForwardedRef<HTMLElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement, InternalProps>'.
   function ScrollBoundaryContainer(
     {
       children,
@@ -28,7 +27,7 @@ const ScrollBoundaryContainerWithForwardRef = forwardRef<HTMLElement, InternalPr
       overflow = 'auto',
     }: InternalProps,
     ref,
-  ): ReactNode {
+  ) {
     const { addRef } = useScrollBoundaryContainer();
     const anchorRef = useRef<HTMLElement | null>(null);
     // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry, MasonryV2 } from 'gestalt';
@@ -33,9 +33,8 @@ function booleanize(value: string): boolean {
 }
 
 // LazyHydrate doesn't like to be used without any props, so we have to add it conditionally
-function MaybeLazyHydrate({ children, ssrOnly }: { children: ReactNode; ssrOnly: boolean }) {
+function MaybeLazyHydrate({ children, ssrOnly }: { children: ReactElement; ssrOnly: boolean }) {
   if (ssrOnly) {
-    // @ts-expect-error - TS2322 - Type 'ReactNode' is not assignable to type 'ReactNode & ReactElement<any, string | JSXElementConstructor<any>>'.
     return <LazyHydrate ssrOnly>{children}</LazyHydrate>;
   }
   return children;
@@ -107,7 +106,6 @@ export default function TestPage({
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      {/* @ts-expect-error - TS2786 - 'MaybeLazyHydrate' cannot be used as a JSX component. */}
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
         {/* @ts-expect-error - TS2769 - No overload matches this call. */}
         <MasonryContainer

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import Icon from './Icon';
@@ -80,7 +80,7 @@ type Props = {
  * ![SearchField dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchField-dark.spec.mjs-snapshots/SearchField-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ accessibilityLabel, accessibilityClearButtonLabel, autoComplete, id, label, onBlur, onChange, onFocus, onKeyDown, placeholder, size, value, errorMessage, }: Props, ref: ForwardedRef<HTMLInputElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
+
 const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function SearchField(
   {
     accessibilityLabel,
@@ -98,7 +98,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     errorMessage,
   }: Props,
   ref,
-): ReactNode {
+) {
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 

@@ -134,7 +134,7 @@ export default class Image extends PureComponent<Props> {
     }
   }
 
-  render(): ReactNode {
+  render() {
     const {
       alt,
       color,

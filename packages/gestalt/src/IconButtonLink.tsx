@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -93,7 +93,7 @@ type Props = {
  * ![IconButton dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/IconButton-dark.spec.mjs-snapshots/IconButton-dark-chromium-darwin.png)
  *
  */
-// @ts-expect-error - TS2345 - Argument of type '({ href, rel, target, accessibilityLabel, bgColor, dangerouslySetSvgPath, dataTestId, disabled, icon, iconColor, onClick, padding, tabIndex, tooltip, size, }: Props, ref: ForwardedRef<HTMLAnchorElement>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLAnchorElement, Props>'.
+
 const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function IconButtonLink(
   {
     href,
@@ -113,7 +113,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
     size = 'lg',
   }: Props,
   ref,
-): ReactNode {
+) {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component

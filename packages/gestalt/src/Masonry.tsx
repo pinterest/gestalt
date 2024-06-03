@@ -485,7 +485,7 @@ export default class Masonry<
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  render(): ReactNode {
+  render() {
     const {
       align = 'center',
       columnWidth,

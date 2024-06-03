@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import classnames from 'classnames';
 import bordersStyles from '../Borders.css';
 import boxWhitespaceStyles from '../boxWhitespace.css';
@@ -29,7 +29,6 @@ type Props = {
 };
 
 const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Props>(
-  // @ts-expect-error - TS2345 - Argument of type '({ isHovered, id, index, isSelected, label, onSelect, setHoveredItemIndex, subtext, value, }: Props, ref: ForwardedRef<HTMLElement | null | undefined>) => ReactNode' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLElement | null | undefined, Props>'.
   function OptionItem(
     {
       isHovered,
@@ -43,7 +42,7 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
       value,
     }: Props,
     ref,
-  ): ReactNode {
+  ) {
     const handleEventPreventDefault = (event: React.ChangeEvent<HTMLDivElement>) =>
       event.preventDefault();
 

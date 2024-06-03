@@ -70,7 +70,6 @@ export default function App({ children, files }: Props) {
   return (
     <AppContextProvider>
       <DocsExperimentProvider>
-        {/* @ts-expect-error - TS2786 - 'AppContextConsumer' cannot be used as a JSX component. */}
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme}>

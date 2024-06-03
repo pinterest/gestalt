@@ -250,7 +250,7 @@ class LegacyContents extends Component<Props, State> {
     };
   }
 
-  render(): ReactNode {
+  render() {
     const {
       accessibilityLabel,
       bgColor,

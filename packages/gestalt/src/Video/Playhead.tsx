@@ -1,4 +1,4 @@
-import { PureComponent, ReactNode } from 'react';
+import { PureComponent } from 'react';
 import Box from '../Box';
 import styles from '../Video.css';
 
@@ -158,7 +158,7 @@ export default class VideoPlayhead extends PureComponent<Props, State> {
     onPlayheadUp(event);
   };
 
-  render(): ReactNode {
+  render() {
     const { accessibilityProgressBarLabel, currentTime, duration } = this.props;
     const width = `${Math.floor((currentTime * 10000) / duration) / 100}%`;
 

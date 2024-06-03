@@ -53,7 +53,7 @@ const renderGraphPoint: (options: {
   color: DataVisualizationColors;
   active: boolean;
 }) => (props: { cx: number; cy: number }) => ReactNode = (options) => {
-  function RenderPoint({ cx, cy }: { cx: number; cy: number }): ReactNode {
+  function RenderPoint({ cx, cy }: { cx: number; cy: number }) {
     return <GraphPoint key={options.color + cy + cx} color={options.color} cx={cx} cy={cy} />;
   }
 

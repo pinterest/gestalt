@@ -26,7 +26,7 @@ export default class NoScrollBehavior extends Component<Props> {
     }
   }
 
-  render(): ReactNode {
+  render() {
     return this.props.children;
   }
 }
