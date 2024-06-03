@@ -1,3 +1,9 @@
+## 151.2.6 (Jun 3, 2024)
+
+### Patch
+
+- Internal: remove .mjs folder for snapshots ([#3610](https://github.com/pinterest/gestalt/pull/3610)) - [Preview link](https://deploy-preview-3610--gestalt.netlify.app?devexample=true)
+
 ## 151.2.5 (Jun 3, 2024)
 
 ### Patch
