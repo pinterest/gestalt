@@ -1,11 +1,11 @@
-import { Box, ColorSchemeProvider, Flex, Icon } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, Icon, Text } from 'gestalt';
+import icons from '../../../packages/gestalt/src/icons/index';
 
 export default function Snapshot() {
-  const { icons } = Icon;
 
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <Box color="default" height={800} width={575}>
+      <Box color="default" height={2000} width={2000}>
         <Flex
           gap={{
             row: 1,
@@ -13,9 +13,12 @@ export default function Snapshot() {
           }}
           wrap
         >
-          {icons.map((name) => (
-            <Box key={name} padding={2}>
+             {Object.keys(icons).map((name, idk) => (
+            <Box key={name} padding={2} width={100}>
+              <Text size="100">{idk}</Text>
+              {/* @ts-expect-error - TS2322 */}
               <Icon accessibilityLabel="" color="default" icon={name} />
+              <Text size="100">{name}</Text>
             </Box>
           ))}
         </Flex>
