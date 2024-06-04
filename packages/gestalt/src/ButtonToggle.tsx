@@ -26,6 +26,24 @@ const SIZE_NAME_TO_PIXEL = {
   lg: 12,
 } as const;
 
+type SkinColor =
+  | '#F0E3DC'
+  | '#F8D7D8'
+  | '#F2D7BE'
+  | '#F7C3AF'
+  | '#DEBAB0'
+  | '#E0999A'
+  | '#DDA67C'
+  | '#D98A64'
+  | '#9A6B52'
+  | '#A25847'
+  | '#B37143'
+  | '#BF6951'
+  | '#683929'
+  | '#34261F'
+  | '#64281B'
+  | '#4F2221';
+
 type Props = {
   /**
    * Specifies the `id` of an associated element (or elements) whose contents or visibility are controlled by ButtonToggle so that screen reader users can identify the relationship between elements. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
@@ -38,27 +56,7 @@ type Props = {
   /**
    * The background color of ButtonToggle.
    */
-  color?:
-    | 'red'
-    | 'transparent'
-    | ReadonlyArray<
-        | '#F0E3DC'
-        | '#F8D7D8'
-        | '#F2D7BE'
-        | '#F7C3AF'
-        | '#DEBAB0'
-        | '#E0999A'
-        | '#DDA67C'
-        | '#D98A64'
-        | '#9A6B52'
-        | '#A25847'
-        | '#B37143'
-        | '#BF6951'
-        | '#683929'
-        | '#34261F'
-        | '#64281B'
-        | '#4F2221'
-      >;
+  color?: 'red' | 'transparent' | readonly [SkinColor, SkinColor, SkinColor, SkinColor];
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/afut/#priority) before using this prop.
    */

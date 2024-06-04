@@ -193,7 +193,7 @@ This variant also changes the shape of the ButtonToggle.
           description={`
 If the \`color\` prop is an array, ButtonToggle is converted into a textless color picker.
 
-The colors in the array are displayed in a grid-like pattern across the ButtonToggle.
+The colors in the array are displayed in a 4-quadrant pattern across the ButtonToggle.
 `}
           title="Color Picker"
         >
