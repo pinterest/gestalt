@@ -1,3 +1,5 @@
+import colorpicker from 'docs/examples/buttontoggle/colorpicker';
+import graphic from 'docs/examples/buttontoggle/graphic';
 import { ButtonToggle } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -167,6 +169,45 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             sandpackExample={<SandpackExample code={colors} name="Colors" previewHeight={150} />}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+\`graphicIcon\` adds a thumbnail above the ButtonToggle text. Thumbnails can be an Image, Avatar or Icon.
+
+This variant also changes the shape of the ButtonToggle.
+`}
+          title="Graphic"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={graphic}
+                name="Graphic buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+If the \`color\` prop is an array, ButtonToggle is converted into a textless color picker.
+
+The colors in the array are displayed in a grid-like pattern across the ButtonToggle.
+`}
+          title="Color Picker"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={colorpicker}
+                name="Color Picker buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
 \`iconStart\` adds an icon before the ButtonToggle text.

@@ -24,8 +24,8 @@ export type Props = {
 };
 
 export default function SkinToneFilterSwatches({ colors, isSelected, onClick }: Props) {
-  const skinToneCircleHeightPx = 56;
-  const skinToneCircleWidthPx = 84;
+  const skinToneCircleHeightPx = 48;
+  const skinToneCircleWidthPx = 88;
   const filtersContainerHeightPx = skinToneCircleHeightPx + BORDER_OFFSET_PX * 2;
   const filtersContainerWidthPx = skinToneCircleWidthPx + BORDER_OFFSET_PX * 2;
 
