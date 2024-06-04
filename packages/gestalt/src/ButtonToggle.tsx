@@ -2,6 +2,7 @@ import { forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import Avatar from './Avatar';
 import styles from './ButtonToggle.css';
+import ColorsButton from './ButtonToggle/ColorsButton';
 import GraphicButton from './ButtonToggle/GraphicButton';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
@@ -37,7 +38,27 @@ type Props = {
   /**
    * The background color of ButtonToggle.
    */
-  color?: 'red' | 'transparent';
+  color?:
+    | 'red'
+    | 'transparent'
+    | ReadonlyArray<
+        | '#F0E3DC'
+        | '#F8D7D8'
+        | '#F2D7BE'
+        | '#F7C3AF'
+        | '#DEBAB0'
+        | '#E0999A'
+        | '#DDA67C'
+        | '#D98A64'
+        | '#9A6B52'
+        | '#A25847'
+        | '#B37143'
+        | '#BF6951'
+        | '#683929'
+        | '#34261F'
+        | '#64281B'
+        | '#4F2221'
+      >;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/afut/#priority) before using this prop.
    */
@@ -144,6 +165,25 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
   });
 
+  // Consume GlobalEventsHandlerProvider
+  const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
+    buttonToggleHandlers: undefined,
+  };
+
+  const bgColor: 'red' | 'transparent' = color instanceof Array ? 'red' : color;
+  if (color instanceof Array) {
+    return (
+      <ColorsButton
+        colors={color}
+        isSelected={selected}
+        onClick={(event) => {
+          buttonToggleHandlers?.onClick?.();
+          onClick?.(event);
+        }}
+      />
+    );
+  }
+
   const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
     [styles.sm]: size === 'sm' && !graphicIcon,
     [styles.md]: size === 'md' && !graphicIcon,
@@ -151,7 +191,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.graphicSm]: size === 'sm' && graphicIcon,
     [styles.graphicMd]: size === 'md' && graphicIcon,
     [styles.graphicLg]: size === 'lg' && graphicIcon,
-    [styles[color]]: !disabled && !selected,
+    [styles[bgColor]]: !disabled && !selected,
     [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
     [styles.selected]: !disabled && selected,
@@ -175,12 +215,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     (disabled && 'subtle') ||
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||
-    DEFAULT_TEXT_COLORS[color];
-
-  // Consume GlobalEventsHandlerProvider
-  const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
-    buttonToggleHandlers: undefined,
-  };
+    DEFAULT_TEXT_COLORS[bgColor];
 
   const renderContent = () => {
     if (graphicIcon) {
