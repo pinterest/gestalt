@@ -107,7 +107,7 @@ type Props = {
   /**
    * Text to render inside the ButtonToggle to convey the function and purpose of the ButtonToggle.
    */
-  text: string;
+  text?: string;
 };
 
 /**
@@ -130,7 +130,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     onFocus,
     selected,
     size = 'md',
-    text,
+    text = '',
     accessibilityControls,
   }: Props,
   ref,
@@ -226,7 +226,11 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       return <GraphicButton graphicIcon={graphicIcon} text={text} textColor={textColor} />;
     }
     return (
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+      <Flex
+        alignItems="center"
+        gap={{ row: text === '' ? 0 : 2, column: 0 }}
+        justifyContent="center"
+      >
         {iconStart && (
           <Icon
             accessibilityLabel=""

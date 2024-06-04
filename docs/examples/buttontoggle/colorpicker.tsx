@@ -11,7 +11,6 @@ export default function Example() {
         onClick={() => setSelected((value) => !value)}
         selected={selected}
         size="lg"
-        text=""
       />
     </Flex>
   );
