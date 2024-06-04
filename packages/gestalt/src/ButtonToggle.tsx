@@ -202,14 +202,16 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
-  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
-
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, {
+  const borderClasses = {
     [styles.rounding600]: !graphicIcon,
     [styles.rounding300]: graphicIcon && size === 'lg',
     [styles.rounding200]: graphicIcon && size === 'md',
     [styles.rounding100]: graphicIcon && size === 'sm',
-  });
+  };
+
+  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
+
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, borderClasses);
 
   const textColor =
     (disabled && 'subtle') ||
