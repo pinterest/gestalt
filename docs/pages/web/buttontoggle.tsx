@@ -191,9 +191,11 @@ This variant also changes the shape of the ButtonToggle.
 
         <MainSection.Subsection
           description={`
-If the \`color\` prop is an array, ButtonToggle is converted into a textless color picker.
+If the \`color\` prop is an array of 4 skin tones, ButtonToggle is converted into a textless color picker.
 
 The colors in the array are displayed in a 4-quadrant pattern across the ButtonToggle.
+The skin tones currently supported are:
+\`#F0E3DC\` | \`#F8D7D8\` | \`#F2D7BE\` | \`#F7C3AF\` | \`#DEBAB0\` | \`#E0999A\` | \`#DDA67C\` | \`#D98A64\` | \`#9A6B52\` | \`#A25847\` | \`#B37143\` | \`#BF6951\` | \`#683929\` | \`#34261F\` | \`#64281B\` | \`#4F2221\`
 `}
           title="Color Picker"
         >
