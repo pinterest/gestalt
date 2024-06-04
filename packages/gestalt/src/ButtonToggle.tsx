@@ -1,6 +1,8 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
+import Avatar from './Avatar';
 import styles from './ButtonToggle.css';
+import GraphicButton from './ButtonToggle/GraphicButton';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
@@ -44,6 +46,13 @@ type Props = {
    * Indicates if ButtonToggle is disabled. Disabled ButtonToggles are inactive and cannot be interacted with. See the [state variant](https://gestalt.pinterest.systems/web/buttontoggle#State) for details on proper usage.
    */
   disabled?: boolean;
+  /**
+   * An icon displayed above the text to illustrate the meaning of the option selected by the ButtonToggle.
+   */
+  graphicIcon?:
+    | { image: ReactElement<typeof Image> }
+    | { avatar: ReactElement<typeof Avatar> }
+    | { icon: ReactElement<typeof Icon> };
   /**
    * An icon displayed before the text to help clarify the usage of ButtonToggle.
    */
@@ -91,6 +100,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     color = 'transparent',
     dataTestId,
     disabled = false,
+    graphicIcon,
     iconStart,
     onBlur,
     onClick,
@@ -135,9 +145,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   });
 
   const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm',
-    [styles.md]: size === 'md',
-    [styles.lg]: size === 'lg',
+    [styles.sm]: size === 'sm' && !graphicIcon,
+    [styles.md]: size === 'md' && !graphicIcon,
+    [styles.lg]: size === 'lg' && !graphicIcon,
+    [styles.graphicSm]: size === 'sm' && graphicIcon,
+    [styles.graphicMd]: size === 'md' && graphicIcon,
+    [styles.graphicLg]: size === 'lg' && graphicIcon,
     [styles[color]]: !disabled && !selected,
     [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
@@ -151,7 +164,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
 
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, {
+    [styles.rounding600]: !graphicIcon,
+    [styles.rounding300]: graphicIcon && size === 'lg',
+    [styles.rounding200]: graphicIcon && size === 'md',
+    [styles.rounding100]: graphicIcon && size === 'sm',
+  });
 
   const textColor =
     (disabled && 'subtle') ||
@@ -162,6 +180,33 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   // Consume GlobalEventsHandlerProvider
   const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
     buttonToggleHandlers: undefined,
+  };
+
+  const renderContent = () => {
+    if (graphicIcon) {
+      return <GraphicButton graphicIcon={graphicIcon} text={text} textColor={textColor} />;
+    }
+    return (
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {iconStart && (
+          <Icon
+            accessibilityLabel=""
+            color={textColor as IconColor}
+            icon={iconStart}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        )}
+        <Text
+          align="center"
+          color={textColor}
+          overflow="breakWord"
+          size={size === 'sm' ? '200' : '300'}
+          weight="bold"
+        >
+          {text}
+        </Text>
+      </Flex>
+    );
   };
 
   return (
@@ -195,37 +240,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       type="button"
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
-        {iconStart ? (
-          <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-            {iconStart ? (
-              <Icon
-                accessibilityLabel=""
-                color={textColor as IconColor}
-                icon={iconStart}
-                size={SIZE_NAME_TO_PIXEL[size]}
-              />
-            ) : null}
-            <Text
-              align="center"
-              color={textColor}
-              overflow="normal"
-              size={size === 'sm' ? '200' : '300'}
-              weight="bold"
-            >
-              {text}
-            </Text>
-          </Flex>
-        ) : (
-          <Text
-            align="center"
-            color={textColor}
-            overflow="normal"
-            size={size === 'sm' ? '200' : '300'}
-            weight="bold"
-          >
-            {text}
-          </Text>
-        )}
+        {renderContent()}
       </div>
     </button>
   );

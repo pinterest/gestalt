@@ -1,8 +1,24 @@
 .button {
-  composes: borderBox minWidth60 from "./Layout.css";
   composes: border from "./Borders.css";
+  composes: borderBox minWidth60 from "./Layout.css";
+}
+
+.rounding600 {
   border-radius: var(--rounding-600);
 }
+
+.rounding300 {
+  border-radius: var(--rounding-300);
+}
+
+.rounding200 {
+  border-radius: var(--rounding-200);
+}
+
+.rounding100 {
+  border-radius: var(--rounding-100);
+}
+
 
 .parentButton {
   composes: paddingX0 paddingY0 from "./boxWhitespace.css";
@@ -33,6 +49,23 @@
 .lg {
   composes: large from "./Layout.css";
   composes: paddingX4 paddingY3 from "./boxWhitespace.css";
+}
+
+.graphicSm {
+  composes: small from "./Layout.css";
+  composes: paddingX1 from "./boxWhitespace.css";
+  padding-bottom: 2px;
+  padding-top: var(--space-200);
+}
+
+.graphicMd {
+  composes: medium from "./Layout.css";
+  composes: paddingX2 paddingY2 from "./boxWhitespace.css";
+}
+
+.graphicLg {
+  composes: large from "./Layout.css";
+  composes: paddingX3 paddingY2 from "./boxWhitespace.css";
 }
 
 .enabled {
