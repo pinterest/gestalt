@@ -1,3 +1,9 @@
+## 152.0.0 (Jun 4, 2024)
+
+### Major
+
+- Icon: additions, deprecations, renames in classic + added all vr-theme icons for web & android ([#3587](https://github.com/pinterest/gestalt/pull/3587)) - [Preview link](https://deploy-preview-3587--gestalt.netlify.app?devexample=true)
+
 ## 151.2.6 (Jun 3, 2024)
 
 ### Patch
