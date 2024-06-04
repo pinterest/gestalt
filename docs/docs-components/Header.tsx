@@ -198,7 +198,7 @@ function Header() {
             {showDevelopmentEditorSwitch && (
               <IconButton
                 accessibilityLabel="Toggle dev example mode"
-                icon={devExampleMode === 'development' ? 'code-checked' : 'code'}
+                icon={devExampleMode === 'development' ? 'code-check' : 'code'}
                 onClick={onChangeDevExampleMode}
                 selected={devExampleMode === 'development'}
                 size="sm"
