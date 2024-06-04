@@ -2,7 +2,6 @@ import { Box, ColorSchemeProvider, Flex, Icon, Text } from 'gestalt';
 import icons from '../../../packages/gestalt/src/icons/index';
 
 export default function Snapshot() {
-
   return (
     <ColorSchemeProvider colorScheme="dark">
       <Box color="default" height={2000} width={2000}>
@@ -13,7 +12,7 @@ export default function Snapshot() {
           }}
           wrap
         >
-             {Object.keys(icons).map((name, idk) => (
+          {Object.keys(icons).map((name, idk) => (
             <Box key={name} padding={2} width={100}>
               <Text size="100">{idk}</Text>
               {/* @ts-expect-error - TS2322 */}
