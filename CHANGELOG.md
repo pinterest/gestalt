@@ -1,3 +1,9 @@
+## 152.1.2 (Jun 5, 2024)
+
+### Patch
+
+- Internal: remove flow-typed and updated docs ([#3614](https://github.com/pinterest/gestalt/pull/3614)) - [Preview link](https://deploy-preview-3614--gestalt.netlify.app?devexample=true)
+
 ## 152.1.1 (Jun 5, 2024)
 
 ### Patch
