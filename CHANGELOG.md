@@ -1,3 +1,9 @@
+## 152.1.1 (Jun 5, 2024)
+
+### Patch
+
+- Docs: removed Accessibility checklist module and badge ([#3613](https://github.com/pinterest/gestalt/pull/3613)) - [Preview link](https://deploy-preview-3613--gestalt.netlify.app?devexample=true)
+
 ## 152.1.0 (Jun 5, 2024)
 
 ### Minor
