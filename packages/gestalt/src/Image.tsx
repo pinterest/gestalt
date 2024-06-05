@@ -149,8 +149,8 @@ export default class Image extends PureComponent<Props> {
       // Since we don't have the SyntheticEvent here,
       // we must create one with the same shape.
       // See https://reactjs.org/docs/events.html
-      const loadEvent = new Event('load')
-      Object.defineProperty(loadEvent, 'target', { writable: false, value: node })
+      const loadEvent = new Event('load');
+      Object.defineProperty(loadEvent, 'target', { writable: false, value: node });
       this.handleLoad({
         ...loadEvent,
         nativeEvent: loadEvent,
@@ -163,7 +163,7 @@ export default class Image extends PureComponent<Props> {
         stopPropagation: () => {},
       });
     }
-  }
+  };
 
   render() {
     const {
