@@ -5,7 +5,7 @@ import InternalDocumentationSection from '../../docs-components/InternalDocument
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
-import DocsPageHeader from '../../docs-components/PageHeader'; // renaming to avoid confusion
+import DocsPageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import centerAlignedExample from '../../examples/pageheader/centerAlignedExample';
