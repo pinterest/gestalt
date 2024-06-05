@@ -60,7 +60,7 @@ export default function PageHeaderQualitySummary({ name }: Props) {
 
   return (
     <Flex gap={4} wrap>
-      {['figmaStatus', 'responsive', 'mobileAdaptive', 'accessible'].map((item, i, arr) => (
+      {['figmaStatus', 'responsive', 'mobileAdaptive'].map((item, i, arr) => (
         <Flex key={`summary-${item}`}>
           <QualityItem
             // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"accessible" | "mobileAdaptive" | "figmaStatus" | "responsive"'.

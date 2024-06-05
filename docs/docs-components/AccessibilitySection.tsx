@@ -18,9 +18,15 @@ export default function AccessibilitySection({
   hideChecklist = false,
   name,
 }: Props) {
+
+
+  let override = hideChecklist
+
+  override = true
   return (
     <Card name="Accessibility" showHeading>
-      {hideChecklist ? null : <AccessibilityChecklist component={name} />}
+      { }
+      {override  ? null : <AccessibilityChecklist component={name} />}
       {description && (
         <Box marginBottom={8} marginTop={6} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
           <Markdown text={description} />
