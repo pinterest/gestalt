@@ -19,7 +19,6 @@
   border-radius: var(--rounding-100);
 }
 
-
 .parentButton {
   composes: paddingX0 paddingY0 from "./boxWhitespace.css";
   composes: noBorder from "./Borders.css";
