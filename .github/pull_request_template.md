@@ -30,7 +30,7 @@ What is the purpose of this PR? Please include the context around these changes 
 
 ### Checklist
 
-- [ ] Added unit and Flow Tests
+- [ ] Added unit tests
 - [ ] Added documentation + accessibility tests
 - [ ] Verified accessibility: keyboard & screen reader interaction
 - [ ] Checked dark mode, responsiveness, and right-to-left support

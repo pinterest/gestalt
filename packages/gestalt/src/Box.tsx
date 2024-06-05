@@ -4,12 +4,12 @@
 
 This guide will help you navigate and understand its design. This file is roughly organized like:
 
-  1. Flow Types
+  1. Types
   2. Prop transformers -> moved to ./boxTransforms.js
   3. Box itself
   4. PropTypes
 
-I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the Flow Types  (even though they look scary).
+I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the types  (even though they look scary).
 
 */
 import { forwardRef, ReactElement, ReactNode } from 'react';
