@@ -23,7 +23,6 @@ export default function AccessibilitySection({
   override = true;
   return (
     <Card name="Accessibility" showHeading>
-      {}
       {override ? null : <AccessibilityChecklist component={name} />}
       {description && (
         <Box marginBottom={8} marginTop={6} maxWidth={DOCS_COPY_MAX_WIDTH_PX}>
