@@ -1,3 +1,9 @@
+## 152.1.0 (Jun 5, 2024)
+
+### Minor
+
+- Image: Address onLoad not being called for SSR images ([#3612](https://github.com/pinterest/gestalt/pull/3612)) - [Preview link](https://deploy-preview-3612--gestalt.netlify.app?devexample=true)
+
 ## 152.0.0 (Jun 4, 2024)
 
 ### Major
