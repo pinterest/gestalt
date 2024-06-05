@@ -78,6 +78,10 @@ type Props = {
    * A comma-separated list of one or more strings indicating a set of possible image sources for the user agent to use.
    */
   srcSet?: string;
+  /**
+   * Experimental prop: Fixes an issue where onLoad is not triggered if the image is already loaded by the time the component renders (i.e. SSR)
+   */
+  _fixCompletedOnLoad?: boolean;
 };
 
 /**
@@ -102,6 +106,8 @@ export default class Image extends PureComponent<Props> {
 
   static displayName: string | null | undefined = 'Image';
 
+  onLoadCalled: boolean = false;
+
   componentDidMount() {
     if (shouldScaleImage(this.props.fit)) {
       this.loadImage();
@@ -116,6 +122,7 @@ export default class Image extends PureComponent<Props> {
   }
 
   handleLoad: (event: React.SyntheticEvent<HTMLImageElement>) => void = (event) => {
+    this.onLoadCalled = true;
     this.props.onLoad?.({ event });
   };
 
@@ -131,6 +138,30 @@ export default class Image extends PureComponent<Props> {
       // @ts-expect-error - TS2322 - Type '(event: SyntheticEvent<HTMLImageElement, Event>) => void' is not assignable to type 'OnErrorEventHandler'.
       image.onerror = this.handleError;
       image.src = this.props.src;
+    }
+  }
+
+  refCallback = (node: HTMLImageElement | null) => {
+    const { _fixCompletedOnLoad } = this.props;
+    // For certain scenarios, such as server-side rendering, the image may already be loaded by the time the component is rendered resulting in the onLoad event not being triggered.
+    // To address these, we can use a ref callback and check whether the image is already loaded - if it is, we trigger the onLoad event manually.
+    if (_fixCompletedOnLoad && node?.complete && !this.onLoadCalled) {
+      // Since we don't have the SyntheticEvent here,
+      // we must create one with the same shape.
+      // See https://reactjs.org/docs/events.html
+      const loadEvent = new Event('load')
+      Object.defineProperty(loadEvent, 'target', { writable: false, value: node })
+      this.handleLoad({
+        ...loadEvent,
+        nativeEvent: loadEvent,
+        currentTarget: node,
+        target: node,
+        isDefaultPrevented: () => false,
+        isPropagationStopped: () => false,
+        persist: () => {},
+        preventDefault: () => {},
+        stopPropagation: () => {},
+      });
     }
   }
 
@@ -183,6 +214,7 @@ export default class Image extends PureComponent<Props> {
         {...(isScaledImage ? { height: '100%' } : {})}
       >
         <img
+          ref={this.refCallback}
           alt={alt}
           className={imageStyles}
           crossOrigin={crossOrigin}
