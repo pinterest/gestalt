@@ -1,26 +1,25 @@
-import { Children, ReactElement } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
+import Image from '../Image';
 import { ImageThumbnail } from '../sharedSubcomponents/thumbnailSubcomponents';
 import Text from '../Text';
 
 type Props = {
-  thumbnail: {
-    image?: ReactElement<typeof Image>;
-  };
+  graphicSrc: string;
   text: string;
   textColor: 'subtle' | 'default' | 'inverse';
 };
 
-export default function ThumbnailButton({ thumbnail: graphicIcon, text, textColor }: Props) {
+export default function ThumbnailButton({ graphicSrc, text, textColor }: Props) {
   return (
     <Flex alignItems="center" direction="column" justifyContent="center">
       <Box alignItems="center" display="flex" justifyContent="center">
-        {!!graphicIcon?.image &&
-        // @ts-expect-error TS2339 - Property 'displayName' does not exist.
-        Children.only<ReactElement>(graphicIcon.image).type.displayName === 'Image' ? (
-          <ImageThumbnail thumbnail={graphicIcon.image} />
-        ) : null}
+        {/* This image has a white background to guarantee contrast on disabled and dark mode buttons */}
+        <ImageThumbnail
+          thumbnail={
+            <Image alt={text} color="white" naturalHeight={1} naturalWidth={1} src={graphicSrc} />
+          }
+        />
       </Box>
       <Flex alignSelf="end" direction="row" justifyContent="center">
         <Text align="center" color={textColor} overflow="breakWord" size="200" weight="bold">

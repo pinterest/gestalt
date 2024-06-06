@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './ButtonToggle.css';
 import ColorPicker from './ButtonToggle/ColorPicker';
@@ -71,7 +71,7 @@ type Props = {
   /**
    * An icon displayed above the text to illustrate the meaning of the option selected by the ButtonToggle.
    */
-  thumbnail?: { image: ReactElement<typeof Image> };
+  graphicSrc?: string;
   /**
    * An icon displayed before the text to help clarify the usage of ButtonToggle.
    */
@@ -119,7 +119,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     color = 'transparent',
     dataTestId,
     disabled = false,
-    thumbnail,
+    graphicSrc,
     iconStart,
     onBlur,
     onClick,
@@ -205,12 +205,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   }
 
   const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm' && !thumbnail,
-    [styles.md]: size === 'md' && !thumbnail,
-    [styles.lg]: size === 'lg' && !thumbnail,
-    [styles.thumbnailSm]: size === 'sm' && thumbnail,
-    [styles.thumbnailMd]: size === 'md' && thumbnail,
-    [styles.thumbnailLg]: size === 'lg' && thumbnail,
+    [styles.sm]: size === 'sm' && !graphicSrc,
+    [styles.md]: size === 'md' && !graphicSrc,
+    [styles.lg]: size === 'lg' && !graphicSrc,
+    [styles.thumbnailSm]: size === 'sm' && graphicSrc,
+    [styles.thumbnailMd]: size === 'md' && graphicSrc,
+    [styles.thumbnailLg]: size === 'lg' && graphicSrc,
     [styles[bgColor]]: !disabled && !selected,
     [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
@@ -223,10 +223,10 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   });
 
   const borderClasses = {
-    [styles.rounding600]: !thumbnail,
-    [styles.rounding300]: thumbnail && size === 'lg',
-    [styles.rounding200]: thumbnail && size === 'md',
-    [styles.rounding100]: thumbnail && size === 'sm',
+    [styles.rounding600]: !graphicSrc,
+    [styles.rounding300]: graphicSrc && size === 'lg',
+    [styles.rounding200]: graphicSrc && size === 'md',
+    [styles.rounding100]: graphicSrc && size === 'sm',
   };
 
   const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
@@ -240,8 +240,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     DEFAULT_TEXT_COLORS[bgColor];
 
   const renderContent = () => {
-    if (thumbnail) {
-      return <LabeledThumbnail text={text} textColor={textColor} thumbnail={thumbnail} />;
+    if (graphicSrc) {
+      return <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />;
     }
     return (
       <Flex
