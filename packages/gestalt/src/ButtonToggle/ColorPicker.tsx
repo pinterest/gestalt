@@ -32,7 +32,7 @@ export type Props = {
   size: 'sm' | 'md' | 'lg';
 };
 
-export default function ColorPickerButton({ colors, selected, size }: Props) {
+export default function ColorPicker({ colors, selected, size }: Props) {
   const filtersContainerHeightPx = heights[size] + BORDER_OFFSET_PX * 2;
   const filtersContainerWidthPx = widths[size] + BORDER_OFFSET_PX * 2;
   const [hovered, setHovered] = useState(false);

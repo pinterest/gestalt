@@ -1,8 +1,8 @@
 import { forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './ButtonToggle.css';
-import ColorPickerButton from './ButtonToggle/ColorPickerButton';
-import ThumbnailButton from './ButtonToggle/ThumbnailButton';
+import ColorPicker from './ButtonToggle/ColorPicker';
+import LabeledThumbnail from './ButtonToggle/LabeledThumbnail';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
@@ -199,7 +199,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onTouchStart={handleTouchStart}
         type="button"
       >
-        <ColorPickerButton colors={color} selected={selected} size={size} />
+        <ColorPicker colors={color} selected={selected} size={size} />
       </button>
     );
   }
@@ -241,7 +241,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const renderContent = () => {
     if (thumbnail) {
-      return <ThumbnailButton text={text} textColor={textColor} thumbnail={thumbnail} />;
+      return <LabeledThumbnail text={text} textColor={textColor} thumbnail={thumbnail} />;
     }
     return (
       <Flex
