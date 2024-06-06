@@ -9,7 +9,7 @@ export default function Example() {
       <ButtonGroup>
         <ButtonToggle
           color="red"
-          onClick={() => setSaved((value) => !value)}
+          onClick={(value) => setSaved(!value)}
           selected={saved}
           size="lg"
           text={saved ? 'Saved' : 'Save'}

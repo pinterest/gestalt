@@ -1,10 +1,22 @@
-import React, { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 import Box from '../Box';
 import ButtonToggle from '../ButtonToggle';
 import Flex from '../Flex';
 import TapArea from '../TapArea';
 
 const BORDER_OFFSET_PX = 4;
+
+const heights = {
+  sm: 32,
+  md: 40,
+  lg: 48,
+};
+
+const widths = {
+  sm: 60,
+  md: 72,
+  lg: 88,
+};
 
 function getBorderColor(isHovered: boolean, isSelected: boolean) {
   // Selection state takes precedence
@@ -21,15 +33,14 @@ export type Props = {
   colors: ReadonlyArray<string>;
   isSelected: boolean;
   onClick?: ComponentProps<typeof ButtonToggle>['onClick'];
+  size: 'sm' | 'md' | 'lg';
 };
 
-export default function SkinToneFilterSwatches({ colors, isSelected, onClick }: Props) {
-  const skinToneCircleHeightPx = 48;
-  const skinToneCircleWidthPx = 88;
-  const filtersContainerHeightPx = skinToneCircleHeightPx + BORDER_OFFSET_PX * 2;
-  const filtersContainerWidthPx = skinToneCircleWidthPx + BORDER_OFFSET_PX * 2;
+export default function ColorPickerButton({ colors, isSelected, onClick, size }: Props) {
+  const filtersContainerHeightPx = heights[size] + BORDER_OFFSET_PX * 2;
+  const filtersContainerWidthPx = widths[size] + BORDER_OFFSET_PX * 2;
 
-  const [hovered, setHovered] = React.useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
     <Flex alignItems="center" height={filtersContainerHeightPx} justifyContent="start">
@@ -61,10 +72,10 @@ export default function SkinToneFilterSwatches({ colors, isSelected, onClick }: 
           >
             <Box
               display="flex"
-              height={skinToneCircleHeightPx}
+              height={heights[size]}
               overflow="hidden"
               rounding="pill"
-              width={skinToneCircleWidthPx}
+              width={widths[size]}
               wrap
             >
               {colors.map((colorHex, index) => (
@@ -74,8 +85,8 @@ export default function SkinToneFilterSwatches({ colors, isSelected, onClick }: 
                   dangerouslySetInlineStyle={{
                     __style: { backgroundColor: colorHex },
                   }}
-                  height={skinToneCircleHeightPx / 2}
-                  width={skinToneCircleWidthPx / 2}
+                  height={heights[size] / 2}
+                  width={widths[size] / 2}
                 />
               ))}
             </Box>

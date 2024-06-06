@@ -1,5 +1,5 @@
 import colorpicker from 'docs/examples/buttontoggle/colorpicker';
-import graphic from 'docs/examples/buttontoggle/graphic';
+import thumbnail from 'docs/examples/buttontoggle/thumbnail';
 import { ButtonToggle } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -172,17 +172,17 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
         <MainSection.Subsection
           description={`
-\`graphicIcon\` adds a thumbnail above the ButtonToggle text. Thumbnails can be an Image, Avatar or Icon.
+\`thumbnail\` adds a thumbnail above the ButtonToggle text. Thumbnails can be an Image, Avatar or Icon.
 
 This variant also changes the shape of the ButtonToggle.
 `}
-          title="Graphic"
+          title="Thumbnail"
         >
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={graphic}
-                name="Graphic buttontoggle example."
+                code={thumbnail}
+                name="Thumbnail buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />
             }

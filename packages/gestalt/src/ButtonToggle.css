@@ -29,6 +29,11 @@
   composes: noBorder from "./Borders.css";
 }
 
+.colorPickerButton {
+  composes: noBorder from "./Borders.css";
+  background-color: var(--color-transparent);
+}
+
 .childrenDiv {
   composes: flex from "./Layout.css";
   composes: xsItemsCenter justifyCenter from "./Layout.css";
@@ -50,19 +55,19 @@
   composes: paddingX4 paddingY3 from "./boxWhitespace.css";
 }
 
-.graphicSm {
+.thumbnailSm {
   composes: small from "./Layout.css";
   composes: paddingX1 from "./boxWhitespace.css";
   padding-bottom: 2px;
   padding-top: var(--space-200);
 }
 
-.graphicMd {
+.thumbnailMd {
   composes: medium from "./Layout.css";
   composes: paddingX2 paddingY2 from "./boxWhitespace.css";
 }
 
-.graphicLg {
+.thumbnailLg {
   composes: large from "./Layout.css";
   composes: paddingX3 paddingY2 from "./boxWhitespace.css";
 }

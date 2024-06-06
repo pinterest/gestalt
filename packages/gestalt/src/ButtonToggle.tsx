@@ -1,9 +1,8 @@
 import { forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import Avatar from './Avatar';
 import styles from './ButtonToggle.css';
-import ColorsButton from './ButtonToggle/ColorsButton';
-import GraphicButton from './ButtonToggle/GraphicButton';
+import ColorPickerButton from './ButtonToggle/ColorPickerButton';
+import ThumbnailButton from './ButtonToggle/ThumbnailButton';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
@@ -72,10 +71,7 @@ type Props = {
   /**
    * An icon displayed above the text to illustrate the meaning of the option selected by the ButtonToggle.
    */
-  graphicIcon?:
-    | { image: ReactElement<typeof Image> }
-    | { avatar: ReactElement<typeof Avatar> }
-    | { icon: ReactElement<typeof Icon> };
+  thumbnail?: { image: ReactElement<typeof Image> };
   /**
    * An icon displayed before the text to help clarify the usage of ButtonToggle.
    */
@@ -123,7 +119,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     color = 'transparent',
     dataTestId,
     disabled = false,
-    graphicIcon,
+    thumbnail,
     iconStart,
     onBlur,
     onClick,
@@ -175,24 +171,25 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const bgColor: 'red' | 'transparent' = color instanceof Array ? 'red' : color;
   if (color instanceof Array) {
     return (
-      <ColorsButton
+      <ColorPickerButton
         colors={color}
         isSelected={selected}
         onClick={(event) => {
           buttonToggleHandlers?.onClick?.();
           onClick?.(event);
         }}
+        size={size}
       />
     );
   }
 
   const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm' && !graphicIcon,
-    [styles.md]: size === 'md' && !graphicIcon,
-    [styles.lg]: size === 'lg' && !graphicIcon,
-    [styles.graphicSm]: size === 'sm' && graphicIcon,
-    [styles.graphicMd]: size === 'md' && graphicIcon,
-    [styles.graphicLg]: size === 'lg' && graphicIcon,
+    [styles.sm]: size === 'sm' && !thumbnail,
+    [styles.md]: size === 'md' && !thumbnail,
+    [styles.lg]: size === 'lg' && !thumbnail,
+    [styles.thumbnailSm]: size === 'sm' && thumbnail,
+    [styles.thumbnailMd]: size === 'md' && thumbnail,
+    [styles.thumbnailLg]: size === 'lg' && thumbnail,
     [styles[bgColor]]: !disabled && !selected,
     [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
@@ -205,10 +202,10 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   });
 
   const borderClasses = {
-    [styles.rounding600]: !graphicIcon,
-    [styles.rounding300]: graphicIcon && size === 'lg',
-    [styles.rounding200]: graphicIcon && size === 'md',
-    [styles.rounding100]: graphicIcon && size === 'sm',
+    [styles.rounding600]: !thumbnail,
+    [styles.rounding300]: thumbnail && size === 'lg',
+    [styles.rounding200]: thumbnail && size === 'md',
+    [styles.rounding100]: thumbnail && size === 'sm',
   };
 
   const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
@@ -222,8 +219,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     DEFAULT_TEXT_COLORS[bgColor];
 
   const renderContent = () => {
-    if (graphicIcon) {
-      return <GraphicButton graphicIcon={graphicIcon} text={text} textColor={textColor} />;
+    if (thumbnail) {
+      return <ThumbnailButton text={text} textColor={textColor} thumbnail={thumbnail} />;
     }
     return (
       <Flex

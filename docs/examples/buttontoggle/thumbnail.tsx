@@ -7,7 +7,11 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonToggle
-        graphicIcon={{
+        onClick={() => setSelected((value) => !value)}
+        selected={selected}
+        size="lg"
+        text="Follow"
+        thumbnail={{
           image: (
             <Image
               alt="Braided Hair"
@@ -18,10 +22,6 @@ export default function Example() {
             />
           ),
         }}
-        onClick={() => setSelected((value) => !value)}
-        selected={selected}
-        size="lg"
-        text="Follow"
       />
     </Flex>
   );
