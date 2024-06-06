@@ -32,6 +32,8 @@
 .colorPickerButton {
   composes: noBorder from "./Borders.css";
   background-color: var(--color-transparent);
+  border-radius: var(--rounding-pill);
+  padding: 0;
 }
 
 .childrenDiv {

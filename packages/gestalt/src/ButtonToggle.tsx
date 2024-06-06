@@ -171,15 +171,36 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const bgColor: 'red' | 'transparent' = color instanceof Array ? 'red' : color;
   if (color instanceof Array) {
     return (
-      <ColorPickerButton
-        colors={color}
-        isSelected={selected}
+      <button
+        ref={innerRef}
+        aria-controls={accessibilityControls}
+        aria-label={accessibilityLabel}
+        aria-pressed={selected}
+        className={classnames(sharedTypeClasses, styles.colorPickerButton)}
+        data-test-id={dataTestId}
+        disabled={disabled}
+        onBlur={(event) => {
+          onBlur?.({ event });
+        }}
         onClick={(event) => {
           buttonToggleHandlers?.onClick?.();
-          onClick?.(event);
+          onClick?.({ event });
         }}
-        size={size}
-      />
+        onFocus={(event) => {
+          onFocus?.({ event });
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onTouchCancel={handleTouchCancel}
+        onTouchEnd={handleTouchEnd}
+        // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+        onTouchMove={handleTouchMove}
+        // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+        onTouchStart={handleTouchStart}
+        type="button"
+      >
+        <ColorPickerButton colors={color} selected={selected} size={size} />
+      </button>
     );
   }
 
