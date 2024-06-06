@@ -10,11 +10,11 @@ export default function Example() {
         onClick={() => setSelected((value) => !value)}
         selected={selected}
         size="lg"
-        text="Follow"
+        text="Protective"
         thumbnail={{
           image: (
             <Image
-              alt="Braided Hair"
+              alt="Protective"
               color="white"
               naturalHeight={44}
               naturalWidth={44}
