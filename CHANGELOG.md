@@ -1,3 +1,9 @@
+## 152.1.3 (Jun 7, 2024)
+
+### Patch
+
+- TableOfContents: Fix padding-inline-start padding-inline-end issues with PostCSS ([#3615](https://github.com/pinterest/gestalt/pull/3615)) - [Preview link](https://deploy-preview-3615--gestalt.netlify.app?devexample=true)
+
 ## 152.1.2 (Jun 5, 2024)
 
 ### Patch
