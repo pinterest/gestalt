@@ -1,3 +1,9 @@
+## 152.1.4-alpha.0 (Jun 7, 2024)
+
+### Prerelease
+
+- [Dropdown]: Always disable portal
+
 ## 152.1.3-alpha.0 (Jun 6, 2024)
 
 ### Prerelease
