@@ -285,7 +285,7 @@ export default function Dropdown({
       accessibilityLabel="Dropdown"
       anchor={anchor}
       color="white"
-      disablePortal={isWithinFixedContainer}
+      disablePortal
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
