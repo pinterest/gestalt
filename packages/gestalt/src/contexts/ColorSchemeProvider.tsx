@@ -1,3 +1,4 @@
+/* eslint-disable gestalt/only-valid-tokens */
 import { Context, createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
@@ -42,7 +43,9 @@ const themeToStyles = (
     Object.keys(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens).forEach(
       (key) => {
         // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
-        styles += `  --${key}: ${(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens)[key]};\n`;
+        styles += `  --${key}: ${
+          (isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens)[key]
+        };\n`;
       },
     );
   }
@@ -50,7 +53,9 @@ const themeToStyles = (
     Object.keys(isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens).forEach(
       (key) => {
         // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
-        styles += `  --${key}: ${(isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens)[key]};\n`;
+        styles += `  --${key}: ${
+          (isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens)[key]
+        };\n`;
       },
     );
   }
@@ -122,6 +127,40 @@ export default function ColorSchemeProvider({
 
   return (
     <ThemeContext.Provider value={theme}>
+      {isInExperiment && (
+        <style
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: `
+        @font-face {
+          font-family: 'Pin-Sans';
+          src: url('https://s.pinimg.com/webapp/Pin-Sans-MacOS-Regular-708c49dd.woff2') format('woff2');
+          font-weight: 400;
+        }
+
+        @font-face {
+          font-family: 'Pin-Sans';
+          src: url('https://s.pinimg.com/webapp/Pin-Sans-MacOS-Medium-704a4f34') format('woff2');
+          font-weight: 500;
+        }
+
+        @font-face {
+          font-family: 'Pin-Sans';
+          src: url('https://s.pinimg.com/webapp/Pin-Sans-MacOS-Bold-ce475d98.woff2') format('woff2');
+          font-weight: 700;
+        }
+
+        body, button, input, select, textarea {
+          font-family: 'Pin-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif !important;
+        }
+        :root {
+          --font-family-default-latin: 'Pin-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
+        }
+      `,
+          }}
+        />
+      )}
+
       <style
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
