@@ -2,6 +2,8 @@ import { Context, createContext, ReactNode, useContext, useEffect, useState } fr
 import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
+import vrDarkColorDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-dark.json';
+import vrLightColorDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-light.json';
 import layoutStyles from '../Layout.css';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
@@ -24,25 +26,32 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 /**
  * Appends tokens as injected CSS tokens
  */
-const themeToStyles = (theme: { colorSchemeName: 'lightMode' | 'darkMode' }) => {
+const themeToStyles = (
+  theme: { colorSchemeName: 'lightMode' | 'darkMode' },
+  isVisualRefresh?: boolean,
+) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
-    if (key.startsWith('color')) {
+    styles += `  --gestalt-theme: ${isVisualRefresh ? 'visualRefresh' : 'classic'}-${
       // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ colorSchemeName: "lightMode" | "darkMode"; }'.
-      styles += `  --g-${key}: ${theme[key]};\n`;
-    }
+      theme[key]
+    };\n`;
   });
   if (theme.colorSchemeName === 'darkMode') {
-    Object.keys(darkColorDesignTokens).forEach((key) => {
-      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
-      styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
-    });
+    Object.keys(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens).forEach(
+      (key) => {
+        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
+        styles += `  --${key}: ${isVisualRefresh ? vrDarkColorDesignTokens :darkColorDesignTokens[key]};\n`;
+      },
+    );
   }
   if (theme.colorSchemeName === 'lightMode') {
-    Object.keys(lightColorDesignTokens).forEach((key) => {
-      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
-      styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
-    });
+    Object.keys(isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens).forEach(
+      (key) => {
+        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
+        styles += `  --${key}: ${isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens[key]};\n`;
+      },
+    );
   }
 
   return styles;
