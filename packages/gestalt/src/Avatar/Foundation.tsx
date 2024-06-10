@@ -5,7 +5,9 @@ import avatarStyles from '../AvatarGroup.css';
 import Box from '../Box';
 import styles from '../Icon.css';
 import icons from '../icons/index';
+import vrIcons from '../icons-vr-theme/index';
 import typography from '../Typography.css';
+import useInExperiment from '../useInExperiment';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
@@ -15,6 +17,8 @@ type ResponsiveFitSizeBoxProps = {
 };
 
 function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps) {
+
+
   return (
     <Box
       color="secondary"
@@ -64,6 +68,10 @@ export default function AvatarFoundation({
   content = 'text',
 }: Props) {
   const cs = classnames(styles.icon, avatarStyles.text);
+const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   return (
     <ResponsiveFitSizeBox outline={outline}>
@@ -103,7 +111,7 @@ export default function AvatarFoundation({
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>
-          <path d={icons['person-add']} />
+          <path d={(isInExperiment ? vrIcons : icons)['person-add']} />
         </svg>
       ) : null}
     </ResponsiveFitSizeBox>
