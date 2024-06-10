@@ -1,3 +1,4 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable gestalt/only-valid-tokens */
 import { Context, createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
@@ -42,8 +43,8 @@ const themeToStyles = (
   if (theme.colorSchemeName === 'darkMode') {
     Object.keys(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens).forEach(
       (key) => {
-        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
         styles += `  --${key}: ${
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
           (isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens)[key]
         };\n`;
       },
@@ -52,8 +53,8 @@ const themeToStyles = (
   if (theme.colorSchemeName === 'lightMode') {
     Object.keys(isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens).forEach(
       (key) => {
-        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
         styles += `  --${key}: ${
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
           (isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens)[key]
         };\n`;
       },
