@@ -258,13 +258,15 @@ function getSources({ theme, modeTheme, platform }) {
     `tokens/vr-theme/sema-color${modeTheme}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
-          'tokens/vr-theme-web-mapping/base-color.json',
-          'tokens/vr-theme-web-mapping/sema-color.json',
           `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
-          'tokens/vr-theme-web-mapping/base-rounding.json',
-          'tokens/vr-theme-web-mapping/base-opacity.json',
-          'tokens/vr-theme-web-mapping/base-space.json',
+          'tokens/vr-theme-web-mapping/base-color.json',
+          `tokens/vr-theme-web-mapping/base-elevation-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-font.json',
+          'tokens/vr-theme-web-mapping/base-opacity.json',
+          'tokens/vr-theme-web-mapping/base-rounding.json',
+          'tokens/vr-theme-web-mapping/base-space.json',
+          `tokens/vr-theme-web-mapping/sema-color-dataviz${modeTheme}.json`,
+          'tokens/vr-theme-web-mapping/sema-color.json',
         ]
       : []),
   ];

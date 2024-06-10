@@ -43,5 +43,6 @@ type Props = {
 
 export default function DocsExperimentProvider({ children }: Props) {
   const experiments = useDocsExperiments();
+  console.log(experiments)
   return <ExperimentProvider value={experiments}>{children}</ExperimentProvider>;
 }
