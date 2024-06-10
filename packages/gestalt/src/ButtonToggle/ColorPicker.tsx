@@ -30,9 +30,10 @@ export type Props = {
   colors: ReadonlyArray<string>;
   selected: boolean;
   size: 'sm' | 'md' | 'lg';
+  disabled: boolean;
 };
 
-export default function ColorPicker({ colors, selected, size }: Props) {
+export default function ColorPicker({ colors, disabled, selected, size }: Props) {
   const filtersContainerHeightPx = heights[size] + BORDER_OFFSET_PX * 2;
   const filtersContainerWidthPx = widths[size] + BORDER_OFFSET_PX * 2;
   const [hovered, setHovered] = useState(false);
@@ -44,8 +45,8 @@ export default function ColorPicker({ colors, selected, size }: Props) {
       display="flex"
       height={filtersContainerHeightPx}
       justifyContent="center"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => !disabled && setHovered(true)}
+      onMouseLeave={() => !disabled && setHovered(false)}
       rounding="pill"
       width={filtersContainerWidthPx}
     >

@@ -172,7 +172,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
         <MainSection.Subsection
           description={`
-\`thumbnail\` adds a thumbnail above the ButtonToggle text. Thumbnails can be an Image, Avatar or Icon.
+The \`graphicSrc\` prop adds a thumbnail above the ButtonToggle text, whose source is the URL provided in the prop.
 
 This variant also changes the shape of the ButtonToggle.
 `}

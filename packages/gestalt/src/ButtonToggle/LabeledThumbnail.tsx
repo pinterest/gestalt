@@ -14,11 +14,8 @@ export default function ThumbnailButton({ graphicSrc, text, textColor }: Props) 
   return (
     <Flex alignItems="center" direction="column" justifyContent="center">
       <Box alignItems="center" display="flex" justifyContent="center">
-        {/* This image has a white background to guarantee contrast on disabled and dark mode buttons */}
         <ImageThumbnail
-          thumbnail={
-            <Image alt={text} color="white" naturalHeight={1} naturalWidth={1} src={graphicSrc} />
-          }
+          thumbnail={<Image alt={text} naturalHeight={1} naturalWidth={1} src={graphicSrc} />}
         />
       </Box>
       <Flex alignSelf="end" direction="row" justifyContent="center">

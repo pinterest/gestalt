@@ -176,7 +176,9 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         aria-controls={accessibilityControls}
         aria-label={accessibilityLabel}
         aria-pressed={selected}
-        className={classnames(sharedTypeClasses, styles.colorPickerButton)}
+        className={classnames(sharedTypeClasses, styles.colorPickerButton, {
+          [styles.colorPickerButtonDisabled]: disabled,
+        })}
         data-test-id={dataTestId}
         disabled={disabled}
         onBlur={(event) => {
@@ -199,7 +201,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onTouchStart={handleTouchStart}
         type="button"
       >
-        <ColorPicker colors={color} selected={selected} size={size} />
+        <ColorPicker colors={color} disabled={disabled} selected={selected} size={size} />
       </button>
     );
   }
@@ -208,6 +210,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.sm]: size === 'sm' && !graphicSrc,
     [styles.md]: size === 'md' && !graphicSrc,
     [styles.lg]: size === 'lg' && !graphicSrc,
+    [styles.thumbnailDark]: graphicSrc && isDarkMode,
+    [styles.thumbnailDisabled]: graphicSrc && disabled,
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailLg]: size === 'lg' && graphicSrc,
