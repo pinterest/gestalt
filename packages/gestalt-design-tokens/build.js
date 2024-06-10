@@ -141,6 +141,11 @@ const dataVisualizationFilter = {
   '_filter_comment': 'Custom',
 };
 
+const semaLineHeightFilter = {
+  'filter': 'semaLineHeightFilter',
+  '_filter_comment': 'Custom filter for semantic line-height tokens',
+};
+
 const webCssTransformGroup = {
   'transformGroup': 'webCssTransformGroup',
   '_transformGroup_comment':
@@ -163,6 +168,21 @@ const iOSSwiftEnumTransformGroup = {
 };
 
 // HELPER FUNCTIONS
+
+const filterList = [filterColor, filterRounding, filterOpacity, filterSpace, filterElevation];
+
+const getFilter = (category, type) => {
+  for (const item of filterList) {
+    if (!type && item.filter.attributes.category === category) {
+      return item;
+    }
+
+    if (item.filter.attributes.category === category && item.filter.attributes.type === type) {
+      return item;
+    }
+  }
+  return undefined;
+};
 
 function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
@@ -221,7 +241,7 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
 const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
   `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
 
-function getSources({ theme, modeTheme, platform }) {
+function getSources({ theme, modeTheme, platform, language }) {
   if (theme === 'classic') {
     return [
       `tokens/classic/base-color.json`,
@@ -256,6 +276,8 @@ function getSources({ theme, modeTheme, platform }) {
     `tokens/vr-theme/base-elevation${modeTheme}.json`,
     'tokens/vr-theme/sema-elevation.json',
     `tokens/vr-theme/sema-color${modeTheme}.json`,
+    `tokens/vr-theme/base-line-height.json`,
+    `tokens/vr-theme/language/sema-line-height-${language}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
           'tokens/vr-theme-web-mapping/base-color.json',
@@ -547,13 +569,28 @@ StyleDictionary.registerFilter({
   },
 });
 
-function getWebConfig({ theme, mode }) {
+// Filters only to semantic line-height tokens
+StyleDictionary.registerFilter({
+  name: 'semaLineHeightFilter',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      ['line-height'].includes(token.attributes.type) &&
+      !token.name.startsWith('Base')
+    );
+  },
+});
+
+function getWebConfig({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
+  // light theme
+  // run languages in for loop
+
   return {
-    'source': getSources({ theme, modeTheme, platform: 'web' }),
+    'source': getSources({ theme, modeTheme, platform: 'web', language }),
     'platforms': {
       'css': {
         ...webCssTransformGroup,
@@ -565,6 +602,11 @@ function getWebConfig({ theme, mode }) {
                 {
                   'destination': 'variables.css',
                   ...cssVariables,
+                },
+                {
+                  'destination': `language/${language}/line-height.css`,
+                  ...cssVariables,
+                  ...semaLineHeightFilter,
                 },
               ]
             : [
@@ -642,6 +684,12 @@ function getWebConfig({ theme, mode }) {
                   'format': `commonJS/${mappedTheme}`,
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
+                },
+                {
+                  'destination': `language/${language}/line-height.js`,
+                  'format': `commonJS/${mappedTheme}`,
+                  '_format_comment': 'Custom',
+                  ...semaLineHeightFilter,
                 },
               ]
             : [
@@ -833,6 +881,174 @@ StyleDictionary.registerTransformGroup({
 
 function getIOSConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+
+  const a = [
+    {
+      'destination': `GestaltTokensColor${getTheme(theme)}.h`,
+      ...iosColorsH,
+      'className': `GestaltTokensColor${getTheme(theme)}`,
+      'type': `GestaltTokensColorName${getTheme(theme)}`,
+      ...filterColor,
+    },
+    {
+      'destination': `GestaltTokensColor${getTheme(theme)}.m`,
+      ...iosColorsM,
+      'className': `GestaltTokensColor${getTheme(theme)}`,
+      'type': `GestaltTokensColorName${getTheme(theme)}`,
+      ...filterColor,
+    },
+    {
+      'destination': `GestaltTokensRounding${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensRounding${getTheme(theme)}`,
+      'type': `GestaltTokensRoundingName${getTheme(theme)}`,
+      ...filterRounding,
+    },
+    {
+      'destination': `GestaltTokensRounding${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensRounding${getTheme(theme)}`,
+      'type': `GestaltTokensRoundingName${getTheme(theme)}`,
+      ...filterRounding,
+    },
+    {
+      'destination': `GestaltTokensSpace${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensSpace${getTheme(theme)}`,
+      'type': `GestaltTokensSpaceName${getTheme(theme)}`,
+      ...filterSpace,
+    },
+    {
+      'destination': `GestaltTokensSpace${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensSpace${getTheme(theme)}`,
+      'type': `GestaltTokensSpaceName${getTheme(theme)}`,
+      ...filterSpace,
+    },
+    {
+      'destination': `GestaltTokensOpacity${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensOpacity${getTheme(theme)}`,
+      'type': `GestaltTokensOpacityName${getTheme(theme)}`,
+      ...filterOpacity,
+    },
+    {
+      'destination': `GestaltTokensOpacity${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensOpacity${getTheme(theme)}`,
+      'type': `GestaltTokensOpacityName${getTheme(theme)}`,
+      ...filterOpacity,
+    },
+    {
+      'destination': `GestaltTokensFontSize${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensFontSize${getTheme(theme)}`,
+      'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
+      ...filterFontSize,
+    },
+    {
+      'destination': `GestaltTokensFontSize${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensFontSize${getTheme(theme)}`,
+      'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
+      ...filterFontSize,
+    },
+    {
+      'destination': `GestaltTokensFontWeight${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensFontWeight${getTheme(theme)}`,
+      'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
+      ...filterFontWeight,
+    },
+    {
+      'destination': `GestaltTokensFontWeight${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensFontWeight${getTheme(theme)}`,
+      'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
+      ...filterFontWeight,
+    },
+    {
+      'destination': `GestaltTokensFontFamily${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensFontFamily${getTheme(theme)}`,
+      'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
+      ...filterFontFamily,
+    },
+    {
+      'destination': `GestaltTokensFontFamily${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensFontFamily${getTheme(theme)}`,
+      'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
+      ...filterFontFamily,
+    },
+    {
+      'destination': `GestaltTokensElevation${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokensElevation${getTheme(theme)}`,
+      'type': `GestaltTokensElevation${getTheme(theme)}`,
+      ...filterElevation,
+    },
+    {
+      'destination': `GestaltTokensElevation${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokensElevation${getTheme(theme)}`,
+      'type': `GestaltTokensElevation${getTheme(theme)}`,
+      ...filterElevation,
+    },
+  ];
+
+  const categories = [
+    'color',
+    'rounding',
+    'space',
+    'opacity',
+    'elevation',
+    'font-size',
+    'font-weight',
+    'font-family',
+  ];
+
+  const iOSStaticHeaders = categories.map((category) => {
+    // convert category to pascal case
+    // ex: font-weight -> FontWeight
+    const pascalName = category
+      .split('-')
+      .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+      .join('');
+
+    return {
+      'destination': `GestaltTokens${pascalName}${getTheme(theme)}.h`,
+      ...iosStaticH,
+      'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
+      'type': `GestaltTokens${pascalName}Name${getTheme(theme)}`,
+      ...getFilter(category, category.split('-')[1]),
+    };
+  });
+
+  console.log(JSON.stringify(iOSStaticHeaders, 0, 2));
+  // console.log(JSON.stringify(a, 0, 2));
+
+  const iOSStaticModules = categories.map((category) => {
+    // convert category to pascal case
+    // ex: font-weight -> FontWeight
+    const pascalName = category
+      .split('-')
+      .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+      .join('');
+
+    return {
+      'destination': `GestaltTokens${pascalName}${getTheme(theme)}.m`,
+      ...iosStaticM,
+      'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
+      'type': `GestaltTokens${pascalName}Name${getTheme(theme)}`,
+      ...getFilter(category, category.split('-')[1]),
+    };
+  });
+
+  console.log('iOSStaticHeaders', iOSStaticHeaders.length);
+  console.log('iOSStaticModules', iOSStaticModules.length);
+
+  throw new Error('END OUTPUT HERE');
 
   return {
     'source': getSources({ theme, modeTheme }),
@@ -1073,20 +1289,24 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    // iOS platform
-    if (theme !== 'vr-theme-web-mapping') {
-      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
-      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    ['en', 'ck'].forEach((language) => {
+      // iOS platform
+      if (theme !== 'vr-theme-web-mapping') {
+        const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+        platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
-      // // Android platform
-      const StyleDictionaryAndroid = StyleDictionary.extend(
-        getAndroidConfiguration({ mode, theme }),
-      );
-      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
-    }
+        // // Android platform
+        const StyleDictionaryAndroid = StyleDictionary.extend(
+          getAndroidConfiguration({ mode, theme }),
+        );
+        platformFileMap.android.forEach((platform) =>
+          StyleDictionaryAndroid.buildPlatform(platform),
+        );
+      }
 
-    // web platform
-    const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
-    platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+      // web platform
+      const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme, language }));
+      platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+    });
   }),
 );
