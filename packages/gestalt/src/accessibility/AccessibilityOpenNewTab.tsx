@@ -15,7 +15,7 @@ type Props = {
 export default function AccessibilityOpenNewTab({ size, color }: Props) {
   const cs = classnames(styles.rtlSupport, styles[color ?? 'default'], styles.icon);
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-const isInExperiment = useInExperiment({
+  const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });

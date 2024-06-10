@@ -17,8 +17,6 @@ type ResponsiveFitSizeBoxProps = {
 };
 
 function ResponsiveFitSizeBox({ children, outline }: ResponsiveFitSizeBoxProps) {
-
-
   return (
     <Box
       color="secondary"
@@ -68,7 +66,7 @@ export default function AvatarFoundation({
   content = 'text',
 }: Props) {
   const cs = classnames(styles.icon, avatarStyles.text);
-const isInExperiment = useInExperiment({
+  const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });

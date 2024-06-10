@@ -1,5 +1,3 @@
-
-
 import { Context, createContext, ReactNode, useContext, useEffect, useState } from 'react';
 import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
@@ -128,8 +126,6 @@ export default function ColorSchemeProvider({
 
   return (
     <ThemeContext.Provider value={theme}>
-
-
       <style
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{

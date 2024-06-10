@@ -111,7 +111,7 @@ function Icon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
-const isInExperiment = useInExperiment({
+  const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
