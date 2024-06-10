@@ -160,8 +160,8 @@ export default function DesignTokensPage() {
       <PageHeader         bannerSlimExperiment={
           <BannerSlimExperiment
             componentName="Tokens"
-            description=""
-            pullRequest={3244}
+            description="enable a visual refresh in Gestalt"
+            pullRequest={3616}
           />
         }
 
