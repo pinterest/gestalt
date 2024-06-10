@@ -235,8 +235,8 @@ function getSources({ theme, modeTheme, platform }) {
       `tokens/classic/base-elevation-${modeTheme}.json`,
       ...(platform === 'web'
         ? [
-            `tokens/classic/comp-web-color${modeTheme}.json`,
-            `tokens/classic/comp-web-elevation${modeTheme}.json`,
+            `tokens/classic/comp-web-color-${modeTheme}.json`,
+            `tokens/classic/comp-web-elevation-${modeTheme}.json`,
             `tokens/classic/comp-web-rounding.json`,
           ]
         : []),
