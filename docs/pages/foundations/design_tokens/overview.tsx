@@ -2,7 +2,6 @@
 import dataVizTokens from 'gestalt-design-tokens/dist/js/classic/data-viz-tokens';
 // @ts-expect-error - TS7016 - Could not find a declaration file for module 'gestalt-design-tokens/dist/js/tokens'. '/packages/gestalt-design-tokens/dist/js/tokens.js' implicitly has an 'any' type.
 import tokens from 'gestalt-design-tokens/dist/js/classic/tokens';
-import { BannerSlimExperiment } from '../../../docs-components/BannerSlimExperiment';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -157,14 +156,7 @@ const allTokens: ReadonlyArray<Token> = tokens;
 export default function DesignTokensPage() {
   return (
     <Page title="Design tokens guidelines">
-      <PageHeader         bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="Tokens"
-            description="enable a visual refresh in Gestalt"
-            pullRequest={3616}
-          />
-        }
-
+      <PageHeader
         description={`
 Design tokens represent the values used within a design system to construct layouts and components, such as spacing and color. Because the tokens are an abstraction, the underlying value can change in different scenarios without affecting the designer or developer experience. [Learn more about Design Tokens](https://uxdesign.cc/design-tokens-cheatsheet-927fc1404099).
 
