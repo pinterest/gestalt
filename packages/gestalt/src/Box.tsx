@@ -38,6 +38,10 @@ type Dimension = number | string;
 type Direction = 'row' | 'column';
 type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
 type Margin =
+  | -16
+  | -15
+  | -14
+  | -13
   | -12
   | -11
   | -10
@@ -63,8 +67,13 @@ type Margin =
   | 10
   | 11
   | 12
+  | 13
+  | 14
+  | 15
+  | 16
   | 'auto';
-type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 
 type BoxPassthroughProps = Omit<
   React.ComponentProps<'div'>,
