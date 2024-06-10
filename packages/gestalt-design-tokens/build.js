@@ -578,26 +578,12 @@ function getWebConfig({ theme, mode }) {
       'json': {
         ...webCssTransformGroup,
         'buildPath': `dist/json/${theme}/`,
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'variables.json',
-                  ...jsonFlat,
-                },
-                {
-                  'destination': 'variables-light.json',
-                  ...jsonFlat,
-                  ...colorElevationFilter,
-                },
-              ]
-            : [
-                {
-                  'destination': 'variables-dark.json',
-                  ...jsonFlat,
-                  ...colorElevationFilter,
-                },
-              ],
+        'files': [
+          {
+            'destination': `variables-${mode}.json`,
+            ...jsonFlat,
+          },
+        ],
       },
       'js': {
         'transformGroup': 'webJsTransformGroup',
