@@ -41,7 +41,6 @@ const themeToStyles = (
   if (theme.colorSchemeName === 'darkMode') {
     Object.keys(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens).forEach(
       (key) => {
-        console.log(key)
         // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
         styles += `  --${key}: ${(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens)[key]};\n`;
       },
