@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react';
 import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider';
+import ExperimentProvider from './ExperimentProvider';
 
 function ThemeAwareComponent() {
   const theme = useColorScheme();
@@ -78,6 +79,32 @@ describe('useColorScheme', () => {
       <ColorSchemeProvider colorScheme="dark">
         <ThemeAwareComponent />
       </ColorSchemeProvider>,
+    );
+    expect(screen.getByText('darkMode')).toBeTruthy();
+  });
+
+  it('uses visual refresh light mode theme when specified', () => {
+    render(
+      <ExperimentProvider
+        value={[{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }]}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+    expect(screen.getByText('lightMode')).toBeTruthy();
+  });
+
+  it('uses visual refresh dark mode theme when specified', () => {
+    render(
+      <ExperimentProvider
+        value={[{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }]}
+      >
+        <ColorSchemeProvider colorScheme="dark">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
     );
     expect(screen.getByText('darkMode')).toBeTruthy();
   });

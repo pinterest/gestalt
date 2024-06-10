@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
+import { ColorSchemeProvider, ExperimentProvider, GlobalEventsHandlerProvider } from 'gestalt';
 import { AppContextConsumer, AppContextProvider } from './appContext';
 import AppLayout from './AppLayout';
 import DocsExperimentProvider from './contexts/DocsExperimentProvider';
