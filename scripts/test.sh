@@ -33,6 +33,9 @@ yarn run css:validate
 echo "Shell check"
 yarn run lint:sh
 
+echo "Tokens:Output Tests"
+yarn run tokens:test
+
 if [ -z "${GITHUB_ACTIONS:-}" ] && git diff HEAD master --name-only | grep -q packages/gestalt; then
   echo "Found changes to Components"
   echo "Running playwright tests locally"
