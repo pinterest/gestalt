@@ -5,6 +5,7 @@ import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/vari
 import vrDarkColorDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-dark.json';
 import vrLightColorDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-light.json';
 import layoutStyles from '../Layout.css';
+import useInExperiment from '../useInExperiment';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -98,6 +99,10 @@ export default function ColorSchemeProvider({
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const handlePrefChange = (event: MediaQueryList) => {
     setTheme(getTheme(event.matches ? 'dark' : 'light'));
@@ -124,10 +129,10 @@ export default function ColorSchemeProvider({
             colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
   ${selector} {
-${themeToStyles(darkModeTheme)} }
+${themeToStyles(darkModeTheme, isInExperiment)} }
 }`
               : `${selector} {
-${themeToStyles(theme)} }`,
+${themeToStyles(theme, isInExperiment)} }`,
         }}
       />
       <div
