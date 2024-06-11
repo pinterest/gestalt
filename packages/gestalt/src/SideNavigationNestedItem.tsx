@@ -1,5 +1,6 @@
-import { forwardRef } from 'react';
+import { forwardRef, ReactElement } from 'react';
 import SideNavigationTopItem from './SideNavigationTopItem';
+import { Indexable } from './zIndex';
 
 type Props = {
   /**
@@ -29,6 +30,21 @@ type Props = {
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
   /**
+   * The primary action for each item. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
+   */
+  primaryAction?: {
+    icon?: 'ellipsis' | 'edit' | 'trash-can';
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+    }) => void;
+    tooltip: {
+      accessibilityLabel?: string;
+      text: string;
+      zIndex?: Indexable;
+    };
+    dropdownItems?: ReadonlyArray<ReactElement>;
+  };
+  /**
    * Ref that is forwarded to the underlying `li` element.
    */
   ref?: HTMLLIElement; // eslint-disable-line react/no-unused-prop-types
@@ -38,7 +54,10 @@ type Props = {
  * Use [SideNavigation.NestedItem](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.NestedItem) to redirect the user to a different page or section. SideNavigation.NestedItem must be used in second and third nested levels.
  */
 const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
-  function SideNavigationNestedItem({ active, counter, href, label, onClick }: Props, ref) {
+  function SideNavigationNestedItem(
+    { active, counter, href, label, onClick, primaryAction }: Props,
+    ref,
+  ) {
     return (
       <SideNavigationTopItem
         ref={ref}
@@ -47,6 +66,7 @@ const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
         href={href}
         label={label}
         onClick={onClick}
+        primaryAction={primaryAction}
       />
     );
   },
