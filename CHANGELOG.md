@@ -1,3 +1,9 @@
+## 152.2.0 (Jun 11, 2024)
+
+### Minor
+
+- Box: extended margin/padding range from 12 to 16 ([#3618](https://github.com/pinterest/gestalt/pull/3618)) - [Preview link](https://deploy-preview-3618--gestalt.netlify.app?devexample=true)
+
 ## 152.1.3 (Jun 7, 2024)
 
 ### Patch
