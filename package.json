@@ -164,10 +164,10 @@
           "/.rollup.cache/",
           "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
-          "<rootDir>/packages/gestalt-design-tokens",
           ".jsdom.test.ts",
           ".jsdom.test.tsx",
-          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts"
+          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts",
+          "<rootDir>/packages/gestalt-design-tokens/"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"
@@ -186,7 +186,8 @@
           "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
-          "<rootDir>/packages/gestalt-core"
+          "<rootDir>/packages/gestalt-core",
+          "<rootDir>/packages/gestalt-design-tokens"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"
