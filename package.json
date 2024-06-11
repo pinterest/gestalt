@@ -146,7 +146,7 @@
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh",
-    "tokens:test":"(cd packages/gestalt-design-tokens && yarn build && yarn test)",
+    "tokens:test":"(cd packages/gestalt-design-tokens && yarn test)",
     "tsc": "tsc --build --force"
     
   },
