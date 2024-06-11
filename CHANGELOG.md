@@ -1,3 +1,9 @@
+## 153.1.1 (Jun 11, 2024)
+
+### Patch
+
+- Tokens: Adding Snapshot Tests for Token Dist ([#3617](https://github.com/pinterest/gestalt/pull/3617)) - [Preview link](https://deploy-preview-3617--gestalt.netlify.app?devexample=true)
+
 ## 153.1.0 (Jun 11, 2024)
 
 ### Minor
