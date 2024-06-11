@@ -125,7 +125,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={variantsType}
                 layout="column"
                 name="Variants - Type"
-                previewHeight={400}
+                previewHeight={600}
               />
             }
           />
