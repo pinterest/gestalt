@@ -29,7 +29,7 @@
     "build": "node build.js",
     "build:prod": "NODE_ENV=production node build.js",
     "watch": "nodemon build.js",
-    "test": "jest --testPathPattern=tests"
+    "test": "rm -r dist && yarn build && jest --testPathPattern=tests"
   },
   "browserslist": [
     "last 2 versions",
