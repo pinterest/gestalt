@@ -6,6 +6,11 @@ test('All iOS Dist Files Exist', async () => {
   expect(iOSFiles).toMatchSnapshot();
 });
 
+test('All iOS Swift Files Exist', async () => {
+  const iOSFiles = await getFiles(dir('ios-swift'));
+  expect(iOSFiles).toMatchSnapshot();
+});
+
 test('All Android Dist Files Exist', async () => {
   const androidFiles = await getFiles(dir('android'));
   expect(androidFiles).toMatchSnapshot();

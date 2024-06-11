@@ -99,3 +99,28 @@ Array [
   "dist/ios/vr-theme/GestaltTokensSpaceVR.m",
 ]
 `;
+
+exports[`All iOS Swift Files Exist 1`] = `
+Array [
+  "dist/ios-swift/classic/GestaltTokensColor.swift",
+  "dist/ios-swift/classic/GestaltTokensColorDark.swift",
+  "dist/ios-swift/classic/GestaltTokensElevation.swift",
+  "dist/ios-swift/classic/GestaltTokensElevationDark.swift",
+  "dist/ios-swift/classic/GestaltTokensFontFamily.swift",
+  "dist/ios-swift/classic/GestaltTokensFontSize.swift",
+  "dist/ios-swift/classic/GestaltTokensFontWeight.swift",
+  "dist/ios-swift/classic/GestaltTokensOpacity.swift",
+  "dist/ios-swift/classic/GestaltTokensRounding.swift",
+  "dist/ios-swift/classic/GestaltTokensSpace.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensColorDarkVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensColorVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensElevationDarkVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensElevationVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensFontFamilyVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensFontSizeVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensFontWeightVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensOpacityVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensRoundingVR.swift",
+  "dist/ios-swift/vr-theme/GestaltTokensSpaceVR.swift",
+]
+`;
