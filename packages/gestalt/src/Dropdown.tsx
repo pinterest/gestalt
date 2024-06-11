@@ -286,6 +286,7 @@ export default function Dropdown({
       anchor={anchor}
       color="white"
       disablePortal
+      hideWhenReferenceHidden
       id={id}
       idealDirection={idealDirection}
       onDismiss={onDismiss}
