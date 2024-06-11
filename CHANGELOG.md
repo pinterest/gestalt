@@ -1,3 +1,9 @@
+## 153.0.0 (Jun 11, 2024)
+
+### Major
+
+- PageHeader: standardize tooltip prop ([#3620](https://github.com/pinterest/gestalt/pull/3620)) - [Preview link](https://deploy-preview-3620--gestalt.netlify.app?devexample=true)
+
 ## 152.2.0 (Jun 11, 2024)
 
 ### Minor
