@@ -10,6 +10,24 @@ import Link from './Link';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
 
+type DismissButtonType = {
+  accessibilityLabel?: string;
+  onDismiss: () => void;
+};
+
+function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerSlim');
+  return (
+    <IconButton
+      accessibilityLabel={accessibilityLabel ?? accessibilityDismissButtonLabel}
+      icon="cancel"
+      iconColor="darkGray"
+      onClick={onDismiss}
+      size="xs"
+    />
+  );
+}
+
 type HelperLinkType = {
   accessibilityLabel: string;
   href: string;
@@ -84,14 +102,13 @@ function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: Primar
 }
 
 type Props = {
-
   /**
    * Adds a dismiss button to BannerSlim. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannerslim#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility).
    *
    * Note that compact ("___Bare" type) BannerSlims are not dismissable.
    */
-  // dismissButton?: DismissButtonType;
+  dismissButton?: DismissButtonType;
   /**
    * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
    */
@@ -105,7 +122,6 @@ type Props = {
    *
    */
   message: string | ReactElement;
-  onDismiss: () => void;
   /**
    * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
@@ -132,19 +148,6 @@ type Props = {
     | 'recommendationBare';
 };
 
-function DismissButton({onDismiss}: Props) {
-  const { accessibilityDismissButtonLabel } = accessibilityDismissButton: useDefaultLabelContext('BannerSlim');
-  return (
-    <IconButton
-      accessibilityLabel={accessibilityDismissButtonLabel}
-      icon="cancel"
-      iconColor="darkGray"
-      onClick={onDismiss}
-      size="xs"
-    />
-  );
-}
-
 /**
  * [BannerSlim](https://gestalt.pinterest.systems/web/bannerslim) conveys brief information related to a specific section of a page. The message can relay success, warning, error or general information. Since they are about a specific section of a page or surface, BannerSlim sits inside of a container, and not at the top of the page. For alerts that apply to the whole page, use [BannerCallout](https://gestalt.pinterest.systems/web/bannercallout).
  *
@@ -157,7 +160,6 @@ export default function BannerSlim({
   helperLink,
   iconAccessibilityLabel,
   message,
-  onDismiss,
   primaryAction,
   type = 'neutral',
 }: Props) {
@@ -194,9 +196,6 @@ export default function BannerSlim({
         return '';
     }
   };
-
-
-
   // Buttons not allowed on compact BannerSlims
   const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
@@ -264,13 +263,7 @@ export default function BannerSlim({
                 </Box>
               )}
 
-              {dismissButton &&     <IconButton
-      accessibilityLabel={accessibilityDismissButtonLabel}
-      icon="cancel"
-      iconColor="darkGray"
-      onClick={onDismiss}
-      size="xs"
-    />}
+              {dismissButton && <DismissButton {...dismissButton} />}
             </Flex>
           </Flex.Item>
         )}
