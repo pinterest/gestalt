@@ -76,7 +76,6 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     'lightWash': 'info-circle',
   });
 
-
   let styleType: TypeOptions | InteractiveTypeOptions = type;
 
   if (shouldUseTooltip) {
@@ -90,7 +89,13 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       <Flex alignItems="center" gap={1}>
         {shouldUseTooltip ? (
           <Box aria-hidden>
-            <Icon accessibilityLabel="" color="inverse" icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon'] } inline size="14" />
+            <Icon
+              accessibilityLabel=""
+              color="inverse"
+              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+              inline
+              size="14"
+            />
           </Box>
         ) : null}
         <Box dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }} display="inlineBlock">
