@@ -1,4 +1,12 @@
-import { cloneElement, ComponentProps, Fragment, ReactElement, ReactNode, useRef, useState } from 'react';
+import {
+  cloneElement,
+  ComponentProps,
+  Fragment,
+  ReactElement,
+  ReactNode,
+  useRef,
+  useState,
+} from 'react';
 import Badge, { TypeOptions } from '../Badge';
 import Box from '../Box';
 import Dropdown from '../Dropdown';
@@ -59,12 +67,7 @@ export function PageHeaderBadge({
   type?: TypeOptions;
 }) {
   return badgeTooltip ? (
-    <Badge
-      position="middle"
-      text={badgeText}
-      tooltip={badgeTooltip}
-      type={type}
-    />
+    <Badge position="middle" text={badgeText} tooltip={badgeTooltip} type={type} />
   ) : (
     <Badge position="middle" text={badgeText} type={type} />
   );
