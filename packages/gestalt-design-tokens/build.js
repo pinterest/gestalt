@@ -91,6 +91,15 @@ const filterFontFamily = {
   },
 };
 
+const filterLineHeight = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'line-height',
+    },
+  },
+};
+
 const androidResources = {
   'format': 'android/resources',
   '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
@@ -169,16 +178,28 @@ const iOSSwiftEnumTransformGroup = {
 
 // HELPER FUNCTIONS
 
-const filterList = [filterColor, filterRounding, filterOpacity, filterSpace, filterElevation];
+const filterList = [
+  filterColor,
+  filterRounding,
+  filterOpacity,
+  filterSpace,
+  filterElevation,
+  filterLineHeight,
+  filterFontFamily,
+  filterFontSize,
+  filterFontWeight,
+];
 
 const getFilter = (category, type) => {
   for (const item of filterList) {
-    if (!type && item.filter.attributes.category === category) {
-      return item;
-    }
-
-    if (item.filter.attributes.category === category && item.filter.attributes.type === type) {
-      return item;
+    if (type === undefined) {
+      if (item.filter.attributes.category === category) {
+        return item;
+      }
+    } else {
+      if (item.filter.attributes.category === category && item.filter.attributes.type === type) {
+        return item;
+      }
     }
   }
   return undefined;
@@ -575,7 +596,7 @@ StyleDictionary.registerFilter({
   matcher(token) {
     return (
       token.attributes.category === 'font' &&
-      ['line-height'].includes(token.attributes.type) &&
+      token.attributes.type === 'line-height' &&
       !token.name.startsWith('Base')
     );
   },
@@ -603,11 +624,13 @@ function getWebConfig({ theme, mode, language }) {
                   'destination': 'variables.css',
                   ...cssVariables,
                 },
-                {
-                  'destination': `language/${language}/line-height.css`,
-                  ...cssVariables,
-                  ...semaLineHeightFilter,
-                },
+                language
+                  ? {
+                      'destination': `language/${language}/line-height.css`,
+                      ...cssVariables,
+                      ...semaLineHeightFilter,
+                    }
+                  : undefined,
               ]
             : [
                 {
@@ -685,12 +708,14 @@ function getWebConfig({ theme, mode, language }) {
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
-                {
-                  'destination': `language/${language}/line-height.js`,
-                  'format': `commonJS/${mappedTheme}`,
-                  '_format_comment': 'Custom',
-                  ...semaLineHeightFilter,
-                },
+                language
+                  ? {
+                      'destination': `language/${language}/line-height.js`,
+                      'format': `commonJS/${mappedTheme}`,
+                      '_format_comment': 'Custom',
+                      ...semaLineHeightFilter,
+                    }
+                  : undefined,
               ]
             : [
                 {
@@ -879,123 +904,8 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getIOSConfiguration({ theme, mode }) {
+function getIOSConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
-
-  const a = [
-    {
-      'destination': `GestaltTokensColor${getTheme(theme)}.h`,
-      ...iosColorsH,
-      'className': `GestaltTokensColor${getTheme(theme)}`,
-      'type': `GestaltTokensColorName${getTheme(theme)}`,
-      ...filterColor,
-    },
-    {
-      'destination': `GestaltTokensColor${getTheme(theme)}.m`,
-      ...iosColorsM,
-      'className': `GestaltTokensColor${getTheme(theme)}`,
-      'type': `GestaltTokensColorName${getTheme(theme)}`,
-      ...filterColor,
-    },
-    {
-      'destination': `GestaltTokensRounding${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensRounding${getTheme(theme)}`,
-      'type': `GestaltTokensRoundingName${getTheme(theme)}`,
-      ...filterRounding,
-    },
-    {
-      'destination': `GestaltTokensRounding${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensRounding${getTheme(theme)}`,
-      'type': `GestaltTokensRoundingName${getTheme(theme)}`,
-      ...filterRounding,
-    },
-    {
-      'destination': `GestaltTokensSpace${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensSpace${getTheme(theme)}`,
-      'type': `GestaltTokensSpaceName${getTheme(theme)}`,
-      ...filterSpace,
-    },
-    {
-      'destination': `GestaltTokensSpace${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensSpace${getTheme(theme)}`,
-      'type': `GestaltTokensSpaceName${getTheme(theme)}`,
-      ...filterSpace,
-    },
-    {
-      'destination': `GestaltTokensOpacity${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensOpacity${getTheme(theme)}`,
-      'type': `GestaltTokensOpacityName${getTheme(theme)}`,
-      ...filterOpacity,
-    },
-    {
-      'destination': `GestaltTokensOpacity${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensOpacity${getTheme(theme)}`,
-      'type': `GestaltTokensOpacityName${getTheme(theme)}`,
-      ...filterOpacity,
-    },
-    {
-      'destination': `GestaltTokensFontSize${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensFontSize${getTheme(theme)}`,
-      'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
-      ...filterFontSize,
-    },
-    {
-      'destination': `GestaltTokensFontSize${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensFontSize${getTheme(theme)}`,
-      'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
-      ...filterFontSize,
-    },
-    {
-      'destination': `GestaltTokensFontWeight${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-      'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
-      ...filterFontWeight,
-    },
-    {
-      'destination': `GestaltTokensFontWeight${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-      'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
-      ...filterFontWeight,
-    },
-    {
-      'destination': `GestaltTokensFontFamily${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-      'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
-      ...filterFontFamily,
-    },
-    {
-      'destination': `GestaltTokensFontFamily${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-      'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
-      ...filterFontFamily,
-    },
-    {
-      'destination': `GestaltTokensElevation${getTheme(theme)}.h`,
-      ...iosStaticH,
-      'className': `GestaltTokensElevation${getTheme(theme)}`,
-      'type': `GestaltTokensElevation${getTheme(theme)}`,
-      ...filterElevation,
-    },
-    {
-      'destination': `GestaltTokensElevation${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokensElevation${getTheme(theme)}`,
-      'type': `GestaltTokensElevation${getTheme(theme)}`,
-      ...filterElevation,
-    },
-  ];
 
   const categories = [
     'color',
@@ -1003,55 +913,89 @@ function getIOSConfiguration({ theme, mode }) {
     'space',
     'opacity',
     'elevation',
-    'font-size',
-    'font-weight',
-    'font-family',
+    'font size',
+    'font weight',
+    'font family',
   ];
 
-  const iOSStaticHeaders = categories.map((category) => {
-    // convert category to pascal case
-    // ex: font-weight -> FontWeight
+  /**
+   * Example output:
+   * {
+     "destination": "GestaltTokensFontSize.h",
+      "format": "ios/static.h",
+      "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=iosstringsh",
+      "className": "GestaltTokensFontSize",
+      "type": "GestaltTokensFontSizeName"
+    }
+  */
+  let iOSObjectiveCFiles = categories.flatMap((category) => {
     const pascalName = category
       .split('-')
+      .join(' ')
+      .split(' ')
+      .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+      .join('');
+
+    // generate both header and methods file extensions
+    return ['h', 'm'].map((ext) => {
+      const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
+
+      return {
+        'destination': `GestaltTokens${pascalName}${getTheme(theme)}.${ext}`,
+        ...fileTypeDetails,
+        'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
+        'type': `GestaltTokens${pascalName}Name${getTheme(theme)}`,
+        ...getFilter(category.split(' ')[0], category.split(' ')[1]),
+      };
+    });
+  });
+
+  let iOSSwiftFiles = categories.flatMap((category) => {
+    const pascalName = category
+      .split('-')
+      .join(' ')
+      .split(' ')
       .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
       .join('');
 
     return {
-      'destination': `GestaltTokens${pascalName}${getTheme(theme)}.h`,
-      ...iosStaticH,
+      'destination': `GestaltTokens${pascalName}${getTheme(theme)}.swift`,
+      ...iosSwiftEnumSwift,
       'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
-      'type': `GestaltTokens${pascalName}Name${getTheme(theme)}`,
-      ...getFilter(category, category.split('-')[1]),
+      ...getFilter(category.split(' ')[0], category.split(' ')[1]),
     };
   });
 
-  console.log(JSON.stringify(iOSStaticHeaders, 0, 2));
-  // console.log(JSON.stringify(a, 0, 2));
+  // add the relevant language output
+  if (language) {
+    // generate both header and methods file extensions
+    iOSObjectiveCFiles = iOSObjectiveCFiles.concat(
+      ['h', 'm'].map((ext) => {
+        const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
+        return {
+          'destination': `language/${language}/GestaltTokensSemanticFontLineHeight${getTheme(
+            theme,
+          )}.${ext}`,
+          ...fileTypeDetails,
+          'className': `GestaltTokensSemanticFontLineHeight${getTheme(theme)}`,
+          'type': `GestaltTokensSemanticFontLineHeightName${getTheme(theme)}`,
+          ...filterLineHeight,
+          comment: `// ${language} specific tokens`,
+        };
+      }),
+    );
 
-  const iOSStaticModules = categories.map((category) => {
-    // convert category to pascal case
-    // ex: font-weight -> FontWeight
-    const pascalName = category
-      .split('-')
-      .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
-      .join('');
-
-    return {
-      'destination': `GestaltTokens${pascalName}${getTheme(theme)}.m`,
-      ...iosStaticM,
-      'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
-      'type': `GestaltTokens${pascalName}Name${getTheme(theme)}`,
-      ...getFilter(category, category.split('-')[1]),
-    };
-  });
-
-  console.log('iOSStaticHeaders', iOSStaticHeaders.length);
-  console.log('iOSStaticModules', iOSStaticModules.length);
-
-  throw new Error('END OUTPUT HERE');
+    iOSSwiftFiles.push({
+      'destination': `language/${language}/GestaltTokensFontLineHeight${getTheme(theme)}.swift`,
+      ...iosSwiftEnumSwift,
+      'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
+      ...semaLineHeightFilter,
+      fileHeader: `// ${language} specific tokens`,
+    });
+  }
 
   return {
-    'source': getSources({ theme, modeTheme }),
+    'source': getSources({ theme, modeTheme, language }),
     'platforms': {
       'ios': {
         ...iOSTransformGroup,
@@ -1059,120 +1003,7 @@ function getIOSConfiguration({ theme, mode }) {
         ...optionsFileHeader,
         'files':
           mode === 'light'
-            ? [
-                {
-                  'destination': `GestaltTokensColor${getTheme(theme)}.h`,
-                  ...iosColorsH,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  'type': `GestaltTokensColorName${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensColor${getTheme(theme)}.m`,
-                  ...iosColorsM,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  'type': `GestaltTokensColorName${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensRounding${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensRounding${getTheme(theme)}`,
-                  'type': `GestaltTokensRoundingName${getTheme(theme)}`,
-                  ...filterRounding,
-                },
-                {
-                  'destination': `GestaltTokensRounding${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensRounding${getTheme(theme)}`,
-                  'type': `GestaltTokensRoundingName${getTheme(theme)}`,
-                  ...filterRounding,
-                },
-                {
-                  'destination': `GestaltTokensSpace${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensSpace${getTheme(theme)}`,
-                  'type': `GestaltTokensSpaceName${getTheme(theme)}`,
-                  ...filterSpace,
-                },
-                {
-                  'destination': `GestaltTokensSpace${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensSpace${getTheme(theme)}`,
-                  'type': `GestaltTokensSpaceName${getTheme(theme)}`,
-                  ...filterSpace,
-                },
-                {
-                  'destination': `GestaltTokensOpacity${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
-                  'type': `GestaltTokensOpacityName${getTheme(theme)}`,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': `GestaltTokensOpacity${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
-                  'type': `GestaltTokensOpacityName${getTheme(theme)}`,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': `GestaltTokensFontSize${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
-                  'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': `GestaltTokensFontSize${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
-                  'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-                  'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-                  'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-                  'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
-                  ...filterFontFamily,
-                },
-                {
-                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-                  'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
-                  ...filterFontFamily,
-                },
-                {
-                  'destination': `GestaltTokensElevation${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensElevation${getTheme(theme)}`,
-                  'type': `GestaltTokensElevation${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-                {
-                  'destination': `GestaltTokensElevation${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensElevation${getTheme(theme)}`,
-                  'type': `GestaltTokensElevation${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-              ]
+            ? iOSObjectiveCFiles
             : [
                 {
                   'destination': `GestaltTokensColorDark${getTheme(theme)}.h`,
@@ -1210,56 +1041,7 @@ function getIOSConfiguration({ theme, mode }) {
         ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
-            ? [
-                {
-                  'destination': `GestaltTokensColor${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensRounding${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensRounding${getTheme(theme)}`,
-                  ...filterRounding,
-                },
-                {
-                  'destination': `GestaltTokensSpace${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensSpace${getTheme(theme)}`,
-                  ...filterSpace,
-                },
-                {
-                  'destination': `GestaltTokensOpacity${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': `GestaltTokensElevation${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensElevation${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-                {
-                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': `GestaltTokensFontSize${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-                  ...filterFontFamily,
-                },
-              ]
+            ? iOSSwiftFiles
             : [
                 {
                   'destination': `GestaltTokensColorDark${getTheme(theme)}.swift`,
@@ -1289,10 +1071,15 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    ['en', 'ck'].forEach((language) => {
+    ['en', 'ck'].forEach((lang) => {
+      // only generate languages for the vr-theme
+      const language = theme === 'vr-theme' ? lang : undefined;
+
       // iOS platform
       if (theme !== 'vr-theme-web-mapping') {
-        const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+        const StyleDictionaryIOS = StyleDictionary.extend(
+          getIOSConfiguration({ mode, theme, language }),
+        );
         platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
         // // Android platform

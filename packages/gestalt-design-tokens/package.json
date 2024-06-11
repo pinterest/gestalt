@@ -26,7 +26,7 @@
     "gestalt": ">0.0.0"
   },
   "scripts": {
-    "build": "node build.js",
+    "build": "rm -r dist && node build.js",
     "build:prod": "NODE_ENV=production node build.js",
     "watch": "nodemon build.js"
   },
