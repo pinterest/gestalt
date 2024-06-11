@@ -29,7 +29,7 @@ export default function Example() {
                   <Badge
                     text="New"
                     tooltip={{
-                      text: 'This is a new feature',
+                      text: 'Collages is a new feature',
                       idealDirection: 'up',
                     }}
                     type="info"
@@ -44,9 +44,22 @@ export default function Example() {
               <Text>Success</Text>
             </Table.Cell>
             <Table.Cell>
-              <Text size="300">
-                Ads & Campaigns <Badge text="Completed" type="success" />
-              </Text>
+              <Flex direction="column" gap={2}>
+                <Text size="300">
+                  Ads & Campaigns <Badge text="Completed" type="success" />
+                </Text>
+                <Text size="300">
+                  Ads & Campaigns{' '}
+                  <Badge
+                    text="Completed"
+                    tooltip={{
+                      text: 'Your onboarding is almost completed',
+                      idealDirection: 'up',
+                    }}
+                    type="success"
+                  />
+                </Text>
+              </Flex>
             </Table.Cell>
           </Table.Row>
 
@@ -55,9 +68,22 @@ export default function Example() {
               <Text>Warning</Text>
             </Table.Cell>
             <Table.Cell>
-              <Text size="300">
-                Ads & Campaigns <Badge text="Needs attention" type="warning" />
-              </Text>
+              <Flex direction="column" gap={2}>
+                <Text size="300">
+                  Ads & Campaigns <Badge text="Needs attention" type="warning" />
+                </Text>
+                <Text size="300">
+                  Ads & Campaigns{' '}
+                  <Badge
+                    text="Needs attention"
+                    tooltip={{
+                      text: 'Your account needs attention',
+                      idealDirection: 'up',
+                    }}
+                    type="warning"
+                  />
+                </Text>
+              </Flex>
             </Table.Cell>
           </Table.Row>
 
@@ -66,9 +92,22 @@ export default function Example() {
               <Text>Error</Text>
             </Table.Cell>
             <Table.Cell>
-              <Text size="300">
-                Ads & Campaigns <Badge text="Failed" type="error" />
-              </Text>
+              <Flex direction="column" gap={2}>
+                <Text size="300">
+                  Ads & Campaigns <Badge text="Failed" type="error" />
+                </Text>
+                <Text size="300">
+                  Ads & Campaigns{' '}
+                  <Badge
+                    text="Failed"
+                    tooltip={{
+                      text: 'Your uploading failed',
+                      idealDirection: 'up',
+                    }}
+                    type="error"
+                  />
+                </Text>
+              </Flex>
             </Table.Cell>
           </Table.Row>
 
@@ -77,9 +116,22 @@ export default function Example() {
               <Text>Neutral</Text>
             </Table.Cell>
             <Table.Cell>
-              <Text size="300">
-                Ads & Campaigns <Badge text="Not started" type="neutral" />
-              </Text>
+              <Flex direction="column" gap={2}>
+                <Text size="300">
+                  Ads & Campaigns <Badge text="Not started" type="neutral" />
+                </Text>{' '}
+                <Text size="300">
+                  Ads & Campaigns{' '}
+                  <Badge
+                    text="Not started"
+                    tooltip={{
+                      text: 'Your campaign has not started',
+                      idealDirection: 'up',
+                    }}
+                    type="neutral"
+                  />
+                </Text>{' '}
+              </Flex>
             </Table.Cell>
           </Table.Row>
 
@@ -88,9 +140,22 @@ export default function Example() {
               <Text>Recommendation</Text>
             </Table.Cell>
             <Table.Cell>
-              <Text size="300">
-                Ads & Campaigns <Badge text="Recommended for you" type="recommendation" />
-              </Text>
+              <Flex direction="column" gap={2}>
+                <Text size="300">
+                  Ads & Campaigns <Badge text="Recommended for you" type="recommendation" />
+                </Text>{' '}
+                <Text size="300">
+                  Ads & Campaigns{' '}
+                  <Badge
+                    text="Recommended for you"
+                    tooltip={{
+                      text: 'This business product is recommended for you',
+                      idealDirection: 'up',
+                    }}
+                    type="recommendation"
+                  />
+                </Text>
+              </Flex>
             </Table.Cell>
           </Table.Row>
         </Table.Body>

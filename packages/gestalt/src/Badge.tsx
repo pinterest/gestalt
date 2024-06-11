@@ -1,3 +1,4 @@
+import { ComponentProps } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
@@ -25,6 +26,16 @@ export type TypeOptions =
   | 'darkWash'
   | 'lightWash';
 
+type InteractiveTypeOptions =
+  | 'interactive-info'
+  | 'interactive-error'
+  | 'interactive-warning'
+  | 'interactive-success'
+  | 'interactive-neutral'
+  | 'interactive-recommendation'
+  | 'interactive-darkWash'
+  | 'interactive-lightWash';
+
 type Props = {
   /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
@@ -51,16 +62,25 @@ type Props = {
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.ts-snapshots/Badge-dark-chromium-darwin.png)
  *
  */
-
 export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
-  const isInfoType = type === 'info';
+  const shouldUseTooltip = tooltip?.text;
 
-  const shouldUseTooltip = isInfoType && tooltip?.text;
+  const ICON_MAP = Object.freeze({
+    'info': 'info-circle',
+    'error': 'workflow-status-problem',
+    'warning': 'workflow-status-warning',
+    'success': 'check-circle',
+    'neutral': 'lock',
+    'recommendation': 'performance-plus',
+    'darkWash': 'info-circle',
+    'lightWash': 'info-circle',
+  });
 
-  let styleType: TypeOptions | 'interactiveInfo' = type;
+
+  let styleType: TypeOptions | InteractiveTypeOptions = type;
 
   if (shouldUseTooltip) {
-    styleType = 'interactiveInfo';
+    styleType = `interactive-${type}`;
   }
 
   const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
@@ -70,7 +90,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       <Flex alignItems="center" gap={1}>
         {shouldUseTooltip ? (
           <Box aria-hidden>
-            <Icon accessibilityLabel="" color="inverse" icon="info-circle" inline size="14" />
+            <Icon accessibilityLabel="" color="inverse" icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon'] } inline size="14" />
           </Box>
         ) : null}
         <Box dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }} display="inlineBlock">
@@ -80,7 +100,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     </div>
   );
 
-  return isInfoType && tooltip?.text ? (
+  return shouldUseTooltip ? (
     <Tooltip
       accessibilityLabel={tooltip.accessibilityLabel}
       idealDirection={tooltip.idealDirection}

@@ -21,41 +21,48 @@
 /* Color */
 
 .info,
-.interactiveInfo {
+.interactive-info {
   background-color: var(--color-background-badge-info-default);
 }
 
-.interactiveInfo:hover,
-.interactiveInfo:focus {
+.interactive-info:hover,
+.interactive-info:focus {
   background-color: var(--color-background-badge-info-hover);
 }
 
-.error {
+.error,
+.interactive-error {
   background-color: var(--color-background-badge-error);
 }
 
-.warning {
+.warning,
+.interactive-warning {
   background-color: var(--color-background-badge-warning);
 }
 
-.success {
+.success,
+.interactive-success {
   background-color: var(--color-background-badge-success);
 }
 
-.recommendation {
+.recommendation,
+.interactive-recommendation {
   background-color: var(--color-background-badge-recommendation);
 }
 
-.neutral {
+.neutral ,
+.interactive-neutral {
   background-color: var(--color-background-badge-neutral);
 }
 
-.darkWash {
+.darkWash,
+.interactive-darkWash {
   background-color: var(--color-background-badge-darkwash);
   color: var(--color-text-light);
 }
 
-.lightWash {
+.lightWash,
+.interactive-lightWash {
   background-color: var(--color-background-badge-lightwash);
   color: var(--color-text-dark);
 }
