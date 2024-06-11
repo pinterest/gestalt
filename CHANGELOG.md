@@ -1,3 +1,9 @@
+## 152.1.5-alpha.0 (Jun 11, 2024)
+
+### Prerelease
+
+- Dropdown: Always hide when reference hidden
+
 ## 152.1.4-alpha.0 (Jun 7, 2024)
 
 ### Prerelease
