@@ -1,4 +1,4 @@
-import { cloneElement, Fragment, ReactElement, ReactNode, useRef, useState } from 'react';
+import { cloneElement, ComponentProps, Fragment, ReactElement, ReactNode, useRef, useState } from 'react';
 import Badge, { TypeOptions } from '../Badge';
 import Box from '../Box';
 import Dropdown from '../Dropdown';
@@ -51,22 +51,18 @@ export function PageHeaderThumbnail({ thumbnail }: { thumbnail: ReactNode }) {
 
 export function PageHeaderBadge({
   badgeText,
-  badgeTooltipText,
+  badgeTooltip,
   type = 'info',
 }: {
   badgeText: string;
-  badgeTooltipText?: string;
+  badgeTooltip?: ComponentProps<typeof Badge>['tooltip'];
   type?: TypeOptions;
 }) {
-  return badgeTooltipText ? (
+  return badgeTooltip ? (
     <Badge
       position="middle"
       text={badgeText}
-      tooltip={{
-        accessibilityLabel: '',
-        text: badgeTooltipText,
-        idealDirection: 'up',
-      }}
+      tooltip={badgeTooltip}
       type={type}
     />
   ) : (
