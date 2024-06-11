@@ -5,7 +5,7 @@ import FlexItem from './FlexItem';
 import wrapWithComponent from './utils/wrapWithComponent';
 
 type Dimension = number | string;
-type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 
 type Props = {
   /**
