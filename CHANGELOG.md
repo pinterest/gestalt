@@ -1,3 +1,9 @@
+## 153.1.0 (Jun 11, 2024)
+
+### Minor
+
+- Badge: add interactive icon to all types ([#3619](https://github.com/pinterest/gestalt/pull/3619)) - [Preview link](https://deploy-preview-3619--gestalt.netlify.app?devexample=true)
+
 ## 153.0.0 (Jun 11, 2024)
 
 ### Major
