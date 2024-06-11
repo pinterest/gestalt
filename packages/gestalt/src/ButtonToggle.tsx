@@ -207,22 +207,22 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   }
 
   const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm' && !graphicSrc,
-    [styles.md]: size === 'md' && !graphicSrc,
+    [styles.disabled]: disabled && (color !== 'red' || selected),
+    [styles.disabledRed]: disabled && color === 'red' && !selected,
+    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
+    [styles.enabled]: !disabled,
     [styles.lg]: size === 'lg' && !graphicSrc,
+    [styles.md]: size === 'md' && !graphicSrc,
+    [styles.noBorder]: color === 'red' && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.selectedBorder]: selected,
+    [styles.sm]: size === 'sm' && !graphicSrc,
     [styles.thumbnailDark]: graphicSrc && isDarkMode,
     [styles.thumbnailDisabled]: graphicSrc && disabled,
-    [styles.thumbnailSm]: size === 'sm' && graphicSrc,
-    [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailLg]: size === 'lg' && graphicSrc,
+    [styles.thumbnailMd]: size === 'md' && graphicSrc,
+    [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[bgColor]]: !disabled && !selected,
-    [styles.noBorder]: color === 'red' && !selected,
-    [styles.selectedBorder]: selected,
-    [styles.selected]: !disabled && selected,
-    [styles.disabled]: disabled && (color !== 'red' || selected),
-    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
-    [styles.disabledRed]: disabled && color === 'red' && !selected,
-    [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
