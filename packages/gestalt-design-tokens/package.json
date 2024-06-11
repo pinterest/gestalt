@@ -1,6 +1,6 @@
 {
   "name": "gestalt-design-tokens",
-  "version": "152.1.2",
+  "version": "153.1.1",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "Design tokens style dictionary for Gestalt",
@@ -19,6 +19,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "decomment": "^0.9.5",
     "style-dictionary": "^3.9.2",
     "tinycolor2": "1.6.0"
   },
@@ -28,7 +29,8 @@
   "scripts": {
     "build": "rm -r dist && node build.js",
     "build:prod": "NODE_ENV=production node build.js",
-    "watch": "nodemon build.js"
+    "watch": "nodemon build.js",
+    "test": "rm -r dist && yarn build && jest --testPathPattern=tests"
   },
   "browserslist": [
     "last 2 versions",

@@ -4,7 +4,7 @@ export default function Snapshot() {
   return (
     <Box width="100vw">
       <PageHeader
-        badge={{ text: 'Beta', tooltipText: 'This feature is on beta phase' }}
+        badge={{ text: 'Beta', tooltip: { text: 'This feature is on beta phase' } }}
         helperIconButton={{
           accessibilityLabel: 'test',
           accessibilityControls: 'test',

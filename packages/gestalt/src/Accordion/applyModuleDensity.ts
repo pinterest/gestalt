@@ -7,7 +7,7 @@ const applyModuleDensityStyle = (
   size: 'sm' | 'md' | 'lg',
 ): {
   gap: Gap;
-  padding: ComponentProps<typeof Box>['padding'];
+  padding: Gap;
   rounding: ComponentProps<typeof Box>['rounding'];
   titleGap: Gap;
   summaryListGap: Gap;

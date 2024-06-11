@@ -146,7 +146,9 @@
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh",
+    "tokens:test":"(cd packages/gestalt-design-tokens && yarn test)",
     "tsc": "tsc --build --force"
+    
   },
   "jest": {
     "projects": [
@@ -164,7 +166,8 @@
           "<rootDir>/scripts/templates/",
           ".jsdom.test.ts",
           ".jsdom.test.tsx",
-          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts"
+          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts",
+          "<rootDir>/packages/gestalt-design-tokens/"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"
@@ -183,7 +186,8 @@
           "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
-          "<rootDir>/packages/gestalt-core"
+          "<rootDir>/packages/gestalt-core",
+          "<rootDir>/packages/gestalt-design-tokens"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"

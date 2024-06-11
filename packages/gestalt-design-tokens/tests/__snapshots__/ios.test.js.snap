@@ -1,0 +1,1077 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All iOS Tokens Exist 1`] = `
+Object {
+  "dist/ios-swift/classic/GestaltTokensColor.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensColor {
+    public static let dataVisualizationErrorGraph = UIColor(red: 0.929, green: 0.000, blue: 0.000, alpha: 1) 
+    public static let dataVisualization09 = UIColor(red: 0.949, green: 0.408, blue: 0.122, alpha: 1) 
+    public static let dataVisualization07 = UIColor(red: 0.000, green: 0.671, blue: 0.333, alpha: 1) 
+    public static let dataVisualization06 = UIColor(red: 1.000, green: 0.325, blue: 0.514, alpha: 1) 
+    public static let dataVisualization05 = UIColor(red: 0.000, green: 0.506, blue: 0.996, alpha: 1) 
+    public static let dataVisualization04 = UIColor(red: 0.820, green: 0.467, blue: 0.067, alpha: 1) 
+    public static let dataVisualization03 = UIColor(red: 0.573, green: 0.290, blue: 0.969, alpha: 1) 
+    public static let dataVisualization02 = UIColor(red: 0.067, green: 0.651, blue: 0.612, alpha: 1) 
+    public static let borderFocus = UIColor(red: 0.000, green: 0.518, blue: 1.000, alpha: 0.5) 
+    public static let backgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9) 
+    public static let backgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8) 
+    public static let transparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let blackCosmicore900 = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+    public static let grayRoboflow800 = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1)
+    public static let grayRoboflow700 = UIColor(red: 0.169, green: 0.169, blue: 0.169, alpha: 1)
+    public static let grayRoboflow600 = UIColor(red: 0.290, green: 0.290, blue: 0.290, alpha: 1)
+    public static let grayRoboflow550 = UIColor(red: 0.373, green: 0.373, blue: 0.373, alpha: 1)
+    public static let grayRoboflow500 = UIColor(red: 0.463, green: 0.463, blue: 0.463, alpha: 1)
+    public static let grayRoboflow400 = UIColor(red: 0.647, green: 0.647, blue: 0.647, alpha: 1)
+    public static let grayRoboflow300 = UIColor(red: 0.804, green: 0.804, blue: 0.804, alpha: 1)
+    public static let grayRoboflow200 = UIColor(red: 0.914, green: 0.914, blue: 0.914, alpha: 1)
+    public static let grayRoboflow100 = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1)
+    public static let grayRoboflow50 = UIColor(red: 0.976, green: 0.976, blue: 0.976, alpha: 1)
+    public static let whiteMochimalist0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
+    public static let yellowCaramellow900 = UIColor(red: 0.400, green: 0.141, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow800 = UIColor(red: 0.486, green: 0.176, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow700 = UIColor(red: 0.580, green: 0.227, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow600 = UIColor(red: 0.667, green: 0.286, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow500 = UIColor(red: 0.741, green: 0.357, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow450 = UIColor(red: 0.847, green: 0.408, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow400 = UIColor(red: 0.882, green: 0.553, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow300 = UIColor(red: 0.992, green: 0.788, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow200 = UIColor(red: 0.980, green: 0.902, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow100 = UIColor(red: 1.000, green: 0.992, blue: 0.573, alpha: 1)
+    public static let yellowCaramellow50 = UIColor(red: 1.000, green: 0.996, blue: 0.733, alpha: 1)
+    public static let yellowCaramellow0 = UIColor(red: 1.000, green: 0.996, blue: 0.859, alpha: 1)
+    public static let orangeFiretini900 = UIColor(red: 0.400, green: 0.055, blue: 0.000, alpha: 1)
+    public static let orangeFiretini800 = UIColor(red: 0.518, green: 0.125, blue: 0.000, alpha: 1)
+    public static let orangeFiretini700 = UIColor(red: 0.643, green: 0.153, blue: 0.000, alpha: 1)
+    public static let orangeFiretini600 = UIColor(red: 0.765, green: 0.184, blue: 0.000, alpha: 1)
+    public static let orangeFiretini500 = UIColor(red: 0.871, green: 0.216, blue: 0.000, alpha: 1)
+    public static let orangeFiretini450 = UIColor(red: 1.000, green: 0.357, blue: 0.271, alpha: 1)
+    public static let orangeFiretini400 = UIColor(red: 0.969, green: 0.478, blue: 0.220, alpha: 1)
+    public static let orangeFiretini300 = UIColor(red: 0.992, green: 0.631, blue: 0.380, alpha: 1)
+    public static let orangeFiretini200 = UIColor(red: 1.000, green: 0.773, blue: 0.561, alpha: 1)
+    public static let orangeFiretini100 = UIColor(red: 1.000, green: 0.894, blue: 0.757, alpha: 1)
+    public static let orangeFiretini50 = UIColor(red: 1.000, green: 0.941, blue: 0.859, alpha: 1)
+    public static let orangeFiretini0 = UIColor(red: 1.000, green: 0.965, blue: 0.922, alpha: 1)
+    public static let purpleMysticool900 = UIColor(red: 0.173, green: 0.000, blue: 0.400, alpha: 1)
+    public static let purpleMysticool800 = UIColor(red: 0.251, green: 0.012, blue: 0.529, alpha: 1)
+    public static let purpleMysticool700 = UIColor(red: 0.333, green: 0.039, blue: 0.663, alpha: 1)
+    public static let purpleMysticool600 = UIColor(red: 0.420, green: 0.086, blue: 0.792, alpha: 1)
+    public static let purpleMysticool500 = UIColor(red: 0.506, green: 0.165, blue: 0.906, alpha: 1)
+    public static let purpleMysticool450 = UIColor(red: 0.541, green: 0.224, blue: 0.980, alpha: 1)
+    public static let purpleMysticool400 = UIColor(red: 0.620, green: 0.408, blue: 1.000, alpha: 1)
+    public static let purpleMysticool300 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1)
+    public static let purpleMysticool200 = UIColor(red: 0.835, green: 0.780, blue: 1.000, alpha: 1)
+    public static let purpleMysticool100 = UIColor(red: 0.914, green: 0.894, blue: 1.000, alpha: 1)
+    public static let purpleMysticool50 = UIColor(red: 0.941, green: 0.929, blue: 1.000, alpha: 1)
+    public static let purpleMysticool0 = UIColor(red: 0.973, green: 0.969, blue: 1.000, alpha: 1)
+    public static let greenMatchacado900 = UIColor(red: 0.000, green: 0.149, blue: 0.102, alpha: 1)
+    public static let greenMatchacado800 = UIColor(red: 0.000, green: 0.188, blue: 0.125, alpha: 1)
+    public static let greenMatchacado700 = UIColor(red: 0.000, green: 0.259, blue: 0.173, alpha: 1)
+    public static let greenMatchacado600 = UIColor(red: 0.000, green: 0.373, blue: 0.243, alpha: 1)
+    public static let greenMatchacado500 = UIColor(red: 0.000, green: 0.529, blue: 0.325, alpha: 1)
+    public static let greenMatchacado450 = UIColor(red: 0.114, green: 0.678, blue: 0.396, alpha: 1)
+    public static let greenMatchacado400 = UIColor(red: 0.224, green: 0.827, blue: 0.467, alpha: 1)
+    public static let greenMatchacado300 = UIColor(red: 0.420, green: 0.925, blue: 0.549, alpha: 1)
+    public static let greenMatchacado200 = UIColor(red: 0.643, green: 0.976, blue: 0.675, alpha: 1)
+    public static let greenMatchacado100 = UIColor(red: 0.765, green: 0.976, blue: 0.761, alpha: 1)
+    public static let greenMatchacado50 = UIColor(red: 0.890, green: 0.980, blue: 0.882, alpha: 1)
+    public static let greenMatchacado0 = UIColor(red: 0.965, green: 0.992, blue: 0.961, alpha: 1)
+    public static let tealSpabattical900 = UIColor(red: 0.000, green: 0.204, blue: 0.251, alpha: 1)
+    public static let tealSpabattical800 = UIColor(red: 0.000, green: 0.314, blue: 0.384, alpha: 1)
+    public static let tealSpabattical700 = UIColor(red: 0.000, green: 0.361, blue: 0.384, alpha: 1)
+    public static let tealSpabattical600 = UIColor(red: 0.000, green: 0.420, blue: 0.424, alpha: 1)
+    public static let tealSpabattical500 = UIColor(red: 0.000, green: 0.522, blue: 0.486, alpha: 1)
+    public static let tealSpabattical450 = UIColor(red: 0.000, green: 0.600, blue: 0.565, alpha: 1)
+    public static let tealSpabattical400 = UIColor(red: 0.149, green: 0.753, blue: 0.706, alpha: 1)
+    public static let tealSpabattical300 = UIColor(red: 0.282, green: 0.835, blue: 0.776, alpha: 1)
+    public static let tealSpabattical200 = UIColor(red: 0.459, green: 0.894, blue: 0.835, alpha: 1)
+    public static let tealSpabattical100 = UIColor(red: 0.800, green: 0.965, blue: 0.933, alpha: 1)
+    public static let tealSpabattical50 = UIColor(red: 0.902, green: 0.980, blue: 0.961, alpha: 1)
+    public static let tealSpabattical0 = UIColor(red: 0.969, green: 0.992, blue: 0.988, alpha: 1)
+    public static let blueSkycicle900 = UIColor(red: 0.000, green: 0.161, blue: 0.400, alpha: 1)
+    public static let blueSkycicle800 = UIColor(red: 0.000, green: 0.235, blue: 0.588, alpha: 1)
+    public static let blueSkycicle700 = UIColor(red: 0.000, green: 0.294, blue: 0.663, alpha: 1)
+    public static let blueSkycicle600 = UIColor(red: 0.000, green: 0.373, blue: 0.796, alpha: 1)
+    public static let blueSkycicle500 = UIColor(red: 0.000, green: 0.455, blue: 0.910, alpha: 1)
+    public static let blueSkycicle450 = UIColor(red: 0.000, green: 0.486, blue: 1.000, alpha: 1)
+    public static let blueSkycicle400 = UIColor(red: 0.271, green: 0.639, blue: 0.996, alpha: 1)
+    public static let blueSkycicle300 = UIColor(red: 0.459, green: 0.749, blue: 1.000, alpha: 1)
+    public static let blueSkycicle200 = UIColor(red: 0.671, green: 0.859, blue: 1.000, alpha: 1)
+    public static let blueSkycicle100 = UIColor(red: 0.843, green: 0.929, blue: 1.000, alpha: 1)
+    public static let blueSkycicle50 = UIColor(red: 0.902, green: 0.957, blue: 1.000, alpha: 1)
+    public static let blueSkycicle0 = UIColor(red: 0.969, green: 0.984, blue: 1.000, alpha: 1)
+    public static let pinkFlaminglow900 = UIColor(red: 0.388, green: 0.008, blue: 0.200, alpha: 1)
+    public static let pinkFlaminglow800 = UIColor(red: 0.510, green: 0.020, blue: 0.243, alpha: 1)
+    public static let pinkFlaminglow700 = UIColor(red: 0.639, green: 0.047, blue: 0.290, alpha: 1)
+    public static let pinkFlaminglow600 = UIColor(red: 0.765, green: 0.098, blue: 0.322, alpha: 1)
+    public static let pinkFlaminglow500 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
+    public static let pinkFlaminglow450 = UIColor(red: 0.933, green: 0.216, blue: 0.416, alpha: 1)
+    public static let pinkFlaminglow400 = UIColor(red: 0.969, green: 0.396, blue: 0.576, alpha: 1)
+    public static let pinkFlaminglow300 = UIColor(red: 0.996, green: 0.557, blue: 0.694, alpha: 1)
+    public static let pinkFlaminglow200 = UIColor(red: 1.000, green: 0.745, blue: 0.824, alpha: 1)
+    public static let pinkFlaminglow100 = UIColor(red: 1.000, green: 0.875, blue: 0.914, alpha: 1)
+    public static let pinkFlaminglow50 = UIColor(red: 1.000, green: 0.922, blue: 0.945, alpha: 1)
+    public static let pinkFlaminglow0 = UIColor(red: 1.000, green: 0.973, blue: 0.980, alpha: 1)
+    public static let redPushpin900 = UIColor(red: 0.400, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin800 = UIColor(red: 0.502, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin700 = UIColor(red: 0.608, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin600 = UIColor(red: 0.714, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin500 = UIColor(red: 0.800, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin450 = UIColor(red: 0.902, green: 0.000, blue: 0.137, alpha: 1)
+    public static let redPushpin400 = UIColor(red: 0.922, green: 0.259, blue: 0.259, alpha: 1)
+    public static let redPushpin300 = UIColor(red: 0.957, green: 0.443, blue: 0.443, alpha: 1)
+    public static let redPushpin200 = UIColor(red: 0.988, green: 0.733, blue: 0.733, alpha: 1)
+    public static let redPushpin100 = UIColor(red: 1.000, green: 0.878, blue: 0.878, alpha: 1)
+    public static let redPushpin50 = UIColor(red: 1.000, green: 0.922, blue: 0.922, alpha: 1)
+    public static let redPushpin0 = UIColor(red: 1.000, green: 0.969, blue: 0.969, alpha: 1)
+    public static let dataVisualizationErrorText = redPushpin500 
+    public static let dataVisualizationSuccessText = greenMatchacado600 
+    public static let dataVisualizationSuccessGraph = greenMatchacado500 
+    public static let dataVisualizationPrimary = dataVisualization05 
+    public static let dataVisualization08 = purpleMysticool800 
+    public static let dataVisualization01 = blueSkycicle800 
+    public static let dataVisualization12 = orangeFiretini900 
+    public static let dataVisualization11 = pinkFlaminglow500 
+    public static let dataVisualization10 = tealSpabattical800 
+    public static let borderError = redPushpin500 
+    public static let borderDefault = grayRoboflow500 
+    public static let borderContainer = grayRoboflow300 
+    public static let backgroundElevationRaised = transparent 
+    public static let backgroundElevationFloating = transparent 
+    public static let backgroundElevationAccent = grayRoboflow100 
+    public static let backgroundLight = whiteMochimalist0 
+    public static let backgroundDark = blackCosmicore900 
+    public static let backgroundEducation = blueSkycicle500 
+    public static let backgroundBrand = redPushpin450 
+    public static let backgroundInverseStrong = grayRoboflow200 
+    public static let backgroundInverseBase = blackCosmicore900 
+    public static let backgroundSelectedWeak = grayRoboflow400 
+    public static let backgroundSelectedStrong = grayRoboflow700 
+    public static let backgroundSelectedBase = blackCosmicore900 
+    public static let backgroundTertiaryWeak = grayRoboflow300 
+    public static let backgroundTertiaryStrong = grayRoboflow700 
+    public static let backgroundTertiaryBase = grayRoboflow500 
+    public static let backgroundSecondaryWeak = grayRoboflow300 
+    public static let backgroundSecondaryStrong = grayRoboflow400 
+    public static let backgroundSecondaryBase = grayRoboflow200 
+    public static let backgroundPrimaryWeak = redPushpin300 
+    public static let backgroundPrimaryStrong = redPushpin600 
+    public static let backgroundPrimaryBase = redPushpin450 
+    public static let backgroundShopping = blueSkycicle500 
+    public static let backgroundNeutral = grayRoboflow500 
+    public static let backgroundRecommendationWeak = purpleMysticool100 
+    public static let backgroundRecommendationBase = purpleMysticool500 
+    public static let backgroundSuccessWeak = greenMatchacado100 
+    public static let backgroundSuccessBase = greenMatchacado500 
+    public static let backgroundWarningWeak = orangeFiretini100 
+    public static let backgroundWarningBase = yellowCaramellow500 
+    public static let backgroundErrorWeak = redPushpin100 
+    public static let backgroundErrorBase = redPushpin500 
+    public static let backgroundInfoStrong = blueSkycicle600 
+    public static let backgroundInfoWeak = blueSkycicle100 
+    public static let backgroundInfoBase = blueSkycicle500 
+    public static let backgroundDefault = whiteMochimalist0 
+    public static let iconDark = blackCosmicore900 
+    public static let iconLight = whiteMochimalist0 
+    public static let iconBrandPrimary = redPushpin450 
+    public static let iconShopping = blueSkycicle500 
+    public static let iconInverse = whiteMochimalist0 
+    public static let iconRecommendation = purpleMysticool500 
+    public static let iconInfo = blueSkycicle500 
+    public static let iconWarning = yellowCaramellow500 
+    public static let iconError = redPushpin500 
+    public static let iconDisabled = grayRoboflow400 
+    public static let iconSuccess = greenMatchacado600 
+    public static let iconSubtle = grayRoboflow500 
+    public static let iconDefault = blackCosmicore900 
+    public static let textLink = blueSkycicle700 
+    public static let textShopping = blueSkycicle500 
+    public static let textLight = whiteMochimalist0 
+    public static let textDark = blackCosmicore900 
+    public static let textInverse = whiteMochimalist0 
+    public static let textWarning = yellowCaramellow500 
+    public static let textError = redPushpin500 
+    public static let textDisabled = grayRoboflow400 
+    public static let textSuccess = greenMatchacado600 
+    public static let textSubtle = grayRoboflow500 
+    public static let textDefault = blackCosmicore900 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensColorDark.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensColor {
+    public static let dataVisualization04 = UIColor(red: 0.992, green: 0.651, blue: 0.000, alpha: 1) 
+    public static let dataVisualization03 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1) 
+    public static let dataVisualization10 = UIColor(red: 0.000, green: 0.478, blue: 0.447, alpha: 1) 
+    public static let borderFocus = UIColor(red: 0.000, green: 0.518, blue: 1.000, alpha: 0.5) 
+    public static let backgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9) 
+    public static let backgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8) 
+    public static let transparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let blackCosmicore900 = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
+    public static let grayRoboflow800 = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1)
+    public static let grayRoboflow700 = UIColor(red: 0.169, green: 0.169, blue: 0.169, alpha: 1)
+    public static let grayRoboflow600 = UIColor(red: 0.290, green: 0.290, blue: 0.290, alpha: 1)
+    public static let grayRoboflow550 = UIColor(red: 0.373, green: 0.373, blue: 0.373, alpha: 1)
+    public static let grayRoboflow500 = UIColor(red: 0.463, green: 0.463, blue: 0.463, alpha: 1)
+    public static let grayRoboflow400 = UIColor(red: 0.647, green: 0.647, blue: 0.647, alpha: 1)
+    public static let grayRoboflow300 = UIColor(red: 0.804, green: 0.804, blue: 0.804, alpha: 1)
+    public static let grayRoboflow200 = UIColor(red: 0.914, green: 0.914, blue: 0.914, alpha: 1)
+    public static let grayRoboflow100 = UIColor(red: 0.945, green: 0.945, blue: 0.945, alpha: 1)
+    public static let grayRoboflow50 = UIColor(red: 0.976, green: 0.976, blue: 0.976, alpha: 1)
+    public static let whiteMochimalist0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
+    public static let yellowCaramellow900 = UIColor(red: 0.400, green: 0.141, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow800 = UIColor(red: 0.486, green: 0.176, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow700 = UIColor(red: 0.580, green: 0.227, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow600 = UIColor(red: 0.667, green: 0.286, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow500 = UIColor(red: 0.741, green: 0.357, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow450 = UIColor(red: 0.847, green: 0.408, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow400 = UIColor(red: 0.882, green: 0.553, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow300 = UIColor(red: 0.992, green: 0.788, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow200 = UIColor(red: 0.980, green: 0.902, blue: 0.000, alpha: 1)
+    public static let yellowCaramellow100 = UIColor(red: 1.000, green: 0.992, blue: 0.573, alpha: 1)
+    public static let yellowCaramellow50 = UIColor(red: 1.000, green: 0.996, blue: 0.733, alpha: 1)
+    public static let yellowCaramellow0 = UIColor(red: 1.000, green: 0.996, blue: 0.859, alpha: 1)
+    public static let orangeFiretini900 = UIColor(red: 0.400, green: 0.055, blue: 0.000, alpha: 1)
+    public static let orangeFiretini800 = UIColor(red: 0.518, green: 0.125, blue: 0.000, alpha: 1)
+    public static let orangeFiretini700 = UIColor(red: 0.643, green: 0.153, blue: 0.000, alpha: 1)
+    public static let orangeFiretini600 = UIColor(red: 0.765, green: 0.184, blue: 0.000, alpha: 1)
+    public static let orangeFiretini500 = UIColor(red: 0.871, green: 0.216, blue: 0.000, alpha: 1)
+    public static let orangeFiretini450 = UIColor(red: 1.000, green: 0.357, blue: 0.271, alpha: 1)
+    public static let orangeFiretini400 = UIColor(red: 0.969, green: 0.478, blue: 0.220, alpha: 1)
+    public static let orangeFiretini300 = UIColor(red: 0.992, green: 0.631, blue: 0.380, alpha: 1)
+    public static let orangeFiretini200 = UIColor(red: 1.000, green: 0.773, blue: 0.561, alpha: 1)
+    public static let orangeFiretini100 = UIColor(red: 1.000, green: 0.894, blue: 0.757, alpha: 1)
+    public static let orangeFiretini50 = UIColor(red: 1.000, green: 0.941, blue: 0.859, alpha: 1)
+    public static let orangeFiretini0 = UIColor(red: 1.000, green: 0.965, blue: 0.922, alpha: 1)
+    public static let purpleMysticool900 = UIColor(red: 0.173, green: 0.000, blue: 0.400, alpha: 1)
+    public static let purpleMysticool800 = UIColor(red: 0.251, green: 0.012, blue: 0.529, alpha: 1)
+    public static let purpleMysticool700 = UIColor(red: 0.333, green: 0.039, blue: 0.663, alpha: 1)
+    public static let purpleMysticool600 = UIColor(red: 0.420, green: 0.086, blue: 0.792, alpha: 1)
+    public static let purpleMysticool500 = UIColor(red: 0.506, green: 0.165, blue: 0.906, alpha: 1)
+    public static let purpleMysticool450 = UIColor(red: 0.541, green: 0.224, blue: 0.980, alpha: 1)
+    public static let purpleMysticool400 = UIColor(red: 0.620, green: 0.408, blue: 1.000, alpha: 1)
+    public static let purpleMysticool300 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1)
+    public static let purpleMysticool200 = UIColor(red: 0.835, green: 0.780, blue: 1.000, alpha: 1)
+    public static let purpleMysticool100 = UIColor(red: 0.914, green: 0.894, blue: 1.000, alpha: 1)
+    public static let purpleMysticool50 = UIColor(red: 0.941, green: 0.929, blue: 1.000, alpha: 1)
+    public static let purpleMysticool0 = UIColor(red: 0.973, green: 0.969, blue: 1.000, alpha: 1)
+    public static let greenMatchacado900 = UIColor(red: 0.000, green: 0.149, blue: 0.102, alpha: 1)
+    public static let greenMatchacado800 = UIColor(red: 0.000, green: 0.188, blue: 0.125, alpha: 1)
+    public static let greenMatchacado700 = UIColor(red: 0.000, green: 0.259, blue: 0.173, alpha: 1)
+    public static let greenMatchacado600 = UIColor(red: 0.000, green: 0.373, blue: 0.243, alpha: 1)
+    public static let greenMatchacado500 = UIColor(red: 0.000, green: 0.529, blue: 0.325, alpha: 1)
+    public static let greenMatchacado450 = UIColor(red: 0.114, green: 0.678, blue: 0.396, alpha: 1)
+    public static let greenMatchacado400 = UIColor(red: 0.224, green: 0.827, blue: 0.467, alpha: 1)
+    public static let greenMatchacado300 = UIColor(red: 0.420, green: 0.925, blue: 0.549, alpha: 1)
+    public static let greenMatchacado200 = UIColor(red: 0.643, green: 0.976, blue: 0.675, alpha: 1)
+    public static let greenMatchacado100 = UIColor(red: 0.765, green: 0.976, blue: 0.761, alpha: 1)
+    public static let greenMatchacado50 = UIColor(red: 0.890, green: 0.980, blue: 0.882, alpha: 1)
+    public static let greenMatchacado0 = UIColor(red: 0.965, green: 0.992, blue: 0.961, alpha: 1)
+    public static let tealSpabattical900 = UIColor(red: 0.000, green: 0.204, blue: 0.251, alpha: 1)
+    public static let tealSpabattical800 = UIColor(red: 0.000, green: 0.314, blue: 0.384, alpha: 1)
+    public static let tealSpabattical700 = UIColor(red: 0.000, green: 0.361, blue: 0.384, alpha: 1)
+    public static let tealSpabattical600 = UIColor(red: 0.000, green: 0.420, blue: 0.424, alpha: 1)
+    public static let tealSpabattical500 = UIColor(red: 0.000, green: 0.522, blue: 0.486, alpha: 1)
+    public static let tealSpabattical450 = UIColor(red: 0.000, green: 0.600, blue: 0.565, alpha: 1)
+    public static let tealSpabattical400 = UIColor(red: 0.149, green: 0.753, blue: 0.706, alpha: 1)
+    public static let tealSpabattical300 = UIColor(red: 0.282, green: 0.835, blue: 0.776, alpha: 1)
+    public static let tealSpabattical200 = UIColor(red: 0.459, green: 0.894, blue: 0.835, alpha: 1)
+    public static let tealSpabattical100 = UIColor(red: 0.800, green: 0.965, blue: 0.933, alpha: 1)
+    public static let tealSpabattical50 = UIColor(red: 0.902, green: 0.980, blue: 0.961, alpha: 1)
+    public static let tealSpabattical0 = UIColor(red: 0.969, green: 0.992, blue: 0.988, alpha: 1)
+    public static let blueSkycicle900 = UIColor(red: 0.000, green: 0.161, blue: 0.400, alpha: 1)
+    public static let blueSkycicle800 = UIColor(red: 0.000, green: 0.235, blue: 0.588, alpha: 1)
+    public static let blueSkycicle700 = UIColor(red: 0.000, green: 0.294, blue: 0.663, alpha: 1)
+    public static let blueSkycicle600 = UIColor(red: 0.000, green: 0.373, blue: 0.796, alpha: 1)
+    public static let blueSkycicle500 = UIColor(red: 0.000, green: 0.455, blue: 0.910, alpha: 1)
+    public static let blueSkycicle450 = UIColor(red: 0.000, green: 0.486, blue: 1.000, alpha: 1)
+    public static let blueSkycicle400 = UIColor(red: 0.271, green: 0.639, blue: 0.996, alpha: 1)
+    public static let blueSkycicle300 = UIColor(red: 0.459, green: 0.749, blue: 1.000, alpha: 1)
+    public static let blueSkycicle200 = UIColor(red: 0.671, green: 0.859, blue: 1.000, alpha: 1)
+    public static let blueSkycicle100 = UIColor(red: 0.843, green: 0.929, blue: 1.000, alpha: 1)
+    public static let blueSkycicle50 = UIColor(red: 0.902, green: 0.957, blue: 1.000, alpha: 1)
+    public static let blueSkycicle0 = UIColor(red: 0.969, green: 0.984, blue: 1.000, alpha: 1)
+    public static let pinkFlaminglow900 = UIColor(red: 0.388, green: 0.008, blue: 0.200, alpha: 1)
+    public static let pinkFlaminglow800 = UIColor(red: 0.510, green: 0.020, blue: 0.243, alpha: 1)
+    public static let pinkFlaminglow700 = UIColor(red: 0.639, green: 0.047, blue: 0.290, alpha: 1)
+    public static let pinkFlaminglow600 = UIColor(red: 0.765, green: 0.098, blue: 0.322, alpha: 1)
+    public static let pinkFlaminglow500 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
+    public static let pinkFlaminglow450 = UIColor(red: 0.933, green: 0.216, blue: 0.416, alpha: 1)
+    public static let pinkFlaminglow400 = UIColor(red: 0.969, green: 0.396, blue: 0.576, alpha: 1)
+    public static let pinkFlaminglow300 = UIColor(red: 0.996, green: 0.557, blue: 0.694, alpha: 1)
+    public static let pinkFlaminglow200 = UIColor(red: 1.000, green: 0.745, blue: 0.824, alpha: 1)
+    public static let pinkFlaminglow100 = UIColor(red: 1.000, green: 0.875, blue: 0.914, alpha: 1)
+    public static let pinkFlaminglow50 = UIColor(red: 1.000, green: 0.922, blue: 0.945, alpha: 1)
+    public static let pinkFlaminglow0 = UIColor(red: 1.000, green: 0.973, blue: 0.980, alpha: 1)
+    public static let redPushpin900 = UIColor(red: 0.400, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin800 = UIColor(red: 0.502, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin700 = UIColor(red: 0.608, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin600 = UIColor(red: 0.714, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin500 = UIColor(red: 0.800, green: 0.000, blue: 0.000, alpha: 1)
+    public static let redPushpin450 = UIColor(red: 0.902, green: 0.000, blue: 0.137, alpha: 1)
+    public static let redPushpin400 = UIColor(red: 0.922, green: 0.259, blue: 0.259, alpha: 1)
+    public static let redPushpin300 = UIColor(red: 0.957, green: 0.443, blue: 0.443, alpha: 1)
+    public static let redPushpin200 = UIColor(red: 0.988, green: 0.733, blue: 0.733, alpha: 1)
+    public static let redPushpin100 = UIColor(red: 1.000, green: 0.878, blue: 0.878, alpha: 1)
+    public static let redPushpin50 = UIColor(red: 1.000, green: 0.922, blue: 0.922, alpha: 1)
+    public static let redPushpin0 = UIColor(red: 1.000, green: 0.969, blue: 0.969, alpha: 1)
+    public static let dataVisualizationErrorText = redPushpin400 
+    public static let dataVisualizationErrorGraph = redPushpin300 
+    public static let dataVisualizationSuccessText = greenMatchacado400 
+    public static let dataVisualizationSuccessGraph = greenMatchacado300 
+    public static let dataVisualization09 = orangeFiretini450 
+    public static let dataVisualization08 = purpleMysticool500 
+    public static let dataVisualization07 = greenMatchacado200 
+    public static let dataVisualization06 = pinkFlaminglow500 
+    public static let dataVisualization05 = blueSkycicle300 
+    public static let dataVisualization02 = tealSpabattical200 
+    public static let dataVisualization01 = blueSkycicle600 
+    public static let dataVisualization12 = orangeFiretini200 
+    public static let dataVisualization11 = pinkFlaminglow400 
+    public static let borderError = redPushpin300 
+    public static let borderDefault = grayRoboflow300 
+    public static let borderContainer = grayRoboflow500 
+    public static let backgroundElevationRaised = grayRoboflow600 
+    public static let backgroundElevationFloating = grayRoboflow700 
+    public static let backgroundElevationAccent = grayRoboflow800 
+    public static let backgroundLight = whiteMochimalist0 
+    public static let backgroundDark = blackCosmicore900 
+    public static let backgroundEducation = blueSkycicle300 
+    public static let backgroundBrand = redPushpin450 
+    public static let backgroundInverseStrong = grayRoboflow200 
+    public static let backgroundInverseBase = grayRoboflow50 
+    public static let backgroundSelectedWeak = grayRoboflow400 
+    public static let backgroundSelectedStrong = grayRoboflow700 
+    public static let backgroundSelectedBase = grayRoboflow200 
+    public static let backgroundTertiaryWeak = grayRoboflow300 
+    public static let backgroundTertiaryStrong = grayRoboflow700 
+    public static let backgroundTertiaryBase = grayRoboflow300 
+    public static let backgroundSecondaryWeak = grayRoboflow300 
+    public static let backgroundSecondaryStrong = grayRoboflow400 
+    public static let backgroundSecondaryBase = grayRoboflow500 
+    public static let backgroundPrimaryWeak = redPushpin300 
+    public static let backgroundPrimaryStrong = redPushpin600 
+    public static let backgroundPrimaryBase = redPushpin450 
+    public static let backgroundShopping = blueSkycicle300 
+    public static let backgroundNeutral = grayRoboflow300 
+    public static let backgroundRecommendationWeak = purpleMysticool700 
+    public static let backgroundRecommendationBase = purpleMysticool300 
+    public static let backgroundSuccessWeak = greenMatchacado700 
+    public static let backgroundSuccessBase = greenMatchacado300 
+    public static let backgroundWarningWeak = yellowCaramellow800 
+    public static let backgroundWarningBase = yellowCaramellow300 
+    public static let backgroundErrorWeak = redPushpin900 
+    public static let backgroundErrorBase = redPushpin300 
+    public static let backgroundInfoStrong = blueSkycicle200 
+    public static let backgroundInfoWeak = blueSkycicle800 
+    public static let backgroundInfoBase = blueSkycicle300 
+    public static let backgroundDefault = blackCosmicore900 
+    public static let iconDark = blackCosmicore900 
+    public static let iconLight = whiteMochimalist0 
+    public static let iconBrandPrimary = redPushpin450 
+    public static let iconShopping = blueSkycicle300 
+    public static let iconInverse = blackCosmicore900 
+    public static let iconRecommendation = purpleMysticool300 
+    public static let iconInfo = blueSkycicle300 
+    public static let iconWarning = yellowCaramellow400 
+    public static let iconError = redPushpin300 
+    public static let iconDisabled = grayRoboflow600 
+    public static let iconSuccess = greenMatchacado400 
+    public static let iconSubtle = grayRoboflow400 
+    public static let iconDefault = whiteMochimalist0 
+    public static let textLink = blueSkycicle400 
+    public static let textShopping = blueSkycicle300 
+    public static let textLight = whiteMochimalist0 
+    public static let textDark = blackCosmicore900 
+    public static let textInverse = blackCosmicore900 
+    public static let textWarning = yellowCaramellow400 
+    public static let textError = redPushpin300 
+    public static let textDisabled = grayRoboflow600 
+    public static let textSuccess = greenMatchacado400 
+    public static let textSubtle = grayRoboflow400 
+    public static let textDefault = whiteMochimalist0 
+    public static let dataVisualizationPrimary = dataVisualization05 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensElevation.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensElevation {
+    public static let raisedBottom = 0px -2px 8px 0px #000000 0.12 
+    public static let raisedTop = 0px 2px 8px 0px #000000 0.12 
+    public static let floating = 0px 0px 8px 0px #000000 0.1 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensElevationDark.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensElevationDark {
+    public static let raisedBottom = 0px -0.5px 0px 0px #F9F9F9 0 
+    public static let raisedTop = 0px 0.5px 0px 0px #F9F9F9 0 
+    public static let floating = none 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensFontFamily.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensFontFamily {
+    public static let familyCode = \\"SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace\\" 
+    public static let familyDefaultJapanese = \\"'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\" 
+    public static let familyDefaultLatin = \\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\" 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensFontSize.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensFontSize {
+    public static let size600 = \\"36px\\"
+    public static let size500 = \\"28px\\"
+    public static let size400 = \\"20px\\"
+    public static let size300 = \\"16px\\"
+    public static let size200 = \\"14px\\"
+    public static let size100 = \\"12px\\"
+}
+",
+  "dist/ios-swift/classic/GestaltTokensFontWeight.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensFontWeight {
+    public static let weightBold = \\"700\\" 
+    public static let weightSemibold = \\"600\\" 
+    public static let weightNormal = \\"400\\" 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensOpacity.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensOpacity {
+    public static let 500 = 0.9 
+    public static let 400 = 0.8 
+    public static let 300 = 0.4 
+    public static let 200 = 0.2 
+    public static let 100 = 0.04 
+    public static let 0 = 0 
+}
+",
+  "dist/ios-swift/classic/GestaltTokensRounding.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensRounding {
+    public static let circle = 50%
+    public static let pill = 999px
+    public static let 800 = 32px
+    public static let 700 = 28px
+    public static let 600 = 24px
+    public static let 500 = 20px
+    public static let 400 = 16px
+    public static let 300 = 12px
+    public static let 200 = 8px
+    public static let 100 = 4px
+    public static let 0 = 0px
+}
+",
+  "dist/ios-swift/classic/GestaltTokensSpace.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensSpace {
+    public static let negative1600 = -64px
+    public static let negative1500 = -60px
+    public static let negative1400 = -56px
+    public static let negative1300 = -52px
+    public static let negative1200 = -48px
+    public static let negative1100 = -44px
+    public static let negative1000 = -40px
+    public static let negative900 = -36px
+    public static let negative800 = -32px
+    public static let negative700 = -28px
+    public static let negative600 = -24px
+    public static let negative500 = -20px
+    public static let negative400 = -16px
+    public static let negative300 = -12px
+    public static let negative200 = -8px
+    public static let negative100 = -4px
+    public static let 1600 = 64px
+    public static let 1500 = 60px
+    public static let 1400 = 56px
+    public static let 1300 = 52px
+    public static let 1200 = 48px
+    public static let 1100 = 44px
+    public static let 1000 = 40px
+    public static let 900 = 36px
+    public static let 800 = 32px
+    public static let 700 = 28px
+    public static let 600 = 24px
+    public static let 500 = 20px
+    public static let 400 = 16px
+    public static let 300 = 12px
+    public static let 200 = 8px
+    public static let 100 = 4px
+    public static let 0 = 0px
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensColorDarkVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensColorVR {
+    public static let semaBackgroundTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let baseDataviz09 = UIColor(red: 0.949, green: 0.408, blue: 0.122, alpha: 1)
+    public static let baseDataviz08 = UIColor(red: 0.251, green: 0.012, blue: 0.529, alpha: 1)
+    public static let baseDataviz07 = UIColor(red: 0.000, green: 0.671, blue: 0.333, alpha: 1)
+    public static let baseDataviz06 = UIColor(red: 1.000, green: 0.325, blue: 0.514, alpha: 1)
+    public static let baseDataviz05 = UIColor(red: 0.000, green: 0.506, blue: 0.996, alpha: 1)
+    public static let baseDataviz04 = UIColor(red: 0.820, green: 0.467, blue: 0.067, alpha: 1)
+    public static let baseDataviz03 = UIColor(red: 0.573, green: 0.290, blue: 0.969, alpha: 1)
+    public static let baseDataviz02 = UIColor(red: 0.067, green: 0.651, blue: 0.612, alpha: 1)
+    public static let baseDataviz01 = UIColor(red: 0.000, green: 0.235, blue: 0.588, alpha: 1)
+    public static let baseDataviz24 = UIColor(red: 1.000, green: 0.773, blue: 0.561, alpha: 1)
+    public static let baseDataviz23 = UIColor(red: 0.969, green: 0.396, blue: 0.576, alpha: 1)
+    public static let baseDataviz22 = UIColor(red: 0.000, green: 0.478, blue: 0.447, alpha: 1)
+    public static let baseDataviz21 = UIColor(red: 1.000, green: 0.357, blue: 0.271, alpha: 1)
+    public static let baseDataviz20 = UIColor(red: 0.506, green: 0.165, blue: 0.906, alpha: 1)
+    public static let baseDataviz19 = UIColor(red: 0.643, green: 0.976, blue: 0.675, alpha: 1)
+    public static let baseDataviz18 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
+    public static let baseDataviz17 = UIColor(red: 0.459, green: 0.749, blue: 1.000, alpha: 1)
+    public static let baseDataviz16 = UIColor(red: 0.992, green: 0.651, blue: 0.000, alpha: 1)
+    public static let baseDataviz15 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1)
+    public static let baseDataviz14 = UIColor(red: 0.459, green: 0.894, blue: 0.835, alpha: 1)
+    public static let baseDataviz13 = UIColor(red: 0.000, green: 0.373, blue: 0.796, alpha: 1)
+    public static let baseDataviz12 = UIColor(red: 0.400, green: 0.055, blue: 0.000, alpha: 1)
+    public static let baseDataviz11 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
+    public static let baseDataviz10 = UIColor(red: 0.000, green: 0.314, blue: 0.384, alpha: 1)
+    public static let baseTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let baseOrange500 = UIColor(red: 0.608, green: 0.294, blue: 0.110, alpha: 1)
+    public static let baseOrange400 = UIColor(red: 0.941, green: 0.427, blue: 0.133, alpha: 1)
+    public static let baseOrange300 = UIColor(red: 0.996, green: 0.635, blue: 0.224, alpha: 1)
+    public static let baseOrange200 = UIColor(red: 0.984, green: 0.773, blue: 0.357, alpha: 1)
+    public static let baseOrange100 = UIColor(red: 0.992, green: 0.906, blue: 0.788, alpha: 1)
+    public static let baseGreen500 = UIColor(red: 0.149, green: 0.349, blue: 0.149, alpha: 1)
+    public static let baseGreen400 = UIColor(red: 0.318, green: 0.490, blue: 0.231, alpha: 1)
+    public static let baseGreen300 = UIColor(red: 0.514, green: 0.639, blue: 0.263, alpha: 1)
+    public static let baseGreen200 = UIColor(red: 0.659, green: 0.733, blue: 0.388, alpha: 1)
+    public static let baseGreen100 = UIColor(red: 0.816, green: 0.886, blue: 0.659, alpha: 1)
+    public static let baseBlue500 = UIColor(red: 0.129, green: 0.365, blue: 0.510, alpha: 1)
+    public static let baseBlue400 = UIColor(red: 0.000, green: 0.490, blue: 0.722, alpha: 1)
+    public static let baseBlue300 = UIColor(red: 0.149, green: 0.549, blue: 0.749, alpha: 1)
+    public static let baseBlue200 = UIColor(red: 0.486, green: 0.745, blue: 0.871, alpha: 1)
+    public static let baseBlue100 = UIColor(red: 0.773, green: 0.918, blue: 0.969, alpha: 1)
+    public static let basePurple500 = UIColor(red: 0.427, green: 0.259, blue: 0.439, alpha: 1)
+    public static let basePurple400 = UIColor(red: 0.561, green: 0.275, blue: 0.588, alpha: 1)
+    public static let basePurple300 = UIColor(red: 0.788, green: 0.341, blue: 0.741, alpha: 1)
+    public static let basePurple200 = UIColor(red: 0.937, green: 0.678, blue: 0.937, alpha: 1)
+    public static let basePurple100 = UIColor(red: 0.988, green: 0.847, blue: 0.988, alpha: 1)
+    public static let baseRed500 = UIColor(red: 0.541, green: 0.059, blue: 0.059, alpha: 1)
+    public static let baseRed400 = UIColor(red: 0.698, green: 0.000, blue: 0.102, alpha: 1)
+    public static let baseRed300 = UIColor(red: 0.902, green: 0.000, blue: 0.137, alpha: 1)
+    public static let baseRed200 = UIColor(red: 1.000, green: 0.580, blue: 0.580, alpha: 1)
+    public static let baseRed100 = UIColor(red: 1.000, green: 0.827, blue: 0.820, alpha: 1)
+    public static let baseGrayscale500 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1)
+    public static let baseGrayscale450 = UIColor(red: 0.110, green: 0.106, blue: 0.106, alpha: 1)
+    public static let baseGrayscale400 = UIColor(red: 0.180, green: 0.180, blue: 0.176, alpha: 1)
+    public static let baseGrayscale350 = UIColor(red: 0.298, green: 0.298, blue: 0.290, alpha: 1)
+    public static let baseGrayscale300 = UIColor(red: 0.388, green: 0.388, blue: 0.380, alpha: 1)
+    public static let baseGrayscale250 = UIColor(red: 0.459, green: 0.459, blue: 0.439, alpha: 1)
+    public static let baseGrayscale200 = UIColor(red: 0.588, green: 0.573, blue: 0.573, alpha: 1)
+    public static let baseGrayscale150 = UIColor(red: 0.780, green: 0.776, blue: 0.757, alpha: 1)
+    public static let baseGrayscale100 = UIColor(red: 0.910, green: 0.906, blue: 0.882, alpha: 1)
+    public static let baseGrayscale50 = UIColor(red: 0.961, green: 0.957, blue: 0.929, alpha: 1)
+    public static let baseGrayscale25 = UIColor(red: 1.000, green: 0.996, blue: 0.969, alpha: 1)
+    public static let baseGrayscale0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
+    public static let semaDataviz09 = baseDataviz21
+    public static let semaDataviz08 = baseDataviz20
+    public static let semaDataviz07 = baseDataviz19
+    public static let semaDataviz06 = baseDataviz18
+    public static let semaDataviz05 = baseDataviz17
+    public static let semaDataviz04 = baseDataviz16
+    public static let semaDataviz03 = baseDataviz15
+    public static let semaDataviz02 = baseDataviz14
+    public static let semaDataviz01 = baseDataviz13
+    public static let semaDataviz12 = baseDataviz24
+    public static let semaDataviz11 = baseDataviz23
+    public static let semaDataviz10 = baseDataviz22
+    public static let semaIconInverse = baseGrayscale500
+    public static let semaIconLight = baseGrayscale0
+    public static let semaIconDark = baseGrayscale500
+    public static let semaIconNeutral = baseGrayscale100
+    public static let semaIconRecommendation = basePurple100
+    public static let semaIconWarning = baseOrange100
+    public static let semaIconError = baseRed100
+    public static let semaIconPrimary = baseRed300
+    public static let semaIconSuccess = baseGreen100
+    public static let semaIconInfo = baseBlue100
+    public static let semaIconDisabled = baseGrayscale350
+    public static let semaIconSubtle = baseGrayscale200
+    public static let semaIconDefault = baseGrayscale0
+    public static let semaTextInverse = baseGrayscale500
+    public static let semaTextLight = baseGrayscale0
+    public static let semaTextDark = baseGrayscale500
+    public static let semaTextNeutral = baseGrayscale100
+    public static let semaTextRecommendation = basePurple100
+    public static let semaTextWarning = baseOrange100
+    public static let semaTextError = baseRed100
+    public static let semaTextPrimary = baseRed300
+    public static let semaTextSuccess = baseGreen100
+    public static let semaTextInfo = baseBlue100
+    public static let semaTextLink = baseBlue100
+    public static let semaTextDisabled = baseGrayscale350
+    public static let semaTextSubtle = baseGrayscale200
+    public static let semaTextDefault = baseGrayscale0
+    public static let semaBorderInverse = baseGrayscale500
+    public static let semaBorderError = baseRed200
+    public static let semaBorderSuccess = baseGreen200
+    public static let semaBorderFocus = baseBlue400
+    public static let semaBorderDisabled = baseGrayscale350
+    public static let semaBorderSelected = baseGrayscale0
+    public static let semaBorderInteractive = baseGrayscale150
+    public static let semaBorderDecorative = baseGrayscale250
+    public static let semaBackgroundElevation = baseGrayscale400
+    public static let semaBackgroundScrim = baseGrayscale450
+    public static let semaBackgroundInverseStrong = baseGrayscale100
+    public static let semaBackgroundInverseDefault = baseGrayscale0
+    public static let semaBackgroundSelectedWeak = baseGrayscale200
+    public static let semaBackgroundSelectedStrong = baseGrayscale400
+    public static let semaBackgroundSelectedDefault = baseGrayscale100
+    public static let semaBackgroundTertiaryWeak = baseGrayscale150
+    public static let semaBackgroundTertiaryStrong = baseGrayscale400
+    public static let semaBackgroundTertiaryDefault = baseGrayscale150
+    public static let semaBackgroundSecondaryWeak = baseGrayscale150
+    public static let semaBackgroundSecondaryStrong = baseGrayscale200
+    public static let semaBackgroundSecondaryDefault = baseGrayscale250
+    public static let semaBackgroundPrimaryWeak = baseRed200
+    public static let semaBackgroundPrimaryStrong = baseRed400
+    public static let semaBackgroundPrimaryDefault = baseRed300
+    public static let semaBackgroundWarningWeak = baseOrange500
+    public static let semaBackgroundWarningDefault = baseOrange200
+    public static let semaBackgroundRecommendationWeak = basePurple500
+    public static let semaBackgroundRecommendationDefault = basePurple200
+    public static let semaBackgroundSuccessWeak = baseGreen500
+    public static let semaBackgroundSuccessDefault = baseGreen200
+    public static let semaBackgroundNeutralWeak = baseGrayscale300
+    public static let semaBackgroundNeutralDefault = baseGrayscale150
+    public static let semaBackgroundInfoStrong = baseBlue100
+    public static let semaBackgroundInfoWeak = baseBlue500
+    public static let semaBackgroundInfoDefault = baseBlue200
+    public static let semaBackgroundErrorWeak = baseRed500
+    public static let semaBackgroundErrorDefault = baseRed200
+    public static let semaBackgroundLight = baseGrayscale0
+    public static let semaBackgroundDark = baseGrayscale500
+    public static let semaBackgroundWashInFeedOverlay = baseGrayscale250
+    public static let semaBackgroundWashPinOverlay = baseGrayscale500
+    public static let semaBackgroundWashComponentOverlay = baseGrayscale500
+    public static let semaBackgroundWashLight = baseGrayscale0
+    public static let semaBackgroundWashDark = baseGrayscale500
+    public static let semaBackgroundEducation = baseBlue200
+    public static let semaBackgroundDisabled = baseGrayscale400
+    public static let semaBackgroundDefault = baseGrayscale500
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensColorVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensColorVR {
+    public static let semaBackgroundTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let baseDataviz09 = UIColor(red: 0.949, green: 0.408, blue: 0.122, alpha: 1)
+    public static let baseDataviz08 = UIColor(red: 0.251, green: 0.012, blue: 0.529, alpha: 1)
+    public static let baseDataviz07 = UIColor(red: 0.000, green: 0.671, blue: 0.333, alpha: 1)
+    public static let baseDataviz06 = UIColor(red: 1.000, green: 0.325, blue: 0.514, alpha: 1)
+    public static let baseDataviz05 = UIColor(red: 0.000, green: 0.506, blue: 0.996, alpha: 1)
+    public static let baseDataviz04 = UIColor(red: 0.820, green: 0.467, blue: 0.067, alpha: 1)
+    public static let baseDataviz03 = UIColor(red: 0.573, green: 0.290, blue: 0.969, alpha: 1)
+    public static let baseDataviz02 = UIColor(red: 0.067, green: 0.651, blue: 0.612, alpha: 1)
+    public static let baseDataviz01 = UIColor(red: 0.000, green: 0.235, blue: 0.588, alpha: 1)
+    public static let baseDataviz24 = UIColor(red: 1.000, green: 0.773, blue: 0.561, alpha: 1)
+    public static let baseDataviz23 = UIColor(red: 0.969, green: 0.396, blue: 0.576, alpha: 1)
+    public static let baseDataviz22 = UIColor(red: 0.000, green: 0.478, blue: 0.447, alpha: 1)
+    public static let baseDataviz21 = UIColor(red: 1.000, green: 0.357, blue: 0.271, alpha: 1)
+    public static let baseDataviz20 = UIColor(red: 0.506, green: 0.165, blue: 0.906, alpha: 1)
+    public static let baseDataviz19 = UIColor(red: 0.643, green: 0.976, blue: 0.675, alpha: 1)
+    public static let baseDataviz18 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
+    public static let baseDataviz17 = UIColor(red: 0.459, green: 0.749, blue: 1.000, alpha: 1)
+    public static let baseDataviz16 = UIColor(red: 0.992, green: 0.651, blue: 0.000, alpha: 1)
+    public static let baseDataviz15 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1)
+    public static let baseDataviz14 = UIColor(red: 0.459, green: 0.894, blue: 0.835, alpha: 1)
+    public static let baseDataviz13 = UIColor(red: 0.000, green: 0.373, blue: 0.796, alpha: 1)
+    public static let baseDataviz12 = UIColor(red: 0.400, green: 0.055, blue: 0.000, alpha: 1)
+    public static let baseDataviz11 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
+    public static let baseDataviz10 = UIColor(red: 0.000, green: 0.314, blue: 0.384, alpha: 1)
+    public static let baseTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let baseOrange500 = UIColor(red: 0.608, green: 0.294, blue: 0.110, alpha: 1)
+    public static let baseOrange400 = UIColor(red: 0.941, green: 0.427, blue: 0.133, alpha: 1)
+    public static let baseOrange300 = UIColor(red: 0.996, green: 0.635, blue: 0.224, alpha: 1)
+    public static let baseOrange200 = UIColor(red: 0.984, green: 0.773, blue: 0.357, alpha: 1)
+    public static let baseOrange100 = UIColor(red: 0.992, green: 0.906, blue: 0.788, alpha: 1)
+    public static let baseGreen500 = UIColor(red: 0.149, green: 0.349, blue: 0.149, alpha: 1)
+    public static let baseGreen400 = UIColor(red: 0.318, green: 0.490, blue: 0.231, alpha: 1)
+    public static let baseGreen300 = UIColor(red: 0.514, green: 0.639, blue: 0.263, alpha: 1)
+    public static let baseGreen200 = UIColor(red: 0.659, green: 0.733, blue: 0.388, alpha: 1)
+    public static let baseGreen100 = UIColor(red: 0.816, green: 0.886, blue: 0.659, alpha: 1)
+    public static let baseBlue500 = UIColor(red: 0.129, green: 0.365, blue: 0.510, alpha: 1)
+    public static let baseBlue400 = UIColor(red: 0.000, green: 0.490, blue: 0.722, alpha: 1)
+    public static let baseBlue300 = UIColor(red: 0.149, green: 0.549, blue: 0.749, alpha: 1)
+    public static let baseBlue200 = UIColor(red: 0.486, green: 0.745, blue: 0.871, alpha: 1)
+    public static let baseBlue100 = UIColor(red: 0.773, green: 0.918, blue: 0.969, alpha: 1)
+    public static let basePurple500 = UIColor(red: 0.427, green: 0.259, blue: 0.439, alpha: 1)
+    public static let basePurple400 = UIColor(red: 0.561, green: 0.275, blue: 0.588, alpha: 1)
+    public static let basePurple300 = UIColor(red: 0.788, green: 0.341, blue: 0.741, alpha: 1)
+    public static let basePurple200 = UIColor(red: 0.937, green: 0.678, blue: 0.937, alpha: 1)
+    public static let basePurple100 = UIColor(red: 0.988, green: 0.847, blue: 0.988, alpha: 1)
+    public static let baseRed500 = UIColor(red: 0.541, green: 0.059, blue: 0.059, alpha: 1)
+    public static let baseRed400 = UIColor(red: 0.698, green: 0.000, blue: 0.102, alpha: 1)
+    public static let baseRed300 = UIColor(red: 0.902, green: 0.000, blue: 0.137, alpha: 1)
+    public static let baseRed200 = UIColor(red: 1.000, green: 0.580, blue: 0.580, alpha: 1)
+    public static let baseRed100 = UIColor(red: 1.000, green: 0.827, blue: 0.820, alpha: 1)
+    public static let baseGrayscale500 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1)
+    public static let baseGrayscale450 = UIColor(red: 0.110, green: 0.106, blue: 0.106, alpha: 1)
+    public static let baseGrayscale400 = UIColor(red: 0.180, green: 0.180, blue: 0.176, alpha: 1)
+    public static let baseGrayscale350 = UIColor(red: 0.298, green: 0.298, blue: 0.290, alpha: 1)
+    public static let baseGrayscale300 = UIColor(red: 0.388, green: 0.388, blue: 0.380, alpha: 1)
+    public static let baseGrayscale250 = UIColor(red: 0.459, green: 0.459, blue: 0.439, alpha: 1)
+    public static let baseGrayscale200 = UIColor(red: 0.588, green: 0.573, blue: 0.573, alpha: 1)
+    public static let baseGrayscale150 = UIColor(red: 0.780, green: 0.776, blue: 0.757, alpha: 1)
+    public static let baseGrayscale100 = UIColor(red: 0.910, green: 0.906, blue: 0.882, alpha: 1)
+    public static let baseGrayscale50 = UIColor(red: 0.961, green: 0.957, blue: 0.929, alpha: 1)
+    public static let baseGrayscale25 = UIColor(red: 1.000, green: 0.996, blue: 0.969, alpha: 1)
+    public static let baseGrayscale0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
+    public static let semaDataviz09 = baseDataviz09
+    public static let semaDataviz08 = baseDataviz08
+    public static let semaDataviz07 = baseDataviz07
+    public static let semaDataviz06 = baseDataviz06
+    public static let semaDataviz05 = baseDataviz05
+    public static let semaDataviz04 = baseDataviz04
+    public static let semaDataviz03 = baseDataviz03
+    public static let semaDataviz02 = baseDataviz02
+    public static let semaDataviz01 = baseDataviz01
+    public static let semaDataviz12 = baseDataviz12
+    public static let semaDataviz11 = baseDataviz11
+    public static let semaDataviz10 = baseDataviz10
+    public static let semaIconInverse = baseGrayscale0
+    public static let semaIconLight = baseGrayscale0
+    public static let semaIconDark = baseGrayscale500
+    public static let semaIconNeutral = baseGrayscale350
+    public static let semaIconRecommendation = basePurple500
+    public static let semaIconWarning = baseOrange500
+    public static let semaIconError = baseRed500
+    public static let semaIconPrimary = baseRed300
+    public static let semaIconSuccess = baseGreen500
+    public static let semaIconInfo = baseBlue500
+    public static let semaIconDisabled = baseGrayscale200
+    public static let semaIconSubtle = baseGrayscale300
+    public static let semaIconDefault = baseGrayscale500
+    public static let semaTextInverse = baseGrayscale0
+    public static let semaTextLight = baseGrayscale0
+    public static let semaTextDark = baseGrayscale500
+    public static let semaTextNeutral = baseGrayscale350
+    public static let semaTextRecommendation = basePurple500
+    public static let semaTextWarning = baseOrange500
+    public static let semaTextError = baseRed500
+    public static let semaTextPrimary = baseRed300
+    public static let semaTextSuccess = baseGreen500
+    public static let semaTextInfo = baseBlue500
+    public static let semaTextLink = baseBlue500
+    public static let semaTextDisabled = baseGrayscale200
+    public static let semaTextSubtle = baseGrayscale300
+    public static let semaTextDefault = baseGrayscale500
+    public static let semaBorderInverse = baseGrayscale0
+    public static let semaBorderError = baseRed400
+    public static let semaBorderSuccess = baseGreen400
+    public static let semaBorderFocus = baseBlue400
+    public static let semaBorderDisabled = baseGrayscale150
+    public static let semaBorderSelected = baseGrayscale500
+    public static let semaBorderInteractive = baseGrayscale250
+    public static let semaBorderDecorative = baseGrayscale150
+    public static let semaBackgroundElevation = baseGrayscale0
+    public static let semaBackgroundScrim = baseGrayscale50
+    public static let semaBackgroundInverseStrong = baseGrayscale100
+    public static let semaBackgroundInverseDefault = baseGrayscale500
+    public static let semaBackgroundSelectedWeak = baseGrayscale200
+    public static let semaBackgroundSelectedStrong = baseGrayscale400
+    public static let semaBackgroundSelectedDefault = baseGrayscale500
+    public static let semaBackgroundTertiaryWeak = baseGrayscale150
+    public static let semaBackgroundTertiaryStrong = baseGrayscale400
+    public static let semaBackgroundTertiaryDefault = baseGrayscale250
+    public static let semaBackgroundSecondaryWeak = baseGrayscale150
+    public static let semaBackgroundSecondaryStrong = baseGrayscale200
+    public static let semaBackgroundSecondaryDefault = baseGrayscale100
+    public static let semaBackgroundPrimaryWeak = baseRed200
+    public static let semaBackgroundPrimaryStrong = baseRed400
+    public static let semaBackgroundPrimaryDefault = baseRed300
+    public static let semaBackgroundWarningWeak = baseOrange100
+    public static let semaBackgroundWarningDefault = baseOrange500
+    public static let semaBackgroundRecommendationWeak = basePurple100
+    public static let semaBackgroundRecommendationDefault = basePurple400
+    public static let semaBackgroundSuccessWeak = baseGreen100
+    public static let semaBackgroundSuccessDefault = baseGreen400
+    public static let semaBackgroundNeutralWeak = baseGrayscale150
+    public static let semaBackgroundNeutralDefault = baseGrayscale250
+    public static let semaBackgroundInfoStrong = baseBlue400
+    public static let semaBackgroundInfoWeak = baseBlue100
+    public static let semaBackgroundInfoDefault = baseBlue400
+    public static let semaBackgroundErrorWeak = baseRed100
+    public static let semaBackgroundErrorDefault = baseRed400
+    public static let semaBackgroundLight = baseGrayscale0
+    public static let semaBackgroundDark = baseGrayscale500
+    public static let semaBackgroundWashInFeedOverlay = baseGrayscale250
+    public static let semaBackgroundWashPinOverlay = baseGrayscale500
+    public static let semaBackgroundWashComponentOverlay = baseGrayscale0
+    public static let semaBackgroundWashLight = baseGrayscale0
+    public static let semaBackgroundWashDark = baseGrayscale500
+    public static let semaBackgroundEducation = baseBlue400
+    public static let semaBackgroundDisabled = baseGrayscale100
+    public static let semaBackgroundDefault = baseGrayscale0
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensElevationDarkVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensElevationDarkVR {
+    public static let base350 = 0px -2px 8px 0px #000000 0.3, 0px -1px 2px 0px #000000 0.3
+    public static let base325 = 0px 2px 8px 0px #000000 0.3, 0px 1px 2px 0px #000000 0.3, 0px 1px 2px 0px #000000 0.06
+    public static let base300 = 0px 1px 6px 0.5px #000000 0.3, 0px 1px 2px 0px #000000 0.3
+    public static let base200 = 0px 4px 16px 0px #000000 0.2, 0px 1px 4px 0px #000000 0.2
+    public static let base100 = 0px 1px 2px 0px #000000 0.3, 0px 0px 1px 0px #000000 0.28
+    public static let semaRaisedBottom = base350
+    public static let semaRaisedTop = base325
+    public static let semaRaisedDefault = base300
+    public static let semaFloating = base200
+    public static let semaSurface = base100
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensElevationVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensElevationVR {
+    public static let base350 = 0px -1px 0px 0.5px #000000 0.06, 0px -2px 8px 0px #000000 0.12, 0px -1px 2px 0px #000000 0.06
+    public static let base325 = 0px 1px 0px 0.5px #000000 0.06, 0px 2px 8px 0px #000000 0.12, 0px 1px 2px 0px #000000 0.06
+    public static let base300 = 0px 0px 0px 0.5px #000000 0.6, 0px 1px 6px 0px #000000 0.1, 0px 1px 2px 0px #000000 0.06
+    public static let base200 = 0px 4px 16px 0px #000000 0.1, 0px 1px 4px 0px #000000 0.8
+    public static let base100 = 0px 1px 2px 0px #000000 0.1, 0px 0px 1px 0px #000000 0.08
+    public static let semaRaisedBottom = base350
+    public static let semaRaisedTop = base325
+    public static let semaRaisedDefault = base300
+    public static let semaFloating = base200
+    public static let semaSurface = base100
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensFontFamilyVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensFontFamilyVR {
+    public static let baseFamilyCode = \\"SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace\\" 
+    public static let baseFamilyDefaultJapanese = \\"'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\" 
+    public static let baseFamilyDefaultLatin = \\"'Pin-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\"
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensFontSizeVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensFontSizeVR {
+    public static let baseSize36 = \\"36px\\"
+    public static let baseSize28 = \\"28px\\"
+    public static let baseSize20 = \\"20px\\"
+    public static let baseSize16 = \\"16px\\"
+    public static let baseSize14 = \\"14px\\"
+    public static let baseSize12 = \\"12px\\"
+    public static let semaSizeUiLg = baseSize20
+    public static let semaSizeUiMd = baseSize16
+    public static let semaSizeUiSm = baseSize14
+    public static let semaSizeUiXs = baseSize12
+    public static let semaSizeBodyLg = baseSize20
+    public static let semaSizeBodyMd = baseSize16
+    public static let semaSizeBodySm = baseSize14
+    public static let semaSizeBodyXs = baseSize12
+    public static let semaSizeHeadingLg = baseSize36
+    public static let semaSizeHeadingMd = baseSize28
+    public static let semaSizeHeadingSm = baseSize20
+    public static let semaSizeHeadingXs = baseSize16
+    public static let semaSizeHeadingXxs = baseSize14
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensFontWeightVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensFontWeightVR {
+    public static let baseWeight700 = \\"600\\"
+    public static let baseWeight500 = \\"500\\"
+    public static let baseWeight400 = \\"400\\"
+    public static let semaWeightUi = baseWeight500
+    public static let semaWeightBody = baseWeight400
+    public static let semaWeightHeadingMedium = baseWeight500
+    public static let semaWeightHeadingBold = baseWeight700
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensOpacityVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensOpacityVR {
+    public static let base90 = 0.9
+    public static let base80 = 0.8
+    public static let base40 = 0.4
+    public static let base20 = 0.2
+    public static let base4 = 0.04
+    public static let base0 = 0
+    public static let semaHeavy = base90
+    public static let semaOverlay = base80
+    public static let semaMedium = base40
+    public static let semaLight = base20
+    public static let semaPinWash = base4
+    public static let semaTransparent = base0
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensRoundingVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensRoundingVR {
+    public static let baseCircle = 50%
+    public static let base999 = 999px
+    public static let base32 = 32px
+    public static let base28 = 28px
+    public static let base24 = 24px
+    public static let base20 = 20px
+    public static let base16 = 16px
+    public static let base12 = 12px
+    public static let base8 = 8px
+    public static let base4 = 4px
+    public static let base0 = 0px
+    public static let semaCircle = baseCircle
+    public static let semaXs = base4
+    public static let semaSm = base8
+    public static let semaMd = base12
+    public static let semaLg = base16
+    public static let semaXl = base20
+    public static let semaDateEnd = base0 baseCircle baseCircle base0
+    public static let semaDateStart = baseCircle base0 base0 baseCircle
+    public static let semaDateRangeMiddle = base0
+    public static let semaDateContainer = base16
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensSpaceVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensSpaceVR {
+    public static let baseNegative64 = -64px
+    public static let baseNegative60 = -60px
+    public static let baseNegative56 = -56px
+    public static let baseNegative52 = -52px
+    public static let baseNegative48 = -48px
+    public static let baseNegative44 = -44px
+    public static let baseNegative40 = -40px
+    public static let baseNegative36 = -36px
+    public static let baseNegative32 = -32px
+    public static let baseNegative28 = -28px
+    public static let baseNegative24 = -24px
+    public static let baseNegative20 = -20px
+    public static let baseNegative16 = -16px
+    public static let baseNegative12 = -12px
+    public static let baseNegative8 = -8px
+    public static let baseNegative6 = -6px
+    public static let baseNegative4 = -4px
+    public static let baseNegative2 = -2px
+    public static let base64 = 64px
+    public static let base60 = 60px
+    public static let base56 = 56px
+    public static let base52 = 52px
+    public static let base48 = 48px
+    public static let base44 = 44px
+    public static let base40 = 40px
+    public static let base36 = 36px
+    public static let base32 = 32px
+    public static let base28 = 28px
+    public static let base24 = 24px
+    public static let base20 = 20px
+    public static let base16 = 16px
+    public static let base12 = 12px
+    public static let base8 = 8px
+    public static let base6 = 6px
+    public static let base4 = 4px
+    public static let base2 = 2px
+    public static let base0 = 0px
+    public static let semaPaddingVerticalXxl = base16
+    public static let semaPaddingVerticalXl = base12
+    public static let semaPaddingVerticalLg = base8
+    public static let semaPaddingVerticalMd = base6
+    public static let semaPaddingVerticalSm = base4
+    public static let semaPaddingVerticalXs = base2
+    public static let semaPaddingHorizontalXxl = base16
+    public static let semaPaddingHorizontalXl = base12
+    public static let semaPaddingHorizontalLg = base8
+    public static let semaPaddingHorizontalMd = base6
+    public static let semaPaddingHorizontalSm = base4
+    public static let semaPaddingHorizontalXs = base2
+    public static let semaGapVerticalXxl = base16
+    public static let semaGapVerticalXl = base12
+    public static let semaGapVerticalLg = base8
+    public static let semaGapVerticalMd = base6
+    public static let semaGapVerticalSm = base4
+    public static let semaGapVerticalXs = base2
+    public static let semaGapHorizontalXxl = base16
+    public static let semaGapHorizontalXl = base12
+    public static let semaGapHorizontalLg = base8
+    public static let semaGapHorizontalMd = base6
+    public static let semaGapHorizontalSm = base4
+    public static let semaGapHorizontalXs = base2
+}
+",
+}
+`;

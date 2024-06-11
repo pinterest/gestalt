@@ -2,31 +2,58 @@
   composes: paddingY3 from "../boxWhitespace.css";
   composes: flexGrow from "../Layout.css";
   background-color: var(--color-background-tableofcontents-item-default);
-  padding-inline-end: var(--space-400);
+}
+
+html:not([dir="rtl"]) .itemEndPadding {
+  padding-right: var(--space-400);
+}
+
+html[dir="rtl"] .itemEndPadding {
+  padding-left: var(--space-400);
 }
 
 .itemHover {
   background-color: var(--color-background-tableofcontents-item-hover);
 }
 
-.nestingIndentation1 {
-  padding-inline-start: var(--space-300);
+html:not([dir="rtl"]) .nestingIndentation1 {
+  padding-left: var(--space-300);
 }
 
-.nestingIndentation2 {
-  padding-inline-start: var(--space-800);
+html:not([dir="rtl"]) .nestingIndentation2 {
+  padding-left: var(--space-800);
 }
 
-.nestingIndentation3 {
-  padding-inline-start: var(--space-1300);
+html:not([dir="rtl"]) .nestingIndentation3 {
+  padding-left: var(--space-1300);
 }
 
-.nestingIndentation4 {
-  padding-inline-start: 72px;
+html:not([dir="rtl"]) .nestingIndentation4 {
+  padding-left: 72px;
 }
 
-.nestingIndentation5 {
-  padding-inline-start: 92px;
+html:not([dir="rtl"]) .nestingIndentation5 {
+  padding-left: 92px;
+}
+
+html[dir="rtl"] .nestingIndentation1 {
+  padding-right: var(--space-300);
+}
+
+html[dir="rtl"] .nestingIndentation2 {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .nestingIndentation3 {
+  padding-right: var(--space-1300);
+}
+
+html[dir="rtl"] .nestingIndentation4 {
+  padding-right: 72px;
+}
+
+html[dir="rtl"] .nestingIndentation5 {
+  padding-right: 92px;
 }
 
 html:not([dir="rtl"]) .item {

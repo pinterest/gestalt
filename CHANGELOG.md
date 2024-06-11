@@ -1,3 +1,33 @@
+## 153.1.1 (Jun 11, 2024)
+
+### Patch
+
+- Tokens: Adding Snapshot Tests for Token Dist ([#3617](https://github.com/pinterest/gestalt/pull/3617)) - [Preview link](https://deploy-preview-3617--gestalt.netlify.app?devexample=true)
+
+## 153.1.0 (Jun 11, 2024)
+
+### Minor
+
+- Badge: add interactive icon to all types ([#3619](https://github.com/pinterest/gestalt/pull/3619)) - [Preview link](https://deploy-preview-3619--gestalt.netlify.app?devexample=true)
+
+## 153.0.0 (Jun 11, 2024)
+
+### Major
+
+- PageHeader: standardize tooltip prop ([#3620](https://github.com/pinterest/gestalt/pull/3620)) - [Preview link](https://deploy-preview-3620--gestalt.netlify.app?devexample=true)
+
+## 152.2.0 (Jun 11, 2024)
+
+### Minor
+
+- Box: extended margin/padding range from 12 to 16 ([#3618](https://github.com/pinterest/gestalt/pull/3618)) - [Preview link](https://deploy-preview-3618--gestalt.netlify.app?devexample=true)
+
+## 152.1.3 (Jun 7, 2024)
+
+### Patch
+
+- TableOfContents: Fix padding-inline-start padding-inline-end issues with PostCSS ([#3615](https://github.com/pinterest/gestalt/pull/3615)) - [Preview link](https://deploy-preview-3615--gestalt.netlify.app?devexample=true)
+
 ## 152.1.2 (Jun 5, 2024)
 
 ### Patch
