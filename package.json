@@ -164,6 +164,7 @@
           "/.rollup.cache/",
           "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
+          "<rootDir>/packages/gestalt-design-tokens",
           ".jsdom.test.ts",
           ".jsdom.test.tsx",
           "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts"
