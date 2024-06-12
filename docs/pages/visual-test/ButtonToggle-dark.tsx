@@ -6,11 +6,11 @@ export default function Snapshot() {
       <Box color="default" display="inlineBlock" padding={1}>
         <ButtonGroup>
           <ButtonToggle color="transparent" iconStart="sparkle" selected={false} text="Follow" />
-          <ButtonToggle color="transparent" iconStart="sparkle" selected text="Follow" />
+          <ButtonToggle color="transparent" iconStart="sparkle" selected text="Followed" />
         </ButtonGroup>
         <ButtonGroup>
           <ButtonToggle color="red" iconStart="sparkle" selected={false} text="Save" />
-          <ButtonToggle color="red" iconStart="sparkle" selected text="Save" />
+          <ButtonToggle color="red" iconStart="sparkle" selected text="Saved" />
         </ButtonGroup>
       </Box>
     </ColorSchemeProvider>
