@@ -132,3 +132,16 @@ test('Video with startTime', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Video with dataTestId', () => {
+  const tree = create(
+    <Video
+      aspectRatio={1}
+      dataTestId="gestalt-video"
+      onPlay={() => {}}
+      onPlayError={() => {}}
+      src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+    />,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

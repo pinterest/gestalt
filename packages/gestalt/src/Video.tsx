@@ -42,6 +42,10 @@ type Props = {
    */
   controls?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Disable remote playback. See [MDN Web Docs: disableRemotePlayback](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/disableRemotePlayback) for more info.
    */
   disableRemotePlayback?: boolean;
@@ -637,6 +641,7 @@ export default class Video extends PureComponent<Props, State> {
       captions,
       children,
       crossOrigin,
+      dataTestId,
       disableRemotePlayback,
       loop,
       objectFit,
@@ -675,6 +680,7 @@ export default class Video extends PureComponent<Props, State> {
           {...({ crossOrigin: crossOriginPolicy } as {
             crossOrigin?: CrossOrigin;
           })}
+          data-test-id={dataTestId}
           disableRemotePlayback={disableRemotePlayback}
           loop={loop}
           muted={volume === 0}
