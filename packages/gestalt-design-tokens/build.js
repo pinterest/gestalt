@@ -979,12 +979,12 @@ function getIOSConfiguration({ theme, mode, language }) {
       ['h', 'm'].map((ext) => {
         const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
         return {
-          'destination': `language/${language}/GestaltTokensSemanticFontLineHeight${getTheme(
+          'destination': `language/${language}/GestaltTokensFontLineHeight${getTheme(
             theme,
           )}.${ext}`,
           ...fileTypeDetails,
-          'className': `GestaltTokensSemanticFontLineHeight${getTheme(theme)}`,
-          'type': `GestaltTokensSemanticFontLineHeightName${getTheme(theme)}`,
+          'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
+          'type': `GestaltTokensFontLineHeightName${getTheme(theme)}`,
           ...filterLineHeight,
           comment: `// ${language} specific tokens`,
         };
