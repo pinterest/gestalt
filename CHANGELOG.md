@@ -1,3 +1,9 @@
+## 153.2.0 (Jun 12, 2024)
+
+### Minor
+
+- SideNavigation: Add `primaryAction` prop to all nested subcomponents ([#3622](https://github.com/pinterest/gestalt/pull/3622)) - [Preview link](https://deploy-preview-3622--gestalt.netlify.app?devexample=true)
+
 ## 153.1.1 (Jun 11, 2024)
 
 ### Patch
