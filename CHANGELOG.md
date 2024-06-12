@@ -1,3 +1,9 @@
+## 153.3.1 (Jun 12, 2024)
+
+### Patch
+
+- ButtonToggle: Changing background logic ([#3625](https://github.com/pinterest/gestalt/pull/3625)) - [Preview link](https://deploy-preview-3625--gestalt.netlify.app?devexample=true)
+
 ## 153.3.0 (Jun 12, 2024)
 
 ### Minor
