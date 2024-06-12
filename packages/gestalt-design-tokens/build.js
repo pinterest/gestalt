@@ -776,11 +776,11 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getAndroidConfiguration({ theme, mode }) {
+function getAndroidConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
 
   return {
-    'source': getSources({ theme, modeTheme }),
+    'source': getSources({ theme, modeTheme, language }),
     'platforms': {
       'android': {
         ...androidTransformGroup,
@@ -824,6 +824,12 @@ function getAndroidConfiguration({ theme, mode }) {
                   ...androidResources,
                   ...dimenResource,
                   ...filterSpace,
+                },
+                {
+                  'destination': `language/${language}/font-line-height.xml`,
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterLineHeight,
                 },
               ]
             : [
@@ -1071,7 +1077,7 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    ['en', 'ck'].forEach((lang) => {
+    ['default', 'ck', 'ja', 'tall', 'th', 'vi'].forEach((lang) => {
       // only generate languages for the vr-theme
       const language = theme === 'vr-theme' ? lang : undefined;
 
@@ -1084,7 +1090,7 @@ const platformFileMap = {
 
         // // Android platform
         const StyleDictionaryAndroid = StyleDictionary.extend(
-          getAndroidConfiguration({ mode, theme }),
+          getAndroidConfiguration({ mode, theme, language }),
         );
         platformFileMap.android.forEach((platform) =>
           StyleDictionaryAndroid.buildPlatform(platform),

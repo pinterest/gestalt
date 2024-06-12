@@ -1,0 +1,21 @@
+{
+  "font": {
+    "line-height": {
+      "XXS": {
+        "value": "{font.line-height.120.value}"
+      },
+      "XS": {
+        "value": "{font.line-height.120.value}"
+      },
+      "MD": {
+        "value": "{font.line-height.120.value}"
+      },
+      "LG": {
+        "value": "{font.line-height.130.value}"
+      },
+      "XL": {
+        "value": "{font.line-height.140.value}"
+      }
+    }
+  }
+}
