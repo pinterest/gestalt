@@ -191,15 +191,17 @@ const filterList = [
 ];
 
 const getFilter = (category, type) => {
+  // eslint-disable-next-line no-restricted-syntax
   for (const item of filterList) {
     if (type === undefined) {
       if (item.filter.attributes.category === category) {
         return item;
       }
-    } else {
-      if (item.filter.attributes.category === category && item.filter.attributes.type === type) {
-        return item;
-      }
+    } else if (
+      item.filter.attributes.category === category &&
+      item.filter.attributes.type === type
+    ) {
+      return item;
     }
   }
   return undefined;
@@ -956,7 +958,7 @@ function getIOSConfiguration({ theme, mode, language }) {
     });
   });
 
-  let iOSSwiftFiles = categories.flatMap((category) => {
+  const iOSSwiftFiles = categories.flatMap((category) => {
     const pascalName = category
       .split('-')
       .join(' ')
