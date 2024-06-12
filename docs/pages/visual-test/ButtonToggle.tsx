@@ -8,8 +8,8 @@ export default function Snapshot() {
         <ButtonToggle color="transparent" iconStart="sparkle" selected text="Follow" />
       </ButtonGroup>
       <ButtonGroup>
-        <ButtonToggle color="red" iconStart="sparkle" selected={false} text="Follow" />
-        <ButtonToggle color="red" iconStart="sparkle" selected text="Follow" />
+        <ButtonToggle color="red" iconStart="sparkle" selected={false} text="Save" />
+        <ButtonToggle color="red" iconStart="sparkle" selected text="Save" />
       </ButtonGroup>
     </Box>
   );
