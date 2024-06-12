@@ -135,17 +135,17 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   });
 
   const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm',
-    [styles.md]: size === 'md',
+    [styles.disabled]: disabled && (color !== 'red' || selected),
+    [styles.disabledRed]: disabled && color === 'red' && !selected,
+    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
+    [styles.enabled]: !disabled,
     [styles.lg]: size === 'lg',
-    [styles[color]]: !disabled && !selected,
+    [styles.md]: size === 'md',
     [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
-    [styles.selected]: !disabled && selected,
-    [styles.disabled]: disabled && (color !== 'red' || selected),
-    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
-    [styles.disabledRed]: disabled && color === 'red' && !selected,
-    [styles.enabled]: !disabled,
+    [styles.selected]: selected && !disabled,
+    [styles.sm]: size === 'sm',
+    [styles[color]]: !disabled && !selected,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
@@ -155,6 +155,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const textColor =
     (disabled && 'subtle') ||
+    (selected && 'inverse') ||
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
