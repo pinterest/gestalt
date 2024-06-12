@@ -1713,7 +1713,7 @@ Object {
   --base-font-line-height-130: 130%;
   --base-font-line-height-120: 120%;
   --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-170);
+  --sema-font-line-height-xl: var(--base-font-line-height-180);
   --sema-font-line-height-lg: var(--base-font-line-height-180);
   --sema-font-line-height-md: var(--base-font-line-height-170);
   --sema-font-line-height-xs: var(--base-font-line-height-150);

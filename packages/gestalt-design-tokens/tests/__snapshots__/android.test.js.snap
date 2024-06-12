@@ -924,7 +924,7 @@ Object {
   <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_150</dimen>
   <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_170</dimen>
   <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_180</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_170</dimen>
+  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_180</dimen>
 
   </resources>
 ",
