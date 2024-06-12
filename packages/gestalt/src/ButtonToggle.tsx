@@ -143,7 +143,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.md]: size === 'md',
     [styles.noBorder]: color === 'red' && !selected,
     [styles.selectedBorder]: selected,
-    [styles.selectedRed]: color === 'red' && selected && !disabled,
+    [styles.selected]: selected && !disabled,
     [styles.sm]: size === 'sm',
     [styles[color]]: !disabled && !selected,
     [touchableStyles.tapCompress]: !disabled && isTapping,
@@ -155,7 +155,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const textColor =
     (disabled && 'subtle') ||
-    (selected && color === 'red' && 'inverse') ||
+    (selected && 'inverse') ||
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];

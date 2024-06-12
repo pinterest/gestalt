@@ -55,7 +55,7 @@
   background-color: var(--color-background-button-disabled-default);
 }
 
-.selectedRed {
+.selected {
   composes: borderColorSelected from "./Borders.css";
   background-color: var(--color-background-button-selected-default);
 }
