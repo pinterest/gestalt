@@ -38,9 +38,7 @@ type Props = {
   /**
    * The background color of ButtonToggle.
    *
-   * This prop also accepts an array of 4 skin tones to create a color picker. See the [Color Picker Variant](https://gestalt.pinterest.systems/web/buttontoggle#Color-Picker) for details on proper usage.
-   * The skin tones currently supported are:
-   * `#F0E3DC` | `#F8D7D8` | `#F2D7BE` | `#F7C3AF` | `#DEBAB0` | `#E0999A` | `#DDA67C` | `#D98A64` | `#9A6B52` | `#A25847` | `#B37143` | `#BF6951` | `#683929` | `#34261F` | `#64281B` | `#4F2221`
+   * This prop also accepts an array of 4 skin tones (`skinTone1`, `skinTone2`, ..., `skinTone16`) to create a color picker. See the [Color Picker Variant](https://gestalt.pinterest.systems/web/buttontoggle#Color-Picker) for details on proper usage.
    */
   color?: 'red' | 'transparent' | readonly [SkinColor, SkinColor, SkinColor, SkinColor];
   /**

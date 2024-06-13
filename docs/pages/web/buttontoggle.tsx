@@ -197,7 +197,29 @@ The text prop is still used as a fallback accessiblity label, and is still requi
 
 The colors in the array are displayed in a 4-quadrant pattern across the ButtonToggle.
 The skin tones currently supported are:
-\`#F0E3DC\` | \`#F8D7D8\` | \`#F2D7BE\` | \`#F7C3AF\` | \`#DEBAB0\` | \`#E0999A\` | \`#DDA67C\` | \`#D98A64\` | \`#9A6B52\` | \`#A25847\` | \`#B37143\` | \`#BF6951\` | \`#683929\` | \`#34261F\` | \`#64281B\` | \`#4F2221\`
+<div style="display:flex">
+  <div style="display:flex; flex-direction: column; flex: 10">
+  skinTone1 <span style="background-color:#F0E3DC">#F0E3DC</span>
+  skinTone2 <span style="background-color:#F8D7D8">#F8D7D8</span>
+  skinTone3 <span style="background-color:#F2D7BE">#F2D7BE</span>
+  skinTone4 <span style="background-color:#F7C3AF">#F7C3AF</span>
+  skinTone5 <span style="background-color:#DEBAB0">#DEBAB0</span>
+  skinTone6 <span style="background-color:#E0999A">#E0999A</span>
+  skinTone7 <span style="background-color:#DDA67C">#DDA67C</span>
+  skinTone8 <span style="background-color:#D98A64">#D98A64</span>
+  </div>
+  <div style="flex: 1"></div>
+  <div style="display:flex; flex-direction: column; flex: 10">
+  skinTone9 <span style="background-color:#9A6B52; color: white">#9A6B52</span>
+  skinTone10 <span style="background-color:#A25847; color: white">#A25847</span>
+  skinTone11 <span style="background-color:#B37143; color: white">#B37143</span>
+  skinTone12 <span style="background-color:#BF6951; color: white">#BF6951</span>
+  skinTone13 <span style="background-color:#683929; color: white">#683929</span>
+  skinTone14 <span style="background-color:#34261F; color: white">#34261F</span>
+  skinTone15 <span style="background-color:#64281B; color: white">#64281B</span>
+  skinTone16 <span style="background-color:#4F2221; color: white">#4F2221</span>
+  </div>
+</div>
 `}
           title="Color Picker"
         >
