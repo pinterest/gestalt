@@ -1,3 +1,9 @@
+## 153.3.2 (Jun 13, 2024)
+
+### Patch
+
+- Internal: adding react-compiler plugin and rule ([#3627](https://github.com/pinterest/gestalt/pull/3627)) - [Preview link](https://deploy-preview-3627--gestalt.netlify.app?devexample=true)
+
 ## 153.3.1 (Jun 12, 2024)
 
 ### Patch
