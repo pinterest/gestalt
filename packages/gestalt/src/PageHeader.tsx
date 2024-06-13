@@ -12,6 +12,7 @@ import {
   PageHeaderThumbnail,
   PageHeaderTitle,
 } from './PageHeader/components';
+import { Indexable } from './zIndex';
 
 export type ActionType = ReactElement;
 
@@ -23,7 +24,12 @@ type Props = {
    */
   badge?: {
     text: string;
-    tooltipText?: string;
+    tooltip?: {
+      accessibilityLabel?: string;
+      idealDirection?: 'up' | 'right' | 'down' | 'left';
+      text: string;
+      zIndex?: Indexable;
+    };
     type?:
       | 'info'
       | 'error'
@@ -147,7 +153,7 @@ export default function PageHeader({
                           {badge ? (
                             <PageHeaderBadge
                               badgeText={badge.text}
-                              badgeTooltipText={badge.tooltipText}
+                              badgeTooltip={badge.tooltip}
                               type={badge.type}
                             />
                           ) : null}

@@ -1,4 +1,3 @@
-// @flow strict
 import { Box, Flex, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';

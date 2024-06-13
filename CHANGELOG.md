@@ -1,3 +1,63 @@
+## 153.2.0 (Jun 12, 2024)
+
+### Minor
+
+- SideNavigation: Add `primaryAction` prop to all nested subcomponents ([#3622](https://github.com/pinterest/gestalt/pull/3622)) - [Preview link](https://deploy-preview-3622--gestalt.netlify.app?devexample=true)
+
+## 153.1.1 (Jun 11, 2024)
+
+### Patch
+
+- Tokens: Adding Snapshot Tests for Token Dist ([#3617](https://github.com/pinterest/gestalt/pull/3617)) - [Preview link](https://deploy-preview-3617--gestalt.netlify.app?devexample=true)
+
+## 153.1.0 (Jun 11, 2024)
+
+### Minor
+
+- Badge: add interactive icon to all types ([#3619](https://github.com/pinterest/gestalt/pull/3619)) - [Preview link](https://deploy-preview-3619--gestalt.netlify.app?devexample=true)
+
+## 153.0.0 (Jun 11, 2024)
+
+### Major
+
+- PageHeader: standardize tooltip prop ([#3620](https://github.com/pinterest/gestalt/pull/3620)) - [Preview link](https://deploy-preview-3620--gestalt.netlify.app?devexample=true)
+
+## 152.2.0 (Jun 11, 2024)
+
+### Minor
+
+- Box: extended margin/padding range from 12 to 16 ([#3618](https://github.com/pinterest/gestalt/pull/3618)) - [Preview link](https://deploy-preview-3618--gestalt.netlify.app?devexample=true)
+
+## 152.1.3 (Jun 7, 2024)
+
+### Patch
+
+- TableOfContents: Fix padding-inline-start padding-inline-end issues with PostCSS ([#3615](https://github.com/pinterest/gestalt/pull/3615)) - [Preview link](https://deploy-preview-3615--gestalt.netlify.app?devexample=true)
+
+## 152.1.2 (Jun 5, 2024)
+
+### Patch
+
+- Internal: remove flow-typed and updated docs ([#3614](https://github.com/pinterest/gestalt/pull/3614)) - [Preview link](https://deploy-preview-3614--gestalt.netlify.app?devexample=true)
+
+## 152.1.1 (Jun 5, 2024)
+
+### Patch
+
+- Docs: removed Accessibility checklist module and badge ([#3613](https://github.com/pinterest/gestalt/pull/3613)) - [Preview link](https://deploy-preview-3613--gestalt.netlify.app?devexample=true)
+
+## 152.1.0 (Jun 5, 2024)
+
+### Minor
+
+- Image: Address onLoad not being called for SSR images ([#3612](https://github.com/pinterest/gestalt/pull/3612)) - [Preview link](https://deploy-preview-3612--gestalt.netlify.app?devexample=true)
+
+## 152.0.0 (Jun 4, 2024)
+
+### Major
+
+- Icon: additions, deprecations, renames in classic + added all vr-theme icons for web & android ([#3587](https://github.com/pinterest/gestalt/pull/3587)) - [Preview link](https://deploy-preview-3587--gestalt.netlify.app?devexample=true)
+
 ## 151.2.6 (Jun 3, 2024)
 
 ### Patch

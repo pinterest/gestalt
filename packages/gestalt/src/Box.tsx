@@ -4,12 +4,12 @@
 
 This guide will help you navigate and understand its design. This file is roughly organized like:
 
-  1. Flow Types
+  1. Types
   2. Prop transformers -> moved to ./boxTransforms.js
   3. Box itself
   4. PropTypes
 
-I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the Flow Types  (even though they look scary).
+I'll explain each part as we go through. Just remember, if you want to make updates, PLEASE PLEASE PLEASE update the types  (even though they look scary).
 
 */
 import { forwardRef, ReactElement, ReactNode } from 'react';
@@ -38,6 +38,10 @@ type Dimension = number | string;
 type Direction = 'row' | 'column';
 type Display = 'none' | 'flex' | 'block' | 'inlineBlock' | 'visuallyHidden';
 type Margin =
+  | -16
+  | -15
+  | -14
+  | -13
   | -12
   | -11
   | -10
@@ -63,8 +67,13 @@ type Margin =
   | 10
   | 11
   | 12
+  | 13
+  | 14
+  | 15
+  | 16
   | 'auto';
-type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+type Padding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 
 type BoxPassthroughProps = Omit<
   React.ComponentProps<'div'>,
