@@ -112,6 +112,7 @@
 
 .selectedDisabled {
   composes: sizeLg from "./Borders.css";
+  background-color: var(--color-background-button-disabled-default);
   margin: calc(var(--g-border-width-lg) / 2 * -1);
 }
 
