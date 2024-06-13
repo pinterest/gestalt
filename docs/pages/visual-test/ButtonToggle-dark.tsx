@@ -32,8 +32,14 @@ export default function Snapshot() {
             color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
             selected={false}
             size="lg"
+            text="Fair Skin"
           />
-          <ButtonToggle color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']} selected size="lg" />
+          <ButtonToggle
+            color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
+            selected
+            size="lg"
+            text="Fair Skin"
+          />
         </ButtonGroup>
       </Box>
     </ColorSchemeProvider>

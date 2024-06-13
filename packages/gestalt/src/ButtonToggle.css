@@ -111,7 +111,7 @@
 
 .selected {
   composes: borderColorSelected from "./Borders.css";
-  background-color: var(--color-background-button-tertiary-default);
+  background-color: var(--color-background-button-selected-default);
 }
 
 .selectedBorder {

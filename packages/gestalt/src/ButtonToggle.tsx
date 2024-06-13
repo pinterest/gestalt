@@ -239,6 +239,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const textColor =
     (disabled && 'subtle') ||
+    (selected && 'inverse') ||
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[bgColor];
