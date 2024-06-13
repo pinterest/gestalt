@@ -212,8 +212,8 @@ The skin tones currently supported are:
   <div style="display:flex; flex-direction: column; flex: 10">
   skinTone9 <span style="background-color:#9A6B52; color: white">#9A6B52</span>
   skinTone10 <span style="background-color:#A25847; color: white">#A25847</span>
-  skinTone11 <span style="background-color:#B37143; color: white">#B37143</span>
-  skinTone12 <span style="background-color:#BF6951; color: white">#BF6951</span>
+  skinTone11 <span style="background-color:#B37143">#B37143</span>
+  skinTone12 <span style="background-color:#BF6951">#BF6951</span>
   skinTone13 <span style="background-color:#683929; color: white">#683929</span>
   skinTone14 <span style="background-color:#34261F; color: white">#34261F</span>
   skinTone15 <span style="background-color:#64281B; color: white">#64281B</span>
