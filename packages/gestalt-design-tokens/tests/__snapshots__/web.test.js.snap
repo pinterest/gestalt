@@ -1154,14 +1154,14 @@ Object {
   --base-opacity-20: 0.2;
   --base-opacity-4: 0.04;
   --base-opacity-0: 0;
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
   --base-font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace; 
   --base-font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif; 
   --base-font-family-default-latin: 'Pin-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -1635,106 +1635,106 @@ Object {
   --color-text-default: var(--sema-color-text-default);
 }
 ",
-  "dist/css/vr-theme/font-line-height-ck.css": "
+  "dist/css/vr-theme/font-lineheight-ck.css": "
 :root {
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-150);
-  --sema-font-line-height-lg: var(--base-font-line-height-150);
-  --sema-font-line-height-md: var(--base-font-line-height-150);
-  --sema-font-line-height-xs: var(--base-font-line-height-130);
-  --sema-font-line-height-xxs: var(--base-font-line-height-120);
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-150);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-150);
+  --sema-font-lineheight-md: var(--base-font-lineheight-150);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
 }
 ",
-  "dist/css/vr-theme/font-line-height-default.css": "
+  "dist/css/vr-theme/font-lineheight-default.css": "
 :root {
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-150);
-  --sema-font-line-height-lg: var(--base-font-line-height-140);
-  --sema-font-line-height-md: var(--base-font-line-height-130);
-  --sema-font-line-height-xs: var(--base-font-line-height-120);
-  --sema-font-line-height-xxs: var(--base-font-line-height-110);
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-150);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-140);
+  --sema-font-lineheight-md: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-110);
 }
 ",
-  "dist/css/vr-theme/font-line-height-ja.css": "
+  "dist/css/vr-theme/font-lineheight-ja.css": "
 :root {
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-160);
-  --sema-font-line-height-lg: var(--base-font-line-height-160);
-  --sema-font-line-height-md: var(--base-font-line-height-150);
-  --sema-font-line-height-xs: var(--base-font-line-height-130);
-  --sema-font-line-height-xxs: var(--base-font-line-height-120);
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-160);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-160);
+  --sema-font-lineheight-md: var(--base-font-lineheight-150);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
 }
 ",
-  "dist/css/vr-theme/font-line-height-tall.css": "
+  "dist/css/vr-theme/font-lineheight-tall.css": "
 :root {
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-170);
-  --sema-font-line-height-lg: var(--base-font-line-height-170);
-  --sema-font-line-height-md: var(--base-font-line-height-160);
-  --sema-font-line-height-xs: var(--base-font-line-height-140);
-  --sema-font-line-height-xxs: var(--base-font-line-height-130);
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-170);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-170);
+  --sema-font-lineheight-md: var(--base-font-lineheight-160);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-140);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-130);
 }
 ",
-  "dist/css/vr-theme/font-line-height-th.css": "
+  "dist/css/vr-theme/font-lineheight-th.css": "
 :root {
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-180);
-  --sema-font-line-height-lg: var(--base-font-line-height-180);
-  --sema-font-line-height-md: var(--base-font-line-height-170);
-  --sema-font-line-height-xs: var(--base-font-line-height-150);
-  --sema-font-line-height-xxs: var(--base-font-line-height-130);
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-180);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-180);
+  --sema-font-lineheight-md: var(--base-font-lineheight-170);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-150);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-130);
 }
 ",
-  "dist/css/vr-theme/font-line-height-vi.css": "
+  "dist/css/vr-theme/font-lineheight-vi.css": "
 :root {
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
-  --sema-font-line-height-xl: var(--base-font-line-height-140);
-  --sema-font-line-height-lg: var(--base-font-line-height-130);
-  --sema-font-line-height-md: var(--base-font-line-height-120);
-  --sema-font-line-height-xs: var(--base-font-line-height-120);
-  --sema-font-line-height-xxs: var(--base-font-line-height-120);
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-140);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-130);
+  --sema-font-lineheight-md: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
 }
 ",
   "dist/css/vr-theme/variables-dark.css": "
@@ -1961,14 +1961,14 @@ Object {
   --base-opacity-20: 0.2;
   --base-opacity-4: 0.04;
   --base-opacity-0: 0;
-  --base-font-line-height-180: 180%;
-  --base-font-line-height-170: 170%;
-  --base-font-line-height-160: 160%;
-  --base-font-line-height-150: 150%;
-  --base-font-line-height-140: 140%;
-  --base-font-line-height-130: 130%;
-  --base-font-line-height-120: 120%;
-  --base-font-line-height-110: 110%;
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
   --base-font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace; 
   --base-font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif; 
   --base-font-family-default-latin: 'Pin-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -2089,11 +2089,11 @@ Object {
   --sema-opacity-light: var(--base-opacity-20);
   --sema-opacity-pin-wash: var(--base-opacity-4);
   --sema-opacity-transparent: var(--base-opacity-0);
-  --sema-font-line-height-xl: var(--base-font-line-height-140);
-  --sema-font-line-height-lg: var(--base-font-line-height-130);
-  --sema-font-line-height-md: var(--base-font-line-height-120);
-  --sema-font-line-height-xs: var(--base-font-line-height-120);
-  --sema-font-line-height-xxs: var(--base-font-line-height-120);
+  --sema-font-lineheight-xl: var(--base-font-lineheight-140);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-130);
+  --sema-font-lineheight-md: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
   --sema-font-size-ui-lg: var(--base-font-size-20);
   --sema-font-size-ui-md: var(--base-font-size-16);
   --sema-font-size-ui-sm: var(--base-font-size-14);

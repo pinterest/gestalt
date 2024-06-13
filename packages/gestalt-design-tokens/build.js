@@ -95,7 +95,7 @@ const filterLineHeight = {
   'filter': {
     'attributes': {
       'category': 'font',
-      'type': 'line-height',
+      'type': 'lineheight',
     },
   },
 };
@@ -152,7 +152,7 @@ const dataVisualizationFilter = {
 
 const semaLineHeightFilter = {
   'filter': 'semaLineHeightFilter',
-  '_filter_comment': 'Custom filter for semantic line-height tokens',
+  '_filter_comment': 'Custom filter for semantic lineheight tokens',
 };
 
 const webCssTransformGroup = {
@@ -299,8 +299,8 @@ function getSources({ theme, modeTheme, platform, language }) {
     `tokens/vr-theme/base-elevation${modeTheme}.json`,
     'tokens/vr-theme/sema-elevation.json',
     `tokens/vr-theme/sema-color${modeTheme}.json`,
-    `tokens/vr-theme/base-line-height.json`,
-    `tokens/vr-theme/language/sema-line-height-${language}.json`,
+    `tokens/vr-theme/base-lineheight.json`,
+    `tokens/vr-theme/language/sema-lineheight-${language}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
           'tokens/vr-theme-web-mapping/base-color.json',
@@ -598,7 +598,7 @@ StyleDictionary.registerFilter({
   matcher(token) {
     return (
       token.attributes.category === 'font' &&
-      token.attributes.type === 'line-height' &&
+      token.attributes.type === 'lineheight' &&
       !token.name.startsWith('Base')
     );
   },
@@ -628,7 +628,7 @@ function getWebConfig({ theme, mode, language }) {
                 },
                 language
                   ? {
-                      'destination': `font-line-height-${language}.css`,
+                      'destination': `font-lineheight-${language}.css`,
                       ...cssVariables,
                       ...semaLineHeightFilter,
                     }
@@ -712,7 +712,7 @@ function getWebConfig({ theme, mode, language }) {
                 },
                 language
                   ? {
-                      'destination': `font-line-height-${language}.js`,
+                      'destination': `font-lineheight-${language}.js`,
                       'format': `commonJS/${mappedTheme}`,
                       '_format_comment': 'Custom',
                       ...semaLineHeightFilter,
@@ -828,7 +828,7 @@ function getAndroidConfiguration({ theme, mode, language }) {
                   ...filterSpace,
                 },
                 {
-                  'destination': `font-line-height-${language}.xml`,
+                  'destination': `font-lineheight-${language}.xml`,
                   ...androidResources,
                   ...dimenResource,
                   ...filterLineHeight,
@@ -938,8 +938,6 @@ function getIOSConfiguration({ theme, mode, language }) {
   */
   let iOSObjectiveCFiles = categories.flatMap((category) => {
     const pascalName = category
-      .split('-')
-      .join(' ')
       .split(' ')
       .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
       .join('');
@@ -960,8 +958,6 @@ function getIOSConfiguration({ theme, mode, language }) {
 
   const iOSSwiftFiles = categories.flatMap((category) => {
     const pascalName = category
-      .split('-')
-      .join(' ')
       .split(' ')
       .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
       .join('');

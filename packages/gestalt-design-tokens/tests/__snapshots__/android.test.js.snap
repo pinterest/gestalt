@@ -795,117 +795,117 @@ Object {
 
   </resources>
 ",
-  "dist/android/vr-theme/font-line-height-ck.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  "dist/android/vr-theme/font-lineheight-ck.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"base_font_line_height_110\\">110%</dimen>
-  <dimen name=\\"base_font_line_height_120\\">120%</dimen>
-  <dimen name=\\"base_font_line_height_130\\">130%</dimen>
-  <dimen name=\\"base_font_line_height_140\\">140%</dimen>
-  <dimen name=\\"base_font_line_height_150\\">150%</dimen>
-  <dimen name=\\"base_font_line_height_160\\">160%</dimen>
-  <dimen name=\\"base_font_line_height_170\\">170%</dimen>
-  <dimen name=\\"base_font_line_height_180\\">180%</dimen>
-  <dimen name=\\"sema_font_line_height_xxs\\">@dimen/base_font_line_height_120</dimen>
-  <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_130</dimen>
-  <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_150</dimen>
-  <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_150</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_150</dimen>
+  <dimen name=\\"base_font_lineheight_110\\">110%</dimen>
+  <dimen name=\\"base_font_lineheight_120\\">120%</dimen>
+  <dimen name=\\"base_font_lineheight_130\\">130%</dimen>
+  <dimen name=\\"base_font_lineheight_140\\">140%</dimen>
+  <dimen name=\\"base_font_lineheight_150\\">150%</dimen>
+  <dimen name=\\"base_font_lineheight_160\\">160%</dimen>
+  <dimen name=\\"base_font_lineheight_170\\">170%</dimen>
+  <dimen name=\\"base_font_lineheight_180\\">180%</dimen>
+  <dimen name=\\"sema_font_lineheight_xxs\\">@dimen/base_font_lineheight_120</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_150</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_150</dimen>
+  <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_150</dimen>
 
   </resources>
 ",
-  "dist/android/vr-theme/font-line-height-default.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  "dist/android/vr-theme/font-lineheight-default.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"base_font_line_height_110\\">110%</dimen>
-  <dimen name=\\"base_font_line_height_120\\">120%</dimen>
-  <dimen name=\\"base_font_line_height_130\\">130%</dimen>
-  <dimen name=\\"base_font_line_height_140\\">140%</dimen>
-  <dimen name=\\"base_font_line_height_150\\">150%</dimen>
-  <dimen name=\\"base_font_line_height_160\\">160%</dimen>
-  <dimen name=\\"base_font_line_height_170\\">170%</dimen>
-  <dimen name=\\"base_font_line_height_180\\">180%</dimen>
-  <dimen name=\\"sema_font_line_height_xxs\\">@dimen/base_font_line_height_110</dimen>
-  <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_120</dimen>
-  <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_130</dimen>
-  <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_140</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_150</dimen>
+  <dimen name=\\"base_font_lineheight_110\\">110%</dimen>
+  <dimen name=\\"base_font_lineheight_120\\">120%</dimen>
+  <dimen name=\\"base_font_lineheight_130\\">130%</dimen>
+  <dimen name=\\"base_font_lineheight_140\\">140%</dimen>
+  <dimen name=\\"base_font_lineheight_150\\">150%</dimen>
+  <dimen name=\\"base_font_lineheight_160\\">160%</dimen>
+  <dimen name=\\"base_font_lineheight_170\\">170%</dimen>
+  <dimen name=\\"base_font_lineheight_180\\">180%</dimen>
+  <dimen name=\\"sema_font_lineheight_xxs\\">@dimen/base_font_lineheight_110</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_120</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_140</dimen>
+  <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_150</dimen>
 
   </resources>
 ",
-  "dist/android/vr-theme/font-line-height-ja.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  "dist/android/vr-theme/font-lineheight-ja.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"base_font_line_height_110\\">110%</dimen>
-  <dimen name=\\"base_font_line_height_120\\">120%</dimen>
-  <dimen name=\\"base_font_line_height_130\\">130%</dimen>
-  <dimen name=\\"base_font_line_height_140\\">140%</dimen>
-  <dimen name=\\"base_font_line_height_150\\">150%</dimen>
-  <dimen name=\\"base_font_line_height_160\\">160%</dimen>
-  <dimen name=\\"base_font_line_height_170\\">170%</dimen>
-  <dimen name=\\"base_font_line_height_180\\">180%</dimen>
-  <dimen name=\\"sema_font_line_height_xxs\\">@dimen/base_font_line_height_120</dimen>
-  <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_130</dimen>
-  <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_150</dimen>
-  <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_160</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_160</dimen>
+  <dimen name=\\"base_font_lineheight_110\\">110%</dimen>
+  <dimen name=\\"base_font_lineheight_120\\">120%</dimen>
+  <dimen name=\\"base_font_lineheight_130\\">130%</dimen>
+  <dimen name=\\"base_font_lineheight_140\\">140%</dimen>
+  <dimen name=\\"base_font_lineheight_150\\">150%</dimen>
+  <dimen name=\\"base_font_lineheight_160\\">160%</dimen>
+  <dimen name=\\"base_font_lineheight_170\\">170%</dimen>
+  <dimen name=\\"base_font_lineheight_180\\">180%</dimen>
+  <dimen name=\\"sema_font_lineheight_xxs\\">@dimen/base_font_lineheight_120</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_150</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_160</dimen>
+  <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_160</dimen>
 
   </resources>
 ",
-  "dist/android/vr-theme/font-line-height-tall.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  "dist/android/vr-theme/font-lineheight-tall.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"base_font_line_height_110\\">110%</dimen>
-  <dimen name=\\"base_font_line_height_120\\">120%</dimen>
-  <dimen name=\\"base_font_line_height_130\\">130%</dimen>
-  <dimen name=\\"base_font_line_height_140\\">140%</dimen>
-  <dimen name=\\"base_font_line_height_150\\">150%</dimen>
-  <dimen name=\\"base_font_line_height_160\\">160%</dimen>
-  <dimen name=\\"base_font_line_height_170\\">170%</dimen>
-  <dimen name=\\"base_font_line_height_180\\">180%</dimen>
-  <dimen name=\\"sema_font_line_height_xxs\\">@dimen/base_font_line_height_130</dimen>
-  <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_140</dimen>
-  <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_160</dimen>
-  <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_170</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_170</dimen>
+  <dimen name=\\"base_font_lineheight_110\\">110%</dimen>
+  <dimen name=\\"base_font_lineheight_120\\">120%</dimen>
+  <dimen name=\\"base_font_lineheight_130\\">130%</dimen>
+  <dimen name=\\"base_font_lineheight_140\\">140%</dimen>
+  <dimen name=\\"base_font_lineheight_150\\">150%</dimen>
+  <dimen name=\\"base_font_lineheight_160\\">160%</dimen>
+  <dimen name=\\"base_font_lineheight_170\\">170%</dimen>
+  <dimen name=\\"base_font_lineheight_180\\">180%</dimen>
+  <dimen name=\\"sema_font_lineheight_xxs\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_140</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_160</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_170</dimen>
+  <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_170</dimen>
 
   </resources>
 ",
-  "dist/android/vr-theme/font-line-height-th.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  "dist/android/vr-theme/font-lineheight-th.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"base_font_line_height_110\\">110%</dimen>
-  <dimen name=\\"base_font_line_height_120\\">120%</dimen>
-  <dimen name=\\"base_font_line_height_130\\">130%</dimen>
-  <dimen name=\\"base_font_line_height_140\\">140%</dimen>
-  <dimen name=\\"base_font_line_height_150\\">150%</dimen>
-  <dimen name=\\"base_font_line_height_160\\">160%</dimen>
-  <dimen name=\\"base_font_line_height_170\\">170%</dimen>
-  <dimen name=\\"base_font_line_height_180\\">180%</dimen>
-  <dimen name=\\"sema_font_line_height_xxs\\">@dimen/base_font_line_height_130</dimen>
-  <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_150</dimen>
-  <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_170</dimen>
-  <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_180</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_180</dimen>
+  <dimen name=\\"base_font_lineheight_110\\">110%</dimen>
+  <dimen name=\\"base_font_lineheight_120\\">120%</dimen>
+  <dimen name=\\"base_font_lineheight_130\\">130%</dimen>
+  <dimen name=\\"base_font_lineheight_140\\">140%</dimen>
+  <dimen name=\\"base_font_lineheight_150\\">150%</dimen>
+  <dimen name=\\"base_font_lineheight_160\\">160%</dimen>
+  <dimen name=\\"base_font_lineheight_170\\">170%</dimen>
+  <dimen name=\\"base_font_lineheight_180\\">180%</dimen>
+  <dimen name=\\"sema_font_lineheight_xxs\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_150</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_170</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_180</dimen>
+  <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_180</dimen>
 
   </resources>
 ",
-  "dist/android/vr-theme/font-line-height-vi.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  "dist/android/vr-theme/font-lineheight-vi.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"base_font_line_height_110\\">110%</dimen>
-  <dimen name=\\"base_font_line_height_120\\">120%</dimen>
-  <dimen name=\\"base_font_line_height_130\\">130%</dimen>
-  <dimen name=\\"base_font_line_height_140\\">140%</dimen>
-  <dimen name=\\"base_font_line_height_150\\">150%</dimen>
-  <dimen name=\\"base_font_line_height_160\\">160%</dimen>
-  <dimen name=\\"base_font_line_height_170\\">170%</dimen>
-  <dimen name=\\"base_font_line_height_180\\">180%</dimen>
-  <dimen name=\\"sema_font_line_height_xxs\\">@dimen/base_font_line_height_120</dimen>
-  <dimen name=\\"sema_font_line_height_xs\\">@dimen/base_font_line_height_120</dimen>
-  <dimen name=\\"sema_font_line_height_md\\">@dimen/base_font_line_height_120</dimen>
-  <dimen name=\\"sema_font_line_height_lg\\">@dimen/base_font_line_height_130</dimen>
-  <dimen name=\\"sema_font_line_height_xl\\">@dimen/base_font_line_height_140</dimen>
+  <dimen name=\\"base_font_lineheight_110\\">110%</dimen>
+  <dimen name=\\"base_font_lineheight_120\\">120%</dimen>
+  <dimen name=\\"base_font_lineheight_130\\">130%</dimen>
+  <dimen name=\\"base_font_lineheight_140\\">140%</dimen>
+  <dimen name=\\"base_font_lineheight_150\\">150%</dimen>
+  <dimen name=\\"base_font_lineheight_160\\">160%</dimen>
+  <dimen name=\\"base_font_lineheight_170\\">170%</dimen>
+  <dimen name=\\"base_font_lineheight_180\\">180%</dimen>
+  <dimen name=\\"sema_font_lineheight_xxs\\">@dimen/base_font_lineheight_120</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_120</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_120</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_140</dimen>
 
   </resources>
 ",
