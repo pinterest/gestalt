@@ -114,8 +114,9 @@
   background-color: var(--color-background-button-selected-default);
 }
 
-.selectedBorder {
+.selectedDisabled {
   composes: sizeLg from "./Borders.css";
+  margin: calc(var(--g-border-width-lg) / 2 * -1);
 }
 
 /* COLORS */
