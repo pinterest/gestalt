@@ -628,7 +628,7 @@ function getWebConfig({ theme, mode, language }) {
                 },
                 language
                   ? {
-                      'destination': `language/${language}/line-height.css`,
+                      'destination': `font-line-height-${language}.css`,
                       ...cssVariables,
                       ...semaLineHeightFilter,
                     }
@@ -712,7 +712,7 @@ function getWebConfig({ theme, mode, language }) {
                 },
                 language
                   ? {
-                      'destination': `language/${language}/line-height.js`,
+                      'destination': `font-line-height-${language}.js`,
                       'format': `commonJS/${mappedTheme}`,
                       '_format_comment': 'Custom',
                       ...semaLineHeightFilter,
@@ -828,7 +828,7 @@ function getAndroidConfiguration({ theme, mode, language }) {
                   ...filterSpace,
                 },
                 {
-                  'destination': `language/${language}/font-line-height.xml`,
+                  'destination': `font-line-height-${language}.xml`,
                   ...androidResources,
                   ...dimenResource,
                   ...filterLineHeight,
@@ -981,9 +981,9 @@ function getIOSConfiguration({ theme, mode, language }) {
       ['h', 'm'].map((ext) => {
         const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
         return {
-          'destination': `language/${language}/GestaltTokensFontLineHeight${getTheme(
+          'destination': `/GestaltTokensFontLineHeight${getTheme(
             theme,
-          )}.${ext}`,
+          )}-${language.toUpperCase()}.${ext}`,
           ...fileTypeDetails,
           'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
           'type': `GestaltTokensFontLineHeightName${getTheme(theme)}`,
@@ -994,7 +994,9 @@ function getIOSConfiguration({ theme, mode, language }) {
     );
 
     iOSSwiftFiles.push({
-      'destination': `language/${language}/GestaltTokensFontLineHeight${getTheme(theme)}.swift`,
+      'destination': `GestaltTokensFontLineHeight${getTheme(
+        theme,
+      )}-${language.toUpperCase()}.swift`,
       ...iosSwiftEnumSwift,
       'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
       ...semaLineHeightFilter,
