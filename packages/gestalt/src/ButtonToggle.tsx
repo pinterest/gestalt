@@ -103,7 +103,7 @@ type Props = {
   /**
    * Text to render inside the ButtonToggle to convey the function and purpose of the ButtonToggle.
    */
-  text?: string;
+  text: string;
 };
 
 /**
@@ -126,7 +126,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     onFocus,
     selected,
     size = 'md',
-    text = '',
+    text,
     accessibilityControls,
   }: Props,
   ref,

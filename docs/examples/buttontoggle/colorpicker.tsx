@@ -11,6 +11,7 @@ export default function Example() {
         onClick={() => setSelected((value) => !value)}
         selected={selected}
         size="lg"
+        text="Fair Skin"
       />
       <Text size="200" weight="bold">
         {`color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}`}
@@ -22,6 +23,7 @@ export default function Example() {
         onClick={() => setSelected((value) => !value)}
         selected={false}
         size="lg"
+        text="Fair Skin"
       />
       <Text size="200" weight="bold">
         {`color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']} disabled`}

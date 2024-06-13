@@ -106,6 +106,7 @@ If ButtonToggle is used as a control button to show/hide content, we recommend p
 
 - \`accessibilityControls\`: informs the screen reader that ButtonToggle controls the display of an interactive widget or element, or is used to modify another component.  It can be used to associate the corresponding element with the ButtonToggle. It populates [aria-controls](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls).
 
+In the Color Picker variant, the ButtonToggle does not display the text given as a visible label, but the text prop is still used as a fallback accessiblity label, and is still required.
 
 `}
           title="ARIA attributes"
@@ -192,6 +193,7 @@ This variant also changes the shape of the ButtonToggle.
         <MainSection.Subsection
           description={`
 If the \`color\` prop is an array of 4 skin tones, ButtonToggle is converted into a textless color picker.
+The text prop is still used as a fallback accessiblity label, and is still required.
 
 The colors in the array are displayed in a 4-quadrant pattern across the ButtonToggle.
 The skin tones currently supported are:
