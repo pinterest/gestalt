@@ -168,7 +168,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     buttonToggleHandlers: undefined,
   };
 
-  const bgColor: 'red' | 'transparent' = color instanceof Array ? 'red' : color;
   if (color instanceof Array) {
     return (
       <button
@@ -217,12 +216,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.selected]: !disabled && selected,
     [styles.selectedBorder]: selected,
     [styles.sm]: size === 'sm' && !graphicSrc,
-    [styles.thumbnailDark]: graphicSrc && isDarkMode,
+    [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
     [styles.thumbnailDisabled]: graphicSrc && disabled,
     [styles.thumbnailLg]: size === 'lg' && graphicSrc,
     [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
-    [styles[bgColor]]: !disabled && !selected,
+    [styles[color]]: !disabled && !selected,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
@@ -242,13 +241,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     (selected && 'inverse') ||
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||
-    DEFAULT_TEXT_COLORS[bgColor];
+    DEFAULT_TEXT_COLORS[color];
 
-  const renderContent = () => {
-    if (graphicSrc) {
-      return <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />;
-    }
-    return (
+  const renderContent = () =>
+    graphicSrc ? (
+      <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
+    ) : (
       <Flex
         alignItems="center"
         gap={{ row: text === '' ? 0 : 2, column: 0 }}
@@ -273,7 +271,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         </Text>
       </Flex>
     );
-  };
 
   return (
     <button
