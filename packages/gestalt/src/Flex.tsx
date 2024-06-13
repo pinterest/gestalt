@@ -88,6 +88,10 @@ type Props = {
    * Defines how to handle content that extends beyond the Flex container.
    */
   overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
+      /**
+   * Ref that is forwarded to the underlying input element. See the [using a ref](https://gestalt.pinterest.systems/get_started/developers/hacking_gestalt#Refs) for more info.
+   */
+    ref?: HTMLDivElement;
   /**
    * Use numbers for pixels: `width={100}` and strings for percentages: `width="100%"`.
    */

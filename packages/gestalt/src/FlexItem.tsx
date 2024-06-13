@@ -34,6 +34,10 @@ export type Props = {
    * Use numbers for pixels: `minWidth={100}` and strings for percentages: `minWidth="100%"`. Can be used to fix overflowing children; see [the example](https://gestalt.pinterest.systems/web/flex#FlexItem-minWidth) to learn more.
    */
   minWidth?: Dimension;
+        /**
+   * Ref that is forwarded to the underlying input element. See the [using a ref](https://gestalt.pinterest.systems/get_started/developers/hacking_gestalt#Refs) for more info.
+   */
+  ref?: HTMLDivElement;
 };
 
 const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'maxWidth', 'minWidth'];
