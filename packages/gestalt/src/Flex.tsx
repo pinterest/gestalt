@@ -88,10 +88,10 @@ type Props = {
    * Defines how to handle content that extends beyond the Flex container.
    */
   overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
-      /**
+  /**
    * Ref that is forwarded to the underlying input element. See the [using a ref](https://gestalt.pinterest.systems/get_started/developers/hacking_gestalt#Refs) for more info.
    */
-    ref?: HTMLDivElement;
+  ref?: HTMLDivElement;
   /**
    * Use numbers for pixels: `width={100}` and strings for percentages: `width="100%"`.
    */
@@ -131,51 +131,57 @@ const allowedProps = [
  * ![Flex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Flex.spec.ts-snapshots/Flex-chromium-darwin.png)
  *
  */
-const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(({
-  children: childrenProp,
-  dataTestId,
-  direction = 'row',
-  gap = 0,
-  justifyContent,
-  ...rest
-}: Props, ref) => {
-  const children = gap
-    ? // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-      Children.map(childrenProp, (child, index) => {
-        if (child === null || child === undefined) {
-          return null;
-        }
-        return wrapWithComponent({
-          element: child,
-          Component: FlexItem,
-          props: {
-            key: index,
-          },
-        });
-      }).filter(Boolean)
-    : childrenProp;
-
-  const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
-    styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
-  }`;
-
-  const { passthroughProps, propsStyles } = buildStyles<Props>({
-    baseStyles: `${styles.Flex} ${gapStyles}`,
-    props: {
-      ...rest,
-      children,
-      direction,
+const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      children: childrenProp,
+      dataTestId,
+      direction = 'row',
+      gap = 0,
       justifyContent,
-    },
-    allowlistProps: allowedProps,
-  });
+      ...rest
+    }: Props,
+    ref,
+  ) => {
+    const children = gap
+      ? // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+        Children.map(childrenProp, (child, index) => {
+          if (child === null || child === undefined) {
+            return null;
+          }
+          return wrapWithComponent({
+            element: child,
+            Component: FlexItem,
+            props: {
+              key: index,
+            },
+          });
+        }).filter(Boolean)
+      : childrenProp;
 
-  // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
-  return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
-});
+    const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
+      styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
+    }`;
+
+    const { passthroughProps, propsStyles } = buildStyles<Props>({
+      baseStyles: `${styles.Flex} ${gapStyles}`,
+      props: {
+        ...rest,
+        children,
+        direction,
+        justifyContent,
+      },
+      allowlistProps: allowedProps,
+    });
+
+    // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+    return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+  },
+);
 
 // Define the type for FlexWithForwardRef to include the subcomponent, otherwise typescript does not recognize Flex.Item
-interface FlexWithSubComponents extends ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> {
+interface FlexWithSubComponents
+  extends ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> {
   Item: typeof FlexItem;
 }
 
