@@ -1,4 +1,4 @@
-import { Children, ReactNode } from 'react';
+import { Children, forwardRef, ReactNode } from 'react';
 import { buildStyles } from './boxTransforms';
 import styles from './Flex.css';
 import FlexItem from './FlexItem';
@@ -127,14 +127,14 @@ const allowedProps = [
  * ![Flex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Flex.spec.ts-snapshots/Flex-chromium-darwin.png)
  *
  */
-export default function Flex({
+const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(function Flex({
   children: childrenProp,
   dataTestId,
   direction = 'row',
   gap = 0,
   justifyContent,
   ...rest
-}: Props) {
+}: Props, ref) {
   const children = gap
     ? // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
       Children.map(childrenProp, (child, index) => {
@@ -145,7 +145,6 @@ export default function Flex({
           element: child,
           Component: FlexItem,
           props: {
-            // @ts-expect-error - TS2322 - Type '{ key: number; }' is not assignable to type 'Props'.
             key: index,
           },
         });
@@ -168,9 +167,17 @@ export default function Flex({
   });
 
   // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
-  return <div {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+  return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+});
+
+export default FlexWithForwardRef;
+
+// Define the type for FlexWithForwardRef to include the subcomponent, otherwise Flex Item does not get recognized
+interface FlexWithSubComponents extends React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> {
+  Item: typeof FlexItem;
 }
 
-Flex.Item = FlexItem;
+// Attach the subcomponent to the main component
+(FlexWithForwardRef as FlexWithSubComponents).Item = FlexItem;
 
-Flex.displayName = 'Flex';
+FlexWithForwardRef.displayName = 'Flex';
