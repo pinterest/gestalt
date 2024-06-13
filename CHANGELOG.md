@@ -1,3 +1,9 @@
+## 153.4.0 (Jun 13, 2024)
+
+### Minor
+
+- Tokens, Icon: enables beta VR theme experimentation ([#3616](https://github.com/pinterest/gestalt/pull/3616)) - [Preview link](https://deploy-preview-3616--gestalt.netlify.app?devexample=true)
+
 ## 153.3.2 (Jun 13, 2024)
 
 ### Patch
