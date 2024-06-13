@@ -7,19 +7,19 @@ export default function Example() {
   return (
     <Flex alignItems="center" direction="column" height="100%" justifyContent="center" width="100%">
       <ButtonToggle
-        color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
+        color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
         onClick={() => setSelected((value) => !value)}
         selected={selected}
         size="lg"
         text="Fair Skin"
       />
       <Text size="200" weight="bold">
-        {`color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}`}
+        {`color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}`}
       </Text>
       <Box padding={4} />
       <ButtonGroup>
         <ButtonToggle
-          color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
+          color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
           disabled
           onClick={() => setSelected((value) => !value)}
           selected={false}
@@ -27,7 +27,7 @@ export default function Example() {
           text="Fair Skin"
         />
         <ButtonToggle
-          color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
+          color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
           disabled
           onClick={() => setSelected((value) => !value)}
           selected
@@ -36,7 +36,7 @@ export default function Example() {
         />
       </ButtonGroup>
       <Text size="200" weight="bold">
-        {`color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']} disabled`}
+        {`color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']} disabled`}
       </Text>
     </Flex>
   );

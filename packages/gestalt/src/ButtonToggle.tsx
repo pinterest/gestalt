@@ -1,7 +1,8 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
+import borderStyles from './Borders.css';
 import styles from './ButtonToggle.css';
-import ColorPicker from './ButtonToggle/ColorPicker';
+import ColorPicker, { SkinColor } from './ButtonToggle/ColorPicker';
 import LabeledThumbnail from './ButtonToggle/LabeledThumbnail';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
@@ -24,24 +25,6 @@ const SIZE_NAME_TO_PIXEL = {
   md: 12,
   lg: 12,
 } as const;
-
-type SkinColor =
-  | '#F0E3DC'
-  | '#F8D7D8'
-  | '#F2D7BE'
-  | '#F7C3AF'
-  | '#DEBAB0'
-  | '#E0999A'
-  | '#DDA67C'
-  | '#D98A64'
-  | '#9A6B52'
-  | '#A25847'
-  | '#B37143'
-  | '#BF6951'
-  | '#683929'
-  | '#34261F'
-  | '#64281B'
-  | '#4F2221';
 
 type Props = {
   /**
@@ -212,7 +195,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.enabled]: !disabled,
     [styles.lg]: size === 'lg' && !graphicSrc,
     [styles.md]: size === 'md' && !graphicSrc,
-    [styles.noBorder]: color === 'red' && !selected,
+    [borderStyles.noBorder]: color === 'red' && !selected,
     [styles.selected]: !disabled && selected,
     [styles.selectedDisabled]: disabled && selected,
     [styles.sm]: size === 'sm' && !graphicSrc,

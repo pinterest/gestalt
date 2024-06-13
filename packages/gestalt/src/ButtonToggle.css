@@ -25,10 +25,6 @@
   background-color: var(--color-transparent);
 }
 
-.noBorder {
-  composes: noBorder from "./Borders.css";
-}
-
 .colorPickerButton {
   composes: noBorder from "./Borders.css";
   background-color: var(--color-transparent);

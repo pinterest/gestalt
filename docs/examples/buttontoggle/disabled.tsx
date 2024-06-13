@@ -29,14 +29,14 @@ export default function Example() {
       </ButtonGroup>
       <ButtonGroup>
         <ButtonToggle
-          color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
+          color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
           disabled
           selected={false}
           size="lg"
           text="Fair Skin"
         />
         <ButtonToggle
-          color={['#F0E3DC', '#F8D7D8', '#F2D7BE', '#F7C3AF']}
+          color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
           disabled
           selected
           size="lg"
