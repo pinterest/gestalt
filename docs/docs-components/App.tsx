@@ -5,6 +5,7 @@ import { AppContextConsumer, AppContextProvider } from './appContext';
 import AppLayout from './AppLayout';
 import DocsExperimentProvider from './contexts/DocsExperimentProvider';
 import { LocalFilesProvider } from './contexts/LocalFilesProvider';
+import DocsVisualRefreshTypographyStyle from './DocsVisualRefreshTypographyStyle';
 import { NavigationContextProvider } from './navigationContext';
 
 type Props = {
@@ -70,6 +71,7 @@ export default function App({ children, files }: Props) {
   return (
     <AppContextProvider>
       <DocsExperimentProvider>
+        <DocsVisualRefreshTypographyStyle />
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme}>

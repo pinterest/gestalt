@@ -18,7 +18,7 @@ import {
   TOKEN_COLOR_WHITE_MOCHIMALIST_0,
   TOKEN_COLOR_YELLOW_CARAMELLOW_450,
 } from 'gestalt-design-tokens';
-import tokens from 'gestalt-design-tokens/dist/json/classic/variables.json';
+import tokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
 import ColorPalette from '../../../docs-components/ColorPalette';
 import ColorTile from '../../../docs-components/ColorTile';
 import MainSection from '../../../docs-components/MainSection';
