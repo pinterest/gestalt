@@ -7,6 +7,7 @@ import Icon from './Icon';
 import InternalIcon from './sharedSubcomponents/InternalIcon';
 import Tooltip from './Tooltip';
 import useInExperiment from './useInExperiment';
+import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
@@ -91,13 +92,22 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
 
   const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
 
-  const getIconColor = ({ badgeType }: { badgeType: ComponentProps<typeof Badge>['type'] }) => {
-    if (badgeType === 'info') return 'interactive-info';
-    return badgeType;
+  const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+    useInteractiveStates();
+
+  const getIconColor = () => {
+    if (isHovered) return `${type}-hover`;
+    return type;
   };
 
   const badgeComponent = (
-    <div className={csBadge}>
+    <div
+      className={csBadge}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+    >
       <Flex alignItems="center" gap={1} height="100%">
         {shouldUseTooltip ? (
           <Box aria-hidden>
@@ -105,7 +115,9 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
               <InternalIcon
                 accessibilityLabel=""
                 color={
-                  getIconColor({ badgeType: type }) as ComponentProps<typeof InternalIcon>['color']
+                  getIconColor() as ComponentProps<
+                    typeof InternalIcon
+                  >['color']
                 }
                 icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
                 inline

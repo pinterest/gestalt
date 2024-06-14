@@ -4,14 +4,13 @@ import icons from '../icons/index';
 import vrIcons from '../icons-vr-theme/index';
 import useInExperiment from '../useInExperiment';
 
-export type IconColor =
+type IconColor =
   | 'default'
   | 'subtle'
   | 'success'
   | 'error'
   | 'warning'
   | 'info'
-  | 'interactive-info'
   | 'recommendation'
   | 'inverse'
   | 'shopping'
@@ -19,9 +18,19 @@ export type IconColor =
   | 'light'
   | 'dark';
 
+  type HoveredIconColor =
+  | 'neutral-hover'
+  | 'success-hover'
+  | 'error-hover'
+  | 'warning-hover'
+  | 'info-hover'
+  | 'recommendation-hover'
+  | 'light-hover'
+  | 'dark-hover';
+
 type Props = {
   accessibilityLabel: string;
-  color?: IconColor;
+  color?: IconColor | HoveredIconColor;
   icon?: keyof typeof icons;
   dangerouslySetSvgPath?: {
     __path: string;
@@ -30,7 +39,7 @@ type Props = {
   size?: number | string;
 };
 
-const flipOnRtlIconNames = [
+const flipOnRtlIconNames: Partial<keyof typeof icons>[] = [
   'ads-stats',
   'ads-overview',
   'arrow-back',
@@ -42,7 +51,7 @@ const flipOnRtlIconNames = [
   'compose',
   'directional-arrow-left',
   'directional-arrow-right',
-  'flipVertical',
+  'flip-vertical',
   'hand-pointing',
   'link',
   'mute',

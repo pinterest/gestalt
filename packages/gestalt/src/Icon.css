@@ -18,8 +18,6 @@ html[dir="rtl"] .rtlSupport {
   transform-origin: center;
 }
 
-/* semantic icon colors */
-
 .inverse {
   color: var(--color-icon-inverse);
 }
@@ -56,10 +54,6 @@ html[dir="rtl"] .rtlSupport {
   color: var(--color-icon-info);
 }
 
-.info-hovered {
-  color: var(--color-background-info-weak);
-}
-
 .brandPrimary {
   color: var(--color-icon-brand-primary);
 }
@@ -70,4 +64,34 @@ html[dir="rtl"] .rtlSupport {
 
 .dark {
   color: var(--color-icon-dark);
+}
+
+/* Hover */
+
+.light-hover {
+  color: var(--color-icon-dark);
+}
+
+.dark-hover {
+  color: var(--color-icon-light);
+}
+
+.info-hover {
+  color: var(--color-background-badge-info-default);
+}
+
+.recommendation-hover {
+  color: var(--color-background-badge-recommendation);
+}
+
+.success-hover {
+  color: var(--color-background-badge-success);
+}
+
+.warning-hover {
+  color: var(--color-background-badge-warning);
+}
+
+.error-hover {
+  color: var(--color-background-badge-error);
 }

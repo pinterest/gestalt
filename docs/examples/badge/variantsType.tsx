@@ -26,7 +26,7 @@ export default function Example() {
                   text="New"
                   tooltip={{
                     text: 'Collages is a new feature',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="info"
                 />
@@ -46,7 +46,7 @@ export default function Example() {
                   text="Completed"
                   tooltip={{
                     text: 'Your onboarding is almost completed',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="success"
                 />
@@ -66,7 +66,7 @@ export default function Example() {
                   text="Needs attention"
                   tooltip={{
                     text: 'Your account needs attention',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="warning"
                 />
@@ -86,7 +86,7 @@ export default function Example() {
                   text="Failed"
                   tooltip={{
                     text: 'Your uploading failed',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="error"
                 />
@@ -105,14 +105,14 @@ export default function Example() {
                   text="Not started"
                   tooltip={{
                     text: 'Your campaign has not started',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="neutral"
                 />
               </Flex>
             </Table.Cell>
           </Table.Row>
-          
+
           <Table.Row>
             <Table.Cell>
               <Text>Recommendation</Text>
@@ -125,7 +125,7 @@ export default function Example() {
                   text="Recommended for you"
                   tooltip={{
                     text: 'This business product is recommended for you',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="recommendation"
                 />

@@ -28,9 +28,8 @@
 
 .interactive-info:hover,
 .interactive-info:focus {
-  background-color: var(--color-background-badge-info-hover);
-  /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-background-info-weak) !important;
+  background-color: var(--color-text-badge-info-default);
+  color: var(--color-background-badge-info-default)
 }
 
 .error,
@@ -39,10 +38,22 @@
   color: var(--color-text-badge-error);
 }
 
+.interactive-error:hover,
+.interactive-error:focus {
+  background-color: var(--color-text-badge-error);
+  color: var(--color-background-badge-error)
+}
+
 .warning,
 .interactive-warning {
   background-color: var(--color-background-badge-warning);
   color: var(--color-text-badge-warning);
+}
+
+.interactive-warning:hover,
+.interactive-warning:focus {
+  background-color: var(--color-text-badge-warning);
+  color: var(--color-background-badge-warning);
 }
 
 .success,
@@ -51,10 +62,22 @@
   color: var(--color-text-badge-success);
 }
 
+.interactive-success:hover,
+.interactive-success:focus {
+  background-color: var(--color-text-badge-success);
+  color: var(--color-background-badge-success);
+}
+
 .recommendation,
 .interactive-recommendation {
   background-color: var(--color-background-badge-recommendation);
   color: var(--color-text-badge-recommendation);
+}
+
+.interactive-recommendation:hover,
+.interactive-recommendation:focus {
+  background-color: var(--color-text-badge-recommendation);
+  color: var(--color-background-badge-recommendation);
 }
 
 .neutral,
@@ -63,14 +86,31 @@
   color: var(--color-text-badge-neutral);
 }
 
+.interactive-neutral:hover,
+.interactive-neutral:focus {
+  background-color: var(--color-text-badge-neutral);
+  color: var(--color-background-badge-neutral);
+}
+
 .darkWash,
 .interactive-darkWash {
   background-color: var(--color-background-badge-darkwash);
-  color: var(--color-text-badge-darkwash);
+  color: var(--color-text-light);
+}
+
+.interactive-darkWash:hover,
+.interactive-darkWash:focus {
+  background-color: var(--color-background-badge-lightwash);
+  color: var(--color-text-dark);
 }
 
 .lightWash,
 .interactive-lightWash {
   background-color: var(--color-background-badge-lightwash);
-  color: var(--color-text-lightwash);
+  color: var(--color-text-dark);
 }
+
+.interactive-lightWash:hover,
+.interactive-lightWash:focus {
+  background-color: var(--color-background-badge-darkwash);
+    color: var(--color-text-light);}
