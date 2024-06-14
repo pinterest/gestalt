@@ -815,7 +815,7 @@ function getAndroidConfiguration({ theme, mode, language }) {
                   ...dimenResource,
                   ...filterSpace,
                 },
-                {
+                language && {
                   'destination': `font-lineheight-${language}.xml`,
                   ...androidResources,
                   ...dimenResource,
