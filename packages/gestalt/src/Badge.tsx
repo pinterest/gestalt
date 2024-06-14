@@ -86,7 +86,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
 
   let styleType: TypeOptions | InteractiveTypeOptions = type;
 
-  if (shouldUseTooltip) {
+  if (shouldUseTooltip && ( type === 'info' || isInVRExperiment)) {
     styleType = `interactive-${type}`;
   }
 
@@ -96,7 +96,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     useInteractiveStates();
 
   const getIconColor = () => {
-    if (isHovered) return `${type}-hover`;
+    if (isHovered && isInVRExperiment) return `${type}-hover`;
     return type;
   };
 

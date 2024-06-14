@@ -782,6 +782,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           >
                             <div
                               class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                              style="height: 100%;"
                             >
                               <div
                                 class="FlexItem"
@@ -857,6 +858,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             >
                               <div
                                 class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                style="height: 100%;"
                               >
                                 <div
                                   class="FlexItem"

@@ -52,9 +52,18 @@ exports[`Accordion renders a badge correctly 1`] = `
           >
             <div
               className="Badge middle info"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
             >
               <div
                 className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": "100%",
+                  }
+                }
               >
                 <div
                   className="FlexItem"
