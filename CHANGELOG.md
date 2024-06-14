@@ -1,3 +1,9 @@
+## 153.5.0 (Jun 14, 2024)
+
+### Minor
+
+- ButtonToggle: V2 Development ([#3611](https://github.com/pinterest/gestalt/pull/3611)) - [Preview link](https://deploy-preview-3611--gestalt.netlify.app?devexample=true)
+
 ## 153.4.0 (Jun 13, 2024)
 
 ### Minor
