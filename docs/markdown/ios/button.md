@@ -33,6 +33,8 @@ For general Button best practices, refer to the [Button web documentation](/web/
 
 ## Accessibility 
 
+<Badge text="test" type="error" />
+
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 
 - [Accessible design on iOS](https://developer.apple.com/design/human-interface-guidelines/foundations/accessibility/)

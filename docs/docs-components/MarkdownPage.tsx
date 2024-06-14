@@ -2,6 +2,7 @@ import 'highlight.js/styles/a11y-light.css';
 import { ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
+import { TypeOptions } from 'packages/gestalt/src/Badge';
 import { Badge, Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BACKGROUND_DEFAULT,
@@ -144,10 +145,10 @@ const components = {
       text={children || ''}
     />
   ),
-  Badge: ({ text, type }: { text: string | null; type: string }) => (
+  Badge: ({ text, type }: { text: string | null; type: TypeOptions | undefined }) => (
     <Badge
       text={text || ''}
-      type="success"
+      type={type}
     />
   ),
   Datapoint: ({
