@@ -29,7 +29,8 @@
 .interactive-info:hover,
 .interactive-info:focus {
   background-color: var(--color-background-badge-info-hover);
-  color: var(--color-background-info-weak);
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-background-info-weak) !important;
 }
 
 .error,

@@ -52,13 +52,11 @@ html[dir="rtl"] .rtlSupport {
   color: var(--color-icon-shopping);
 }
 
-.info,
-.infoInteractive {
+.info {
   color: var(--color-icon-info);
 }
 
-.infoInteractive:hover
-.infoInteractive:focus {
+.info-hovered {
   color: var(--color-background-info-weak);
 }
 

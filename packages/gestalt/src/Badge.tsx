@@ -92,7 +92,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
   const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
 
   const getIconColor = ({ badgeType }: { badgeType: ComponentProps<typeof Badge>['type'] }) => {
-    if (badgeType === 'info') return 'infoInteractive';
+    if (badgeType === 'info') return 'interactive-info';
     return badgeType;
   };
 
@@ -105,23 +105,19 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
               <InternalIcon
                 accessibilityLabel=""
                 color={
-                  isInVRExperiment
-                    ? (getIconColor({ badgeType: type }) as ComponentProps<typeof InternalIcon>['color'])
-                    : 'inverse'
+                  getIconColor({ badgeType: type }) as ComponentProps<typeof InternalIcon>['color']
                 }
                 icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
                 inline
-                size={isInVRExperiment ? '12' : '14'}
+                size="12"
               />
             ) : (
               <Icon
                 accessibilityLabel=""
-                color={
-                  isInVRExperiment ? (type as ComponentProps<typeof Icon>['color']) : 'inverse'
-                }
+                color="inverse"
                 icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
                 inline
-                size={isInVRExperiment ? '12' : '14'}
+                size="14"
               />
             )}
           </Box>

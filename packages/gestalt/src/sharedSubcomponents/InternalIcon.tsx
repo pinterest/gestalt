@@ -11,7 +11,7 @@ export type IconColor =
   | 'error'
   | 'warning'
   | 'info'
-  | 'infoInteractive'
+  | 'interactive-info'
   | 'recommendation'
   | 'inverse'
   | 'shopping'
