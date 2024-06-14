@@ -1,3 +1,5 @@
+import colorpicker from 'docs/examples/buttontoggle/colorpicker';
+import thumbnail from 'docs/examples/buttontoggle/thumbnail';
 import { ButtonToggle } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -104,6 +106,7 @@ If ButtonToggle is used as a control button to show/hide content, we recommend p
 
 - \`accessibilityControls\`: informs the screen reader that ButtonToggle controls the display of an interactive widget or element, or is used to modify another component.  It can be used to associate the corresponding element with the ButtonToggle. It populates [aria-controls](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls).
 
+In the Color Picker variant, the ButtonToggle does not display the text given as a visible label, but the text prop is still used as a fallback accessiblity label, and is still required.
 
 `}
           title="ARIA attributes"
@@ -167,6 +170,70 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             sandpackExample={<SandpackExample code={colors} name="Colors" previewHeight={150} />}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+The \`graphicSrc\` prop adds a thumbnail above the ButtonToggle text, whose source is the URL provided in the prop.
+
+This variant also changes the shape of the ButtonToggle.
+`}
+          title="Thumbnail"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={thumbnail}
+                name="Thumbnail buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+If the \`color\` prop is an array of 4 skin tones, ButtonToggle is converted into a textless color picker.
+The text prop is still used as a fallback accessiblity label, and is still required.
+
+The colors in the array are displayed in a 4-quadrant pattern across the ButtonToggle.
+The skin tones currently supported are:
+<div style="display:flex">
+  <div style="display:flex; flex-direction: column; flex: 10">
+  skinTone1 <span style="background-color:#F0E3DC">#F0E3DC</span>
+  skinTone2 <span style="background-color:#F8D7D8">#F8D7D8</span>
+  skinTone3 <span style="background-color:#F2D7BE">#F2D7BE</span>
+  skinTone4 <span style="background-color:#F7C3AF">#F7C3AF</span>
+  skinTone5 <span style="background-color:#DEBAB0">#DEBAB0</span>
+  skinTone6 <span style="background-color:#E0999A">#E0999A</span>
+  skinTone7 <span style="background-color:#DDA67C">#DDA67C</span>
+  skinTone8 <span style="background-color:#D98A64">#D98A64</span>
+  </div>
+  <div style="flex: 1"></div>
+  <div style="display:flex; flex-direction: column; flex: 10">
+  skinTone9 <span style="background-color:#9A6B52; color: white">#9A6B52</span>
+  skinTone10 <span style="background-color:#A25847; color: white">#A25847</span>
+  skinTone11 <span style="background-color:#B37143">#B37143</span>
+  skinTone12 <span style="background-color:#BF6951">#BF6951</span>
+  skinTone13 <span style="background-color:#683929; color: white">#683929</span>
+  skinTone14 <span style="background-color:#34261F; color: white">#34261F</span>
+  skinTone15 <span style="background-color:#64281B; color: white">#64281B</span>
+  skinTone16 <span style="background-color:#4F2221; color: white">#4F2221</span>
+  </div>
+</div>
+`}
+          title="Color Picker"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={colorpicker}
+                name="Color Picker buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
 \`iconStart\` adds an icon before the ButtonToggle text.
