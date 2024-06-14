@@ -35,7 +35,7 @@ export type Props = {
    */
   minWidth?: Dimension;
   /**
-   * Ref that is forwarded to the underlying div element.
+   *  Ref that is forwarded to the underlying div element.
    */
   ref?: HTMLDivElement;
 };
