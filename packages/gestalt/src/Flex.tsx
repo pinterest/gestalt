@@ -89,7 +89,7 @@ type Props = {
    */
   overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
   /**
-   * Ref that is forwarded to the underlying input element. See the [using a ref](https://gestalt.pinterest.systems/get_started/developers/hacking_gestalt#Refs) for more info.
+   * Ref that is forwarded to the underlying div element.
    */
   ref?: HTMLDivElement;
   /**
