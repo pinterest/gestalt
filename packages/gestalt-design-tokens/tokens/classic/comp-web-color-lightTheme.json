@@ -669,6 +669,37 @@
           "value": "{color.gray.roboflow.500.value}",
           "comment": "Formfield placeholder text color."
         }
+      },
+      "badge": {
+        "neutral": {
+          "value": "{color.text.inverse.value}"
+        },
+        "info": {
+          "default": {
+            "value": "{color.text.inverse.value}"
+          },
+          "hover": {
+            "value": "{color.text.inverse.value}"
+          }
+        },
+        "error": {
+          "value": "{color.text.inverse.value}"
+        },
+        "warning": {
+          "value": "{color.text.inverse.value}"
+        },
+        "success": {
+          "value": "{color.text.inverse.value}"
+        },
+        "recommendation": {
+          "value": "{color.text.inverse.value}"
+        },
+        "lightwash": {
+          "value": "{color.text.light.value}"
+        },
+        "darkwash": {
+          "value": "{color.text.dark.value}"
+        }
       }
     },
     "icon": {

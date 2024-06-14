@@ -5,6 +5,7 @@ import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
 import Tooltip from './Tooltip';
+import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
@@ -65,13 +66,18 @@ type Props = {
 export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
   const shouldUseTooltip = tooltip?.text;
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const ICON_MAP = Object.freeze({
     'info': 'info-circle',
     'error': 'workflow-status-problem',
     'warning': 'workflow-status-warning',
     'success': 'check-circle',
     'neutral': 'lock',
-    'recommendation': 'performance-plus',
+    'recommendation': 'sparkle',
     'darkWash': 'info-circle',
     'lightWash': 'info-circle',
   });
@@ -82,11 +88,15 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     styleType = `interactive-${type}`;
   }
 
-  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
+  const csBadge = cx(
+    styles.Badge,
+    styles[position],
+    styles[styleType],
+  );
 
   const badgeComponent = (
     <div className={csBadge}>
-      <Flex alignItems="center" gap={1}>
+      <Flex alignItems="center" gap={1} height="100%">
         {shouldUseTooltip ? (
           <Box aria-hidden>
             <Icon
@@ -94,11 +104,11 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
               color="inverse"
               icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
               inline
-              size="14"
+              size={isInVRExperiment ? '12' : '14'}
             />
           </Box>
         ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }} display="inlineBlock">
+        <Box dangerouslySetInlineStyle={{ __style: { marginTop: isInVRExperiment ? '3px' : '2px' } }} display="inlineBlock">
           {text}
         </Box>
       </Flex>

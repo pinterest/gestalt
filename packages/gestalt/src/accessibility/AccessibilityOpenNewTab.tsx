@@ -15,7 +15,7 @@ type Props = {
 export default function AccessibilityOpenNewTab({ size, color }: Props) {
   const cs = classnames(styles.rtlSupport, styles[color ?? 'default'], styles.icon);
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-  const isInExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
@@ -23,7 +23,7 @@ export default function AccessibilityOpenNewTab({ size, color }: Props) {
   return (
     <svg className={cs} height={size} role="img" viewBox="0 0 24 24" width={size}>
       <title>, {accessibilityNewTabLabel}</title>
-      <path d={(isInExperiment ? vrIcons : icons).visit} />
+      <path d={(isInVRExperiment ? vrIcons : icons).visit} />
     </svg>
   );
 }

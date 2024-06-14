@@ -111,12 +111,12 @@ function Icon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
-  const isInExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
   const path =
-    (icon && (isInExperiment ? vrIcons : icons)[icon]) ||
+    (icon && (isInVRExperiment ? vrIcons : icons)[icon]) ||
     /* eslint-disable-next-line no-underscore-dangle */
     (dangerouslySetSvgPath && dangerouslySetSvgPath.__path) ||
     undefined;

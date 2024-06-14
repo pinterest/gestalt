@@ -103,7 +103,7 @@ export default function ColorSchemeProvider({
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
-  const isInExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
@@ -133,10 +133,10 @@ export default function ColorSchemeProvider({
             colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
   ${selector} {
-${themeToStyles(darkModeTheme, isInExperiment)} }
+${themeToStyles(darkModeTheme, isInVRExperiment)} }
 }`
               : `${selector} {
-${themeToStyles(theme, isInExperiment)} }`,
+${themeToStyles(theme, isInVRExperiment)} }`,
         }}
       />
       <div

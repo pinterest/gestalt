@@ -23,46 +23,52 @@
 .info,
 .interactive-info {
   background-color: var(--color-background-badge-info-default);
+  color: var(--color-text-badge-info-default);
 }
 
 .interactive-info:hover,
 .interactive-info:focus {
   background-color: var(--color-background-badge-info-hover);
-}
+  color: var(--color-text-badge-info-hover);}
 
 .error,
 .interactive-error {
   background-color: var(--color-background-badge-error);
+  color: var(--color-text-badge-error);
 }
 
 .warning,
 .interactive-warning {
   background-color: var(--color-background-badge-warning);
+  color: var(--color-text-badge-warning);
 }
 
 .success,
 .interactive-success {
   background-color: var(--color-background-badge-success);
+  color: var(--color-text-badge-success);
 }
 
 .recommendation,
 .interactive-recommendation {
   background-color: var(--color-background-badge-recommendation);
+  color: var(--color-text-badge-recommendation);
 }
 
 .neutral,
 .interactive-neutral {
   background-color: var(--color-background-badge-neutral);
+  color: var(--color-text-badge-neutral);
 }
 
 .darkWash,
 .interactive-darkWash {
   background-color: var(--color-background-badge-darkwash);
-  color: var(--color-text-light);
+  color: var(--color-text-badge-darkwash);
 }
 
 .lightWash,
 .interactive-lightWash {
   background-color: var(--color-background-badge-lightwash);
-  color: var(--color-text-dark);
+  color: var(--color-text-lightwash);
 }
