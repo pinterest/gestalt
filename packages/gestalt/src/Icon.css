@@ -52,8 +52,14 @@ html[dir="rtl"] .rtlSupport {
   color: var(--color-icon-shopping);
 }
 
-.info {
+.info,
+.infoInteractive {
   color: var(--color-icon-info);
+}
+
+.infoInteractive:hover
+.infoInteractive:focus {
+  color: var(--color-background-info-weak);
 }
 
 .brandPrimary {

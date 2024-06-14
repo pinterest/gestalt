@@ -4,6 +4,7 @@ import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import InternalIcon from './sharedSubcomponents/InternalIcon';
 import Tooltip from './Tooltip';
 import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
@@ -88,27 +89,47 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     styleType = `interactive-${type}`;
   }
 
-  const csBadge = cx(
-    styles.Badge,
-    styles[position],
-    styles[styleType],
-  );
+  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
+
+  const getIconColor = ({ badgeType }: { badgeType: ComponentProps<typeof Badge>['type'] }) => {
+    if (badgeType === 'info') return 'infoInteractive';
+    return badgeType;
+  };
 
   const badgeComponent = (
     <div className={csBadge}>
       <Flex alignItems="center" gap={1} height="100%">
         {shouldUseTooltip ? (
           <Box aria-hidden>
-            <Icon
-              accessibilityLabel=""
-              color={isInVRExperiment ? type as ComponentProps<typeof Icon>['color'] : "inverse"}
-              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-              inline
-              size={isInVRExperiment ? '12' : '14'}
-            />
+            {isInVRExperiment ? (
+              <InternalIcon
+                accessibilityLabel=""
+                color={
+                  isInVRExperiment
+                    ? (getIconColor({ badgeType: type }) as ComponentProps<typeof InternalIcon>['color'])
+                    : 'inverse'
+                }
+                icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+                inline
+                size={isInVRExperiment ? '12' : '14'}
+              />
+            ) : (
+              <Icon
+                accessibilityLabel=""
+                color={
+                  isInVRExperiment ? (type as ComponentProps<typeof Icon>['color']) : 'inverse'
+                }
+                icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+                inline
+                size={isInVRExperiment ? '12' : '14'}
+              />
+            )}
           </Box>
         ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: { marginTop: isInVRExperiment ? '3px' : '2px' } }} display="inlineBlock">
+        <Box
+          dangerouslySetInlineStyle={{ __style: { marginTop: isInVRExperiment ? '3px' : '2px' } }}
+          display="inlineBlock"
+        >
           {text}
         </Box>
       </Flex>
