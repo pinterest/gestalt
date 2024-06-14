@@ -101,7 +101,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
           <Box aria-hidden>
             <Icon
               accessibilityLabel=""
-              color="inverse"
+              color={isInVRExperiment ? type as ComponentProps<typeof Icon>['color'] : "inverse"}
               icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
               inline
               size={isInVRExperiment ? '12' : '14'}

@@ -13,7 +13,17 @@ export default function Example() {
             src="https://i.ibb.co/cbjgZft/img-door.jpg"
           >
             <Box padding={4}>
-              <Badge text="Light wash" type="lightWash" />
+              <Flex direction="column" gap={1}>
+                <Badge text="Light wash" type="lightWash" />
+                <Badge
+                  text="Light wash"
+                  tooltip={{
+                    text: 'Tooltip text',
+                    idealDirection: 'up',
+                  }}
+                  type="lightWash"
+                />
+              </Flex>
             </Box>
           </Image>
         </Mask>
@@ -26,7 +36,17 @@ export default function Example() {
             src="https://i.ibb.co/7bQQYkX/stock2.jpg"
           >
             <Box padding={4}>
-              <Badge text="Dark wash" type="darkWash" />
+              <Flex direction="column" gap={1}>
+                <Badge text="Dark wash" type="darkWash" />
+                <Badge
+                  text="Dark wash"
+                  tooltip={{
+                    text: 'Tooltip text',
+                    idealDirection: 'up',
+                  }}
+                  type="darkWash"
+                />
+              </Flex>
             </Box>
           </Image>
         </Mask>
