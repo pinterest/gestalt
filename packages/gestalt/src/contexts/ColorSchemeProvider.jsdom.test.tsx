@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react';
 import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider';
+import ExperimentProvider from './ExperimentProvider';
 
 function ThemeAwareComponent() {
   const theme = useColorScheme();
@@ -107,5 +108,37 @@ describe('useColorScheme', () => {
     // @ts-expect-error - TS2769 - No overload matches this call.
     act(() => listener({ matches: true }));
     expect(screen.getByText('darkMode')).toBeTruthy();
+  });
+});
+
+describe('visual refresh tokens', () => {
+  it('uses visual refresh light mode theme when specified', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses visual refresh dark mode theme when specified', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="dark">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
   });
 });

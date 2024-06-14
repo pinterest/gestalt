@@ -3,7 +3,6 @@ import PopoverEducational from './PopoverEducational';
 
 test('PopoverEducational renders', () => {
   const element = document.createElement('div');
-  // Remove experiment after PopoverEducational v2 is fully released
   const { container } = render(
     <PopoverEducational
       accessibilityLabel="test"

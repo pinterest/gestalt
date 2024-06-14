@@ -419,6 +419,7 @@ function useLayout<
     // - items: if we get new items, we should always recalculate positions
     // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemMeasurementsCount, items, canPerformLayout]);
 
@@ -676,6 +677,7 @@ function Masonry<
     if (!hasSetInitialWidth.current && width != null) {
       hasSetInitialWidth.current = true;
     }
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 

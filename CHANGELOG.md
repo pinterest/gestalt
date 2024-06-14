@@ -1,3 +1,39 @@
+## 153.5.0 (Jun 14, 2024)
+
+### Minor
+
+- ButtonToggle: V2 Development ([#3611](https://github.com/pinterest/gestalt/pull/3611)) - [Preview link](https://deploy-preview-3611--gestalt.netlify.app?devexample=true)
+
+## 153.4.0 (Jun 13, 2024)
+
+### Minor
+
+- Tokens, Icon: enables beta VR theme experimentation ([#3616](https://github.com/pinterest/gestalt/pull/3616)) - [Preview link](https://deploy-preview-3616--gestalt.netlify.app?devexample=true)
+
+## 153.3.2 (Jun 13, 2024)
+
+### Patch
+
+- Internal: adding react-compiler plugin and rule ([#3627](https://github.com/pinterest/gestalt/pull/3627)) - [Preview link](https://deploy-preview-3627--gestalt.netlify.app?devexample=true)
+
+## 153.3.1 (Jun 12, 2024)
+
+### Patch
+
+- ButtonToggle: Changing background logic ([#3625](https://github.com/pinterest/gestalt/pull/3625)) - [Preview link](https://deploy-preview-3625--gestalt.netlify.app?devexample=true)
+
+## 153.3.0 (Jun 12, 2024)
+
+### Minor
+
+- Video: Add `dataTestId` prop ([#3624](https://github.com/pinterest/gestalt/pull/3624)) - [Preview link](https://deploy-preview-3624--gestalt.netlify.app?devexample=true)
+
+## 153.2.0 (Jun 12, 2024)
+
+### Minor
+
+- SideNavigation: Add `primaryAction` prop to all nested subcomponents ([#3622](https://github.com/pinterest/gestalt/pull/3622)) - [Preview link](https://deploy-preview-3622--gestalt.netlify.app?devexample=true)
+
 ## 153.1.1 (Jun 11, 2024)
 
 ### Patch

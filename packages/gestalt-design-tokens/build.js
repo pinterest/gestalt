@@ -272,14 +272,14 @@ function getSources({ theme, modeTheme, platform, language }) {
       `tokens/classic/base-opacity.json`,
       `tokens/classic/base-rounding.json`,
       `tokens/classic/base-space.json`,
-      `tokens/classic/sema-color${modeTheme}.json`,
-      `tokens/classic/base-color-dataviz${modeTheme}.json`,
-      `tokens/classic/sema-color-dataviz${modeTheme}.json`,
-      `tokens/classic/base-elevation${modeTheme}.json`,
+      `tokens/classic/sema-color-${modeTheme}.json`,
+      `tokens/classic/base-color-dataviz-${modeTheme}.json`,
+      `tokens/classic/sema-color-dataviz-${modeTheme}.json`,
+      `tokens/classic/base-elevation-${modeTheme}.json`,
       ...(platform === 'web'
         ? [
-            `tokens/classic/comp-web-color${modeTheme}.json`,
-            `tokens/classic/comp-web-elevation${modeTheme}.json`,
+            `tokens/classic/comp-web-color-${modeTheme}.json`,
+            `tokens/classic/comp-web-elevation-${modeTheme}.json`,
             `tokens/classic/comp-web-rounding.json`,
           ]
         : []),
@@ -288,28 +288,30 @@ function getSources({ theme, modeTheme, platform, language }) {
 
   return [
     'tokens/vr-theme/base-color.json',
+    `tokens/vr-theme/base-elevation-${modeTheme}.json`,
     'tokens/vr-theme/base-font.json',
-    'tokens/vr-theme/sema-font.json',
     'tokens/vr-theme/base-opacity.json',
-    'tokens/vr-theme/sema-opacity.json',
     'tokens/vr-theme/base-rounding.json',
-    'tokens/vr-theme/sema-rounding.json',
     'tokens/vr-theme/base-space.json',
-    'tokens/vr-theme/sema-space.json',
-    `tokens/vr-theme/base-elevation${modeTheme}.json`,
+    `tokens/vr-theme/sema-color-${modeTheme}.json`,
     'tokens/vr-theme/sema-elevation.json',
-    `tokens/vr-theme/sema-color${modeTheme}.json`,
+    'tokens/vr-theme/sema-font.json',
+    'tokens/vr-theme/sema-opacity.json',
+    'tokens/vr-theme/sema-rounding.json',
+    'tokens/vr-theme/sema-space.json',
     `tokens/vr-theme/base-lineheight.json`,
     `tokens/vr-theme/language/sema-lineheight-${language}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
+          `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-color.json',
-          'tokens/vr-theme-web-mapping/sema-color.json',
-          `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
-          'tokens/vr-theme-web-mapping/base-rounding.json',
-          'tokens/vr-theme-web-mapping/base-opacity.json',
-          'tokens/vr-theme-web-mapping/base-space.json',
+          `tokens/vr-theme-web-mapping/base-elevation-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-font.json',
+          'tokens/vr-theme-web-mapping/base-opacity.json',
+          'tokens/vr-theme-web-mapping/base-rounding.json',
+          'tokens/vr-theme-web-mapping/base-space.json',
+          `tokens/vr-theme-web-mapping/sema-color-dataviz-${modeTheme}.json`,
+          'tokens/vr-theme-web-mapping/sema-color.json',
         ]
       : []),
   ];
@@ -645,26 +647,12 @@ function getWebConfig({ theme, mode, language }) {
       'json': {
         ...webCssTransformGroup,
         'buildPath': `dist/json/${theme}/`,
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'variables.json',
-                  ...jsonFlat,
-                },
-                {
-                  'destination': 'variables-light.json',
-                  ...jsonFlat,
-                  ...colorElevationFilter,
-                },
-              ]
-            : [
-                {
-                  'destination': 'variables-dark.json',
-                  ...jsonFlat,
-                  ...colorElevationFilter,
-                },
-              ],
+        'files': [
+          {
+            'destination': `variables-${mode}.json`,
+            ...jsonFlat,
+          },
+        ],
       },
       'js': {
         'transformGroup': 'webJsTransformGroup',
