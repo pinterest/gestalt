@@ -607,7 +607,7 @@ StyleDictionary.registerFilter({
 });
 
 function getWebConfig({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
@@ -767,7 +767,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 function getAndroidConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   return {
     'source': getSources({ theme, modeTheme, language }),
@@ -901,7 +901,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 function getIOSConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   const categories = [
     'color',

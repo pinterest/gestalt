@@ -1075,7 +1075,7 @@ public enum GestaltTokensFontSizeVR {
 import SwiftUI
 
 public enum GestaltTokensFontWeightVR {
-    public static let baseWeight700 = \\"600\\"
+    public static let baseWeight700 = \\"700\\"
     public static let baseWeight500 = \\"500\\"
     public static let baseWeight400 = \\"400\\"
     public static let semaWeightUi = baseWeight500

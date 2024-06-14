@@ -939,7 +939,7 @@ Object {
 <resources>
   <dimen name=\\"base_font_weight_400\\">400</dimen>
   <dimen name=\\"base_font_weight_500\\">500</dimen>
-  <dimen name=\\"base_font_weight_700\\">600</dimen>
+  <dimen name=\\"base_font_weight_700\\">700</dimen>
   <dimen name=\\"sema_font_weight_heading_bold\\">@dimen/base_font_weight_700</dimen>
   <dimen name=\\"sema_font_weight_heading_medium\\">@dimen/base_font_weight_500</dimen>
   <dimen name=\\"sema_font_weight_body\\">@dimen/base_font_weight_400</dimen>
