@@ -19,7 +19,7 @@ export default function Example() {
                   text="Light wash"
                   tooltip={{
                     text: 'Tooltip text',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="lightWash"
                 />
@@ -42,7 +42,7 @@ export default function Example() {
                   text="Dark wash"
                   tooltip={{
                     text: 'Tooltip text',
-                    idealDirection: 'up',
+                    idealDirection: 'right',
                   }}
                   type="darkWash"
                 />
