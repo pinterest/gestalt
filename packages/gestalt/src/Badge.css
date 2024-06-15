@@ -1,3 +1,5 @@
+/* Core */
+
 .Badge {
   composes: antialiased sansSerif from "./Typography.css";
   composes: inlineBlock from "./Layout.css";
@@ -29,19 +31,19 @@
 .interactive-info:hover,
 .interactive-info:focus {
   background-color: var(--color-background-badge-info-hover);
-  color: var(--color-text-badge-info-hover)
+  color: var(--color-text-badge-info-hover);
 }
 
 .error,
 .interactive-error {
-  background-color: var(--color-background-badge-error);
-  color: var(--color-text-badge-error);
+  background-color: var(--color-background-badge-error-default);
+  color: var(--color-text-badge-error-default);
 }
 
 .interactive-error:hover,
 .interactive-error:focus {
-  background-color: var(--color-text-badge-error);
-  color: var(--color-background-badge-error)
+  background-color: var(--color-background-badge-error-hover);
+  color: var(--color-text-badge-error-hover);
 }
 
 .warning,
@@ -113,4 +115,5 @@
 .interactive-lightWash:hover,
 .interactive-lightWash:focus {
   background-color: var(--color-background-badge-darkwash);
-    color: var(--color-text-light);}
+  color: var(--color-text-light);
+}

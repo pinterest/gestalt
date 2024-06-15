@@ -2827,7 +2827,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-color-background-elevation: #ffffff;
   --color-background-badge-neutral: #c7c6c1;
   --color-background-badge-info-default: #c5eaf7;
-  --color-background-badge-info-hover: #007db8;
+  --color-background-badge-info-hover: #215d82;
   --color-background-badge-error: #ffd3d1;
   --color-background-badge-warning: #fde7c9;
   --color-background-badge-success: #d0e2a8;
@@ -2858,7 +2858,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-color-text-inverse: #ffffff;
   --color-text-badge-neutral: #000000;
   --color-text-badge-info-default: #215d82;
-  --color-text-badge-info-hover: #215d82;
+  --color-text-badge-info-hover: #c5eaf7;
   --color-text-badge-error: #8a0f0f;
   --color-text-badge-warning: #9b4b1c;
   --color-text-badge-success: #265926;
