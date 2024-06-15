@@ -36,14 +36,14 @@
 
 .error,
 .interactive-error {
-  background-color: var(--color-background-badge-error-default);
-  color: var(--color-text-badge-error-default);
+  background-color: var(--color-background-badge-error);
+  color: var(--color-text-badge-error);
 }
 
 .interactive-error:hover,
 .interactive-error:focus {
-  background-color: var(--color-background-badge-error-hover);
-  color: var(--color-text-badge-error-hover);
+  background-color: var(--color-text-badge-error);
+  color: var(--color-background-badge-error);
 }
 
 .warning,
