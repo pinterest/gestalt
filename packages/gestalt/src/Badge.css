@@ -28,8 +28,8 @@
 
 .interactive-info:hover,
 .interactive-info:focus {
-  background-color: var(--color-text-badge-info-default);
-  color: var(--color-background-badge-info-default)
+  background-color: var(--color-background-badge-info-hover);
+  color: var(--color-text-badge-info-hover)
 }
 
 .error,
