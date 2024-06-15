@@ -10,7 +10,7 @@
             "value": "{color.background.info.weak.value}"
           },
           "hover": {
-            "value": "{color.background.info.strong.value}"
+            "value": "{color.blue.500.value}"
           }
         },
         "error": {
@@ -43,7 +43,7 @@
             "value": "{color.text.info.value}"
           },
           "hover": {
-            "value": "{color.text.info.value}"
+            "value": "{color.blue.100.value}"
           }
         },
         "error": {
