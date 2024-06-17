@@ -1,3 +1,9 @@
+## 153.7.0 (Jun 17, 2024)
+
+### Minor
+
+- Flex: Added forwardRef to Flex, Flex.Item ([#3626](https://github.com/pinterest/gestalt/pull/3626)) - [Preview link](https://deploy-preview-3626--gestalt.netlify.app?devexample=true)
+
 ## 153.6.1 (Jun 14, 2024)
 
 ### Patch
