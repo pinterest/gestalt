@@ -24,7 +24,7 @@ describe('BannerSlim', () => {
     const tree = create(
       <BannerSlim
         iconAccessibilityLabel="accessibility label with error"
-        message="test"
+        message="test"                                                                                                                                                            
         type="errorBare"
       />,
     ).toJSON();
