@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { TypeOptions } from 'packages/gestalt/src/Badge';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton';
@@ -10,6 +11,12 @@ type Props = {
   badge?: {
     text: string;
     tooltipText: string;
+    type?: TypeOptions
+  };
+  badgeSecondary?: {
+    text: string;
+    tooltipText: string;
+    type?: TypeOptions
   };
   description?: string;
   headingSize?: '400' | '500';
@@ -40,6 +47,7 @@ export const copyToClipboard = (hash: string): boolean => {
 export default function Card({
   children,
   badge,
+  badgeSecondary,
   description,
   headingSize = '500',
   id,
@@ -72,9 +80,10 @@ export default function Card({
           >
             <Heading size={headingSize}>{name}</Heading>
             {badge ? (
-              <Tooltip inline text={badge.tooltipText}>
-                <Badge position="middle" text={badge.text} />
-              </Tooltip>
+              <Badge position="middle" text={badge.text} tooltip={{text: badge.tooltipText}} type={badge.type || undefined} />
+            ) : null}
+            {badgeSecondary ? (
+              <Badge position="middle" text={badgeSecondary.text}  tooltip={{text: badgeSecondary.tooltipText}} type={badgeSecondary.type || undefined} />
             ) : null}
             <CopyLinkButton
               name={name}

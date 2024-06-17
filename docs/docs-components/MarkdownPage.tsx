@@ -9,6 +9,7 @@ import {
   TOKEN_COLOR_BACKGROUND_ELEVATION_ACCENT,
   TOKEN_COLOR_BACKGROUND_SECONDARY_BASE,
 } from 'gestalt-design-tokens';
+import AccessibilitySection from './AccessibilitySection';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Highlighter from './highlight';
 import IllustrationCard from './IllustrationCard';
@@ -136,6 +137,27 @@ const components = {
   ),
   // @ts-expect-error - TS7006 - Parameter 'props' implicitly has an 'any' type.
   p: (props) => <p style={{ maxWidth: DOCS_COPY_MAX_WIDTH_PX }}> {props.children} </p>,
+  AccessibilitySection: ({
+    children,
+    designStatus,
+    codeStatus,
+    description
+  }: {
+    children: string | null;
+    designStatus: string;
+    codeStatus: string;
+    description: string
+  }) => (
+    <Box marginBottom={4} marginTop={12}>
+      <AccessibilitySection
+        codeStatus={codeStatus}
+        description={description}
+        designStatus={designStatus}
+      >
+        {children}
+      </AccessibilitySection>
+    </Box>
+  ),
   ActionButton: ({ children, href }: { href: string; children: string | null }) => (
     <ButtonLink
       accessibilityLabel=""
@@ -143,12 +165,6 @@ const components = {
       href={href}
       target="blank"
       text={children || ''}
-    />
-  ),
-  Badge: ({ text, type }: { text: string | null; type: TypeOptions | undefined }) => (
-    <Badge
-      text={text || ''}
-      type={type}
     />
   ),
   Datapoint: ({
