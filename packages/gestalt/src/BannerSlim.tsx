@@ -247,6 +247,7 @@ export default function BannerSlim({
                   icon="cancel"
                   iconColor="darkGray"
                   onClick={onDismiss}
+                  size="xs"
                 />
               )}
             </Flex>
