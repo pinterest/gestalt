@@ -45,12 +45,9 @@ export default function Example() {
             drawerContents={
               showdrawer ? (
                 <BannerSlim
-                  dismissButton={{
-                    accessibilityLabel: 'Dismiss',
-                    onDismiss: () => setShowDrawer(false),
-                  }}
                   iconAccessibilityLabel="Recommendation"
                   message="Increasing your daily spend could increase clicks by 20%"
+                  onDismiss={() => setShowDrawer(false)}
                   primaryAction={{
                     accessibilityLabel: 'Apply for increasing your daily spend',
                     label: 'Apply',
