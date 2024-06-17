@@ -155,7 +155,7 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                     }
                   >
                     <div
-                      className="Badge middle info"
+                      className="Badge middle info accessibilityOutline"
                       onBlur={[Function]}
                       onFocus={[Function]}
                       onMouseEnter={[Function]}

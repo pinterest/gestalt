@@ -150,7 +150,7 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="Badge middle info"
+          className="Badge middle info accessibilityOutline"
           onBlur={[Function]}
           onFocus={[Function]}
           onMouseEnter={[Function]}

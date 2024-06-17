@@ -215,7 +215,7 @@ exports[`PageHeader renders badge with type 1`] = `
                             className="FlexItem"
                           >
                             <div
-                              className="Badge middle warning"
+                              className="Badge middle warning accessibilityOutline"
                               onBlur={[Function]}
                               onFocus={[Function]}
                               onMouseEnter={[Function]}

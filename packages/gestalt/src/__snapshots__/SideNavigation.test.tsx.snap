@@ -358,7 +358,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                     , 
                                   </div>
                                   <div
-                                    className="Badge middle info"
+                                    className="Badge middle info accessibilityOutline"
                                     onBlur={[Function]}
                                     onFocus={[Function]}
                                     onMouseEnter={[Function]}
