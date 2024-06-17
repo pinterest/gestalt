@@ -33,7 +33,7 @@ fullwidth: true
 
 For general Icon best practices, refer to the web [Icon documentation](/web/icon).
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="pass" designReviewDate="June 10, 2024"></AccessibilitySection>
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size, to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and documentation about accessibility for iOS:
 

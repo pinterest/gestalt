@@ -35,7 +35,7 @@ Download svg assets from our [Android icon GitHub repo](https://github.com/pinte
 
 For general Icon best practices, refer to the web [Icon documentation](/web/icon).
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="pass" designReviewDate="June 10, 2024"></AccessibilitySection>
 
 People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 

@@ -30,7 +30,7 @@ For general Button best practices, refer to the [Button web documentation](/web/
 - Avoid using multiple button sizes in the same experience.
 - If necessary, adjust the button placement and size when scaling from large screens to small screens.
 
-<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
+<AccessibilitySection codeStatus="backlogged" designStatus="pass" designReviewDate="June 3, 2024"></AccessibilitySection>
 
 People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 

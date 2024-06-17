@@ -2,8 +2,7 @@ import 'highlight.js/styles/a11y-light.css';
 import { ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
-import { TypeOptions } from 'packages/gestalt/src/Badge';
-import { Badge, Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
+import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BACKGROUND_DEFAULT,
   TOKEN_COLOR_BACKGROUND_ELEVATION_ACCENT,
@@ -140,18 +139,24 @@ const components = {
   AccessibilitySection: ({
     children,
     designStatus,
+    designReviewDate,
     codeStatus,
-    description
+    codeReviewDate,
+    description,
   }: {
     children: string | null;
     designStatus: string;
+    designReviewDate: string;
     codeStatus: string;
-    description: string
+    codeReviewDate: string;
+    description: string;
   }) => (
-    <Box marginBottom={(children) ? 8 : 0} marginTop={12}>
+    <Box marginBottom={children ? 8 : 0} marginTop={12}>
       <AccessibilitySection
+        codeReviewDate={codeReviewDate}
         codeStatus={codeStatus}
         description={description}
+        designReviewDate={designReviewDate}
         designStatus={designStatus}
       >
         {children}

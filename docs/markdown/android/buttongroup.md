@@ -26,7 +26,7 @@ Keep primary actions (ex: submitting a form) on the right and secondary actions 
 
 For general Button best practices, refer to the [Button documentation](/android/button).
 
-<AccessibilitySection codeStatus="backlogged" designStatus="issues">
+<AccessibilitySection codeStatus="backlogged" designStatus="issues" designReviewDate="June 3, 2024">
   <ul>
     <li><a href="https://jira.pinadmin.com/browse/GESTALT-8037" target="_blank">GESTALT-8037</a>: Color is the only visual means of communicating the Selected state (WCAG 1.4.1)</li>
   </ul>

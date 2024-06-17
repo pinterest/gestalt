@@ -54,9 +54,9 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-<AccessibilitySection codeStatus="backlogged" designStatus="issues">
+<AccessibilitySection codeStatus="backlogged" designStatus="issues" designReviewDate="June 3, 2024">
   <ul>
-    <li><a href="https://jira.pinadmin.com/browse/GESTALT-8038" target="_blank">GESTALT-8037</a>: Color contrast of checkbox background against page background does not meet 3:1 (WCAG-1.4.11)</li>
+    <li><a href="https://jira.pinadmin.com/browse/GESTALT-8038" target="_blank">GESTALT-8037</a>: Color contrast of error state background against page does not meet 3:1 (WCAG-1.4.11)</li>
   </ul>
 </AccessibilitySection>
 

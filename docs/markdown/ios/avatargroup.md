@@ -45,7 +45,7 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
+<AccessibilitySection codeStatus="backlogged" designStatus="pass" designReviewDate="June 3, 2024"></AccessibilitySection>
 
 Ensure AvatarGroup have labels describing both the data presented and the call to action in case of icon buttons.
 

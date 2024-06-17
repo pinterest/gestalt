@@ -31,7 +31,7 @@ For general SearchField best practices, refer to the Web Search Field Documentat
 - Provide clear feedback to the user when they begin a search — loading icon, skeleton loader, etc. This helps the user understand that their search request is being processed.
 - Include a "clear" icon within the field when the user has entered text. This allows users to quickly clear the form without having to delete each character.
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="pass" designReviewDate="June 10, 2024"></AccessibilitySection>
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 
