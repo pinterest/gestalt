@@ -89,8 +89,8 @@ type Props = {
    */
   overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
   /**
-  * Ref that is forwarded to the underlying div element.
-  */
+   * Ref that is forwarded to the underlying div element.
+   */
   ref?: HTMLDivElement | null;
   /**
    * Use numbers for pixels: `width={100}` and strings for percentages: `width="100%"`.
@@ -159,31 +159,31 @@ const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(
         }).filter(Boolean)
       : childrenProp;
 
-  const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
-    styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
-  }`;
+    const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
+      styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
+    }`;
 
-  const { passthroughProps, propsStyles } = buildStyles<Props>({
-    baseStyles: `${styles.Flex} ${gapStyles}`,
-    props: {
-      ...rest,
-      children,
-      direction,
-      justifyContent,
-    },
-    allowlistProps: allowedProps,
-  });
+    const { passthroughProps, propsStyles } = buildStyles<Props>({
+      baseStyles: `${styles.Flex} ${gapStyles}`,
+      props: {
+        ...rest,
+        children,
+        direction,
+        justifyContent,
+      },
+      allowlistProps: allowedProps,
+    });
 
-  // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
-  return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
-},
+    // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+    return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+  },
 );
 
 // Define the type for FlexWithForwardRef to include the subcomponent, otherwise typescript does not recognize Flex.Item
-  interface FlexWithSubComponents
-    extends ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> {
-    Item: typeof FlexItem;
-  }
+interface FlexWithSubComponents
+  extends ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> {
+  Item: typeof FlexItem;
+}
 
 // Attach the subcomponent to the main component
 (FlexWithForwardRef as FlexWithSubComponents).Item = FlexItem;
