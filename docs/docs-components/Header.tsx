@@ -196,8 +196,10 @@ function Header() {
           <Flex alignItems="center" gap={3}>
             {showVRToggle && (
               <ButtonToggle
-                iconStart='sparkle' onClick={() => setExperiments(isInVRExperiment ? "" : 'Tokens')}
-                selected={isInVRExperiment} size="sm"
+                iconStart="sparkle"
+                onClick={() => setExperiments(isInVRExperiment ? '' : 'Tokens')}
+                selected={isInVRExperiment}
+                size="sm"
                 text={isInVRExperiment ? 'VR on' : 'VR off'}
               />
             )}
