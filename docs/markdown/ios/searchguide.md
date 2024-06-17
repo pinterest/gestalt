@@ -53,17 +53,17 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 - [Accessible development on iOS](https://developer.apple.com/accessibility/)
 
 ## Design tokens
-<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A229%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="692" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D84859-16110%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
 
 ## Anatomy
 
 <TwoCol>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A1148%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D84859-16198%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
 **Default:** 1. Container | 2. Text | 3. Trailing icon
 </Group>
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A1149%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D84859-16276%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
 **Guide with image:** 1. Pin image | 2. Text
 </Group>
 </TwoCol>
@@ -74,22 +74,43 @@ People use Apple’s accessibility features, such as reduced transparency, Voice
 
 <Group>
 
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A2350%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D84859-16352%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
 The default SearchGuide item displays a label only.
 </Group>
 
 ### With an image
 
 <Group>
-<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A2379%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="300" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D84859-16355%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
 When SearchGuide query is more precise, a Pin representation can be added to illustrate the results.
 </Group>
 
 ### Expandable
 
 <Group>
-<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Ftype%3Ddesign%26node-id%3D56632%253A1388%26mode%3Ddesign%26t%3DIjvWLl82iPSTkkof-1" allowFullScreen></iframe>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D84859-16398%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
 When a SearchGuide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped SearchGuides.
+</Group>
+
+### With Avatar
+
+<Group>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D96695-6165%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
+SearchGuide can display an Avatar when a brand filter is selected. 
+</Group>
+
+### With AvatarGroup
+
+<Group>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D96695-6264%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
+SearchGuide can display an AvatarGroup when a filter for multiple brands is selected. 
+</Group>
+
+### Leading icon
+
+<Group>
+<iframe style={{border:0}} width="100%" height="350" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FAHcKJDgb7E7YswlgW1wY8E%2FGestalt-for-iOS%3Fm%3Dauto%26node-id%3D96695-6315%26t%3DTg2vc3zNl6Pa6Ih3-1" allowFullScreen></iframe>
+SearchGuide can display an optional leading icon.
 </Group>
 
 ## Writing 

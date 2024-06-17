@@ -1,3 +1,15 @@
+## 153.6.1 (Jun 14, 2024)
+
+### Patch
+
+- SearchGuide: docs on mobile (iOS/Android) ([#3629](https://github.com/pinterest/gestalt/pull/3629)) - [Preview link](https://deploy-preview-3629--gestalt.netlify.app?devexample=true)
+
+## 153.6.0 (Jun 14, 2024)
+
+### Minor
+
+- Tokens: Add line-height tokens ([#3623](https://github.com/pinterest/gestalt/pull/3623)) - [Preview link](https://deploy-preview-3623--gestalt.netlify.app?devexample=true)
+
 ## 153.5.0 (Jun 14, 2024)
 
 ### Minor
