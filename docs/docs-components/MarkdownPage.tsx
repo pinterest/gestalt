@@ -148,7 +148,7 @@ const components = {
     codeStatus: string;
     description: string
   }) => (
-    <Box marginBottom={4} marginTop={12}>
+    <Box marginBottom={(children) ? 8 : 0} marginTop={12}>
       <AccessibilitySection
         codeStatus={codeStatus}
         description={description}

@@ -31,7 +31,7 @@ For general SearchField best practices, refer to the Web Search Field Documentat
 - Provide clear feedback to the user when they begin a search — loading icon, skeleton loader, etc. This helps the user understand that their search request is being processed.
 - Include a "clear" icon within the field when the user has entered text. This allows users to quickly clear the form without having to delete each character.
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
 
 People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 

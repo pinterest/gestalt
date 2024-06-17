@@ -33,7 +33,7 @@ fullwidth: true
 
 For general IconButton best practices, refer to the [IconButton web documentation](/web/iconbutton).
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
 
 Ensure IconButton have a label describing the intent of the action. For example, use "Add Pin to board" instead of "Add icon".
 

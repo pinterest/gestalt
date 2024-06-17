@@ -50,7 +50,7 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
 
 Switches should have [Labels](https://gestalt.pinterest.systems/web/label) that can be read by screen readers, and that can be tapped to make it easier for users to select and deselect.
 People use Apple and Android’s accessibility features, such as VoiceOver and TalkBack to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple and Android’s accessibility documentation for more information:

@@ -27,7 +27,7 @@ For general Badge best practices, refer to the [Badge web documentation](/web/ba
 - Badge must always be paired with the element that they're associated with
 - Avoid displaying multiple Badges in the same experience, since they label a state to an element
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
 
 People use Apple’s accessibility features, such as reduced transparency, VoiceOver, and increased text size to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple’s Human Interface Guidelines and API documentation about accessibility for iOS:
 

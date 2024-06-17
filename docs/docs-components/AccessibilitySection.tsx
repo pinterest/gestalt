@@ -1,22 +1,27 @@
-import { Fragment,ReactNode } from 'react';
-import { Badge,Box } from 'gestalt';
+import { Fragment, ReactNode } from 'react';
+import { Box } from 'gestalt';
 import Card from './Card';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Markdown from './Markdown';
 
+interface AccessibilityStatus {
+  status: string;
+  reviewDate: string;
+}
+
 type Props = {
   children?: ReactNode;
-  designStatus?: string;
-  codeStatus?: string;
+  design?: AccessibilityStatus;
+  code?: AccessibilityStatus;
   description?: string;
 };
 
-function getTooltipText(status: string) {
+function getTooltipText(status: string, reviewDate: string) {
   switch (status) {
     case 'success':
-      return 'The component has successfully met the Gestalt accessibility requirements.'
+      return `The component has successfully met the Gestalt accessibility requirements. \n Last review: ${reviewDate}`
     case 'issues':
-      return 'Issues have been reported with component and are logged in the following section.'
+      return 'Issues have been reported with component and are logged in Jira.'
     case 'backlogged':
       return 'Testing on this component has not yet started. Reach out to Gestalt support for an update.'
     default:
@@ -39,22 +44,22 @@ function getTooltipStatus(status: string) {
 
 export default function AccessibilitySection({
   children,
-  designStatus,
-  codeStatus,
+  design,
+  code,
   description,
 }: Props) {
   return (
     <Fragment>
       <Card
-        badge={(designStatus) ? {
+        badge={(design) ? {
           text: "Design",
-          tooltipText: getTooltipText(designStatus),
-          type: getTooltipStatus(designStatus)
+          tooltipText: getTooltipText(design.status, design.reviewDate),
+          type: getTooltipStatus(design.status)
         } : undefined}
-        badgeSecondary={(codeStatus) ? {
+        badgeSecondary={(code) ? {
           text: "Code",
-          tooltipText: getTooltipText(codeStatus),
-          type: getTooltipStatus(codeStatus)
+          tooltipText: getTooltipText(code.status, code?.reviewDate),
+          type: getTooltipStatus(code.status)
         } : undefined}
         name="Accessibility"
         showHeading

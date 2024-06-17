@@ -26,7 +26,11 @@ Keep primary actions (ex: submitting a form) on the right and secondary actions 
 
 For general Button best practices on color usage and states, refer to the [Button documentation](/ios/button).
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="issues">
+  <ul>
+    <li><a href="https://jira.pinadmin.com/browse/GESTALT-8037" target="_blank">GESTALT-8037</a>: Color is the only visual means of communicating the Selected state (WCAG 1.4.1)</li>
+  </ul>
+</AccessibilitySection>
 
 People use iOS's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 

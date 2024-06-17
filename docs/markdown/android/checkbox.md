@@ -54,7 +54,11 @@ fullwidth: true
   </Group>
 </TwoCol>
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="issues">
+  <ul>
+    <li><a href="https://jira.pinadmin.com/browse/GESTALT-8038" target="_blank">GESTALT-8037</a>: Color contrast of checkbox background against page background does not meet 3:1 (WCAG-1.4.11)</li>
+  </ul>
+</AccessibilitySection>
 
 People use Apple and Android’s accessibility features, such as VoiceOver and TalkBack to personalize how they interact with their device. Supporting these personalizations ensures that everyone has a great user experience. See Apple and Android’s accessibility documentation for more information:
 <TwoCol>

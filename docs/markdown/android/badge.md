@@ -27,7 +27,7 @@ For general Badge best practices, refer to the [Badge web documentation](/web/ba
 - Badge must always be paired with the element that they're associated with
 - Avoid displaying multiple Badges in the same experience, since they label a state to an element
 
-## Accessibility
+<AccessibilitySection codeStatus="backlogged" designStatus="success"></AccessibilitySection>
 
 People use Android's accessibility features, such as TalkBack and dynamic text sizing to personalize how they interact with their devices. Supporting these personalizations ensures that everyone has a great user experience. See Material Design and development documentation about accessibility for Android:
 
