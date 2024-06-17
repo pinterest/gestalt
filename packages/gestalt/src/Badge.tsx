@@ -3,9 +3,12 @@ import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
+import focusStyles from './Focus.css';
 import Icon from './Icon';
 import InternalIcon from './sharedSubcomponents/InternalIcon';
+import TapArea from './TapArea';
 import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
@@ -66,7 +69,7 @@ type Props = {
  *
  */
 export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
-  const shouldUseTooltip = tooltip?.text;
+  const { isFocusVisible } = useFocusVisible();
 
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -86,11 +89,15 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
 
   let styleType: TypeOptions | InteractiveTypeOptions = type;
 
-  if (shouldUseTooltip && (type === 'info' || isInVRExperiment)) {
+  if (tooltip?.text && (type === 'info' || isInVRExperiment)) {
     styleType = `interactive-${type}`;
   }
 
-  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
+  const isInteractive = styleType.startsWith('interactive');
+
+  const csBadge = cx(styles.Badge, styles[position], styles[styleType], {
+    [focusStyles.accessibilityOutline]: isFocusVisible,
+  });
 
   const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
     useInteractiveStates();
@@ -112,7 +119,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       onMouseLeave={handleOnMouseLeave}
     >
       <Flex alignItems="center" gap={1} height="100%">
-        {shouldUseTooltip ? (
+        {isInteractive ? (
           <Box aria-hidden>
             {isInVRExperiment ? (
               <InternalIcon
@@ -127,7 +134,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
                 accessibilityLabel=""
                 color={
                   type === 'lightWash' || type === 'darkWash'
-                    ? getIconColor() as "light" | "dark"
+                    ? (getIconColor() as 'light' | 'dark')
                     : 'inverse'
                 }
                 icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
@@ -147,15 +154,22 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     </div>
   );
 
-  return shouldUseTooltip ? (
+  return isInteractive && tooltip ? (
     <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
+      accessibilityLabel=""
       idealDirection={tooltip.idealDirection}
       inline
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >
-      {badgeComponent}
+      <TapArea
+        accessibilityLabel={tooltip.accessibilityLabel}
+        mouseCursor="default"
+        rounding={1}
+        tapStyle="none"
+      >
+        {badgeComponent}
+      </TapArea>
     </Tooltip>
   ) : (
     badgeComponent
