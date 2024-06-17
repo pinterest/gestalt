@@ -2,8 +2,11 @@
   "color": {
     "background": {
       "badge": {
-        "neutral": {
-          "value": "{color.background.neutral.weak.value}"
+        "darkwash": {
+          "value": "{color.background.wash.dark.value}"
+        },
+        "error": {
+          "value": "{color.background.error.weak.value}"
         },
         "info": {
           "default": {
@@ -13,23 +16,20 @@
             "value": "{color.blue.500.value}"
           }
         },
-        "error": {
-          "value": "{color.background.error.weak.value}"
+        "lightwash": {
+          "value": "{color.background.wash.light.value}"
         },
-        "warning": {
-          "value": "{color.background.warning.weak.value}"
-        },
-        "success": {
-          "value": "{color.background.success.weak.value}"
+        "neutral": {
+          "value": "{color.background.neutral.weak.value}"
         },
         "recommendation": {
           "value": "{color.background.recommendation.weak.value}"
         },
-        "lightwash": {
-          "value": "{color.background.wash.light.value}"
+        "success": {
+          "value": "{color.background.success.weak.value}"
         },
-        "darkwash": {
-          "value": "{color.background.wash.dark.value}"
+        "warning": {
+          "value": "{color.background.warning.weak.value}"
         }
       }
     },
