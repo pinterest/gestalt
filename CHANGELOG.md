@@ -1,3 +1,9 @@
+## 153.7.1 (Jun 17, 2024)
+
+### Patch
+
+- Docs: fix Flex page ([#3634](https://github.com/pinterest/gestalt/pull/3634)) - [Preview link](https://deploy-preview-3634--gestalt.netlify.app?devexample=true)
+
 ## 153.7.0 (Jun 17, 2024)
 
 ### Minor
