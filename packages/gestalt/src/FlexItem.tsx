@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import { buildStyles } from './boxTransforms';
 import styles from './Flex.css';
 
@@ -34,6 +34,10 @@ export type Props = {
    * Use numbers for pixels: `minWidth={100}` and strings for percentages: `minWidth="100%"`. Can be used to fix overflowing children; see [the example](https://gestalt.pinterest.systems/web/flex#FlexItem-minWidth) to learn more.
    */
   minWidth?: Dimension;
+  /**
+   *  Ref that is forwarded to the underlying div element.
+   */
+  ref?: HTMLDivElement;
 };
 
 const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'maxWidth', 'minWidth'];
@@ -41,7 +45,10 @@ const allowedProps = ['alignSelf', 'children', 'flex', 'flexBasis', 'maxWidth', 
 /**
  * Use [Flex.Item](https://gestalt.pinterest.systems/web/flex) within a Flex container for more precise control over the child element. Flex children that are not explicitly wrapped in Flex.Item will be wrapped in the the component automatically to apply `gap` spacing.
  */
-export default function FlexItem({ dataTestId, ...rest }: Props) {
+const FlexItemWithForwardRef = forwardRef<HTMLDivElement, Props>(function FlexItem(
+  { dataTestId, ...rest }: Props,
+  ref,
+) {
   const { passthroughProps, propsStyles } = buildStyles<Props>({
     baseStyles: styles.FlexItem,
     props: rest,
@@ -49,7 +56,9 @@ export default function FlexItem({ dataTestId, ...rest }: Props) {
   });
 
   // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignSelf?: "center" | "start" | "end" | "baseline" | "stretch" | "auto" | undefined; ... 5 more ...; minWidth?: Dimension | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
-  return <div {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
-}
+  return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+});
 
-FlexItem.displayName = 'Flex.Item';
+export default FlexItemWithForwardRef;
+
+FlexItemWithForwardRef.displayName = 'Flex.Item';
