@@ -185,6 +185,7 @@ interface FlexWithSubComponents
   Item: typeof FlexItem;
 }
 
+
 // Attach the subcomponent to the main component
 (FlexWithForwardRef as FlexWithSubComponents).Item = FlexItem;
 
