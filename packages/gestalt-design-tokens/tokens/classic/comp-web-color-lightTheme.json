@@ -14,8 +14,8 @@
           "value": "{color.background.tertiary.base.value}"
         },
         "info": {
-          "default": {},
-          "hover": {}
+          "default": { "value": "{color.background.info.base.value}" },
+          "hover": { "value": "{color.background.info.strong.value}" }
         },
         "error": {
           "value": "{color.background.error.base.value}"
@@ -543,12 +543,7 @@
           }
         },
         "error": {
-          "default": {
-            "value": "{color.text.inverse.value}"
-          },
-          "hover": {
-            "value": "{color.text.inverse.value}"
-          }
+          "value": "{color.text.inverse.value}"
         },
         "warning": {
           "value": "{color.text.inverse.value}"

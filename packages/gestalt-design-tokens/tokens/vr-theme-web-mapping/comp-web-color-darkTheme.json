@@ -2,8 +2,11 @@
   "color": {
     "background": {
       "badge": {
-        "neutral": {
-          "value": "{color.background.neutral.weak.value}"
+        "darkwash": {
+          "value": "{color.background.wash.dark.value}"
+        },
+        "error": {
+          "value": "{color.background.error.weak.value}"
         },
         "info": {
           "default": {
@@ -13,56 +16,53 @@
             "value": "{color.background.info.strong.value}"
           }
         },
-        "error": {
-          "value": "{color.background.error.weak.value}"
+        "lightwash": {
+          "value": "{color.background.wash.light.value}"
         },
-        "warning": {
-          "value": "{color.background.warning.weak.value}"
-        },
-        "success": {
-          "value": "{color.background.success.weak.value}"
+        "neutral": {
+          "value": "{color.background.neutral.weak.value}"
         },
         "recommendation": {
           "value": "{color.background.recommendation.weak.value}"
         },
-        "lightwash": {
-          "value": "{color.background.wash.light.value}"
+        "success": {
+          "value": "{color.background.success.weak.value}"
         },
-        "darkwash": {
-          "value": "{color.background.wash.dark.value}"
+        "warning": {
+          "value": "{color.background.warning.weak.value}"
         }
       }
     },
     "text": {
       "badge": {
-        "neutral": {
-          "value": "{color.text.default.value}"
+        "darkwash": {
+          "value": "{color.text.light.value}"
+        },
+        "error": {
+          "value": "{color.text.error.value}"
         },
         "info": {
           "default": {
             "value": "{color.text.info.value}"
           },
           "hover": {
-            "value": "{color.text.info.value}"
+            "value": "{color.blue.500.value}"
           }
-        },
-        "error": {
-          "value": "{color.text.error.value}"
-        },
-        "warning": {
-          "value": "{color.text.warning.value}"
-        },
-        "success": {
-          "value": "{color.text.success.value}"
-        },
-        "recommendation": {
-          "value": "{color.text.recommendation.value}"
         },
         "lightwash": {
           "value": "{color.text.dark.value}"
         },
-        "darkwash": {
-          "value": "{color.text.light.value}"
+        "neutral": {
+          "value": "{color.text.default.value}"
+        },
+        "recommendation": {
+          "value": "{color.text.recommendation.value}"
+        },
+        "success": {
+          "value": "{color.text.success.value}"
+        },
+        "warning": {
+          "value": "{color.text.warning.value}"
         }
       }
     }

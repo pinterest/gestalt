@@ -86,7 +86,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
 
   let styleType: TypeOptions | InteractiveTypeOptions = type;
 
-  if (shouldUseTooltip && ( type === 'info' || isInVRExperiment)) {
+  if (shouldUseTooltip && (type === 'info' || isInVRExperiment)) {
     styleType = `interactive-${type}`;
   }
 
@@ -96,7 +96,10 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     useInteractiveStates();
 
   const getIconColor = () => {
-    if (isHovered && isInVRExperiment) return `${type}-hover`;
+    if (isInVRExperiment && isHovered) return `${type}-hover`;
+
+    if (!isInVRExperiment) return type === 'lightWash' ? 'dark' : 'light';
+
     return type;
   };
 
@@ -114,11 +117,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
             {isInVRExperiment ? (
               <InternalIcon
                 accessibilityLabel=""
-                color={
-                  getIconColor() as ComponentProps<
-                    typeof InternalIcon
-                  >['color']
-                }
+                color={getIconColor() as ComponentProps<typeof InternalIcon>['color']}
                 icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
                 inline
                 size="12"
@@ -126,7 +125,11 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
             ) : (
               <Icon
                 accessibilityLabel=""
-                color="inverse"
+                color={
+                  type === 'lightWash' || type === 'darkWash'
+                    ? getIconColor() as "light" | "dark"
+                    : 'inverse'
+                }
                 icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
                 inline
                 size="14"
