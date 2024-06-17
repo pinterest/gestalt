@@ -10,6 +10,24 @@ import Link from './Link';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
 
+type DismissButtonType = {
+  accessibilityLabel?: string;
+  onDismiss: () => void;
+};
+
+function DismissButton({ accessibilityLabel, onDismiss }: DismissButtonType) {
+  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerSlim');
+  return (
+    <IconButton
+      accessibilityLabel={accessibilityLabel ?? accessibilityDismissButtonLabel}
+      icon="cancel"
+      iconColor="darkGray"
+      onClick={onDismiss}
+      size="xs"
+    />
+  );
+}
+
 type HelperLinkType = {
   accessibilityLabel: string;
   href: string;
@@ -85,6 +103,13 @@ function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: Primar
 
 type Props = {
   /**
+   * Adds a dismiss button to BannerSlim. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannerslim#Dismissible) for more info.
+   * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerslim#Accessibility).
+   *
+   * Note that compact ("___Bare" type) BannerSlims are not dismissable.
+   */
+  dismissButton?: DismissButtonType;
+  /**
    * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
    */
   helperLink?: HelperLinkType;
@@ -97,7 +122,6 @@ type Props = {
    *
    */
   message: string | ReactElement;
-  onDismiss?: () => void;
   /**
    * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
@@ -132,10 +156,10 @@ type Props = {
  *
  */
 export default function BannerSlim({
+  dismissButton,
   helperLink,
   iconAccessibilityLabel,
   message,
-  onDismiss,
   primaryAction,
   type = 'neutral',
 }: Props) {
@@ -143,7 +167,6 @@ export default function BannerSlim({
   const isDefault = type === 'neutral';
   // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ neutral: { backgroundColor: string; }; success: { icon: string; iconColor: string; color: string; backgroundColor: string; }; info: { icon: string; iconColor: string; color: string; backgroundColor: string; }; warning: { ...; }; error: { ...; }; recommendation: { ...; }; }>'.
   const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
-  const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerSlim');
   const {
     iconAccessibilityLabelError,
     iconAccessibilityLabelInfo,
@@ -173,9 +196,8 @@ export default function BannerSlim({
         return '';
     }
   };
-
   // Buttons not allowed on compact BannerSlims
-  const shouldShowButtons = !isBare && (primaryAction || onDismiss);
+  const shouldShowButtons = !isBare && (primaryAction || dismissButton);
 
   return (
     <Box
@@ -241,14 +263,7 @@ export default function BannerSlim({
                 </Box>
               )}
 
-              {onDismiss && (
-                <IconButton
-                  accessibilityLabel={accessibilityDismissButtonLabel}
-                  icon="cancel"
-                  iconColor="darkGray"
-                  onClick={onDismiss}
-                />
-              )}
+              {dismissButton && <DismissButton {...dismissButton} />}
             </Flex>
           </Flex.Item>
         )}
