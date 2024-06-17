@@ -97,6 +97,9 @@ type Props = {
    *
    */
   message: string | ReactElement;
+  /**
+   * Adds a dismiss button to BannerSlim. Uses default accessibility label. See the [Dismiss button](https://gestalt.pinterest.systems/web/bannerslim#Dismiss-button) variant to learn more.
+   */
   onDismiss?: () => void;
   /**
    * Main action for users to take on BannerSlim. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
