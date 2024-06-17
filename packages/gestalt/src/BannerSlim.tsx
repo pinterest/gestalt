@@ -106,7 +106,7 @@ type Props = {
    * Note that actions are not available on compact ("___Bare" type) BannerSlims.
    */
   primaryAction?: PrimaryActionType;
-  onDismiss: () => void;
+  onDismiss?: () => void;
   /**
    * The type of BannerSlim. See the [variants](https://gestalt.pinterest.systems/web/bannerslim#Variants) to learn more.
    */

@@ -281,7 +281,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
           className="FlexItem"
         >
           <button
-            aria-label="test"
+            aria-label="Dismiss banner"
             className="parentButton"
             onBlur={[Function]}
             onClick={[Function]}
@@ -304,8 +304,8 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                 className="pog transparent"
                 style={
                   Object {
-                    "height": 24,
-                    "width": 24,
+                    "height": 48,
+                    "width": 48,
                   }
                 }
               >
@@ -313,10 +313,10 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                   aria-hidden={true}
                   aria-label=""
                   className="default icon iconBlock"
-                  height={12}
+                  height={20}
                   role="img"
                   viewBox="0 0 24 24"
-                  width={12}
+                  width={20}
                 >
                   <path
                     d="test-file-stub"
