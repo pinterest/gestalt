@@ -18,7 +18,7 @@ type IconColor =
   | 'light'
   | 'dark';
 
-  type HoveredIconColor =
+type HoveredIconColor =
   | 'neutral-hover'
   | 'success-hover'
   | 'error-hover'
