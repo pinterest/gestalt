@@ -304,8 +304,8 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                 className="pog transparent"
                 style={
                   Object {
-                    "height": 48,
-                    "width": 48,
+                    "height": 24,
+                    "width": 24,
                   }
                 }
               >
@@ -313,10 +313,10 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                   aria-hidden={true}
                   aria-label=""
                   className="default icon iconBlock"
-                  height={20}
+                  height={12}
                   role="img"
                   viewBox="0 0 24 24"
-                  width={20}
+                  width={12}
                 >
                   <path
                     d="test-file-stub"
