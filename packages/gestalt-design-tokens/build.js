@@ -599,7 +599,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'name/languageRemoval',
+  name: 'name/languageRemoval/snake',
   type: 'name',
   matcher(prop) {
     return (
@@ -612,6 +612,24 @@ StyleDictionary.registerTransform({
     const tokenName = prop.name.split('_');
     tokenName.pop();
     return tokenName.join('_');
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'name/languageRemoval/camel',
+  type: 'name',
+  matcher(prop) {
+    return (
+      prop.filePath.includes('vr-theme') &&
+      prop.filePath.includes('sema') &&
+      prop.filePath.includes('lineheight')
+    );
+  },
+  transformer(prop) {
+    return prop.name.replace(
+      prop.attributes.subitem.charAt(0).toUpperCase() + prop.attributes.subitem.slice(1),
+      '',
+    );
   },
 });
 
@@ -827,7 +845,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/snake',
     'name/conflictFixing',
     'name/prefix/level/snake',
-    'name/languageRemoval',
+    'name/languageRemoval/snake',
     'color/hex8android',
     'size/pxToDpOrSp',
   ],
@@ -958,6 +976,7 @@ StyleDictionary.registerTransformGroup({
     'name/ti/camel',
     'name/conflictFixing',
     'name/prefix/level/camel',
+    'name/languageRemoval/camel',
     'value/elevation/ios',
     'color/UIColorSwift',
     'content/swift/literal',
@@ -979,7 +998,6 @@ function getIOSConfiguration({ theme, mode }) {
     'font size',
     'font weight',
     'font family',
-    'font lineheight',
   ];
 
   /**
@@ -1073,7 +1091,17 @@ function getIOSConfiguration({ theme, mode }) {
         ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
-            ? iOSSwiftFiles
+            ? [
+                ...iOSSwiftFiles,
+                ...languageList.map((lang) => ({
+                  'destination': `GestaltTokensColorDark${getTheme(
+                    theme,
+                  )}-${lang.toUpperCase()}.swift`,
+                  ...iosSwiftEnumSwift,
+                  'className': `GestaltTokensColor${getTheme(theme)}${lang}`,
+                  ...fontLineHeightFilter(lang),
+                })),
+              ]
             : [
                 {
                   'destination': `GestaltTokensColorDark${getTheme(theme)}.swift`,
