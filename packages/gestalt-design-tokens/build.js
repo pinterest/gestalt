@@ -599,6 +599,23 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'name/languageRemoval',
+  type: 'name',
+  matcher(prop) {
+    return (
+      prop.filePath.includes('vr-theme') &&
+      prop.filePath.includes('sema') &&
+      prop.filePath.includes('lineheight')
+    );
+  },
+  transformer(prop) {
+    const tokenName = prop.name.split('_');
+    tokenName.pop();
+    return tokenName.join('_');
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'name/prefix/level/kebab',
   type: 'name',
   matcher(prop) {
@@ -810,6 +827,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/snake',
     'name/conflictFixing',
     'name/prefix/level/snake',
+    'name/languageRemoval',
     'color/hex8android',
     'size/pxToDpOrSp',
   ],
