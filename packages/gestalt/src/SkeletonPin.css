@@ -1,17 +1,3 @@
-.Masonry {
-  composes: relative from "./Layout.css";
-  height: 100%;
-  margin: 0 auto;
-}
-
-.Masonry__Item {
-  composes: absolute from "./Layout.css"; /* might be able to remove this */
-}
-
-.Masonry__Item__Mounted {
-  transition: transform 0.2s;
-}
-
 .SkeletonPin__Loading {
   animation: shimmer 1.5s infinite linear;
   background: linear-gradient(
