@@ -211,7 +211,7 @@ Combine BannerSlims with other components like [BannerCallouts](/web/bannercallo
       <LocalizationSection
         code={localizationLabels}
         name={generatedDocGen?.displayName}
-        notes={`Note that \`dismissButton.accessibilityLabel\` and \`iconAccessibilityLabel\` are optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+        notes={`Note that \`iconAccessibilityLabel\` is optional as DefaultLabelProvider provides default strings. \`accessibilityDismissButtonLabel\` is provided by default. Use custom labels if they need to be more specific.`}
       />
 
       <MainSection name="Variants">

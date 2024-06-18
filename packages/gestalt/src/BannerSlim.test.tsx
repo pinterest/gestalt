@@ -70,11 +70,8 @@ describe('BannerSlim', () => {
   it('renders primary action and dismiss button', () => {
     const tree = create(
       <BannerSlim
-        dismissButton={{
-          accessibilityLabel: 'test',
-          onDismiss: () => {},
-        }}
         message="test"
+        onDismiss={() => {}}
         primaryAction={{
           accessibilityLabel: 'test',
           label: 'test',
