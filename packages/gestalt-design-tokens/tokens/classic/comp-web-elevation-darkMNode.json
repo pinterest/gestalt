@@ -1,0 +1,18 @@
+{
+  "elevation": {
+    "datepicker": {
+      "value": {
+        "0": {
+          "offsetX": 0,
+          "offsetY": 0,
+          "blurRadius": 8,
+          "spreadRadius": 0,
+          "color": "#fafafa",
+          "opacity": 0.06
+        }
+      },
+      "comment": "DatePicker container elevation"
+    }
+  }
+}
+ 

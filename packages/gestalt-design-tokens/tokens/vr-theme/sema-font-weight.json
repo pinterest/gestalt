@@ -1,0 +1,20 @@
+{
+  "font": {
+    "weight": {
+      "heading": {
+        "bold": {
+          "value": "{font.weight.700.value}"
+        },
+        "medium": {
+          "value": "{font.weight.500.value}"
+        }
+      },
+      "body": {
+        "value": "{font.weight.400.value}"
+      },
+      "UI": {
+        "value": "{font.weight.500.value}"
+      }
+    }
+  }
+}

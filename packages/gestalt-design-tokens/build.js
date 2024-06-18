@@ -969,8 +969,8 @@ function getIOSConfiguration({ theme, mode, language }) {
             theme,
           )}-${language.toUpperCase()}.${ext}`,
           ...fileTypeDetails,
-          'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
-          'type': `GestaltTokensFontLineHeightName${getTheme(theme)}`,
+          'className': `GestaltTokensFontLineHeight${language.toUpperCase()}${getTheme(theme)}`,
+          'type': `GestaltTokensFontLineHeight${language.toUpperCase()}Name${getTheme(theme)}`,
           ...filterLineHeight,
           comment: `// ${language} specific tokens`,
         };
@@ -982,7 +982,7 @@ function getIOSConfiguration({ theme, mode, language }) {
         theme,
       )}-${language.toUpperCase()}.swift`,
       ...iosSwiftEnumSwift,
-      'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
+      'className': `GestaltTokensFontLineHeight${language.toUpperCase()}${getTheme(theme)}`,
       ...semaLineHeightFilter,
       fileHeader: `// ${language} specific tokens`,
     });
@@ -1065,7 +1065,8 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    ['default', 'ck', 'ja', 'tall', 'th', 'vi'].forEach((lang) => {
+    // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default'MUST BE LAST
+    ['ck', 'ja', 'tall', 'th', 'vi', 'default'].forEach((lang) => {
       // only generate languages for the vr-theme
       const language = theme === 'vr-theme' ? lang : undefined;
 
