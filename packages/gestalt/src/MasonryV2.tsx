@@ -17,7 +17,7 @@ import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
 import throttle from './throttle';
@@ -117,12 +117,6 @@ type Props<T> = {
    */
   virtualize?: boolean;
   /**
-   * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
-   *
-   * This is an experimental prop and may be removed in the future.
-   */
-  _twoColItems?: boolean;
-  /**
    * Experimental prop to log the additional whitespace shown above two-column items.
    *
    * This is an experimental prop and may be removed in the future.
@@ -136,6 +130,15 @@ type Props<T> = {
    * Experimental prop to trigger rendering updates via requestAnimationFrame
    */
   _useRAF?: boolean;
+  /**
+   * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
+   * _getColumnSpanConfig is a function that takes an individual grid item as an input and returns a ColumnSpanConfig. ColumnSpanConfig can be one of two things:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which allows for configuration of the item's column span across the following grid sizes: sm (2 columns), md (3-4 columns), lg (5-8 columns), xl (9+ columns)
+   *
+   * This is an experimental prop and may be removed or changed in the future.
+   */
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 };
 
 type MasonryRef = {
@@ -314,11 +317,7 @@ function useFetchOnScroll({
   });
 }
 
-function useLayout<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+function useLayout<T>({
   align,
   columnWidth,
   gutter,
@@ -332,6 +331,7 @@ function useLayout<
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
+  _getColumnSpanConfig,
 }: {
   align: Align;
   columnWidth: number;
@@ -346,6 +346,7 @@ function useLayout<
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -353,10 +354,10 @@ function useLayout<
   updateMeasurement: (arg1: T, arg2: number) => void;
 } {
   const hasMultiColumnItems =
-    _twoColItems &&
+  _getColumnSpanConfig &&
     items
       .filter((item) => item && !positionStore.has(item))
-      .some((item) => typeof item.columnSpan === 'number' && item.columnSpan > 1);
+      .some((item) => _getColumnSpanConfig(item) !== 1);
   const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
   const layoutFunction = getLayoutAlgorithm({
     align,
@@ -489,11 +490,7 @@ function useViewport({
   };
 }
 
-function MasonryItem<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+function MasonryItem<T>({
   height,
   idx,
   isMeasurement,
@@ -502,6 +499,7 @@ function MasonryItem<
   layout,
   left,
   renderItem,
+  serializedColumnSpanConfig,
   top,
   updateMeasurement,
   width,
@@ -514,6 +512,7 @@ function MasonryItem<
   left: number;
   layout: Layout;
   renderItem: Props<T>['renderItem'];
+  serializedColumnSpanConfig: string | number,
   top: number;
   updateMeasurement: (arg1: T, arg2: number) => void;
   width: number | null | undefined;
@@ -559,7 +558,7 @@ function MasonryItem<
     <div
       ref={refCallback}
       className={className}
-      data-column-span={item.columnSpan ?? 1}
+      data-column-span={serializedColumnSpanConfig}
       data-grid-item
       role="listitem"
       // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
@@ -572,11 +571,7 @@ function MasonryItem<
 
 const MasonryItemMemo = memo(MasonryItem);
 
-function Masonry<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->(
+function Masonry<T>(
   {
     align = 'center',
     columnWidth = 236,
@@ -593,10 +588,10 @@ function Masonry<
     virtualBoundsBottom,
     virtualBoundsTop,
     virtualize = false,
-    _twoColItems,
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
+    _getColumnSpanConfig,
   }: Props<T>,
   ref:
     | {
@@ -671,7 +666,7 @@ function Masonry<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
-  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout({
+  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
     align,
     columnWidth,
     gutter,
@@ -683,10 +678,10 @@ function Masonry<
     // @ts-expect-error - TS2322 - Type 'Cache<T, Position> | MeasurementStore<Record<any, any>, unknown>' is not assignable to type 'Cache<Record<any, any>, Position>'.
     positionStore,
     width,
-    _twoColItems,
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
+    _getColumnSpanConfig,
   });
 
   useFetchOnScroll({
@@ -719,6 +714,7 @@ function Masonry<
     isServerRenderOrHydration || canPerformFullLayout
       ? items.filter(Boolean).map((item, i) => {
           const key = `item-${i}`;
+          const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
           const position = canPerformFullLayout
             ? positions[i]
             : {
@@ -728,10 +724,10 @@ function Masonry<
                 height: undefined,
                 width:
                   // eslint-disable-next-line no-nested-ternary
-                  layout === 'flexible' || layout === 'serverRenderedFlexible'
+                  layout === 'flexible' || layout === 'serverRenderedFlexible' || typeof columnSpanConfig === 'object'
                     ? undefined // we can't set a width for server rendered flexible items
-                    : typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
-                    ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
+                    : typeof columnSpanConfig === 'number' && columnWidth != null && gutter != null
+                    ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
                     : columnWidth,
               };
 
@@ -748,6 +744,8 @@ function Masonry<
                   position.top > viewportBottom
                 );
 
+          const serializedColumnSpanConfig = typeof columnSpanConfig === 'number' ? columnSpanConfig : btoa(JSON.stringify(columnSpanConfig));
+
           return isVisible ? (
             <MasonryItemMemo
               key={key}
@@ -758,8 +756,8 @@ function Masonry<
               item={item}
               layout={layout}
               left={position.left}
-              // @ts-expect-error - TS2322 - Type '(arg1: { readonly data: T; readonly itemIdx: number; readonly isMeasuring: boolean; }) => ReactNode' is not assignable to type '(arg1: { readonly data: { readonly [key: string]: unknown; }; readonly itemIdx: number; readonly isMeasuring: boolean; }) => ReactNode'.
               renderItem={renderItem}
+              serializedColumnSpanConfig={serializedColumnSpanConfig}
               top={position.top}
               updateMeasurement={updateMeasurement}
               width={position.width}
@@ -778,7 +776,7 @@ function Masonry<
   );
 }
 
-const MasonryWithForwardRef = forwardRef<MasonryRef, Props<Record<any, any>>>(
+const MasonryWithForwardRef = forwardRef<MasonryRef, Props<any>>(
   // @ts-expect-error - TS2345
   Masonry,
 );

@@ -114,8 +114,11 @@ type Props<T> = {
   _logTwoColWhitespace?: (arg1: number) => void;
   /**
    * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
+   * _getColumnSpanConfig is a function that takes an individual grid item as an input and returns a ColumnSpanConfig. ColumnSpanConfig can be one of two things:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which allows for configuration of the item's column span across the following grid sizes: sm (2 columns), md (3-4 columns), lg (5-8 columns), xl (9+ columns)
    *
-   * This is an experimental prop and may be removed in the future.
+   * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 };
@@ -540,7 +543,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           style={{ height: 0, width: '100%' }}
         >
           {items.filter(Boolean).map((item, i) => {
-            const maybeColumnSpan = _getColumnSpanConfig?.(item) ?? 1;
+            const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
             return (
               <div // keep this in sync with renderMasonryComponent
                 // eslint-disable-next-line react/no-array-index-key
@@ -555,7 +558,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   }
                 }}
                 className="static"
-                data-column-span={typeof maybeColumnSpan === 'number' ? maybeColumnSpan : btoa(JSON.stringify(maybeColumnSpan))}
+                data-column-span={typeof columnSpanConfig === 'number' ? columnSpanConfig : btoa(JSON.stringify(columnSpanConfig))}
                 data-grid-item
                 role="listitem"
                 style={{
@@ -565,11 +568,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   WebkitTransform: 'translateX(0px) translateY(0px)',
                   // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                   width:
-                    layout === 'flexible' || layout === 'serverRenderedFlexible' || typeof maybeColumnSpan === 'object'
+                    layout === 'flexible' || layout === 'serverRenderedFlexible' || typeof columnSpanConfig === 'object'
                       ? undefined // we can't set a width for server rendered flexible items
                       : layoutNumberToCssDimension(
-                          typeof maybeColumnSpan === 'number' && columnWidth != null && gutter != null
-                            ? columnWidth * maybeColumnSpan + gutter * (maybeColumnSpan - 1)
+                          typeof columnSpanConfig === 'number' && columnWidth != null && gutter != null
+                            ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
                             : columnWidth,
                         ),
                 }}
