@@ -86,6 +86,7 @@ describe('Modal', () => {
       <DeviceTypeProvider deviceType="mobile">
         <Modal
           accessibilityModalLabel="Test modal"
+          dataTestId="Data test id for modal"
           footer={
             <Flex gap={2} justifyContent="end">
               <Button color="gray" text="Cancel" />
@@ -107,6 +108,7 @@ describe('Modal', () => {
     expect(screen.getByText('Modal content')).toBeVisible();
     expect(screen.getByText('Cancel')).toBeVisible();
     expect(screen.getByText('Next')).toBeVisible();
+    expect(screen.getByTestId('Data test id for modal')).toBeInTheDocument();
     expect(screen.getAllByRole('button')).toHaveLength(3);
     expect(screen.getByLabelText('Bottom sheet')).toBeVisible();
     expect(screen.getByLabelText('Dismiss bottom sheet')).toBeVisible();
