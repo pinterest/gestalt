@@ -179,6 +179,7 @@ export default function Modal({
     return (
       <FullPage
         align={align}
+        dataTestId={dataTestId}
         footer={footer}
         heading={heading}
         onDismiss={onDismiss}
