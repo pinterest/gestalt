@@ -103,7 +103,6 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     useInteractiveStates();
 
   const getIconColor = () => {
-
     if (isInVRExperiment && isHovered) return `${type}-hover`;
 
     if (!isInVRExperiment) return type === 'lightWash' ? 'dark' : 'light';
