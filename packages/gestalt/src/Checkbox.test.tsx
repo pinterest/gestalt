@@ -77,3 +77,10 @@ test('Checkbox with an image', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Checkbox with a data-test-id', () => {
+  const tree = create(
+    <Checkbox dataTestId="checkbox-datatestid" id="id" label="Name" onChange={() => {}} size="sm" />,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});

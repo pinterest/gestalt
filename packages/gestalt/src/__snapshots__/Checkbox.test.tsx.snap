@@ -390,6 +390,65 @@ exports[`Checkbox small 1`] = `
 </div>
 `;
 
+exports[`Checkbox with a data-test-id 1`] = `
+<div
+  className="box"
+>
+  <div
+    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  >
+    <div
+      className="box paddingX1 relative"
+      data-test-id="checkbox-datatestid"
+    >
+      <input
+        aria-invalid="false"
+        checked={false}
+        className="input sizeSm inputEnabled"
+        disabled={false}
+        id="id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        type="checkbox"
+      />
+      <div
+        className="enabled border borderRadiusSm sizeSm check"
+      />
+    </div>
+    <div
+      className="box xsDisplayBlock"
+      style={
+        Object {
+          "marginTop": "-1px",
+        }
+      }
+    >
+      <label
+        className="label"
+        htmlFor="id"
+      >
+        <div
+          className="box paddingX1"
+        >
+          <div
+            className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          >
+            Name
+          </div>
+        </div>
+      </label>
+      <div
+        className="box paddingX1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Checkbox with an image 1`] = `
 <div
   className="box"
