@@ -9,7 +9,7 @@ const fullWidthLayout = <T>({
   gutter = 0,
   minCols = 2,
   measurementCache,
-  _getColumnSpan,
+  _getColumnSpanConfig,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -18,7 +18,7 @@ const fullWidthLayout = <T>({
   width?: number | null | undefined;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
-  _getColumnSpan?: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   whitespaceThreshold?: number;
   logWhitespace?: (arg1: number) => void;
 }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
@@ -43,7 +43,7 @@ const fullWidthLayout = <T>({
 
   return (items: ReadonlyArray<T>) => {
     const heights = new Array<number>(columnCount).fill(0);
-    return _getColumnSpan
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -51,7 +51,7 @@ const fullWidthLayout = <T>({
           centerOffset,
           gutter,
           measurementCache,
-          _getColumnSpan,
+          _getColumnSpanConfig,
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {

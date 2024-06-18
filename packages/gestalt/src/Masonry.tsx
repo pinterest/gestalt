@@ -117,7 +117,7 @@ type Props<T> = {
    *
    * This is an experimental prop and may be removed in the future.
    */
-  _getColumnSpan?: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 };
 
 type State<T> = {
@@ -486,7 +486,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       renderItem,
       scrollContainer,
       _logTwoColWhitespace,
-      _getColumnSpan,
+      _getColumnSpanConfig,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -502,7 +502,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         idealColumnWidth: columnWidth,
         width,
         logWhitespace: _logTwoColWhitespace,
-        _getColumnSpan,
+        _getColumnSpanConfig,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -524,7 +524,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         rawItemCount: items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
-        _getColumnSpan,
+        _getColumnSpanConfig,
       });
     }
 
@@ -540,7 +540,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           style={{ height: 0, width: '100%' }}
         >
           {items.filter(Boolean).map((item, i) => {
-            const maybeColumnSpan = _getColumnSpan?.(item) ?? 1;
+            const maybeColumnSpan = _getColumnSpanConfig?.(item) ?? 1;
             return (
               <div // keep this in sync with renderMasonryComponent
                 // eslint-disable-next-line react/no-array-index-key
@@ -589,9 +589,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasMultiColumnItems =
-        _getColumnSpan &&
+        _getColumnSpanConfig &&
         itemsWithoutPositions.some(
-          (item) => _getColumnSpan(item) !== 1
+          (item) => _getColumnSpanConfig(item) !== 1
         );
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one

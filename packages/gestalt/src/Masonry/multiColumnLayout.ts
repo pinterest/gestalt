@@ -121,7 +121,7 @@ export function initializeHeightsArray<T>({
   gutter,
   items,
   positionCache,
-  _getColumnSpan,
+  _getColumnSpanConfig,
 }: {
   centerOffset: number;
   columnCount: number;
@@ -129,14 +129,14 @@ export function initializeHeightsArray<T>({
   gutter: number;
   items: ReadonlyArray<T>;
   positionCache: Cache<T, Position> | null | undefined;
-  _getColumnSpan: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<number> {
   const heights = new Array<number>(columnCount).fill(0);
   items.forEach((item) => {
     const position = positionCache?.get(item);
     if (position) {
       const col = (position.left - centerOffset) / columnWidthAndGutter;
-      const columnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpan });
+      const columnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
       // the height of the column is just the sum of the top and height of the item
       const absoluteHeight = position.top + position.height + gutter;
       for (let i = col; i < col + columnSpan; i += 1) {
@@ -450,7 +450,7 @@ function getPositionsWithMultiColumnItem<T>({
   whitespaceThreshold,
   columnCount,
   logWhitespace,
-  _getColumnSpan,
+  _getColumnSpanConfig,
   ...commonGetPositionArgs
 }: {
   multiColumnItem: T;
@@ -469,7 +469,7 @@ function getPositionsWithMultiColumnItem<T>({
   gutter: number;
   measurementCache: Cache<T, number>;
   positionCache: Cache<T, Position>;
-  _getColumnSpan: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): {
   positions: ReadonlyArray<{
     item: T;
@@ -482,14 +482,14 @@ function getPositionsWithMultiColumnItem<T>({
   // This is the index inside the items to position array
   const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
   const oneColumnItems = itemsToPosition.filter(
-    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpan }) === 1,
+    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig }) === 1,
   );
 
   // The empty columns can be different from columnCount if there are
   // items already positioned from previous batches
   const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-  const multiColumnItemColumnSpan = Math.min(calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpan }), columnCount);
+  const multiColumnItemColumnSpan = Math.min(calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig }), columnCount);
 
   // Skip the graph logic if the two column item can be displayed on the first row,
   // this means graphBatch is empty and multi column item is positioned on its
@@ -582,13 +582,13 @@ function getPositionsWithMultiColumnItem<T>({
 function calculateActualColumnSpan<T>({
   columnCount,
   item,
-  _getColumnSpan,
+  _getColumnSpanConfig,
 }: {
   columnCount: number;
   item: T,
-  _getColumnSpan: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): number {
-  const columnSpanConfig = _getColumnSpan(item);
+  const columnSpanConfig = _getColumnSpanConfig(item);
   if (typeof columnSpanConfig === 'number') {
     return columnSpanConfig;
   }
@@ -606,7 +606,7 @@ const multiColumnLayout = <T>({
   measurementCache,
   positionCache,
   whitespaceThreshold,
-  _getColumnSpan,
+  _getColumnSpanConfig,
 }: {
   items: ReadonlyArray<T>;
   gutter?: number;
@@ -617,11 +617,11 @@ const multiColumnLayout = <T>({
   measurementCache: Cache<T, number>;
   whitespaceThreshold?: number;
   logWhitespace?: (arg1: number) => void;
-  _getColumnSpan: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<Position> => {
   if (!items.every((item) => measurementCache.has(item))) {
     return items.map((item) => {
-      const itemColumnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpan });
+      const itemColumnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
       if (itemColumnSpan > 1) {
         const columnSpan = Math.min(itemColumnSpan, columnCount);
         return offscreen(columnWidth * columnSpan + gutter * (columnSpan - 1));
@@ -640,14 +640,14 @@ const multiColumnLayout = <T>({
     gutter,
     items,
     positionCache,
-    _getColumnSpan,
+    _getColumnSpanConfig,
   });
 
   const itemsWithPositions = items.filter((item) => positionCache?.has(item));
   const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
   const multiColumnItems = itemsWithoutPositions.filter(
-    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpan }) > 1,
+    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig }) > 1,
   );
 
   const commonGetPositionArgs = {
@@ -696,7 +696,7 @@ const multiColumnLayout = <T>({
           whitespaceThreshold,
           logWhitespace,
           columnCount,
-          _getColumnSpan,
+          _getColumnSpanConfig,
           ...commonGetPositionArgs,
         }),
       { heights: paintedItemHeights, positions: paintedItemPositions },

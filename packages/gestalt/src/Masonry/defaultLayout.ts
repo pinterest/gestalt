@@ -51,7 +51,7 @@ const defaultLayout =
     rawItemCount,
     width,
     measurementCache,
-    _getColumnSpan,
+    _getColumnSpanConfig,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -63,7 +63,7 @@ const defaultLayout =
     width?: number | null | undefined;
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
-    _getColumnSpan?: (item: T) => ColumnSpanConfig;
+    _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     whitespaceThreshold?: number;
     logWhitespace?: (arg1: number) => void;
   }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
@@ -87,7 +87,7 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpan
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -95,7 +95,7 @@ const defaultLayout =
           centerOffset,
           gutter,
           measurementCache,
-          _getColumnSpan,
+          _getColumnSpanConfig,
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {

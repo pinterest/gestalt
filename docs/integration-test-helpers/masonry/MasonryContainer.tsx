@@ -416,7 +416,10 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
                   (whitespace) => console.log('Whitespace above 2-col module:', whitespace)
                 : undefined
             }
-            _twoColItems={twoColItems}
+            _getColumnSpanConfig={(item) => {
+              const columnSpan = item.columnSpan as number | undefined;
+              return columnSpan ?? 1
+            }} 
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}
