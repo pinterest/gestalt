@@ -4,11 +4,7 @@ import fullWidthLayout from './fullWidthLayout';
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
-export default function getLayoutAlgorithm<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+export default function getLayoutAlgorithm<T>({
   align,
   columnWidth,
   gutter,

@@ -6,7 +6,7 @@ import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE, ColumnSpanConfig } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -107,17 +107,17 @@ type Props<T> = {
    */
   virtualize?: boolean;
   /**
-   * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
-   *
-   * This is an experimental prop and may be removed in the future.
-   */
-  _twoColItems?: boolean;
-  /**
    * Experimental prop to log the additional whitespace shown above two-column items.
    *
    * This is an experimental prop and may be removed in the future.
    */
   _logTwoColWhitespace?: (arg1: number) => void;
+  /**
+   * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
+   *
+   * This is an experimental prop and may be removed in the future.
+   */
+  _getColumnSpan?: (item: T) => ColumnSpanConfig;
 };
 
 type State<T> = {
@@ -135,11 +135,7 @@ type State<T> = {
  * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.ts-snapshots/Masonry-chromium-darwin.png)
  *
  */
-export default class Masonry<
-  T extends {
-    readonly [key: string]: unknown;
-  },
-> extends ReactComponent<Props<T>, State<T>> {
+export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1 extends Record<any, any>, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -489,8 +485,8 @@ export default class Masonry<
       minCols,
       renderItem,
       scrollContainer,
-      _twoColItems,
       _logTwoColWhitespace,
+      _getColumnSpan,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -506,7 +502,7 @@ export default class Masonry<
         idealColumnWidth: columnWidth,
         width,
         logWhitespace: _logTwoColWhitespace,
-        _twoColItems,
+        _getColumnSpan,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -528,7 +524,7 @@ export default class Masonry<
         rawItemCount: items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
-        _twoColItems,
+        _getColumnSpan,
       });
     }
 
@@ -543,42 +539,45 @@ export default class Masonry<
           role="list"
           style={{ height: 0, width: '100%' }}
         >
-          {items.filter(Boolean).map((item, i) => (
-            <div // keep this in sync with renderMasonryComponent
-              // eslint-disable-next-line react/no-array-index-key
-              key={i}
-              ref={(el) => {
-                // purposely not checking for layout === 'serverRenderedFlexible' here
-                if (el && layout !== 'flexible') {
-                  // if we're hydrating from the server, we should only measure items on the initial render pass
-                  // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
-                  // that the caller has added the proper CSS to ensure the layout is correct during server render
-                  measurementStore.set(item, el.clientHeight);
-                }
-              }}
-              className="static"
-              data-column-span={item.columnSpan ?? 1}
-              data-grid-item
-              role="listitem"
-              style={{
-                top: 0,
-                left: 0,
-                transform: 'translateX(0px) translateY(0px)',
-                WebkitTransform: 'translateX(0px) translateY(0px)',
-                // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
-                width:
-                  layout === 'flexible' || layout === 'serverRenderedFlexible'
-                    ? undefined // we can't set a width for server rendered flexible items
-                    : layoutNumberToCssDimension(
-                        typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
-                          ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
-                          : columnWidth,
-                      ),
-              }}
-            >
-              {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
-            </div>
-          ))}
+          {items.filter(Boolean).map((item, i) => {
+            const maybeColumnSpan = _getColumnSpan?.(item) ?? 1;
+            return (
+              <div // keep this in sync with renderMasonryComponent
+                // eslint-disable-next-line react/no-array-index-key
+                key={i}
+                ref={(el) => {
+                  // purposely not checking for layout === 'serverRenderedFlexible' here
+                  if (el && layout !== 'flexible') {
+                    // if we're hydrating from the server, we should only measure items on the initial render pass
+                    // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
+                    // that the caller has added the proper CSS to ensure the layout is correct during server render
+                    measurementStore.set(item, el.clientHeight);
+                  }
+                }}
+                className="static"
+                data-column-span={typeof maybeColumnSpan === 'number' ? maybeColumnSpan : btoa(JSON.stringify(maybeColumnSpan))}
+                data-grid-item
+                role="listitem"
+                style={{
+                  top: 0,
+                  left: 0,
+                  transform: 'translateX(0px) translateY(0px)',
+                  WebkitTransform: 'translateX(0px) translateY(0px)',
+                  // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+                  width:
+                    layout === 'flexible' || layout === 'serverRenderedFlexible' || typeof maybeColumnSpan === 'object'
+                      ? undefined // we can't set a width for server rendered flexible items
+                      : layoutNumberToCssDimension(
+                          typeof maybeColumnSpan === 'number' && columnWidth != null && gutter != null
+                            ? columnWidth * maybeColumnSpan + gutter * (maybeColumnSpan - 1)
+                            : columnWidth,
+                        ),
+                }}
+              >
+                {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
+              </div>
+            );
+          })}
         </div>
       );
     } else if (width == null) {
@@ -590,9 +589,9 @@ export default class Masonry<
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasMultiColumnItems =
-        _twoColItems &&
+        _getColumnSpan &&
         itemsWithoutPositions.some(
-          (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
+          (item) => _getColumnSpan(item) !== 1
         );
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
