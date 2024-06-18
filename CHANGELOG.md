@@ -1,3 +1,9 @@
+## 153.8.0 (Jun 18, 2024)
+
+### Minor
+
+- BannerSlim: Standardize dismiss functionality ([#3633](https://github.com/pinterest/gestalt/pull/3633)) - [Preview link](https://deploy-preview-3633--gestalt.netlify.app?devexample=true)
+
 ## 153.7.1 (Jun 17, 2024)
 
 ### Patch
