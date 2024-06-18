@@ -136,12 +136,6 @@ type Props<T> = {
    * Experimental prop to trigger rendering updates via requestAnimationFrame
    */
   _useRAF?: boolean;
-  /**
-   * Temporal prop to sync gutter logic on full width layout refactor.
-   *
-   * This is an experimental prop and will be removed in the future.
-   */
-  _legacyFlexibleGutterLogic?: boolean;
 };
 
 type MasonryRef = {
@@ -338,7 +332,6 @@ function useLayout<
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
-  _legacyFlexibleGutterLogic,
 }: {
   align: Align;
   columnWidth: number;
@@ -353,7 +346,6 @@ function useLayout<
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
-  _legacyFlexibleGutterLogic?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -378,7 +370,6 @@ function useLayout<
     width,
     _twoColItems,
     _logTwoColWhitespace,
-    _legacyFlexibleGutterLogic,
   });
 
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
@@ -606,7 +597,6 @@ function Masonry<
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
-    _legacyFlexibleGutterLogic,
   }: Props<T>,
   ref:
     | {
@@ -697,7 +687,6 @@ function Masonry<
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
-    _legacyFlexibleGutterLogic,
   });
 
   useFetchOnScroll({
