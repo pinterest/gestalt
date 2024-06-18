@@ -30,6 +30,7 @@ type Props = {
     onClick: OnClickType;
   };
   children?: ReactNode;
+  dataTestId?: string;
   footer?: ReactNode;
   forwardIconButton?: {
     accessibilityLabel: string;
@@ -57,6 +58,7 @@ export default function FullPage({
   align,
   backIconButton,
   children,
+  dataTestId,
   onDismiss,
   footer,
   forwardIconButton,
@@ -133,6 +135,7 @@ export default function FullPage({
             <div
               aria-label={accessibilityLabel ?? defaultAccessibilityLabel}
               className={classnames(sheetMobileStyles.fullPageWrapper, focusStyles.hideOutline)}
+              data-test-id={dataTestId}
               id={id}
               role={role}
               style={{ width: '100%' }}
