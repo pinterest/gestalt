@@ -86,4 +86,33 @@ describe('ModalAlert', () => {
 
     expect(baseElement).toMatchSnapshot();
   });
+
+  test('Desktop ModalAlert has data-test-id prop', () => {
+    const { baseElement } = render(
+      <ModalAlert
+        accessibilityModalLabel="Test ModalAlert"
+        dataTestId="modal-alert-data-test-id"
+        heading="Delete Pin?"
+        onDismiss={() => {}}
+        primaryAction={{
+          accessibilityLabel: 'Acknowledge expired card',
+          dataTestId: 'modal-alert-primary-action-data-test-id',
+          label: 'Got it',
+          onClick: () => {},
+          role: 'button',
+        }}
+        secondaryAction={{
+            accessibilityLabel: 'Cancel action',
+            dataTestId: 'modal-alert-secondary-action-data-test-id',
+            label: 'Cancel',
+            onClick: () => {},
+            role: 'button',
+          }}
+      >
+        Modal content
+      </ModalAlert>,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
 });
