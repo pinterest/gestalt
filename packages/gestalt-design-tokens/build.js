@@ -1057,15 +1057,19 @@ function getIOSConfiguration({ theme, mode }) {
             ? [
                 ...iOSObjectiveCFiles,
                 ...languageList.map((lang) => ({
-                  'destination': `GestaltTokensColorDark${getTheme(theme)}-${lang.toUpperCase()}.h`,
+                  'destination': `GestaltTokensFontLineHeight${getTheme(
+                    theme,
+                  )}-${lang.toUpperCase()}.h`,
                   ...iosColorsH,
-                  'className': `GestaltTokensColor${getTheme(theme)}${lang}`,
+                  'className': `GestaltTokensFontLineHeight${getTheme(theme)}${lang}`,
                   ...fontLineHeightFilter(lang),
                 })),
                 ...languageList.map((lang) => ({
-                  'destination': `GestaltTokensColorDark${getTheme(theme)}-${lang.toUpperCase()}.m`,
+                  'destination': `GestaltTokensFontLineHeight${getTheme(
+                    theme,
+                  )}-${lang.toUpperCase()}.m`,
                   ...iosColorsM,
-                  'className': `GestaltTokensColor${getTheme(theme)}${lang}`,
+                  'className': `GestaltTokensFontLineHeight${getTheme(theme)}${lang}`,
                   ...fontLineHeightFilter(lang),
                 })),
               ]
@@ -1109,11 +1113,11 @@ function getIOSConfiguration({ theme, mode }) {
             ? [
                 ...iOSSwiftFiles,
                 ...languageList.map((lang) => ({
-                  'destination': `GestaltTokensColorDark${getTheme(
+                  'destination': `GestaltTokensFontLineHeight${getTheme(
                     theme,
                   )}-${lang.toUpperCase()}.swift`,
                   ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensColor${getTheme(theme)}${lang}`,
+                  'className': `GestaltTokensFontLineHeight${getTheme(theme)}${lang}`,
                   ...fontLineHeightFilter(lang),
                 })),
               ]
