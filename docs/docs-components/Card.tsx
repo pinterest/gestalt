@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { TypeOptions } from 'packages/gestalt/src/Badge';
 import slugify from 'slugify';
-import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
+import { Badge, Box, Flex, Heading } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton';
 import { DOCS_COPY_MAX_WIDTH_PX } from './consts';
 import Markdown from './Markdown';
@@ -11,12 +11,12 @@ type Props = {
   badge?: {
     text: string;
     tooltipText: string;
-    type?: TypeOptions
+    type?: TypeOptions;
   };
   badgeSecondary?: {
     text: string;
     tooltipText: string;
-    type?: TypeOptions
+    type?: TypeOptions;
   };
   description?: string;
   headingSize?: '400' | '500';
@@ -80,10 +80,20 @@ export default function Card({
           >
             <Heading size={headingSize}>{name}</Heading>
             {badge ? (
-              <Badge position="middle" text={badge.text} tooltip={{text: badge.tooltipText}} type={badge.type || undefined} />
+              <Badge
+                position="middle"
+                text={badge.text}
+                tooltip={{ text: badge.tooltipText }}
+                type={badge.type || undefined}
+              />
             ) : null}
             {badgeSecondary ? (
-              <Badge position="middle" text={badgeSecondary.text}  tooltip={{text: badgeSecondary.tooltipText}} type={badgeSecondary.type || undefined} />
+              <Badge
+                position="middle"
+                text={badgeSecondary.text}
+                tooltip={{ text: badgeSecondary.tooltipText }}
+                type={badgeSecondary.type || undefined}
+              />
             ) : null}
             <CopyLinkButton
               name={name}
