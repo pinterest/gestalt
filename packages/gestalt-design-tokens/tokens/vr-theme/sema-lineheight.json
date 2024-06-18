@@ -1,0 +1,46 @@
+{
+  "font": {
+    "lineheight": {
+      "XXS": {
+        "default": { "value": "{font.lineheight.110.value}" },
+        "ck": { "value": "{font.lineheight.120.value}" },
+        "ja": { "value": "{font.lineheight.120.value}" },
+        "tall": { "value": "{font.lineheight.130.value}" },
+        "th": { "value": "{font.lineheight.130.value}" },
+        "vi": { "value": "{font.lineheight.120.value}" }
+      },
+      "XS": {
+        "default": { "value": "{font.lineheight.120.value}" },
+        "ck": { "value": "{font.lineheight.130.value}" },
+        "ja": { "value": "{font.lineheight.130.value}" },
+        "tall": { "value": "{font.lineheight.140.value}" },
+        "th": { "value": "{font.lineheight.150.value}" },
+        "vi": { "value": "{font.lineheight.120.value}" }
+      },
+      "MD": {
+        "default": { "value": "{font.lineheight.130.value}" },
+        "ck": { "value": "{font.lineheight.150.value}" },
+        "ja": { "value": "{font.lineheight.150.value}" },
+        "tall": { "value": "{font.lineheight.160.value}" },
+        "th": { "value": "{font.lineheight.170.value}" },
+        "vi": { "value": "{font.lineheight.120.value}" }
+      },
+      "LG": {
+        "default": { "value": "{font.lineheight.140.value}" },
+        "ck": { "value": "{font.lineheight.150.value}" },
+        "ja": { "value": "{font.lineheight.160.value}" },
+        "tall": { "value": "{font.lineheight.170.value}" },
+        "th": { "value": "{font.lineheight.180.value}" },
+        "vi": { "value": "{font.lineheight.130.value}" }
+      },
+      "XL": {
+        "default": { "value": "{font.lineheight.150.value}" },
+        "ck": { "value": "{font.lineheight.150.value}" },
+        "ja": { "value": "{font.lineheight.160.value}" },
+        "tall": { "value": "{font.lineheight.170.value}" },
+        "th": { "value": "{font.lineheight.180.value}" },
+        "vi": { "value": "{font.lineheight.140.value}" }
+      }
+    }
+  }
+}

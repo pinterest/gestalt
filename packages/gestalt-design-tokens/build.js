@@ -91,13 +91,94 @@ const filterFontFamily = {
   },
 };
 
-const filterLineHeight = {
-  'filter': {
-    'attributes': {
-      'category': 'font',
-      'type': 'lineheight',
-    },
+StyleDictionary.registerFilter({
+  name: 'fontLineHeightFilterDefault',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      (token.filePath.includes('base') || token.attributes.subitem === 'default')
+    );
   },
+});
+
+StyleDictionary.registerFilter({
+  name: 'fontLineHeightFilterCk',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      (token.filePath.includes('base') || token.attributes.subitem === 'ck')
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: 'fontLineHeightFilterJa',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      (token.filePath.includes('base') || token.attributes.subitem === 'ja')
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: 'fontLineHeightFilterTall',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      (token.filePath.includes('base') || token.attributes.subitem === 'tall')
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: 'fontLineHeightFilterTh',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      (token.filePath.includes('base') || token.attributes.subitem === 'th')
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: 'fontLineHeightFilterVi',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      (token.filePath.includes('base') || token.attributes.subitem === 'vi')
+    );
+  },
+});
+
+const fontLineHeightFilter = (lang) => {
+  if (lang === 'ck') {
+    return { 'filter': 'fontLineHeightFilterCk', '_filter_comment': 'Custom' };
+  }
+
+  if (lang === 'ja') {
+    return { 'filter': 'fontLineHeightFilterJa', '_filter_comment': 'Custom' };
+  }
+
+  if (lang === 'tall') {
+    return { 'filter': 'fontLineHeightFilterTall', '_filter_comment': 'Custom' };
+  }
+
+  if (lang === 'th') {
+    return { 'filter': 'fontLineHeightFilterTh', '_filter_comment': 'Custom' };
+  }
+
+  if (lang === 'vi') {
+    return { 'filter': 'fontLineHeightFilterVi', '_filter_comment': 'Custom' };
+  }
+
+  return { 'filter': 'fontLineHeightFilterDefault', '_filter_comment': 'Custom' };
 };
 
 const androidResources = {
@@ -150,11 +231,6 @@ const dataVisualizationFilter = {
   '_filter_comment': 'Custom',
 };
 
-const semaLineHeightFilter = {
-  'filter': 'semaLineHeightFilter',
-  '_filter_comment': 'Custom filter for semantic lineheight tokens',
-};
-
 const webCssTransformGroup = {
   'transformGroup': 'webCssTransformGroup',
   '_transformGroup_comment':
@@ -177,6 +253,7 @@ const iOSSwiftEnumTransformGroup = {
 };
 
 // HELPER FUNCTIONS
+const languageList = ['default', 'ck', 'ja', 'tall', 'th', 'vi'];
 
 const filterList = [
   filterColor,
@@ -184,7 +261,6 @@ const filterList = [
   filterOpacity,
   filterSpace,
   filterElevation,
-  filterLineHeight,
   filterFontFamily,
   filterFontSize,
   filterFontWeight,
@@ -264,7 +340,7 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
 const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
   `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
 
-function getSources({ theme, modeTheme, platform, language }) {
+function getSources({ theme, modeTheme, platform }) {
   if (theme === 'classic') {
     return [
       `tokens/classic/base-color.json`,
@@ -299,8 +375,8 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/sema-opacity.json',
     'tokens/vr-theme/sema-rounding.json',
     'tokens/vr-theme/sema-space.json',
-    `tokens/vr-theme/base-lineheight.json`,
-    `tokens/vr-theme/language/sema-lineheight-${language}.json`,
+    'tokens/vr-theme/base-lineheight.json',
+    'tokens/vr-theme/sema-lineheight.json',
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
@@ -594,19 +670,7 @@ StyleDictionary.registerFilter({
   },
 });
 
-// Filters only to semantic line-height tokens
-StyleDictionary.registerFilter({
-  name: 'semaLineHeightFilter',
-  matcher(token) {
-    return (
-      token.attributes.category === 'font' &&
-      token.attributes.type === 'lineheight' &&
-      !token.name.startsWith('Base')
-    );
-  },
-});
-
-function getWebConfig({ theme, mode, language }) {
+function getWebConfig({ theme, mode }) {
   const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
@@ -615,7 +679,7 @@ function getWebConfig({ theme, mode, language }) {
   // run languages in for loop
 
   return {
-    'source': getSources({ theme, modeTheme, platform: 'web', language }),
+    'source': getSources({ theme, modeTheme, platform: 'web' }),
     'platforms': {
       'css': {
         ...webCssTransformGroup,
@@ -628,13 +692,6 @@ function getWebConfig({ theme, mode, language }) {
                   'destination': 'variables.css',
                   ...cssVariables,
                 },
-                language
-                  ? {
-                      'destination': `font-lineheight-${language}.css`,
-                      ...cssVariables,
-                      ...semaLineHeightFilter,
-                    }
-                  : undefined,
               ]
             : [
                 {
@@ -698,14 +755,6 @@ function getWebConfig({ theme, mode, language }) {
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
-                language
-                  ? {
-                      'destination': `font-lineheight-${language}.js`,
-                      'format': `commonJS/${mappedTheme}`,
-                      '_format_comment': 'Custom',
-                      ...semaLineHeightFilter,
-                    }
-                  : undefined,
               ]
             : [
                 {
@@ -766,11 +815,11 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getAndroidConfiguration({ theme, mode, language }) {
+function getAndroidConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   return {
-    'source': getSources({ theme, modeTheme, language }),
+    'source': getSources({ theme, modeTheme }),
     'platforms': {
       'android': {
         ...androidTransformGroup,
@@ -815,12 +864,12 @@ function getAndroidConfiguration({ theme, mode, language }) {
                   ...dimenResource,
                   ...filterSpace,
                 },
-                language && {
-                  'destination': `font-lineheight-${language}.xml`,
+                ...languageList.map((lang) => ({
+                  'destination': `font-lineheight-${lang}.xml`,
                   ...androidResources,
                   ...dimenResource,
-                  ...filterLineHeight,
-                },
+                  ...fontLineHeightFilter(lang),
+                })),
               ]
             : [
                 {
@@ -900,7 +949,7 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getIOSConfiguration({ theme, mode, language }) {
+function getIOSConfiguration({ theme, mode }) {
   const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   const categories = [
@@ -912,6 +961,7 @@ function getIOSConfiguration({ theme, mode, language }) {
     'font size',
     'font weight',
     'font family',
+    'font lineheight',
   ];
 
   /**
@@ -924,7 +974,7 @@ function getIOSConfiguration({ theme, mode, language }) {
       "type": "GestaltTokensFontSizeName"
     }
   */
-  let iOSObjectiveCFiles = categories.flatMap((category) => {
+  const iOSObjectiveCFiles = categories.flatMap((category) => {
     const pascalName = category
       .split(' ')
       .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
@@ -958,38 +1008,8 @@ function getIOSConfiguration({ theme, mode, language }) {
     };
   });
 
-  // add the relevant language output
-  if (language) {
-    // generate both header and methods file extensions
-    iOSObjectiveCFiles = iOSObjectiveCFiles.concat(
-      ['h', 'm'].map((ext) => {
-        const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
-        return {
-          'destination': `/GestaltTokensFontLineHeight${getTheme(
-            theme,
-          )}-${language.toUpperCase()}.${ext}`,
-          ...fileTypeDetails,
-          'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
-          'type': `GestaltTokensFontLineHeightName${getTheme(theme)}`,
-          ...filterLineHeight,
-          comment: `// ${language} specific tokens`,
-        };
-      }),
-    );
-
-    iOSSwiftFiles.push({
-      'destination': `GestaltTokensFontLineHeight${getTheme(
-        theme,
-      )}-${language.toUpperCase()}.swift`,
-      ...iosSwiftEnumSwift,
-      'className': `GestaltTokensFontLineHeight${getTheme(theme)}`,
-      ...semaLineHeightFilter,
-      fileHeader: `// ${language} specific tokens`,
-    });
-  }
-
   return {
-    'source': getSources({ theme, modeTheme, language }),
+    'source': getSources({ theme, modeTheme }),
     'platforms': {
       'ios': {
         ...iOSTransformGroup,
@@ -1065,29 +1085,20 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    ['default', 'ck', 'ja', 'tall', 'th', 'vi'].forEach((lang) => {
-      // only generate languages for the vr-theme
-      const language = theme === 'vr-theme' ? lang : undefined;
+    // iOS platform
+    if (theme !== 'vr-theme-web-mapping') {
+      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
+      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
-      // iOS platform
-      if (theme !== 'vr-theme-web-mapping') {
-        const StyleDictionaryIOS = StyleDictionary.extend(
-          getIOSConfiguration({ mode, theme, language }),
-        );
-        platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+      // // Android platform
+      const StyleDictionaryAndroid = StyleDictionary.extend(
+        getAndroidConfiguration({ mode, theme }),
+      );
+      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
+    }
 
-        // // Android platform
-        const StyleDictionaryAndroid = StyleDictionary.extend(
-          getAndroidConfiguration({ mode, theme, language }),
-        );
-        platformFileMap.android.forEach((platform) =>
-          StyleDictionaryAndroid.buildPlatform(platform),
-        );
-      }
-
-      // web platform
-      const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme, language }));
-      platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
-    });
+    // web platform
+    const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
+    platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
   }),
 );
