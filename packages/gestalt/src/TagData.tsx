@@ -68,6 +68,10 @@ export type Props = {
    */
   color?: DataVisualizationColors;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates if TagData should be disabled. Disabled TagDatas are inactive and cannot be interacted with. See the [disabled variant](https://gestalt.pinterest.systems/web/tagdata#disabled) to learn more.
    */
   disabled?: boolean;
@@ -121,6 +125,7 @@ export default function TagData({
   accessibilityRemoveIconLabel,
   baseColor = 'primary',
   color = '05',
+  dataTestId,
   disabled = false,
   id,
   onTap,
@@ -194,7 +199,7 @@ export default function TagData({
   });
 
   return (
-    <Box display="inlineBlock" maxWidth={300} position="relative" rounding={2}>
+    <Box data-test-id={dataTestId} display="inlineBlock" maxWidth={300} position="relative" rounding={2}>
       <MaybeTooltip disabled={disabled} tooltip={tooltip}>
         <TapArea
           disabled={disabled}
