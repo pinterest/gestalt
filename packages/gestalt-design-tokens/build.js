@@ -960,6 +960,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/pascal',
     'name/conflictFixing',
     'name/prefix/level/pascal',
+    'name/languageRemoval/camel',
     'value/elevation/ios',
     'color/UIColor',
     'content/objC/literal',
@@ -1053,7 +1054,21 @@ function getIOSConfiguration({ theme, mode }) {
         ...optionsFileHeader,
         'files':
           mode === 'light'
-            ? iOSObjectiveCFiles
+            ? [
+                ...iOSObjectiveCFiles,
+                ...languageList.map((lang) => ({
+                  'destination': `GestaltTokensColorDark${getTheme(theme)}-${lang.toUpperCase()}.h`,
+                  ...iosColorsH,
+                  'className': `GestaltTokensColor${getTheme(theme)}${lang}`,
+                  ...fontLineHeightFilter(lang),
+                })),
+                ...languageList.map((lang) => ({
+                  'destination': `GestaltTokensColorDark${getTheme(theme)}-${lang.toUpperCase()}.m`,
+                  ...iosColorsM,
+                  'className': `GestaltTokensColor${getTheme(theme)}${lang}`,
+                  ...fontLineHeightFilter(lang),
+                })),
+              ]
             : [
                 {
                   'destination': `GestaltTokensColorDark${getTheme(theme)}.h`,
