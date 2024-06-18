@@ -75,6 +75,64 @@ exports[`TagData TagData has a tooltip 1`] = `
 </div>
 `;
 
+exports[`TagData reders tagdata with data test id 1`] = `
+<div
+  className="box relative rounding2 xsDisplayInlineBlock"
+  data-test-id="tagdata-test-id"
+  style={
+    Object {
+      "maxWidth": 300,
+    }
+  }
+>
+  <div
+    aria-disabled={false}
+    className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyPress={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <div
+      className="solid transparentBorder tagMedium primary tagWrapperRounded"
+      style={Object {}}
+    >
+      <div
+        className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
+      >
+        <span
+          className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+          style={
+            Object {
+              "WebkitLineClamp": 1,
+            }
+          }
+          title="Text For TagData"
+        >
+          Text For TagData
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TagData renders all colors as expected 1`] = `
 <div
   className="Flex rowGap2 columnGap2 xsDirectionRow"

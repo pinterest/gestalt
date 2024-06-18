@@ -130,4 +130,15 @@ describe('TagData', () => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('reders tagdata with data test id', () => {
+    const component = create(
+      <TagData
+        dataTestId="tagdata-test-id"
+        text="Text For TagData"
+      />,
+    );
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
