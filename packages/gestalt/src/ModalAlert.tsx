@@ -43,6 +43,10 @@ type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The text used for ModalAlert's heading.
    */
   heading: string;
@@ -81,6 +85,7 @@ export default function ModalAlert({
   accessibilityModalLabel,
   type = 'default',
   children,
+  dataTestId,
   onDismiss,
   heading,
   primaryAction,
@@ -108,6 +113,7 @@ export default function ModalAlert({
         accessibilityModalLabel={accessibilityModalLabel}
         align="start"
         closeOnOutsideClick={type === 'default'}
+        dataTestId={dataTestId}
         footer={
           <Flex gap={2} justifyContent="end">
             {secondaryAction && <ModalAlertAction type="secondary" {...secondaryAction} />}
