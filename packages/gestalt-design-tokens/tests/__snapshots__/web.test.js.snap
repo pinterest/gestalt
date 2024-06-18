@@ -2100,11 +2100,11 @@ Object {
   --sema-opacity-light: var(--base-opacity-20);
   --sema-opacity-pin-wash: var(--base-opacity-4);
   --sema-opacity-transparent: var(--base-opacity-0);
-  --sema-font-lineheight-xl: var(--base-font-lineheight-140);
-  --sema-font-lineheight-lg: var(--base-font-lineheight-130);
-  --sema-font-lineheight-md: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xl: var(--base-font-lineheight-150);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-140);
+  --sema-font-lineheight-md: var(--base-font-lineheight-130);
   --sema-font-lineheight-xs: var(--base-font-lineheight-120);
-  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-110);
   --sema-font-size-ui-lg: var(--base-font-size-20);
   --sema-font-size-ui-md: var(--base-font-size-16);
   --sema-font-size-ui-sm: var(--base-font-size-14);
