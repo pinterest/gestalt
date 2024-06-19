@@ -1,3 +1,9 @@
+## 153.9.0 (Jun 19, 2024)
+
+### Minor
+
+- Masonry: Remove legacy flexible gutter logic ([#3639](https://github.com/pinterest/gestalt/pull/3639)) - [Preview link](https://deploy-preview-3639--gestalt.netlify.app?devexample=true)
+
 ## 153.8.0 (Jun 18, 2024)
 
 ### Minor
