@@ -1,31 +1,23 @@
 import { ReactElement, ReactNode, useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
-import { NestingProvider, useNesting } from './contexts/NestingProvider';
+import { NestingProvider } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
 import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
 import TapArea from './TapArea';
 import { flattenChildrenWithKeys } from './utils/flattenChildren';
 import { Indexable } from './zIndex';
 
-type IconType =
-  | keyof typeof icons
-  | {
-      __path: string;
-    };
+type IconType = keyof typeof icons | { __path: string };
 type Display = 'expandable' | 'static';
-
 type BadgeType = {
   text: string;
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral';
 };
-
 type Counter = {
   number: string;
   accessibilityLabel: string;
@@ -52,6 +44,10 @@ export type Props = {
    * When passed SideNavigation.Group becomes a controlled component. If not passed, it stays uncontrolled. See the [controlled group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more. This functionality is not supported in mobile.
    */
   expanded?: boolean;
+  /**
+   * Directs users to the url when item is selected.
+   */
+  // href?: string;
   /**
    * When supplied, will display Icon. See the [Icon](https://gestalt.pinterest.systems/web/sidenavigation#Icon) variant to learn more.
    */
@@ -111,7 +107,7 @@ export default function SideNavigationGroup({
 
   // Manages children
   const itemId = useId();
-  const { nestedLevel } = useNesting();
+
   const {
     collapsed: sideNavigationCollapsed,
     overlayPreview,
@@ -140,17 +136,7 @@ export default function SideNavigationGroup({
     }
   }, [display, expanded, expandedProp]);
 
-  const itemColor = hovered ? 'secondary' : undefined;
-
   const collapsed = sideNavigationCollapsed && !overlayPreview;
-
-  const paddingStyle = !collapsed
-    ? {
-        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-        paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-        paddingInlineEnd: TOKEN_SPACE_400,
-      }
-    : {};
 
   if (isMobile) {
     return (
@@ -159,6 +145,7 @@ export default function SideNavigationGroup({
         counter={counter}
         display={display}
         hasActiveChild={hasAnyActiveChild}
+        // href={href}
         icon={icon}
         label={label}
         notificationAccessibilityLabel={notificationAccessibilityLabel}
@@ -170,8 +157,8 @@ export default function SideNavigationGroup({
   }
 
   return (
-    <li className={classnames(styles.liItem)}>
-      <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
+    <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
+      <li className={classnames(styles.liItem)}>
         {isExpandable ? (
           <TapArea
             accessibilityControls={itemId}
@@ -206,11 +193,9 @@ export default function SideNavigationGroup({
               hasActiveChild={hasAnyActiveChild}
               hovered={hovered}
               icon={icon}
-              itemColor={itemColor}
               itemId={itemId}
               label={label}
               notificationAccessibilityLabel={notificationAccessibilityLabel}
-              paddingStyle={paddingStyle}
               primaryAction={primaryAction}
               selectedItemId={selectedItemId}
               setCompression={setCompression}
@@ -226,11 +211,9 @@ export default function SideNavigationGroup({
             hasActiveChild={hasAnyActiveChild}
             hovered={hovered}
             icon={icon}
-            itemColor={itemColor}
             itemId={itemId}
             label={label}
             notificationAccessibilityLabel={notificationAccessibilityLabel}
-            paddingStyle={paddingStyle}
             primaryAction={primaryAction}
             selectedItemId={selectedItemId}
             setCompression={setCompression}
@@ -241,8 +224,8 @@ export default function SideNavigationGroup({
             {navigationChildren}
           </ul>
         ) : null}
-      </NestingProvider>
-    </li>
+      </li>
+    </NestingProvider>
   );
 }
 
