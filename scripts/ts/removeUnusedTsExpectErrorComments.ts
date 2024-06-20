@@ -14,7 +14,7 @@ function getUnusedTsExpectErrorComments(tscRunOutputFilePath: string): FilePathT
     .map((line) => (line.split(':')[0] || '').match(/^(.*)\((\d+),/))
     .forEach((matches) => {
       if (matches) {
-        const [_, filePath, lineNum] = matches;
+        const [, filePath, lineNum] = matches;
         filePathToLineNumbers[filePath] = [
           ...(filePathToLineNumbers[filePath] || []),
           parseInt(lineNum, 10),
@@ -55,7 +55,6 @@ async function removeTsExpectErrorCommentsForFile(
 async function removeUnusedTsExpectErrorComments(tscRunOutputFilePath: string) {
   await Promise.all(
     Object.entries(getUnusedTsExpectErrorComments(tscRunOutputFilePath)).map(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ([filePath, lineNums]: [any, any]) => removeTsExpectErrorCommentsForFile(filePath, lineNums),
     ),
   );
