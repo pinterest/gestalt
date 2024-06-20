@@ -1,3 +1,9 @@
+## 153.9.1 (Jun 20, 2024)
+
+### Patch
+
+- ButtonToggle: Fixing accessibility fallback ([#3641](https://github.com/pinterest/gestalt/pull/3641)) - [Preview link](https://deploy-preview-3641--gestalt.netlify.app?devexample=true)
+
 ## 153.9.0 (Jun 19, 2024)
 
 ### Minor
