@@ -914,7 +914,7 @@ public enum GestaltTokensFontFamilyVR {
 
 import SwiftUI
 
-public enum GestaltTokensFontLineHeightVR {
+public enum GestaltTokensFontLineHeightCKVR {
     public static let baseLineheight180 = \\"180%\\"
     public static let baseLineheight170 = \\"170%\\"
     public static let baseLineheight160 = \\"160%\\"
@@ -936,7 +936,7 @@ public enum GestaltTokensFontLineHeightVR {
 
 import SwiftUI
 
-public enum GestaltTokensFontLineHeightVR {
+public enum GestaltTokensFontLineHeightDEFAULTVR {
     public static let baseLineheight180 = \\"180%\\"
     public static let baseLineheight170 = \\"170%\\"
     public static let baseLineheight160 = \\"160%\\"
@@ -958,7 +958,7 @@ public enum GestaltTokensFontLineHeightVR {
 
 import SwiftUI
 
-public enum GestaltTokensFontLineHeightVR {
+public enum GestaltTokensFontLineHeightJAVR {
     public static let baseLineheight180 = \\"180%\\"
     public static let baseLineheight170 = \\"170%\\"
     public static let baseLineheight160 = \\"160%\\"
@@ -980,7 +980,7 @@ public enum GestaltTokensFontLineHeightVR {
 
 import SwiftUI
 
-public enum GestaltTokensFontLineHeightVR {
+public enum GestaltTokensFontLineHeightTALLVR {
     public static let baseLineheight180 = \\"180%\\"
     public static let baseLineheight170 = \\"170%\\"
     public static let baseLineheight160 = \\"160%\\"
@@ -1002,7 +1002,7 @@ public enum GestaltTokensFontLineHeightVR {
 
 import SwiftUI
 
-public enum GestaltTokensFontLineHeightVR {
+public enum GestaltTokensFontLineHeightTHVR {
     public static let baseLineheight180 = \\"180%\\"
     public static let baseLineheight170 = \\"170%\\"
     public static let baseLineheight160 = \\"160%\\"
@@ -1024,7 +1024,7 @@ public enum GestaltTokensFontLineHeightVR {
 
 import SwiftUI
 
-public enum GestaltTokensFontLineHeightVR {
+public enum GestaltTokensFontLineHeightVIVR {
     public static let baseLineheight180 = \\"180%\\"
     public static let baseLineheight170 = \\"170%\\"
     public static let baseLineheight160 = \\"160%\\"
