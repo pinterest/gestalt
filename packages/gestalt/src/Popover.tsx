@@ -128,7 +128,6 @@ export default function Popover({
 
   if (!isInExperiment) {
     return (
-      // @ts-expect-error - TS2786 - 'LegacyInternalPopover' cannot be used as a JSX component.
       <LegacyInternalPopover
         __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
         accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}

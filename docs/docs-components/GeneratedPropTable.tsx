@@ -7,6 +7,7 @@ function getResponsive(description?: string): {
   responsive?: boolean;
 } {
   const input = description ?? '';
+  // @ts-expect-error - TS1503
   const match = input.match(/(?<main>Responsive: (?<responsive>.*))/);
   const groups = match?.groups ?? {};
 
@@ -22,6 +23,7 @@ function getTypeOverrideValue(description?: string): {
   typeOverride?: string;
 } {
   const input = description ?? '';
+  // @ts-expect-error - TS1503
   const match = input.match(/(?<main>Type: (?<typeOverride>.*))/);
   const groups = match?.groups ?? {};
 
@@ -37,6 +39,7 @@ function getDefaultValue(description?: string): {
   defaultValue?: string;
 } {
   const input = description ?? '';
+  // @ts-expect-error - TS1503
   const match = input.match(/(?<main>Default: (?<defaultValue>.*))/);
   const groups = match?.groups ?? {};
 
