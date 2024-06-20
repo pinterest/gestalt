@@ -148,7 +148,8 @@
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh",
     "tokens:test": "(cd packages/gestalt-design-tokens && yarn test)",
-    "tsc": "tsc --build --force"
+    "tsc": "tsc --build --force",
+    "ts:removeUnusedTsExpectErrors": "./scripts/ts/tsRemoveUnusedTsExpectErrors.sh"
   },
   "jest": {
     "projects": [
