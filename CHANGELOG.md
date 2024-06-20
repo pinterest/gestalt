@@ -1,3 +1,9 @@
+## 153.9.2 (Jun 20, 2024)
+
+### Patch
+
+- Tokens: small fixes to line height tokens ([#3640](https://github.com/pinterest/gestalt/pull/3640)) - [Preview link](https://deploy-preview-3640--gestalt.netlify.app?devexample=true)
+
 ## 153.9.1 (Jun 20, 2024)
 
 ### Patch
