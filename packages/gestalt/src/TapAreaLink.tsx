@@ -10,7 +10,7 @@ type MouseEventHandler = (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) 
 
 type KeyboardEventHandler = (arg1: { event: React.KeyboardEvent<HTMLAnchorElement> }) => void;
 
-type Props = {
+export type Props = {
   /**
    * For accessibility purposes. When you have a group of related elements with one element in the group styled differently from the others to indicate that this is the current element within its group, accessibilityCurrent should be used to inform the assistive technology user what has been indicated via styling.
    * Accessibility: It populates aria-current.

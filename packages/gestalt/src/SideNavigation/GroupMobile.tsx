@@ -1,9 +1,7 @@
 import { Fragment, useCallback, useEffect, useId, useMemo, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import getChildrenToArray from './getChildrenToArray';
 import SideNavigationGroupContent from './GroupContent';
-import { NESTING_MARGIN_START_MAP } from './ItemContent';
 import Box from '../Box';
 import { NestingProvider, useNesting } from '../contexts/NestingProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
@@ -164,7 +162,6 @@ export default function SideNavigationGroupMobile({
             itemId={itemId}
             label={label}
             notificationAccessibilityLabel={notificationAccessibilityLabel}
-            // paddingStyle={paddingStyle}
             primaryAction={primaryAction}
             selectedItemId={selectedItemId}
             setCompression={setCompression}

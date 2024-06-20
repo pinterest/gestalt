@@ -47,8 +47,6 @@ type PrimaryAction = {
   dropdownItems?: ReadonlyArray<ReactElement>;
 };
 
-type Display = 'expandable' | 'static';
-
 export type Props = {
   active?: 'page' | 'section';
   hovered: boolean;
@@ -61,7 +59,6 @@ export type Props = {
   primaryAction?: PrimaryAction;
   setCompression: (arg1: 'compress' | 'none') => void;
   hasBorder?: boolean;
-  display?: Display;
   isGroup?: boolean;
   children?: ReactNode;
 };
@@ -78,7 +75,6 @@ export default function ItemContent({
   hovered,
   focused,
   hasBorder,
-  display,
   isGroup,
   children,
 }: Props) {
@@ -127,8 +123,6 @@ export default function ItemContent({
     : // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
       NESTING_MARGIN_START_MAP[nestedLevel];
 
-  const primaryActionMargin = isGroup ? '8px -8px' : '14px -14px';
-
   return (
     <Box
       alignItems="center"
@@ -164,13 +158,14 @@ export default function ItemContent({
       ) : null}
 
       <Flex
+        alignItems="center"
+        flex="grow"
         gap={{ row: 2, column: 0 }}
         height="100%"
         justifyContent={collapsed ? 'center' : undefined}
-        width="100%"
       >
         {icon ? (
-          <Flex.Item alignSelf="center">
+          <Flex.Item>
             <Box aria-hidden={!collapsed}>
               {typeof icon === 'string' ? (
                 <Icon
@@ -194,7 +189,7 @@ export default function ItemContent({
         ) : null}
 
         {!collapsed && (
-          <Flex.Item alignSelf="center" flex="grow">
+          <Flex.Item flex="grow">
             <Text color={textColor} inline>
               {label}
               {(badge || notificationAccessibilityLabel) && (
@@ -220,14 +215,10 @@ export default function ItemContent({
           </Flex.Item>
         )}
 
-        {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
-          <Flex.Item alignSelf="center" flex="none">
+        {!collapsed && counter ? (
+          <Flex.Item flex="none">
             <Box display="visuallyHidden">{`, `}</Box>
-            {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-            <Box
-              aria-label={counter.accessibilityLabel}
-              marginEnd={display === 'static' ? -2 : undefined}
-            >
+            <Box aria-label={counter.accessibilityLabel}>
               <Text align="end" color={counterColor}>
                 {counter.number}
               </Text>
@@ -235,8 +226,8 @@ export default function ItemContent({
           </Flex.Item>
         ) : null}
 
-        {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
-          <Flex.Item alignSelf="center" flex="none">
+        {!collapsed && primaryAction ? (
+          <Flex.Item flex="none">
             {/* This is a workaround to announce the counter as it's replaced on focus */}
             {counter ? (
               <Box display="visuallyHidden">
@@ -244,15 +235,7 @@ export default function ItemContent({
                 <Box aria-label={counter?.accessibilityLabel} />
               </Box>
             ) : null}
-            <Box
-              aria-hidden
-              dangerouslySetInlineStyle={{
-                __style: {
-                  marginInline: primaryActionMargin,
-                },
-              }}
-              rounding="circle"
-            >
+            <Box aria-hidden marginEnd={-2} rounding="circle">
               <PrimaryActionIconButton
                 dropdownItems={primaryAction?.dropdownItems}
                 forceIconButton={forceIconButton}

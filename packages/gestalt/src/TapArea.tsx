@@ -12,7 +12,7 @@ type MouseEventHandler = (arg1: { event: React.MouseEvent<HTMLDivElement> }) => 
 
 type KeyboardEventHandler = (arg1: { event: React.KeyboardEvent<HTMLDivElement> }) => void;
 
-type Props = {
+export type Props = {
   /**
    * Supply a short, descriptive label for screen-readers to replace TapArea texts that do not provide sufficient context about the button component behavior.
    *
@@ -90,7 +90,7 @@ type Props = {
    */
   onFocus?: FocusEventHandler;
   /**
-   *
+   * Callback fired when a keyboard key is pressed
    */
   onKeyDown?: KeyboardEventHandler;
   /**

@@ -9,7 +9,11 @@ import useFocusVisible from './useFocusVisible';
 import useTapFeedback from './useTapFeedback';
 import { Indexable } from './zIndex';
 
-type Props = {
+type FocusEventHandler = (arg1: { event: React.FocusEvent<HTMLButtonElement> }) => void;
+type KeyboardEventHandler = (arg1: { event: React.KeyboardEvent<HTMLButtonElement> }) => void;
+type MouseEventHandler = (arg1: { event: React.MouseEvent<HTMLButtonElement> }) => void;
+
+export type Props = {
   /**
    * Label for screen readers to announce IconButton. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
@@ -61,11 +65,39 @@ type Props = {
    */
   name?: string;
   /**
+   * Callback fired when an IconButton component loses focus
+   */
+  onBlur?: FocusEventHandler;
+  /**
+   * Callback fired when an IconButton component gets focus via keyboard navigation, mouse click (pressed), or focus method
+   */
+  onFocus?: FocusEventHandler;
+  /**
    * Callback fired when the component is clicked, pressed or tapped.
    */
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
   }) => void;
+  /**
+   * Callback fired when a keyboard key is pressed
+   */
+  onKeyDown?: KeyboardEventHandler;
+  /**
+   * Callback fired when a click event begins.
+   */
+  onMouseDown?: MouseEventHandler;
+  /**
+   * Callback fired when a click event ends.
+   */
+  onMouseUp?: MouseEventHandler;
+  /**
+   * Callback fired when a mouse pointer moves onto an IconButton component
+   */
+  onMouseEnter?: MouseEventHandler;
+  /**
+   * Callback fired when a mouse pointer moves out an IconButton component
+   */
+  onMouseLeave?: MouseEventHandler;
   /**
    * Sets a padding for the IconButton. See the [size](#Size) variant to learn more.
    */
@@ -73,7 +105,6 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying button element.
    */
-  // eslint-disable-next-line react/no-unused-prop-types
   ref?: HTMLButtonElement;
   /**
    * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](https://gestalt.pinterest.systems/web/iconbutton#Selected-state) variant to learn more.
@@ -128,7 +159,14 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     disabled,
     icon,
     iconColor,
+    onBlur,
+    onFocus,
     onClick,
+    onKeyDown,
+    onMouseDown,
+    onMouseUp,
+    onMouseEnter,
+    onMouseLeave,
     padding,
     tabIndex = 0,
     tooltip,
@@ -174,24 +212,35 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       data-test-id={dataTestId}
       disabled={disabled}
       name={name}
-      onBlur={() => {
+      onBlur={(event) => {
         handleBlur();
         setFocused(false);
+        onBlur?.({ event });
       }}
       onClick={(event) => onClick?.({ event })}
-      onFocus={() => setFocused(true)}
-      onMouseDown={() => {
+      onFocus={(event) => {
+        setFocused(true);
+        onFocus?.({ event });
+      }}
+      onKeyDown={(event) => onKeyDown?.({ event })}
+      onMouseDown={(event) => {
         handleMouseDown();
         setActive(true);
+        onMouseDown?.({ event });
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => {
+      onMouseEnter={(event) => {
+        setHovered(true);
+        onMouseEnter?.({ event });
+      }}
+      onMouseLeave={(event) => {
         setActive(false);
         setHovered(false);
+        onMouseLeave?.({ event });
       }}
-      onMouseUp={() => {
+      onMouseUp={(event) => {
         handleMouseUp();
         setActive(false);
+        onMouseUp?.({ event });
       }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
@@ -199,8 +248,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       onTouchMove={handleTouchMove}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
-      // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
-      tabIndex={disabled ? null : tabIndex}
+      tabIndex={disabled ? undefined : tabIndex}
       // react/button-has-type is very particular about this verbose syntax
       type={type === 'submit' ? 'submit' : 'button'}
     >

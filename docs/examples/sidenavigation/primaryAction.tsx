@@ -6,7 +6,7 @@ export default function Example() {
 
   return (
     <Box color="lightWash" height="100%" padding={4} position="relative">
-      <Flex gap={12}>
+      <Flex gap={12} justifyContent="center" wrap>
         <Button color="red" onClick={() => setMobile(true)} text="View mobile" />
         <DeviceTypeProvider deviceType={mobile ? 'mobile' : 'desktop'}>
           <Box
@@ -16,7 +16,7 @@ export default function Example() {
             position={mobile ? 'absolute' : undefined}
             right={mobile}
             top={mobile}
-            width={mobile ? undefined : 360}
+            width={mobile ? '100%' : 360}
           >
             <SideNavigation
               accessibilityLabel="Notification example"

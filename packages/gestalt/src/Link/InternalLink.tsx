@@ -214,8 +214,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       }}
       onKeyDown={(event) => {
         onKeyDown?.({ event });
+        handleKeyPress(event);
       }}
-      onKeyPress={handleKeyPress}
       onMouseDown={(event) => {
         onMouseDown?.({ event });
         handleMouseDown();
