@@ -81,6 +81,7 @@ import TileData from './TileData';
 import Toast from './Toast';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useReducedMotion from './useReducedMotion';
 import Video from './Video';
 import WashAnimated from './WashAnimated';
@@ -169,6 +170,7 @@ export {
   Toast,
   Tooltip,
   useColorScheme,
+  useInExperiment as useDangerouslyInGestaltExperiment,
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
   useFocusVisible,

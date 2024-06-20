@@ -38,8 +38,7 @@ export default function Example() {
       <Flex direction="column" gap={8} width="90%">
         <Flex direction="column" gap={2}>
           <Box alignItems="center" display="flex">
-            {/* @ts-expect-error - TS2322 - Type '{ children: Element; paddingX: 2; WIDTH: true; }' is not assignable to type 'IntrinsicAttributes & Omit<BoxProps, "ref"> & RefAttributes<HTMLDivElement>'. */}
-            <Box paddingX={2} WIDTH>
+            <Box paddingX={2}>
               <Label htmlFor="longText">
                 <Text>Show long text</Text>
               </Label>

@@ -6,6 +6,18 @@ export default function Example() {
       <ButtonGroup>
         <ButtonToggle selected={false} size="lg" text="Follow" />
         <ButtonToggle color="red" selected={false} size="lg" text="Save" />
+        <ButtonToggle
+          graphicSrc="https://s.pinimg.com/webapp/protective-8fad3fab.svg"
+          selected={false}
+          size="lg"
+          text="Protective"
+        />
+        <ButtonToggle
+          color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
+          selected={false}
+          size="lg"
+          text="Fair Skin"
+        />
       </ButtonGroup>
     </Flex>
   );

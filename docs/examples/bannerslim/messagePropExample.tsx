@@ -20,10 +20,6 @@ export default function Example() {
         <Text weight="bold">Rich message with Text component</Text>
 
         <BannerSlim
-          dismissButton={{
-            accessibilityLabel: 'Dismiss banner',
-            onDismiss: () => {},
-          }}
           iconAccessibilityLabel="Recommendation"
           message={
             <Text inline>
@@ -39,6 +35,7 @@ export default function Example() {
               . Consider raising daily caps to increase scale for a similar CPC and CTR.
             </Text>
           }
+          onDismiss={() => {}}
           primaryAction={{
             accessibilityLabel: 'Increase spend',
             label: 'Increase spend',

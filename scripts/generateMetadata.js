@@ -22,6 +22,7 @@ const docsPath = path.join(root, '/docs');
 const excludedPaths = [
   '/packages/gestalt/src/contexts/ExperimentProvider.ts',
   '/packages/gestalt/src/useReducedMotion.ts',
+  '/packages/gestalt/src/useInExperiment.ts',
   '/packages/gestalt/src/useFocusVisible.ts',
   '/packages/gestalt/src/zIndex.ts',
 ].map((filePath) => path.join(root, filePath));
@@ -82,8 +83,17 @@ function getSubcomponentPaths(componentPath) {
     'g',
   );
 
+  const subcomponentWithRefRegExp = new RegExp(
+    `(\\(${componentName}WithForwardRef as ${componentName}WithSubComponents\\)\\.[A-Z]\\w+) = (?<subcomponentName>\\w+)`,
+    'g',
+  );
+
   const fileContent = fs.readFileSync(componentPath, 'utf-8');
-  const subcomponentNameMatches = fileContent.matchAll(subcomponentRegExp);
+  const subcomponentNameMatches = [
+    ...fileContent.matchAll(subcomponentRegExp),
+    ...fileContent.matchAll(subcomponentWithRefRegExp),
+  ];
+
   const subcomponentNames = [...subcomponentNameMatches].map((a) => a.groups.subcomponentName);
 
   if (!subcomponentNames.length) return [];

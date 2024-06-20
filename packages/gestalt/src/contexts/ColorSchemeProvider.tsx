@@ -2,7 +2,10 @@ import { Context, createContext, ReactNode, useContext, useEffect, useState } fr
 import classnames from 'classnames';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
+import vrDarkColorDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-dark.json';
+import vrLightColorDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-light.json';
 import layoutStyles from '../Layout.css';
+import useInExperiment from '../useInExperiment';
 
 export type ColorScheme = 'light' | 'dark' | 'userPreference';
 
@@ -24,25 +27,36 @@ const ThemeContext: Context<Theme> = createContext<Theme>(lightModeTheme);
 /**
  * Appends tokens as injected CSS tokens
  */
-const themeToStyles = (theme: { colorSchemeName: 'lightMode' | 'darkMode' }) => {
+const themeToStyles = (
+  theme: { colorSchemeName: 'lightMode' | 'darkMode' },
+  isVisualRefresh?: boolean,
+) => {
   let styles = '';
   Object.keys(theme).forEach((key) => {
-    if (key.startsWith('color')) {
+    styles += `  --gestalt-theme: ${isVisualRefresh ? 'visualRefresh' : 'classic'}-${
       // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ colorSchemeName: "lightMode" | "darkMode"; }'.
-      styles += `  --g-${key}: ${theme[key]};\n`;
-    }
+      theme[key]
+    };\n`;
   });
   if (theme.colorSchemeName === 'darkMode') {
-    Object.keys(darkColorDesignTokens).forEach((key) => {
-      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
-      styles += `  --${key}: ${darkColorDesignTokens[key]};\n`;
-    });
+    Object.keys(isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens).forEach(
+      (key) => {
+        styles += `  --${key}: ${
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
+          (isVisualRefresh ? vrDarkColorDesignTokens : darkColorDesignTokens)[key]
+        };\n`;
+      },
+    );
   }
   if (theme.colorSchemeName === 'lightMode') {
-    Object.keys(lightColorDesignTokens).forEach((key) => {
-      // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
-      styles += `  --${key}: ${lightColorDesignTokens[key]};\n`;
-    });
+    Object.keys(isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens).forEach(
+      (key) => {
+        styles += `  --${key}: ${
+          // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ "color-red-pushpin-0": string; "color-red-pushpin-50": string; "color-red-pushpin-100": string; "color-red-pushpin-200": string; "color-red-pushpin-300": string; "color-red-pushpin-400": string; ... 327 more ...; "elevation-datepicker": string; }'.
+          (isVisualRefresh ? vrLightColorDesignTokens : lightColorDesignTokens)[key]
+        };\n`;
+      },
+    );
   }
 
   return styles;
@@ -89,6 +103,10 @@ export default function ColorSchemeProvider({
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const className = id ? `__gestaltTheme${id}` : undefined;
   const selector = className ? `.${className}` : ':root';
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const handlePrefChange = (event: MediaQueryList) => {
     setTheme(getTheme(event.matches ? 'dark' : 'light'));
@@ -115,10 +133,10 @@ export default function ColorSchemeProvider({
             colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
   ${selector} {
-${themeToStyles(darkModeTheme)} }
+${themeToStyles(darkModeTheme, isInExperiment)} }
 }`
               : `${selector} {
-${themeToStyles(theme)} }`,
+${themeToStyles(theme, isInExperiment)} }`,
         }}
       />
       <div
