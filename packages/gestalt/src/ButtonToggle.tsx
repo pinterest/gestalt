@@ -154,7 +154,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       <button
         ref={innerRef}
         aria-controls={accessibilityControls}
-        aria-label={accessibilityLabel}
+        aria-label={accessibilityLabel || text}
         aria-pressed={selected}
         className={classnames(sharedTypeClasses, styles.colorPickerButton, {
           [styles.colorPickerButtonDisabled]: disabled,
