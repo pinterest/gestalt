@@ -1,3 +1,9 @@
+## 153.10.0 (Jun 20, 2024)
+
+### Minor
+
+- Internal: Upgrade TypeScript to 5.5 ([#3643](https://github.com/pinterest/gestalt/pull/3643)) - [Preview link](https://deploy-preview-3643--gestalt.netlify.app?devexample=true)
+
 ## 153.9.2 (Jun 20, 2024)
 
 ### Patch
