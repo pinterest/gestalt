@@ -61,7 +61,6 @@ export default function InternalTextFieldIconButton({
         marginEnd={2}
         rounding="circle"
       >
-        {/* @ts-expect-error - TS2786 - 'MaybeTooltip' cannot be used as a JSX component. */}
         <MaybeTooltip tooltipText={tooltipText}>
           <TapArea
             accessibilityChecked={accessibilityChecked}
