@@ -410,14 +410,14 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             ref={this.gridRef}
             _getColumnSpanConfig={(item) => {
               const columnSpan = item.columnSpan as number | undefined;
-              return columnSpan ?? 1
+              return columnSpan ?? 1;
             }}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
                   (whitespace) => console.log('Whitespace above 2-col module:', whitespace)
                 : undefined
-            } 
+            }
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}

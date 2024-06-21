@@ -9,7 +9,7 @@ export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
 type GridSize = 'sm' | 'md' | 'lg' | 'xl';
 
-export type ColumnSpanConfig = number | { [Size in GridSize]: number }
+export type ColumnSpanConfig = number | { [Size in GridSize]: number };
 
 // maps the number of columns to a grid breakpoint
 // sm: 2 columns
@@ -51,7 +51,7 @@ function getPositionsOnly<T>(
 
 function calculateActualColumnSpan<T>(props: {
   columnCount: number;
-  item: T,
+  item: T;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): number {
   const { columnCount, item, _getColumnSpanConfig } = props;
@@ -507,7 +507,10 @@ function getPositionsWithMultiColumnItem<T>({
   // items already positioned from previous batches
   const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-  const multiColumnItemColumnSpan = Math.min(calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig }), columnCount);
+  const multiColumnItemColumnSpan = Math.min(
+    calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig }),
+    columnCount,
+  );
 
   // Skip the graph logic if the two column item can be displayed on the first row,
   // this means graphBatch is empty and multi column item is positioned on its

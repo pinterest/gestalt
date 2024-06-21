@@ -352,7 +352,7 @@ function useLayout<T>({
   updateMeasurement: (arg1: T, arg2: number) => void;
 } {
   const hasMultiColumnItems =
-  _getColumnSpanConfig &&
+    _getColumnSpanConfig &&
     items
       .filter((item) => item && !positionStore.has(item))
       .some((item) => _getColumnSpanConfig(item) !== 1);
@@ -510,7 +510,7 @@ function MasonryItem<T>({
   left: number;
   layout: Layout;
   renderItem: Props<T>['renderItem'];
-  serializedColumnSpanConfig: string | number,
+  serializedColumnSpanConfig: string | number;
   top: number;
   updateMeasurement: (arg1: T, arg2: number) => void;
   width: number | null | undefined;
@@ -720,7 +720,9 @@ function Masonry<T>(
                 height: undefined,
                 width:
                   // eslint-disable-next-line no-nested-ternary
-                  layout === 'flexible' || layout === 'serverRenderedFlexible' || typeof columnSpanConfig === 'object'
+                  layout === 'flexible' ||
+                  layout === 'serverRenderedFlexible' ||
+                  typeof columnSpanConfig === 'object'
                     ? undefined // we can't set a width for server rendered flexible items
                     : typeof columnSpanConfig === 'number' && columnWidth != null && gutter != null
                     ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
@@ -740,7 +742,10 @@ function Masonry<T>(
                   position.top > viewportBottom
                 );
 
-          const serializedColumnSpanConfig = typeof columnSpanConfig === 'number' ? columnSpanConfig : btoa(JSON.stringify(columnSpanConfig));
+          const serializedColumnSpanConfig =
+            typeof columnSpanConfig === 'number'
+              ? columnSpanConfig
+              : btoa(JSON.stringify(columnSpanConfig));
 
           return isVisible ? (
             <MasonryItemMemo

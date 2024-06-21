@@ -6,7 +6,7 @@ import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig,MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -558,7 +558,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   }
                 }}
                 className="static"
-                data-column-span={typeof columnSpanConfig === 'number' ? columnSpanConfig : btoa(JSON.stringify(columnSpanConfig))}
+                data-column-span={
+                  typeof columnSpanConfig === 'number'
+                    ? columnSpanConfig
+                    : btoa(JSON.stringify(columnSpanConfig))
+                }
                 data-grid-item
                 role="listitem"
                 style={{
@@ -568,10 +572,14 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   WebkitTransform: 'translateX(0px) translateY(0px)',
                   // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                   width:
-                    layout === 'flexible' || layout === 'serverRenderedFlexible' || typeof columnSpanConfig === 'object'
+                    layout === 'flexible' ||
+                    layout === 'serverRenderedFlexible' ||
+                    typeof columnSpanConfig === 'object'
                       ? undefined // we can't set a width for server rendered flexible items
                       : layoutNumberToCssDimension(
-                          typeof columnSpanConfig === 'number' && columnWidth != null && gutter != null
+                          typeof columnSpanConfig === 'number' &&
+                            columnWidth != null &&
+                            gutter != null
                             ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
                             : columnWidth,
                         ),
@@ -593,9 +601,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasMultiColumnItems =
         _getColumnSpanConfig &&
-        itemsWithoutPositions.some(
-          (item) => _getColumnSpanConfig(item) !== 1
-        );
+        itemsWithoutPositions.some((item) => _getColumnSpanConfig(item) !== 1);
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       // we need the batch size (number of one column items for the graph) + 1 (two column item)
