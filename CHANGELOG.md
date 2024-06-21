@@ -1,3 +1,9 @@
+## 154.0.0 (Jun 21, 2024)
+
+### Major
+
+- Masonry: Responsive grid modules ([#3636](https://github.com/pinterest/gestalt/pull/3636)) - [Preview link](https://deploy-preview-3636--gestalt.netlify.app?devexample=true)
+
 ## 153.10.0 (Jun 20, 2024)
 
 ### Minor
