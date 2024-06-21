@@ -18,7 +18,6 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator';
 
 const TWO_COL_MINDEX = 50;
 
-// @ts-expect-error - TS2749 - 'Masonry' refers to a value, but is being used as a type here. Did you mean 'typeof Masonry'?
 type MasonryProps<T> = Masonry<T>['props'];
 
 type Props<T> = {
