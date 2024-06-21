@@ -1,3 +1,4 @@
+import { item } from '../ComboBox.css';
 import MeasurementStore from './MeasurementStore';
 import multiColumnLayout, { initializeHeightsArray } from './multiColumnLayout';
 import { Position } from './types';
@@ -731,6 +732,97 @@ describe('multi column layout test cases', () => {
       });
     },
   );
+});
+
+describe('responsive module layout test cases', () => {
+  test('sets the correct column width for fixed column span', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+    const getColumnSpanConfig = (item: Item) => item.name === 'Pin 10' ? 2 : 1;
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
+      });
+
+    const columnCounts = [2,3,4,5,6,7,8,9,10];
+
+    columnCounts.forEach((columnCount) => {
+      layout(columnCount);
+      expect(positionCache.get(items[10])?.width).toEqual(480);
+      positionCache.reset();
+    });
+  });
+  test('sets the correct column width for responsive column span', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+    const getColumnSpanConfig = (item: Item) => item.name === 'Pin 10' ? {
+      sm: 2,
+      md: 3,
+      lg: 5,
+      xl: 9
+    } : 1;
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
+      });
+
+    const breakpoints = [2,3,4,5,6,7,8,9,10].map((columnCount) => ({
+      columnCount,
+      expectedColumnSpan: columnCount < 3 ? 2 : columnCount < 5 ? 3 : columnCount < 9 ? 5 : 9
+    }));
+
+    breakpoints.forEach(({ columnCount, expectedColumnSpan }) => {
+      layout(columnCount);
+      expect(positionCache.get(items[10])?.width).toEqual(240 * expectedColumnSpan);
+      positionCache.reset();
+    });
+  });
 });
 
 describe('initializeHeightsArray', () => {

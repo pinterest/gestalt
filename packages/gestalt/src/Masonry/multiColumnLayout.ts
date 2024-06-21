@@ -11,8 +11,12 @@ type GridSize = 'sm' | 'md' | 'lg' | 'xl';
 
 export type ColumnSpanConfig = number | { [Size in GridSize]: number }
 
+// maps the number of columns to a grid breakpoint
+// sm: 2 columns
+// md: 3-4 columns
+// lg: 5-8 columns
+// xl: 9+ columns
 export function columnCountToGridSize(columnCount: number): GridSize {
-  // write the following logic in a functional manner
   if (columnCount <= 2) {
     return 'sm';
   }
