@@ -1,12 +1,16 @@
-import TapArea, { Props as TapAreaProps } from '../TapArea';
-import TapAreaLink, { Props as TapAreaLinkProps } from '../TapAreaLink';
+import { ComponentProps } from 'react';
+import TapArea from '../TapArea';
+import TapAreaLink from '../TapAreaLink';
 
-type TProps = Pick<TapAreaProps, 'accessibilityControls' | 'accessibilityExpanded' | 'tapStyle'> & {
-  accessibilityCurrent?: TapAreaLinkProps['accessibilityCurrent'];
+type TProps = Pick<
+  ComponentProps<typeof TapArea>,
+  'accessibilityControls' | 'accessibilityExpanded' | 'tapStyle'
+> & {
+  accessibilityCurrent?: ComponentProps<typeof TapAreaLink>['accessibilityCurrent'];
   children: JSX.Element;
   href?: string;
   isExpandable: boolean | undefined;
-  onLinkClick?: TapAreaLinkProps['onTap'];
+  onLinkClick?: ComponentProps<typeof TapAreaLink>['onTap'];
   onTap: () => void;
   onBlur: () => void;
   onFocus: () => void;

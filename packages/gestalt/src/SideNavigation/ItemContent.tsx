@@ -215,7 +215,7 @@ export default function ItemContent({
           </Flex.Item>
         )}
 
-        {!collapsed && counter ? (
+        {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
           <Flex.Item flex="none">
             <Box display="visuallyHidden">{`, `}</Box>
             <Box aria-label={counter.accessibilityLabel}>
@@ -226,7 +226,7 @@ export default function ItemContent({
           </Flex.Item>
         ) : null}
 
-        {!collapsed && primaryAction ? (
+        {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
           <Flex.Item flex="none">
             {/* This is a workaround to announce the counter as it's replaced on focus */}
             {counter ? (

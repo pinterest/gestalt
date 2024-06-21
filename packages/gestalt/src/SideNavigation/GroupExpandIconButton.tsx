@@ -1,15 +1,16 @@
+import { ComponentProps } from 'react';
 import { Props as ItemContentProps } from './ItemContent';
+import { ItemIconButton } from './PrimaryActionIconButton';
 import Box from '../Box';
 import Icon from '../Icon';
-import IconButton, { Props as IconButtonProps } from '../IconButton';
-import useInteractiveStates from '../utils/useInteractiveStates';
+import TapArea from '../TapArea';
 
 type Props = Pick<ItemContentProps, 'active'> & {
   expanded: boolean;
   isLink?: boolean;
   expandIconButtonProps?: Pick<
-    IconButtonProps,
-    'accessibilityControls' | 'accessibilityExpanded' | 'onClick'
+    ComponentProps<typeof TapArea>,
+    'accessibilityControls' | 'accessibilityExpanded' | 'onTap'
   >;
 };
 
@@ -19,16 +20,6 @@ export default function GroupExpandIconButton({
   isLink: hasLink,
   expandIconButtonProps,
 }: Props) {
-  const {
-    handleOnBlur,
-    handleOnFocus,
-    handleOnMouseEnter,
-    handleOnMouseLeave,
-    isHovered,
-    isFocused,
-  } = useInteractiveStates();
-  const activeIconButtonColor = isFocused || isHovered ? 'gray' : 'transparent';
-
   if (!hasLink) {
     return (
       <Box
@@ -53,24 +44,18 @@ export default function GroupExpandIconButton({
   }
 
   return (
-    <IconButton
+    <ItemIconButton
       accessibilityControls={expandIconButtonProps?.accessibilityControls}
       accessibilityExpanded={expandIconButtonProps?.accessibilityExpanded}
       accessibilityLabel=""
-      bgColor={active ? activeIconButtonColor : 'transparent'}
       icon={expanded ? 'arrow-up' : 'arrow-down'}
-      iconColor={active ? 'white' : 'darkGray'}
-      onBlur={handleOnBlur}
-      onClick={(arg) => {
+      isItemActive={!!active}
+      onKeyDown={({ event }) => event.stopPropagation()}
+      onTap={(arg) => {
         arg.event.preventDefault();
         arg.event.stopPropagation();
-        expandIconButtonProps?.onClick?.(arg);
+        expandIconButtonProps?.onTap?.(arg);
       }}
-      onFocus={handleOnFocus}
-      onKeyDown={({ event }) => event.stopPropagation()}
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-      size="xs"
     />
   );
 }

@@ -211,7 +211,7 @@ export default function SideNavigationGroup({
             expandIconButtonProps={{
               accessibilityControls: itemId,
               accessibilityExpanded: isExpanded,
-              onClick: handleExpand,
+              onTap: handleExpand,
             }}
             focused={focused}
             hasActiveChild={hasAnyActiveChild}

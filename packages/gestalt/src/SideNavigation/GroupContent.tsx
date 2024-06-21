@@ -1,9 +1,11 @@
+import { ComponentProps } from 'react';
 import GroupExpandIconButton from './GroupExpandIconButton';
 import ItemContent, { Props as ItemContentProps } from './ItemContent';
+import Box from '../Box';
 import { useDeviceType } from '../contexts/DeviceTypeProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Flex from '../Flex';
-import { Props as IconButtonProps } from '../IconButton';
+import TapArea from '../TapArea';
 
 type Display = 'expandable' | 'static';
 type Props = Omit<ItemContentProps, 'children' | 'hasBorder' | 'isGroup'> & {
@@ -14,8 +16,8 @@ type Props = Omit<ItemContentProps, 'children' | 'hasBorder' | 'isGroup'> & {
   hasActiveChild?: boolean;
   isLink?: boolean;
   expandIconButtonProps?: Pick<
-    IconButtonProps,
-    'accessibilityControls' | 'accessibilityExpanded' | 'onClick'
+    ComponentProps<typeof TapArea>,
+    'accessibilityControls' | 'accessibilityExpanded' | 'onTap'
   >;
 };
 
@@ -61,15 +63,17 @@ export default function SideNavigationGroupContent({
       primaryAction={primaryAction}
       setCompression={setCompression}
     >
-      {/* @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'. */}
-      {(!collapsed && ['expandable', 'expandableExpanded'].includes(display)) || isMobile ? (
-        <Flex.Item flex="none" maxWidth={16}>
-          <GroupExpandIconButton
-            active={active}
-            expanded={expanded}
-            expandIconButtonProps={expandIconButtonProps}
-            isLink={isLink}
-          />
+      {(!collapsed && ['expandable', 'expandableExpanded'].includes(display as string)) ||
+      isMobile ? (
+        <Flex.Item flex="none">
+          <Box marginEnd={-2} rounding="circle" width={24}>
+            <GroupExpandIconButton
+              active={active}
+              expanded={expanded}
+              expandIconButtonProps={expandIconButtonProps}
+              isLink={isLink}
+            />
+          </Box>
         </Flex.Item>
       ) : null}
     </ItemContent>
