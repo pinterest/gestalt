@@ -25,7 +25,7 @@ type Counter = {
 
 export type Props = {
   /**
-   * When set to 'page' or 'section', it displays the item in "active" state. See the [Accessibility](https://gestalt.pinterest.systems/web/sidenavigation#Accessibility) guidelines to learn more.
+   * When set to 'page' or 'section', it displays the item in "active" state. Available only when `href` prop is present. See the [Accessibility](https://gestalt.pinterest.systems/web/sidenavigation#Accessibility) guidelines to learn more.
    */
   active?: 'page' | 'section';
   /**
