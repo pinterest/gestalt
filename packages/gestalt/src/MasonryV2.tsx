@@ -327,7 +327,6 @@ function useLayout<T>({
   minCols,
   positionStore,
   width,
-  _twoColItems,
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
@@ -342,7 +341,6 @@ function useLayout<T>({
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
-  _twoColItems?: boolean;
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
@@ -369,7 +367,7 @@ function useLayout<T>({
     positionStore,
     minCols,
     width,
-    _twoColItems,
+    _getColumnSpanConfig,
     _logTwoColWhitespace,
   });
 
