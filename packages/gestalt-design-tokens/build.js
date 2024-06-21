@@ -1,5 +1,6 @@
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
+const path = require('path');
 
 // CONFIG
 
@@ -190,6 +191,23 @@ const filterList = [
   filterFontWeight,
 ];
 
+const getPrefix = (filePath) => {
+  const filePaths = filePath.split('/');
+  const filename = path.parse(filePath).name;
+
+  if (filePaths.includes('sema') || filename.startsWith('sema-')) {
+    return 'sema';
+  }
+
+  if (filePaths.includes('comp') || filename.startsWith('comp-')) {
+    return 'comp';
+  }
+
+  if (filePaths.includes('base') || filename.startsWith('base-')) {
+    return 'base';
+  }
+};
+
 const getFilter = (category, type) => {
   // eslint-disable-next-line no-restricted-syntax
   for (const item of filterList) {
@@ -233,7 +251,7 @@ const regex = /(\{|\})/gi;
 const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 
 const commonJSFormatter = ({ token, darkTheme, isVR }) => {
-  const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
+  const prefix = getPrefix(token.filePath);
 
   const isWebMappingToken = token.filePath.includes('mapping');
 
@@ -287,20 +305,20 @@ function getSources({ theme, modeTheme, platform, language }) {
   }
 
   return [
-    'tokens/vr-theme/base-color.json',
-    `tokens/vr-theme/base-elevation-${modeTheme}.json`,
-    'tokens/vr-theme/base-font.json',
-    'tokens/vr-theme/base-opacity.json',
-    'tokens/vr-theme/base-rounding.json',
-    'tokens/vr-theme/base-space.json',
-    `tokens/vr-theme/sema-color-${modeTheme}.json`,
-    'tokens/vr-theme/sema-elevation.json',
-    'tokens/vr-theme/sema-font.json',
-    'tokens/vr-theme/sema-opacity.json',
-    'tokens/vr-theme/sema-rounding.json',
-    'tokens/vr-theme/sema-space.json',
-    `tokens/vr-theme/base-lineheight.json`,
-    `tokens/vr-theme/language/sema-lineheight-${language}.json`,
+    'tokens/vr-theme/base/color.json',
+    `tokens/vr-theme/base/elevation/${modeTheme}.json`,
+    'tokens/vr-theme/base/font.json',
+    'tokens/vr-theme/base/opacity.json',
+    'tokens/vr-theme/base/rounding.json',
+    'tokens/vr-theme/base/space.json',
+    'tokens/vr-theme/base/lineheight.json',
+    `tokens/vr-theme/sema/color/${modeTheme}.json`,
+    `tokens/vr-theme/sema/elevation.json`,
+    `tokens/vr-theme/sema/font.json`,
+    `tokens/vr-theme/sema/opacity.json`,
+    `tokens/vr-theme/sema/rounding.json`,
+    `tokens/vr-theme/sema/space.json`,
+    `tokens/vr-theme/sema/lineheight/${language}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
@@ -398,7 +416,7 @@ StyleDictionary.registerFormat({
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
-        const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
+        const prefix = getPrefix(token.filePath);
 
         let value = JSON.stringify(token.value);
         if (dictionary.usesReference(token.original.value)) {
@@ -464,7 +482,7 @@ StyleDictionary.registerFormat({
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
-        const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
+        const prefix = getPrefix(token.filePath);
         let value = JSON.stringify(token.value);
         if (dictionary.usesReference(token.original.value)) {
           const refs = dictionary.getReferences(token.original.value);
@@ -529,7 +547,7 @@ StyleDictionary.registerTransform({
     return !prop.filePath.includes('classic') && !prop.filePath.includes('vr-theme-web-mapping');
   },
   transformer(prop) {
-    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
+    const prefix = getPrefix(prop.filePath);
     return prop.name.replace(/^[^_]*/, (match) => `${prefix}-${match}`);
   },
 });
@@ -541,9 +559,7 @@ StyleDictionary.registerTransform({
     return !prop.filePath.includes('classic');
   },
   transformer(prop) {
-    const level = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
-    const prefix = level.charAt(0).toUpperCase() + level.slice(1);
-
+    const prefix = getPrefix(prop.filePath);
     return prop.name.replace(/^[^_]*/, (match) => `${prefix}${match}`);
   },
 });
@@ -607,7 +623,7 @@ StyleDictionary.registerFilter({
 });
 
 function getWebConfig({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
@@ -748,7 +764,7 @@ StyleDictionary.registerTransform({
     return !prop.filePath.includes('classic');
   },
   transformer(prop) {
-    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
+    const prefix = getPrefix(prop.filePath);
     return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
   },
 });
@@ -767,7 +783,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 function getAndroidConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   return {
     'source': getSources({ theme, modeTheme, language }),
@@ -859,7 +875,7 @@ StyleDictionary.registerTransform({
     return !prop.filePath.includes('classic');
   },
   transformer(prop) {
-    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
+    const prefix = getPrefix(prop.filePath);
     return prop.name.replace(
       /^[^_]*/,
       (match) => `${prefix}${match.charAt(0).toUpperCase() + match.slice(1)}`,
@@ -901,7 +917,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 function getIOSConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   const categories = [
     'color',

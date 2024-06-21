@@ -1,21 +1,27 @@
 {
   "opacity": {
     "0": {
+      "type": "opacity",
       "value": "0"
     },
     "4": {
+      "type": "opacity",
       "value": "0.04"
     },
     "20": {
+      "type": "opacity",
       "value": "0.2"
     },
     "40": {
+      "type": "opacity",
       "value": "0.4"
     },
     "80": {
+      "type": "opacity",
       "value": "0.8"
     },
     "90": {
+      "type": "opacity",
       "value": "0.9"
     }
   }

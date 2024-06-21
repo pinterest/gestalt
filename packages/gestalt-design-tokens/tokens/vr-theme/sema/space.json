@@ -1,0 +1,112 @@
+{
+  "space": {
+    "gap": {
+      "horizontal": {
+        "XS": {
+          "value": "{space.2}",
+          "type": "spacing"
+        },
+        "SM": {
+          "value": "{space.4}",
+          "type": "spacing"
+        },
+        "MD": {
+          "value": "{space.6}",
+          "type": "spacing"
+        },
+        "LG": {
+          "value": "{space.8}",
+          "type": "spacing"
+        },
+        "XL": {
+          "value": "{space.12}",
+          "type": "spacing"
+        },
+        "XXL": {
+          "value": "{space.16}",
+          "type": "spacing"
+        }
+      },
+      "vertical": {
+        "XS": {
+          "value": "{space.2}",
+          "type": "spacing"
+        },
+        "SM": {
+          "value": "{space.4}",
+          "type": "spacing"
+        },
+        "MD": {
+          "value": "{space.6}",
+          "type": "spacing"
+        },
+        "LG": {
+          "value": "{space.8}",
+          "type": "spacing"
+        },
+        "XL": {
+          "value": "{space.12}",
+          "type": "spacing"
+        },
+        "XXL": {
+          "value": "{space.16}",
+          "type": "spacing"
+        }
+      }
+    },
+    "padding": {
+      "horizontal": {
+        "XS": {
+          "value": "{space.2}",
+          "type": "spacing"
+        },
+        "SM": {
+          "value": "{space.4}",
+          "type": "spacing"
+        },
+        "MD": {
+          "value": "{space.6}",
+          "type": "spacing"
+        },
+        "LG": {
+          "value": "{space.8}",
+          "type": "spacing"
+        },
+        "XL": {
+          "value": "{space.12}",
+          "type": "spacing"
+        },
+        "XXL": {
+          "value": "{space.16}",
+          "type": "spacing"
+        }
+      },
+      "vertical": {
+        "XS": {
+          "value": "{space.2}",
+          "type": "spacing"
+        },
+        "SM": {
+          "value": "{space.4}",
+          "type": "spacing"
+        },
+        "MD": {
+          "value": "{space.6}",
+          "type": "spacing"
+        },
+        "LG": {
+          "value": "{space.8}",
+          "type": "spacing"
+        },
+        "XL": {
+          "value": "{space.12}",
+          "type": "spacing"
+        },
+        "XXL": {
+          "value": "{space.16}",
+          "type": "spacing"
+        }
+      }
+    }
+  }
+}

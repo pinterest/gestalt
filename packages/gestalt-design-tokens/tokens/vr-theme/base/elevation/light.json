@@ -18,7 +18,8 @@
           "color": "#000000",
           "opacity": 0.08
         }
-      }
+      },
+      "type": "boxShadow"
     },
     "200": {
       "value": {
@@ -38,7 +39,8 @@
           "color": "#000000",
           "opacity": 0.8
         }
-      }
+      },
+      "type": "boxShadow"
     },
     "300": {
       "value": {
@@ -66,7 +68,8 @@
           "color": "#000000",
           "opacity": 0.06
         }
-      }
+      },
+      "type": "boxShadow"
     },
     "325": {
       "value": {
@@ -94,7 +97,8 @@
           "color": "#000000",
           "opacity": 0.06
         }
-      }
+      },
+      "type": "boxShadow"
     },
     "350": {
       "value": {
@@ -122,7 +126,8 @@
           "color": "#000000",
           "opacity": 0.06
         }
-      }
+      },
+      "type": "boxShadow"
     }
   }
 }
