@@ -1,14 +1,11 @@
 import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
+import { ColumnSpanConfig } from './multiColumnLayout';
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
-export default function getLayoutAlgorithm<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+export default function getLayoutAlgorithm<T>({
   align,
   columnWidth,
   gutter,
@@ -18,7 +15,7 @@ export default function getLayoutAlgorithm<
   minCols,
   positionStore,
   width,
-  _twoColItems,
+  _getColumnSpanConfig,
   _logTwoColWhitespace,
 }: {
   align: Align;
@@ -30,7 +27,7 @@ export default function getLayoutAlgorithm<
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
-  _twoColItems?: boolean;
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _logTwoColWhitespace?: (arg1: number) => void;
 }): (forItems: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
@@ -42,7 +39,7 @@ export default function getLayoutAlgorithm<
       idealColumnWidth: columnWidth,
       width,
       logWhitespace: _logTwoColWhitespace,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
   }
   if (layout === 'uniformRow') {
@@ -65,6 +62,6 @@ export default function getLayoutAlgorithm<
     minCols,
     rawItemCount: items.length,
     width,
-    _twoColItems,
+    _getColumnSpanConfig,
   });
 }

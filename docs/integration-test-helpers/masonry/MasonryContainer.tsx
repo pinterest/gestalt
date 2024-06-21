@@ -18,7 +18,6 @@ import getRandomNumberGenerator from './items-utils/getRandomNumberGenerator';
 
 const TWO_COL_MINDEX = 50;
 
-// @ts-expect-error - TS2749 - 'Masonry' refers to a value, but is being used as a type here. Did you mean 'typeof Masonry'?
 type MasonryProps<T> = Masonry<T>['props'];
 
 type Props<T> = {
@@ -335,7 +334,6 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
       noScroll,
       offsetTop,
       positionStore,
-      twoColItems,
       virtualBoundsBottom,
       virtualBoundsTop,
       virtualize,
@@ -410,13 +408,16 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
         {mountGrid && (
           <MasonryComponent
             ref={this.gridRef}
+            _getColumnSpanConfig={(item) => {
+              const columnSpan = item.columnSpan as number | undefined;
+              return columnSpan ?? 1;
+            }}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
                   (whitespace) => console.log('Whitespace above 2-col module:', whitespace)
                 : undefined
             }
-            _twoColItems={twoColItems}
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}
