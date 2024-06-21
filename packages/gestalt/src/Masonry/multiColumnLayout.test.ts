@@ -6,7 +6,10 @@ type Item = {
   name: string;
   height: number;
   color?: string;
+  columnSpan?: number;
 };
+
+const getColumnSpanConfig = (item: Item) => item.columnSpan ?? 1;
 
 describe('one column layout test cases', () => {
   test('empty', () => {
@@ -18,6 +21,7 @@ describe('one column layout test cases', () => {
       items,
       measurementCache: measurementStore,
       positionCache,
+      _getColumnSpanConfig: getColumnSpanConfig,
     });
     expect(positions).toEqual([]);
   });
@@ -39,6 +43,7 @@ describe('one column layout test cases', () => {
       columnCount: 3,
       measurementCache: measurementStore,
       positionCache,
+      _getColumnSpanConfig: getColumnSpanConfig,
     });
     expect(positions).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
@@ -65,6 +70,7 @@ describe('one column layout test cases', () => {
       columnCount: 2,
       measurementCache: measurementStore,
       positionCache,
+      _getColumnSpanConfig: getColumnSpanConfig,
     });
     expect(positions).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
@@ -103,6 +109,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     // perform single column layout first since we expect two column items on second page+ currently
@@ -200,6 +207,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     let mockItems: any;
@@ -300,6 +308,7 @@ describe('multi column layout test cases', () => {
         measurementCache: measurementStore,
         positionCache,
         whitespaceThreshold: 11,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     items.forEach((item: any) => {
@@ -338,6 +347,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     let mockItems: any;
@@ -408,6 +418,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 92,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     let mockItems: any;
@@ -478,6 +489,7 @@ describe('multi column layout test cases', () => {
         columnCount: 4,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     const multiColumnModuleIndex = 2;
@@ -511,6 +523,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     const columnSpan = 5;
@@ -579,6 +592,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 92,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
 
     const positions = layout(items);
@@ -642,6 +656,7 @@ describe('multi column layout test cases', () => {
           centerOffset: 30,
           measurementCache: measurementStore,
           positionCache,
+          _getColumnSpanConfig: getColumnSpanConfig,
         });
 
       // perform single column layout first since we expect two column items on second page+ currently
@@ -699,6 +714,7 @@ describe('multi column layout test cases', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
+          _getColumnSpanConfig: getColumnSpanConfig,
         });
 
       layout(mockItems);
@@ -718,6 +734,7 @@ describe('multi column layout test cases', () => {
 });
 
 describe('initializeHeightsArray', () => {
+  
   test('correctly determines column heights before laying out new items (default layout)', () => {
     const gutter = 16;
     const columnWidth = 236;
@@ -760,6 +777,7 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
     const positions = layout(items);
     expect(positions).toEqual([
@@ -795,6 +813,7 @@ describe('initializeHeightsArray', () => {
       gutter,
       items,
       positionCache,
+      _getColumnSpanConfig: getColumnSpanConfig,
     });
 
     expect(heights.length).toEqual(9);
@@ -843,6 +862,7 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        _getColumnSpanConfig: getColumnSpanConfig,
       });
     const positions = layout(items);
     expect(positions).toEqual([
@@ -878,6 +898,7 @@ describe('initializeHeightsArray', () => {
       gutter,
       items,
       positionCache,
+      _getColumnSpanConfig: getColumnSpanConfig,
     });
 
     expect(heights.length).toEqual(9);

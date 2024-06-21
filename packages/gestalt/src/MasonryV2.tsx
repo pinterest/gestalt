@@ -569,7 +569,7 @@ function MasonryItem<T>({
   );
 }
 
-const MasonryItemMemo = memo(MasonryItem);
+const MasonryItemMemo = memo(MasonryItem) as typeof MasonryItem;
 
 function Masonry<T>(
   {
@@ -607,12 +607,12 @@ function Masonry<T>(
     }
   }, []);
 
-  const measurementStore = useMemo(
+  const measurementStore: Cache<T, number> = useMemo(
     () => measurementStoreProp || createMeasurementStore(),
     [measurementStoreProp],
   );
 
-  const positionStore = useMemo(
+  const positionStore: Cache<T, Position> = useMemo(
     () => positionStoreProp || createMeasurementStore(),
     [positionStoreProp],
   );
@@ -672,10 +672,8 @@ function Masonry<T>(
     gutter,
     items,
     layout,
-    // @ts-expect-error - TS2322 - Type 'Cache<T, number> | MeasurementStore<Record<any, any>, unknown>' is not assignable to type 'Cache<Record<any, any>, number>'.
     measurementStore,
     minCols,
-    // @ts-expect-error - TS2322 - Type 'Cache<T, Position> | MeasurementStore<Record<any, any>, unknown>' is not assignable to type 'Cache<Record<any, any>, Position>'.
     positionStore,
     width,
     _logTwoColWhitespace,

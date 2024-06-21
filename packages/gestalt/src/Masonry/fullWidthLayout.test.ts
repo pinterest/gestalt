@@ -6,9 +6,12 @@ type Item = {
   name: string;
   height: number;
   color?: string;
+  columnSpan?: number;
 };
 
-describe.each([false, true])('full width layout tests', (_twoColItems) => {
+const getColumnSpanConfig = (item: Item) => item.columnSpan ?? 1;
+
+describe.each([undefined, getColumnSpanConfig])('full width layout tests', (_getColumnSpanConfig) => {
   test('sets correct width and center offset when positioning', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
@@ -29,7 +32,7 @@ describe.each([false, true])('full width layout tests', (_twoColItems) => {
       idealColumnWidth: 240,
       minCols: 2,
       width: 1000,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
     expect(layout(items)).toEqual([
       { top: 0, height: 100, left: 5, width: 240 },
@@ -63,7 +66,7 @@ describe.each([false, true])('full width layout tests', (_twoColItems) => {
       idealColumnWidth: 240,
       minCols: 2,
       width: 1000,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
     expect(
       layout(items)

@@ -6,9 +6,12 @@ type Item = {
   name: string;
   height: number;
   color?: string;
+  columnSpan?: number;
 };
 
-describe.each([false, true])('default layout tests', (_twoColItems) => {
+const getColumnSpanConfig = (item: Item) => item.columnSpan ?? 1;
+
+describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getColumnSpanConfig) => {
   test('left-aligns grid within the viewport', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
@@ -30,7 +33,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
       minCols: 2,
       rawItemCount: items.length,
       width: 8000,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
     expect(layout(items)).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
@@ -61,7 +64,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
       minCols: 2,
       rawItemCount: items.length,
       width: 8000,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
 
     expect(layout(items)).toEqual([
@@ -93,7 +96,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
       minCols: 2,
       rawItemCount: items.length,
       width: 8000,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
 
     expect(layout(items)).toEqual([
@@ -125,7 +128,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
       minCols: 2,
       rawItemCount: items.length,
       width: 8000,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
 
     expect(layout(items)).toEqual([
@@ -156,7 +159,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
       layout: 'basic',
       rawItemCount: items.length,
       width: 501,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
 
     expect(layout(items)).toEqual([
@@ -187,7 +190,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
       layout: 'basic',
       rawItemCount: items.length,
       width: 200,
-      _twoColItems,
+      _getColumnSpanConfig,
     });
 
     expect(layout(items)).toEqual([
@@ -221,7 +224,7 @@ describe.each([false, true])('default layout tests', (_twoColItems) => {
         layout: align === 'center' ? 'basicCentered' : 'basic',
         rawItemCount: items.length,
         width: 1000,
-        _twoColItems,
+        _getColumnSpanConfig,
       })(items);
 
     const justifyStart = makeLayout('start');
