@@ -1,11 +1,12 @@
 import { ComponentProps } from 'react';
-import { Props as ItemContentProps } from './ItemContent';
+import ItemContent from './ItemContent';
 import { ItemIconButton } from './PrimaryActionIconButton';
 import Box from '../Box';
 import Icon from '../Icon';
 import TapArea from '../TapArea';
 
-type Props = Pick<ItemContentProps, 'active'> & {
+type Props = {
+  active?: ComponentProps<typeof ItemContent>['active'];
   expanded: boolean;
   isLink?: boolean;
   expandIconButtonProps?: Pick<

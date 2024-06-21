@@ -47,7 +47,7 @@ type PrimaryAction = {
   dropdownItems?: ReadonlyArray<ReactElement>;
 };
 
-export type Props = {
+type Props = {
   active?: 'page' | 'section';
   hovered: boolean;
   focused: boolean;
