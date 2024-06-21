@@ -1,4 +1,3 @@
-import { item } from '../ComboBox.css';
 import MeasurementStore from './MeasurementStore';
 import multiColumnLayout, { initializeHeightsArray } from './multiColumnLayout';
 import { Position } from './types';
@@ -754,7 +753,6 @@ describe('responsive module layout test cases', () => {
     items.forEach((item: any) => {
       measurementStore.set(item, item.height);
     });
-    const getColumnSpanConfig = (item: Item) => item.name === 'Pin 10' ? 2 : 1;
 
     const layout = (columnCount: number) =>
       multiColumnLayout({
@@ -764,7 +762,7 @@ describe('responsive module layout test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
-        _getColumnSpanConfig: getColumnSpanConfig,
+        _getColumnSpanConfig: (item: Item) => item.name === 'Pin 10' ? 2 : 1,
       });
 
     const columnCounts = [2,3,4,5,6,7,8,9,10];
@@ -794,13 +792,7 @@ describe('responsive module layout test cases', () => {
     items.forEach((item: any) => {
       measurementStore.set(item, item.height);
     });
-    const getColumnSpanConfig = (item: Item) => item.name === 'Pin 10' ? {
-      sm: 2,
-      md: 3,
-      lg: 5,
-      xl: 9
-    } : 1;
-
+    
     const layout = (columnCount: number) =>
       multiColumnLayout({
         items,
@@ -809,11 +801,17 @@ describe('responsive module layout test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
-        _getColumnSpanConfig: getColumnSpanConfig,
+        _getColumnSpanConfig:  (item: Item) => item.name === 'Pin 10' ? {
+          sm: 2,
+          md: 3,
+          lg: 5,
+          xl: 9
+        } : 1,
       });
 
     const breakpoints = [2,3,4,5,6,7,8,9,10].map((columnCount) => ({
       columnCount,
+      // eslint-disable-next-line no-nested-ternary
       expectedColumnSpan: columnCount < 3 ? 2 : columnCount < 5 ? 3 : columnCount < 9 ? 5 : 9
     }));
 

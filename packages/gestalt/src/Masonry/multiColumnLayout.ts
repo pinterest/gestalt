@@ -49,6 +49,20 @@ function getPositionsOnly<T>(
   return positions.map(({ position }) => position);
 }
 
+function calculateActualColumnSpan<T>(props: {
+  columnCount: number;
+  item: T,
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
+}): number {
+  const { columnCount, item, _getColumnSpanConfig } = props;
+  const columnSpanConfig = _getColumnSpanConfig(item);
+  if (typeof columnSpanConfig === 'number') {
+    return columnSpanConfig;
+  }
+  const gridSize = columnCountToGridSize(columnCount);
+  return columnSpanConfig[gridSize] ?? 1;
+}
+
 function getAdjacentColumnHeightDeltas(
   heights: ReadonlyArray<number>,
   columnSpan: number,
@@ -581,23 +595,6 @@ function getPositionsWithMultiColumnItem<T>({
   // FUTURE OPTIMIZATION - do we want a min threshold for an acceptably low score?
   // If so, we could save the multi column item somehow and try again with the next batch of items
   return { positions: prevPositions.concat(finalPositions), heights: finalHeights };
-}
-
-function calculateActualColumnSpan<T>({
-  columnCount,
-  item,
-  _getColumnSpanConfig,
-}: {
-  columnCount: number;
-  item: T,
-  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
-}): number {
-  const columnSpanConfig = _getColumnSpanConfig(item);
-  if (typeof columnSpanConfig === 'number') {
-    return columnSpanConfig;
-  }
-  const gridSize = columnCountToGridSize(columnCount);
-  return columnSpanConfig[gridSize] ?? 1;
 }
 
 const multiColumnLayout = <T>({

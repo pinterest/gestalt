@@ -334,7 +334,6 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
       noScroll,
       offsetTop,
       positionStore,
-      twoColItems,
       virtualBoundsBottom,
       virtualBoundsTop,
       virtualize,
@@ -409,16 +408,16 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
         {mountGrid && (
           <MasonryComponent
             ref={this.gridRef}
+            _getColumnSpanConfig={(item) => {
+              const columnSpan = item.columnSpan as number | undefined;
+              return columnSpan ?? 1
+            }}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
                   (whitespace) => console.log('Whitespace above 2-col module:', whitespace)
                 : undefined
-            }
-            _getColumnSpanConfig={(item) => {
-              const columnSpan = item.columnSpan as number | undefined;
-              return columnSpan ?? 1
-            }} 
+            } 
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}

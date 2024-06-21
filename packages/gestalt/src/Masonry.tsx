@@ -6,7 +6,7 @@ import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE, ColumnSpanConfig } from './Masonry/multiColumnLayout';
+import { ColumnSpanConfig,MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
