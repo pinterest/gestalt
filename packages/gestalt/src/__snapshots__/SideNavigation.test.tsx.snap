@@ -102,6 +102,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                     onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
+                    onKeyPress={[Function]}
                     onMouseDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -282,6 +283,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
@@ -415,6 +417,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
@@ -626,6 +629,7 @@ exports[`SideNavigation renders Sections 1`] = `
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
@@ -749,6 +753,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                     onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
+                    onKeyPress={[Function]}
                     onMouseDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -870,6 +875,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
+                    onKeyPress={[Function]}
                     onMouseDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -948,6 +954,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     onClick={[Function]}
                     onFocus={[Function]}
                     onKeyDown={[Function]}
+                    onKeyPress={[Function]}
                     onMouseDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1048,6 +1055,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
@@ -1194,36 +1202,40 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                             </div>
                             <div
                               className="FlexItem flexNone"
-                              style={
-                                Object {
-                                  "maxWidth": 16,
-                                }
-                              }
                             >
                               <div
-                                aria-hidden={true}
-                                className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                className="box circle marginEndN2"
                                 style={
                                   Object {
-                                    "height": 24,
                                     "width": 24,
                                   }
                                 }
-                                tabIndex={-1}
                               >
-                                <svg
+                                <div
                                   aria-hidden={true}
-                                  aria-label=""
-                                  className="default icon iconBlock"
-                                  height={12}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={12}
+                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  style={
+                                    Object {
+                                      "height": 24,
+                                      "width": 24,
+                                    }
+                                  }
+                                  tabIndex={-1}
                                 >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden={true}
+                                    aria-label=""
+                                    className="default icon iconBlock"
+                                    height={12}
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width={12}
+                                  >
+                                    <path
+                                      d="test-file-stub"
+                                    />
+                                  </svg>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1308,36 +1320,40 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                             </div>
                             <div
                               className="FlexItem flexNone"
-                              style={
-                                Object {
-                                  "maxWidth": 16,
-                                }
-                              }
                             >
                               <div
-                                aria-hidden={true}
-                                className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                className="box circle marginEndN2"
                                 style={
                                   Object {
-                                    "height": 24,
                                     "width": 24,
                                   }
                                 }
-                                tabIndex={-1}
                               >
-                                <svg
+                                <div
                                   aria-hidden={true}
-                                  aria-label=""
-                                  className="default icon iconBlock"
-                                  height={12}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={12}
+                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  style={
+                                    Object {
+                                      "height": 24,
+                                      "width": 24,
+                                    }
+                                  }
+                                  tabIndex={-1}
                                 >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden={true}
+                                    aria-label=""
+                                    className="default icon iconBlock"
+                                    height={12}
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width={12}
+                                  >
+                                    <path
+                                      d="test-file-stub"
+                                    />
+                                  </svg>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1489,36 +1505,40 @@ exports[`SideNavigation renders expanded group 1`] = `
                         </div>
                         <div
                           className="FlexItem flexNone"
-                          style={
-                            Object {
-                              "maxWidth": 16,
-                            }
-                          }
                         >
                           <div
-                            aria-hidden={true}
-                            className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                            className="box circle marginEndN2"
                             style={
                               Object {
-                                "height": 24,
                                 "width": 24,
                               }
                             }
-                            tabIndex={-1}
                           >
-                            <svg
+                            <div
                               aria-hidden={true}
-                              aria-label=""
-                              className="default icon iconBlock"
-                              height={12}
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width={12}
+                              className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                              style={
+                                Object {
+                                  "height": 24,
+                                  "width": 24,
+                                }
+                              }
+                              tabIndex={-1}
                             >
-                              <path
-                                d="test-file-stub"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden={true}
+                                aria-label=""
+                                className="default icon iconBlock"
+                                height={12}
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width={12}
+                              >
+                                <path
+                                  d="test-file-stub"
+                                />
+                              </svg>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1538,6 +1558,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
@@ -1640,36 +1661,40 @@ exports[`SideNavigation renders expanded group 1`] = `
                             </div>
                             <div
                               className="FlexItem flexNone"
-                              style={
-                                Object {
-                                  "maxWidth": 16,
-                                }
-                              }
                             >
                               <div
-                                aria-hidden={true}
-                                className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                className="box circle marginEndN2"
                                 style={
                                   Object {
-                                    "height": 24,
                                     "width": 24,
                                   }
                                 }
-                                tabIndex={-1}
                               >
-                                <svg
+                                <div
                                   aria-hidden={true}
-                                  aria-label=""
-                                  className="default icon iconBlock"
-                                  height={12}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={12}
+                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  style={
+                                    Object {
+                                      "height": 24,
+                                      "width": 24,
+                                    }
+                                  }
+                                  tabIndex={-1}
                                 >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden={true}
+                                    aria-label=""
+                                    className="default icon iconBlock"
+                                    height={12}
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width={12}
+                                  >
+                                    <path
+                                      d="test-file-stub"
+                                    />
+                                  </svg>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1689,6 +1714,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             onClick={[Function]}
                             onFocus={[Function]}
                             onKeyDown={[Function]}
+                            onKeyPress={[Function]}
                             onMouseDown={[Function]}
                             onMouseEnter={[Function]}
                             onMouseLeave={[Function]}
@@ -1745,6 +1771,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             onClick={[Function]}
                             onFocus={[Function]}
                             onKeyDown={[Function]}
+                            onKeyPress={[Function]}
                             onMouseDown={[Function]}
                             onMouseEnter={[Function]}
                             onMouseLeave={[Function]}
@@ -1931,6 +1958,7 @@ exports[`SideNavigation renders static group 1`] = `
                         onClick={[Function]}
                         onFocus={[Function]}
                         onKeyDown={[Function]}
+                        onKeyPress={[Function]}
                         onMouseDown={[Function]}
                         onMouseEnter={[Function]}
                         onMouseLeave={[Function]}
@@ -2026,6 +2054,7 @@ exports[`SideNavigation renders static group 1`] = `
                             onClick={[Function]}
                             onFocus={[Function]}
                             onKeyDown={[Function]}
+                            onKeyPress={[Function]}
                             onMouseDown={[Function]}
                             onMouseEnter={[Function]}
                             onMouseLeave={[Function]}
@@ -2082,6 +2111,7 @@ exports[`SideNavigation renders static group 1`] = `
                             onClick={[Function]}
                             onFocus={[Function]}
                             onKeyDown={[Function]}
+                            onKeyPress={[Function]}
                             onMouseDown={[Function]}
                             onMouseEnter={[Function]}
                             onMouseLeave={[Function]}

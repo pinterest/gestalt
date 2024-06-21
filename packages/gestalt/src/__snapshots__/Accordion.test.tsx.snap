@@ -251,7 +251,6 @@ exports[`Accordion renders an icon button correctly 1`] = `
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
-            onKeyDown={[Function]}
             onMouseDown={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}

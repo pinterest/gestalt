@@ -532,7 +532,6 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
                     onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
-                    onKeyDown={[Function]}
                     onMouseDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
