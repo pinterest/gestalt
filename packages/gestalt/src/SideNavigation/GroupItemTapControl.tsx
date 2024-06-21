@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 import TapArea from '../TapArea';
 import TapAreaLink from '../TapAreaLink';
 
-type TProps = Pick<
+type Props = Pick<
   ComponentProps<typeof TapArea>,
   'accessibilityControls' | 'accessibilityExpanded' | 'tapStyle'
 > & {
@@ -32,7 +32,7 @@ export default function SideNavigationGroupItemTapControl({
   onFocus,
   onMouseEnter,
   onMouseLeave,
-}: TProps) {
+}: Props) {
   if (href) {
     return (
       <TapAreaLink

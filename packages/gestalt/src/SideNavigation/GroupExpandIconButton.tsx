@@ -15,7 +15,7 @@ type Props = {
   >;
 };
 
-export default function GroupExpandIconButton({
+export default function SideNavigationGroupExpandIconButton({
   expanded,
   active,
   isLink: hasLink,
@@ -52,10 +52,10 @@ export default function GroupExpandIconButton({
       icon={expanded ? 'arrow-up' : 'arrow-down'}
       isItemActive={!!active}
       onKeyDown={({ event }) => event.stopPropagation()}
-      onTap={(arg) => {
-        arg.event.preventDefault();
-        arg.event.stopPropagation();
-        expandIconButtonProps?.onTap?.(arg);
+      onTap={({ event }) => {
+        event.preventDefault();
+        event.stopPropagation();
+        expandIconButtonProps?.onTap?.({ event });
       }}
     />
   );

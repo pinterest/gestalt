@@ -6,9 +6,9 @@ import { useSideNavigation } from './contexts/SideNavigationProvider';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
+import SideNavigationGroupItemTapControl from './SideNavigation/GroupItemTapControl';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
 import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
-import SideNavigationGroupItemTapControl from './SideNavigation/TapControl';
 import { flattenChildrenWithKeys } from './utils/flattenChildren';
 import { Indexable } from './zIndex';
 
