@@ -206,6 +206,8 @@ const getPrefix = (filePath) => {
   if (filePaths.includes('base') || filename.startsWith('base-')) {
     return 'base';
   }
+
+  throw new Error('Unable to find a valid token prefix');
 };
 
 const getFilter = (category, type) => {
