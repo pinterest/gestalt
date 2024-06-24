@@ -98,23 +98,15 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
 ) {
   const [hovered, setHovered] = useState(false);
 
-  const isMdSize = size === 'md';
-
-  const isFitSize = size === 'fit';
-
-  const isMdOrFitSize = isMdSize || isFitSize;
-
   const isDisplayOnly = !role;
 
-  const isAboveMaxCollaborators = collaborators.length > MAX_COLLABORATOR_AVATARS;
+  const showCollaboratorsCount = collaborators.length > MAX_COLLABORATOR_AVATARS;
 
-  const showCollaboratorsCount = isMdOrFitSize && isAboveMaxCollaborators;
-
-  const showAddCollaboratorsButton = (isMdOrFitSize && !isDisplayOnly && addCollaborators) ?? false;
+  const showAddCollaboratorsButton = (!isDisplayOnly && addCollaborators) ?? false;
 
   const displayedCollaborators = collaborators.slice(
     0,
-    isAboveMaxCollaborators && isMdOrFitSize ? 2 : MAX_COLLABORATOR_AVATARS,
+    showCollaboratorsCount ? 2 : MAX_COLLABORATOR_AVATARS,
   );
 
   const pileCount =
@@ -161,17 +153,16 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     <Box
       aria-label={isDisplayOnly ? accessibilityLabel : undefined}
       dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
-      position={isFitSize ? 'relative' : 'static'}
+      position={size === 'fit' ? 'relative' : 'static'}
     >
-      {isFitSize ? collaboratorStack : <Flex>{collaboratorStack}</Flex>}
+      {size === 'fit' ? collaboratorStack : <Flex>{collaboratorStack}</Flex>}
     </Box>
   );
 
   if (role === 'link' && href) {
     return (
       <TapAreaLink
-        // @ts-expect-error - TS2322 - Type 'ForwardedRef<UnionRefs>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
-        ref={ref}
+        ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
         accessibilityLabel={accessibilityLabel}
         fullWidth={false}
         href={href}
@@ -191,8 +182,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
   if (role === 'button' && onClick) {
     return (
       <TapArea
-        // @ts-expect-error - TS2322 - Type 'ForwardedRef<UnionRefs>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
-        ref={ref}
+        ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
         accessibilityControls={accessibilityControls}
         accessibilityExpanded={accessibilityExpanded}
         accessibilityHaspopup={accessibilityHaspopup}
