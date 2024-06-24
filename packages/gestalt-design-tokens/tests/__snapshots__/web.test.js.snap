@@ -744,6 +744,108 @@ Object {
   --color-background-badge-neutral: var(--color-background-tertiary-base); 
 }
 ",
+  "dist/css/vr-theme-web-mapping/font-lineheight-ck.css": "
+:root {
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-150);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-150);
+  --sema-font-lineheight-md: var(--base-font-lineheight-150);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
+}
+",
+  "dist/css/vr-theme-web-mapping/font-lineheight-default.css": "
+:root {
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-150);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-140);
+  --sema-font-lineheight-md: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-110);
+}
+",
+  "dist/css/vr-theme-web-mapping/font-lineheight-ja.css": "
+:root {
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-160);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-160);
+  --sema-font-lineheight-md: var(--base-font-lineheight-150);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
+}
+",
+  "dist/css/vr-theme-web-mapping/font-lineheight-tall.css": "
+:root {
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-170);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-170);
+  --sema-font-lineheight-md: var(--base-font-lineheight-160);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-140);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-130);
+}
+",
+  "dist/css/vr-theme-web-mapping/font-lineheight-th.css": "
+:root {
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-180);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-180);
+  --sema-font-lineheight-md: var(--base-font-lineheight-170);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-150);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-130);
+}
+",
+  "dist/css/vr-theme-web-mapping/font-lineheight-vi.css": "
+:root {
+  --base-font-lineheight-180: 180%;
+  --base-font-lineheight-170: 170%;
+  --base-font-lineheight-160: 160%;
+  --base-font-lineheight-150: 150%;
+  --base-font-lineheight-140: 140%;
+  --base-font-lineheight-130: 130%;
+  --base-font-lineheight-120: 120%;
+  --base-font-lineheight-110: 110%;
+  --sema-font-lineheight-xl: var(--base-font-lineheight-140);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-130);
+  --sema-font-lineheight-md: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-120);
+}
+",
   "dist/css/vr-theme-web-mapping/variables-dark.css": "
 :root {
   --base-elevation-350: 0px -2px 8px 0px rgba(0, 0, 0, 0.3), 0px -1px 2px 0px rgba(0, 0, 0, 0.3);
@@ -1347,6 +1449,11 @@ Object {
   --font-size-300: var(--base-font-size-16);
   --font-size-200: var(--base-font-size-14);
   --font-size-100: var(--base-font-size-12);
+  --sema-font-lineheight-xl: var(--base-font-lineheight-150);
+  --sema-font-lineheight-lg: var(--base-font-lineheight-140);
+  --sema-font-lineheight-md: var(--base-font-lineheight-130);
+  --sema-font-lineheight-xs: var(--base-font-lineheight-120);
+  --sema-font-lineheight-xxs: var(--base-font-lineheight-110);
   --sema-font-size-ui-lg: var(--base-font-size-20);
   --sema-font-size-ui-md: var(--base-font-size-16);
   --sema-font-size-ui-sm: var(--base-font-size-14);
