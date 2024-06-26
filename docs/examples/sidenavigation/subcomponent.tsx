@@ -6,8 +6,8 @@ export default function Example() {
   const someCondition = true;
 
   return (
-    <Box width={300}>
-      <SideNavigation accessibilityLabel="Subcomponent composability example">
+    <Box height="100%" width={300}>
+      <SideNavigation accessibilityLabel="Subcomponent composability example" showBorder>
         {someCondition && (
           <SideNavigation.TopItem
             active={page === 'Trends' ? 'page' : undefined}
