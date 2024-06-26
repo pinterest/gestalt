@@ -1,12 +1,11 @@
 import PopoverEducational from './PopoverEducational';
 import Text from './Text';
-import renderWithExperiment from './utils/testing/renderWithExperiment';
+import { render } from '@testing-library/react';
 
 describe('PopoverEducational', () => {
   it('renders correctly', () => {
     const element = document.createElement('div');
-    const { container } = renderWithExperiment(
-      'web_gestalt_popover_v2_popovereducational',
+    const { container } = render(
       <PopoverEducational
         accessibilityLabel="text"
         anchor={element}
@@ -21,8 +20,7 @@ describe('PopoverEducational', () => {
 
   it('renders correctly with custom children', () => {
     const element = document.createElement('div');
-    const { container } = renderWithExperiment(
-      'web_gestalt_popover_v2_popovereducational',
+    const { container } = render(
       <PopoverEducational accessibilityLabel="text" anchor={element} onDismiss={jest.fn()}>
         <Text>Custom children</Text>
       </PopoverEducational>,
@@ -32,8 +30,7 @@ describe('PopoverEducational', () => {
   });
 
   it('does not render when the anchor is null', () => {
-    const { container } = renderWithExperiment(
-      'web_gestalt_popover_v2_popovereducational',
+    const { container } = render(
       <PopoverEducational
         accessibilityLabel="text"
         anchor={null}
