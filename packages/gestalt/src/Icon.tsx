@@ -1,6 +1,8 @@
 import classnames from 'classnames';
 import styles from './Icon.css';
 import icons from './icons/index';
+import vrIcons from './icons-vr-theme/index';
+import useInExperiment from './useInExperiment';
 
 export type IconColor =
   | 'default'
@@ -109,9 +111,12 @@ function Icon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
-
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const path =
-    (icon && icons[icon]) ||
+    (icon && (isInExperiment ? vrIcons : icons)[icon]) ||
     /* eslint-disable-next-line no-underscore-dangle */
     (dangerouslySetSvgPath && dangerouslySetSvgPath.__path) ||
     undefined;

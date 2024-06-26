@@ -65,6 +65,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-playwright": "^0.10.0",
     "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-51a85ea-20240601",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-testing-library": "^5.6.0",
@@ -95,7 +96,7 @@
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
     "sucrase": "^3.35.0",
-    "typescript": "^5.0.2",
+    "typescript": "5.5.2",
     "typescript-plugin-css-modules": "^5.1.0",
     "xml2js": "^0.5.0"
   },
@@ -146,7 +147,9 @@
     "start": "netlify dev -c \"yarn dev\"",
     "svgIcons:validate": "./scripts/validateIconSvgSpecs.js",
     "test": "./scripts/test.sh",
-    "tsc": "tsc --build --force"
+    "tokens:test": "(cd packages/gestalt-design-tokens && yarn test)",
+    "tsc": "tsc --build --force",
+    "ts:removeUnusedTsExpectErrors": "./scripts/ts/tsRemoveUnusedTsExpectErrors.sh"
   },
   "jest": {
     "projects": [
@@ -164,7 +167,8 @@
           "<rootDir>/scripts/templates/",
           ".jsdom.test.ts",
           ".jsdom.test.tsx",
-          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts"
+          "<rootDir>/packages/gestalt-codemods/generic-codemods/__tests__/utils.ts",
+          "<rootDir>/packages/gestalt-design-tokens/"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"
@@ -183,7 +187,8 @@
           "<rootDir>/playwright/",
           "<rootDir>/scripts/templates/",
           "<rootDir>/packages/gestalt-codemods",
-          "<rootDir>/packages/gestalt-core"
+          "<rootDir>/packages/gestalt-core",
+          "<rootDir>/packages/gestalt-design-tokens"
         ],
         "setupFilesAfterEnv": [
           "<rootDir>scripts/setupJest.js"

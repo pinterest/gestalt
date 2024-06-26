@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import SideNavigationGroup from './SideNavigationGroup';
+import { Indexable } from './zIndex';
 
 type Props = {
   /**
@@ -29,6 +30,21 @@ type Props = {
    * Callback fired when the expand button component is clicked and the component is controlled. This functionality is not supported in mobile.
    */
   onExpand?: (arg1: { expanded: boolean }) => void;
+  /**
+   * The primary action for each item. See the [primary action variant](https://gestalt.pinterest.systems/web/sidenavigation#Primary-action) to learn more.
+   */
+  primaryAction?: {
+    icon?: 'ellipsis' | 'edit' | 'trash-can';
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+    }) => void;
+    tooltip: {
+      accessibilityLabel?: string;
+      text: string;
+      zIndex?: Indexable;
+    };
+    dropdownItems?: ReadonlyArray<ReactElement>;
+  };
 };
 
 /**
@@ -40,6 +56,7 @@ export default function SideNavigationNestedGroup({
   display = 'expandable',
   expanded,
   label,
+  primaryAction,
   onExpand,
 }: Props) {
   return (
@@ -49,6 +66,7 @@ export default function SideNavigationNestedGroup({
       expanded={expanded}
       label={label}
       onExpand={onExpand}
+      primaryAction={primaryAction}
     >
       {children}
     </SideNavigationGroup>

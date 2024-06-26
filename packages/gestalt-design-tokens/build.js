@@ -91,6 +91,15 @@ const filterFontFamily = {
   },
 };
 
+const filterLineHeight = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'lineheight',
+    },
+  },
+};
+
 const androidResources = {
   'format': 'android/resources',
   '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
@@ -141,6 +150,11 @@ const dataVisualizationFilter = {
   '_filter_comment': 'Custom',
 };
 
+const semaLineHeightFilter = {
+  'filter': 'semaLineHeightFilter',
+  '_filter_comment': 'Custom filter for semantic lineheight tokens',
+};
+
 const webCssTransformGroup = {
   'transformGroup': 'webCssTransformGroup',
   '_transformGroup_comment':
@@ -163,6 +177,35 @@ const iOSSwiftEnumTransformGroup = {
 };
 
 // HELPER FUNCTIONS
+
+const filterList = [
+  filterColor,
+  filterRounding,
+  filterOpacity,
+  filterSpace,
+  filterElevation,
+  filterLineHeight,
+  filterFontFamily,
+  filterFontSize,
+  filterFontWeight,
+];
+
+const getFilter = (category, type) => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const item of filterList) {
+    if (type === undefined) {
+      if (item.filter.attributes.category === category) {
+        return item;
+      }
+    } else if (
+      item.filter.attributes.category === category &&
+      item.filter.attributes.type === type
+    ) {
+      return item;
+    }
+  }
+  return undefined;
+};
 
 function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
@@ -221,7 +264,7 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
 const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
   `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
 
-function getSources({ theme, modeTheme, platform }) {
+function getSources({ theme, modeTheme, platform, language }) {
   if (theme === 'classic') {
     return [
       `tokens/classic/base-color.json`,
@@ -229,14 +272,14 @@ function getSources({ theme, modeTheme, platform }) {
       `tokens/classic/base-opacity.json`,
       `tokens/classic/base-rounding.json`,
       `tokens/classic/base-space.json`,
-      `tokens/classic/sema-color${modeTheme}.json`,
-      `tokens/classic/base-color-dataviz${modeTheme}.json`,
-      `tokens/classic/sema-color-dataviz${modeTheme}.json`,
-      `tokens/classic/base-elevation${modeTheme}.json`,
+      `tokens/classic/sema-color-${modeTheme}.json`,
+      `tokens/classic/base-color-dataviz-${modeTheme}.json`,
+      `tokens/classic/sema-color-dataviz-${modeTheme}.json`,
+      `tokens/classic/base-elevation-${modeTheme}.json`,
       ...(platform === 'web'
         ? [
-            `tokens/classic/comp-web-color${modeTheme}.json`,
-            `tokens/classic/comp-web-elevation${modeTheme}.json`,
+            `tokens/classic/comp-web-color-${modeTheme}.json`,
+            `tokens/classic/comp-web-elevation-${modeTheme}.json`,
             `tokens/classic/comp-web-rounding.json`,
           ]
         : []),
@@ -245,26 +288,30 @@ function getSources({ theme, modeTheme, platform }) {
 
   return [
     'tokens/vr-theme/base-color.json',
+    `tokens/vr-theme/base-elevation-${modeTheme}.json`,
     'tokens/vr-theme/base-font.json',
-    'tokens/vr-theme/sema-font.json',
     'tokens/vr-theme/base-opacity.json',
-    'tokens/vr-theme/sema-opacity.json',
     'tokens/vr-theme/base-rounding.json',
-    'tokens/vr-theme/sema-rounding.json',
     'tokens/vr-theme/base-space.json',
-    'tokens/vr-theme/sema-space.json',
-    `tokens/vr-theme/base-elevation${modeTheme}.json`,
+    `tokens/vr-theme/sema-color-${modeTheme}.json`,
     'tokens/vr-theme/sema-elevation.json',
-    `tokens/vr-theme/sema-color${modeTheme}.json`,
+    'tokens/vr-theme/sema-font.json',
+    'tokens/vr-theme/sema-opacity.json',
+    'tokens/vr-theme/sema-rounding.json',
+    'tokens/vr-theme/sema-space.json',
+    `tokens/vr-theme/base-lineheight.json`,
+    `tokens/vr-theme/language/sema-lineheight-${language}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
+          `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-color.json',
-          'tokens/vr-theme-web-mapping/sema-color.json',
-          `tokens/vr-theme-web-mapping/base-color-dataviz${modeTheme}.json`,
-          'tokens/vr-theme-web-mapping/base-rounding.json',
-          'tokens/vr-theme-web-mapping/base-opacity.json',
-          'tokens/vr-theme-web-mapping/base-space.json',
+          `tokens/vr-theme-web-mapping/base-elevation-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-font.json',
+          'tokens/vr-theme-web-mapping/base-opacity.json',
+          'tokens/vr-theme-web-mapping/base-rounding.json',
+          'tokens/vr-theme-web-mapping/base-space.json',
+          `tokens/vr-theme-web-mapping/sema-color-dataviz-${modeTheme}.json`,
+          'tokens/vr-theme-web-mapping/sema-color.json',
         ]
       : []),
   ];
@@ -547,13 +594,28 @@ StyleDictionary.registerFilter({
   },
 });
 
-function getWebConfig({ theme, mode }) {
-  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+// Filters only to semantic line-height tokens
+StyleDictionary.registerFilter({
+  name: 'semaLineHeightFilter',
+  matcher(token) {
+    return (
+      token.attributes.category === 'font' &&
+      token.attributes.type === 'lineheight' &&
+      !token.name.startsWith('Base')
+    );
+  },
+});
+
+function getWebConfig({ theme, mode, language }) {
+  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
+  // light theme
+  // run languages in for loop
+
   return {
-    'source': getSources({ theme, modeTheme, platform: 'web' }),
+    'source': getSources({ theme, modeTheme, platform: 'web', language }),
     'platforms': {
       'css': {
         ...webCssTransformGroup,
@@ -566,6 +628,13 @@ function getWebConfig({ theme, mode }) {
                   'destination': 'variables.css',
                   ...cssVariables,
                 },
+                language
+                  ? {
+                      'destination': `font-lineheight-${language}.css`,
+                      ...cssVariables,
+                      ...semaLineHeightFilter,
+                    }
+                  : undefined,
               ]
             : [
                 {
@@ -578,26 +647,12 @@ function getWebConfig({ theme, mode }) {
       'json': {
         ...webCssTransformGroup,
         'buildPath': `dist/json/${theme}/`,
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'variables.json',
-                  ...jsonFlat,
-                },
-                {
-                  'destination': 'variables-light.json',
-                  ...jsonFlat,
-                  ...colorElevationFilter,
-                },
-              ]
-            : [
-                {
-                  'destination': 'variables-dark.json',
-                  ...jsonFlat,
-                  ...colorElevationFilter,
-                },
-              ],
+        'files': [
+          {
+            'destination': `variables-${mode}.json`,
+            ...jsonFlat,
+          },
+        ],
       },
       'js': {
         'transformGroup': 'webJsTransformGroup',
@@ -643,6 +698,14 @@ function getWebConfig({ theme, mode }) {
                   '_format_comment': 'Custom',
                   ...dataVisualizationFilter,
                 },
+                language
+                  ? {
+                      'destination': `font-lineheight-${language}.js`,
+                      'format': `commonJS/${mappedTheme}`,
+                      '_format_comment': 'Custom',
+                      ...semaLineHeightFilter,
+                    }
+                  : undefined,
               ]
             : [
                 {
@@ -703,11 +766,11 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getAndroidConfiguration({ theme, mode }) {
-  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+function getAndroidConfiguration({ theme, mode, language }) {
+  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
 
   return {
-    'source': getSources({ theme, modeTheme }),
+    'source': getSources({ theme, modeTheme, language }),
     'platforms': {
       'android': {
         ...androidTransformGroup,
@@ -751,6 +814,12 @@ function getAndroidConfiguration({ theme, mode }) {
                   ...androidResources,
                   ...dimenResource,
                   ...filterSpace,
+                },
+                language && {
+                  'destination': `font-lineheight-${language}.xml`,
+                  ...androidResources,
+                  ...dimenResource,
+                  ...filterLineHeight,
                 },
               ]
             : [
@@ -831,11 +900,96 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-function getIOSConfiguration({ theme, mode }) {
-  const modeTheme = mode === 'dark' ? '-darkTheme' : '-lightTheme';
+function getIOSConfiguration({ theme, mode, language }) {
+  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+
+  const categories = [
+    'color',
+    'rounding',
+    'space',
+    'opacity',
+    'elevation',
+    'font size',
+    'font weight',
+    'font family',
+  ];
+
+  /**
+   * Example output:
+   * {
+     "destination": "GestaltTokensFontSize.h",
+      "format": "ios/static.h",
+      "_format_comment": "https://amzn.github.io/style-dictionary/#/formats?id=iosstringsh",
+      "className": "GestaltTokensFontSize",
+      "type": "GestaltTokensFontSizeName"
+    }
+  */
+  let iOSObjectiveCFiles = categories.flatMap((category) => {
+    const pascalName = category
+      .split(' ')
+      .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+      .join('');
+
+    // generate both header and methods file extensions
+    return ['h', 'm'].map((ext) => {
+      const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
+
+      return {
+        'destination': `GestaltTokens${pascalName}${getTheme(theme)}.${ext}`,
+        ...fileTypeDetails,
+        'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
+        'type': `GestaltTokens${pascalName}Name${getTheme(theme)}`,
+        ...getFilter(category.split(' ')[0], category.split(' ')[1]),
+      };
+    });
+  });
+
+  const iOSSwiftFiles = categories.flatMap((category) => {
+    const pascalName = category
+      .split(' ')
+      .map((item) => item.charAt(0).toUpperCase() + item.slice(1))
+      .join('');
+
+    return {
+      'destination': `GestaltTokens${pascalName}${getTheme(theme)}.swift`,
+      ...iosSwiftEnumSwift,
+      'className': `GestaltTokens${pascalName}${getTheme(theme)}`,
+      ...getFilter(category.split(' ')[0], category.split(' ')[1]),
+    };
+  });
+
+  // add the relevant language output
+  if (language) {
+    // generate both header and methods file extensions
+    iOSObjectiveCFiles = iOSObjectiveCFiles.concat(
+      ['h', 'm'].map((ext) => {
+        const fileTypeDetails = ext === 'h' ? iosStaticH : iosStaticM;
+        return {
+          'destination': `/GestaltTokensFontLineHeight${getTheme(
+            theme,
+          )}-${language.toUpperCase()}.${ext}`,
+          ...fileTypeDetails,
+          'className': `GestaltTokensFontLineHeight${language.toUpperCase()}${getTheme(theme)}`,
+          'type': `GestaltTokensFontLineHeight${language.toUpperCase()}Name${getTheme(theme)}`,
+          ...filterLineHeight,
+          comment: `// ${language} specific tokens`,
+        };
+      }),
+    );
+
+    iOSSwiftFiles.push({
+      'destination': `GestaltTokensFontLineHeight${getTheme(
+        theme,
+      )}-${language.toUpperCase()}.swift`,
+      ...iosSwiftEnumSwift,
+      'className': `GestaltTokensFontLineHeight${language.toUpperCase()}${getTheme(theme)}`,
+      ...semaLineHeightFilter,
+      fileHeader: `// ${language} specific tokens`,
+    });
+  }
 
   return {
-    'source': getSources({ theme, modeTheme }),
+    'source': getSources({ theme, modeTheme, language }),
     'platforms': {
       'ios': {
         ...iOSTransformGroup,
@@ -843,120 +997,7 @@ function getIOSConfiguration({ theme, mode }) {
         ...optionsFileHeader,
         'files':
           mode === 'light'
-            ? [
-                {
-                  'destination': `GestaltTokensColor${getTheme(theme)}.h`,
-                  ...iosColorsH,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  'type': `GestaltTokensColorName${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensColor${getTheme(theme)}.m`,
-                  ...iosColorsM,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  'type': `GestaltTokensColorName${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensRounding${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensRounding${getTheme(theme)}`,
-                  'type': `GestaltTokensRoundingName${getTheme(theme)}`,
-                  ...filterRounding,
-                },
-                {
-                  'destination': `GestaltTokensRounding${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensRounding${getTheme(theme)}`,
-                  'type': `GestaltTokensRoundingName${getTheme(theme)}`,
-                  ...filterRounding,
-                },
-                {
-                  'destination': `GestaltTokensSpace${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensSpace${getTheme(theme)}`,
-                  'type': `GestaltTokensSpaceName${getTheme(theme)}`,
-                  ...filterSpace,
-                },
-                {
-                  'destination': `GestaltTokensSpace${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensSpace${getTheme(theme)}`,
-                  'type': `GestaltTokensSpaceName${getTheme(theme)}`,
-                  ...filterSpace,
-                },
-                {
-                  'destination': `GestaltTokensOpacity${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
-                  'type': `GestaltTokensOpacityName${getTheme(theme)}`,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': `GestaltTokensOpacity${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
-                  'type': `GestaltTokensOpacityName${getTheme(theme)}`,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': `GestaltTokensFontSize${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
-                  'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': `GestaltTokensFontSize${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
-                  'type': `GestaltTokensFontSizeName${getTheme(theme)}`,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-                  'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-                  'type': `GestaltTokensFontWeightName${getTheme(theme)}`,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-                  'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
-                  ...filterFontFamily,
-                },
-                {
-                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-                  'type': `GestaltTokensFontFamilyName${getTheme(theme)}`,
-                  ...filterFontFamily,
-                },
-                {
-                  'destination': `GestaltTokensElevation${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensElevation${getTheme(theme)}`,
-                  'type': `GestaltTokensElevation${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-                {
-                  'destination': `GestaltTokensElevation${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensElevation${getTheme(theme)}`,
-                  'type': `GestaltTokensElevation${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-              ]
+            ? iOSObjectiveCFiles
             : [
                 {
                   'destination': `GestaltTokensColorDark${getTheme(theme)}.h`,
@@ -994,56 +1035,7 @@ function getIOSConfiguration({ theme, mode }) {
         ...optionsFileHeaderOutputReferences,
         'files':
           mode === 'light'
-            ? [
-                {
-                  'destination': `GestaltTokensColor${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensRounding${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensRounding${getTheme(theme)}`,
-                  ...filterRounding,
-                },
-                {
-                  'destination': `GestaltTokensSpace${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensSpace${getTheme(theme)}`,
-                  ...filterSpace,
-                },
-                {
-                  'destination': `GestaltTokensOpacity${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensOpacity${getTheme(theme)}`,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': `GestaltTokensElevation${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensElevation${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-                {
-                  'destination': `GestaltTokensFontWeight${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensFontWeight${getTheme(theme)}`,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': `GestaltTokensFontSize${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensFontSize${getTheme(theme)}`,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': `GestaltTokensFontFamily${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensFontFamily${getTheme(theme)}`,
-                  ...filterFontFamily,
-                },
-              ]
+            ? iOSSwiftFiles
             : [
                 {
                   'destination': `GestaltTokensColorDark${getTheme(theme)}.swift`,
@@ -1073,20 +1065,30 @@ const platformFileMap = {
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    // iOS platform
-    if (theme !== 'vr-theme-web-mapping') {
-      const StyleDictionaryIOS = StyleDictionary.extend(getIOSConfiguration({ mode, theme }));
-      platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
+    // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default'MUST BE LAST
+    ['ck', 'ja', 'tall', 'th', 'vi', 'default'].forEach((lang) => {
+      // only generate languages for the vr-theme
+      const language = theme === 'vr-theme' ? lang : undefined;
 
-      // // Android platform
-      const StyleDictionaryAndroid = StyleDictionary.extend(
-        getAndroidConfiguration({ mode, theme }),
-      );
-      platformFileMap.android.forEach((platform) => StyleDictionaryAndroid.buildPlatform(platform));
-    }
+      // iOS platform
+      if (theme !== 'vr-theme-web-mapping') {
+        const StyleDictionaryIOS = StyleDictionary.extend(
+          getIOSConfiguration({ mode, theme, language }),
+        );
+        platformFileMap.ios.forEach((platform) => StyleDictionaryIOS.buildPlatform(platform));
 
-    // web platform
-    const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme }));
-    platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+        // // Android platform
+        const StyleDictionaryAndroid = StyleDictionary.extend(
+          getAndroidConfiguration({ mode, theme, language }),
+        );
+        platformFileMap.android.forEach((platform) =>
+          StyleDictionaryAndroid.buildPlatform(platform),
+        );
+      }
+
+      // web platform
+      const StyleDictionaryWeb = StyleDictionary.extend(getWebConfig({ mode, theme, language }));
+      platformFileMap.web.forEach((platform) => StyleDictionaryWeb.buildPlatform(platform));
+    });
   }),
 );

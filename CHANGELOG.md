@@ -1,20 +1,128 @@
-## 152.1.5-alpha.0 (Jun 11, 2024)
+## 154.0.0 (Jun 21, 2024)
 
-### Prerelease
+### Major
 
-- Dropdown: Always hide when reference hidden
+- Masonry: Responsive grid modules ([#3636](https://github.com/pinterest/gestalt/pull/3636)) - [Preview link](https://deploy-preview-3636--gestalt.netlify.app?devexample=true)
 
-## 152.1.4-alpha.0 (Jun 7, 2024)
+## 153.10.0 (Jun 20, 2024)
 
-### Prerelease
+### Minor
 
-- [Dropdown]: Always disable portal
+- Internal: Upgrade TypeScript to 5.5 ([#3643](https://github.com/pinterest/gestalt/pull/3643)) - [Preview link](https://deploy-preview-3643--gestalt.netlify.app?devexample=true)
 
-## 152.1.3-alpha.0 (Jun 6, 2024)
+## 153.9.2 (Jun 20, 2024)
 
-### Prerelease
+### Patch
 
-- Merge branch 'master' into alpha
+- Tokens: small fixes to line height tokens ([#3640](https://github.com/pinterest/gestalt/pull/3640)) - [Preview link](https://deploy-preview-3640--gestalt.netlify.app?devexample=true)
+
+## 153.9.1 (Jun 20, 2024)
+
+### Patch
+
+- ButtonToggle: Fixing accessibility fallback ([#3641](https://github.com/pinterest/gestalt/pull/3641)) - [Preview link](https://deploy-preview-3641--gestalt.netlify.app?devexample=true)
+
+## 153.9.0 (Jun 19, 2024)
+
+### Minor
+
+- Masonry: Remove legacy flexible gutter logic ([#3639](https://github.com/pinterest/gestalt/pull/3639)) - [Preview link](https://deploy-preview-3639--gestalt.netlify.app?devexample=true)
+
+## 153.8.0 (Jun 18, 2024)
+
+### Minor
+
+- BannerSlim: Standardize dismiss functionality ([#3633](https://github.com/pinterest/gestalt/pull/3633)) - [Preview link](https://deploy-preview-3633--gestalt.netlify.app?devexample=true)
+
+## 153.7.1 (Jun 17, 2024)
+
+### Patch
+
+- Docs: fix Flex page ([#3634](https://github.com/pinterest/gestalt/pull/3634)) - [Preview link](https://deploy-preview-3634--gestalt.netlify.app?devexample=true)
+
+## 153.7.0 (Jun 17, 2024)
+
+### Minor
+
+- Flex: Added forwardRef to Flex, Flex.Item ([#3626](https://github.com/pinterest/gestalt/pull/3626)) - [Preview link](https://deploy-preview-3626--gestalt.netlify.app?devexample=true)
+
+## 153.6.1 (Jun 14, 2024)
+
+### Patch
+
+- SearchGuide: docs on mobile (iOS/Android) ([#3629](https://github.com/pinterest/gestalt/pull/3629)) - [Preview link](https://deploy-preview-3629--gestalt.netlify.app?devexample=true)
+
+## 153.6.0 (Jun 14, 2024)
+
+### Minor
+
+- Tokens: Add line-height tokens ([#3623](https://github.com/pinterest/gestalt/pull/3623)) - [Preview link](https://deploy-preview-3623--gestalt.netlify.app?devexample=true)
+
+## 153.5.0 (Jun 14, 2024)
+
+### Minor
+
+- ButtonToggle: V2 Development ([#3611](https://github.com/pinterest/gestalt/pull/3611)) - [Preview link](https://deploy-preview-3611--gestalt.netlify.app?devexample=true)
+
+## 153.4.0 (Jun 13, 2024)
+
+### Minor
+
+- Tokens, Icon: enables beta VR theme experimentation ([#3616](https://github.com/pinterest/gestalt/pull/3616)) - [Preview link](https://deploy-preview-3616--gestalt.netlify.app?devexample=true)
+
+## 153.3.2 (Jun 13, 2024)
+
+### Patch
+
+- Internal: adding react-compiler plugin and rule ([#3627](https://github.com/pinterest/gestalt/pull/3627)) - [Preview link](https://deploy-preview-3627--gestalt.netlify.app?devexample=true)
+
+## 153.3.1 (Jun 12, 2024)
+
+### Patch
+
+- ButtonToggle: Changing background logic ([#3625](https://github.com/pinterest/gestalt/pull/3625)) - [Preview link](https://deploy-preview-3625--gestalt.netlify.app?devexample=true)
+
+## 153.3.0 (Jun 12, 2024)
+
+### Minor
+
+- Video: Add `dataTestId` prop ([#3624](https://github.com/pinterest/gestalt/pull/3624)) - [Preview link](https://deploy-preview-3624--gestalt.netlify.app?devexample=true)
+
+## 153.2.0 (Jun 12, 2024)
+
+### Minor
+
+- SideNavigation: Add `primaryAction` prop to all nested subcomponents ([#3622](https://github.com/pinterest/gestalt/pull/3622)) - [Preview link](https://deploy-preview-3622--gestalt.netlify.app?devexample=true)
+
+## 153.1.1 (Jun 11, 2024)
+
+### Patch
+
+- Tokens: Adding Snapshot Tests for Token Dist ([#3617](https://github.com/pinterest/gestalt/pull/3617)) - [Preview link](https://deploy-preview-3617--gestalt.netlify.app?devexample=true)
+
+## 153.1.0 (Jun 11, 2024)
+
+### Minor
+
+- Badge: add interactive icon to all types ([#3619](https://github.com/pinterest/gestalt/pull/3619)) - [Preview link](https://deploy-preview-3619--gestalt.netlify.app?devexample=true)
+
+## 153.0.0 (Jun 11, 2024)
+
+### Major
+
+- PageHeader: standardize tooltip prop ([#3620](https://github.com/pinterest/gestalt/pull/3620)) - [Preview link](https://deploy-preview-3620--gestalt.netlify.app?devexample=true)
+
+## 152.2.0 (Jun 11, 2024)
+
+### Minor
+
+- Box: extended margin/padding range from 12 to 16 ([#3618](https://github.com/pinterest/gestalt/pull/3618)) - [Preview link](https://deploy-preview-3618--gestalt.netlify.app?devexample=true)
+
+## 152.1.3 (Jun 7, 2024)
+
+### Patch
+
+- TableOfContents: Fix padding-inline-start padding-inline-end issues with PostCSS ([#3615](https://github.com/pinterest/gestalt/pull/3615)) - [Preview link](https://deploy-preview-3615--gestalt.netlify.app?devexample=true)
 
 ## 152.1.2 (Jun 5, 2024)
 

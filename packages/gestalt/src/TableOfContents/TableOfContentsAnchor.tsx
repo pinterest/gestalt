@@ -39,6 +39,7 @@ export default function TableOfContentsAnchor({ label, active, href, onClick }: 
         <div
           className={classNames(
             styles.item,
+            styles.itemPadding,
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore cannot infer type with dynamic property name
             styles[`nestingIndentation${nestedLevel}`],

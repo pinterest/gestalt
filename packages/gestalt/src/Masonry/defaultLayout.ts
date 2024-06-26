@@ -1,7 +1,7 @@
 import { Align, Layout } from 'gestalt/src//Masonry/types';
 import { Cache } from './Cache';
 import mindex from './mindex';
-import multiColumnLayout from './multiColumnLayout';
+import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
@@ -42,11 +42,7 @@ const calculateCenterOffset = ({
 };
 
 const defaultLayout =
-  <
-    T extends {
-      readonly [key: string]: unknown;
-    },
-  >({
+  <T>({
     align,
     columnWidth = 236,
     gutter = 14,
@@ -55,7 +51,7 @@ const defaultLayout =
     rawItemCount,
     width,
     measurementCache,
-    _twoColItems = false,
+    _getColumnSpanConfig,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -67,7 +63,7 @@ const defaultLayout =
     width?: number | null | undefined;
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
-    _twoColItems?: boolean;
+    _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     whitespaceThreshold?: number;
     logWhitespace?: (arg1: number) => void;
   }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
@@ -91,7 +87,7 @@ const defaultLayout =
       width,
     });
 
-    return _twoColItems
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -99,6 +95,7 @@ const defaultLayout =
           centerOffset,
           gutter,
           measurementCache,
+          _getColumnSpanConfig,
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {

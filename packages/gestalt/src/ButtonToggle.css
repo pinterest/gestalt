@@ -1,7 +1,22 @@
 .button {
-  composes: borderBox minWidth60 from "./Layout.css";
   composes: border from "./Borders.css";
+  composes: borderBox minWidth60 from "./Layout.css";
+}
+
+.rounding600 {
   border-radius: var(--rounding-600);
+}
+
+.rounding300 {
+  border-radius: var(--rounding-300);
+}
+
+.rounding200 {
+  border-radius: var(--rounding-200);
+}
+
+.rounding100 {
+  border-radius: var(--rounding-100);
 }
 
 .parentButton {
@@ -10,8 +25,26 @@
   background-color: var(--color-transparent);
 }
 
-.noBorder {
+.colorPickerButton {
   composes: noBorder from "./Borders.css";
+  background-color: var(--color-transparent);
+  border-radius: var(--rounding-pill);
+  cursor: pointer;
+  padding: 0;
+}
+
+.thumbnailDark img,
+.colorPickerButtonDark {
+  filter: invert(100%);
+}
+
+.thumbnailDisabled img {
+  filter: invert(46%) brightness(99%) contrast(91%);
+}
+
+.colorPickerButtonDisabled {
+  cursor: default;
+  filter: opacity(0.5);
 }
 
 .childrenDiv {
@@ -33,6 +66,23 @@
 .lg {
   composes: large from "./Layout.css";
   composes: paddingX4 paddingY3 from "./boxWhitespace.css";
+}
+
+.thumbnailSm {
+  composes: small from "./Layout.css";
+  composes: paddingX1 from "./boxWhitespace.css";
+  padding-bottom: 2px;
+  padding-top: var(--space-200);
+}
+
+.thumbnailMd {
+  composes: medium from "./Layout.css";
+  composes: paddingX2 paddingY2 from "./boxWhitespace.css";
+}
+
+.thumbnailLg {
+  composes: large from "./Layout.css";
+  composes: paddingX3 paddingY2 from "./boxWhitespace.css";
 }
 
 .enabled {
@@ -57,11 +107,13 @@
 
 .selected {
   composes: borderColorSelected from "./Borders.css";
-  background-color: var(--color-background-button-tertiary-default);
+  background-color: var(--color-background-button-selected-default);
 }
 
-.selectedBorder {
+.selectedDisabled {
   composes: sizeLg from "./Borders.css";
+  background-color: var(--color-background-button-disabled-default);
+  margin: calc(var(--g-border-width-lg) / 2 * -1);
 }
 
 /* COLORS */

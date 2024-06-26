@@ -281,7 +281,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
           className="FlexItem"
         >
           <button
-            aria-label="test"
+            aria-label="Dismiss banner"
             className="parentButton"
             onBlur={[Function]}
             onClick={[Function]}

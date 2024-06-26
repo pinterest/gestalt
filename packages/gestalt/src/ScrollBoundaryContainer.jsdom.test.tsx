@@ -24,6 +24,7 @@ describe('ScrollBoundaryContainer', () => {
       const { scrollBoundaryContainerRef } = useScrollBoundaryContainer();
 
       // @ts-expect-error - TS2540 - Cannot assign to 'current' because it is a read-only property.
+      // eslint-disable-next-line react-compiler/react-compiler
       scrollBoundaryContainer.current = scrollBoundaryContainerRef;
 
       return <Box />;

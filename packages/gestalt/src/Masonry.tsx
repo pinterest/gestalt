@@ -6,7 +6,7 @@ import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -107,23 +107,20 @@ type Props<T> = {
    */
   virtualize?: boolean;
   /**
-   * Experimental prop to turn on support for items spanning two columns. Two-column items should include the optional `columnSpan` prop.
-   *
-   * This is an experimental prop and may be removed in the future.
-   */
-  _twoColItems?: boolean;
-  /**
    * Experimental prop to log the additional whitespace shown above two-column items.
    *
    * This is an experimental prop and may be removed in the future.
    */
   _logTwoColWhitespace?: (arg1: number) => void;
   /**
-   * Temporal prop to sync gutter logic on full width layout refactor.
+   * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
+   * _getColumnSpanConfig is a function that takes an individual grid item as an input and returns a ColumnSpanConfig. ColumnSpanConfig can be one of two things:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which allows for configuration of the item's column span across the following grid sizes: sm (2 columns), md (3-4 columns), lg (5-8 columns), xl (9+ columns)
    *
-   * This is an experimental prop and will be removed in the future.
+   * This is an experimental prop and may be removed or changed in the future.
    */
-  _legacyFlexibleGutterLogic?: boolean;
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 };
 
 type State<T> = {
@@ -141,11 +138,7 @@ type State<T> = {
  * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.ts-snapshots/Masonry-chromium-darwin.png)
  *
  */
-export default class Masonry<
-  T extends {
-    readonly [key: string]: unknown;
-  },
-> extends ReactComponent<Props<T>, State<T>> {
+export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
   static createMeasurementStore<T1 extends Record<any, any>, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -495,9 +488,8 @@ export default class Masonry<
       minCols,
       renderItem,
       scrollContainer,
-      _twoColItems,
       _logTwoColWhitespace,
-      _legacyFlexibleGutterLogic,
+      _getColumnSpanConfig,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -513,8 +505,7 @@ export default class Masonry<
         idealColumnWidth: columnWidth,
         width,
         logWhitespace: _logTwoColWhitespace,
-        _twoColItems,
-        _legacyFlexibleGutterLogic,
+        _getColumnSpanConfig,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -536,7 +527,7 @@ export default class Masonry<
         rawItemCount: items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
-        _twoColItems,
+        _getColumnSpanConfig,
       });
     }
 
@@ -551,42 +542,53 @@ export default class Masonry<
           role="list"
           style={{ height: 0, width: '100%' }}
         >
-          {items.filter(Boolean).map((item, i) => (
-            <div // keep this in sync with renderMasonryComponent
-              // eslint-disable-next-line react/no-array-index-key
-              key={i}
-              ref={(el) => {
-                // purposely not checking for layout === 'serverRenderedFlexible' here
-                if (el && layout !== 'flexible') {
-                  // if we're hydrating from the server, we should only measure items on the initial render pass
-                  // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
-                  // that the caller has added the proper CSS to ensure the layout is correct during server render
-                  measurementStore.set(item, el.clientHeight);
+          {items.filter(Boolean).map((item, i) => {
+            const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
+            return (
+              <div // keep this in sync with renderMasonryComponent
+                // eslint-disable-next-line react/no-array-index-key
+                key={i}
+                ref={(el) => {
+                  // purposely not checking for layout === 'serverRenderedFlexible' here
+                  if (el && layout !== 'flexible') {
+                    // if we're hydrating from the server, we should only measure items on the initial render pass
+                    // if we're not rendering a flexible layout.  "serverRenderedFlexible" is an exception because we assume
+                    // that the caller has added the proper CSS to ensure the layout is correct during server render
+                    measurementStore.set(item, el.clientHeight);
+                  }
+                }}
+                className="static"
+                data-column-span={
+                  typeof columnSpanConfig === 'number'
+                    ? columnSpanConfig
+                    : btoa(JSON.stringify(columnSpanConfig))
                 }
-              }}
-              className="static"
-              data-column-span={item.columnSpan ?? 1}
-              data-grid-item
-              role="listitem"
-              style={{
-                top: 0,
-                left: 0,
-                transform: 'translateX(0px) translateY(0px)',
-                WebkitTransform: 'translateX(0px) translateY(0px)',
-                // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
-                width:
-                  layout === 'flexible' || layout === 'serverRenderedFlexible'
-                    ? undefined // we can't set a width for server rendered flexible items
-                    : layoutNumberToCssDimension(
-                        typeof item.columnSpan === 'number' && columnWidth != null && gutter != null
-                          ? columnWidth * item.columnSpan + gutter * (item.columnSpan - 1)
-                          : columnWidth,
-                      ),
-              }}
-            >
-              {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
-            </div>
-          ))}
+                data-grid-item
+                role="listitem"
+                style={{
+                  top: 0,
+                  left: 0,
+                  transform: 'translateX(0px) translateY(0px)',
+                  WebkitTransform: 'translateX(0px) translateY(0px)',
+                  // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+                  width:
+                    layout === 'flexible' ||
+                    layout === 'serverRenderedFlexible' ||
+                    typeof columnSpanConfig === 'object'
+                      ? undefined // we can't set a width for server rendered flexible items
+                      : layoutNumberToCssDimension(
+                          typeof columnSpanConfig === 'number' &&
+                            columnWidth != null &&
+                            gutter != null
+                            ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
+                            : columnWidth,
+                        ),
+                }}
+              >
+                {renderItem({ data: item, itemIdx: i, isMeasuring: false })}
+              </div>
+            );
+          })}
         </div>
       );
     } else if (width == null) {
@@ -598,10 +600,8 @@ export default class Masonry<
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
       const hasMultiColumnItems =
-        _twoColItems &&
-        itemsWithoutPositions.some(
-          (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
-        );
+        _getColumnSpanConfig &&
+        itemsWithoutPositions.some((item) => _getColumnSpanConfig(item) !== 1);
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       // we need the batch size (number of one column items for the graph) + 1 (two column item)

@@ -17,10 +17,8 @@ export default function Example() {
     >
       <Box alignItems="center" display="flex" height="100%" padding={8}>
         <BannerSlim
-          dismissButton={{
-            onDismiss: () => {},
-          }}
           message="Idea Pins sind jetzt plattformübergreifend verfügbar."
+          onDismiss={() => {}}
           primaryAction={{
             accessibilityLabel: 'Beantragen Sie für betta Zugang zu Idea Pins',
             label: 'Zugang beantragen',

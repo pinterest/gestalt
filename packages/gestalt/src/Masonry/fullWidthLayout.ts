@@ -1,20 +1,15 @@
 import { Cache } from './Cache';
 import mindex from './mindex';
-import multiColumnLayout from './multiColumnLayout';
+import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { Position } from './types';
 
-const fullWidthLayout = <
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+const fullWidthLayout = <T>({
   width,
   idealColumnWidth = 240,
   gutter = 0,
   minCols = 2,
   measurementCache,
-  _twoColItems = false,
-  _legacyFlexibleGutterLogic = true,
+  _getColumnSpanConfig,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -23,8 +18,7 @@ const fullWidthLayout = <
   width?: number | null | undefined;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
-  _twoColItems?: boolean;
-  _legacyFlexibleGutterLogic?: boolean;
+  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   whitespaceThreshold?: number;
   logWhitespace?: (arg1: number) => void;
 }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
@@ -49,7 +43,7 @@ const fullWidthLayout = <
 
   return (items: ReadonlyArray<T>) => {
     const heights = new Array<number>(columnCount).fill(0);
-    return _twoColItems
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -57,6 +51,7 @@ const fullWidthLayout = <
           centerOffset,
           gutter,
           measurementCache,
+          _getColumnSpanConfig,
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {
@@ -76,7 +71,7 @@ const fullWidthLayout = <
             const top = heights[col];
             const left = col * columnWidthAndGutter + centerOffset;
 
-            heights[col] += height + (_legacyFlexibleGutterLogic ? 0 : gutter);
+            heights[col] += height + gutter;
             position = {
               top,
               left,

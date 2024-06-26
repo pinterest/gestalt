@@ -19,6 +19,7 @@ const basePlugins = [
   'jest',
   'jsx-a11y',
   'react',
+  'react-compiler',
   'react-hooks',
   'simple-import-sort',
   'testing-library',
@@ -166,6 +167,7 @@ module.exports = {
       'files': ['packages/**/*.{js,ts,tsx}'],
       'rules': {
         '@next/next/no-img-element': OFF,
+        'react-compiler/react-compiler': ERROR,
       },
     },
     {

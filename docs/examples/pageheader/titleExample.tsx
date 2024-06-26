@@ -6,7 +6,7 @@ export default function PageHeaderTitleExample() {
   return (
     <Fragment>
       <PageHeader
-        badge={{ text: 'New', type: 'info', tooltipText: 'New integration' }}
+        badge={{ text: 'New', type: 'info', tooltip: { text: 'New integration' } }}
         helperIconButton={{
           accessibilityControls: '',
           accessibilityExpanded: false,

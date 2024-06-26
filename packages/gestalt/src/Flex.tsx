@@ -1,11 +1,11 @@
-import { Children, ReactNode } from 'react';
+import { Children, forwardRef, ForwardRefExoticComponent, ReactNode } from 'react';
 import { buildStyles } from './boxTransforms';
 import styles from './Flex.css';
 import FlexItem from './FlexItem';
 import wrapWithComponent from './utils/wrapWithComponent';
 
 type Dimension = number | string;
-type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
 
 type Props = {
   /**
@@ -89,6 +89,10 @@ type Props = {
    */
   overflow?: 'visible' | 'hidden' | 'scroll' | 'scrollX' | 'scrollY' | 'auto';
   /**
+   * Ref that is forwarded to the underlying div element.
+   */
+  ref?: HTMLDivElement;
+  /**
    * Use numbers for pixels: `width={100}` and strings for percentages: `width="100%"`.
    */
   width?: Dimension;
@@ -127,50 +131,63 @@ const allowedProps = [
  * ![Flex light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Flex.spec.ts-snapshots/Flex-chromium-darwin.png)
  *
  */
-export default function Flex({
-  children: childrenProp,
-  dataTestId,
-  direction = 'row',
-  gap = 0,
-  justifyContent,
-  ...rest
-}: Props) {
-  const children = gap
-    ? // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
-      Children.map(childrenProp, (child, index) => {
-        if (child === null || child === undefined) {
-          return null;
-        }
-        return wrapWithComponent({
-          element: child,
-          Component: FlexItem,
-          props: {
-            // @ts-expect-error - TS2322 - Type '{ key: number; }' is not assignable to type 'Props'.
-            key: index,
-          },
-        });
-      }).filter(Boolean)
-    : childrenProp;
-
-  const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
-    styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
-  }`;
-
-  const { passthroughProps, propsStyles } = buildStyles<Props>({
-    baseStyles: `${styles.Flex} ${gapStyles}`,
-    props: {
-      ...rest,
-      children,
-      direction,
+const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      children: childrenProp,
+      dataTestId,
+      direction = 'row',
+      gap = 0,
       justifyContent,
-    },
-    allowlistProps: allowedProps,
-  });
+      ...rest
+    }: Props,
+    ref,
+  ) => {
+    const children = gap
+      ? // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+        Children.map(childrenProp, (child, index) => {
+          if (child === null || child === undefined) {
+            return null;
+          }
+          return wrapWithComponent({
+            element: child,
+            Component: FlexItem,
+            props: {
+              key: index,
+            },
+          });
+        }).filter(Boolean)
+      : childrenProp;
 
-  // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
-  return <div {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+    const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
+      styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
+    }`;
+
+    const { passthroughProps, propsStyles } = buildStyles<Props>({
+      baseStyles: `${styles.Flex} ${gapStyles}`,
+      props: {
+        ...rest,
+        children,
+        direction,
+        justifyContent,
+      },
+      allowlistProps: allowedProps,
+    });
+
+    // @ts-expect-error - TS2322 - Type '{ "data-test-id": string | undefined; className: string | null | undefined; style: InlineStyle | null | undefined; alignContent?: "center" | "start" | "end" | "stretch" | "between" | "around" | "evenly" | undefined; ... 18 more ...; wrap?: boolean | undefined; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+    return <div ref={ref} {...passthroughProps} {...propsStyles} data-test-id={dataTestId} />;
+  },
+);
+
+// Define the type for FlexWithForwardRef to include the subcomponent, otherwise typescript does not recognize Flex.Item
+interface FlexWithSubComponents
+  extends ForwardRefExoticComponent<Props & React.RefAttributes<HTMLDivElement>> {
+  Item: typeof FlexItem;
 }
 
-Flex.Item = FlexItem;
+// Attach the subcomponent to the main component
+(FlexWithForwardRef as FlexWithSubComponents).Item = FlexItem;
 
-Flex.displayName = 'Flex';
+FlexWithForwardRef.displayName = 'Flex';
+
+export default FlexWithForwardRef as FlexWithSubComponents;

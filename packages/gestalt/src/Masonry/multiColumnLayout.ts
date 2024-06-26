@@ -7,6 +7,28 @@ import { NodeData, Position } from './types';
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
+type GridSize = 'sm' | 'md' | 'lg' | 'xl';
+
+export type ColumnSpanConfig = number | { [Size in GridSize]: number };
+
+// maps the number of columns to a grid breakpoint
+// sm: 2 columns
+// md: 3-4 columns
+// lg: 5-8 columns
+// xl: 9+ columns
+export function columnCountToGridSize(columnCount: number): GridSize {
+  if (columnCount <= 2) {
+    return 'sm';
+  }
+  if (columnCount <= 4) {
+    return 'md';
+  }
+  if (columnCount <= 8) {
+    return 'lg';
+  }
+  return 'xl';
+}
+
 function isNil(value: unknown): boolean {
   return value === null || value === undefined;
 }
@@ -18,14 +40,6 @@ const offscreen = (width: number, height: number = Infinity) => ({
   height,
 });
 
-function getItemColumnSpan<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->(item: T): number {
-  return typeof item.columnSpan === 'number' ? item.columnSpan : 1;
-}
-
 function getPositionsOnly<T>(
   positions: ReadonlyArray<{
     item: T;
@@ -33,6 +47,20 @@ function getPositionsOnly<T>(
   }>,
 ): ReadonlyArray<Position> {
   return positions.map(({ position }) => position);
+}
+
+function calculateActualColumnSpan<T>(props: {
+  columnCount: number;
+  item: T;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
+}): number {
+  const { columnCount, item, _getColumnSpanConfig } = props;
+  const columnSpanConfig = _getColumnSpanConfig(item);
+  if (typeof columnSpanConfig === 'number') {
+    return columnSpanConfig;
+  }
+  const gridSize = columnCountToGridSize(columnCount);
+  return columnSpanConfig[gridSize] ?? 1;
 }
 
 function getAdjacentColumnHeightDeltas(
@@ -104,17 +132,14 @@ function calculateSplitIndex({
   return multiColumnIndex;
 }
 
-export function initializeHeightsArray<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+export function initializeHeightsArray<T>({
   centerOffset,
   columnCount,
   columnWidthAndGutter,
   gutter,
   items,
   positionCache,
+  _getColumnSpanConfig,
 }: {
   centerOffset: number;
   columnCount: number;
@@ -122,13 +147,14 @@ export function initializeHeightsArray<
   gutter: number;
   items: ReadonlyArray<T>;
   positionCache: Cache<T, Position> | null | undefined;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<number> {
   const heights = new Array<number>(columnCount).fill(0);
   items.forEach((item) => {
     const position = positionCache?.get(item);
     if (position) {
       const col = (position.left - centerOffset) / columnWidthAndGutter;
-      const columnSpan = getItemColumnSpan(item);
+      const columnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
       // the height of the column is just the sum of the top and height of the item
       const absoluteHeight = position.top + position.height + gutter;
       for (let i = col; i < col + columnSpan; i += 1) {
@@ -434,11 +460,7 @@ function getGraphPositions<T>({
     : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
 }
 
-function getPositionsWithMultiColumnItem<
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+function getPositionsWithMultiColumnItem<T>({
   multiColumnItem,
   itemsToPosition,
   heights,
@@ -446,6 +468,7 @@ function getPositionsWithMultiColumnItem<
   whitespaceThreshold,
   columnCount,
   logWhitespace,
+  _getColumnSpanConfig,
   ...commonGetPositionArgs
 }: {
   multiColumnItem: T;
@@ -464,6 +487,7 @@ function getPositionsWithMultiColumnItem<
   gutter: number;
   measurementCache: Cache<T, number>;
   positionCache: Cache<T, Position>;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): {
   positions: ReadonlyArray<{
     item: T;
@@ -476,15 +500,17 @@ function getPositionsWithMultiColumnItem<
   // This is the index inside the items to position array
   const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
   const oneColumnItems = itemsToPosition.filter(
-    (item) => !item.columnSpan || item.columnSpan === 1,
+    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig }) === 1,
   );
 
   // The empty columns can be different from columnCount if there are
   // items already positioned from previous batches
   const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-  // @ts-expect-error - TS2345 - Argument of type 'unknown' is not assignable to parameter of type 'string'.
-  const multiColumnItemColumnSpan = Math.min(parseInt(multiColumnItem.columnSpan, 10), columnCount);
+  const multiColumnItemColumnSpan = Math.min(
+    calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig }),
+    columnCount,
+  );
 
   // Skip the graph logic if the two column item can be displayed on the first row,
   // this means graphBatch is empty and multi column item is positioned on its
@@ -574,11 +600,7 @@ function getPositionsWithMultiColumnItem<
   return { positions: prevPositions.concat(finalPositions), heights: finalHeights };
 }
 
-const multiColumnLayout = <
-  T extends {
-    readonly [key: string]: unknown;
-  },
->({
+const multiColumnLayout = <T>({
   items,
   gutter = 14,
   columnWidth = 236,
@@ -588,6 +610,7 @@ const multiColumnLayout = <
   measurementCache,
   positionCache,
   whitespaceThreshold,
+  _getColumnSpanConfig,
 }: {
   items: ReadonlyArray<T>;
   gutter?: number;
@@ -598,11 +621,13 @@ const multiColumnLayout = <
   measurementCache: Cache<T, number>;
   whitespaceThreshold?: number;
   logWhitespace?: (arg1: number) => void;
+  _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<Position> => {
   if (!items.every((item) => measurementCache.has(item))) {
     return items.map((item) => {
-      if (typeof item.columnSpan === 'number' && item.columnSpan > 1) {
-        const columnSpan = Math.min(item.columnSpan, columnCount);
+      const itemColumnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
+      if (itemColumnSpan > 1) {
+        const columnSpan = Math.min(itemColumnSpan, columnCount);
         return offscreen(columnWidth * columnSpan + gutter * (columnSpan - 1));
       }
       return offscreen(columnWidth);
@@ -619,13 +644,14 @@ const multiColumnLayout = <
     gutter,
     items,
     positionCache,
+    _getColumnSpanConfig,
   });
 
   const itemsWithPositions = items.filter((item) => positionCache?.has(item));
   const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
   const multiColumnItems = itemsWithoutPositions.filter(
-    (item) => typeof item.columnSpan === 'number' && item.columnSpan > 1,
+    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig }) > 1,
   );
 
   const commonGetPositionArgs = {
@@ -674,6 +700,7 @@ const multiColumnLayout = <
           whitespaceThreshold,
           logWhitespace,
           columnCount,
+          _getColumnSpanConfig,
           ...commonGetPositionArgs,
         }),
       { heights: paintedItemHeights, positions: paintedItemPositions },

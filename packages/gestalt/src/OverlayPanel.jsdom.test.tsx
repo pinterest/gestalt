@@ -20,7 +20,6 @@ describe('OverlayPanel', () => {
   });
 
   it('should render all props with nodes', () => {
-    // Remove experiment after OverlayPanel v2 is fully released
     const { container } = render(
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"

@@ -1,6 +1,9 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
+import borderStyles from './Borders.css';
 import styles from './ButtonToggle.css';
+import ColorPicker, { SkinColor } from './ButtonToggle/ColorPicker';
+import LabeledThumbnail from './ButtonToggle/LabeledThumbnail';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
@@ -34,8 +37,10 @@ type Props = {
   accessibilityLabel?: string;
   /**
    * The background color of ButtonToggle.
+   *
+   * This prop also accepts an array of 4 skin tones (`skinTone1`, `skinTone2`, ..., `skinTone16`) to create a color picker. See the [Color Picker Variant](https://gestalt.pinterest.systems/web/buttontoggle#Color-Picker) for details on proper usage.
    */
-  color?: 'red' | 'transparent';
+  color?: 'red' | 'transparent' | readonly [SkinColor, SkinColor, SkinColor, SkinColor];
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/afut/#priority) before using this prop.
    */
@@ -44,6 +49,10 @@ type Props = {
    * Indicates if ButtonToggle is disabled. Disabled ButtonToggles are inactive and cannot be interacted with. See the [state variant](https://gestalt.pinterest.systems/web/buttontoggle#State) for details on proper usage.
    */
   disabled?: boolean;
+  /**
+   * An icon displayed above the text to illustrate the meaning of the option selected by the ButtonToggle.
+   */
+  graphicSrc?: string;
   /**
    * An icon displayed before the text to help clarify the usage of ButtonToggle.
    */
@@ -91,6 +100,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     color = 'transparent',
     dataTestId,
     disabled = false,
+    graphicSrc,
     iconStart,
     onBlur,
     onClick,
@@ -134,41 +144,120 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
   });
 
-  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm',
-    [styles.md]: size === 'md',
-    [styles.lg]: size === 'lg',
-    [styles[color]]: !disabled && !selected,
-    [styles.noBorder]: color === 'red' && !selected,
-    [styles.selectedBorder]: selected,
-    [styles.selected]: !disabled && selected,
-    [styles.disabled]: disabled && (color !== 'red' || selected),
-    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
-    [styles.disabledRed]: disabled && color === 'red' && !selected,
-    [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: !disabled && isTapping,
-  });
-
-  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
-
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
-
-  const textColor =
-    (disabled && 'subtle') ||
-    (selected && 'default') ||
-    (isDarkModeRed && 'default') ||
-    DEFAULT_TEXT_COLORS[color];
-
   // Consume GlobalEventsHandlerProvider
   const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
     buttonToggleHandlers: undefined,
   };
 
+  if (color instanceof Array) {
+    return (
+      <button
+        ref={innerRef}
+        aria-controls={accessibilityControls}
+        aria-label={accessibilityLabel || text}
+        aria-pressed={selected}
+        className={classnames(sharedTypeClasses, styles.colorPickerButton, {
+          [styles.colorPickerButtonDisabled]: disabled,
+        })}
+        data-test-id={dataTestId}
+        disabled={disabled}
+        onBlur={(event) => {
+          onBlur?.({ event });
+        }}
+        onClick={(event) => {
+          buttonToggleHandlers?.onClick?.();
+          onClick?.({ event });
+        }}
+        onFocus={(event) => {
+          onFocus?.({ event });
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onTouchCancel={handleTouchCancel}
+        onTouchEnd={handleTouchEnd}
+        // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+        onTouchMove={handleTouchMove}
+        // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+        onTouchStart={handleTouchStart}
+        type="button"
+      >
+        <ColorPicker colors={color} disabled={disabled} selected={selected} size={size} />
+      </button>
+    );
+  }
+
+  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
+    [styles.disabled]: disabled && (color !== 'red' || selected),
+    [styles.disabledRed]: disabled && color === 'red' && !selected,
+    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
+    [styles.enabled]: !disabled,
+    [styles.lg]: size === 'lg' && !graphicSrc,
+    [styles.md]: size === 'md' && !graphicSrc,
+    [borderStyles.noBorder]: color === 'red' && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.selectedDisabled]: disabled && selected,
+    [styles.sm]: size === 'sm' && !graphicSrc,
+    [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
+    [styles.thumbnailDisabled]: graphicSrc && disabled,
+    [styles.thumbnailLg]: size === 'lg' && graphicSrc,
+    [styles.thumbnailMd]: size === 'md' && graphicSrc,
+    [styles.thumbnailSm]: size === 'sm' && graphicSrc,
+    [styles[color]]: !disabled && !selected,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+  });
+
+  const borderClasses = {
+    [styles.rounding600]: !graphicSrc,
+    [styles.rounding300]: graphicSrc && size === 'lg',
+    [styles.rounding200]: graphicSrc && size === 'md',
+    [styles.rounding100]: graphicSrc && size === 'sm',
+  };
+
+  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
+
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, borderClasses);
+
+  const textColor =
+    (disabled && 'subtle') ||
+    (selected && 'inverse') ||
+    (selected && 'default') ||
+    (isDarkModeRed && 'default') ||
+    DEFAULT_TEXT_COLORS[color];
+
+  const renderContent = () =>
+    graphicSrc ? (
+      <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
+    ) : (
+      <Flex
+        alignItems="center"
+        gap={{ row: text === '' ? 0 : 2, column: 0 }}
+        justifyContent="center"
+      >
+        {iconStart && (
+          <Icon
+            accessibilityLabel=""
+            color={textColor as IconColor}
+            icon={iconStart}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        )}
+        <Text
+          align="center"
+          color={textColor}
+          overflow="breakWord"
+          size={size === 'sm' ? '200' : '300'}
+          weight="bold"
+        >
+          {text}
+        </Text>
+      </Flex>
+    );
+
   return (
     <button
       ref={innerRef}
       aria-controls={accessibilityControls}
-      aria-label={accessibilityLabel}
+      aria-label={accessibilityLabel || text}
       aria-pressed={selected}
       className={parentButtonClasses}
       data-test-id={dataTestId}
@@ -195,37 +284,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       type="button"
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
-        {iconStart ? (
-          <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-            {iconStart ? (
-              <Icon
-                accessibilityLabel=""
-                color={textColor as IconColor}
-                icon={iconStart}
-                size={SIZE_NAME_TO_PIXEL[size]}
-              />
-            ) : null}
-            <Text
-              align="center"
-              color={textColor}
-              overflow="normal"
-              size={size === 'sm' ? '200' : '300'}
-              weight="bold"
-            >
-              {text}
-            </Text>
-          </Flex>
-        ) : (
-          <Text
-            align="center"
-            color={textColor}
-            overflow="normal"
-            size={size === 'sm' ? '200' : '300'}
-            weight="bold"
-          >
-            {text}
-          </Text>
-        )}
+        {renderContent()}
       </div>
     </button>
   );
