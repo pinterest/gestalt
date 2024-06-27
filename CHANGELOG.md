@@ -1,3 +1,9 @@
+## 154.0.1 (Jun 27, 2024)
+
+### Patch
+
+- Internal: upgrade @typescript-eslint ([#3647](https://github.com/pinterest/gestalt/pull/3647)) - [Preview link](https://deploy-preview-3647--gestalt.netlify.app?devexample=true)
+
 ## 154.0.0 (Jun 21, 2024)
 
 ### Major
