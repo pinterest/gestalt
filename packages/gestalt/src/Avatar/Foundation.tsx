@@ -66,7 +66,7 @@ export default function AvatarFoundation({
   content = 'text',
 }: Props) {
   const cs = classnames(styles.icon, avatarStyles.text);
-  const isInExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
@@ -109,7 +109,7 @@ export default function AvatarFoundation({
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>
-          <path d={(isInExperiment ? vrIcons : icons)['person-add']} />
+          <path d={(isInVRExperiment ? vrIcons : icons)['person-add']} />
         </svg>
       ) : null}
     </ResponsiveFitSizeBox>

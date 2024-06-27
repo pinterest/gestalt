@@ -3,8 +3,14 @@ import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
+import focusStyles from './Focus.css';
 import Icon from './Icon';
+import InternalIcon from './sharedSubcomponents/InternalIcon';
+import TapArea from './TapArea';
 import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
+import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
@@ -63,7 +69,12 @@ type Props = {
  *
  */
 export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
-  const shouldUseTooltip = tooltip?.text;
+  const { isFocusVisible } = useFocusVisible();
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const ICON_MAP = Object.freeze({
     'info': 'info-circle',
@@ -71,49 +82,94 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     'warning': 'workflow-status-warning',
     'success': 'check-circle',
     'neutral': 'lock',
-    'recommendation': 'performance-plus',
+    'recommendation': 'sparkle',
     'darkWash': 'info-circle',
     'lightWash': 'info-circle',
   });
 
   let styleType: TypeOptions | InteractiveTypeOptions = type;
 
-  if (shouldUseTooltip) {
+  if (tooltip?.text && (type === 'info' || isInVRExperiment)) {
     styleType = `interactive-${type}`;
   }
 
-  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
+  const isInteractive = styleType.startsWith('interactive');
+
+  const csBadge = cx(styles.Badge, styles[position], styles[styleType], {
+    [focusStyles.accessibilityOutline]: isFocusVisible,
+  });
+
+  const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isHovered } =
+    useInteractiveStates();
+
+  const getIconColor = () => {
+    if (isInVRExperiment && isHovered) return `${type}-hover`;
+
+    if (!isInVRExperiment) return type === 'lightWash' ? 'dark' : 'light';
+
+    return type;
+  };
 
   const badgeComponent = (
-    <div className={csBadge}>
-      <Flex alignItems="center" gap={1}>
-        {shouldUseTooltip ? (
+    <div
+      className={csBadge}
+      onBlur={handleOnBlur}
+      onFocus={handleOnFocus}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
+    >
+      <Flex alignItems="center" gap={1} height="100%">
+        {isInteractive ? (
           <Box aria-hidden>
-            <Icon
-              accessibilityLabel=""
-              color="inverse"
-              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-              inline
-              size="14"
-            />
+            {isInVRExperiment ? (
+              <InternalIcon
+                accessibilityLabel=""
+                color={getIconColor() as ComponentProps<typeof InternalIcon>['color']}
+                icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+                inline
+                size="12"
+              />
+            ) : (
+              <Icon
+                accessibilityLabel=""
+                color={
+                  type === 'lightWash' || type === 'darkWash'
+                    ? (getIconColor() as 'light' | 'dark')
+                    : 'inverse'
+                }
+                icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+                inline
+                size="14"
+              />
+            )}
           </Box>
         ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }} display="inlineBlock">
+        <Box
+          dangerouslySetInlineStyle={{ __style: { marginTop: isInVRExperiment ? '3px' : '2px' } }}
+          display="inlineBlock"
+        >
           {text}
         </Box>
       </Flex>
     </div>
   );
 
-  return shouldUseTooltip ? (
+  return isInteractive && tooltip ? (
     <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
+      accessibilityLabel=""
       idealDirection={tooltip.idealDirection}
       inline
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >
-      {badgeComponent}
+      <TapArea
+        accessibilityLabel={tooltip.accessibilityLabel}
+        mouseCursor="default"
+        rounding={1}
+        tapStyle="none"
+      >
+        {badgeComponent}
+      </TapArea>
     </Tooltip>
   ) : (
     badgeComponent
