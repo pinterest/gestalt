@@ -1,6 +1,7 @@
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const path = require('path');
+const toCamelCase = require('lodash.camelcase');
 
 // CONFIG
 
@@ -413,6 +414,30 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'attribute/custom-cti',
+  type: 'attribute',
+  transformer(prop) {
+    const prefixes = ['base', 'sema', 'comp'];
+    const path = prop.path.join('-');
+    const hasPrefix = prefixes.some((prefix) => prop.path[0] === prefix);
+
+    const attrNames = ['category', 'type', 'item', 'subitem', 'state'];
+    if (hasPrefix) {
+      attrNames.unshift('prefix');
+    }
+
+    const originalAttrs = prop.attributes || {};
+    const generatedAttrs = {};
+
+    for (let i = 0; i < prop.path.length && i < attrNames.length; i++) {
+      generatedAttrs[attrNames[i]] = prop.path[i];
+    }
+
+    return Object.assign(generatedAttrs, originalAttrs);
+  },
+});
+
 StyleDictionary.registerFormat({
   name: `constantLibrary-javascript/es6/vr-theme`,
   formatter({ dictionary }) {
@@ -542,38 +567,13 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/kebab',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic') && !prop.filePath.includes('vr-theme-web-mapping');
-  },
-  transformer(prop) {
-    const prefix = getPrefix(prop.filePath);
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}-${match}`);
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/pascal',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic');
-  },
-  transformer(prop) {
-    const prefix = getPrefix(prop.filePath);
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}${match}`);
-  },
-});
-
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'webCssTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/kebab',
     'name/conflictFixing',
-    'name/prefix/level/kebab',
     'value/elevation/css',
     'color/css',
   ],
@@ -582,10 +582,9 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'webJsTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/pascal',
     'name/conflictFixing',
-    'name/prefix/level/pascal',
     'value/elevation/css',
     'color/hex',
   ],
@@ -759,26 +758,13 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/snake',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic');
-  },
-  transformer(prop) {
-    const prefix = getPrefix(prop.filePath);
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
-  },
-});
-
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'androidTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/snake',
     'name/conflictFixing',
-    'name/prefix/level/snake',
     'color/hex8android',
     'size/pxToDpOrSp',
   ],
@@ -856,6 +842,20 @@ function getAndroidConfiguration({ theme, mode, language }) {
 // IOS PLATFORM
 
 // REGISTER TRANSFORM
+StyleDictionary.registerTransform({
+  name: 'name/custom-ti/camel',
+  type: 'name',
+  transformer: function (prop, options) {
+    const paths = [].concat(prop.path);
+    if ('prefix' in prop.attributes) {
+      // remove the category value from paths array
+      paths.splice(1, 1);
+    } else {
+      paths.splice(0, 1);
+    }
+    return toCamelCase(paths.join(' '));
+  },
+});
 
 StyleDictionary.registerTransform({
   name: 'value/elevation/ios',
@@ -870,29 +870,13 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/camel',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic');
-  },
-  transformer(prop) {
-    const prefix = getPrefix(prop.filePath);
-    return prop.name.replace(
-      /^[^_]*/,
-      (match) => `${prefix}${match.charAt(0).toUpperCase() + match.slice(1)}`,
-    );
-  },
-});
-
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'iOSTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/pascal',
     'name/conflictFixing',
-    'name/prefix/level/pascal',
     'value/elevation/ios',
     'color/UIColor',
     'content/objC/literal',
@@ -905,10 +889,9 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'iOSSwiftEnumTransformGroup',
   transforms: [
-    'attribute/cti',
-    'name/ti/camel',
+    'attribute/custom-cti',
+    'name/custom-ti/camel',
     'name/conflictFixing',
-    'name/prefix/level/camel',
     'value/elevation/ios',
     'color/UIColorSwift',
     'content/swift/literal',

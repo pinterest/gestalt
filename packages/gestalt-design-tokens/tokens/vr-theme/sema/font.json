@@ -1,82 +1,84 @@
 {
-  "font": {
-    "weight": {
-      "heading": {
-        "bold": {
-          "value": "{font.weight.700}",
+  "sema": {
+    "font": {
+      "weight": {
+        "heading": {
+          "bold": {
+            "value": "{base.font.weight.700}",
+            "type": "other"
+          },
+          "medium": {
+            "value": "{base.font.weight.500}",
+            "type": "other"
+          }
+        },
+        "body": {
+          "value": "{base.font.weight.400}",
           "type": "other"
         },
-        "medium": {
-          "value": "{font.weight.500}",
+        "UI": {
+          "value": "{base.font.weight.500}",
           "type": "other"
         }
       },
-      "body": {
-        "value": "{font.weight.400}",
-        "type": "other"
-      },
-      "UI": {
-        "value": "{font.weight.500}",
-        "type": "other"
-      }
-    },
-    "size": {
-      "heading": {
-        "XXS": {
-          "value": "{font.size.14}",
-          "type": "other"
+      "size": {
+        "heading": {
+          "XXS": {
+            "value": "{base.font.size.14}",
+            "type": "other"
+          },
+          "XS": {
+            "value": "{base.font.size.16}",
+            "type": "other"
+          },
+          "SM": {
+            "value": "{base.font.size.20}",
+            "type": "other"
+          },
+          "MD": {
+            "value": "{base.font.size.28}",
+            "type": "other"
+          },
+          "LG": {
+            "value": "{base.font.size.36}",
+            "type": "other"
+          }
         },
-        "XS": {
-          "value": "{font.size.16}",
-          "type": "other"
+        "body": {
+          "XS": {
+            "value": "{base.font.size.12}",
+            "type": "other"
+          },
+          "SM": {
+            "value": "{base.font.size.14}",
+            "type": "other"
+          },
+          "MD": {
+            "value": "{base.font.size.16}",
+            "type": "other"
+          },
+          "LG": {
+            "value": "{base.font.size.20}",
+            "type": "other"
+          }
         },
-        "SM": {
-          "value": "{font.size.20}",
-          "type": "other"
-        },
-        "MD": {
-          "value": "{font.size.28}",
-          "type": "other"
-        },
-        "LG": {
-          "value": "{font.size.36}",
-          "type": "other"
-        }
-      },
-      "body": {
-        "XS": {
-          "value": "{font.size.12}",
-          "type": "other"
-        },
-        "SM": {
-          "value": "{font.size.14}",
-          "type": "other"
-        },
-        "MD": {
-          "value": "{font.size.16}",
-          "type": "other"
-        },
-        "LG": {
-          "value": "{font.size.20}",
-          "type": "other"
-        }
-      },
-      "UI": {
-        "XS": {
-          "value": "{font.size.12}",
-          "type": "other"
-        },
-        "SM": {
-          "value": "{font.size.14}",
-          "type": "other"
-        },
-        "MD": {
-          "value": "{font.size.16}",
-          "type": "other"
-        },
-        "LG": {
-          "value": "{font.size.20}",
-          "type": "other"
+        "UI": {
+          "XS": {
+            "value": "{base.font.size.12}",
+            "type": "other"
+          },
+          "SM": {
+            "value": "{base.font.size.14}",
+            "type": "other"
+          },
+          "MD": {
+            "value": "{base.font.size.16}",
+            "type": "other"
+          },
+          "LG": {
+            "value": "{base.font.size.20}",
+            "type": "other"
+          }
         }
       }
     }
