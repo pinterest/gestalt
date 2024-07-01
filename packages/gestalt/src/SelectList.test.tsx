@@ -95,7 +95,7 @@ describe('SelectList', () => {
     render(
       <SelectList id="test" onBlur={onBlurMock} onChange={jest.fn()}>
         {options}
-      </SelectList>
+      </SelectList>,
     );
 
     const select = screen.getByRole('combobox');
@@ -112,7 +112,7 @@ describe('SelectList', () => {
     render(
       <SelectList id="test" onChange={jest.fn()} onFocus={onFocusMock}>
         {options}
-      </SelectList>
+      </SelectList>,
     );
 
     const select = screen.getByRole('combobox');

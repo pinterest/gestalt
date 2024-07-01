@@ -12,7 +12,6 @@ import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
 import formElement from './sharedSubcomponents/FormElement.css';
 
-
 type Props = {
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
