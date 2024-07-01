@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useState, FocusEvent, ChangeEvent, FC } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -50,9 +50,18 @@ type Props = {
    */
   name?: string;
   /**
+   * Callback triggered when the user blurs the input.
+   */
+  onBlur?: (arg1: { event: FocusEvent<HTMLInputElement> | FocusEvent<HTMLSelectElement>; value: string }) => void;
+  /**
+  /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
-  onChange: (arg1: { event: React.ChangeEvent<HTMLSelectElement>; value: string }) => void;
+  onChange: (arg1: { event: ChangeEvent<HTMLSelectElement>; value: string }) => void;
+  /**
+   * Callback triggered when the user focuses the input.
+   */
+  onFocus?: (arg1: { event: FocusEvent<HTMLSelectElement>; value: string }) => void;
   /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
@@ -66,6 +75,11 @@ type Props = {
    */
   value?: string | null | undefined;
 };
+
+interface HandleChangeParams<E> {
+  event: FocusEvent<E, Element> | ChangeEvent<E>;
+  value: string;
+}
 
 /**
  * [SelectList](https://gestalt.pinterest.systems/web/selectlist) displays a list of actions or options using the browser’s native select.
@@ -84,17 +98,35 @@ function SelectList({
   label,
   labelDisplay = 'visible',
   name,
+  onBlur,
   onChange,
+  onFocus,
   placeholder,
   size = 'md',
   value,
 }: Props) {
   const [focused, setFocused] = useState(false);
 
-  const handleOnChange: (event: React.ChangeEvent<HTMLSelectElement>) => void = (event) => {
+  const handleOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
     if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
     }
+  };
+
+  const handleBlur = (event: FocusEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    if (onBlur) {
+      onBlur({ event, value });
+    }
+    setFocused(false);
+  };
+
+  const handleFocus = (event: FocusEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    if (onFocus) {
+      onFocus({ event, value });
+    }
+    setFocused(true);
   };
 
   const classes = classnames(
@@ -160,12 +192,9 @@ function SelectList({
           disabled={disabled}
           id={id}
           name={name}
-          onBlur={(event) => {
-            setFocused(false);
-            handleOnChange(event);
-          }}
+          onBlur={handleBlur}
           onChange={handleOnChange}
-          onFocus={() => setFocused(true)}
+          onFocus={handleFocus}
           // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
           value={showPlaceholder ? placeholder : value}
         >

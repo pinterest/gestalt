@@ -1,4 +1,4 @@
-import { create } from 'react-test-renderer';
+import { act, create } from 'react-test-renderer';
 import SelectList from './SelectList';
 
 const options = [
@@ -86,5 +86,49 @@ describe('SelectList', () => {
       </SelectList>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('calls onBlur prop when select loses focus', () => {
+    const onBlurMock = jest.fn();
+    const component = create(
+      <SelectList id="test" onBlur={onBlurMock} onChange={jest.fn()}>
+        {options}
+      </SelectList>,
+    );
+
+    const select = component.root.findByType('select');
+
+    act(() => {
+      select.props.onBlur({
+        target: { value: 'value1' },
+      });
+    });
+
+    expect(onBlurMock).toHaveBeenCalledWith({
+      event: expect.any(Object),
+      value: 'value1',
+    });
+  });
+
+  it('calls onFocus prop when select gains focus', () => {
+    const onFocusMock = jest.fn();
+    const component = create(
+      <SelectList id="test" onFocus={onFocusMock} onChange={jest.fn()}>
+        {options}
+      </SelectList>,
+    );
+
+    const select = component.root.findByType('select');
+
+    act(() => {
+      select.props.onFocus({
+        target: { value: 'value1' },
+      });
+    });
+
+    expect(onFocusMock).toHaveBeenCalledWith({
+      event: expect.any(Object),
+      value: 'value1',
+    });
   });
 });
