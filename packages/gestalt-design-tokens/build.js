@@ -419,7 +419,6 @@ StyleDictionary.registerTransform({
   type: 'attribute',
   transformer(prop) {
     const prefixes = ['base', 'sema', 'comp'];
-    const path = prop.path.join('-');
     const hasPrefix = prefixes.some((prefix) => prop.path[0] === prefix);
 
     const attrNames = ['category', 'type', 'item', 'subitem', 'state'];
@@ -430,7 +429,7 @@ StyleDictionary.registerTransform({
     const originalAttrs = prop.attributes || {};
     const generatedAttrs = {};
 
-    for (let i = 0; i < prop.path.length && i < attrNames.length; i++) {
+    for (let i = 0; i < prop.path.length && i < attrNames.length; i += 1) {
       generatedAttrs[attrNames[i]] = prop.path[i];
     }
 
@@ -845,7 +844,7 @@ function getAndroidConfiguration({ theme, mode, language }) {
 StyleDictionary.registerTransform({
   name: 'name/custom-ti/camel',
   type: 'name',
-  transformer: function (prop, options) {
+  transformer(prop) {
     const paths = [].concat(prop.path);
     if ('prefix' in prop.attributes) {
       // remove the category value from paths array
