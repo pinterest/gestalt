@@ -3,47 +3,52 @@
     "rounding": {
       "date": {
         "container": {
-          "value": "{base.rounding.16}",
-          "type": "other"
+          "type": "other",
+          "value": "{base.rounding.16}"
         },
         "range": {
           "middle": {
-            "value": "{base.rounding.0}",
-            "type": "other"
+            "type": "other",
+            "value": "{base.rounding.0}"
           }
         },
         "start": {
-          "value": "{base.rounding.circle} {base.rounding.0} {base.rounding.0} {base.rounding.circle}",
-          "type": "other"
+          "type": "other",
+          "value": "{base.rounding.circle} {base.rounding.0} {base.rounding.0} {base.rounding.circle}"
         },
         "end": {
-          "value": "{base.rounding.0} {base.rounding.circle} {base.rounding.circle} {base.rounding.0}",
-          "type": "other"
+          "type": "other",
+          "value": "{base.rounding.0} {base.rounding.circle} {base.rounding.circle} {base.rounding.0}"
         }
       },
       "XL": {
-        "value": "{base.rounding.20}",
-        "type": "other"
+        "type": "other",
+        "value": "{base.rounding.20}"
       },
       "LG": {
-        "value": "{base.rounding.16}",
-        "type": "other"
+        "type": "other",
+        "value": "{base.rounding.16}"
       },
       "MD": {
-        "value": "{base.rounding.12}",
-        "type": "other"
+        "type": "other",
+        "value": "{base.rounding.12}"
       },
       "SM": {
-        "value": "{base.rounding.8}",
-        "type": "other"
+        "type": "other",
+        "value": "{base.rounding.8}"
       },
       "XS": {
-        "value": "{base.rounding.4}",
-        "type": "other"
+        "type": "other",
+        "value": "{base.rounding.4}"
       },
       "circleappenda": {
-        "value": "{base.rounding.circle}",
-        "type": "other"
+        "$extensions": {
+          "studio.tokens": {
+            "modify": {}
+          }
+        },
+        "type": "other",
+        "value": "{base.rounding.circle}"
       }
     }
   }
