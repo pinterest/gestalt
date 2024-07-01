@@ -1,4 +1,6 @@
-import { act, create } from 'react-test-renderer';
+import { create } from 'react-test-renderer';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import SelectList from './SelectList';
 
 const options = [
@@ -88,21 +90,16 @@ describe('SelectList', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('calls onBlur prop when select loses focus', async () => {
+  it('calls onBlur prop when select loses focus', () => {
     const onBlurMock = jest.fn();
-    const component = create(
+    render(
       <SelectList id="test" onBlur={onBlurMock} onChange={jest.fn()}>
         {options}
-      </SelectList>,
+      </SelectList>
     );
 
-    const select = component.root.findByType('select');
-
-    await act(async () => {
-      select.props.onBlur({
-        target: { value: 'value1' },
-      });
-    });
+    const select = screen.getByRole('combobox');
+    fireEvent.blur(select, { target: { value: 'value1' } });
 
     expect(onBlurMock).toHaveBeenCalledWith({
       event: expect.any(Object),
@@ -110,21 +107,16 @@ describe('SelectList', () => {
     });
   });
 
-  it('calls onFocus prop when select gains focus', async () => {
+  it('calls onFocus prop when select gains focus', () => {
     const onFocusMock = jest.fn();
-    const component = create(
+    render(
       <SelectList id="test" onChange={jest.fn()} onFocus={onFocusMock}>
         {options}
-      </SelectList>,
+      </SelectList>
     );
 
-    const select = component.root.findByType('select');
-
-    await act(async () => {
-      select.props.onFocus({
-        target: { value: 'value1' },
-      });
-    });
+    const select = screen.getByRole('combobox');
+    fireEvent.focus(select, { target: { value: 'value1' } });
 
     expect(onFocusMock).toHaveBeenCalledWith({
       event: expect.any(Object),
