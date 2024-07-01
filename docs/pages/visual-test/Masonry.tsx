@@ -45,7 +45,7 @@ function getPins() {
 }
 
 // Component to display a skeleton pin
-function SkeletonPin({ height }) {
+function SkeletonPin({ height }: { height: number }) {
   const refCallback = useCallback((ref) => {
     // rewrite parent to use abs vs transform
     if (ref) {
