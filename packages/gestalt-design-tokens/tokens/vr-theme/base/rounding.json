@@ -1,0 +1,50 @@
+{
+  "base": {
+    "rounding": {
+      "0": {
+        "type": "borderRadius",
+        "value": "0px"
+      },
+      "4": {
+        "type": "borderRadius",
+        "value": "4px"
+      },
+      "8": {
+        "type": "borderRadius",
+        "value": "8px"
+      },
+      "12": {
+        "type": "borderRadius",
+        "value": "12px"
+      },
+      "16": {
+        "type": "borderRadius",
+        "value": "16px"
+      },
+      "20": {
+        "type": "borderRadius",
+        "value": "20px"
+      },
+      "24": {
+        "type": "borderRadius",
+        "value": "24px"
+      },
+      "28": {
+        "type": "borderRadius",
+        "value": "28px"
+      },
+      "32": {
+        "value": "32px",
+        "type": "other"
+      },
+      "999": {
+        "type": "borderRadius",
+        "value": "999px"
+      },
+      "circle": {
+        "type": "borderRadius",
+        "value": "50%"
+      }
+    }
+  }
+}

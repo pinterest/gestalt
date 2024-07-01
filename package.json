@@ -131,7 +131,7 @@
     "dev": "(cd docs && yarn dev) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-charts && yarn watch) & (cd packages/gestalt-datepicker && yarn watch) & (cd packages/eslint-plugin-gestalt && yarn watch) & (cd packages/gestalt-design-tokens && yarn watch)",
     "docs": "(cd docs && yarn start)",
     "eslint": "eslint --max-warnings 0",
-    "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
+    "format": "prettier --write \"**/*.{css,html,js,md,yml,json}\"",
     "generate": "./scripts/generateComponent.js",
     "lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
     "lint:js": "eslint --max-warnings 0 .",
