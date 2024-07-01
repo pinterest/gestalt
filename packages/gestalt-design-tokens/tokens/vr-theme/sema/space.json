@@ -4,108 +4,108 @@
       "gap": {
         "horizontal": {
           "XS": {
-            "value": "{base.space.2}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.2}"
           },
           "SM": {
-            "value": "{base.space.4}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.4}"
           },
           "MD": {
-            "value": "{base.space.6}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.6}"
           },
           "LG": {
-            "value": "{base.space.8}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.8}"
           },
           "XL": {
-            "value": "{base.space.12}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.12}"
           },
           "XXL": {
-            "value": "{base.space.16}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.16}"
           }
         },
         "vertical": {
           "XS": {
-            "value": "{base.space.2}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.2}"
           },
           "SM": {
-            "value": "{base.space.4}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.4}"
           },
           "MD": {
-            "value": "{base.space.6}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.6}"
           },
           "LG": {
-            "value": "{base.space.8}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.8}"
           },
           "XL": {
-            "value": "{base.space.12}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.12}"
           },
           "XXL": {
-            "value": "{base.space.16}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.16}"
           }
         }
       },
       "padding": {
         "horizontal": {
           "XS": {
-            "value": "{base.space.2}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.2}"
           },
           "SM": {
-            "value": "{base.space.4}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.4}"
           },
           "MD": {
-            "value": "{base.space.6}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.6}"
           },
           "LG": {
-            "value": "{base.space.8}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.8}"
           },
           "XL": {
-            "value": "{base.space.12}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.12}"
           },
           "XXL": {
-            "value": "{base.space.16}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.16}"
           }
         },
         "vertical": {
           "XS": {
-            "value": "{base.space.2}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.2}"
           },
           "SM": {
-            "value": "{base.space.4}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.4}"
           },
           "MD": {
-            "value": "{base.space.6}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.6}"
           },
           "LG": {
-            "value": "{base.space.8}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.8}"
           },
           "XL": {
-            "value": "{base.space.12}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.12}"
           },
           "XXL": {
-            "value": "{base.space.16}",
-            "type": "spacing"
+            "type": "spacing",
+            "value": "{base.space.16}"
           }
         }
       }

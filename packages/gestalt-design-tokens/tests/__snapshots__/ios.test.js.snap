@@ -409,9 +409,9 @@ public enum GestaltTokensColor {
 import SwiftUI
 
 public enum GestaltTokensElevation {
-    public static let raisedBottom = 0px -2px 8px 0px #000000 0.12 
-    public static let raisedTop = 0px 2px 8px 0px #000000 0.12 
-    public static let floating = 0px 0px 8px 0px #000000 0.1 
+    public static let raisedBottom = 0px -2px 8px 0px #000000 1 
+    public static let raisedTop = 0px 2px 8px 0px #000000 1 
+    public static let floating = 0px 0px 8px 0px #000000 1 
 }
 ",
   "dist/ios-swift/classic/GestaltTokensElevationDark.swift": "
@@ -421,8 +421,8 @@ public enum GestaltTokensElevation {
 import SwiftUI
 
 public enum GestaltTokensElevationDark {
-    public static let raisedBottom = 0px -0.5px 0px 0px #F9F9F9 0 
-    public static let raisedTop = 0px 0.5px 0px 0px #F9F9F9 0 
+    public static let raisedBottom = 0px -0.5px 0px 0px #F9F9F9 1 
+    public static let raisedTop = 0px 0.5px 0px 0px #F9F9F9 1 
     public static let floating = none 
 }
 ",
@@ -574,7 +574,6 @@ public enum GestaltTokensColorVR {
     public static let baseDataviz12 = UIColor(red: 0.400, green: 0.055, blue: 0.000, alpha: 1)
     public static let baseDataviz11 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
     public static let baseDataviz10 = UIColor(red: 0.000, green: 0.314, blue: 0.384, alpha: 1)
-    public static let baseTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let baseOrange500 = UIColor(red: 0.608, green: 0.294, blue: 0.110, alpha: 1)
     public static let baseOrange400 = UIColor(red: 0.941, green: 0.427, blue: 0.133, alpha: 1)
     public static let baseOrange300 = UIColor(red: 0.996, green: 0.635, blue: 0.224, alpha: 1)
@@ -587,12 +586,12 @@ public enum GestaltTokensColorVR {
     public static let baseGreen100 = UIColor(red: 0.816, green: 0.886, blue: 0.659, alpha: 1)
     public static let baseBlue500 = UIColor(red: 0.129, green: 0.365, blue: 0.510, alpha: 1)
     public static let baseBlue400 = UIColor(red: 0.000, green: 0.490, blue: 0.722, alpha: 1)
-    public static let baseBlue300 = UIColor(red: 0.149, green: 0.549, blue: 0.749, alpha: 1)
+    public static let baseBlue300 = UIColor(red: 0.145, green: 0.592, blue: 0.816, alpha: 1)
     public static let baseBlue200 = UIColor(red: 0.486, green: 0.745, blue: 0.871, alpha: 1)
     public static let baseBlue100 = UIColor(red: 0.773, green: 0.918, blue: 0.969, alpha: 1)
     public static let basePurple500 = UIColor(red: 0.427, green: 0.259, blue: 0.439, alpha: 1)
     public static let basePurple400 = UIColor(red: 0.561, green: 0.275, blue: 0.588, alpha: 1)
-    public static let basePurple300 = UIColor(red: 0.788, green: 0.341, blue: 0.741, alpha: 1)
+    public static let basePurple300 = UIColor(red: 0.776, green: 0.365, blue: 0.816, alpha: 1)
     public static let basePurple200 = UIColor(red: 0.937, green: 0.678, blue: 0.937, alpha: 1)
     public static let basePurple100 = UIColor(red: 0.988, green: 0.847, blue: 0.988, alpha: 1)
     public static let baseRed500 = UIColor(red: 0.541, green: 0.059, blue: 0.059, alpha: 1)
@@ -612,6 +611,7 @@ public enum GestaltTokensColorVR {
     public static let baseGrayscale50 = UIColor(red: 0.961, green: 0.957, blue: 0.929, alpha: 1)
     public static let baseGrayscale25 = UIColor(red: 1.000, green: 0.996, blue: 0.969, alpha: 1)
     public static let baseGrayscale0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
+    public static let baseTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let semaDataviz09 = baseDataviz21
     public static let semaDataviz08 = baseDataviz20
     public static let semaDataviz07 = baseDataviz19
@@ -651,30 +651,27 @@ public enum GestaltTokensColorVR {
     public static let semaTextDisabled = baseGrayscale350
     public static let semaTextSubtle = baseGrayscale200
     public static let semaTextDefault = baseGrayscale0
+    public static let semaBorderFocusInnerLight = baseGrayscale0
+    public static let semaBorderFocusInnerDark = baseGrayscale500
+    public static let semaBorderFocusInnerInverse = baseGrayscale0
+    public static let semaBorderFocusInnerDefault = baseGrayscale500
+    public static let semaBorderFocusOuterLight = baseBlue100
+    public static let semaBorderFocusOuterDark = baseBlue400
+    public static let semaBorderFocusOuterInverse = baseBlue500
+    public static let semaBorderFocusOuterDefault = baseBlue100
     public static let semaBorderInverse = baseGrayscale500
     public static let semaBorderError = baseRed200
     public static let semaBorderSuccess = baseGreen200
-    public static let semaBorderFocus = baseBlue400
     public static let semaBorderDisabled = baseGrayscale350
     public static let semaBorderSelected = baseGrayscale0
     public static let semaBorderInteractive = baseGrayscale150
     public static let semaBorderDecorative = baseGrayscale250
-    public static let semaBackgroundElevation = baseGrayscale400
-    public static let semaBackgroundScrim = baseGrayscale450
-    public static let semaBackgroundInverseStrong = baseGrayscale100
-    public static let semaBackgroundInverseDefault = baseGrayscale0
-    public static let semaBackgroundSelectedWeak = baseGrayscale200
-    public static let semaBackgroundSelectedStrong = baseGrayscale400
-    public static let semaBackgroundSelectedDefault = baseGrayscale100
-    public static let semaBackgroundTertiaryWeak = baseGrayscale150
-    public static let semaBackgroundTertiaryStrong = baseGrayscale400
-    public static let semaBackgroundTertiaryDefault = baseGrayscale150
-    public static let semaBackgroundSecondaryWeak = baseGrayscale150
-    public static let semaBackgroundSecondaryStrong = baseGrayscale200
-    public static let semaBackgroundSecondaryDefault = baseGrayscale250
-    public static let semaBackgroundPrimaryWeak = baseRed200
-    public static let semaBackgroundPrimaryStrong = baseRed400
-    public static let semaBackgroundPrimaryDefault = baseRed300
+    public static let semaBackgroundWashScrimsOpaque = baseGrayscale350
+    public static let semaBackgroundWashScrimsDefault = baseGrayscale250
+    public static let semaBackgroundWashImageTint = baseGrayscale500
+    public static let semaBackgroundWashLight = baseGrayscale0
+    public static let semaBackgroundWashDark = baseGrayscale500
+    public static let semaBackgroundWashDefault = baseGrayscale500
     public static let semaBackgroundWarningWeak = baseOrange500
     public static let semaBackgroundWarningDefault = baseOrange200
     public static let semaBackgroundRecommendationWeak = basePurple500
@@ -683,20 +680,21 @@ public enum GestaltTokensColorVR {
     public static let semaBackgroundSuccessDefault = baseGreen200
     public static let semaBackgroundNeutralWeak = baseGrayscale300
     public static let semaBackgroundNeutralDefault = baseGrayscale150
-    public static let semaBackgroundInfoStrong = baseBlue100
     public static let semaBackgroundInfoWeak = baseBlue500
     public static let semaBackgroundInfoDefault = baseBlue200
     public static let semaBackgroundErrorWeak = baseRed500
     public static let semaBackgroundErrorDefault = baseRed200
+    public static let semaBackgroundDisabled = baseGrayscale400
+    public static let semaBackgroundElevation = baseGrayscale400
+    public static let semaBackgroundScrim = baseGrayscale450
     public static let semaBackgroundLight = baseGrayscale0
     public static let semaBackgroundDark = baseGrayscale500
-    public static let semaBackgroundWashInFeedOverlay = baseGrayscale250
-    public static let semaBackgroundWashPinOverlay = baseGrayscale500
-    public static let semaBackgroundWashComponentOverlay = baseGrayscale500
-    public static let semaBackgroundWashLight = baseGrayscale0
-    public static let semaBackgroundWashDark = baseGrayscale500
     public static let semaBackgroundEducation = baseBlue200
-    public static let semaBackgroundDisabled = baseGrayscale400
+    public static let semaBackgroundInverse = baseGrayscale0
+    public static let semaBackgroundSelected = baseGrayscale100
+    public static let semaBackgroundTertiary = baseGrayscale150
+    public static let semaBackgroundSecondary = baseGrayscale250
+    public static let semaBackgroundPrimary = baseRed300
     public static let semaBackgroundDefault = baseGrayscale500
 }
 ",
@@ -732,7 +730,6 @@ public enum GestaltTokensColorVR {
     public static let baseDataviz12 = UIColor(red: 0.400, green: 0.055, blue: 0.000, alpha: 1)
     public static let baseDataviz11 = UIColor(red: 0.871, green: 0.173, blue: 0.384, alpha: 1)
     public static let baseDataviz10 = UIColor(red: 0.000, green: 0.314, blue: 0.384, alpha: 1)
-    public static let baseTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let baseOrange500 = UIColor(red: 0.608, green: 0.294, blue: 0.110, alpha: 1)
     public static let baseOrange400 = UIColor(red: 0.941, green: 0.427, blue: 0.133, alpha: 1)
     public static let baseOrange300 = UIColor(red: 0.996, green: 0.635, blue: 0.224, alpha: 1)
@@ -745,12 +742,12 @@ public enum GestaltTokensColorVR {
     public static let baseGreen100 = UIColor(red: 0.816, green: 0.886, blue: 0.659, alpha: 1)
     public static let baseBlue500 = UIColor(red: 0.129, green: 0.365, blue: 0.510, alpha: 1)
     public static let baseBlue400 = UIColor(red: 0.000, green: 0.490, blue: 0.722, alpha: 1)
-    public static let baseBlue300 = UIColor(red: 0.149, green: 0.549, blue: 0.749, alpha: 1)
+    public static let baseBlue300 = UIColor(red: 0.145, green: 0.592, blue: 0.816, alpha: 1)
     public static let baseBlue200 = UIColor(red: 0.486, green: 0.745, blue: 0.871, alpha: 1)
     public static let baseBlue100 = UIColor(red: 0.773, green: 0.918, blue: 0.969, alpha: 1)
     public static let basePurple500 = UIColor(red: 0.427, green: 0.259, blue: 0.439, alpha: 1)
     public static let basePurple400 = UIColor(red: 0.561, green: 0.275, blue: 0.588, alpha: 1)
-    public static let basePurple300 = UIColor(red: 0.788, green: 0.341, blue: 0.741, alpha: 1)
+    public static let basePurple300 = UIColor(red: 0.776, green: 0.365, blue: 0.816, alpha: 1)
     public static let basePurple200 = UIColor(red: 0.937, green: 0.678, blue: 0.937, alpha: 1)
     public static let basePurple100 = UIColor(red: 0.988, green: 0.847, blue: 0.988, alpha: 1)
     public static let baseRed500 = UIColor(red: 0.541, green: 0.059, blue: 0.059, alpha: 1)
@@ -770,6 +767,7 @@ public enum GestaltTokensColorVR {
     public static let baseGrayscale50 = UIColor(red: 0.961, green: 0.957, blue: 0.929, alpha: 1)
     public static let baseGrayscale25 = UIColor(red: 1.000, green: 0.996, blue: 0.969, alpha: 1)
     public static let baseGrayscale0 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1)
+    public static let baseTransparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let semaDataviz09 = baseDataviz09
     public static let semaDataviz08 = baseDataviz08
     public static let semaDataviz07 = baseDataviz07
@@ -809,30 +807,27 @@ public enum GestaltTokensColorVR {
     public static let semaTextDisabled = baseGrayscale200
     public static let semaTextSubtle = baseGrayscale300
     public static let semaTextDefault = baseGrayscale500
+    public static let semaBorderFocusInnerLight = baseGrayscale0
+    public static let semaBorderFocusInnerDark = baseGrayscale500
+    public static let semaBorderFocusInnerInverse = baseGrayscale500
+    public static let semaBorderFocusInnerDefault = baseGrayscale0
+    public static let semaBorderFocusOuterLight = baseBlue100
+    public static let semaBorderFocusOuterDark = baseBlue400
+    public static let semaBorderFocusOuterInverse = baseBlue100
+    public static let semaBorderFocusOuterDefault = baseBlue400
     public static let semaBorderInverse = baseGrayscale0
     public static let semaBorderError = baseRed400
     public static let semaBorderSuccess = baseGreen400
-    public static let semaBorderFocus = baseBlue400
     public static let semaBorderDisabled = baseGrayscale150
     public static let semaBorderSelected = baseGrayscale500
     public static let semaBorderInteractive = baseGrayscale250
     public static let semaBorderDecorative = baseGrayscale150
-    public static let semaBackgroundElevation = baseGrayscale0
-    public static let semaBackgroundScrim = baseGrayscale50
-    public static let semaBackgroundInverseStrong = baseGrayscale100
-    public static let semaBackgroundInverseDefault = baseGrayscale500
-    public static let semaBackgroundSelectedWeak = baseGrayscale200
-    public static let semaBackgroundSelectedStrong = baseGrayscale400
-    public static let semaBackgroundSelectedDefault = baseGrayscale500
-    public static let semaBackgroundTertiaryWeak = baseGrayscale150
-    public static let semaBackgroundTertiaryStrong = baseGrayscale400
-    public static let semaBackgroundTertiaryDefault = baseGrayscale250
-    public static let semaBackgroundSecondaryWeak = baseGrayscale150
-    public static let semaBackgroundSecondaryStrong = baseGrayscale200
-    public static let semaBackgroundSecondaryDefault = baseGrayscale100
-    public static let semaBackgroundPrimaryWeak = baseRed200
-    public static let semaBackgroundPrimaryStrong = baseRed400
-    public static let semaBackgroundPrimaryDefault = baseRed300
+    public static let semaBackgroundWashScrimsOpaque = baseGrayscale50
+    public static let semaBackgroundWashScrimsDefault = baseGrayscale250
+    public static let semaBackgroundWashImageTint = baseGrayscale500
+    public static let semaBackgroundWashLight = baseGrayscale0
+    public static let semaBackgroundWashDark = baseGrayscale500
+    public static let semaBackgroundWashDefault = baseGrayscale0
     public static let semaBackgroundWarningWeak = baseOrange100
     public static let semaBackgroundWarningDefault = baseOrange500
     public static let semaBackgroundRecommendationWeak = basePurple100
@@ -841,20 +836,21 @@ public enum GestaltTokensColorVR {
     public static let semaBackgroundSuccessDefault = baseGreen400
     public static let semaBackgroundNeutralWeak = baseGrayscale150
     public static let semaBackgroundNeutralDefault = baseGrayscale250
-    public static let semaBackgroundInfoStrong = baseBlue400
     public static let semaBackgroundInfoWeak = baseBlue100
     public static let semaBackgroundInfoDefault = baseBlue400
     public static let semaBackgroundErrorWeak = baseRed100
     public static let semaBackgroundErrorDefault = baseRed400
+    public static let semaBackgroundDisabled = baseGrayscale100
+    public static let semaBackgroundElevation = baseGrayscale0
+    public static let semaBackgroundScrim = baseGrayscale50
     public static let semaBackgroundLight = baseGrayscale0
     public static let semaBackgroundDark = baseGrayscale500
-    public static let semaBackgroundWashInFeedOverlay = baseGrayscale250
-    public static let semaBackgroundWashPinOverlay = baseGrayscale500
-    public static let semaBackgroundWashComponentOverlay = baseGrayscale0
-    public static let semaBackgroundWashLight = baseGrayscale0
-    public static let semaBackgroundWashDark = baseGrayscale500
     public static let semaBackgroundEducation = baseBlue400
-    public static let semaBackgroundDisabled = baseGrayscale100
+    public static let semaBackgroundInverse = baseGrayscale500
+    public static let semaBackgroundSelected = baseGrayscale500
+    public static let semaBackgroundTertiary = baseGrayscale250
+    public static let semaBackgroundSecondary = baseGrayscale100
+    public static let semaBackgroundPrimary = baseRed300
     public static let semaBackgroundDefault = baseGrayscale0
 }
 ",
@@ -866,15 +862,15 @@ import SwiftUI
 
 public enum GestaltTokensElevationDarkVR {
     public static let base350 = 0px -2px 8px 0px #000000 0.3, 0px -1px 2px 0px #000000 0.3
-    public static let base325 = 0px 2px 8px 0px #000000 0.3, 0px 1px 2px 0px #000000 0.3, 0px 1px 2px 0px #000000 0.06
+    public static let base325 = 0px 2px 8px 0px #000000 0.3, 0px 1px 2px 0px #000000 0.3
     public static let base300 = 0px 1px 6px 0.5px #000000 0.3, 0px 1px 2px 0px #000000 0.3
     public static let base200 = 0px 4px 16px 0px #000000 0.2, 0px 1px 4px 0px #000000 0.2
     public static let base100 = 0px 1px 2px 0px #000000 0.3, 0px 0px 1px 0px #000000 0.28
     public static let semaRaisedBottom = base350
     public static let semaRaisedTop = base325
     public static let semaRaisedDefault = base300
-    public static let semaFloating = base200
     public static let semaSurface = base100
+    public static let semaFloating = base200
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensElevationVR.swift": "
@@ -885,15 +881,15 @@ import SwiftUI
 
 public enum GestaltTokensElevationVR {
     public static let base350 = 0px -1px 0px 0.5px #000000 0.06, 0px -2px 8px 0px #000000 0.12, 0px -1px 2px 0px #000000 0.06
-    public static let base325 = 0px 1px 0px 0.5px #000000 0.06, 0px 2px 8px 0px #000000 0.12, 0px 1px 2px 0px #000000 0.06
-    public static let base300 = 0px 0px 0px 0.5px #000000 0.6, 0px 1px 6px 0px #000000 0.1, 0px 1px 2px 0px #000000 0.06
-    public static let base200 = 0px 4px 16px 0px #000000 0.1, 0px 1px 4px 0px #000000 0.8
+    public static let base325 = 0px 1px 0px 0.5px #000000 0.06, 0px 2px 8px 0px #000000 0.12, 0px -1px 2px 0px #000000 0.06
+    public static let base300 = 0px 0px 0px 0.5px #000000 0.06, 0px 1px 6px 0px #000000 0.1, 0px 1px 2px 0px #000000 0.06
+    public static let base200 = 0px 4px 16px 0px #000000 0.1, 0px 1px 4px 0px #000000 0.08
     public static let base100 = 0px 1px 2px 0px #000000 0.1, 0px 0px 1px 0px #000000 0.08
     public static let semaRaisedBottom = base350
     public static let semaRaisedTop = base325
     public static let semaRaisedDefault = base300
-    public static let semaFloating = base200
     public static let semaSurface = base100
+    public static let semaFloating = base200
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontFamilyVR.swift": "
@@ -1093,16 +1089,17 @@ import SwiftUI
 public enum GestaltTokensOpacityVR {
     public static let base90 = 0.9
     public static let base80 = 0.8
+    public static let base60 = 0.6
     public static let base40 = 0.4
     public static let base20 = 0.2
     public static let base4 = 0.04
     public static let base0 = 0
-    public static let semaHeavy = base90
+    public static let semaPinWash = base4
     public static let semaOverlay = base80
+    public static let semaTransparent = base0
+    public static let semaHeavy = base90
     public static let semaMedium = base40
     public static let semaLight = base20
-    public static let semaPinWash = base4
-    public static let semaTransparent = base0
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensRoundingVR.swift": "

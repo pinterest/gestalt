@@ -1,26 +1,26 @@
 {
   "sema": {
     "elevation": {
-      "surface": {
-        "value": "{base.elevation.100}",
-        "type": "other"
-      },
       "floating": {
-        "value": "{base.elevation.200}",
-        "type": "other"
+        "type": "boxShadow",
+        "value": "{base.elevation.200}"
+      },
+      "surface": {
+        "type": "boxShadow",
+        "value": "{base.elevation.100}"
       },
       "raised": {
         "default": {
-          "value": "{base.elevation.300}",
-          "type": "other"
+          "type": "boxShadow",
+          "value": "{base.elevation.300}"
         },
         "top": {
-          "value": "{base.elevation.325}",
-          "type": "other"
+          "type": "boxShadow",
+          "value": "{base.elevation.325}"
         },
         "bottom": {
-          "value": "{base.elevation.350}",
-          "type": "other"
+          "type": "boxShadow",
+          "value": "{base.elevation.350}"
         }
       }
     }
