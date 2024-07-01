@@ -1,4 +1,4 @@
-import { ReactNode, useState, FocusEvent, ChangeEvent } from 'react';
+import { ReactNode, ChangeEvent, FocusEvent, useState} from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -109,17 +109,17 @@ function SelectList({
   };
 
   const handleBlur = (event: FocusEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
+    const { value: eventValue } = event.target;
     if (onBlur) {
-      onBlur({ event, value });
+      onBlur({ event, value: eventValue });
     }
     setFocused(false);
   };
 
   const handleFocus = (event: FocusEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
+    const { value: eventValue } = event.target;
     if (onFocus) {
-      onFocus({ event, value });
+      onFocus({ event, value: eventValue });
     }
     setFocused(true);
   };

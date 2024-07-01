@@ -113,7 +113,7 @@ describe('SelectList', () => {
   it('calls onFocus prop when select gains focus', () => {
     const onFocusMock = jest.fn();
     const component = create(
-      <SelectList id="test" onFocus={onFocusMock} onChange={jest.fn()}>
+      <SelectList id="test"  onChange={jest.fn()} onFocus={onFocusMock}>
         {options}
       </SelectList>,
     );
