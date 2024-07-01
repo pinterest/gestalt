@@ -1,0 +1,25 @@
+{
+  "tokenSetOrder": [
+    "base/color",
+    "base/elevation/dark",
+    "base/elevation/light",
+    "base/font",
+    "base/lineheight",
+    "base/opacity",
+    "base/rounding",
+    "base/space",
+    "sema/color/dark",
+    "sema/color/light",
+    "sema/elevation",
+    "sema/font",
+    "sema/lineheight/ck",
+    "sema/lineheight/default",
+    "sema/lineheight/ja",
+    "sema/lineheight/tall",
+    "sema/lineheight/th",
+    "sema/lineheight/vi",
+    "sema/opacity",
+    "sema/rounding",
+    "sema/space"
+  ]
+}

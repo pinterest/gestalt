@@ -1,15 +1,15 @@
 {
   "rounding": {
-    "0appenda": { "value": "{rounding.0.value}" },
-    "100": { "value": "{rounding.4.value}" },
-    "200": { "value": "{rounding.8.value}" },
-    "300": { "value": "{rounding.12.value}" },
-    "400": { "value": "{rounding.16.value}" },
-    "500": { "value": "{rounding.20.value}" },
-    "600": { "value": "{rounding.24.value}" },
-    "700": { "value": "{rounding.28.value}" },
-    "800": { "value": "{rounding.32.value}" },
-    "pill": { "value": "{rounding.999.value}" },
-    "circleappendb": { "value": "{rounding.circle.value}" }
+    "0appenda": { "value": "{base.rounding.0.value}" },
+    "100": { "value": "{base.rounding.4.value}" },
+    "200": { "value": "{base.rounding.8.value}" },
+    "300": { "value": "{base.rounding.12.value}" },
+    "400": { "value": "{base.rounding.16.value}" },
+    "500": { "value": "{base.rounding.20.value}" },
+    "600": { "value": "{base.rounding.24.value}" },
+    "700": { "value": "{base.rounding.28.value}" },
+    "800": { "value": "{base.rounding.32.value}" },
+    "pill": { "value": "{base.rounding.999.value}" },
+    "circleappendb": { "value": "{base.rounding.circle.value}" }
   }
 }

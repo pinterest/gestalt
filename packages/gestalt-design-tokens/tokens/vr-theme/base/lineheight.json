@@ -1,0 +1,40 @@
+{
+  "base": {
+    "font": {
+      "lineheight": {
+        "110": {
+          "type": "lineHeights",
+          "value": "110%"
+        },
+        "120": {
+          "type": "lineHeights",
+          "value": "120%"
+        },
+        "130": {
+          "type": "lineHeights",
+          "value": "130%"
+        },
+        "140": {
+          "type": "lineHeights",
+          "value": "140%"
+        },
+        "150": {
+          "type": "lineHeights",
+          "value": "150%"
+        },
+        "160": {
+          "type": "lineHeights",
+          "value": "160%"
+        },
+        "170": {
+          "type": "lineHeights",
+          "value": "170%"
+        },
+        "180": {
+          "type": "lineHeights",
+          "value": "180%"
+        }
+      }
+    }
+  }
+}

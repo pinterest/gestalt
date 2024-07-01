@@ -1,0 +1,32 @@
+[
+  {
+    "id": "3b4d116e636294819da8d101249348f7e4a960ae",
+    "name": "light",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "sema/color/light": "enabled",
+      "base/color": "enabled",
+      "base/elevation/light": "enabled",
+      "base/rounding": "enabled",
+      "base/space": "enabled",
+      "base/font": "enabled",
+      "base/lineheight": "enabled"
+    },
+    "group": "colors"
+  },
+  {
+    "id": "a35702b29edbd5f6e16aa960caa1f900a707359e",
+    "name": "dark",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "sema/color/dark": "enabled",
+      "base/color": "enabled",
+      "base/elevation/dark": "enabled",
+      "base/rounding": "enabled",
+      "base/space": "enabled",
+      "base/font": "enabled",
+      "base/lineheight": "enabled"
+    },
+    "group": "colors"
+  }
+]

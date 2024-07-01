@@ -1,14 +1,14 @@
 {
   "elevation": {
     "floatingappenda": {
-      "value": "{elevation.200.value}"
+      "value": "{base.elevation.200.value}"
     },
     "raisedappenda": {
       "top": {
-        "value": "{elevation.325.value}"
+        "value": "{base.elevation.325.value}"
       },
       "bottom": {
-        "value": "{elevation.350.value}"
+        "value": "{base.elevation.350.value}"
       }
     }
   }
