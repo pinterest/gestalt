@@ -1,3 +1,9 @@
+## 154.1.0 (Jul 1, 2024)
+
+### Minor
+
+- AvatarGroup: enable actions in smaller sizes ([#3646](https://github.com/pinterest/gestalt/pull/3646)) - [Preview link](https://deploy-preview-3646--gestalt.netlify.app?devexample=true)
+
 ## 154.0.1 (Jun 27, 2024)
 
 ### Patch
