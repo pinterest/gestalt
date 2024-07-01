@@ -1068,7 +1068,7 @@ const platformFileMap = {
     // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default'MUST BE LAST
     ['ck', 'ja', 'tall', 'th', 'vi', 'default'].forEach((lang) => {
       // only generate languages for the vr-theme
-      const language = theme === 'vr-theme' ? lang : undefined;
+      const language = theme === 'vr-theme' || theme === 'vr-theme-web-mapping' ? lang : undefined;
 
       // iOS platform
       if (theme !== 'vr-theme-web-mapping') {
