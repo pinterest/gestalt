@@ -47,9 +47,8 @@ export default function SideNavigationGroupContent({
 
   const collapsed = sideNavigationCollapsed && !overlayPreview;
 
-  const hasBorder = sideNavigationCollapsed
-    ? hasActiveChild
-    : expanded && selectedItemId === itemId;
+  const hasBorder =
+    sideNavigationCollapsed || !expanded ? hasActiveChild : expanded && selectedItemId === itemId;
 
   return (
     <ItemContent
