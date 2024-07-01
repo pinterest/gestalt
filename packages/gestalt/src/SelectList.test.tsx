@@ -88,7 +88,7 @@ describe('SelectList', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('calls onBlur prop when select loses focus', () => {
+  it('calls onBlur prop when select loses focus', async () => {
     const onBlurMock = jest.fn();
     const component = create(
       <SelectList id="test" onBlur={onBlurMock} onChange={jest.fn()}>
@@ -98,7 +98,7 @@ describe('SelectList', () => {
 
     const select = component.root.findByType('select');
 
-    act(() => {
+    await act(async () => {
       select.props.onBlur({
         target: { value: 'value1' },
       });
@@ -110,17 +110,17 @@ describe('SelectList', () => {
     });
   });
 
-  it('calls onFocus prop when select gains focus', () => {
+  it('calls onFocus prop when select gains focus', async () => {
     const onFocusMock = jest.fn();
     const component = create(
-      <SelectList id="test"  onChange={jest.fn()} onFocus={onFocusMock}>
+      <SelectList id="test" onChange={jest.fn()} onFocus={onFocusMock}>
         {options}
       </SelectList>,
     );
 
     const select = component.root.findByType('select');
 
-    act(() => {
+    await act(async () => {
       select.props.onFocus({
         target: { value: 'value1' },
       });

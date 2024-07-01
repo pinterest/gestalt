@@ -1,4 +1,4 @@
-import { ReactNode, ChangeEvent, FocusEvent, useState} from 'react';
+import { ChangeEvent, FocusEvent, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -7,10 +7,11 @@ import layout from './Layout.css';
 import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup';
 import SelectListOption from './SelectList/SelectListOption';
-import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
+import formElement from './sharedSubcomponents/FormElement.css';
+
 
 type Props = {
   /**
