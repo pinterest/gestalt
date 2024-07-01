@@ -176,7 +176,7 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="AvatarGroup displays up to three user avatars. More users, if present, will be displayed as a numerical count."
+          description="AvatarGroup displays up to three user avatars. More users, if present, will be displayed as a numerical count. Not available for 'xs' size."
           title="Collaborators display"
         >
           <Box display="flex">
