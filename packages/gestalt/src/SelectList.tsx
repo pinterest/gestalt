@@ -1,4 +1,4 @@
-import { ReactNode, useState, FocusEvent, ChangeEvent, FC } from 'react';
+import { ReactNode, useState, FocusEvent, ChangeEvent } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -52,7 +52,7 @@ type Props = {
   /**
    * Callback triggered when the user blurs the input.
    */
-  onBlur?: (arg1: { event: FocusEvent<HTMLInputElement> | FocusEvent<HTMLSelectElement>; value: string }) => void;
+  onBlur?: (arg1: { event: FocusEvent<HTMLSelectElement>; value: string }) => void;
   /**
   /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
@@ -75,11 +75,6 @@ type Props = {
    */
   value?: string | null | undefined;
 };
-
-interface HandleChangeParams<E> {
-  event: FocusEvent<E, Element> | ChangeEvent<E>;
-  value: string;
-}
 
 /**
  * [SelectList](https://gestalt.pinterest.systems/web/selectlist) displays a list of actions or options using the browser’s native select.
