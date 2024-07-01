@@ -1,3 +1,9 @@
+## 154.1.1 (Jul 1, 2024)
+
+### Patch
+
+- AvatarGroup: fix, remove xs from actions ([#3648](https://github.com/pinterest/gestalt/pull/3648)) - [Preview link](https://deploy-preview-3648--gestalt.netlify.app?devexample=true)
+
 ## 154.1.0 (Jul 1, 2024)
 
 ### Minor
