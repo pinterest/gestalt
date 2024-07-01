@@ -1,3 +1,9 @@
+## 154.1.2 (Jul 1, 2024)
+
+### Patch
+
+- Internal: update eslint-plugin-react-compiler package ([#3650](https://github.com/pinterest/gestalt/pull/3650)) - [Preview link](https://deploy-preview-3650--gestalt.netlify.app?devexample=true)
+
 ## 154.1.1 (Jul 1, 2024)
 
 ### Patch
