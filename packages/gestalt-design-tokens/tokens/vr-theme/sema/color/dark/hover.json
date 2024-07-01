@@ -112,7 +112,7 @@
               "$extensions": {
                 "studio.tokens": {
                   "modify": {
-                    "value": "{opacity.80} + 0.05",
+                    "value": "{base.opacity.80} + 0.05",
                     "type": "alpha",
                     "space": "srgb"
                   }
@@ -126,7 +126,7 @@
                 "studio.tokens": {
                   "modify": {
                     "type": "alpha",
-                    "value": "{opacity.80} + 0.05",
+                    "value": "{base.opacity.80} + 0.05",
                     "space": "srgb"
                   }
                 }
@@ -139,7 +139,7 @@
                 "studio.tokens": {
                   "modify": {
                     "type": "alpha",
-                    "value": "{opacity.90} + 0.05",
+                    "value": "{base.opacity.90} + 0.05",
                     "space": "srgb"
                   }
                 }
@@ -154,7 +154,7 @@
                     "modify": {
                       "type": "alpha",
                       "space": "srgb",
-                      "value": "{opacity.4} + 0.05"
+                      "value": "{base.opacity.4} + 0.05"
                     }
                   }
                 },
@@ -167,7 +167,7 @@
                 "$extensions": {
                   "studio.tokens": {
                     "modify": {
-                      "value": "{opacity.40} + 0.05",
+                      "value": "{base.opacity.40} + 0.05",
                       "type": "alpha",
                       "space": "srgb"
                     }
@@ -181,7 +181,7 @@
                   "studio.tokens": {
                     "modify": {
                       "type": "alpha",
-                      "value": "{opacity.80} + 0.05",
+                      "value": "{base.opacity.80} + 0.05",
                       "space": "srgb"
                     }
                   }
@@ -320,56 +320,6 @@
           "inverse": {
             "type": "color",
             "value": "{base.color.hover.grayscale.500}"
-          }
-        },
-        "datavizappenda": {
-          "10": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.22}"
-          },
-          "11": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.23}"
-          },
-          "12": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.24}"
-          },
-          "01": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.13}"
-          },
-          "02": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.14}"
-          },
-          "03": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.15}"
-          },
-          "04": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.16}"
-          },
-          "05": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.17}"
-          },
-          "06": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.18}"
-          },
-          "07": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.19}"
-          },
-          "08": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.20}"
-          },
-          "09": {
-            "type": "color",
-            "value": "{base.color.hover.dataviz.21}"
           }
         }
       }

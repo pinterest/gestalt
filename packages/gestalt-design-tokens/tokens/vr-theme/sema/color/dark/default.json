@@ -119,7 +119,7 @@
             "$extensions": {
               "studio.tokens": {
                 "modify": {
-                  "value": "{opacity.80}",
+                  "value": "{base.opacity.80}",
                   "type": "alpha",
                   "space": "srgb"
                 }
@@ -133,7 +133,7 @@
               "studio.tokens": {
                 "modify": {
                   "type": "alpha",
-                  "value": "{opacity.80}",
+                  "value": "{base.opacity.80}",
                   "space": "srgb"
                 }
               }
@@ -146,7 +146,7 @@
               "studio.tokens": {
                 "modify": {
                   "type": "alpha",
-                  "value": "{opacity.90}",
+                  "value": "{base.opacity.90}",
                   "space": "srgb"
                 }
               }
@@ -161,7 +161,7 @@
                   "modify": {
                     "type": "alpha",
                     "space": "srgb",
-                    "value": "{opacity.4}"
+                    "value": "{base.opacity.4}"
                   }
                 }
               },
@@ -174,7 +174,7 @@
               "$extensions": {
                 "studio.tokens": {
                   "modify": {
-                    "value": "{opacity.40}",
+                    "value": "{base.opacity.40}",
                     "type": "alpha",
                     "space": "srgb"
                   }
@@ -188,7 +188,7 @@
                 "studio.tokens": {
                   "modify": {
                     "type": "alpha",
-                    "value": "{opacity.80}",
+                    "value": "{base.opacity.80}",
                     "space": "srgb"
                   }
                 }
