@@ -1,3 +1,9 @@
+## 154.3.2 (Jul 2, 2024)
+
+### Patch
+
+- SelectList/TextArea: fix rounding bug introduced in #3651 ([#3658](https://github.com/pinterest/gestalt/pull/3658)) - [Preview link](https://deploy-preview-3658--gestalt.netlify.app?devexample=true)
+
 ## 154.3.1 (Jul 2, 2024)
 
 ### Patch
