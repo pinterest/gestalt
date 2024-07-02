@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, ButtonLink, Flex, Layer, Popover, ScrollBoundaryContainer, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, Popover, Text } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
@@ -20,10 +20,14 @@ export default function Example() {
       padding={6}
       width="100%"
     >
-      <ScrollBoundaryContainer height={200}>
-        <Box ref={viewRef} color="default" padding={4} width={600}>
-          <Flex gap={{ column: 0, row: 4 }}>
-            <Box width={200}>
+      <Box
+        height={200}
+        overflow="auto"
+        position="relative" // this prevents Popover from overflowing the container
+      >
+        <Box ref={viewRef} color="default" padding={4} position="relative" width={600}>
+          <Flex alignItems="center" gap={{ column: 0, row: 4 }}>
+            <Box width={220}>
               <Text>
                 You need to add your data source URL to Pinterest so we can access your data source
                 file and create Pins for your products. Before you do this, make sure you have
@@ -45,25 +49,23 @@ export default function Example() {
               target="blank"
               text="Help"
             />
-
-            {open && (
-              <Layer>
-                <Popover
-                  anchor={anchorRef.current}
-                  idealDirection="right"
-                  onDismiss={() => {}}
-                  positionRelativeToAnchor={false}
-                  size="xs"
-                >
-                  <Box alignItems="center" display="flex" height={100} justifyContent="center">
-                    <Text align="center">Content</Text>
-                  </Box>
-                </Popover>
-              </Layer>
-            )}
           </Flex>
+
+          {open && (
+            <Popover
+              anchor={anchorRef.current}
+              disablePortal
+              idealDirection="right"
+              onDismiss={() => {}}
+              size="xs"
+            >
+              <Box alignItems="center" display="flex" height={100} justifyContent="center">
+                <Text align="center">Content</Text>
+              </Box>
+            </Popover>
+          )}
         </Box>
-      </ScrollBoundaryContainer>
+      </Box>
     </Box>
   );
 }

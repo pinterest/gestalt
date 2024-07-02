@@ -9,7 +9,6 @@ import { useAppContext } from '../appContext';
  * */
 
 const enabledExperiments = {
-  Popover: ['web_gestalt_popover_v2', 'mweb_gestalt_popover_v2'],
   Tooltip: ['web_gestalt_tooltip_v2', 'mweb_gestalt_tooltip_v2'],
   Tokens: ['web_gestalt_visualRefresh', 'web_gestalt_visualRefresh'],
 } as const;

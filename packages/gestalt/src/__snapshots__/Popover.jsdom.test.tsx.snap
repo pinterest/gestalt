@@ -1,121 +1,98 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PopoverEducational does not render when the anchor is null 1`] = `<div />`;
+exports[`Popover does not render when the anchor is null 1`] = `<div />`;
 
-exports[`PopoverEducational renders correctly 1`] = `
+exports[`Popover renders correctly 1`] = `
 <div>
-  <div
-    class="box"
-  >
-    <div>
+  <div>
+    <span
+      aria-hidden="true"
+      data-floating-ui-focus-guard=""
+      data-floating-ui-inert=""
+      data-type="inside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
+    <div
+      class="absolute block borderBox shadow rounding4"
+      style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
+      tabindex="0"
+    >
       <div
-        class="absolute block borderBox shadow rounding4"
-        style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
-        tabindex="-1"
+        aria-label="text"
+        class="relative maxDimensions minDimensions border primary rounding4"
+        role="dialog"
+        style="max-width: 230px; overflow: auto;"
       >
         <div
-          class="caret flex absolute caretEducation"
-          style="top: 100%;"
+          class="Text fontSize300 default alignStart breakWord fontWeightNormal"
         >
-          <svg
-            height="4"
-            width="12"
-          >
-            <path
-              d="M12 0c-.694 0-1.36.278-1.847.773L7.625 3.34c-.807.819-2.188.885-3.084.148a2.098 2.098 0 01-.163-.148L1.853.775A2.6 2.6 0 000 0"
-              stroke="rgb(0 0 0 / 0.02)"
-            />
-          </svg>
-        </div>
-        <div
-          aria-label="text"
-          class="relative maxDimensions minDimensions border education rounding4"
-          role="dialog"
-          style="max-width: 230px; overflow: auto;"
-        >
-          <div
-            class="box paddingX4 paddingY4"
-            tabindex="0"
-          >
-            <div
-              class="Flex rowGap3 columnGap3 xsDirectionColumn"
-            >
-              <div
-                class="FlexItem"
-              >
-                <div
-                  class="Text fontSize300 light alignStart breakWord fontWeightNormal"
-                >
-                  text
-                </div>
-              </div>
-              <div
-                class="FlexItem flexGrow selfEnd"
-              >
-                <button
-                  class="button hideOutline inline accessibilityOutline parentButton"
-                  tabindex="0"
-                  type="button"
-                >
-                  <div
-                    class="button hideOutline inline accessibilityOutline tapTransition md white enabled childrenDiv"
-                  >
-                    <div
-                      class="Text fontSize300 default alignCenter fontWeightSemiBold"
-                    >
-                      next
-                    </div>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div>
+          Custom children
         </div>
       </div>
     </div>
+    <span
+      aria-hidden="true"
+      data-floating-ui-focus-guard=""
+      data-floating-ui-inert=""
+      data-type="inside"
+      role="button"
+      style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+      tabindex="0"
+    />
   </div>
 </div>
 `;
 
-exports[`PopoverEducational renders correctly with custom children 1`] = `
-<div>
+exports[`Popover renders correctly with portal 1`] = `
+<body>
   <div
-    class="box"
+    aria-hidden="true"
+    data-floating-ui-inert=""
+  />
+  <div
+    data-floating-ui-portal=""
+    id=":r1:"
   >
     <div>
+      <span
+        aria-hidden="true"
+        data-floating-ui-focus-guard=""
+        data-floating-ui-inert=""
+        data-type="inside"
+        role="button"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+        tabindex="0"
+      />
       <div
         class="absolute block borderBox shadow rounding4"
         style="position: absolute; left: 0px; top: 0px; visibility: visible; outline: none; transform: translate(0px, 0px);"
-        tabindex="-1"
+        tabindex="0"
       >
         <div
-          class="caret flex absolute caretEducation"
-          style="top: 100%;"
-        >
-          <svg
-            height="4"
-            width="12"
-          >
-            <path
-              d="M12 0c-.694 0-1.36.278-1.847.773L7.625 3.34c-.807.819-2.188.885-3.084.148a2.098 2.098 0 01-.163-.148L1.853.775A2.6 2.6 0 000 0"
-              stroke="rgb(0 0 0 / 0.02)"
-            />
-          </svg>
-        </div>
-        <div
           aria-label="text"
-          class="relative maxDimensions minDimensions border education rounding4"
-          role="tooltip"
+          class="relative maxDimensions minDimensions border primary rounding4"
+          role="dialog"
           style="max-width: 230px; overflow: auto;"
         >
           <div
             class="Text fontSize300 default alignStart breakWord fontWeightNormal"
           >
-            Custom children
+            Children
           </div>
         </div>
       </div>
+      <span
+        aria-hidden="true"
+        data-floating-ui-focus-guard=""
+        data-floating-ui-inert=""
+        data-type="inside"
+        role="button"
+        style="border: 0px; height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; white-space: nowrap; width: 1px; top: 0px; left: 0px;"
+        tabindex="0"
+      />
     </div>
   </div>
-</div>
+</body>
 `;
