@@ -180,7 +180,6 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 
   const className = classnames(
     styles.link,
-    focusStyles.hideOutline,
     touchableStyles.tapTransition,
     getRoundingClassName(rounding),
     layoutStyles[display],
@@ -189,6 +188,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       [styles.hoverNoUnderline]: underlineStyle === 'always',
       [textStyles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
       [styles.hoverUnderline]: underlineStyle === 'hover',
+      [focusStyles.hideOutline]: !isFocusVisible,
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },

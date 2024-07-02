@@ -100,7 +100,8 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
 
     const { isFocusVisible } = useFocusVisible();
 
-    const className = classnames(getRoundingClassName(2), focusStyles.hideOutline, {
+    const className = classnames(getRoundingClassName(2), {
+      [focusStyles.hideOutline]: !isFocusVisible,
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
       [styles.fullWidth]: true,

@@ -71,10 +71,10 @@ function SegmentedControlItem({
   const { isFocusVisible } = useFocusVisible();
   const cs = classnames(
     styles.item,
-    focusStyles.hideOutline,
     {
       [styles.itemIsNotSelected]: !isSelected,
       [styles.itemIsSelected]: isSelected,
+      [focusStyles.hideOutline]: !isFocusVisible,
       [focusStyles.accessibilityOutline]: isFocusVisible,
     },
     applyDensityStyle(size),

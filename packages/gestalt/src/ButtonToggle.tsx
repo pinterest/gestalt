@@ -140,7 +140,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const isDarkModeRed = isDarkMode && color === 'red';
   const { isFocusVisible } = useFocusVisible();
 
-  const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
+  const sharedTypeClasses = classnames(styles.button, {
+    [focusStyles.hideOutline]: !disabled && !isFocusVisible,
     [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
   });
 
