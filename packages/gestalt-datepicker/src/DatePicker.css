@@ -39,8 +39,7 @@ to prevent conflict with another CSS module */
 }
 
 .react-datepicker__days:focus {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
-  outline: none;
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 .react-datepicker__days:hover {
@@ -356,7 +355,7 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
 }
 
 :global ._gestalt .react-datepicker__navigation:focus {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 .react-datepicker-popper {
@@ -386,8 +385,7 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
 
 :global ._gestalt .react-datepicker__month-select:focus,
 :global ._gestalt .react-datepicker__year-select:focus {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
-  outline: 0;
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 :global ._gestalt .react-datepicker__year-dropdown-container--select,

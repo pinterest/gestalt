@@ -1,21 +1,17 @@
 .accessibilityOutline:focus {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
-  outline: 0;
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 .accessibilityOutlineFocusWithin.accessibilityOutline:focus-within {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
-  outline: 0;
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 .accessibilityOutlineFocusWithin .accessibilityOutline:focus {
-  box-shadow: none;
   outline: 0;
 }
 
 .accessibilityOutlineFocus {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
-  outline: 0;
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 .hideOutline:focus {

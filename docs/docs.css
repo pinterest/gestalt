@@ -191,8 +191,7 @@ pre {
 
 .searchbox__input:focus,
 .searchbox__input:active {
-  box-shadow: 0 0 0 4px var(--color-border-focus);
-  outline: 0;
+  outline: 0 0 0 4px var(--color-border-focus);
 }
 
 .searchbox__input::placeholder {
@@ -587,7 +586,6 @@ pre {
     .algolia-docsearch-suggestion
     .algolia-docsearch-suggestion--subcategory-column {
     color: var(--color-background-selected-base);
-    display: inline-block;
     float: left;
     /* stylelint-disable-next-line unit-disallowed-list */
     font-size: 0.9em;
@@ -613,7 +611,6 @@ pre {
   .algolia-autocomplete
     .algolia-docsearch-suggestion
     .algolia-docsearch-suggestion--content {
-    display: inline-block;
     float: left;
     padding: 0;
     text-align: left;
