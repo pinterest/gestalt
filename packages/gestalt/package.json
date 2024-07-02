@@ -16,7 +16,8 @@
   "dependencies": {
     "@floating-ui/react": "^0.25.4",
     "classnames": "^2.2.6",
-    "gestalt-design-tokens": ">0.0.0"
+    "gestalt-design-tokens": ">0.0.0",
+    "react-compiler-runtime": "file:./lib/react-compiler-runtime"
   },
   "peerDependencies": {
     "react": "^18.0",

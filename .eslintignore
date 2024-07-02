@@ -8,3 +8,4 @@ packages/gestalt-datepicker/dist
 packages/eslint-plugin-gestalt/dist
 packages/eslint-plugin-gestalt/src/__fixtures__
 packages/gestalt-icons-android/dist
+packages/gestalt/lib/react-compiler-runtime/index.js

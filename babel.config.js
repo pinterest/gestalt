@@ -5,8 +5,16 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [
+    process.env.EXPERIMENTAL_BUILD === 'true'
+      ? [
+          // needs to run first before other Babel plugins as the compiler requires the input source information for sound analysis
+          'babel-plugin-react-compiler',
+          {
+            runtimeModule: 'react-compiler-runtime',
+          },
+        ]
+      : {},
     '@babel/proposal-class-properties',
-    // '@babel/transform-typescript',
     [
       process.env.NODE_ENV === 'development'
         ? '@babel/plugin-transform-react-jsx-self'

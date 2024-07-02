@@ -5,7 +5,6 @@
     "packages/*"
   ],
   "dependencies": {
-    "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
@@ -51,6 +50,7 @@
     "axe-core": "^4.1.1",
     "babel-jest": "^28.0.3",
     "babel-plugin-inline-react-svg": "^2.0.1",
+    "babel-plugin-react-compiler": "^0.0.0-experimental-696af53-20240625",
     "blueimp-md5": "^2.18.0",
     "chalk": "^4.1.0",
     "classnames": "^2.5.1",
@@ -66,6 +66,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-playwright": "^0.10.0",
     "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-testing-library": "^5.6.0",
@@ -126,6 +127,7 @@
     "a11y:validate": "yarn babel-node ./scripts/validateAccessibilitySpecs.js",
     "babel-node": "./node_modules/.bin/babel-node -x .ts -x .js",
     "build": "cd packages/gestalt-design-tokens && yarn build && cd ../gestalt && yarn build && cd ../gestalt-charts && yarn build && cd ../gestalt-datepicker && yarn build && cd ../eslint-plugin-gestalt && yarn build && cd ../../docs && yarn build",
+    "build:experimental": "export EXPERIMENTAL_BUILD=true && cd packages/gestalt && yarn build",
     "codemod": "./packages/gestalt-codemods/generic-codemods/entry.sh",
     "css:validate": "./scripts/cssValidate.js",
     "dev": "(cd docs && yarn dev) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-charts && yarn watch) & (cd packages/gestalt-datepicker && yarn watch) & (cd packages/eslint-plugin-gestalt && yarn watch) & (cd packages/gestalt-design-tokens && yarn watch)",

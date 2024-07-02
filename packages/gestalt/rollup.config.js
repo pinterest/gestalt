@@ -1,11 +1,12 @@
 // eslint-disable-next-line import/no-relative-packages
 import { acornInjectPlugins, plugins } from '../gestalt-core/build';
 
+const isExperimentalBuild = process.env.EXPERIMENTAL_BUILD === 'true';
 const rollupConfig = {
   input: 'src/index.ts',
   output: [
     {
-      file: 'dist/gestalt.js',
+      file: isExperimentalBuild ? 'dist/gestalt-experimental.js' : 'dist/gestalt.js',
       format: 'umd',
       name: 'gestalt',
       exports: 'named',
@@ -18,7 +19,7 @@ const rollupConfig = {
       sourcemap: true,
     },
     {
-      file: 'dist/gestalt.es.js',
+      file: isExperimentalBuild ? 'dist/gestalt-experimental.es.js' : 'dist/gestalt.es.js',
       format: 'es',
       name: 'gestalt',
       exports: 'named',
