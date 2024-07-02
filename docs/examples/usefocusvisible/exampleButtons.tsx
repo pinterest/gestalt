@@ -17,7 +17,9 @@ export default function Example() {
             onFocus={() => setFocusedButton1(true)}
             style={{
               outline:
-                isFocusVisible && focusedButton1 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : undefined,
+                isFocusVisible && focusedButton1
+                  ? `4px solid ${TOKEN_COLOR_BORDER_FOCUS}`
+                  : undefined,
             }}
             type="button"
           >
@@ -31,7 +33,7 @@ export default function Example() {
             onBlur={() => setFocusedButton2(false)}
             onFocus={() => setFocusedButton2(true)}
             style={{
-              outline: focusedButton2 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : undefined,
+              outline: focusedButton2 ? `4px solid ${TOKEN_COLOR_BORDER_FOCUS}` : undefined,
             }}
             type="button"
           >
