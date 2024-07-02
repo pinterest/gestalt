@@ -1,3 +1,9 @@
+## 154.2.0 (Jul 2, 2024)
+
+### Minor
+
+- Popover: Release v2 ([#3655](https://github.com/pinterest/gestalt/pull/3655)) - [Preview link](https://deploy-preview-3655--gestalt.netlify.app?devexample=true)
+
 ## 154.1.2 (Jul 1, 2024)
 
 ### Patch
