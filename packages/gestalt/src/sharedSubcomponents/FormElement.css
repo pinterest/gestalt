@@ -1,9 +1,23 @@
 .base {
   composes: accessibilityOutline from "../Focus.css";
   appearance: none;
-  border-radius: var(--rounding-400);
   border-style: solid;
   border-width: 2px;
+}
+
+.base.sm {
+  border-radius: var(--rounding-200);
+  font-size: var(--font-size-200);
+}
+
+.base.md {
+  border-radius: var(--rounding-300);
+  font-size: var(--font-size-300);
+}
+
+.base.lg {
+  border-radius: var(--rounding-400);
+  font-size: var(--font-size-300);
 }
 
 .normal {
