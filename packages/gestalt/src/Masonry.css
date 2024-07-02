@@ -11,31 +11,3 @@
 .Masonry__Item__Mounted {
   transition: transform 0.2s;
 }
-
-.SkeletonPin__Loading {
-  animation: shimmer 1.5s infinite linear;
-  background: linear-gradient(
-    to right,
-    var(--color-gray-roboflow-300) 45%,
-    #f5f5f5 50%,
-    var(--color-gray-roboflow-300) 55%
-  );
-  background-attachment: fixed;
-  background-color: var(--color-gray-roboflow-300);
-  background-size: 200vw 100%;
-  content: "";
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -100vw 0;
-  }
-
-  100% {
-    background-position: 100vw 0;
-  }
-}
