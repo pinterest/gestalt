@@ -90,7 +90,7 @@ type Props = {
    */
   onFocus?: FocusEventHandler;
   /**
-   *
+   * Callback fired when a keyboard key is pressed
    */
   onKeyDown?: KeyboardEventHandler;
   /**

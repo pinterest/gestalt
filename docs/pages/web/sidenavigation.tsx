@@ -24,6 +24,8 @@ import displayExpandable from '../../examples/sidenavigation/displayExpandable';
 import displayExpanded from '../../examples/sidenavigation/displayExpanded';
 import displayStatic from '../../examples/sidenavigation/displayStatic';
 import footerVariant from '../../examples/sidenavigation/footerVariant';
+import groupLinkDisplayExpadable from '../../examples/sidenavigation/groupLinkDisplayExpadable';
+import groupLinkDisplayStatic from '../../examples/sidenavigation/groupLinkDisplayStatic';
 import headerExample from '../../examples/sidenavigation/headerExample';
 import iconsExample from '../../examples/sidenavigation/iconsExample';
 import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample';
@@ -437,6 +439,35 @@ Beware that when controlled, the list path to the active item is not automatical
               />
             }
             title="Controlled group display"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description="Group items can also have links and navigate to a page."
+          title="Group link display"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={groupLinkDisplayStatic}
+                layout="column"
+                name="Static display example"
+              />
+            }
+            title="display='static'"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={groupLinkDisplayExpadable}
+                layout="column"
+                name="Expandable display example"
+              />
+            }
+            title="display='expandable'"
           />
         </MainSection.Subsection>
 

@@ -18,8 +18,8 @@ export default function Example() {
     };
 
   return (
-    <Box height={362} overflow="scroll" width={280}>
-      <SideNavigation accessibilityLabel="Nested items example">
+    <Box height="100%" width={280}>
+      <SideNavigation accessibilityLabel="Nested items example" showBorder>
         <SideNavigation.Group
           display="expandable"
           expanded={expandedElements.includes('Christmas')}

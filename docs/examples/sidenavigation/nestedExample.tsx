@@ -3,7 +3,7 @@ import { Box, SideNavigation } from 'gestalt';
 
 export default function Example() {
   return (
-    <Box height={362} overflow="scroll" width={280}>
+    <Box height="100%" width={300}>
       <SideNavigation accessibilityLabel="Nested items example">
         <SideNavigation.TopItem
           href="#"

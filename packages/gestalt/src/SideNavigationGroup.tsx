@@ -1,37 +1,33 @@
-import { ReactElement, ReactNode, useEffect, useId, useState } from 'react';
+import { ReactElement, ReactNode, useId, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
-import { NestingProvider, useNesting } from './contexts/NestingProvider';
+import { NestingProvider } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
+import SideNavigationGroupItemTapControl from './SideNavigation/GroupItemTapControl';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
 import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
-import { NESTING_MARGIN_START_MAP } from './SideNavigationTopItem';
-import TapArea from './TapArea';
 import { flattenChildrenWithKeys } from './utils/flattenChildren';
 import { Indexable } from './zIndex';
 
-type IconType =
-  | keyof typeof icons
-  | {
-      __path: string;
-    };
+type IconType = keyof typeof icons | { __path: string };
 type Display = 'expandable' | 'static';
-
 type BadgeType = {
   text: string;
   type?: 'info' | 'error' | 'warning' | 'success' | 'neutral';
 };
-
 type Counter = {
   number: string;
   accessibilityLabel: string;
 };
 
 export type Props = {
+  /**
+   * When set to 'page' or 'section', it displays the item in "active" state. Available only when `href` prop is present. See the [Accessibility](https://gestalt.pinterest.systems/web/sidenavigation#Accessibility) guidelines to learn more.
+   */
+  active?: 'page' | 'section';
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/sidenavigation#Badge) variant to learn more.
    */
@@ -53,6 +49,10 @@ export type Props = {
    */
   expanded?: boolean;
   /**
+   * Directs users to the url when item is selected. Available only for Desktop.
+   */
+  href?: string;
+  /**
    * When supplied, will display Icon. See the [Icon](https://gestalt.pinterest.systems/web/sidenavigation#Icon) variant to learn more.
    */
   icon?: IconType;
@@ -64,6 +64,13 @@ export type Props = {
    *  When supplied, will display a notification dot. See the [Notification](https://gestalt.pinterest.systems/web/sidenavigation#Notification) variant to learn more.
    */
   notificationAccessibilityLabel?: string;
+  /**
+   * Callback when the user selects an item using the mouse or keyboard. Available only when `href` prop is present.
+   */
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+    dangerouslyDisableOnNavigation: () => void;
+  }) => void;
   /**
    * Callback fired when the expand button component is clicked and the component is controlled.This functionality is not supported in mobile.
    */
@@ -89,6 +96,7 @@ export type Props = {
  * Use [SideNavigation.Group](https://gestalt.pinterest.systems/web/sidenavigation#SideNavigation.Group) to hold SideNavigation.NestedItem and SideNavigation.NestedGroup at the top level of SideNavigation. It supports badges, icons, counters, and notifications.
  */
 export default function SideNavigationGroup({
+  active,
   badge,
   children,
   counter,
@@ -97,8 +105,10 @@ export default function SideNavigationGroup({
   icon,
   notificationAccessibilityLabel,
   label,
+  onClick,
   onExpand,
   primaryAction,
+  href,
 }: Props) {
   // Manages adaptiveness
   const deviceType = useDeviceType();
@@ -111,7 +121,7 @@ export default function SideNavigationGroup({
 
   // Manages children
   const itemId = useId();
-  const { nestedLevel } = useNesting();
+
   const {
     collapsed: sideNavigationCollapsed,
     overlayPreview,
@@ -126,31 +136,37 @@ export default function SideNavigationGroup({
   validateChildren({ children: navigationChildren, filterLevel: 'nested' });
 
   const isExpandable = display === 'expandable';
+  const isUncontrolled = expandedProp === undefined;
+  const isLink = !!href;
 
-  const [expanded, setExpanded] = useState<boolean>(hasAnyActiveChild);
-  const [isExpanded, setIsExpanded] = useState<boolean>(hasAnyActiveChild);
-
-  useEffect(() => {
-    if (display === 'static') {
-      setIsExpanded(true);
-    } else if (display === 'expandable' && expandedProp === undefined) {
-      setIsExpanded(expanded);
-    } else if (display === 'expandable' && expandedProp !== undefined) {
-      setIsExpanded(expandedProp);
-    }
-  }, [display, expanded, expandedProp]);
-
-  const itemColor = hovered ? 'secondary' : undefined;
+  const [expanded, setExpanded] = useState<boolean>(hasAnyActiveChild || !isExpandable);
+  const isExpanded = isUncontrolled ? expanded : expandedProp;
 
   const collapsed = sideNavigationCollapsed && !overlayPreview;
 
-  const paddingStyle = !collapsed
-    ? {
-        // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-        paddingInlineStart: NESTING_MARGIN_START_MAP[nestedLevel],
-        paddingInlineEnd: TOKEN_SPACE_400,
-      }
-    : {};
+  const handleExpand = () => {
+    if (isUncontrolled) {
+      setExpanded((value) => !value);
+    } else {
+      onExpand?.({ expanded: !isExpanded });
+    }
+  };
+
+  const handleTap = () => {
+    // Always `true` when item is not a link.
+    // When item is a link and not expanded, allows expanding in the first click.
+    const shoudlToggleExpand = !isLink || (isLink && !isExpanded);
+
+    if (shoudlToggleExpand) {
+      handleExpand();
+    }
+
+    if (!isExpanded && selectedItemId !== itemId) setSelectedItemId(itemId);
+
+    if (collapsed) {
+      setOverlayPreview(true);
+    }
+  };
 
   if (isMobile) {
     return (
@@ -170,79 +186,54 @@ export default function SideNavigationGroup({
   }
 
   return (
-    <li className={classnames(styles.liItem)}>
-      <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
-        {isExpandable ? (
-          <TapArea
-            accessibilityControls={itemId}
-            accessibilityExpanded={isExpanded}
-            onBlur={() => setFocused(false)}
-            onFocus={() => setFocused(true)}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onTap={() => {
-              if (display === 'expandable' && expandedProp === undefined) {
-                setExpanded((value) => {
-                  if (!value) setSelectedItemId(itemId);
-                  return !value;
-                });
-              } else {
-                onExpand?.({ expanded: !isExpanded });
-              }
-
-              if (collapsed) {
-                setOverlayPreview(true);
-              }
-            }}
-            rounding={2}
-            tapStyle={compression}
-          >
-            <SideNavigationGroupContent
-              badge={badge}
-              counter={counter}
-              display={display}
-              expanded={isExpanded}
-              focused={focused}
-              hasActiveChild={hasAnyActiveChild}
-              hovered={hovered}
-              icon={icon}
-              itemColor={itemColor}
-              itemId={itemId}
-              label={label}
-              notificationAccessibilityLabel={notificationAccessibilityLabel}
-              paddingStyle={paddingStyle}
-              primaryAction={primaryAction}
-              selectedItemId={selectedItemId}
-              setCompression={setCompression}
-            />
-          </TapArea>
-        ) : (
+    <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
+      <li className={classnames(styles.liItem)}>
+        <SideNavigationGroupItemTapControl
+          accessibilityControls={itemId}
+          accessibilityCurrent={active === 'page' ? active : undefined}
+          accessibilityExpanded={isExpanded}
+          href={href}
+          isExpandable={isExpandable}
+          onBlur={() => setFocused(false)}
+          onFocus={() => setFocused(true)}
+          onLinkClick={onClick}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onTap={handleTap}
+          tapStyle={compression}
+        >
           <SideNavigationGroupContent
+            active={active}
             badge={badge}
             counter={counter}
             display={display}
             expanded={isExpanded}
+            expandIconButtonProps={{
+              accessibilityControls: itemId,
+              accessibilityExpanded: isExpanded,
+              onTap: handleExpand,
+            }}
             focused={focused}
             hasActiveChild={hasAnyActiveChild}
             hovered={hovered}
             icon={icon}
-            itemColor={itemColor}
+            isLink={isLink}
             itemId={itemId}
             label={label}
             notificationAccessibilityLabel={notificationAccessibilityLabel}
-            paddingStyle={paddingStyle}
             primaryAction={primaryAction}
             selectedItemId={selectedItemId}
             setCompression={setCompression}
           />
-        )}
+        </SideNavigationGroupItemTapControl>
+
         {!collapsed && isExpanded ? (
           <ul className={classnames(styles.ulItem)} id={itemId}>
             {navigationChildren}
           </ul>
         ) : null}
-      </NestingProvider>
-    </li>
+      </li>
+    </NestingProvider>
   );
 }
 

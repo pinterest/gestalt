@@ -116,27 +116,28 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                     target={null}
                   >
                     <div
-                      className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
+                          "border": undefined,
+                          "height": undefined,
                           "minHeight": 44,
-                          "paddingInlineEnd": "16px",
+                          "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
                         }
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
-                            "width": "100%",
                           }
                         }
                       >
                         <div
-                          className="FlexItem flexGrow selfCenter"
+                          className="FlexItem flexGrow"
                         >
                           <span
                             className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -296,27 +297,28 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         target={null}
                       >
                         <div
-                          className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
+                              "height": undefined,
                               "minHeight": 44,
-                              "paddingInlineEnd": "16px",
+                              "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
                             }
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem selfCenter"
+                              className="FlexItem"
                             >
                               <div
                                 aria-hidden={true}
@@ -338,7 +340,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               </div>
                             </div>
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -383,7 +385,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               </span>
                             </div>
                             <div
-                              className="FlexItem flexNone selfCenter"
+                              className="FlexItem flexNone"
                             >
                               <div
                                 className="box xsDisplayVisuallyHidden"
@@ -392,7 +394,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               </div>
                               <div
                                 aria-label="You have 20 notifications"
-                                className="box marginEndN2"
+                                className="box"
                               >
                                 <div
                                   className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
@@ -429,27 +431,28 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         target={null}
                       >
                         <div
-                          className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
+                              "height": undefined,
                               "minHeight": 44,
-                              "paddingInlineEnd": "16px",
+                              "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
                             }
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem selfCenter"
+                              className="FlexItem"
                             >
                               <div
                                 aria-hidden={true}
@@ -471,7 +474,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               </div>
                             </div>
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -505,7 +508,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               </span>
                             </div>
                             <div
-                              className="FlexItem flexNone selfCenter"
+                              className="FlexItem flexNone"
                             >
                               <div
                                 className="box xsDisplayVisuallyHidden"
@@ -514,7 +517,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               </div>
                               <div
                                 aria-label="You have 20 notifications"
-                                className="box marginEndN2"
+                                className="box"
                               >
                                 <div
                                   className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
@@ -640,27 +643,28 @@ exports[`SideNavigation renders Sections 1`] = `
                         target={null}
                       >
                         <div
-                          className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
+                              "height": undefined,
                               "minHeight": 44,
-                              "paddingInlineEnd": "16px",
+                              "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
                             }
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -763,27 +767,28 @@ exports[`SideNavigation renders basic Item 1`] = `
                     target={null}
                   >
                     <div
-                      className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
+                          "border": undefined,
+                          "height": undefined,
                           "minHeight": 44,
-                          "paddingInlineEnd": "16px",
+                          "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
                         }
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
-                            "width": "100%",
                           }
                         }
                       >
                         <div
-                          className="FlexItem flexGrow selfCenter"
+                          className="FlexItem flexGrow"
                         >
                           <span
                             className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -884,27 +889,28 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     target={null}
                   >
                     <div
-                      className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
+                          "border": undefined,
+                          "height": undefined,
                           "minHeight": 44,
-                          "paddingInlineEnd": "16px",
+                          "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
                         }
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
-                            "width": "100%",
                           }
                         }
                       >
                         <div
-                          className="FlexItem selfCenter"
+                          className="FlexItem"
                         >
                           <div
                             aria-hidden={true}
@@ -926,7 +932,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           </div>
                         </div>
                         <div
-                          className="FlexItem flexGrow selfCenter"
+                          className="FlexItem flexGrow"
                         >
                           <span
                             className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -962,27 +968,28 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     target={null}
                   >
                     <div
-                      className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
+                          "border": undefined,
+                          "height": undefined,
                           "minHeight": 44,
-                          "paddingInlineEnd": "16px",
+                          "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
                         }
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
-                            "width": "100%",
                           }
                         }
                       >
                         <div
-                          className="FlexItem selfCenter"
+                          className="FlexItem"
                         >
                           <div
                             aria-hidden={true}
@@ -1004,7 +1011,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           </div>
                         </div>
                         <div
-                          className="FlexItem flexGrow selfCenter"
+                          className="FlexItem flexGrow"
                         >
                           <span
                             className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1062,27 +1069,28 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         target={null}
                       >
                         <div
-                          className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
+                              "height": undefined,
                               "minHeight": 44,
-                              "paddingInlineEnd": "16px",
+                              "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
                             }
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem selfCenter"
+                              className="FlexItem"
                             >
                               <div
                                 aria-hidden={true}
@@ -1104,7 +1112,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               </div>
                             </div>
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1144,6 +1152,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
                               "paddingInlineEnd": "var(--space-400)",
@@ -1153,16 +1162,15 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem selfCenter"
+                              className="FlexItem"
                             >
                               <div
                                 aria-hidden={true}
@@ -1184,7 +1192,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               </div>
                             </div>
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1193,26 +1201,41 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               </span>
                             </div>
                             <div
-                              className="FlexItem flexNone selfCenter"
+                              className="FlexItem flexNone"
                             >
                               <div
-                                aria-hidden={true}
-                                className="box circle marginEndN2 marginStart2"
-                                tabIndex={-1}
+                                className="box circle marginEndN2"
+                                style={
+                                  Object {
+                                    "width": 24,
+                                  }
+                                }
                               >
-                                <svg
+                                <div
                                   aria-hidden={true}
-                                  aria-label=""
-                                  className="default icon iconBlock"
-                                  height={12}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={12}
+                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  style={
+                                    Object {
+                                      "height": 24,
+                                      "width": 24,
+                                    }
+                                  }
+                                  tabIndex={-1}
                                 >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden={true}
+                                    aria-label=""
+                                    className="default icon iconBlock"
+                                    height={12}
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width={12}
+                                  >
+                                    <path
+                                      d="test-file-stub"
+                                    />
+                                  </svg>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1247,6 +1270,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
                               "paddingInlineEnd": "var(--space-400)",
@@ -1256,16 +1280,15 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem selfCenter"
+                              className="FlexItem"
                             >
                               <div
                                 aria-hidden={true}
@@ -1287,7 +1310,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               </div>
                             </div>
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1296,26 +1319,41 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               </span>
                             </div>
                             <div
-                              className="FlexItem flexNone selfCenter"
+                              className="FlexItem flexNone"
                             >
                               <div
-                                aria-hidden={true}
-                                className="box circle marginEndN2 marginStart2"
-                                tabIndex={-1}
+                                className="box circle marginEndN2"
+                                style={
+                                  Object {
+                                    "width": 24,
+                                  }
+                                }
                               >
-                                <svg
+                                <div
                                   aria-hidden={true}
-                                  aria-label=""
-                                  className="default icon iconBlock"
-                                  height={12}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={12}
+                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  style={
+                                    Object {
+                                      "height": 24,
+                                      "width": 24,
+                                    }
+                                  }
+                                  tabIndex={-1}
                                 >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden={true}
+                                    aria-label=""
+                                    className="default icon iconBlock"
+                                    height={12}
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width={12}
+                                  >
+                                    <path
+                                      d="test-file-stub"
+                                    />
+                                  </svg>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1393,7 +1431,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                   className="liItem"
                 >
                   <div
-                    aria-controls=":ri:"
+                    aria-controls=":rm:"
                     aria-disabled={false}
                     aria-expanded={true}
                     className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
@@ -1417,6 +1455,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
+                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
                           "paddingInlineEnd": "var(--space-400)",
@@ -1426,16 +1465,15 @@ exports[`SideNavigation renders expanded group 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 xsDirectionRow"
+                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
-                            "width": "100%",
                           }
                         }
                       >
                         <div
-                          className="FlexItem selfCenter"
+                          className="FlexItem"
                         >
                           <div
                             aria-hidden={true}
@@ -1457,7 +1495,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           </div>
                         </div>
                         <div
-                          className="FlexItem flexGrow selfCenter"
+                          className="FlexItem flexGrow"
                         >
                           <span
                             className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1466,26 +1504,41 @@ exports[`SideNavigation renders expanded group 1`] = `
                           </span>
                         </div>
                         <div
-                          className="FlexItem flexNone selfCenter"
+                          className="FlexItem flexNone"
                         >
                           <div
-                            aria-hidden={true}
-                            className="box circle marginEndN2 marginStart2"
-                            tabIndex={-1}
+                            className="box circle marginEndN2"
+                            style={
+                              Object {
+                                "width": 24,
+                              }
+                            }
                           >
-                            <svg
+                            <div
                               aria-hidden={true}
-                              aria-label=""
-                              className="default icon iconBlock"
-                              height={12}
-                              role="img"
-                              viewBox="0 0 24 24"
-                              width={12}
+                              className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                              style={
+                                Object {
+                                  "height": 24,
+                                  "width": 24,
+                                }
+                              }
+                              tabIndex={-1}
                             >
-                              <path
-                                d="test-file-stub"
-                              />
-                            </svg>
+                              <svg
+                                aria-hidden={true}
+                                aria-label=""
+                                className="default icon iconBlock"
+                                height={12}
+                                role="img"
+                                viewBox="0 0 24 24"
+                                width={12}
+                              >
+                                <path
+                                  d="test-file-stub"
+                                />
+                              </svg>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1493,7 +1546,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                   </div>
                   <ul
                     className="ulItem"
-                    id=":ri:"
+                    id=":rm:"
                   >
                     <li
                       className="liItem"
@@ -1519,27 +1572,28 @@ exports[`SideNavigation renders expanded group 1`] = `
                         target={null}
                       >
                         <div
-                          className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
+                              "height": undefined,
                               "minHeight": 44,
-                              "paddingInlineEnd": "16px",
+                              "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
                             }
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1555,7 +1609,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="liItem"
                     >
                       <div
-                        aria-controls=":rm:"
+                        aria-controls=":ro:"
                         aria-disabled={false}
                         aria-expanded={true}
                         className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
@@ -1579,6 +1633,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
+                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
                               "paddingInlineEnd": "var(--space-400)",
@@ -1588,16 +1643,15 @@ exports[`SideNavigation renders expanded group 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 xsDirectionRow"
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
-                                "width": "100%",
                               }
                             }
                           >
                             <div
-                              className="FlexItem flexGrow selfCenter"
+                              className="FlexItem flexGrow"
                             >
                               <span
                                 className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1606,26 +1660,41 @@ exports[`SideNavigation renders expanded group 1`] = `
                               </span>
                             </div>
                             <div
-                              className="FlexItem flexNone selfCenter"
+                              className="FlexItem flexNone"
                             >
                               <div
-                                aria-hidden={true}
-                                className="box circle marginEndN2 marginStart2"
-                                tabIndex={-1}
+                                className="box circle marginEndN2"
+                                style={
+                                  Object {
+                                    "width": 24,
+                                  }
+                                }
                               >
-                                <svg
+                                <div
                                   aria-hidden={true}
-                                  aria-label=""
-                                  className="default icon iconBlock"
-                                  height={12}
-                                  role="img"
-                                  viewBox="0 0 24 24"
-                                  width={12}
+                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  style={
+                                    Object {
+                                      "height": 24,
+                                      "width": 24,
+                                    }
+                                  }
+                                  tabIndex={-1}
                                 >
-                                  <path
-                                    d="test-file-stub"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden={true}
+                                    aria-label=""
+                                    className="default icon iconBlock"
+                                    height={12}
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width={12}
+                                  >
+                                    <path
+                                      d="test-file-stub"
+                                    />
+                                  </svg>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -1633,7 +1702,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       </div>
                       <ul
                         className="ulItem"
-                        id=":rm:"
+                        id=":ro:"
                       >
                         <li
                           className="liItem"
@@ -1659,27 +1728,28 @@ exports[`SideNavigation renders expanded group 1`] = `
                             target={null}
                           >
                             <div
-                              className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
+                                  "border": undefined,
+                                  "height": undefined,
                                   "minHeight": 44,
-                                  "paddingInlineEnd": "16px",
+                                  "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
                                 }
                               }
                             >
                               <div
-                                className="Flex rowGap2 columnGap0 xsDirectionRow"
+                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                                 style={
                                   Object {
                                     "height": "100%",
-                                    "width": "100%",
                                   }
                                 }
                               >
                                 <div
-                                  className="FlexItem flexGrow selfCenter"
+                                  className="FlexItem flexGrow"
                                 >
                                   <span
                                     className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1715,27 +1785,28 @@ exports[`SideNavigation renders expanded group 1`] = `
                             target={null}
                           >
                             <div
-                              className="box paddingY2 relative rounding2 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
+                                  "border": undefined,
+                                  "height": undefined,
                                   "minHeight": 44,
-                                  "paddingInlineEnd": "16px",
+                                  "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
                                 }
                               }
                             >
                               <div
-                                className="Flex rowGap2 columnGap0 xsDirectionRow"
+                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                                 style={
                                   Object {
                                     "height": "100%",
-                                    "width": "100%",
                                   }
                                 }
                               >
                                 <div
-                                  className="FlexItem flexGrow selfCenter"
+                                  className="FlexItem flexGrow"
                                 >
                                   <span
                                     className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1823,6 +1894,7 @@ exports[`SideNavigation renders static group 1`] = `
                     className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
+                        "border": undefined,
                         "height": undefined,
                         "minHeight": 44,
                         "paddingInlineEnd": "var(--space-400)",
@@ -1832,16 +1904,15 @@ exports[`SideNavigation renders static group 1`] = `
                     }
                   >
                     <div
-                      className="Flex rowGap2 columnGap0 xsDirectionRow"
+                      className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                       style={
                         Object {
                           "height": "100%",
-                          "width": "100%",
                         }
                       }
                     >
                       <div
-                        className="FlexItem selfCenter"
+                        className="FlexItem"
                       >
                         <div
                           aria-hidden={true}
@@ -1863,7 +1934,7 @@ exports[`SideNavigation renders static group 1`] = `
                         </div>
                       </div>
                       <div
-                        className="FlexItem flexGrow selfCenter"
+                        className="FlexItem flexGrow"
                       >
                         <span
                           className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -1873,6 +1944,223 @@ exports[`SideNavigation renders static group 1`] = `
                       </div>
                     </div>
                   </div>
+                  <ul
+                    className="ulItem"
+                    id=":rg:"
+                  >
+                    <li
+                      className="liItem"
+                    >
+                      <a
+                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        href="#"
+                        onBlur={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onKeyPress={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        onTouchCancel={[Function]}
+                        onTouchEnd={[Function]}
+                        onTouchMove={[Function]}
+                        onTouchStart={[Function]}
+                        rel=""
+                        tabIndex={0}
+                        target={null}
+                      >
+                        <div
+                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          style={
+                            Object {
+                              "border": undefined,
+                              "height": undefined,
+                              "minHeight": 44,
+                              "paddingInlineEnd": "var(--space-400)",
+                              "paddingInlineStart": "var(--space-1200)",
+                              "width": undefined,
+                            }
+                          }
+                        >
+                          <div
+                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            style={
+                              Object {
+                                "height": "100%",
+                              }
+                            }
+                          >
+                            <div
+                              className="FlexItem flexGrow"
+                            >
+                              <span
+                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                              >
+                                Luxury Christmas
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li
+                      className="liItem"
+                    >
+                      <div
+                        className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                        style={
+                          Object {
+                            "border": undefined,
+                            "height": undefined,
+                            "minHeight": 44,
+                            "paddingInlineEnd": "var(--space-400)",
+                            "paddingInlineStart": "var(--space-1200)",
+                            "width": undefined,
+                          }
+                        }
+                      >
+                        <div
+                          className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                          style={
+                            Object {
+                              "height": "100%",
+                            }
+                          }
+                        >
+                          <div
+                            className="FlexItem flexGrow"
+                          >
+                            <span
+                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            >
+                              Classic Christmas
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <ul
+                        className="ulItem"
+                        id=":ri:"
+                      >
+                        <li
+                          className="liItem"
+                        >
+                          <a
+                            className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            href="#"
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyPress={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchCancel={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            rel=""
+                            tabIndex={0}
+                            target={null}
+                          >
+                            <div
+                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                              style={
+                                Object {
+                                  "border": undefined,
+                                  "height": undefined,
+                                  "minHeight": 44,
+                                  "paddingInlineEnd": "var(--space-400)",
+                                  "paddingInlineStart": "68px",
+                                  "width": undefined,
+                                }
+                              }
+                            >
+                              <div
+                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                                style={
+                                  Object {
+                                    "height": "100%",
+                                  }
+                                }
+                              >
+                                <div
+                                  className="FlexItem flexGrow"
+                                >
+                                  <span
+                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                  >
+                                    West Coast
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li
+                          className="liItem"
+                        >
+                          <a
+                            className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            href="#"
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            onKeyPress={[Function]}
+                            onMouseDown={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                            onMouseUp={[Function]}
+                            onTouchCancel={[Function]}
+                            onTouchEnd={[Function]}
+                            onTouchMove={[Function]}
+                            onTouchStart={[Function]}
+                            rel=""
+                            tabIndex={0}
+                            target={null}
+                          >
+                            <div
+                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                              style={
+                                Object {
+                                  "border": undefined,
+                                  "height": undefined,
+                                  "minHeight": 44,
+                                  "paddingInlineEnd": "var(--space-400)",
+                                  "paddingInlineStart": "68px",
+                                  "width": undefined,
+                                }
+                              }
+                            >
+                              <div
+                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                                style={
+                                  Object {
+                                    "height": "100%",
+                                  }
+                                }
+                              >
+                                <div
+                                  className="FlexItem flexGrow"
+                                >
+                                  <span
+                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                  >
+                                    East Coast
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </div>
