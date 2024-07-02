@@ -50,9 +50,18 @@ type Props = {
    */
   name?: string;
   /**
+   * Callback triggered when the user blurs the input.
+   */
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLSelectElement>; value: string }) => void;
+  /**
+  /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
   onChange: (arg1: { event: React.ChangeEvent<HTMLSelectElement>; value: string }) => void;
+  /**
+   * Callback triggered when the user focuses the input.
+   */
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLSelectElement>; value: string }) => void;
   /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
@@ -84,7 +93,9 @@ function SelectList({
   label,
   labelDisplay = 'visible',
   name,
+  onBlur,
   onChange,
+  onFocus,
   placeholder,
   size = 'md',
   value,
@@ -95,6 +106,19 @@ function SelectList({
     if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
     }
+  };
+
+  const handleBlur = (event: React.FocusEvent<HTMLSelectElement>) => {
+    const { value: eventValue } = event.target;
+    onBlur?.({ event, value: eventValue });
+    handleOnChange(event);
+    setFocused(false);
+  };
+
+  const handleFocus = (event: React.FocusEvent<HTMLSelectElement>) => {
+    const { value: eventValue } = event.target;
+    onFocus?.({ event, value: eventValue });
+    setFocused(true);
   };
 
   const classes = classnames(
@@ -160,12 +184,9 @@ function SelectList({
           disabled={disabled}
           id={id}
           name={name}
-          onBlur={(event) => {
-            setFocused(false);
-            handleOnChange(event);
-          }}
+          onBlur={handleBlur}
           onChange={handleOnChange}
-          onFocus={() => setFocused(true)}
+          onFocus={handleFocus}
           // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
           value={showPlaceholder ? placeholder : value}
         >
