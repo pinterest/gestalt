@@ -241,7 +241,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
       >
         <button
           aria-label="Cancel invite"
-          className="button hideOutline block accessibilityOutline parentButton"
+          className="button block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -255,7 +255,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
           type="button"
         >
           <div
-            className="button hideOutline block accessibilityOutline tapTransition lg transparent enabled childrenDiv"
+            className="button block accessibilityOutline tapTransition lg transparent enabled childrenDiv"
           >
             <div
               className="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -270,7 +270,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
       >
         <button
           aria-label="Resend invite"
-          className="button hideOutline block accessibilityOutline parentButton"
+          className="button block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -284,7 +284,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
           type="button"
         >
           <div
-            className="button hideOutline block accessibilityOutline tapTransition lg white enabled childrenDiv"
+            className="button block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
             <div
               className="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -416,7 +416,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -572,7 +572,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
       >
         <a
           aria-label="Learn more: bannercallout messages"
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg transparent"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg transparent"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -611,7 +611,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -718,7 +718,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -825,7 +825,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
       >
         <button
           aria-label=""
-          className="button hideOutline block accessibilityOutline parentButton"
+          className="button block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -839,7 +839,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="button hideOutline block accessibilityOutline tapTransition lg white enabled childrenDiv"
+            className="button block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
             <div
               className="Text fontSize300 default alignCenter fontWeightSemiBold"

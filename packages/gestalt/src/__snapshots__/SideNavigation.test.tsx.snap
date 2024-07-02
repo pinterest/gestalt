@@ -96,7 +96,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -276,7 +276,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -409,7 +409,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -620,7 +620,7 @@ exports[`SideNavigation renders Sections 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -743,7 +743,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -864,7 +864,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -942,7 +942,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -1042,7 +1042,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1123,7 +1123,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         aria-controls=":rd:"
                         aria-disabled={false}
                         aria-expanded={false}
-                        className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                        className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -1226,7 +1226,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         aria-controls=":re:"
                         aria-disabled={false}
                         aria-expanded={false}
-                        className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                        className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -1396,7 +1396,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                     aria-controls=":ri:"
                     aria-disabled={false}
                     aria-expanded={true}
-                    className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                    className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                     onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -1499,7 +1499,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1558,7 +1558,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         aria-controls=":rm:"
                         aria-disabled={false}
                         aria-expanded={true}
-                        className="hideOutline tapTransition rounding2 accessibilityOutline fullWidth pointer"
+                        className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -1639,7 +1639,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -1695,7 +1695,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}

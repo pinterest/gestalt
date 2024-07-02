@@ -93,7 +93,7 @@ exports[`BannerSlim renders complex message 1`] = `
           is regularly hitting its
            
           <a
-            className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+            className="link tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
             href="http://www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}
@@ -252,7 +252,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
           >
             <button
               aria-label="test"
-              className="button hideOutline block accessibilityOutline parentButton"
+              className="button block accessibilityOutline parentButton"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -266,7 +266,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
               type="button"
             >
               <div
-                className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+                className="button block accessibilityOutline tapTransition sm white enabled childrenDiv"
               >
                 <div
                   className="Text fontSize200 default alignCenter fontWeightSemiBold"
@@ -334,7 +334,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
   >
     <button
       aria-label="test"
-      className="button hideOutline block accessibilityOutline parentButton"
+      className="button block accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -348,7 +348,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
       type="button"
     >
       <div
-        className="button hideOutline block accessibilityOutline tapTransition sm white enabled childrenDiv"
+        className="button block accessibilityOutline tapTransition sm white enabled childrenDiv"
       >
         <div
           className="Text fontSize200 default alignCenter fontWeightSemiBold"
@@ -394,7 +394,7 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
           >
             <a
               aria-label="Learn more Pinterest.com"
-              className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+              className="link tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
               href="http://www.pinterest.com"
               onBlur={[Function]}
               onClick={[Function]}

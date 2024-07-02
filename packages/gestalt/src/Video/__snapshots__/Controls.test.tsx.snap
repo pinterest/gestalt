@@ -9,7 +9,7 @@ exports[`VideoControls for double digit minutes 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -134,7 +134,7 @@ exports[`VideoControls for double digit minutes 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -178,7 +178,7 @@ exports[`VideoControls for double digit seconds 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -303,7 +303,7 @@ exports[`VideoControls for double digit seconds 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -347,7 +347,7 @@ exports[`VideoControls for single digit minutes 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -472,7 +472,7 @@ exports[`VideoControls for single digit minutes 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -516,7 +516,7 @@ exports[`VideoControls for single digit seconds 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -641,7 +641,7 @@ exports[`VideoControls for single digit seconds 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -685,7 +685,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -810,7 +810,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

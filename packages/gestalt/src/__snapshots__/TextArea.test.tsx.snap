@@ -281,7 +281,7 @@ exports[`TextArea renders tags when supplied 1`] = `
             className="box"
           >
             <button
-              className="closeButton default hideOutline tapTransition accessibilityOutline md"
+              className="closeButton default tapTransition accessibilityOutline md"
               onClick={[Function]}
               type="button"
             >
@@ -349,7 +349,7 @@ exports[`TextArea renders tags when supplied 1`] = `
             className="box"
           >
             <button
-              className="closeButton default hideOutline tapTransition accessibilityOutline md"
+              className="closeButton default tapTransition accessibilityOutline md"
               onClick={[Function]}
               type="button"
             >
@@ -417,7 +417,7 @@ exports[`TextArea renders tags when supplied 1`] = `
             className="box"
           >
             <button
-              className="closeButton default hideOutline tapTransition accessibilityOutline md"
+              className="closeButton default tapTransition accessibilityOutline md"
               onClick={[Function]}
               type="button"
             >

@@ -2,7 +2,7 @@
 
 exports[`default 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -23,7 +23,7 @@ exports[`default 1`] = `
 
 exports[`external link with nofollow 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -63,7 +63,7 @@ exports[`external link with nofollow 1`] = `
 
 exports[`inline and auto underline 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+  className="link tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -84,7 +84,7 @@ exports[`inline and auto underline 1`] = `
 
 exports[`inline and overriden underline="hover" 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -105,7 +105,7 @@ exports[`inline and overriden underline="hover" 1`] = `
 
 exports[`inline and overriden underline="none" 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 inlineBlock noUnderline accessibilityOutline"
+  className="link tapTransition rounding0 inlineBlock noUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -126,7 +126,7 @@ exports[`inline and overriden underline="none" 1`] = `
 
 exports[`regular 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -147,7 +147,7 @@ exports[`regular 1`] = `
 
 exports[`target blank 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -168,7 +168,7 @@ exports[`target blank 1`] = `
 
 exports[`target null 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -189,7 +189,7 @@ exports[`target null 1`] = `
 
 exports[`target self 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -210,7 +210,7 @@ exports[`target self 1`] = `
 
 exports[`with custom rounding, and tapStyle 1`] = `
 <a
-  className="link hideOutline tapTransition pill block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition pill block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -231,7 +231,7 @@ exports[`with custom rounding, and tapStyle 1`] = `
 
 exports[`with onClick 1`] = `
 <a
-  className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+  className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}

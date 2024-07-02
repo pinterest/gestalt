@@ -3,7 +3,7 @@
 exports[`IconButtonLink renders 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+  className="link noUnderline tapTransition pill accessibilityOutline button enabled"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -65,7 +65,7 @@ exports[`IconButtonLink renders 1`] = `
 exports[`IconButtonLink renders disabled 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline hideOutline tapTransition pill button disabled"
+  className="link noUnderline tapTransition pill button disabled"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -126,7 +126,7 @@ exports[`IconButtonLink renders disabled 1`] = `
 exports[`IconButtonLink renders with icon 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+  className="link noUnderline tapTransition pill accessibilityOutline button enabled"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -188,7 +188,7 @@ exports[`IconButtonLink renders with icon 1`] = `
 exports[`IconButtonLink renders with svg 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+  className="link noUnderline tapTransition pill accessibilityOutline button enabled"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -261,7 +261,7 @@ exports[`IconButtonLink renders with tooltip 1`] = `
   >
     <a
       aria-label="Share"
-      className="link noUnderline hideOutline tapTransition pill accessibilityOutline button enabled"
+      className="link noUnderline tapTransition pill accessibilityOutline button enabled"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
