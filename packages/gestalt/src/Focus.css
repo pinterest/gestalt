@@ -1,17 +1,20 @@
 .accessibilityOutline:focus {
   outline: 4px solid var(--color-border-focus);
+  outline-offset: 0;
 }
 
-.accessibilityOutlineFocusWithin.accessibilityOutline:focus-within {
+.accessibilityOutlineFocusWithin .accessibilityOutline:focus-within {
   outline: 4px solid var(--color-border-focus);
+  outline-offset: 0;
 }
 
-.accessibilityOutlineFocusWithin.accessibilityOutline:focus {
+.accessibilityOutlineFocusWithin .accessibilityOutline:focus {
   outline: 0;
 }
 
 .accessibilityOutlineFocus {
   outline: 4px solid var(--color-border-focus);
+  outline-offset: 0;
 }
 
 .hideOutline:focus {

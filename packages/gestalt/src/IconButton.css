@@ -13,8 +13,7 @@
   background-color: var(--color-transparent);
 }
 
-.parentButton:focus,
-.button:focus {
+.parentButton:focus {
   outline: 0;
 }
 
