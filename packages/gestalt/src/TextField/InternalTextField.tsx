@@ -196,9 +196,9 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     {
-      [formElement.base.sm]: size === 'sm',
-      [formElement.base.md]: size === 'md',
-      [formElement.base.lg]: size === 'lg',
+      [formElement.sm]: size === 'sm',
+      [formElement.md]: size === 'md',
+      [formElement.lg]: size === 'lg',
       // note: layout CSS controls min-height of element
       [layout.small]: size === 'sm',
       [layout.medium]: size === 'md',
@@ -273,7 +273,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   return (
     <span>
-      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} /> }
+      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} />}
 
       <Box position="relative">
         {tags ? (
