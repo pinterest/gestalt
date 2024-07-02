@@ -1,8 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 import { Overflow } from './boxTypes';
 import InternalPopover from './Popover/InternalPopover';
-import LegacyInternalPopover from './Popover/LegacyInternalPopover';
-import useInExperiment from './useInExperiment';
 
 type Color = 'deprecatedBlue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -81,8 +79,6 @@ type Props = {
    * *EXPERIMENTAL:* Whether to hide Popover when reference element gets out of viewport.
    */
   hideWhenReferenceHidden?: boolean;
-  // This property can be set when `ScrollBoundaryContainer` is set to `overflow="visible"` but therefore limits the height of the Popover-based component. Some cases require
-  __dangerouslySetMaxHeight?: '30vh';
   // Callback fired when Popover is correctly positioned after it's mounted.
   __onPositioned?: () => void;
   // Controls overflow property of Popover
@@ -117,40 +113,9 @@ export default function Popover({
   size = 'sm',
   scrollBoundary,
   hideWhenReferenceHidden = true,
-  __dangerouslySetMaxHeight,
   __onPositioned,
   __overflow,
 }: Props): null | ReactElement {
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_popover_v2',
-    mwebExperimentName: 'mweb_gestalt_popover_v2',
-  });
-
-  if (!isInExperiment) {
-    return (
-      <LegacyInternalPopover
-        __dangerouslySetMaxHeight={__dangerouslySetMaxHeight}
-        accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
-        accessibilityLabel={accessibilityLabel}
-        anchor={anchor}
-        color={color === 'deprecatedBlue' ? 'blue' : color}
-        id={id}
-        idealDirection={idealDirection}
-        onDismiss={onDismiss}
-        onKeyDown={onKeyDown}
-        overflow={__overflow}
-        positionRelativeToAnchor={positionRelativeToAnchor}
-        role={role}
-        shouldFocus={shouldFocus}
-        showCaret={_deprecatedShowCaret}
-        showDismissButton={showDismissButton}
-        size={size}
-      >
-        {children}
-      </LegacyInternalPopover>
-    );
-  }
-
   return (
     <InternalPopover
       accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}

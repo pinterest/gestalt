@@ -1,5 +1,4 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -20,17 +19,7 @@ import variantVisibility from '../../examples/popover/variantVisibility';
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
     <Page title={generatedDocGen?.displayName}>
-      <PageHeader
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="Popover"
-            description="fix and improve component behavior. No visual updates"
-            pullRequest={3244}
-          />
-        }
-        description={generatedDocGen?.description}
-        name={generatedDocGen?.displayName}
-      >
+      <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample code={main} hideEditor name="Main popover example" previewHeight={600} />
       </PageHeader>
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -165,9 +154,9 @@ Popover calculates its position based on the bounding box of the \`anchor\`. The
 
         <MainSection.Subsection
           description={`
-Popover is typically used within [Layer](/web/layer). Layer renders Popover outside the DOM hierarchy of the parent allowing it to overlay surrounding content. Popover calculates its position based on the bounding box of the \`anchor\`. Within Layer, Popover no longer shares a relative root with the \`anchor\` and requires \`positionRelativeToAnchor=false\` to properly calculate its position relative to the anchor element.
+Popover is typically used within [Layer](/web/layer). Layer renders Popover outside the DOM hierarchy of the parent allowing it to overlay surrounding content. Popover calculates its position based on the bounding box of the \`anchor\`. Within Layer, Popover no longer shares a relative root with the \`anchor\` and requires \`disablePortal=true\` to disable its internal Layer.
 
-Using \`Layer\` with Popover eliminates the need to use \`z-index\` to solve stacking context conflicts. Popovers within Modals and OverlayPanels with z-indexes don't require \`zIndex\` in \`Layer\` thanks to the built-in ScrollBoundaryContainer.
+Using \`Layer\` with Popover eliminates the need to use \`z-index\` to solve stacking context conflicts. Popovers within Modals and OverlayPanels with z-indexes don't require \`zIndex\` in \`Layer\`.
 `}
           title="With Layer"
         >
@@ -206,7 +195,15 @@ Adjust the \`idealDirection\` as necessary to ensure the visibility of Popover a
 
         <MainSection.Subsection
           description={`
-[ScrollBoundaryContainer](/web/utilities/scrollboundarycontainer) is needed for proper positioning when Popover is anchored to an element that is located within a scrolling container. The use of ScrollBoundaryContainer ensures Popover remains attached to its anchor when scrolling.
+Popover always remains attached to its anchor when scrolling. However Popover may float outside of the scrolling container without adjusting itself (**shift / flip**) when reached to the edges if:
+ - Popover is rendered through portal using
+   - \`disablePortal={true}\` prop
+   - **[Layer](/web/layer)** component
+ - the scrolling container is not positioned relatively (\`position: relative\`)
+
+For some use cases that can be the indeneded behavior.
+
+If Popover has to respect the edges of its scrolling container, the scrolling has to have position CSS rule set to \`relative\`. Popover's \`disablePortal\` prop is by default \`true\`. That's why in this case should not be set to \`false\`.
 `}
           title="Within scrolling containers"
         >
