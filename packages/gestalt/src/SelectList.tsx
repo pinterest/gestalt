@@ -123,7 +123,7 @@ function SelectList({
 
   return (
     <Box>
-      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
+      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} />}
       <Box
         dangerouslySetInlineStyle={{
           __style: { backgroundColor: TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY },
