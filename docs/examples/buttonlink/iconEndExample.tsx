@@ -7,8 +7,9 @@ export default function Example() {
         accessibilityLabel=""
         href="https://www.pinterest.com/"
         iconEnd="visit"
+        iconStart="sparkle"
         size="lg"
-        text="Visit Pinterest"
+        text="Visit AI solution"
       />
     </Flex>
   );
