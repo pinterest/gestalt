@@ -1,3 +1,9 @@
+## 154.3.0 (Jul 2, 2024)
+
+### Minor
+
+- SelectList: Added onBlur/onFocus props ([#3651](https://github.com/pinterest/gestalt/pull/3651)) - [Preview link](https://deploy-preview-3651--gestalt.netlify.app?devexample=true)
+
 ## 154.2.0 (Jul 2, 2024)
 
 ### Minor
