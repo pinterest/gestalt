@@ -1,5 +1,4 @@
-import { Component as ReactComponent, ReactNode, useCallback } from 'react';
-import { Box } from '.';
+import { Component as ReactComponent, ReactNode } from 'react';
 import debounce, { DebounceReturn } from './debounce';
 import FetchItems from './FetchItems';
 import styles from './Masonry.css';
@@ -13,19 +12,6 @@ import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/
 import { Align, Layout, Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { ThrottleReturn } from './throttle';
-
-const randomPinHeight = () => Math.random() * 200 + 100;
-
-// Generate skeleton pins
-const skeletonPins = [...new Array(3)]
-  .map(() => [
-    { id: 1, height: randomPinHeight(), width: 474 },
-    { id: 2, height: randomPinHeight(), width: 474 },
-    { id: 3, height: randomPinHeight(), width: 474 },
-    { id: 4, height: randomPinHeight(), width: 474 },
-    { id: 5, height: randomPinHeight(), width: 474 },
-  ])
-  .flat();
 
 const RESIZE_DEBOUNCE = 300;
 
@@ -76,6 +62,7 @@ type Props<T> = {
       | null
       | undefined,
   ) => void;
+  loadingStateItems: ReadonlyArray<T>;
   /**
    * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
    */
@@ -98,9 +85,11 @@ type Props<T> = {
     readonly itemIdx: number;
     readonly isMeasuring: boolean;
   }) => ReactNode;
-  renderLoadingItems: any;
-  loadingStateItems: any;
-  useShimmeringSkeletonLoadingState?: boolean;
+  renderLoadingItems: (arg1: {
+    readonly data: T;
+    readonly itemIdx: number;
+    readonly isMeasuring: boolean;
+  }) => ReactNode;
   /**
    * A function that returns a DOM node that Masonry uses for scroll event subscription. This DOM node is intended to be the most immediate ancestor of Masonry in the DOM that will have a scroll bar; in most cases this will be the `window` itself, although sometimes Masonry is used inside containers that have `overflow: auto`. `scrollContainer` is optional, although it is required for features such as `virtualize` and `loadItems`.
    *
@@ -144,6 +133,7 @@ type State<T> = {
   hasPendingMeasurements: boolean;
   isFetching: boolean;
   items: ReadonlyArray<T>;
+  _items: ReadonlyArray<T>;
   measurementStore: Cache<T, number>;
   scrollTop: number;
   width: number | null | undefined;
@@ -198,16 +188,10 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
 
-    console.log('---- in constructor', props.items, 'measurementStore', measurementStore);
-    // const items =
-    // props.useShimmeringSkeletonLoadingState && props.items.length === 0
-    // ? skeletonPins
-    // : props.items;
-
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
       isFetching: false,
-      items: props.items || skeletonPins,
+      items: props.items,
       _items: props.items,
       measurementStore,
       scrollTop: 0,
@@ -449,7 +433,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     position,
   ) => {
     const {
-      items,
       renderItem,
       scrollContainer,
       virtualize,
@@ -569,7 +552,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       layout = 'basic',
       minCols,
       renderItem,
-      useShimmeringSkeletonLoadingState,
       scrollContainer,
       _logTwoColWhitespace,
       _getColumnSpanConfig,
@@ -615,38 +597,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     }
 
     let gridBody;
-    // if (useShimmeringSkeletonLoadingState && items.length === 0) {
-    // const left = 1;
-    // const top = 1;
 
-    // gridBody = (
-    // <div ref={this.setGridWrapperRef} className={styles.Masonry} role="list">
-    // {[...Array(10)].map((_, idx) => (
-    // <div
-    // key={`item-${idx}`}
-    // // className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
-    // data-grid-item
-    // role="listitem"
-    // style={{
-    // // top: 0,
-    // // left: 0,
-    // // transform: `translateX(${left}px) translateY(${top}px)`,
-    // // WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
-    // // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
-    // width: '474px',
-    // // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
-    // height: layoutNumberToCssDimension(randomPinHeight()),
-    // }}
-    // >
-    // <SkeletonPin />
-    // </div>
-    // ))}
-    // </div>
-    // );
-    // } else
     if (width == null && hasPendingMeasurements) {
       // SSR or very first hydration from SSR bc we dont know the width of container
-      console.log('--- width is null and hasPendingMeasurements');
       // When hyrdating from a server render, we don't have the width of the grid
       // and the measurement store is empty
       gridBody = (
@@ -706,7 +659,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         </div>
       );
     } else if (width == null) {
-      console.log('--- width is null');
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
       gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;

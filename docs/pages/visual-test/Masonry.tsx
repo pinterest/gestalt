@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Box, ColorSchemeProvider, Flex, Image, Masonry } from 'gestalt';
 
 function getPins() {
@@ -46,24 +46,8 @@ function getPins() {
 
 // Component to display a skeleton pin
 function SkeletonPin({ height }: { height: number }) {
-  const refCallback = useCallback((ref) => {
-    // rewrite parent to use abs vs transform
-    if (ref) {
-      const parentEl = ref.parentElement;
-      if (parentEl.style.transform) {
-        const computedStyles = getComputedStyle(parentEl);
-        if (computedStyles.transform) {
-          const matrix = new DOMMatrix(computedStyles.transform);
-          const { m41: x, m42: y } = matrix;
-          parentEl.style.transform = '';
-          parentEl.style.top = `${y}px`;
-          parentEl.style.left = `${x}px`;
-        }
-      }
-    }
-  }, []);
   return (
-    <div ref={refCallback} className="SkeletonPin__Loading">
+    <div className="SkeletonPin__Loading">
       <Box height={height} width="100%" />
     </div>
   );
