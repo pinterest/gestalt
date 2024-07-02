@@ -1,3 +1,9 @@
+## 154.3.1 (Jul 2, 2024)
+
+### Patch
+
+- TextField, SearchField, TextArea, SelectList: fix Label implementation consistency ([#3654](https://github.com/pinterest/gestalt/pull/3654)) - [Preview link](https://deploy-preview-3654--gestalt.netlify.app?devexample=true)
+
 ## 154.3.0 (Jul 2, 2024)
 
 ### Minor
