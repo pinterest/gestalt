@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
@@ -52,16 +52,16 @@ type Props = {
   /**
    * Callback triggered when the user blurs the input.
    */
-  onBlur?: (arg1: { event: FocusEvent<HTMLSelectElement>; value: string }) => void;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLSelectElement>; value: string }) => void;
   /**
   /**
    * Callback triggered when the user selects a new option.  See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
-  onChange: (arg1: { event: ChangeEvent<HTMLSelectElement>; value: string }) => void;
+  onChange: (arg1: { event: React.ChangeEvent<HTMLSelectElement>; value: string }) => void;
   /**
    * Callback triggered when the user focuses the input.
    */
-  onFocus?: (arg1: { event: FocusEvent<HTMLSelectElement>; value: string }) => void;
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLSelectElement>; value: string }) => void;
   /**
    * If not provided, the first item in the list will be shown. Be sure to localize the text. See the [controlled component](https://gestalt.pinterest.systems/web/selectlist#Controlled-component) variant to learn more.
    */
@@ -102,25 +102,22 @@ function SelectList({
 }: Props) {
   const [focused, setFocused] = useState(false);
 
-  const handleOnChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleOnChange: (event: React.ChangeEvent<HTMLSelectElement>) => void = (event) => {
     if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
     }
   };
 
-  const handleBlur = (event: FocusEvent<HTMLSelectElement>) => {
+  const handleBlur = (event: React.FocusEvent<HTMLSelectElement>) => {
     const { value: eventValue } = event.target;
-    if (onBlur) {
-      onBlur({ event, value: eventValue });
-    }
+    onBlur?.({ event, value: eventValue });
+    handleOnChange(event);
     setFocused(false);
   };
 
-  const handleFocus = (event: FocusEvent<HTMLSelectElement>) => {
+  const handleFocus = (event: React.FocusEvent<HTMLSelectElement>) => {
     const { value: eventValue } = event.target;
-    if (onFocus) {
-      onFocus({ event, value: eventValue });
-    }
+    onFocus?.({ event, value: eventValue });
     setFocused(true);
   };
 
