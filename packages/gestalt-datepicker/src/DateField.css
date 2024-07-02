@@ -55,7 +55,7 @@
 }
 
 .formElementBase:focus {
-  outline: 0 0 0 4px var(--color-border-focus);
+  outline: 4px solid var(--color-border-focus);
 }
 
 .formElementNormal {

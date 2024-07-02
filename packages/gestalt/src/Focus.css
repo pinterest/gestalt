@@ -1,9 +1,9 @@
 .accessibilityOutline:focus {
-  outline: 0 0 0 4px var(--color-border-focus);
+  outline: 4px solid var(--color-border-focus);
 }
 
 .accessibilityOutlineFocusWithin.accessibilityOutline:focus-within {
-  outline: 0 0 0 4px var(--color-border-focus);
+  outline: 4px solid var(--color-border-focus);
 }
 
 .accessibilityOutlineFocusWithin .accessibilityOutline:focus {
@@ -11,7 +11,7 @@
 }
 
 .accessibilityOutlineFocus {
-  outline: 0 0 0 4px var(--color-border-focus);
+  outline: 4px solid var(--color-border-focus);
 }
 
 .hideOutline:focus {
