@@ -162,7 +162,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   const classes = classnames(
     styles.textArea,
     formElement.base,
-    formElement.base.lg,
+    formElement.lg,
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     tags

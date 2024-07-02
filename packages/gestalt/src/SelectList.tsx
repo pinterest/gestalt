@@ -126,6 +126,8 @@ function SelectList({
     formElement.base,
     size === 'md' ? layout.medium : layout.large,
     {
+      [formElement.md]: size === 'md',
+      [formElement.lg]: size === 'lg',
       [formElement.normal]: !errorMessage,
       [formElement.enabledTransparent]: !disabled,
       [formElement.disabled]: disabled,
