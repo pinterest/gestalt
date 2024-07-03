@@ -1,3 +1,9 @@
+## 154.4.0 (Jul 3, 2024)
+
+### Minor
+
+- Button, ButtonLink: Add leading icon to Button/ButtonLink ([#3656](https://github.com/pinterest/gestalt/pull/3656)) - [Preview link](https://deploy-preview-3656--gestalt.netlify.app?devexample=true)
+
 ## 154.3.2 (Jul 2, 2024)
 
 ### Patch
