@@ -1,6 +1,5 @@
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
-const path = require('path');
 const toCamelCase = require('lodash.camelcase');
 
 // CONFIG
@@ -397,6 +396,9 @@ StyleDictionary.registerTransform({
   name: 'attribute/custom-cti',
   type: 'attribute',
   transformer(prop) {
+    // this function is modified from the default cti transformer
+    // https://github.com/amzn/style-dictionary/blob/c34cfa5313ee69f02783a2fb51d5f78720163d53/lib/common/transforms.js#L79
+
     const prefixes = ['base', 'sema', 'comp'];
     const hasPrefix = prefixes.some((prefix) => prop.path[0] === prefix);
 
