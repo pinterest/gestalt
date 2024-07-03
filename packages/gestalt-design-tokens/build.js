@@ -192,25 +192,6 @@ const filterList = [
   filterFontWeight,
 ];
 
-const getPrefix = (filePath) => {
-  const filePaths = filePath.split('/');
-  const filename = path.parse(filePath).name;
-
-  if (filePaths.includes('sema') || filename.startsWith('sema-')) {
-    return 'sema';
-  }
-
-  if (filePaths.includes('comp') || filename.startsWith('comp-')) {
-    return 'comp';
-  }
-
-  if (filePaths.includes('base') || filename.startsWith('base-')) {
-    return 'base';
-  }
-
-  throw new Error('Unable to find a valid token prefix');
-};
-
 const getFilter = (category, type) => {
   // eslint-disable-next-line no-restricted-syntax
   for (const item of filterList) {
@@ -254,14 +235,12 @@ const regex = /(\{|\})/gi;
 const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 
 const commonJSFormatter = ({ token, darkTheme, isVR }) => {
-  const prefix = getPrefix(token.filePath);
-
   const isWebMappingToken = token.filePath.includes('mapping');
 
   return JSON.stringify({
     name:
       isVR && !isWebMappingToken
-        ? [prefix, ...token.path].join('-').replace('appenda', '')
+        ? token.path.join('-').replace('appenda', '')
         : token.path.join('-').replace('appenda', '').replace('appendb', ''),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
@@ -442,8 +421,6 @@ StyleDictionary.registerFormat({
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
-        const prefix = getPrefix(token.filePath);
-
         let value = JSON.stringify(token.value);
         if (dictionary.usesReference(token.original.value)) {
           const refs = dictionary.getReferences(token.original.value);
@@ -466,7 +443,7 @@ StyleDictionary.registerFormat({
           .replace('appenda', '')
           .replace('appendb', '');
 
-        return `export const TOKEN_${prefix.toUpperCase()}_${formattedTokenNameKey} = 'var(--${prefix}-${formattedTokenNameValue})';`;
+        return `export const TOKEN_${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
       })
       .join(`\n`);
 
@@ -508,7 +485,6 @@ StyleDictionary.registerFormat({
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
-        const prefix = getPrefix(token.filePath);
         let value = JSON.stringify(token.value);
         if (dictionary.usesReference(token.original.value)) {
           const refs = dictionary.getReferences(token.original.value);
@@ -516,10 +492,10 @@ StyleDictionary.registerFormat({
             value = value.replace(ref.value, ref.name);
           });
         }
-        return `  TOKEN_${prefix.toUpperCase()}_${token.path
+        return `  TOKEN_${token.path
           .join('_')
           .toUpperCase()
-          .replace('-', '_')}: 'var(--${`${prefix}-${token.path.join('-')}`})',`;
+          .replace('-', '_')}: 'var(--${`${token.path.join('-')}`})',`;
       })
       .join(`\n`)
       .slice(0, -1);
