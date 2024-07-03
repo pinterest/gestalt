@@ -1,5 +1,6 @@
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
+const toCamelCase = require('lodash.camelcase');
 
 // CONFIG
 
@@ -233,14 +234,12 @@ const regex = /(\{|\})/gi;
 const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
 
 const commonJSFormatter = ({ token, darkTheme, isVR }) => {
-  const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
-
   const isWebMappingToken = token.filePath.includes('mapping');
 
   return JSON.stringify({
     name:
       isVR && !isWebMappingToken
-        ? [prefix, ...token.path].join('-').replace('appenda', '')
+        ? token.path.join('-').replace('appenda', '')
         : token.path.join('-').replace('appenda', '').replace('appendb', ''),
     value: token.value,
     // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
@@ -287,20 +286,20 @@ function getSources({ theme, modeTheme, platform, language }) {
   }
 
   return [
-    'tokens/vr-theme/base-color.json',
-    `tokens/vr-theme/base-elevation-${modeTheme}.json`,
-    'tokens/vr-theme/base-font.json',
-    'tokens/vr-theme/base-opacity.json',
-    'tokens/vr-theme/base-rounding.json',
-    'tokens/vr-theme/base-space.json',
-    `tokens/vr-theme/sema-color-${modeTheme}.json`,
-    'tokens/vr-theme/sema-elevation.json',
-    'tokens/vr-theme/sema-font.json',
-    'tokens/vr-theme/sema-opacity.json',
-    'tokens/vr-theme/sema-rounding.json',
-    'tokens/vr-theme/sema-space.json',
-    `tokens/vr-theme/base-lineheight.json`,
-    `tokens/vr-theme/language/sema-lineheight-${language}.json`,
+    'tokens/vr-theme/base/color.json',
+    `tokens/vr-theme/base/elevation/${modeTheme}.json`,
+    'tokens/vr-theme/base/font.json',
+    'tokens/vr-theme/base/opacity.json',
+    'tokens/vr-theme/base/rounding.json',
+    'tokens/vr-theme/base/space.json',
+    'tokens/vr-theme/base/lineheight.json',
+    `tokens/vr-theme/sema/color/${modeTheme}.json`,
+    `tokens/vr-theme/sema/elevation.json`,
+    `tokens/vr-theme/sema/font.json`,
+    `tokens/vr-theme/sema/opacity.json`,
+    `tokens/vr-theme/sema/rounding.json`,
+    `tokens/vr-theme/sema/space.json`,
+    `tokens/vr-theme/sema/lineheight/${language}.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
@@ -393,13 +392,37 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'attribute/custom-cti',
+  type: 'attribute',
+  transformer(prop) {
+    // this function is modified from the default cti transformer
+    // https://github.com/amzn/style-dictionary/blob/c34cfa5313ee69f02783a2fb51d5f78720163d53/lib/common/transforms.js#L79
+
+    const prefixes = ['base', 'sema', 'comp'];
+    const hasPrefix = prefixes.some((prefix) => prop.path[0] === prefix);
+
+    const attrNames = ['category', 'type', 'item', 'subitem', 'state'];
+    if (hasPrefix) {
+      attrNames.unshift('prefix');
+    }
+
+    const originalAttrs = prop.attributes || {};
+    const generatedAttrs = {};
+
+    for (let i = 0; i < prop.path.length && i < attrNames.length; i += 1) {
+      generatedAttrs[attrNames[i]] = prop.path[i];
+    }
+
+    return Object.assign(generatedAttrs, originalAttrs);
+  },
+});
+
 StyleDictionary.registerFormat({
   name: `constantLibrary-javascript/es6/vr-theme`,
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
-        const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
-
         let value = JSON.stringify(token.value);
         if (dictionary.usesReference(token.original.value)) {
           const refs = dictionary.getReferences(token.original.value);
@@ -422,7 +445,7 @@ StyleDictionary.registerFormat({
           .replace('appenda', '')
           .replace('appendb', '');
 
-        return `export const TOKEN_${prefix.toUpperCase()}_${formattedTokenNameKey} = 'var(--${prefix}-${formattedTokenNameValue})';`;
+        return `export const TOKEN_${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
       })
       .join(`\n`);
 
@@ -464,7 +487,6 @@ StyleDictionary.registerFormat({
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
-        const prefix = token.filePath.split('/').splice(-1)[0].substring(0, 4);
         let value = JSON.stringify(token.value);
         if (dictionary.usesReference(token.original.value)) {
           const refs = dictionary.getReferences(token.original.value);
@@ -472,10 +494,10 @@ StyleDictionary.registerFormat({
             value = value.replace(ref.value, ref.name);
           });
         }
-        return `  TOKEN_${prefix.toUpperCase()}_${token.path
+        return `  TOKEN_${token.path
           .join('_')
           .toUpperCase()
-          .replace('-', '_')}: 'var(--${`${prefix}-${token.path.join('-')}`})',`;
+          .replace('-', '_')}: 'var(--${`${token.path.join('-')}`})',`;
       })
       .join(`\n`)
       .slice(0, -1);
@@ -522,40 +544,13 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/kebab',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic') && !prop.filePath.includes('vr-theme-web-mapping');
-  },
-  transformer(prop) {
-    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}-${match}`);
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/pascal',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic');
-  },
-  transformer(prop) {
-    const level = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
-    const prefix = level.charAt(0).toUpperCase() + level.slice(1);
-
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}${match}`);
-  },
-});
-
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'webCssTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/kebab',
     'name/conflictFixing',
-    'name/prefix/level/kebab',
     'value/elevation/css',
     'color/css',
   ],
@@ -564,10 +559,9 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'webJsTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/pascal',
     'name/conflictFixing',
-    'name/prefix/level/pascal',
     'value/elevation/css',
     'color/hex',
   ],
@@ -607,7 +601,7 @@ StyleDictionary.registerFilter({
 });
 
 function getWebConfig({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
@@ -741,33 +735,20 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/snake',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic');
-  },
-  transformer(prop) {
-    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
-    return prop.name.replace(/^[^_]*/, (match) => `${prefix}_${match}`);
-  },
-});
-
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'androidTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/snake',
     'name/conflictFixing',
-    'name/prefix/level/snake',
     'color/hex8android',
     'size/pxToDpOrSp',
   ],
 });
 
 function getAndroidConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   return {
     'source': getSources({ theme, modeTheme, language }),
@@ -838,6 +819,20 @@ function getAndroidConfiguration({ theme, mode, language }) {
 // IOS PLATFORM
 
 // REGISTER TRANSFORM
+StyleDictionary.registerTransform({
+  name: 'name/custom-ti/camel',
+  type: 'name',
+  transformer(prop) {
+    const paths = [].concat(prop.path);
+    if ('prefix' in prop.attributes) {
+      // remove the category value from paths array
+      paths.splice(1, 1);
+    } else {
+      paths.splice(0, 1);
+    }
+    return toCamelCase(paths.join(' '));
+  },
+});
 
 StyleDictionary.registerTransform({
   name: 'value/elevation/ios',
@@ -852,29 +847,13 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'name/prefix/level/camel',
-  type: 'name',
-  matcher(prop) {
-    return !prop.filePath.includes('classic');
-  },
-  transformer(prop) {
-    const prefix = prop.filePath.split('/').splice(-1)[0].substring(0, 4);
-    return prop.name.replace(
-      /^[^_]*/,
-      (match) => `${prefix}${match.charAt(0).toUpperCase() + match.slice(1)}`,
-    );
-  },
-});
-
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'iOSTransformGroup',
   transforms: [
-    'attribute/cti',
+    'attribute/custom-cti',
     'name/cti/pascal',
     'name/conflictFixing',
-    'name/prefix/level/pascal',
     'value/elevation/ios',
     'color/UIColor',
     'content/objC/literal',
@@ -887,10 +866,9 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'iOSSwiftEnumTransformGroup',
   transforms: [
-    'attribute/cti',
-    'name/ti/camel',
+    'attribute/custom-cti',
+    'name/custom-ti/camel',
     'name/conflictFixing',
-    'name/prefix/level/camel',
     'value/elevation/ios',
     'color/UIColorSwift',
     'content/swift/literal',
@@ -901,7 +879,7 @@ StyleDictionary.registerTransformGroup({
 });
 
 function getIOSConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'darkTheme' : 'lightTheme';
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   const categories = [
     'color',
