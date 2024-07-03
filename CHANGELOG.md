@@ -1,3 +1,9 @@
+## 154.5.0 (Jul 3, 2024)
+
+### Minor
+
+- SideNavigation: SideNavigationGroupItem with link ([#3642](https://github.com/pinterest/gestalt/pull/3642)) - [Preview link](https://deploy-preview-3642--gestalt.netlify.app?devexample=true)
+
 ## 154.4.0 (Jul 3, 2024)
 
 ### Minor
