@@ -10,7 +10,7 @@ describe('ButtonLink', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('renders with icon', () => {
+  test('renders with icon on the right', () => {
     const component = create(
       <ButtonLink
         href="#"
@@ -23,6 +23,21 @@ describe('ButtonLink', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  it('renders with icon on the left', () => {
+    const instance = create(
+      <ButtonLink
+        accessibilityLabel="hello"
+        href="#"
+        iconStart="sparkle"
+        rel="nofollow"
+        size="lg"
+        target="blank"
+        text="Visit Pinterest"
+      />,
+    ).root;
+    expect(instance.find((element: any) => element.type === 'svg')).not.toBeNull();
   });
 
   test('renders disabled', () => {

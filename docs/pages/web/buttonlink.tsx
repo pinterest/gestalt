@@ -310,7 +310,7 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
         />
         <MainSection.Subsection
           description={`
-\`iconEnd\` adds an icon after the ButtonLink text. Icons should only be used to visually reinforce a specific function or interaction of the ButtonLink. Menus and external links are a common use case. The icon \`visit\` is recommended for use with ButtonLink. Note that iconEnd on ButtonLink is not accessible to screen readers.
+\`iconEnd\` adds an icon after the ButtonLink text, and \`iconStart\` adds an icon before. Icons should only be used to visually reinforce a specific function or interaction of the ButtonLink. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that icons on ButtonLink are not accessible to screen readers.
 `}
           title="Icons"
         >
