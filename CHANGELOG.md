@@ -1,3 +1,9 @@
+## 154.5.1 (Jul 3, 2024)
+
+### Patch
+
+- Tokens: Support Token Studio Structure ([#3652](https://github.com/pinterest/gestalt/pull/3652)) - [Preview link](https://deploy-preview-3652--gestalt.netlify.app?devexample=true)
+
 ## 154.5.0 (Jul 3, 2024)
 
 ### Minor
