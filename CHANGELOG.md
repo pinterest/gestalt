@@ -1,3 +1,27 @@
+## 154.1.1 (Jul 1, 2024)
+
+### Patch
+
+- AvatarGroup: fix, remove xs from actions ([#3648](https://github.com/pinterest/gestalt/pull/3648)) - [Preview link](https://deploy-preview-3648--gestalt.netlify.app?devexample=true)
+
+## 154.1.0 (Jul 1, 2024)
+
+### Minor
+
+- AvatarGroup: enable actions in smaller sizes ([#3646](https://github.com/pinterest/gestalt/pull/3646)) - [Preview link](https://deploy-preview-3646--gestalt.netlify.app?devexample=true)
+
+## 154.0.1 (Jun 27, 2024)
+
+### Patch
+
+- Internal: upgrade @typescript-eslint ([#3647](https://github.com/pinterest/gestalt/pull/3647)) - [Preview link](https://deploy-preview-3647--gestalt.netlify.app?devexample=true)
+
+## 154.0.0 (Jun 21, 2024)
+
+### Major
+
+- Masonry: Responsive grid modules ([#3636](https://github.com/pinterest/gestalt/pull/3636)) - [Preview link](https://deploy-preview-3636--gestalt.netlify.app?devexample=true)
+
 ## 153.10.0 (Jun 20, 2024)
 
 ### Minor

@@ -16,3 +16,18 @@ test('All CSS Tokens Exist', async () => {
 
   expect(tokenFiles).toMatchSnapshot();
 });
+
+test('All JS Tokens Exist', async () => {
+  const webTokens = await getFiles(dir('js'));
+  const tokenFiles = {};
+
+  await Promise.all(
+    webTokens.map(async (file) => {
+      const contents = await readFile(file, 'utf8');
+      tokenFiles[file] = decomment(contents, { tolerant: true });
+      return contents;
+    }),
+  );
+
+  expect(tokenFiles).toMatchSnapshot();
+});
