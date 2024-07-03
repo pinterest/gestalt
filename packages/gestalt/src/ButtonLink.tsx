@@ -54,6 +54,10 @@ type ButtonProps = {
    */
   iconEnd?: keyof typeof icons;
   /**
+   * An icon displayed before the text to help clarify the usage of ButtonLink. See the [icon variant](#Icons) to learn more.
+   */
+  iconStart?: keyof typeof icons;
+  /**
    * Default Buttons are sized by the text within the ButtonLink whereas full-width Buttons expand to the full width of their container.
    */
   fullWidth?: boolean;
@@ -109,6 +113,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     disabled = false,
     fullWidth = false,
     iconEnd,
+    iconStart,
     onClick,
     tabIndex = 0,
     size = 'md',
@@ -176,6 +181,14 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       wrappedComponent="button"
     >
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {iconStart ? (
+          <Icon
+            accessibilityLabel=""
+            color={textColor}
+            icon={iconStart}
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        ) : null}
         <Text
           align="center"
           color={textColor}

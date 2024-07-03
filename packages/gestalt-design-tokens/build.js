@@ -320,7 +320,6 @@ function getSources({ theme, modeTheme, platform, language }) {
           'tokens/vr-theme/base/color/pressed.json',
           'tokens/vr-theme/base/color/hover.json',
           `tokens/vr-theme/sema/color/${modeTheme}/hover.json`,
-          'tokens/vr-theme/base/color/hover.json',
         ]
       : [],
     `tokens/vr-theme/sema/elevation.json`,

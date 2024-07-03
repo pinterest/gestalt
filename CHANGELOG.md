@@ -1,3 +1,51 @@
+## 154.5.1 (Jul 3, 2024)
+
+### Patch
+
+- Tokens: Support Token Studio Structure ([#3652](https://github.com/pinterest/gestalt/pull/3652)) - [Preview link](https://deploy-preview-3652--gestalt.netlify.app?devexample=true)
+
+## 154.5.0 (Jul 3, 2024)
+
+### Minor
+
+- SideNavigation: SideNavigationGroupItem with link ([#3642](https://github.com/pinterest/gestalt/pull/3642)) - [Preview link](https://deploy-preview-3642--gestalt.netlify.app?devexample=true)
+
+## 154.4.0 (Jul 3, 2024)
+
+### Minor
+
+- Button, ButtonLink: Add leading icon to Button/ButtonLink ([#3656](https://github.com/pinterest/gestalt/pull/3656)) - [Preview link](https://deploy-preview-3656--gestalt.netlify.app?devexample=true)
+
+## 154.3.2 (Jul 2, 2024)
+
+### Patch
+
+- SelectList/TextArea: fix rounding bug introduced in #3651 ([#3658](https://github.com/pinterest/gestalt/pull/3658)) - [Preview link](https://deploy-preview-3658--gestalt.netlify.app?devexample=true)
+
+## 154.3.1 (Jul 2, 2024)
+
+### Patch
+
+- TextField, SearchField, TextArea, SelectList: fix Label implementation consistency ([#3654](https://github.com/pinterest/gestalt/pull/3654)) - [Preview link](https://deploy-preview-3654--gestalt.netlify.app?devexample=true)
+
+## 154.3.0 (Jul 2, 2024)
+
+### Minor
+
+- SelectList: Added onBlur/onFocus props ([#3651](https://github.com/pinterest/gestalt/pull/3651)) - [Preview link](https://deploy-preview-3651--gestalt.netlify.app?devexample=true)
+
+## 154.2.0 (Jul 2, 2024)
+
+### Minor
+
+- Popover: Release v2 ([#3655](https://github.com/pinterest/gestalt/pull/3655)) - [Preview link](https://deploy-preview-3655--gestalt.netlify.app?devexample=true)
+
+## 154.1.2 (Jul 1, 2024)
+
+### Patch
+
+- Internal: update eslint-plugin-react-compiler package ([#3650](https://github.com/pinterest/gestalt/pull/3650)) - [Preview link](https://deploy-preview-3650--gestalt.netlify.app?devexample=true)
+
 ## 154.1.1 (Jul 1, 2024)
 
 ### Patch

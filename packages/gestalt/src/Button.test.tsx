@@ -21,6 +21,14 @@ describe('<Button />', () => {
     // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
     expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
   });
+
+  it('iconStart', () => {
+    const instance = create(
+      <Button accessibilityLabel="hello" iconStart="sparkle" text="Hello World" />,
+    ).root;
+    expect(instance.find((element: any) => element.type === 'svg')).not.toBeNull();
+  });
+
   test('Custom white text color on transparent background', () => {
     const instance = create(<Button color="transparentWhiteText" text="Hello World" />).root;
     expect(instance.findAll((element: any) => element.type === 'div')[1].props.className).toContain(

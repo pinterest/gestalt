@@ -101,7 +101,7 @@ exports[`ButtonLink renders disabled 1`] = `
 </a>
 `;
 
-exports[`ButtonLink renders with icon 1`] = `
+exports[`ButtonLink renders with icon on the right 1`] = `
 <a
   className="link noUnderline hideOutline tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button lg gray"
   href="#"

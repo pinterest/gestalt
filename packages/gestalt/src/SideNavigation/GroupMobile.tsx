@@ -1,6 +1,5 @@
 import { Fragment, useCallback, useEffect, useId, useMemo, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400 } from 'gestalt-design-tokens';
 import getChildrenToArray from './getChildrenToArray';
 import SideNavigationGroupContent from './GroupContent';
 import Box from '../Box';
@@ -12,7 +11,6 @@ import IconButton from '../IconButton';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import styles from '../SideNavigation.css';
 import { Props } from '../SideNavigationGroup';
-import { NESTING_MARGIN_START_MAP } from '../SideNavigationTopItem';
 import TapArea from '../TapArea';
 
 type SideNavigationGroupMobileProps = Props & {
@@ -36,7 +34,6 @@ export default function SideNavigationGroupMobile({
   const [focused, setFocused] = useState(false);
 
   // Manages children
-
   const itemId = useId();
 
   const { nestedLevel } = useNesting();
@@ -67,16 +64,6 @@ export default function SideNavigationGroupMobile({
   );
 
   const [expanded, setExpanded] = useState(false);
-
-  const itemColor = hovered ? 'secondary' : undefined;
-
-  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-  const nestingMargin = NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1];
-
-  const paddingStyle = {
-    paddingInlineStart: nestingMargin,
-    paddingInlineEnd: TOKEN_SPACE_400,
-  } as const;
 
   let topLevelChildrenList;
 
@@ -142,8 +129,8 @@ export default function SideNavigationGroupMobile({
   }, [isTopLevel, hasActiveChild, hideActiveChildren, itemId, elevateChildrenToParent]);
 
   return (
-    <li className={classnames(styles.liItem)}>
-      <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
+    <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
+      <li className={classnames(styles.liItem)}>
         <TapArea
           accessibilityControls={display === 'expandable' ? itemId : undefined}
           accessibilityExpanded={display === 'expandable' ? expanded : undefined}
@@ -172,18 +159,16 @@ export default function SideNavigationGroupMobile({
             focused={focused}
             hovered={hovered}
             icon={icon}
-            itemColor={itemColor}
             itemId={itemId}
             label={label}
             notificationAccessibilityLabel={notificationAccessibilityLabel}
-            paddingStyle={paddingStyle}
             primaryAction={primaryAction}
             selectedItemId={selectedItemId}
             setCompression={setCompression}
           />
         </TapArea>
         {expanded ? passedChildren : null}
-      </NestingProvider>
-    </li>
+      </li>
+    </NestingProvider>
   );
 }

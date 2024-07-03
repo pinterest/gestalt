@@ -76,6 +76,10 @@ type Props = {
    */
   iconEnd?: keyof typeof icons;
   /**
+   * An icon displayed before the text to help clarify the Button usage.
+   */
+  iconStart?: keyof typeof icons;
+  /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
   name?: string;
@@ -113,24 +117,35 @@ function InternalButtonContent({
   target,
   text,
   textColor,
-  icon,
+  iconStart,
+  iconEnd,
   size,
 }: {
   target?: Target;
   text: ReactNode;
   textColor: IconColor;
-  icon?: keyof typeof icons;
+  iconStart?: keyof typeof icons;
+  iconEnd?: keyof typeof icons;
   size: string;
 }) {
   return (
     <Fragment>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {iconStart && (
+          <Icon
+            accessibilityLabel=""
+            color={textColor as IconColor}
+            icon={iconStart}
+            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        )}
         {text}
-        {icon ? (
+        {iconEnd ? (
           <Icon
             accessibilityLabel=""
             color={textColor}
-            icon={icon}
+            icon={iconEnd}
             // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
             size={SIZE_NAME_TO_PIXEL[size]}
           />
@@ -157,6 +172,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     disabled = false,
     fullWidth = false,
     iconEnd,
+    iconStart,
     onClick,
     tabIndex = 0,
     selected = false,
@@ -264,7 +280,12 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
-        <InternalButtonContent icon={iconEnd} size={size} text={buttonText} textColor={textColor} />
+        <InternalButtonContent
+          iconEnd={iconEnd}
+          size={size}
+          text={buttonText}
+          textColor={textColor}
+        />
       </button>
     );
   }
@@ -295,9 +316,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       type="button"
     >
       <div className={childrenDivClasses} style={compressStyle || undefined}>
-        {iconEnd ? (
+        {iconEnd || iconStart ? (
           <InternalButtonContent
-            icon={iconEnd}
+            iconEnd={iconEnd}
+            iconStart={iconStart}
             size={size}
             text={buttonText}
             textColor={textColor}
