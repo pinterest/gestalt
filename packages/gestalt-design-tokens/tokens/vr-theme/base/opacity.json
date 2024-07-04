@@ -17,6 +17,10 @@
         "type": "opacity",
         "value": "0.4"
       },
+      "60": {
+        "type": "opacity",
+        "value": "0.6"
+      },
       "80": {
         "type": "opacity",
         "value": "0.8"

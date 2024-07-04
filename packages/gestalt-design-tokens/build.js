@@ -219,13 +219,34 @@ function buildShadowValue(values, platform) {
 
   return Object.values(values)
     .map((value) => {
-      const shadowColor = tinycolor(value.color);
-      shadowColor.setAlpha(value.opacity);
-      shadowColor.toRgbString();
+      //  Note: we have two formats for elevation tokens.
+      //  Classic and VR use a new set of properties
+
+      let rgbString = value.color;
+      const hexCode = tinycolor(rgbString).toHex();
+      const opacity = tinycolor(rgbString).getAlpha();
+
+      // older format has an explicit opacity value
+      if ('opacity' in value) {
+        const shadowColor = tinycolor(rgbString);
+        shadowColor.setAlpha(value.opacity);
+        rgbString = shadowColor.toRgbString();
+      }
+
+      // strip the px ending in the value of the object, since we re-add it below
+      function cleanValue(str) {
+        return str.toString().replace('px', '');
+      }
+
+      const base = `${cleanValue(value.x ?? value.offsetX)}px ${cleanValue(
+        value.y ?? value.offsetY,
+      )}px ${cleanValue(value.blur ?? value.blurRadius)}px ${cleanValue(
+        value.spread ?? value.spreadRadius,
+      )}px`;
 
       return platform === 'css'
-        ? `${value.offsetX}px ${value.offsetY}px ${value.blurRadius}px ${value.spreadRadius}px ${shadowColor}`
-        : `${value.offsetX}px ${value.offsetY}px ${value.blurRadius}px ${value.spreadRadius}px ${value.color} ${value.opacity}`;
+        ? `${base} ${rgbString}`
+        : `${base} #${hexCode.toUpperCase()} ${opacity}`;
     })
     .join(', ');
 }
@@ -286,14 +307,21 @@ function getSources({ theme, modeTheme, platform, language }) {
   }
 
   return [
-    'tokens/vr-theme/base/color.json',
+    'tokens/vr-theme/base/color/default.json',
     `tokens/vr-theme/base/elevation/${modeTheme}.json`,
     'tokens/vr-theme/base/font.json',
     'tokens/vr-theme/base/opacity.json',
     'tokens/vr-theme/base/rounding.json',
     'tokens/vr-theme/base/space.json',
     'tokens/vr-theme/base/lineheight.json',
-    `tokens/vr-theme/sema/color/${modeTheme}.json`,
+    `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
+    platform === 'web'
+      ? [
+          'tokens/vr-theme/base/color/pressed.json',
+          'tokens/vr-theme/base/color/hover.json',
+          `tokens/vr-theme/sema/color/${modeTheme}/hover.json`,
+        ]
+      : [],
     `tokens/vr-theme/sema/elevation.json`,
     `tokens/vr-theme/sema/font.json`,
     `tokens/vr-theme/sema/opacity.json`,
