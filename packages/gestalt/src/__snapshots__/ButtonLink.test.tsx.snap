@@ -78,7 +78,7 @@ exports[`ButtonLink renders disabled 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 subtle alignCenter fontWeightSemiBold"
+        className="Text fontSize300 disabled alignCenter fontWeightSemiBold"
       >
         Visit Pinterest
       </div>
