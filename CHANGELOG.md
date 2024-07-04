@@ -1,3 +1,9 @@
+## 154.6.0 (Jul 4, 2024)
+
+### Minor
+
+- Tokens: June 2024 release ([#3661](https://github.com/pinterest/gestalt/pull/3661)) - [Preview link](https://deploy-preview-3661--gestalt.netlify.app?devexample=true)
+
 ## 154.5.1 (Jul 3, 2024)
 
 ### Patch
