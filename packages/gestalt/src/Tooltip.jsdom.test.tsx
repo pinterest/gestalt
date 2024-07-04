@@ -1,14 +1,9 @@
 import { create } from 'react-test-renderer';
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Link from './Link';
 import Text from './Text';
 import Tooltip from './Tooltip';
-import renderWithExperiment from './utils/testing/renderWithExperiment';
 import { FixedZIndex } from './zIndex';
-
-// Remove experiment after Dropdown v2 is fully released
-const render = (children: React.ReactElement<React.ComponentProps<React.ElementType>>) =>
-  renderWithExperiment('web_gestalt_tooltip_v2', children);
 
 test('Tooltip renders', () => {
   const component = create(

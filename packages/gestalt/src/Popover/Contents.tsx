@@ -19,13 +19,13 @@ type Props = {
   border?: boolean;
   caret?: boolean;
   children?: ReactNode;
-  id: string | null | undefined;
+  id: string | undefined;
   idealDirection?: MainDirections;
   onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
-  role: Role | null | undefined;
+  role: Role | undefined;
   rounding?: 2 | 4;
   shouldFocus?: boolean;
-  width: number | null | undefined;
+  width: number | undefined;
   scrollBoundary?: HTMLElement;
   hideWhenReferenceHidden?: boolean;
   onPositioned?: () => void;
@@ -137,7 +137,7 @@ export default function Contents({
         <div
           aria-label={accessibilityLabel}
           className={classnames(layoutStyles.relative, styles.maxDimensions, {
-            [styles.minDimensions]: width !== null,
+            [styles.minDimensions]: width != null,
             [styles.border]: border,
             [styles.primary]: bgColor === 'white',
             [styles.secondary]: bgColor === 'darkGray',
@@ -145,11 +145,8 @@ export default function Contents({
             [borderStyles.rounding2]: rounding === 2,
             [borderStyles.rounding4]: rounding === 4,
           })}
-          // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | undefined'.
           id={id}
-          // @ts-expect-error - TS2322 - Type 'Role | null | undefined' is not assignable to type 'AriaRole | undefined'.
           role={role}
-          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'MaxWidth<string | number> | undefined'.
           style={{ maxWidth: width, overflow }}
         >
           {children}
