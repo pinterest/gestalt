@@ -6,6 +6,7 @@ import useInExperiment from './useInExperiment';
 
 export type IconColor =
   | 'default'
+  | 'disabled'
   | 'subtle'
   | 'success'
   | 'error'

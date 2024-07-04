@@ -239,7 +239,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
   const textColor =
-    (disabled && 'subtle') ||
+    (disabled && 'disabled') ||
     (selected && 'inverse') ||
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];

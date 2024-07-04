@@ -218,7 +218,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, borderClasses);
 
   const textColor =
-    (disabled && 'subtle') ||
+    (disabled && 'disabled') ||
     (selected && 'inverse') ||
     (selected && 'default') ||
     (isDarkModeRed && 'default') ||

@@ -141,7 +141,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   const colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
 
   const textColor =
-    (disabled && 'subtle') || (isDarkModeRed && 'default') || DEFAULT_TEXT_COLORS[color];
+    (disabled && 'disabled') || (isDarkModeRed && 'default') || DEFAULT_TEXT_COLORS[color];
 
   const ariaLabel = getAriaLabel({
     target,
