@@ -9,9 +9,10 @@ import { useAppContext } from '../appContext';
  * */
 
 const enabledExperiments = {
-  Tooltip: ['web_gestalt_tooltip_v2', 'mweb_gestalt_tooltip_v2'],
   Tokens: ['web_gestalt_visualRefresh', 'web_gestalt_visualRefresh'],
 } as const;
+
+type ExperimentKey = keyof typeof enabledExperiments;
 
 type Experiment = {
   anyEnabled: boolean;
@@ -31,8 +32,9 @@ function buildExperimentsObj(experiments: ReadonlyArray<string>) {
 export function useDocsExperiments(): Record<string, Experiment> {
   const { experiments } = useAppContext();
 
-  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly Dropdown: readonly Popover: readonly ["web_gestalt_popover_v2", "mweb_gestalt_popover_v2"]; readonly Tooltip: readonly [...]; }'.
-  return buildExperimentsObj(!experiments ? [] : enabledExperiments[experiments] ?? []);
+  return buildExperimentsObj(
+    !experiments ? [] : enabledExperiments[experiments as ExperimentKey] ?? [],
+  );
 }
 
 type Props = {

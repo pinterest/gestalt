@@ -21,13 +21,13 @@ type Props = {
   caret?: boolean;
   children?: ReactNode;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
-  id?: string | null | undefined;
+  id?: string;
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
   onDismiss: () => void;
-  role?: Role | null | undefined;
+  role?: Role;
   rounding?: 2 | 4;
   shouldFocus?: boolean;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number | null;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | number;
   disablePortal?: boolean;
   scrollBoundary?: HTMLElement;
   hideWhenReferenceHidden?: boolean;
@@ -48,7 +48,7 @@ export default function Controller({
   role,
   rounding,
   shouldFocus,
-  size = 'sm',
+  size,
   onDismiss,
   onKeyDown,
   disablePortal,

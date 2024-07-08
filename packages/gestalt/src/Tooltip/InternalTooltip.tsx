@@ -1,11 +1,9 @@
 import { Fragment, ReactNode, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box';
 import Layer from '../Layer';
-import LegacyController from '../LegacyController';
 import Controller from '../Popover/Controller';
 import Text from '../Text';
 import useDebouncedCallback from '../useDebouncedCallback';
-import useInExperiment from '../useInExperiment';
 import { Indexable } from '../zIndex';
 
 const noop = () => {};
@@ -82,7 +80,7 @@ export default function InternalTooltip({
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isOpen } = state;
 
-  const childRef = useRef<HTMLElement | null | undefined>(null);
+  const childRef = useRef<HTMLElement | null>(null);
   const { current: anchor } = childRef;
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;
@@ -128,17 +126,15 @@ export default function InternalTooltip({
     return text;
   };
 
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_tooltip_v2',
-    mwebExperimentName: 'mweb_gestalt_tooltip_v2',
-  });
+  const accessibilityLabelFallback = typeof text === 'string' ? text : text.join('');
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
       <Box
-        // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
         ref={childRef}
-        aria-label={accessibilityLabel != null && !disabled ? accessibilityLabel : text}
+        aria-label={
+          accessibilityLabel != null && !disabled ? accessibilityLabel : accessibilityLabelFallback
+        }
         onBlur={handleIconMouseLeave}
         onFocus={handleIconMouseEnter}
         onMouseEnter={handleIconMouseEnter}
@@ -148,68 +144,35 @@ export default function InternalTooltip({
       </Box>
       {isOpen && !!anchor && (
         <Layer zIndex={zIndex}>
-          {isInExperiment ? (
-            <Controller
-              anchor={anchor}
-              bgColor="darkGray"
-              border={false}
-              caret={false}
-              disablePortal
-              hideWhenReferenceHidden
-              idealDirection={idealDirection}
-              onDismiss={noop}
-              role="tooltip"
-              rounding={2}
-              shouldFocus={false}
-              size={null}
+          <Controller
+            anchor={anchor}
+            bgColor="darkGray"
+            border={false}
+            caret={false}
+            disablePortal
+            hideWhenReferenceHidden
+            idealDirection={idealDirection}
+            onDismiss={noop}
+            role="tooltip"
+            rounding={2}
+            shouldFocus={false}
+          >
+            <Box
+              maxWidth={180}
+              onBlur={link ? handleTextMouseLeave : undefined}
+              onFocus={link ? handleTextMouseEnter : undefined}
+              onMouseEnter={link ? handleTextMouseEnter : undefined}
+              onMouseLeave={link ? handleTextMouseLeave : undefined}
+              padding={2}
+              tabIndex={0}
             >
-              <Box
-                maxWidth={180}
-                onBlur={link ? handleTextMouseLeave : undefined}
-                onFocus={link ? handleTextMouseEnter : undefined}
-                onMouseEnter={link ? handleTextMouseEnter : undefined}
-                onMouseLeave={link ? handleTextMouseLeave : undefined}
-                padding={2}
-                role="tooltip"
-                tabIndex={0}
-              >
-                <Text color="inverse" size="100">
-                  {getTooltipText()}
-                </Text>
+              <Text color="inverse" size="100">
+                {getTooltipText()}
+              </Text>
 
-                {Boolean(link) && <Box marginTop={1}>{link}</Box>}
-              </Box>
-            </Controller>
-          ) : (
-            <LegacyController
-              anchor={anchor}
-              bgColor="darkGray"
-              border={false}
-              caret={false}
-              idealDirection={idealDirection}
-              onDismiss={noop}
-              positionRelativeToAnchor={false}
-              rounding={2}
-              size={null}
-            >
-              <Box
-                maxWidth={180}
-                onBlur={link ? handleTextMouseLeave : undefined}
-                onFocus={link ? handleTextMouseEnter : undefined}
-                onMouseEnter={link ? handleTextMouseEnter : undefined}
-                onMouseLeave={link ? handleTextMouseLeave : undefined}
-                padding={2}
-                role="tooltip"
-                tabIndex={0}
-              >
-                <Text color="inverse" size="100">
-                  {getTooltipText()}
-                </Text>
-
-                {Boolean(link) && <Box marginTop={1}>{link}</Box>}
-              </Box>
-            </LegacyController>
-          )}
+              {Boolean(link) && <Box marginTop={1}>{link}</Box>}
+            </Box>
+          </Controller>
         </Layer>
       )}
     </Box>
