@@ -1,6 +1,5 @@
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -39,13 +38,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             iconAccessibilityLabel="Info"
             message="Planning to use Tooltip with IconButton? Instead, use"
             type="info"
-          />
-        }
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="Tooltip"
-            description="fix and improve component behavior. No visual updates"
-            pullRequest={3244}
           />
         }
         description={generatedDocGen?.description}
