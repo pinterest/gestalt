@@ -53,7 +53,7 @@ export default function InternalPopover({
   hideWhenReferenceHidden,
   onPositioned,
   disableFocusTrap = false,
-  overflow,
+  overflow = 'auto',
 }: Props) {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');

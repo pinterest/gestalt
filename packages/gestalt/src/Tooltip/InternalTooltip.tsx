@@ -164,7 +164,6 @@ export default function InternalTooltip({
               onMouseEnter={link ? handleTextMouseEnter : undefined}
               onMouseLeave={link ? handleTextMouseLeave : undefined}
               padding={2}
-              role="tooltip"
               tabIndex={0}
             >
               <Text color="inverse" size="100">
