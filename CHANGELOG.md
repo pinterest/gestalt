@@ -1,3 +1,9 @@
+## 154.6.1-alpha.0 (Jul 8, 2024)
+
+### Prerelease
+
+- Tooltip: Release v2 ([#3664](https://github.com/pinterest/gestalt/pull/3664)) - [Preview link](https://deploy-preview-3664--gestalt.netlify.app?devexample=true)
+
 ## 154.6.0 (Jul 4, 2024)
 
 ### Minor
