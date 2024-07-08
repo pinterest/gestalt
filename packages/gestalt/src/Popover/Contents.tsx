@@ -51,7 +51,7 @@ export default function Contents({
   hideWhenReferenceHidden,
   onPositioned,
   shouldTrapFocus,
-  overflow = 'auto',
+  overflow,
 }: Props) {
   const caretRef = useRef<HTMLElement | null>(null);
   const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
