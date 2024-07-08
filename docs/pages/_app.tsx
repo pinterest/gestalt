@@ -3,7 +3,6 @@ import '../css/year-in-review-2023.css';
 // import css in the order rollut build them in the dist/
 import 'gestalt/dist/gestalt.css';
 import 'gestalt-datepicker/dist/gestalt-datepicker.css';
-import 'gestalt/src/SkeletonPin.css';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { ReactNode, useState } from 'react';
