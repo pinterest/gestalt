@@ -1,25 +1,11 @@
-import { forwardRef, ReactElement, useEffect, useId, useState } from 'react';
+import { forwardRef, ReactElement, useId, useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_400, TOKEN_SPACE_1200 } from 'gestalt-design-tokens';
-import Badge from './Badge';
-import Box from './Box';
-import { useDeviceType } from './contexts/DeviceTypeProvider';
-import { useNesting } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
-import Flex from './Flex';
-import Icon from './Icon';
 import icons from './icons/index';
 import styles from './SideNavigation.css';
-import PrimaryActionIconButton from './SideNavigation/PrimaryActionIconButton';
+import ItemContent from './SideNavigation/ItemContent';
 import TapAreaLink from './TapAreaLink';
-import Text from './Text';
 import { Indexable } from './zIndex';
-
-export const NESTING_MARGIN_START_MAP = {
-  '0': TOKEN_SPACE_400,
-  '1': TOKEN_SPACE_1200,
-  '2': '68px',
-} as const;
 
 export type Props = {
   /**
@@ -106,65 +92,17 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
     }: Props,
     ref,
   ) {
-    const { nestedLevel } = useNesting();
-
     const {
       collapsed: sideNavigationCollapsed,
-      overlayPreview,
       setSelectedItemId,
       setOverlayPreview,
     } = useSideNavigation();
 
     const itemId = useId();
 
-    const deviceType = useDeviceType();
-
-    const isMobile = deviceType === 'mobile';
-
-    const isTopLevel = nestedLevel === 0;
-
     const [compression, setCompression] = useState<'compress' | 'none'>('compress');
-
-    const [forceIconButton, setForceIconButton] = useState<'force' | 'default'>('default');
-
     const [hovered, setHovered] = useState<boolean>(false);
-
     const [focused, setFocused] = useState<boolean>(false);
-
-    const [showIconButton, setShowIconButton] = useState<'hide' | 'show'>('hide');
-
-    let itemColor = active ? 'selected' : undefined;
-    let textColor = active ? 'inverse' : 'default';
-    const counterColor = active ? 'inverse' : 'subtle';
-
-    if (hovered && !active) {
-      itemColor = 'secondary';
-      textColor = 'default';
-    }
-
-    const nestingMargin = isMobile
-      ? // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-        NESTING_MARGIN_START_MAP[isTopLevel ? 0 : nestedLevel - 1]
-      : // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "var(--space-400)"; readonly '1': "var(--space-1200)"; readonly '2': "68px"; }'.
-        NESTING_MARGIN_START_MAP[nestedLevel];
-
-    useEffect(() => {
-      if (primaryAction && showIconButton === 'hide' && (hovered || focused)) {
-        setShowIconButton('show');
-      }
-
-      if (
-        primaryAction &&
-        showIconButton === 'show' &&
-        !hovered &&
-        !focused &&
-        forceIconButton === 'default'
-      ) {
-        setShowIconButton('hide');
-      }
-    }, [hovered, focused, primaryAction, forceIconButton, showIconButton]);
-
-    const collapsed = sideNavigationCollapsed && !overlayPreview;
 
     return (
       <li ref={ref} className={classnames(styles.liItem)}>
@@ -184,147 +122,18 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
           rounding={2}
           tapStyle={compression}
         >
-          <Box
-            alignItems="center"
-            // @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
-            color={itemColor}
-            dangerouslySetInlineStyle={
-              collapsed
-                ? undefined
-                : {
-                    __style: {
-                      paddingInlineStart: nestingMargin,
-                      paddingInlineEnd: '16px',
-                    },
-                  }
-            }
-            display="flex"
-            justifyContent={collapsed ? 'center' : undefined}
-            minHeight={44}
-            paddingY={collapsed ? undefined : 2}
-            position="relative"
-            rounding={2}
-            width={collapsed ? 44 : undefined}
-          >
-            {collapsed && icon && notificationAccessibilityLabel ? (
-              <Box
-                aria-label={notificationAccessibilityLabel}
-                color="primary"
-                dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
-                height={8}
-                position="absolute"
-                role="status"
-                rounding="circle"
-                width={8}
-              />
-            ) : null}
-
-            <Flex
-              gap={{ row: 2, column: 0 }}
-              height="100%"
-              justifyContent={collapsed ? 'center' : undefined}
-              width="100%"
-            >
-              {icon ? (
-                <Flex.Item alignSelf="center">
-                  <Box aria-hidden={!collapsed}>
-                    {typeof icon === 'string' ? (
-                      <Icon
-                        accessibilityLabel={collapsed ? label : ''}
-                        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
-                        color={textColor}
-                        icon={icon}
-                        inline
-                        size={20}
-                      />
-                    ) : (
-                      <Icon
-                        accessibilityLabel={collapsed ? label : ''}
-                        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
-                        color={textColor}
-                        dangerouslySetSvgPath={icon}
-                        inline
-                        size={20}
-                      />
-                    )}
-                  </Box>
-                </Flex.Item>
-              ) : null}
-
-              {!collapsed && (
-                <Flex.Item alignSelf="center" flex="grow">
-                  {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. */}
-                  <Text color={textColor} inline>
-                    {label}
-                    {(badge || notificationAccessibilityLabel) && (
-                      <Box display="inlineBlock" height="100%" marginStart={1}>
-                        {/* Adds a pause for screen reader users between the text content */}
-                        <Box display="visuallyHidden">{`, `}</Box>
-                        {!notificationAccessibilityLabel && badge ? (
-                          <Badge text={badge.text} type={badge.type} />
-                        ) : null}
-                        {notificationAccessibilityLabel ? (
-                          <Box
-                            aria-label={notificationAccessibilityLabel}
-                            color="primary"
-                            height={8}
-                            role="status"
-                            rounding="circle"
-                            width={8}
-                          />
-                        ) : null}
-                      </Box>
-                    )}
-                  </Text>
-                </Flex.Item>
-              )}
-
-              {!collapsed && counter && (showIconButton === 'hide' || isMobile) ? (
-                <Flex.Item alignSelf="center" flex="none">
-                  <Box display="visuallyHidden">{`, `}</Box>
-                  {/* marginEnd={-2} is a hack to correctly position the counter as Flex + gap + width="100%" doean't expand to full width */}
-                  <Box aria-label={counter.accessibilityLabel} marginEnd={-2}>
-                    <Text align="end" color={counterColor}>
-                      {counter.number}
-                    </Text>
-                  </Box>
-                </Flex.Item>
-              ) : null}
-
-              {!collapsed && (showIconButton === 'show' || isMobile) && primaryAction ? (
-                <Flex.Item alignSelf="center" flex="none">
-                  {/* This is a workaround to announce the counter as it's replaced on focus */}
-                  {counter ? (
-                    <Box display="visuallyHidden">
-                      {`, `}
-                      <Box aria-label={counter?.accessibilityLabel} />
-                    </Box>
-                  ) : null}
-                  <Box
-                    aria-hidden
-                    dangerouslySetInlineStyle={{
-                      __style: {
-                        marginInline: '14px -14px',
-                      },
-                    }}
-                    rounding="circle"
-                  >
-                    <PrimaryActionIconButton
-                      dropdownItems={primaryAction?.dropdownItems}
-                      forceIconButton={forceIconButton}
-                      icon={primaryAction?.icon}
-                      isItemActive={!!active}
-                      onClick={primaryAction?.onClick}
-                      setCompression={setCompression}
-                      setForceIconButton={setForceIconButton}
-                      setShowIconButton={setShowIconButton}
-                      tooltip={primaryAction.tooltip}
-                    />
-                  </Box>
-                </Flex.Item>
-              ) : null}
-            </Flex>
-          </Box>
+          <ItemContent
+            active={active}
+            badge={badge}
+            counter={counter}
+            focused={focused}
+            hovered={hovered}
+            icon={icon}
+            label={label}
+            notificationAccessibilityLabel={notificationAccessibilityLabel}
+            primaryAction={primaryAction}
+            setCompression={setCompression}
+          />
         </TapAreaLink>
       </li>
     );

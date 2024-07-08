@@ -4,7 +4,7 @@ exports[`TextArea TextArea normal 1`] = `
 <span>
   <textarea
     aria-invalid="false"
-    className="textArea base enabled normal"
+    className="textArea base lg enabled normal"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -21,7 +21,7 @@ exports[`TextArea TextArea with disabled 1`] = `
 <span>
   <textarea
     aria-invalid="false"
-    className="textArea base disabled normal"
+    className="textArea base lg disabled normal"
     disabled={true}
     id="test"
     onBlur={[Function]}
@@ -38,7 +38,7 @@ exports[`TextArea TextArea with error 1`] = `
 <span>
   <textarea
     aria-invalid="true"
-    className="textArea base enabled errored"
+    className="textArea base lg enabled errored"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -99,7 +99,7 @@ exports[`TextArea TextArea with hasError 1`] = `
 <span>
   <textarea
     aria-invalid="true"
-    className="textArea base enabled errored"
+    className="textArea base lg enabled errored"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -116,7 +116,7 @@ exports[`TextArea TextArea with readOnly 1`] = `
 <span>
   <textarea
     aria-invalid="false"
-    className="textArea base enabled normal"
+    className="textArea base lg enabled normal"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -133,7 +133,7 @@ exports[`TextArea TextArea with rows 1`] = `
 <span>
   <textarea
     aria-invalid="false"
-    className="textArea base enabled normal"
+    className="textArea base lg enabled normal"
     disabled={false}
     id="test"
     onBlur={[Function]}
@@ -150,7 +150,7 @@ exports[`TextArea TextField with maxLength character counter 1`] = `
 <span>
   <textarea
     aria-invalid="false"
-    className="textArea base enabled normal"
+    className="textArea base lg enabled normal"
     disabled={false}
     id="test"
     maxLength={20}
@@ -237,7 +237,7 @@ exports[`TextArea TextField with maxLength character counter 1`] = `
 exports[`TextArea renders tags when supplied 1`] = `
 <span>
   <div
-    className="textArea base enabled normal textAreaWrapper"
+    className="textArea base lg enabled normal textAreaWrapper"
     style={
       Object {
         "maxHeight": 92,

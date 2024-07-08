@@ -1,0 +1,55 @@
+{
+  "sema": {
+    "rounding": {
+      "date": {
+        "container": {
+          "type": "other",
+          "value": "{base.rounding.16}"
+        },
+        "range": {
+          "middle": {
+            "type": "other",
+            "value": "{base.rounding.0}"
+          }
+        },
+        "start": {
+          "type": "other",
+          "value": "{base.rounding.circle} {base.rounding.0} {base.rounding.0} {base.rounding.circle}"
+        },
+        "end": {
+          "type": "other",
+          "value": "{base.rounding.0} {base.rounding.circle} {base.rounding.circle} {base.rounding.0}"
+        }
+      },
+      "XL": {
+        "type": "other",
+        "value": "{base.rounding.20}"
+      },
+      "LG": {
+        "type": "other",
+        "value": "{base.rounding.16}"
+      },
+      "MD": {
+        "type": "other",
+        "value": "{base.rounding.12}"
+      },
+      "SM": {
+        "type": "other",
+        "value": "{base.rounding.8}"
+      },
+      "XS": {
+        "type": "other",
+        "value": "{base.rounding.4}"
+      },
+      "circleappenda": {
+        "$extensions": {
+          "studio.tokens": {
+            "modify": {}
+          }
+        },
+        "type": "other",
+        "value": "{base.rounding.circle}"
+      }
+    }
+  }
+}

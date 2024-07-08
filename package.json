@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
@@ -44,8 +45,8 @@
     "@types/react-dom": "^18.1.0",
     "@types/react-test-renderer": "^18.3.0",
     "@types/ua-parser-js": "^0.7.39",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
     "acorn-jsx": "^5.3.2",
     "axe-core": "^4.1.1",
     "babel-jest": "^28.0.3",
@@ -65,7 +66,6 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-playwright": "^0.10.0",
     "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-compiler": "^0.0.0-experimental-51a85ea-20240601",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-testing-library": "^5.6.0",
@@ -131,7 +131,7 @@
     "dev": "(cd docs && yarn dev) & (cd packages/gestalt && yarn watch) & (cd packages/gestalt-charts && yarn watch) & (cd packages/gestalt-datepicker && yarn watch) & (cd packages/eslint-plugin-gestalt && yarn watch) & (cd packages/gestalt-design-tokens && yarn watch)",
     "docs": "(cd docs && yarn start)",
     "eslint": "eslint --max-warnings 0",
-    "format": "prettier --write \"**/*.{css,html,js,md,yml}\"",
+    "format": "prettier --write \"**/*.{css,html,js,md,yml,json}\"",
     "generate": "./scripts/generateComponent.js",
     "lint:css": "stylelint --max-warnings 0 \"**/*.css\"",
     "lint:js": "eslint --max-warnings 0 .",

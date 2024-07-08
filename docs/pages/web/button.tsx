@@ -14,7 +14,7 @@ import accessibilityDropdownExample from '../../examples/button/accessibilityDro
 import colors from '../../examples/button/colors';
 import defaultStateExample from '../../examples/button/defaultStateExample';
 import disabledStateExample from '../../examples/button/disabledStateExample';
-import iconEndExample from '../../examples/button/iconEndExample';
+import iconExample from '../../examples/button/iconExample';
 import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo';
 import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont';
 import keepSimpleTextDo from '../../examples/button/keepSimpleTextDo';
@@ -319,7 +319,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
         <MainSection.Subsection
           description={`
-\`iconEnd\` adds an icon after the Button text. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that iconEnd on Button is not accessible to screen readers.
+\`iconEnd\` adds an icon after the Button text, and \`iconStart\` adds an icon before. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that icons on Button are not accessible to screen readers.
 `}
           title="Icons"
         >
@@ -338,7 +338,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={iconEndExample}
+                code={iconExample}
                 name="Icon end of button example."
                 previewHeight={PREVIEW_HEIGHT}
               />

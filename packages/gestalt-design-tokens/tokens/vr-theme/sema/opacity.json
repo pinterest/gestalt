@@ -1,0 +1,32 @@
+{
+  "sema": {
+    "opacity": {
+      "light": {
+        "type": "opacity",
+        "value": "{base.opacity.20}"
+      },
+      "medium": {
+        "type": "opacity",
+        "value": "{base.opacity.40}"
+      },
+      "heavy": {
+        "type": "opacity",
+        "value": "{base.opacity.90}"
+      },
+      "transparent": {
+        "type": "opacity",
+        "value": "{base.opacity.0}"
+      },
+      "overlay": {
+        "type": "opacity",
+        "value": "{base.opacity.80}"
+      },
+      "pin": {
+        "wash": {
+          "type": "opacity",
+          "value": "{base.opacity.4}"
+        }
+      }
+    }
+  }
+}

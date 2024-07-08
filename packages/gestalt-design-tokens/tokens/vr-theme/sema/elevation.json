@@ -1,0 +1,28 @@
+{
+  "sema": {
+    "elevation": {
+      "floating": {
+        "type": "boxShadow",
+        "value": "{base.elevation.200}"
+      },
+      "surface": {
+        "type": "boxShadow",
+        "value": "{base.elevation.100}"
+      },
+      "raised": {
+        "default": {
+          "type": "boxShadow",
+          "value": "{base.elevation.300}"
+        },
+        "top": {
+          "type": "boxShadow",
+          "value": "{base.elevation.325}"
+        },
+        "bottom": {
+          "type": "boxShadow",
+          "value": "{base.elevation.350}"
+        }
+      }
+    }
+  }
+}

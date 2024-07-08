@@ -1,43 +1,40 @@
-import PopoverEducational from './PopoverEducational';
-import Text from './Text';
 import { render } from '@testing-library/react';
+import Popover from './Popover';
+import Text from './Text';
 
-describe('PopoverEducational', () => {
+describe('Popover', () => {
   it('renders correctly', () => {
     const element = document.createElement('div');
     const { container } = render(
-      <PopoverEducational
-        accessibilityLabel="text"
-        anchor={element}
-        message="text"
-        onDismiss={jest.fn()}
-        primaryAction={{ text: 'next', role: 'button' }}
-      />,
+      <Popover accessibilityLabel="text" anchor={element} onDismiss={jest.fn()}>
+        <Text>Custom children</Text>
+      </Popover>,
     );
 
     expect(container).toMatchSnapshot();
   });
 
-  it('renders correctly with custom children', () => {
+  it('renders correctly with portal', () => {
     const element = document.createElement('div');
-    const { container } = render(
-      <PopoverEducational accessibilityLabel="text" anchor={element} onDismiss={jest.fn()}>
-        <Text>Custom children</Text>
-      </PopoverEducational>,
+    const { baseElement } = render(
+      <Popover
+        accessibilityLabel="text"
+        anchor={element}
+        disablePortal={false}
+        onDismiss={jest.fn()}
+      >
+        <Text>Children</Text>
+      </Popover>,
     );
 
-    expect(container).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('does not render when the anchor is null', () => {
     const { container } = render(
-      <PopoverEducational
-        accessibilityLabel="text"
-        anchor={null}
-        message="text"
-        onDismiss={() => {}}
-        primaryAction={{ text: 'next', role: 'button' }}
-      />,
+      <Popover accessibilityLabel="text" anchor={null} onDismiss={() => {}}>
+        <Text>Children</Text>
+      </Popover>,
     );
 
     expect(container).toMatchSnapshot();

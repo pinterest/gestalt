@@ -25,8 +25,8 @@ export default function Example() {
         overflow="auto"
         position="relative" // this prevents Popover from overflowing the container
       >
-        <Box ref={viewRef} color="default" padding={4} width={600} position="relative">
-          <Flex gap={{ column: 0, row: 4 }} alignItems="center">
+        <Box ref={viewRef} color="default" padding={4} position="relative" width={600}>
+          <Flex alignItems="center" gap={{ column: 0, row: 4 }}>
             <Box width={220}>
               <Text>
                 You need to add your data source URL to Pinterest so we can access your data source
@@ -54,9 +54,9 @@ export default function Example() {
           {open && (
             <Popover
               anchor={anchorRef.current}
+              disablePortal
               idealDirection="right"
               onDismiss={() => {}}
-              disablePortal={true}
               size="xs"
             >
               <Box alignItems="center" display="flex" height={100} justifyContent="center">

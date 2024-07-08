@@ -1,0 +1,15 @@
+{
+  "elevation": {
+    "floatingappendb": {
+      "value": "{base.elevation.200.value}"
+    },
+    "raisedappendb": {
+      "top": {
+        "value": "{base.elevation.325.value}"
+      },
+      "bottom": {
+        "value": "{base.elevation.350.value}"
+      }
+    }
+  }
+}

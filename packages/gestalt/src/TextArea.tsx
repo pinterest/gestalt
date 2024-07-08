@@ -162,6 +162,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   const classes = classnames(
     styles.textArea,
     formElement.base,
+    formElement.lg,
     disabled ? formElement.disabled : formElement.enabled,
     (hasError || hasErrorMessage) && !focused ? formElement.errored : formElement.normal,
     tags
@@ -216,7 +217,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
 
   return (
     <span>
-      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} />}
+      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size="lg" />}
       {tags ? (
         <div className={classes} style={tagsWrapperStyle}>
           {tags.map((tag, tagIndex) => (

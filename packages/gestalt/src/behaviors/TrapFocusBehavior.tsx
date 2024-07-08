@@ -44,7 +44,6 @@ export default function TrapFocusBehavior({ children }: Props) {
     el?: HTMLDivElement | null,
   ) => {
     if (el) {
-      // eslint-disable-next-line react-compiler/react-compiler
       elRef.current = el;
     }
   };

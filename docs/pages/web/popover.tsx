@@ -1,5 +1,4 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { BannerSlimExperiment } from '../../docs-components/BannerSlimExperiment';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -204,7 +203,7 @@ Popover always remains attached to its anchor when scrolling. However Popover ma
 
 For some use cases that can be the indeneded behavior.
 
-If Popover has to respect the edges of its scrolling container, the scrolling has to have position CSS rule set to \`relative\`. Popover's \`disablePortal\` prop is by default \`true\`. That's why in this case should not be set to \`false\`.
+If Popover has to respect the edges of its scrolling container, the scrolling has to have position CSS rule set to \`relative\`. Popover's \`disablePortal\` prop is by default \`true\`. That's why in this case \`disablePortal\` should not be set to \`false\`.
 `}
           title="Within scrolling containers"
         >

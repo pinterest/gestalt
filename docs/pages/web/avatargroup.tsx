@@ -1,4 +1,5 @@
-import { AvatarGroup } from 'gestalt';
+import { useState } from 'react';
+import { AvatarGroup, Box, SelectList } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -20,6 +21,8 @@ import roleLink from '../../examples/avatarGroup/roleLink';
 import sizing from '../../examples/avatarGroup/sizing';
 
 export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  const [avatarsize, setAvatarsize] = useState<'md' | 'xs' | 'sm'>('md');
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -173,9 +176,30 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="AvatarGroup displays up to three user avatars. More users, if present, will be displayed as a numerical count for the `md` and `fit` sizes."
+          description="AvatarGroup displays up to three user avatars. More users, if present, will be displayed as a numerical count. Not available for 'xs' size."
           title="Collaborators display"
         >
+          <Box display="flex">
+            <SelectList
+              id="sizeExamples"
+              label="Size"
+              onChange={({ value }) => {
+                if (value === 'md' || value === 'xs' || value === 'sm') {
+                  setAvatarsize(value);
+                }
+              }}
+              size="md"
+              value={avatarsize}
+            >
+              {[
+                { label: 'xs', value: 'xs' },
+                { label: 'sm', value: 'sm' },
+                { label: 'md', value: 'md' },
+              ].map(({ label, value }) => (
+                <SelectList.Option key={label} label={label} value={value} />
+              ))}
+            </SelectList>
+          </Box>
           <CombinationNew
             // @ts-expect-error - TS2322 - Type '{ children: ({ addCollaborators, collaborators }: { [key: string]: any; }) => Element; addCollaborators: boolean[]; collaborators: any[][]; hideTitle: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
             addCollaborators={[false, true]}
@@ -262,13 +286,13 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
                   collaborators={collaborators}
                   onClick={() => {}}
                   role="button"
-                  size="md"
+                  size={avatarsize}
                 />
               ) : (
                 <AvatarGroup
                   accessibilityLabel={accessibilityLabel}
                   collaborators={collaborators}
-                  size="md"
+                  size={avatarsize}
                 />
               );
             }}
