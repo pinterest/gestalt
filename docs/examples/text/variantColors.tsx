@@ -15,6 +15,9 @@ export default function Example() {
         <Text color="default" size="400">
           Default
         </Text>
+        <Text color="disabled" size="400">
+          Disabled
+        </Text>
         <Text color="success" size="400">
           Success
         </Text>
