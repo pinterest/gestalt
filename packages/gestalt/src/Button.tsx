@@ -217,9 +217,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   const { isFocusVisible } = useFocusVisible();
 
-  const sharedTypeClasses = classnames(styles.button, focusStyles.hideOutline, {
+  const sharedTypeClasses = classnames(styles.button, {
     [styles.inline]: !fullWidth,
     [styles.block]: fullWidth,
+    [focusStyles.hideOutline]: !disabled && !isFocusVisible,
     [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
   });
 

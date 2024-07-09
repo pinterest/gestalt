@@ -8,7 +8,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
     className="box paddingX1 paddingY1"
   >
     <button
-      className="button hideOutline inline accessibilityOutline parentButton"
+      className="button inline accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -22,7 +22,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       type="button"
     >
       <div
-        className="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
+        className="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
       >
         <div
           className="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -36,7 +36,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
     className="box paddingX1 paddingY1"
   >
     <button
-      className="button hideOutline inline accessibilityOutline parentButton"
+      className="button inline accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -50,7 +50,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
       type="button"
     >
       <div
-        className="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
+        className="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
       >
         <div
           className="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -73,7 +73,7 @@ exports[`ButtonGroup Renders the child without container when 1 child is passed 
     className="box paddingX1 paddingY1"
   >
     <button
-      className="button hideOutline inline accessibilityOutline parentButton"
+      className="button inline accessibilityOutline parentButton"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -87,7 +87,7 @@ exports[`ButtonGroup Renders the child without container when 1 child is passed 
       type="button"
     >
       <div
-        className="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
+        className="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
       >
         <div
           className="Text fontSize300 default alignCenter fontWeightSemiBold"

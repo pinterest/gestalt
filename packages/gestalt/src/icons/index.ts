@@ -70,10 +70,12 @@ import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
+import checkCircleFill from './check-circle-fill.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
 import circle from './circle.svg';
 import circleEllipsis from './circle-ellipsis.svg';
 import circleInformationFill from './circle-information-fill.svg';
+import circleInitializing from './circle-initializing.svg';
 import clear from './clear.svg';
 import clips from './clips.svg';
 import clock from './clock.svg';
@@ -240,6 +242,7 @@ import reorderImages from './reorder-images.svg';
 import replace from './replace.svg';
 import report from './report.svg';
 import rewind from './rewind.svg';
+import rocketship from './rocketship.svg';
 import rotate from './rotate.svg';
 import saturation from './saturation.svg';
 import saveOutline from './save-outline.svg';
@@ -416,10 +419,12 @@ const icons = Object.freeze({
   'captions-outline': captionsOutline,
   'check': check,
   'check-circle': checkCircle,
+  'check-circle-fill': checkCircleFill,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
   'circle-information-fill': circleInformationFill,
+  'circle-initializing': circleInitializing,
   'clear': clear,
   'clips': clips,
   'clock': clock,
@@ -586,6 +591,7 @@ const icons = Object.freeze({
   'replace': replace,
   'report': report,
   'rewind': rewind,
+  'rocketship': rocketship,
   'rotate': rotate,
   'saturation': saturation,
   'save-outline': saveOutline,

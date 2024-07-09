@@ -22,7 +22,7 @@ exports[`TagData TagData has a tooltip 1`] = `
     >
       <div
         aria-disabled={false}
-        className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+        className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -103,7 +103,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -179,7 +179,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -255,7 +255,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -331,7 +331,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -407,7 +407,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -483,7 +483,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -559,7 +559,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -635,7 +635,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -711,7 +711,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -787,7 +787,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -863,7 +863,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -939,7 +939,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1022,7 +1022,7 @@ exports[`TagData renders base color as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1152,7 +1152,7 @@ exports[`TagData renders base color as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1283,7 +1283,7 @@ exports[`TagData renders disabled selected state 1`] = `
     >
       <div
         aria-disabled={true}
-        className="hideOutline tapTransition rounding2 fullHeight fullWidth"
+        className="tapTransition rounding2 fullHeight fullWidth"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1407,7 +1407,7 @@ exports[`TagData renders disabled unselected state 1`] = `
     >
       <div
         aria-disabled={true}
-        className="hideOutline tapTransition rounding2 fullHeight fullWidth"
+        className="tapTransition rounding2 fullHeight fullWidth"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1517,7 +1517,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
     >
       <div
         aria-disabled={false}
-        className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+        className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1622,7 +1622,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
     </div>
   </div>
   <button
-    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition primary accessibilityOutline"
     disabled={false}
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1683,7 +1683,7 @@ exports[`TagData renders dismissable button 1`] = `
     >
       <div
         aria-disabled={false}
-        className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+        className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1788,7 +1788,7 @@ exports[`TagData renders dismissable button 1`] = `
     </div>
   </div>
   <button
-    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
+    className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition primary accessibilityOutline"
     disabled={false}
     onClick={[Function]}
     onMouseEnter={[Function]}
@@ -1842,7 +1842,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
+      className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -1926,7 +1926,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
       </div>
     </div>
     <button
-      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition hideOutline primary accessibilityOutline"
+      className="solid transparentBorder dismissButton dismissButtonRounding dismissButtonPosition primary accessibilityOutline"
       disabled={false}
       onClick={[Function]}
       onMouseEnter={[Function]}

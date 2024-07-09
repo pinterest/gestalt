@@ -404,7 +404,7 @@ exports[`PageHeader renders primary action 1`] = `
                       }
                     >
                       <button
-                        className="button hideOutline inline accessibilityOutline parentButton"
+                        className="button inline accessibilityOutline parentButton"
                         disabled={false}
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -418,7 +418,7 @@ exports[`PageHeader renders primary action 1`] = `
                         type="button"
                       >
                         <div
-                          className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                          className="button inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
                             className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
@@ -627,7 +627,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       }
                     >
                       <a
-                        className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+                        className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
                         href="www.pinterest.com"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -658,7 +658,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       }
                     >
                       <button
-                        className="button hideOutline inline accessibilityOutline parentButton"
+                        className="button inline accessibilityOutline parentButton"
                         disabled={false}
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -672,7 +672,7 @@ exports[`PageHeader renders secondary action 1`] = `
                         type="button"
                       >
                         <div
-                          className="button hideOutline inline accessibilityOutline tapTransition lg red enabled childrenDiv"
+                          className="button inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
                             className="Text fontSize300 inverse alignCenter fontWeightSemiBold"

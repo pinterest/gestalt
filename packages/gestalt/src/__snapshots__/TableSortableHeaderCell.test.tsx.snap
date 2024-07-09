@@ -21,7 +21,7 @@ exports[`renders correctly when active 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -91,7 +91,7 @@ exports[`renders correctly when inactive 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -161,7 +161,7 @@ exports[`sortable cell has end align 1`] = `
   >
     <div
       aria-disabled={false}
-      className="hideOutline tapTransition rounding0 accessibilityOutline pointer"
+      className="tapTransition rounding0 accessibilityOutline pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

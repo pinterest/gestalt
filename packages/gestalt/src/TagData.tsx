@@ -171,12 +171,12 @@ export default function TagData({
       styles.dismissButton,
       styles.dismissButtonRounding,
       styles.dismissButtonPosition,
-      focusStyles.hideOutline,
       {
         [styles.primary]: baseColor === 'primary',
         [styles.secondary]: baseColor === 'secondary',
         [styles.disabled]: disabled,
         [styles.dismissHovered]: isHovered,
+        [focusStyles.hideOutline]: !isFocusVisible,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       },
     );

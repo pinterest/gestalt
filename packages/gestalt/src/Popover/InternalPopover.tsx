@@ -53,12 +53,12 @@ export default function InternalPopover({
   hideWhenReferenceHidden,
   onPositioned,
   disableFocusTrap = false,
-  overflow,
+  overflow = 'auto',
 }: Props) {
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
-  const dismissButtonRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
+  const dismissButtonRef = useRef<null | HTMLButtonElement>(null);
 
   if (!anchor) {
     return null;
@@ -84,13 +84,12 @@ export default function InternalPopover({
       scrollBoundary={scrollBoundary}
       shouldFocus={shouldFocus}
       shouldTrapFocus={!disableFocusTrap}
-      size={size === 'flexible' ? null : size}
+      size={size === 'flexible' ? undefined : size}
     >
       {showDismissButton && (
         <Flex direction="column">
           <Box alignSelf="end" padding={2}>
             <InternalDismissButton
-              // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
               ref={dismissButtonRef}
               accessibilityLabel={
                 accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault

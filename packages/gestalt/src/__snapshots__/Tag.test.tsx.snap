@@ -34,7 +34,7 @@ exports[`Tag clips long strings 1`] = `
       className="box"
     >
       <button
-        className="closeButton default hideOutline tapTransition accessibilityOutline md"
+        className="closeButton default tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
@@ -101,7 +101,7 @@ exports[`Tag renders 1`] = `
       className="box"
     >
       <button
-        className="closeButton default hideOutline tapTransition accessibilityOutline md"
+        className="closeButton default tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
@@ -223,7 +223,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
       className="box"
     >
       <button
-        className="closeButton warning hideOutline tapTransition accessibilityOutline md"
+        className="closeButton warning tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >
@@ -307,7 +307,7 @@ exports[`Tag renders a tag with an error state 1`] = `
       className="box"
     >
       <button
-        className="closeButton error hideOutline tapTransition accessibilityOutline md"
+        className="closeButton error tapTransition accessibilityOutline md"
         onClick={[Function]}
         type="button"
       >

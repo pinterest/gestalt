@@ -163,7 +163,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
               >
                 <button
                   aria-label="Submit button"
-                  className="button hideOutline inline accessibilityOutline tapTransition md red enabled"
+                  className="button inline accessibilityOutline tapTransition md red enabled"
                   disabled={false}
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -332,7 +332,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -471,7 +471,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -610,7 +610,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
       >
         <a
           aria-label="Learn more: upsell messages"
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -649,7 +649,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -739,7 +739,7 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link noUnderline hideOutline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -829,7 +829,7 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
       >
         <button
           aria-label=""
-          className="button hideOutline block accessibilityOutline parentButton"
+          className="button block accessibilityOutline parentButton"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
@@ -843,7 +843,7 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
           type="button"
         >
           <div
-            className="button hideOutline block accessibilityOutline tapTransition lg red enabled childrenDiv"
+            className="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
             <div
               className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
