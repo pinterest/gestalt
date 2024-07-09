@@ -6,6 +6,7 @@ export type Align = 'start' | 'end' | 'center' | 'justify' | 'forceLeft' | 'forc
 
 export const semanticColors = [
   'default',
+  'disabled',
   'subtle',
   'success',
   'error',

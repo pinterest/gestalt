@@ -32,6 +32,10 @@ html[dir="rtl"] .rtlSupport {
   color: var(--color-icon-default);
 }
 
+.disabled {
+  color: var(--color-icon-disabled);
+}
+
 .subtle {
   color: var(--color-icon-subtle);
 }

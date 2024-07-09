@@ -1,3 +1,4 @@
+import { ComponentProps } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import Image from '../Image';
@@ -7,7 +8,7 @@ import Text from '../Text';
 type Props = {
   graphicSrc: string;
   text: string;
-  textColor: 'subtle' | 'default' | 'inverse';
+  textColor: ComponentProps<typeof Text>['color'];
 };
 
 export default function ThumbnailButton({ graphicSrc, text, textColor }: Props) {

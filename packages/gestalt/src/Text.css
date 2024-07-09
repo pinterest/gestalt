@@ -23,6 +23,10 @@
   color: var(--color-text-default);
 }
 
+.disabled {
+  color: var(--color-text-disabled);
+}
+
 .subtle {
   color: var(--color-text-subtle);
 }
