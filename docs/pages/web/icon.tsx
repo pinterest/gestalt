@@ -167,6 +167,7 @@ If an icon has a visible label that describes what the icon represents, \`access
             // @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
             color={[
               'default',
+              'disabled',
               'subtle',
               'success',
               'error',

@@ -26,6 +26,7 @@ type Props = {
    */
   color?:
     | 'default'
+    | 'disabled'
     | 'subtle'
     | 'success'
     | 'error'
