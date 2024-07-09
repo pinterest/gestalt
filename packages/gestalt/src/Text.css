@@ -31,6 +31,10 @@
   color: var(--color-text-warning);
 }
 
+.recommendation {
+  color: var(--color-icon-recommendation);
+}
+
 .success {
   color: var(--color-text-success);
 }

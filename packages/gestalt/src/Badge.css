@@ -2,9 +2,6 @@
   composes: antialiased sansSerif from "./Typography.css";
   composes: inlineBlock from "./Layout.css";
   composes: rounding1 from "./Borders.css";
-  composes: fontWeightSemiBold from "./Typography.css";
-  color: var(--color-text-inverse);
-  font-size: 14px;
   height: 20px;
   padding: 2px 6px;
   white-space: nowrap;
@@ -58,11 +55,9 @@
 .darkWash,
 .interactive-darkWash {
   background-color: var(--color-background-badge-darkwash);
-  color: var(--color-text-light);
 }
 
 .lightWash,
 .interactive-lightWash {
   background-color: var(--color-background-badge-lightwash);
-  color: var(--color-text-dark);
 }

@@ -4,7 +4,10 @@ import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import TapArea from './TapArea';
+import Text from './Text';
 import Tooltip from './Tooltip';
+import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
@@ -63,6 +66,11 @@ type Props = {
  *
  */
 export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const shouldUseTooltip = tooltip?.text;
 
   const ICON_MAP = Object.freeze({
@@ -71,9 +79,31 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     'warning': 'workflow-status-warning',
     'success': 'check-circle',
     'neutral': 'lock',
-    'recommendation': 'performance-plus',
+    'recommendation': 'sparkle',
     'darkWash': 'info-circle',
     'lightWash': 'info-circle',
+  });
+
+  const COLOR_ICON_MAP = Object.freeze({
+    'info': 'info',
+    'error': 'error',
+    'warning': 'warning',
+    'success': 'success',
+    'neutral': 'inverse',
+    'recommendation': 'recommendation',
+    'darkWash': 'light',
+    'lightWash': 'dark',
+  });
+
+  const COLOR_TEXT_MAP = Object.freeze({
+    'info': 'shopping',
+    'error': 'error',
+    'warning': 'warning',
+    'success': 'success',
+    'neutral': 'inverse',
+    'recommendation': 'recommendation',
+    'darkWash': 'light',
+    'lightWash': 'dark',
   });
 
   let styleType: TypeOptions | InteractiveTypeOptions = type;
@@ -88,18 +118,19 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     <div className={csBadge}>
       <Flex alignItems="center" gap={1}>
         {shouldUseTooltip ? (
-          <Box aria-hidden>
             <Icon
               accessibilityLabel=""
-              color="inverse"
+              color={isInVRExperiment ? COLOR_ICON_MAP[type] : 'inverse'}
               icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
               inline
-              size="14"
+              size={isInVRExperiment ? '12' : '14'}
             />
-          </Box>
         ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }} display="inlineBlock">
-          {text}
+        <Box
+          dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
+          display="inlineBlock"
+        >
+          <Text color={isInVRExperiment ? COLOR_TEXT_MAP[type] : 'inverse'} size="200" weight={isInVRExperiment ?"bold" : "normal"}>{text}</Text>
         </Box>
       </Flex>
     </div>
@@ -107,13 +138,20 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
 
   return shouldUseTooltip ? (
     <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
+      accessibilityLabel=""
       idealDirection={tooltip.idealDirection}
       inline
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >
-      {badgeComponent}
+      <TapArea
+        accessibilityLabel={tooltip.accessibilityLabel}
+        mouseCursor="default"
+        rounding={1}
+        tapStyle="none"
+      >
+        {badgeComponent}
+      </TapArea>
     </Tooltip>
   ) : (
     badgeComponent
