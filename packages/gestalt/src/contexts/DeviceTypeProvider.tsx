@@ -2,7 +2,7 @@ import { Context, createContext, ReactNode, useContext } from 'react';
 
 const defaultDeviceType = 'desktop';
 
-type DeviceType = 'desktop' | 'mobile';
+type DeviceType = 'desktop' | 'mobile' | 'tablet';
 
 const DeviceTypeContext: Context<DeviceType> = createContext<DeviceType>(defaultDeviceType);
 

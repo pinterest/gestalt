@@ -146,7 +146,7 @@ function SheetMobile({
 }: Props) {
   const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'mobile';
+  const isMobile = deviceType === 'mobile' || deviceType === 'tablet';
 
   if (!isMobile)
     throw new Error(
