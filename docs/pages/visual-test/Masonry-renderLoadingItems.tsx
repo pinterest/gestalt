@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Box, ColorSchemeProvider, Flex, Image, Masonry } from 'gestalt';
+import { TOKEN_COLOR_GRAY_ROBOFLOW_300 } from 'gestalt-design-tokens';
 
 function getPins() {
   const pins = [
@@ -44,10 +45,20 @@ function getPins() {
   return Promise.resolve(pinList);
 }
 
+const styles = {
+  backgroundColor: `${TOKEN_COLOR_GRAY_ROBOFLOW_300}`,
+  backgroundSize: '200vw 100%',
+  content: '',
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'relative',
+  width: '100%',
+} as const;
+// className="SkeletonPin__Loading"
 // Component to display a skeleton pin
 function SkeletonPin({ height }: { height: number }) {
   return (
-    <div className="SkeletonPin__Loading">
+    <div style={styles}>
       <Box height={height} width="100%" />
     </div>
   );
@@ -84,11 +95,11 @@ export default function Snapshot() {
   const scrollContainerRef = useRef(null);
   const gridRef = useRef(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      getPins().then(setPins);
-    }, 2500);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     getPins().then(setPins);
+  //   }, 2500);
+  // }, []);
 
   return (
     <ColorSchemeProvider colorScheme="light">
@@ -100,15 +111,14 @@ export default function Snapshot() {
           ref={(ref) => {
             gridRef.current = ref;
           }}
+          _loadingStateItems={skeletonPins}
+          _renderLoadingItems={({ data }) => <SkeletonPin height={data.height} />}
           columnWidth={170}
           gutterWidth={20}
           items={pins}
           layout="basicCentered"
-          loadingStateItems={skeletonPins}
           renderItem={({ data }) => <GridComponent data={data} />}
-          renderLoadingItems={({ data }) => <SkeletonPin height={data.height} />}
           scrollContainer={() => scrollContainerRef.current}
-          useShimmeringSkeletonLoadingState
         />
       </div>
     </ColorSchemeProvider>

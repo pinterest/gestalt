@@ -457,6 +457,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       virtualBufferFactor,
     } = this.props;
     const { top, left, width, height } = position;
+    console.log({ position });
     let isVisible;
     if (scrollContainer && virtualBufferFactor) {
       const virtualBuffer = this.containerHeight * virtualBufferFactor;
@@ -637,9 +638,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const itemsToMeasureCount = hasMultiColumnItems
         ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
         : minCols;
-      const itemsToMeasure = items
-        // .filter((item) => item && !measurementStore.has(item))
-        .slice(0, itemsToMeasureCount);
+      const itemsToMeasure = items.slice(0, itemsToMeasureCount);
 
       const positions = getPositions(itemsToRender.length > 0 ? itemsToRender : _loadingStateItems);
       const measuringPositions = getPositions(itemsToMeasure);
@@ -647,6 +646,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
+
+      console.log({ positions });
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
