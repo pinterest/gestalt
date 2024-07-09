@@ -339,6 +339,7 @@ function getSources({ theme, modeTheme, platform, language }) {
           'tokens/vr-theme-web-mapping/base-space.json',
           `tokens/vr-theme-web-mapping/sema-color-dataviz-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/sema-color.json',
+          `tokens/vr-theme-web-mapping/comp-web-color-${modeTheme}.json`,
         ]
       : []),
   ];

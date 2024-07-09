@@ -1,0 +1,37 @@
+{
+  "color": {
+    "background": {
+      "badge": {
+        "neutral": {
+          "value": "{sema.color.background.neutral.weak.value}"
+        },
+        "info": {
+          "default": {
+            "value": "{sema.color.background.info.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.background.info.weak.value}"
+          }
+        },
+        "error": {
+          "value": "{sema.color.background.error.weak.value}"
+        },
+        "warning": {
+          "value": "{sema.color.background.warning.weak.value}"
+        },
+        "success": {
+          "value": "{sema.color.background.success.weak.value}"
+        },
+        "recommendation": {
+          "value": "{sema.color.background.recommendation.weak.value}"
+        },
+        "lightwash": {
+          "value": "{sema.color.background.wash.light.value}"
+        },
+        "darkwash": {
+          "value": "{sema.color.background.wash.dark.value}"
+        }
+      }
+    }
+  }
+}
