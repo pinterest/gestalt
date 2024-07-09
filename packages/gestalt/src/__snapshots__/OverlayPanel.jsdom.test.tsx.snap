@@ -152,12 +152,12 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                           >
                             <button
                               aria-label="No, go back to the overlay panel"
-                              class="button hideOutline inline accessibilityOutline parentButton"
+                              class="button inline accessibilityOutline parentButton"
                               tabindex="0"
                               type="button"
                             >
                               <div
-                                class="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
+                                class="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                               >
                                 <div
                                   class="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -172,12 +172,12 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                           >
                             <button
                               aria-label="Yes, dismiss the overlay panel"
-                              class="button hideOutline inline accessibilityOutline parentButton"
+                              class="button inline accessibilityOutline parentButton"
                               tabindex="0"
                               type="button"
                             >
                               <div
-                                class="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
+                                class="button inline accessibilityOutline tapTransition md red enabled childrenDiv"
                               >
                                 <div
                                   class="Text fontSize300 inverse alignCenter fontWeightSemiBold"

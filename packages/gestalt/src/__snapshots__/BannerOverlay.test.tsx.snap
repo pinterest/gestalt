@@ -81,7 +81,7 @@ Array [
               Saved to
                
               <a
-                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -197,7 +197,7 @@ Array [
                 Saved to
                  
                 <a
-                  className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                  className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
                   href="https://www.pinterest.com/search/pins/?q=home%20decor"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -316,7 +316,7 @@ Array [
               Saved to
                
               <a
-                className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -432,7 +432,7 @@ Array [
                 Saved to
                  
                 <a
-                  className="link hideOutline tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                  className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
                   href="https://www.pinterest.com/search/pins/?q=home%20decor"
                   onBlur={[Function]}
                   onClick={[Function]}

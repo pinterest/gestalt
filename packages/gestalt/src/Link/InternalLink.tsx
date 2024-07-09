@@ -114,11 +114,11 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const className = classnames(
     linkStyles.link,
     textStyles.noUnderline,
-    focusStyles.hideOutline,
     touchableStyles.tapTransition,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+      [focusStyles.hideOutline]: !disabled && !isFocusVisible,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
     },
     isButton

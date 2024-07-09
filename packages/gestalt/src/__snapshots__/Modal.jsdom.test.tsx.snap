@@ -68,12 +68,12 @@ exports[`Modal Desktop Modal renders 1`] = `
                     class="FlexItem"
                   >
                     <button
-                      class="button hideOutline inline accessibilityOutline parentButton"
+                      class="button inline accessibilityOutline parentButton"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
+                        class="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                       >
                         <div
                           class="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -87,12 +87,12 @@ exports[`Modal Desktop Modal renders 1`] = `
                     class="FlexItem"
                   >
                     <button
-                      class="button hideOutline inline accessibilityOutline parentButton"
+                      class="button inline accessibilityOutline parentButton"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
+                        class="button inline accessibilityOutline tapTransition md red enabled childrenDiv"
                       >
                         <div
                           class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
@@ -217,12 +217,12 @@ exports[`Modal Mobile Modal renders 1`] = `
                     class="FlexItem"
                   >
                     <button
-                      class="button hideOutline inline accessibilityOutline parentButton"
+                      class="button inline accessibilityOutline parentButton"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="button hideOutline inline accessibilityOutline tapTransition md gray enabled childrenDiv"
+                        class="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                       >
                         <div
                           class="Text fontSize300 default alignCenter fontWeightSemiBold"
@@ -236,12 +236,12 @@ exports[`Modal Mobile Modal renders 1`] = `
                     class="FlexItem"
                   >
                     <button
-                      class="button hideOutline inline accessibilityOutline parentButton"
+                      class="button inline accessibilityOutline parentButton"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="button hideOutline inline accessibilityOutline tapTransition md red enabled childrenDiv"
+                        class="button inline accessibilityOutline tapTransition md red enabled childrenDiv"
                       >
                         <div
                           class="Text fontSize300 inverse alignCenter fontWeightSemiBold"

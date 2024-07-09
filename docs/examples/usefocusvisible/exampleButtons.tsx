@@ -16,10 +16,10 @@ export default function Example() {
             onBlur={() => setFocusedButton1(false)}
             onFocus={() => setFocusedButton1(true)}
             style={{
-              outline: 'none',
-              // @ts-expect-error - TS2322 - Type '"0 0 0 4px var(--color-border-focus)" | null' is not assignable to type 'BoxShadow | undefined'.
-              boxShadow:
-                isFocusVisible && focusedButton1 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
+              outline:
+                isFocusVisible && focusedButton1
+                  ? `4px solid ${TOKEN_COLOR_BORDER_FOCUS}`
+                  : undefined,
             }}
             type="button"
           >
@@ -33,9 +33,7 @@ export default function Example() {
             onBlur={() => setFocusedButton2(false)}
             onFocus={() => setFocusedButton2(true)}
             style={{
-              outline: 'none',
-              // @ts-expect-error - TS2322 - Type '"0 0 0 4px var(--color-border-focus)" | null' is not assignable to type 'BoxShadow | undefined'.
-              boxShadow: focusedButton2 ? `0 0 0 4px ${TOKEN_COLOR_BORDER_FOCUS}` : null,
+              outline: focusedButton2 ? `4px solid ${TOKEN_COLOR_BORDER_FOCUS}` : undefined,
             }}
             type="button"
           >

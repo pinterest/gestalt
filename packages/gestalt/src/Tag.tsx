@@ -125,9 +125,9 @@ export default function Tag({
   const removeIconClasses = classnames(
     styles.closeButton,
     styles[type],
-    focusStyles.hideOutline,
     touchableStyles.tapTransition,
     {
+      [focusStyles.hideOutline]: !isFocusVisible,
       [focusStyles.accessibilityOutline]: isFocusVisible,
     },
     styles[size],

@@ -297,7 +297,7 @@ exports[`Datapoint renders a tooltip 1`] = `
             <div
               aria-disabled={false}
               aria-label="This is a good sign"
-              className="hideOutline tapTransition circle accessibilityOutline fullWidth pointer"
+              className="tapTransition circle accessibilityOutline fullWidth pointer"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}

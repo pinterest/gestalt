@@ -100,7 +100,7 @@ exports[`Status renders with rich title 1`] = `
         >
           <a
             aria-label="label"
-            className="link hideOutline tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+            className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
             href="http://www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}

@@ -51,12 +51,12 @@ exports[`PopoverEducational renders 1`] = `
                 class="FlexItem flexGrow selfEnd"
               >
                 <button
-                  class="button hideOutline inline accessibilityOutline parentButton"
+                  class="button inline accessibilityOutline parentButton"
                   tabindex="0"
                   type="button"
                 >
                   <div
-                    class="button hideOutline inline accessibilityOutline tapTransition md white enabled childrenDiv"
+                    class="button inline accessibilityOutline tapTransition md white enabled childrenDiv"
                   >
                     <div
                       class="Text fontSize300 default alignCenter fontWeightSemiBold"

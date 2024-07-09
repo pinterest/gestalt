@@ -6,7 +6,6 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
-import useFocusVisible from './useFocusVisible';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
@@ -130,12 +129,9 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
     handleOnMouseUp,
     isHovered,
     isActive,
-    isFocused,
   } = useInteractiveStates();
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-
-  const { isFocusVisible } = useFocusVisible();
 
   const buttonComponent = (
     <InternalLink
@@ -169,7 +165,6 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         active={!disabled && isActive}
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
-        focused={!disabled && isFocusVisible && isFocused}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

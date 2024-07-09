@@ -204,25 +204,21 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
     width: innerRef?.current?.clientWidth,
   });
 
-  const buttonRoleClasses = classnames(
-    focusStyles.hideOutline,
-    styles.tapTransition,
-    getRoundingClassName(rounding),
-    {
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-      [styles.fullHeight]: fullHeight,
-      [styles.fullWidth]: fullWidth,
-      [styles.copy]: mouseCursor === 'copy' && !disabled,
-      [styles.grab]: mouseCursor === 'grab' && !disabled,
-      [styles.grabbing]: mouseCursor === 'grabbing' && !disabled,
-      [styles.move]: mouseCursor === 'move' && !disabled,
-      [styles.noDrop]: mouseCursor === 'noDrop' && !disabled,
-      [styles.pointer]: mouseCursor === 'pointer' && !disabled,
-      [styles.zoomIn]: mouseCursor === 'zoomIn' && !disabled,
-      [styles.zoomOut]: mouseCursor === 'zoomOut' && !disabled,
-      [styles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
-    },
-  );
+  const buttonRoleClasses = classnames(styles.tapTransition, getRoundingClassName(rounding), {
+    [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+    [styles.fullHeight]: fullHeight,
+    [styles.fullWidth]: fullWidth,
+    [styles.copy]: mouseCursor === 'copy' && !disabled,
+    [styles.grab]: mouseCursor === 'grab' && !disabled,
+    [styles.grabbing]: mouseCursor === 'grabbing' && !disabled,
+    [styles.move]: mouseCursor === 'move' && !disabled,
+    [styles.noDrop]: mouseCursor === 'noDrop' && !disabled,
+    [styles.pointer]: mouseCursor === 'pointer' && !disabled,
+    [styles.zoomIn]: mouseCursor === 'zoomIn' && !disabled,
+    [styles.zoomOut]: mouseCursor === 'zoomOut' && !disabled,
+    [styles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+  });
 
   return (
     <div
