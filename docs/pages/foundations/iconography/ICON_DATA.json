@@ -356,13 +356,27 @@
       "name": "check-circle",
       "categories": ["Status"],
       "description": "Indicates a to-do list or verified user",
-      "keywords": ["done", "completed", "success", "selected", "verified", "user"]
+      "keywords": [
+        "done",
+        "completed",
+        "success",
+        "selected",
+        "verified",
+        "user"
+      ]
     },
     {
       "name": "check-circle-fill",
       "categories": ["Status"],
       "description": "Indicates a to-do list or verified user",
-      "keywords": ["done", "completed", "success", "selected", "verified", "user"]
+      "keywords": [
+        "done",
+        "completed",
+        "success",
+        "selected",
+        "verified",
+        "user"
+      ]
     },
 
     {
@@ -1187,7 +1201,7 @@
       "description": "Indicates the ability to rewind a video content",
       "keywords": ["backwards", "beginning"]
     },
-     {
+    {
       "name": "rocketship",
       "categories": ["Technology"],
       "description": "Indicates launch",

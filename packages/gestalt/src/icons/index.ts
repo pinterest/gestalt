@@ -347,8 +347,6 @@ import yahoo from './yahoo.svg';
 import youtube from './youtube.svg';
 
 const icons = Object.freeze({
-
-
   '3d': threeD,
   '3d-move': threeDMove,
   '360': threeSixty,
