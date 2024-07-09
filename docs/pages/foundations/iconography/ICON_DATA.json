@@ -354,10 +354,17 @@
     },
     {
       "name": "check-circle",
-      "categories": ["Utility and tools"],
-      "description": "Indicates a to-do list",
-      "keywords": ["done", "completed", "success", "selected"]
+      "categories": ["Status"],
+      "description": "Indicates a to-do list or verified user",
+      "keywords": ["done", "completed", "success", "selected", "verified", "user"]
     },
+    {
+      "name": "check-circle-fill",
+      "categories": ["Status"],
+      "description": "Indicates a to-do list or verified user",
+      "keywords": ["done", "completed", "success", "selected", "verified", "user"]
+    },
+
     {
       "name": "chevron-up-circle",
       "categories": ["Arrows"],
@@ -369,6 +376,12 @@
       "categories": [],
       "description": "",
       "keywords": []
+    },
+    {
+      "name": "circle-initializing",
+      "categories": ["Status"],
+      "description": "Indicates a project that is starting up",
+      "keywords": ["begin", "start", "in", "progress"]
     },
     {
       "name": "clear",
@@ -1173,6 +1186,12 @@
       "categories": ["Media controls"],
       "description": "Indicates the ability to rewind a video content",
       "keywords": ["backwards", "beginning"]
+    },
+     {
+      "name": "rocketship",
+      "categories": ["Technology"],
+      "description": "Indicates launch",
+      "keywords": ["deploying", "launch", "space", "spaceship"]
     },
     {
       "name": "rotate",

@@ -70,10 +70,12 @@ import captions from './ic_vr_captions_gestalt.svg';
 import captionsOutline from './ic_vr_captions-outline_gestalt.svg';
 import check from './ic_vr_check_gestalt.svg';
 import checkCircle from './ic_vr_check-circle_gestalt.svg';
+import checkCircleFill from './ic_vr_check-circle-fill_gestalt.svg';
 import chevronUpCircle from './ic_vr_chevron-up-circle_gestalt.svg';
 import circle from './ic_vr_circle_gestalt.svg';
 import circleEllipsis from './ic_vr_circle-ellipsis_gestalt.svg';
 import circleInformationFill from './ic_vr_circle-information-fill_gestalt.svg';
+import circleInitializing from './ic_vr_circle-initializing_gestalt.svg';
 import clear from './ic_vr_clear_gestalt.svg';
 import clips from './ic_vr_clips_gestalt.svg';
 import clock from './ic_vr_clock_gestalt.svg';
@@ -240,6 +242,7 @@ import reorderImages from './ic_vr_reorder-images_gestalt.svg';
 import replace from './ic_vr_replace_gestalt.svg';
 import report from './ic_vr_report_gestalt.svg';
 import rewind from './ic_vr_rewind_gestalt.svg';
+import rocketship from './ic_vr_rocketship_gestalt.svg';
 import rotate from './ic_vr_rotate_gestalt.svg';
 import saturation from './ic_vr_saturation_gestalt.svg';
 import saveOutline from './ic_vr_save-outline_gestalt.svg';
@@ -416,10 +419,12 @@ const icons = Object.freeze({
   'captions-outline': captionsOutline,
   'check': check,
   'check-circle': checkCircle,
+  'check-circle-fill': checkCircleFill,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
   'circle-information-fill': circleInformationFill,
+  'circle-initializing': circleInitializing,
   'clear': clear,
   'clips': clips,
   'clock': clock,
@@ -586,6 +591,7 @@ const icons = Object.freeze({
   'replace': replace,
   'report': report,
   'rewind': rewind,
+  'rocketship': rocketship,
   'rotate': rotate,
   'saturation': saturation,
   'save-outline': saveOutline,
