@@ -1952,7 +1952,7 @@ exports[`SideNavigation renders static group 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -2048,7 +2048,7 @@ exports[`SideNavigation renders static group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -2105,7 +2105,7 @@ exports[`SideNavigation renders static group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline hideOutline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
