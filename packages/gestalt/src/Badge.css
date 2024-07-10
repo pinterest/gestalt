@@ -9,7 +9,17 @@
 }
 
 .focusInnerBorder {
-  border: 2px solid var(--color-border-badge);
+  border: 2px solid var(--color-border-badge-default);
+  padding: 0 4px;
+}
+
+.focusInnerBorderLight {
+  border: 2px solid var(--color-border-badge-light);
+  padding: 0 4px;
+}
+
+.focusInnerBorderDark {
+  border: 2px solid var(--color-border-badge-dark);
   padding: 0 4px;
 }
 

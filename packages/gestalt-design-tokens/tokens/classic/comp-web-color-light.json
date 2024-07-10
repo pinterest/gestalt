@@ -627,7 +627,15 @@
         "comment": "Avatar component outline border color."
       },
       "badge": {
-        "value": "{color.white.mochimalist.0.value}"
+        "default": {
+          "value": "{color.white.mochimalist.0.value}"
+        },
+        "light": {
+          "value": "{color.white.mochimalist.0.value}"
+        },
+        "dark": {
+          "value": "{color.black.cosmicore.900.value}"
+        }
       },
       "formfield": {
         "error": {

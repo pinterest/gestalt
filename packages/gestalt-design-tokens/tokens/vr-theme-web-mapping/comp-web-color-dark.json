@@ -70,7 +70,15 @@
     },
     "border": {
       "badge": {
-        "value": "{sema.color.border.focus.inner.default.value}"
+        "default": {
+          "value": "{sema.color.border.focus.inner.default.value}"
+        },
+        "light": {
+          "value": "{sema.color.border.focus.inner.light.value}"
+        },
+        "dark": {
+          "value": "{sema.color.border.focus.inner.dark.value}"
+        }
       }
     }
   }

@@ -123,9 +123,17 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       cx(styles.badge, styles[styleType], {
         [styles.middle]: !shouldUseTooltip && position === 'middle',
         [styles.top]: !shouldUseTooltip && position === 'top',
-        [styles.focusInnerBorder]: isInVRExperiment && isFocused && isFocusVisible,
+        [styles.focusInnerBorder]:
+          isInVRExperiment &&
+          isFocused &&
+          isFocusVisible &&
+          !['darkWash', 'lightWash'].some((color) => color === type),
+        [styles.focusInnerBorderLight]:
+          isInVRExperiment && isFocused && isFocusVisible && type === 'darkWash',
+        [styles.focusInnerBorderDark]:
+          isInVRExperiment && isFocused && isFocusVisible && type === 'lightWash',
       }),
-    [isFocused, isInVRExperiment, styleType, position, shouldUseTooltip, isFocusVisible],
+    [isFocused, isInVRExperiment, styleType, position, shouldUseTooltip, isFocusVisible, type],
   );
 
   const cxPositionStyles = useMemo(
