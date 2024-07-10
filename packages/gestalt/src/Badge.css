@@ -1,9 +1,7 @@
 .badge {
   composes: borderBox from "./Layout.css";
   composes: rounding1 from "./Borders.css";
-  height: 20px;
   min-height: 20px;
-  overflow: hidden;
   padding: 2px 6px;
   white-space: nowrap;
 }

@@ -146,9 +146,9 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
   );
 
   const badgeComponent = (
-    <Flex alignItems="center" gap={{ row: 1, column: 0 }} maxHeight={20}>
+    <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
       {shouldUseTooltip ? (
-        <Box alignContent="center" display="flex" maxHeight={20}>
+        <Box alignContent="center" display="flex">
           <Icon
             accessibilityLabel=""
             color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
@@ -158,7 +158,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
           />
         </Box>
       ) : null}
-      <Box alignContent="center" display="flex" maxHeight={20}>
+      <Box alignContent="center" display="flex">
         <Text
           color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
           inline
