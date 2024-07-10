@@ -227,11 +227,15 @@ exports[`PageHeader renders badge with type 1`] = `
                                     className="box xsDisplayInlineBlock"
                                     style={
                                       Object {
-                                        "marginTop": "2px",
+                                        "marginTop": "1px",
                                       }
                                     }
                                   >
-                                    Needs attention
+                                    <div
+                                      className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                    >
+                                      Needs attention
+                                    </div>
                                   </div>
                                 </div>
                               </div>

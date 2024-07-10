@@ -14,11 +14,15 @@ exports[`Badge renders 1`] = `
         className="box xsDisplayInlineBlock"
         style={
           Object {
-            "marginTop": "2px",
+            "marginTop": "1px",
           }
         }
       >
-        Badge
+        <div
+          className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+        >
+          Badge
+        </div>
       </div>
     </div>
   </div>

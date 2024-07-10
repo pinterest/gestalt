@@ -162,11 +162,15 @@ exports[`Datapoint renders a badge 1`] = `
                 className="box xsDisplayInlineBlock"
                 style={
                   Object {
-                    "marginTop": "2px",
+                    "marginTop": "1px",
                   }
                 }
               >
-                Early access
+                <div
+                  className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                >
+                  Early access
+                </div>
               </div>
             </div>
           </div>

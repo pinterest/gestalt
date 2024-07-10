@@ -167,11 +167,15 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                             className="box xsDisplayInlineBlock"
                             style={
                               Object {
-                                "marginTop": "2px",
+                                "marginTop": "1px",
                               }
                             }
                           >
-                            Try it out!
+                            <div
+                              className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                            >
+                              Try it out!
+                            </div>
                           </div>
                         </div>
                       </div>

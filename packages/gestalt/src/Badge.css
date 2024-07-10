@@ -29,35 +29,70 @@
 
 .error,
 .interactive-error {
-  background-color: var(--color-background-badge-error);
+  background-color: var(--color-background-badge-error-default);
+}
+
+.interactive-error:hover,
+.interactive-error:focus {
+  background-color: var(--color-background-badge-error-hover);
 }
 
 .warning,
 .interactive-warning {
-  background-color: var(--color-background-badge-warning);
+  background-color: var(--color-background-badge-warning-default);
+}
+
+.interactive-warning:hover,
+.interactive-warning:focus {
+  background-color: var(--color-background-badge-warning-hover);
 }
 
 .success,
 .interactive-success {
-  background-color: var(--color-background-badge-success);
+  background-color: var(--color-background-badge-success-default);
+}
+
+.interactive-success:hover,
+.interactive-success:focus {
+  background-color: var(--color-background-badge-success-hover);
 }
 
 .recommendation,
 .interactive-recommendation {
-  background-color: var(--color-background-badge-recommendation);
+  background-color: var(--color-background-badge-recommendation-default);
+}
+
+.interactive-recommendation:hover,
+.interactive-recommendation:focus {
+  background-color: var(--color-background-badge-recommendation-hover);
 }
 
 .neutral,
 .interactive-neutral {
-  background-color: var(--color-background-badge-neutral);
+  background-color: var(--color-background-badge-neutral-default);
+}
+
+.interactive-neutral:hover,
+.interactive-neutral:focus {
+  background-color: var(--color-background-badge-neutral-hover);
 }
 
 .darkWash,
 .interactive-darkWash {
-  background-color: var(--color-background-badge-darkwash);
+  background-color: var(--color-background-badge-darkwash-default);
+}
+
+.interactive-darkWash:hover,
+.interactive-darkWash:focus {
+  background-color: var(--color-background-badge-darkwash-hover);
 }
 
 .lightWash,
 .interactive-lightWash {
-  background-color: var(--color-background-badge-lightwash);
+  background-color: var(--color-background-badge-lightwash-default);
+}
+
+.interactive-lightWash:hover,
+.interactive-lightWash:focus {
+  background-color: var(--color-background-badge-lightwash-hover);
 }

@@ -372,11 +372,15 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                           className="box xsDisplayInlineBlock"
                                           style={
                                             Object {
-                                              "marginTop": "2px",
+                                              "marginTop": "1px",
                                             }
                                           }
                                         >
-                                          New
+                                          <div
+                                            className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                          >
+                                            New
+                                          </div>
                                         </div>
                                       </div>
                                     </div>

@@ -788,9 +788,13 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               >
                                 <div
                                   class="box xsDisplayInlineBlock"
-                                  style="margin-top: 2px;"
+                                  style="margin-top: 1px;"
                                 >
-                                  New
+                                  <div
+                                    class="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                  >
+                                    New
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -863,9 +867,13 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                 >
                                   <div
                                     class="box xsDisplayInlineBlock"
-                                    style="margin-top: 2px;"
+                                    style="margin-top: 1px;"
                                   >
-                                    New
+                                    <div
+                                      class="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                    >
+                                      New
+                                    </div>
                                   </div>
                                 </div>
                               </div>

@@ -2,13 +2,8 @@
   "color": {
     "background": {
       "badge": {
-        "neutral":{
-          "default": {
-            "value": "{sema.color.background.neutral.weak.value}"
-          },
-          "hover": {
-            "value": "{sema.color.hover.background.neutral.weak.value}"
-          }
+        "neutral": {
+          "value": "{sema.color.background.neutral.weak.value}"
         },
         "info": {
           "default": {
