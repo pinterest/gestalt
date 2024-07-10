@@ -17,7 +17,7 @@ const RESIZE_DEBOUNCE = 300;
 
 const layoutNumberToCssDimension = (n?: number | null) => (n !== Infinity ? n : undefined);
 
-type Props<T> = {
+type Props<T, U> = {
   /**
    * Controls the horizontal alignment of items within the Masonry grid. The `align` property determines how items are aligned along the main-axis (horizontally) across multiple columns.
    * `start`: Aligns items to the start of the Masonry container. This is the default behavior where items are placed starting from the left side of the container.
@@ -65,7 +65,7 @@ type Props<T> = {
   /**
    * Masonry internally caches item heights using a measurement store. If `measurementStore` is provided, Masonry will use it as its cache and will keep it updated with future measurements. This is often used to prevent re-measurement when users navigate away from and back to a grid. Create a new measurement store with `Masonry.createMeasurementStore()`.
    */
-  measurementStore?: Cache<T, number>;
+  measurementStore?: Cache<T | U, number>;
   /**
    * Minimum number of columns to display, regardless of the container width.
    */
@@ -73,7 +73,7 @@ type Props<T> = {
   /**
    * Masonry internally caches positions using a position store. If `positionStore` is provided, Masonry will use it as its cache and will keep it updated with future positions.
    */
-  positionStore?: Cache<T, Position>;
+  positionStore?: Cache<T | U, Position>;
   /**
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    *
@@ -120,14 +120,14 @@ type Props<T> = {
    *
    * This is an experimental prop and may be removed or changed in the future.
    */
-  _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getColumnSpanConfig?: (item: T | U) => ColumnSpanConfig;
   /**
    * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    *
    * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
    */
-  _loadingStateItems?: ReadonlyArray<T>;
+  _loadingStateItems?: ReadonlyArray<U>;
   /**
    * Experimental prop to render a loading state
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
@@ -135,17 +135,17 @@ type Props<T> = {
    * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
    */
   _renderLoadingStateItems?: (arg1: {
-    readonly data: T;
+    readonly data: U;
     readonly itemIdx: number;
     readonly isMeasuring: boolean;
   }) => ReactNode;
 };
 
-type State<T> = {
+type State<T, U> = {
   hasPendingMeasurements: boolean;
   isFetching: boolean;
   items: ReadonlyArray<T>;
-  measurementStore: Cache<T, number>;
+  measurementStore: Cache<T | U, number>;
   scrollTop: number;
   width: number | null | undefined;
 };
@@ -156,7 +156,7 @@ type State<T> = {
  * ![Masonry light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Masonry.spec.ts-snapshots/Masonry-chromium-darwin.png)
  *
  */
-export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
+export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, U>> {
   static createMeasurementStore<T1 extends Record<any, any>, T2>(): MeasurementStore<T1, T2> {
     return new MeasurementStore();
   }
@@ -188,13 +188,13 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
   static displayName: string | null | undefined = 'Masonry';
 
-  constructor(props: Props<T>) {
+  constructor(props: Props<T, U>) {
     super(props);
 
     this.containerHeight = 0;
     this.containerOffset = 0;
 
-    const measurementStore: Cache<T, number> =
+    const measurementStore: Cache<T | U, number> =
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
@@ -215,7 +215,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
   gridWrapper: HTMLElement | null | undefined;
 
-  positionStore: Cache<T, Position>;
+  positionStore: Cache<T | U, Position>;
 
   insertAnimationFrame: number | null = null;
 
@@ -273,7 +273,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     }));
   }
 
-  componentDidUpdate(prevProps: Props<T>, prevState: State<T>) {
+  componentDidUpdate(prevProps: Props<T, U>, prevState: State<T, U>) {
     const { items } = this.props;
     const { measurementStore } = this.state;
 
@@ -318,9 +318,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     window.removeEventListener('resize', this.handleResize);
   }
 
-  static getDerivedStateFromProps<K>(
-    props: Props<K>,
-    state: State<K>,
+  static getDerivedStateFromProps<K, L>(
+    props: Props<K, L>,
+    state: State<K, L>,
   ): null | {
     hasPendingMeasurements: boolean;
     isFetching?: boolean;
@@ -443,7 +443,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     position,
     isLoading,
   }: {
-    itemData: T;
+    itemData: T | U;
     idx: number;
     position: Position;
     isLoading?: boolean;
@@ -498,8 +498,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         }}
       >
         {isLoading && _renderLoadingStateItems
-          ? _renderLoadingStateItems({ data: itemData, itemIdx: idx, isMeasuring: false })
-          : renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+          ? _renderLoadingStateItems({ data: itemData as U, itemIdx: idx, isMeasuring: false })
+          : renderItem({ data: itemData as T, itemIdx: idx, isMeasuring: false })}
       </div>
     );
 
@@ -523,7 +523,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
 
-    let getPositions;
+    let getPositions: (itemsToCalulate: ReadonlyArray<T | U>) => ReadonlyArray<Position>;
 
     if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
