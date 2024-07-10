@@ -446,6 +446,20 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'font-size/px',
+  type: 'value',
+  matcher: (prop) => prop.attributes.category === 'font' && prop.attributes.type === 'size',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
+  },
+});
+
 StyleDictionary.registerFormat({
   name: `constantLibrary-javascript/es6/vr-theme`,
   formatter({ dictionary }) {
@@ -580,6 +594,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/kebab',
     'name/conflictFixing',
     'value/elevation/css',
+    'font-size/px',
     'color/css',
   ],
 });
@@ -591,6 +606,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/pascal',
     'name/conflictFixing',
     'value/elevation/css',
+    'font-size/px',
     'color/hex',
   ],
 });
@@ -771,6 +787,7 @@ StyleDictionary.registerTransformGroup({
     'name/cti/snake',
     'name/conflictFixing',
     'color/hex8android',
+    'font-size/px',
     'size/pxToDpOrSp',
   ],
 });
@@ -886,6 +903,7 @@ StyleDictionary.registerTransformGroup({
     'color/UIColor',
     'content/objC/literal',
     'asset/objC/literal',
+    'font-size/px',
     'size/remToPt',
     'font/objC/literal',
   ],
@@ -902,6 +920,7 @@ StyleDictionary.registerTransformGroup({
     'content/swift/literal',
     'asset/swift/literal',
     'size/swift/remToCGFloat',
+    'font-size/px',
     'font/swift/literal',
   ],
 });

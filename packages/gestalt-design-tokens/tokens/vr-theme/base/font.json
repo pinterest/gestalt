@@ -18,27 +18,27 @@
       "size": {
         "12": {
           "type": "fontSizes",
-          "value": "12px"
+          "value": "12"
         },
         "14": {
           "type": "fontSizes",
-          "value": "14px"
+          "value": "14"
         },
         "16": {
           "type": "fontSizes",
-          "value": "16px"
+          "value": "16"
         },
         "20": {
           "type": "fontSizes",
-          "value": "20px"
+          "value": "20"
         },
         "28": {
           "type": "fontSizes",
-          "value": "28px"
+          "value": "28"
         },
         "36": {
           "type": "fontSizes",
-          "value": "36px"
+          "value": "36"
         }
       },
       "family": {
