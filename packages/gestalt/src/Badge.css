@@ -1,14 +1,17 @@
 .Badge {
-  composes: antialiased sansSerif from "./Typography.css";
+  composes: borderBox from "./Layout.css";
   composes: inlineBlock from "./Layout.css";
   composes: rounding1 from "./Borders.css";
   height: 20px;
+  min-height: 20px;
+  margin-top: -3px;
   padding: 2px 6px;
   white-space: nowrap;
 }
 
 .focusInnerBorder {
   border: 2px solid var(--color-border-badge);
+  padding: 0px 4px;
 }
 
 .middle {
@@ -26,8 +29,7 @@
   background-color: var(--color-background-badge-info-default);
 }
 
-.interactive-info:hover,
-.interactive-info:focus {
+.interactive-info:hover {
   background-color: var(--color-background-badge-info-hover);
 }
 
@@ -36,8 +38,7 @@
   background-color: var(--color-background-badge-error-default);
 }
 
-.interactive-error:hover,
-.interactive-error:focus {
+.interactive-error:hover {
   background-color: var(--color-background-badge-error-hover);
 }
 
@@ -46,8 +47,7 @@
   background-color: var(--color-background-badge-warning-default);
 }
 
-.interactive-warning:hover,
-.interactive-warning:focus {
+.interactive-warning:hover {
   background-color: var(--color-background-badge-warning-hover);
 }
 
@@ -56,8 +56,7 @@
   background-color: var(--color-background-badge-success-default);
 }
 
-.interactive-success:hover,
-.interactive-success:focus {
+.interactive-success:hover {
   background-color: var(--color-background-badge-success-hover);
 }
 
@@ -66,8 +65,7 @@
   background-color: var(--color-background-badge-recommendation-default);
 }
 
-.interactive-recommendation:hover,
-.interactive-recommendation:focus {
+.interactive-recommendation:hover {
   background-color: var(--color-background-badge-recommendation-hover);
 }
 
@@ -76,8 +74,7 @@
   background-color: var(--color-background-badge-neutral-default);
 }
 
-.interactive-neutral:hover,
-.interactive-neutral:focus {
+.interactive-neutral:hover {
   background-color: var(--color-background-badge-neutral-hover);
 }
 
@@ -86,8 +83,7 @@
   background-color: var(--color-background-badge-darkwash-default);
 }
 
-.interactive-darkWash:hover,
-.interactive-darkWash:focus {
+.interactive-darkWash:hover {
   background-color: var(--color-background-badge-darkwash-hover);
 }
 
@@ -96,7 +92,6 @@
   background-color: var(--color-background-badge-lightwash-default);
 }
 
-.interactive-lightWash:hover,
-.interactive-lightWash:focus {
+.interactive-lightWash:hover {
   background-color: var(--color-background-badge-lightwash-hover);
 }

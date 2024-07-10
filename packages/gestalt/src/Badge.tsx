@@ -8,6 +8,7 @@ import TapArea from './TapArea';
 import Text from './Text';
 import Tooltip from './Tooltip';
 import useInExperiment from './useInExperiment';
+import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
@@ -112,32 +113,45 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     styleType = `interactive-${type}`;
   }
 
+  const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isFocused } =
+    useInteractiveStates();
+
   const csBadge = cx(styles.Badge, styles[position], styles[styleType], {
-    [styles.focusInnerBorder]: isInVRExperiment,
+    [styles.focusInnerBorder]: isInVRExperiment && isFocused,
   });
 
   const badgeComponent = (
     <div className={csBadge}>
-      <Flex alignItems="center" gap={1}>
-        {shouldUseTooltip ? (
-          <Icon
-            accessibilityLabel=""
-            color={isInVRExperiment ? COLOR_ICON_MAP[type] : 'inverse'}
-            icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-            inline
-            size={isInVRExperiment ? '12' : '14'}
-          />
-        ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }} display="inlineBlock">
-          <Text
-            color={isInVRExperiment ? COLOR_TEXT_MAP[type] : 'inverse'}
-            size="200"
-            weight={isInVRExperiment ? 'bold' : 'normal'}
+      <Box
+        dangerouslySetInlineStyle={{
+          __style: { marginTop: shouldUseTooltip ? '-4px' : '-2px' },
+        }}
+      >
+        <Flex alignItems="center" gap={{ row: 1, column: 0 }} maxHeight={20}>
+          {shouldUseTooltip ? (
+            <Icon
+              accessibilityLabel=""
+              color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+              inline
+              size={isInVRExperiment ? '12' : '14'}
+            />
+          ) : null}
+          <Box dangerouslySetInlineStyle={{
+              __style: { marginTop: shouldUseTooltip ? '2px' : undefined },
+            }}
+            maxHeight={20}
           >
-            {text}
-          </Text>
-        </Box>
-      </Flex>
+            <Text color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+              inline
+              size="200"
+              weight={isInVRExperiment ? 'normal' : 'bold'}
+            >
+              {text}
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
     </div>
   );
 
@@ -152,6 +166,10 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       <TapArea
         accessibilityLabel={tooltip.accessibilityLabel}
         mouseCursor="default"
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
         rounding={1}
         tapStyle="none"
       >
