@@ -782,14 +782,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           >
                             <div
                               class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
-                              style="max-height: 20px;"
                             >
                               <div
                                 class="FlexItem"
                               >
                                 <div
                                   class="box contentCenter xsDisplayFlex"
-                                  style="max-height: 20px;"
                                 >
                                   <span
                                     class="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
@@ -863,14 +861,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             >
                               <div
                                 class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
-                                style="max-height: 20px;"
                               >
                                 <div
                                   class="FlexItem"
                                 >
                                   <div
                                     class="box contentCenter xsDisplayFlex"
-                                    style="max-height: 20px;"
                                   >
                                     <span
                                       class="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"

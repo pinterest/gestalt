@@ -188,7 +188,8 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
           onFocus={handleOnFocus}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
-          rounding={1} tapStyle="none"
+          rounding={1}
+          tapStyle="none"
         >
           <Box alignContent="center" display="flex" height="100%">
             <div className={cxStyles}>{badgeComponent} </div>

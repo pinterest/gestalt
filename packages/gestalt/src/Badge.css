@@ -3,8 +3,6 @@
   composes: rounding1 from "./Borders.css";
   align-content: center;
   display: flex;
-  height: 20px;
-  min-height: 20px;
   padding: 0 6px;
   white-space: nowrap;
 }
@@ -26,13 +24,15 @@
 
 .middle {
   composes: inlineBlock from "./Layout.css";
-  height: 100%;
+  height: 20px;
+  min-height: 20px;
   vertical-align: middle;
 }
 
 .top {
   composes: inlineBlock from "./Layout.css";
-  height: 100%;
+  height: 20px;
+  min-height: 20px;
   vertical-align: super;
 }
 

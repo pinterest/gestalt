@@ -1,0 +1,15 @@
+import { Badge, Flex } from 'gestalt';
+
+export default function Example() {
+  return (
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Badge
+        text="คุณลักษณะใหม่"
+        tooltip={{
+          text: 'ภาพตัดปะเป็นคุณลักษณะใหม่สำหรับผู้ใช้เบต้า',
+          idealDirection: 'up',
+        }}
+      />
+    </Flex>
+  );
+}
