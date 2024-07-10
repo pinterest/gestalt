@@ -122,6 +122,7 @@ type Props<T> = {
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   /**
+   * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
    * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    *
    * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
@@ -133,7 +134,7 @@ type Props<T> = {
    *
    * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
    */
-  _renderLoadingItems?: (arg1: {
+  _renderLoadingStateItems?: (arg1: {
     readonly data: T;
     readonly itemIdx: number;
     readonly isMeasuring: boolean;
@@ -448,7 +449,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     isLoading?: boolean;
   }) => ReactNode = ({ itemData, idx, position, isLoading }) => {
     const {
-      _renderLoadingItems,
+      _renderLoadingStateItems,
       renderItem,
       scrollContainer,
       virtualize,
@@ -457,7 +458,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       virtualBufferFactor,
     } = this.props;
     const { top, left, width, height } = position;
-    console.log({ position });
+
     let isVisible;
     if (scrollContainer && virtualBufferFactor) {
       const virtualBuffer = this.containerHeight * virtualBufferFactor;
@@ -496,8 +497,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {isLoading && _renderLoadingItems
-          ? _renderLoadingItems({ data: itemData, itemIdx: idx, isMeasuring: false })
+        {isLoading && _renderLoadingStateItems
+          ? _renderLoadingStateItems({ data: itemData, itemIdx: idx, isMeasuring: false })
           : renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
       </div>
     );
@@ -552,7 +553,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         gutter,
         layout,
         minCols,
-        rawItemCount: items.length,
+        rawItemCount:
+          items.length === 0 && _loadingStateItems ? _loadingStateItems.length : items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
@@ -646,8 +648,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
-
-      console.log({ positions });
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
