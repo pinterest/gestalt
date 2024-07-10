@@ -778,23 +778,24 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             , 
                           </div>
                           <div
-                            class="Badge middle info"
+                            class="badge middle info"
                           >
                             <div
-                              class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                              class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                              style="max-height: 20px;"
                             >
                               <div
                                 class="FlexItem"
                               >
                                 <div
-                                  class="box xsDisplayInlineBlock"
-                                  style="margin-top: 1px;"
+                                  class="box contentCenter xsDisplayFlex"
+                                  style="max-height: 20px;"
                                 >
-                                  <div
-                                    class="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                  <span
+                                    class="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
                                   >
                                     New
-                                  </div>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -857,23 +858,24 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               , 
                             </div>
                             <div
-                              class="Badge middle info"
+                              class="badge middle info"
                             >
                               <div
-                                class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                                style="max-height: 20px;"
                               >
                                 <div
                                   class="FlexItem"
                                 >
                                   <div
-                                    class="box xsDisplayInlineBlock"
-                                    style="margin-top: 1px;"
+                                    class="box contentCenter xsDisplayFlex"
+                                    style="max-height: 20px;"
                                   >
-                                    <div
-                                      class="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                    <span
+                                      class="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
                                     >
                                       New
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>

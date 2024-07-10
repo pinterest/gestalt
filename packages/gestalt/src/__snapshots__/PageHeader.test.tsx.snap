@@ -215,27 +215,32 @@ exports[`PageHeader renders badge with type 1`] = `
                             className="FlexItem"
                           >
                             <div
-                              className="Badge middle warning"
+                              className="badge middle warning"
                             >
                               <div
-                                className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                                style={
+                                  Object {
+                                    "maxHeight": 20,
+                                  }
+                                }
                               >
                                 <div
                                   className="FlexItem"
                                 >
                                   <div
-                                    className="box xsDisplayInlineBlock"
+                                    className="box contentCenter xsDisplayFlex"
                                     style={
                                       Object {
-                                        "marginTop": "1px",
+                                        "maxHeight": 20,
                                       }
                                     }
                                   >
-                                    <div
-                                      className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+                                    <span
+                                      className="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
                                     >
                                       Needs attention
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>

@@ -2,27 +2,32 @@
 
 exports[`Badge renders 1`] = `
 <div
-  className="Badge middle info"
+  className="badge middle info"
 >
   <div
-    className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+    className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+    style={
+      Object {
+        "maxHeight": 20,
+      }
+    }
   >
     <div
       className="FlexItem"
     >
       <div
-        className="box xsDisplayInlineBlock"
+        className="box contentCenter xsDisplayFlex"
         style={
           Object {
-            "marginTop": "1px",
+            "maxHeight": 20,
           }
         }
       >
-        <div
-          className="Text fontSize200 inverse alignStart breakWord fontWeightNormal"
+        <span
+          className="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
         >
           Badge
-        </div>
+        </span>
       </div>
     </div>
   </div>

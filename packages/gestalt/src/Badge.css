@@ -11,7 +11,7 @@
 
 .focusInnerBorder {
   border: 2px solid var(--color-border-badge);
-  padding: 0px 4px;
+  padding: 0 4px;
 }
 
 .middle {

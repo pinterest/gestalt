@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { ComponentProps, useMemo } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
@@ -116,53 +116,39 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
   const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isFocused } =
     useInteractiveStates();
 
-  const csBadge = cx(styles.badge, styles[position], styles[styleType], {
-    [styles.focusInnerBorder]: isInVRExperiment && isFocused,
-  });
-  const marginTop = isInVRExperiment || (isInVRExperiment && isFocused) ? '-3px' : '-4px';
+  const cxStyles = useMemo(
+    () =>
+      cx(styles.badge, styles[position], styles[styleType], {
+        [styles.focusInnerBorder]: isInVRExperiment && isFocused,
+      }),
+    [isFocused, isInVRExperiment, position, styleType],
+  );
 
   const badgeComponent = (
-    <div className={csBadge}>
-      <Box
-        dangerouslySetInlineStyle={{
-          __style: { marginTop: undefined },
-        }}
-      >
-        <Flex alignItems="center" gap={{ row: 1, column: 0 }} maxHeight={20}>
-          {shouldUseTooltip ? (
-            <Box
-              alignContent="center"
-              display="flex"
-              maxHeight={20}
-            >
-              <Icon
-                accessibilityLabel=""
-                color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
-                icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-                inline
-                size={isInVRExperiment ? '12' : '14'}
-              />{' '}
-            </Box>
-          ) : null}
-          <Box
-            alignContent="center"
-            dangerouslySetInlineStyle={{
-              __style: { marginTop: undefined },
-            }}
-            display="flex"
-            maxHeight={20}
-          >
-            <Text
-              color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+    <div className={cxStyles}>
+      <Flex alignItems="center" gap={{ row: 1, column: 0 }} maxHeight={20}>
+        {shouldUseTooltip ? (
+          <Box alignContent="center" display="flex" maxHeight={20}>
+            <Icon
+              accessibilityLabel=""
+              color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
               inline
-              size="200"
-              weight={isInVRExperiment ? 'normal' : 'bold'}
-            >
-              {text}
-            </Text>
+              size={isInVRExperiment ? '12' : '14'}
+            />
           </Box>
-        </Flex>
-      </Box>
+        ) : null}
+        <Box alignContent="center" display="flex" maxHeight={20}>
+          <Text
+            color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+            inline
+            size="200"
+            weight={isInVRExperiment ? 'normal' : 'bold'}
+          >
+            {text}
+          </Text>
+        </Box>
+      </Flex>
     </div>
   );
 
@@ -184,7 +170,9 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
         rounding={1}
         tapStyle="none"
       >
-        {badgeComponent}
+        <Box alignContent="center" display="flex" height="100%">
+          {badgeComponent}
+        </Box>
       </TapArea>
     </Tooltip>
   ) : (
