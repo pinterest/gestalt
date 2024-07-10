@@ -446,6 +446,9 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
 StyleDictionary.registerTransform({
   name: 'font-size/px',
   type: 'value',
