@@ -118,32 +118,24 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
   const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isFocused } =
     useInteractiveStates();
 
-  const cxStyles = useMemo(
-    () =>
-      cx(styles.badge, styles[styleType], {
-        [styles.middle]: !shouldUseTooltip && position === 'middle',
-        [styles.top]: !shouldUseTooltip && position === 'top',
-        [styles.focusInnerBorder]:
-          isInVRExperiment &&
-          isFocused &&
-          isFocusVisible &&
-          !['darkWash', 'lightWash'].some((color) => color === type),
-        [styles.focusInnerBorderLight]:
-          isInVRExperiment && isFocused && isFocusVisible && type === 'darkWash',
-        [styles.focusInnerBorderDark]:
-          isInVRExperiment && isFocused && isFocusVisible && type === 'lightWash',
-      }),
-    [isFocused, isInVRExperiment, styleType, position, shouldUseTooltip, isFocusVisible, type],
-  );
+  const cxStyles = cx(styles.badge, styles[styleType], {
+    [styles.middle]: !shouldUseTooltip && position === 'middle',
+    [styles.top]: !shouldUseTooltip && position === 'top',
+    [styles.focusInnerBorder]:
+      isInVRExperiment &&
+      isFocused &&
+      isFocusVisible &&
+      !['darkWash', 'lightWash'].some((color) => color === type),
+    [styles.focusInnerBorderLight]:
+      isInVRExperiment && isFocused && isFocusVisible && type === 'darkWash',
+    [styles.focusInnerBorderDark]:
+      isInVRExperiment && isFocused && isFocusVisible && type === 'lightWash',
+  });
 
-  const cxPositionStyles = useMemo(
-    () =>
-      cx({
-        [styles.middle]: position === 'middle',
-        [styles.top]: position === 'top',
-      }),
-    [position],
-  );
+  const cxPositionStyles = cx({
+    [styles.middle]: position === 'middle',
+    [styles.top]: position === 'top',
+  });
 
   const badgeComponent = (
     <Flex alignItems="center" gap={{ row: 1, column: 0 }}>

@@ -3,23 +3,23 @@
   composes: rounding1 from "./Borders.css";
   align-content: center;
   display: flex;
-  padding: 0 6px;
+  padding: var(--space-0) 6px;
   white-space: nowrap;
 }
 
 .focusInnerBorder {
   border: 2px solid var(--color-border-badge-default);
-  padding: 0 4px;
+  padding: var(--space-0) var(--space-100);
 }
 
 .focusInnerBorderLight {
   border: 2px solid var(--color-border-badge-light);
-  padding: 0 4px;
+  padding: var(--space-0) var(--space-100);
 }
 
 .focusInnerBorderDark {
   border: 2px solid var(--color-border-badge-dark);
-  padding: 0 4px;
+  padding: var(--space-0) var(--space-100);
 }
 
 .middle {
