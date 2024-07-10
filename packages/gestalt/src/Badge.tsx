@@ -116,33 +116,44 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
   const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isFocused } =
     useInteractiveStates();
 
-  const csBadge = cx(styles.Badge, styles[position], styles[styleType], {
+  const csBadge = cx(styles.badge, styles[position], styles[styleType], {
     [styles.focusInnerBorder]: isInVRExperiment && isFocused,
   });
+  const marginTop = isInVRExperiment || (isInVRExperiment && isFocused) ? '-3px' : '-4px';
 
   const badgeComponent = (
     <div className={csBadge}>
       <Box
         dangerouslySetInlineStyle={{
-          __style: { marginTop: shouldUseTooltip ? '-4px' : '-2px' },
+          __style: { marginTop: undefined },
         }}
       >
         <Flex alignItems="center" gap={{ row: 1, column: 0 }} maxHeight={20}>
           {shouldUseTooltip ? (
-            <Icon
-              accessibilityLabel=""
-              color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
-              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-              inline
-              size={isInVRExperiment ? '12' : '14'}
-            />
+            <Box
+              alignContent="center"
+              display="flex"
+              maxHeight={20}
+            >
+              <Icon
+                accessibilityLabel=""
+                color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+                icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+                inline
+                size={isInVRExperiment ? '12' : '14'}
+              />{' '}
+            </Box>
           ) : null}
-          <Box dangerouslySetInlineStyle={{
-              __style: { marginTop: shouldUseTooltip ? '2px' : undefined },
+          <Box
+            alignContent="center"
+            dangerouslySetInlineStyle={{
+              __style: { marginTop: undefined },
             }}
+            display="flex"
             maxHeight={20}
           >
-            <Text color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+            <Text
+              color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
               inline
               size="200"
               weight={isInVRExperiment ? 'normal' : 'bold'}
