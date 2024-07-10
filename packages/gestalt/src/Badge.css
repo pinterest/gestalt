@@ -1,8 +1,11 @@
 .badge {
   composes: borderBox from "./Layout.css";
   composes: rounding1 from "./Borders.css";
+  align-content: center;
+  display: flex;
+  height: 20px;
   min-height: 20px;
-  padding: 2px 6px;
+  padding: 0 6px;
   white-space: nowrap;
 }
 
@@ -23,11 +26,13 @@
 
 .middle {
   composes: inlineBlock from "./Layout.css";
+  height: 100%;
   vertical-align: middle;
 }
 
 .top {
   composes: inlineBlock from "./Layout.css";
+  height: 100%;
   vertical-align: super;
 }
 
