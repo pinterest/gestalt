@@ -51,7 +51,7 @@ exports[`Accordion renders a badge correctly 1`] = `
             }
           >
             <div
-              className="badge middle info"
+              className="badge info middle"
             >
               <div
                 className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
@@ -80,6 +80,7 @@ exports[`Accordion renders a badge correctly 1`] = `
                   </div>
                 </div>
               </div>
+               
             </div>
           </div>
         </div>

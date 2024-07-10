@@ -155,7 +155,7 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                     }
                   >
                     <div
-                      className="badge middle info"
+                      className="badge info middle"
                     >
                       <div
                         className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
@@ -184,6 +184,7 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                           </div>
                         </div>
                       </div>
+                       
                     </div>
                   </div>
                 </div>

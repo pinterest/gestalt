@@ -67,11 +67,11 @@
           }
         }
       }
-    }
-  },
-  "border": {
-    "badge": {
-      "value": "{sema.color.border.focus.inner.default.value}"
+    },
+    "border": {
+      "badge": {
+        "value": "{sema.color.border.focus.inner.default.value}"
+      }
     }
   }
 }

@@ -778,7 +778,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             , 
                           </div>
                           <div
-                            class="badge middle info"
+                            class="badge info middle"
                           >
                             <div
                               class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
@@ -799,6 +799,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                 </div>
                               </div>
                             </div>
+                             
                           </div>
                         </div>
                       </div>
@@ -858,7 +859,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               , 
                             </div>
                             <div
-                              class="badge middle info"
+                              class="badge info middle"
                             >
                               <div
                                 class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
@@ -879,6 +880,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                   </div>
                                 </div>
                               </div>
+                               
                             </div>
                           </div>
                         </div>

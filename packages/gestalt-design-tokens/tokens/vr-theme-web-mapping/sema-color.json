@@ -226,7 +226,7 @@
         "value": "{sema.color.border.error.value}"
       },
       "focus": {
-        "value": "{sema.color.border.focus.outer.default}"
+        "value": "{sema.color.border.focus.outer.default.value}"
       }
     }
   }

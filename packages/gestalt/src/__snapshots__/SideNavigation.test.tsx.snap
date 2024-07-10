@@ -360,7 +360,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                     , 
                                   </div>
                                   <div
-                                    className="badge middle info"
+                                    className="badge info middle"
                                   >
                                     <div
                                       className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
@@ -389,6 +389,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                         </div>
                                       </div>
                                     </div>
+                                     
                                   </div>
                                 </div>
                               </span>

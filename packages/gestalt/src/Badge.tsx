@@ -7,6 +7,7 @@ import Icon from './Icon';
 import TapArea from './TapArea';
 import Text from './Text';
 import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
@@ -71,6 +72,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+  const { isFocusVisible } = useFocusVisible();
 
   const shouldUseTooltip = tooltip?.text;
 
@@ -121,11 +123,9 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       cx(styles.badge, styles[styleType], {
         [styles.middle]: !shouldUseTooltip && position === 'middle',
         [styles.top]: !shouldUseTooltip && position === 'top',
-        [styles.focusInnerBorder]: isInVRExperiment && isFocused,
-
-        [styles.focusInnerBorder]: isInVRExperiment && isFocused,
+        [styles.focusInnerBorder]: isInVRExperiment && isFocused && isFocusVisible,
       }),
-    [isFocused, isInVRExperiment, styleType, position, shouldUseTooltip],
+    [isFocused, isInVRExperiment, styleType, position, shouldUseTooltip, isFocusVisible],
   );
 
   const cxPositionStyles = useMemo(
