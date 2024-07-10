@@ -641,6 +641,9 @@
         "value": "#030303",
         "comment": "Avatar component outline border color."
       },
+      "badge": {
+        "value": "{color.black.cosmicore.900.value}"
+      },
       "formfield": {
         "error": {
           "default": {

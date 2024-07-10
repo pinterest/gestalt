@@ -112,25 +112,30 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     styleType = `interactive-${type}`;
   }
 
-  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
+  const csBadge = cx(styles.Badge, styles[position], styles[styleType], {
+    [styles.focusInnerBorder]: isInVRExperiment,
+  });
 
   const badgeComponent = (
     <div className={csBadge}>
       <Flex alignItems="center" gap={1}>
         {shouldUseTooltip ? (
-            <Icon
-              accessibilityLabel=""
-              color={isInVRExperiment ? COLOR_ICON_MAP[type] : 'inverse'}
-              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-              inline
-              size={isInVRExperiment ? '12' : '14'}
-            />
+          <Icon
+            accessibilityLabel=""
+            color={isInVRExperiment ? COLOR_ICON_MAP[type] : 'inverse'}
+            icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+            inline
+            size={isInVRExperiment ? '12' : '14'}
+          />
         ) : null}
-        <Box
-          dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
-          display="inlineBlock"
-        >
-          <Text color={isInVRExperiment ? COLOR_TEXT_MAP[type] : 'inverse'} size="200" weight={isInVRExperiment ?"bold" : "normal"}>{text}</Text>
+        <Box dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }} display="inlineBlock">
+          <Text
+            color={isInVRExperiment ? COLOR_TEXT_MAP[type] : 'inverse'}
+            size="200"
+            weight={isInVRExperiment ? 'bold' : 'normal'}
+          >
+            {text}
+          </Text>
         </Box>
       </Flex>
     </div>

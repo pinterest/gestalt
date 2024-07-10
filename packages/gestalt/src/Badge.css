@@ -7,6 +7,10 @@
   white-space: nowrap;
 }
 
+.focusInnerBorder {
+  border: 2px solid var(--color-border-badge);
+}
+
 .middle {
   vertical-align: middle;
 }

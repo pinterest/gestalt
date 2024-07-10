@@ -2,7 +2,7 @@
   "color": {
     "background": {
       "badge": {
-        "neutral":{
+        "neutral": {
           "default": {
             "value": "{sema.color.background.neutral.weak.value}"
           },
@@ -67,6 +67,11 @@
           }
         }
       }
+    }
+  },
+  "border": {
+    "badge": {
+      "value": "{sema.color.border.focus.inner.default.value}"
     }
   }
 }

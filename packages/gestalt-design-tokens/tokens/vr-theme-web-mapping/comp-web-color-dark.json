@@ -3,7 +3,12 @@
     "background": {
       "badge": {
         "neutral": {
-          "value": "{sema.color.background.neutral.weak.value}"
+          "default": {
+            "value": "{sema.color.background.neutral.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.neutral.weak.value}"
+          }
         },
         "info": {
           "default": {
@@ -62,6 +67,11 @@
           }
         }
       }
+    }
+  },
+  "border": {
+    "badge": {
+      "value": "{sema.color.border.focus.inner.default.value}"
     }
   }
 }

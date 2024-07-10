@@ -626,6 +626,9 @@
         "value": "#fff",
         "comment": "Avatar component outline border color."
       },
+      "badge": {
+        "value": "{color.white.mochimalist.0.value}"
+      },
       "formfield": {
         "error": {
           "default": {
