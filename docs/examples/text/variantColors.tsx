@@ -24,7 +24,7 @@ export default function Example() {
         <Text color="error" size="400">
           Error
         </Text>
-         <Text color="recommendation" size="400">
+        <Text color="recommendation" size="400">
           Recommendation
         </Text>
         <Text color="shopping" size="400">
