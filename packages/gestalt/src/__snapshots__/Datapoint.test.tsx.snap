@@ -150,26 +150,26 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="Badge middle info"
+          className="badge info middle"
         >
           <div
-            className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="box xsDisplayInlineBlock"
-                style={
-                  Object {
-                    "marginTop": "2px",
-                  }
-                }
+                className="box contentCenter xsDisplayFlex"
               >
-                Early access
+                <span
+                  className="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
+                >
+                  Early access
+                </span>
               </div>
             </div>
           </div>
+           
         </div>
       </div>
     </div>

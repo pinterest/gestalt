@@ -1,20 +1,38 @@
-.Badge {
-  composes: antialiased sansSerif from "./Typography.css";
-  composes: inlineBlock from "./Layout.css";
+.badge {
+  composes: borderBox from "./Layout.css";
   composes: rounding1 from "./Borders.css";
-  composes: fontWeightSemiBold from "./Typography.css";
-  color: var(--color-text-inverse);
-  font-size: 14px;
-  height: 20px;
-  padding: 2px 6px;
+  align-content: center;
+  display: flex;
+  padding: var(--space-0) 6px;
   white-space: nowrap;
 }
 
+.focusInnerBorder {
+  border: 2px solid var(--color-border-badge-default);
+  padding: var(--space-0) var(--space-100);
+}
+
+.focusInnerBorderLight {
+  border: 2px solid var(--color-border-badge-light);
+  padding: var(--space-0) var(--space-100);
+}
+
+.focusInnerBorderDark {
+  border: 2px solid var(--color-border-badge-dark);
+  padding: var(--space-0) var(--space-100);
+}
+
 .middle {
+  composes: inlineBlock from "./Layout.css";
+  height: 20px;
+  min-height: 20px;
   vertical-align: middle;
 }
 
 .top {
+  composes: inlineBlock from "./Layout.css";
+  height: 20px;
+  min-height: 20px;
   vertical-align: super;
 }
 
@@ -25,44 +43,69 @@
   background-color: var(--color-background-badge-info-default);
 }
 
-.interactive-info:hover,
-.interactive-info:focus {
+.interactive-info:hover {
   background-color: var(--color-background-badge-info-hover);
 }
 
 .error,
 .interactive-error {
-  background-color: var(--color-background-badge-error);
+  background-color: var(--color-background-badge-error-default);
+}
+
+.interactive-error:hover {
+  background-color: var(--color-background-badge-error-hover);
 }
 
 .warning,
 .interactive-warning {
-  background-color: var(--color-background-badge-warning);
+  background-color: var(--color-background-badge-warning-default);
+}
+
+.interactive-warning:hover {
+  background-color: var(--color-background-badge-warning-hover);
 }
 
 .success,
 .interactive-success {
-  background-color: var(--color-background-badge-success);
+  background-color: var(--color-background-badge-success-default);
+}
+
+.interactive-success:hover {
+  background-color: var(--color-background-badge-success-hover);
 }
 
 .recommendation,
 .interactive-recommendation {
-  background-color: var(--color-background-badge-recommendation);
+  background-color: var(--color-background-badge-recommendation-default);
+}
+
+.interactive-recommendation:hover {
+  background-color: var(--color-background-badge-recommendation-hover);
 }
 
 .neutral,
 .interactive-neutral {
-  background-color: var(--color-background-badge-neutral);
+  background-color: var(--color-background-badge-neutral-default);
+}
+
+.interactive-neutral:hover {
+  background-color: var(--color-background-badge-neutral-hover);
 }
 
 .darkWash,
 .interactive-darkWash {
-  background-color: var(--color-background-badge-darkwash);
-  color: var(--color-text-light);
+  background-color: var(--color-background-badge-darkwash-default);
+}
+
+.interactive-darkWash:hover {
+  background-color: var(--color-background-badge-darkwash-hover);
 }
 
 .lightWash,
 .interactive-lightWash {
-  background-color: var(--color-background-badge-lightwash);
-  color: var(--color-text-dark);
+  background-color: var(--color-background-badge-lightwash-default);
+}
+
+.interactive-lightWash:hover {
+  background-color: var(--color-background-badge-lightwash-hover);
 }

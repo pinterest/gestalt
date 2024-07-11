@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import {
   Badge,
   Box,
+  ButtonToggle,
   CompositeZIndex,
   FixedZIndex,
   Flex,
@@ -11,6 +12,7 @@ import {
   Sticky,
   Tabs,
   Text,
+  useDangerouslyInGestaltExperiment,
 } from 'gestalt';
 import { useAppContext } from './appContext';
 import trackButtonClick from './buttons/trackButtonClick';
@@ -41,8 +43,15 @@ function Header() {
   const router = useRouter();
   const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
+  const [showVRToggle, setShowVRToggle] = useState(false);
 
   const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+  const { setExperiments } = useAppContext();
 
   const mainNavigationTabs = useMemo(
     () => getTabs(componentPlatformFilteredBy),
@@ -74,6 +83,10 @@ function Header() {
   const [showDevelopmentEditorSwitch, setShowDevelopmentEditorSwitch] = useState(
     process.env.NODE_ENV === 'development',
   );
+
+  useEffect(() => {
+    if (isInVRExperiment) setShowVRToggle(true);
+  }, [isInVRExperiment]);
 
   useEffect(() => {
     const isDeployPreviewEnvironment =
@@ -182,6 +195,16 @@ function Header() {
 
         <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'} paddingX={2}>
           <Flex alignItems="center" gap={3}>
+            {showVRToggle && (
+              <ButtonToggle
+                iconStart="sparkle"
+                onClick={() => setExperiments(isInVRExperiment ? '' : 'Tokens')}
+                selected={isInVRExperiment}
+                size="sm"
+                text={isInVRExperiment ? 'VR on' : 'VR off'}
+              />
+            )}
+
             {devExampleMode === 'development' ? (
               <Badge
                 position="middle"

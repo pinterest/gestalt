@@ -11,6 +11,7 @@ import doAlign from '../../examples/badge/doAlign';
 import doColor from '../../examples/badge/doColor';
 import dontColor from '../../examples/badge/dontColor';
 import dontComplex from '../../examples/badge/dontComplex';
+import localizationLabels from '../../examples/badge/localizationLabels';
 import main from '../../examples/badge/main';
 import variantsOverMedia from '../../examples/badge/variantsOverMedia';
 import variantsPositioning from '../../examples/badge/variantsPositioning';
@@ -92,7 +93,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         name={generatedDocGen?.displayName}
       />
 
-      <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
+      <LocalizationSection
+        code={localizationLabels}
+        name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection

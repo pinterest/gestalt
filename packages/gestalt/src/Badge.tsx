@@ -4,7 +4,12 @@ import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import TapArea from './TapArea';
+import Text from './Text';
 import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
+import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
@@ -63,6 +68,12 @@ type Props = {
  *
  */
 export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+  const { isFocusVisible } = useFocusVisible();
+
   const shouldUseTooltip = tooltip?.text;
 
   const ICON_MAP = Object.freeze({
@@ -71,9 +82,31 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     'warning': 'workflow-status-warning',
     'success': 'check-circle',
     'neutral': 'lock',
-    'recommendation': 'performance-plus',
+    'recommendation': 'sparkle',
     'darkWash': 'info-circle',
     'lightWash': 'info-circle',
+  });
+
+  const COLOR_ICON_MAP = Object.freeze({
+    'info': 'info',
+    'error': 'error',
+    'warning': 'warning',
+    'success': 'success',
+    'neutral': isInVRExperiment ? 'default' : 'inverse',
+    'recommendation': 'recommendation',
+    'darkWash': 'light',
+    'lightWash': 'dark',
+  });
+
+  const COLOR_TEXT_MAP = Object.freeze({
+    'info': 'shopping',
+    'error': 'error',
+    'warning': 'warning',
+    'success': 'success',
+    'neutral': isInVRExperiment ? 'default' : 'inverse',
+    'recommendation': 'recommendation',
+    'darkWash': 'light',
+    'lightWash': 'dark',
   });
 
   let styleType: TypeOptions | InteractiveTypeOptions = type;
@@ -82,41 +115,82 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
     styleType = `interactive-${type}`;
   }
 
-  const csBadge = cx(styles.Badge, styles[position], styles[styleType]);
+  const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isFocused } =
+    useInteractiveStates();
+
+  const cxStyles = cx(styles.badge, styles[styleType], {
+    [styles.middle]: !shouldUseTooltip && position === 'middle',
+    [styles.top]: !shouldUseTooltip && position === 'top',
+    [styles.focusInnerBorder]:
+      isInVRExperiment &&
+      isFocused &&
+      isFocusVisible &&
+      !['darkWash', 'lightWash'].some((color) => color === type),
+    [styles.focusInnerBorderLight]:
+      isInVRExperiment && isFocused && isFocusVisible && type === 'darkWash',
+    [styles.focusInnerBorderDark]:
+      isInVRExperiment && isFocused && isFocusVisible && type === 'lightWash',
+  });
+
+  const cxPositionStyles = cx({
+    [styles.middle]: position === 'middle',
+    [styles.top]: position === 'top',
+  });
 
   const badgeComponent = (
-    <div className={csBadge}>
-      <Flex alignItems="center" gap={1}>
-        {shouldUseTooltip ? (
-          <Box aria-hidden>
-            <Icon
-              accessibilityLabel=""
-              color="inverse"
-              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-              inline
-              size="14"
-            />
-          </Box>
-        ) : null}
-        <Box dangerouslySetInlineStyle={{ __style: { marginTop: '2px' } }} display="inlineBlock">
-          {text}
+    <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
+      {shouldUseTooltip ? (
+        <Box alignContent="center" display="flex">
+          <Icon
+            accessibilityLabel=""
+            color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+            icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+            inline
+            size={isInVRExperiment ? '12' : '14'}
+          />
         </Box>
-      </Flex>
-    </div>
+      ) : null}
+      <Box alignContent="center" display="flex">
+        <Text
+          color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+          inline
+          size="200"
+          weight={isInVRExperiment ? 'normal' : 'bold'}
+        >
+          {text}
+        </Text>
+      </Box>
+    </Flex>
   );
 
   return shouldUseTooltip ? (
     <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
+      accessibilityLabel=""
       idealDirection={tooltip.idealDirection}
       inline
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >
-      {badgeComponent}
+      <div className={cxPositionStyles}>
+        <TapArea
+          accessibilityLabel={tooltip.accessibilityLabel}
+          fullHeight
+          mouseCursor="default"
+          onBlur={handleOnBlur}
+          onFocus={handleOnFocus}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          rounding={1}
+          tapStyle="none"
+        >
+          <Box alignContent="center" display="flex" height="100%">
+            <div className={cxStyles}>{badgeComponent} </div>
+          </Box>
+        </TapArea>
+      </div>
     </Tooltip>
   ) : (
-    badgeComponent
+    <div className={cxStyles}>{badgeComponent} </div>
   );
 }
 

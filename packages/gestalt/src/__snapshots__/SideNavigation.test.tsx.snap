@@ -360,26 +360,26 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                     , 
                                   </div>
                                   <div
-                                    className="Badge middle info"
+                                    className="badge info middle"
                                   >
                                     <div
-                                      className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                                     >
                                       <div
                                         className="FlexItem"
                                       >
                                         <div
-                                          className="box xsDisplayInlineBlock"
-                                          style={
-                                            Object {
-                                              "marginTop": "2px",
-                                            }
-                                          }
+                                          className="box contentCenter xsDisplayFlex"
                                         >
-                                          New
+                                          <span
+                                            className="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
+                                          >
+                                            New
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
+                                     
                                   </div>
                                 </div>
                               </span>

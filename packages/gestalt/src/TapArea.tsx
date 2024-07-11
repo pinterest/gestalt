@@ -4,6 +4,7 @@ import focusStyles from './Focus.css';
 import getRoundingClassName, { Rounding } from './getRoundingClassName';
 import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 type FocusEventHandler = (arg1: { event: React.FocusEvent<HTMLDivElement> }) => void;
@@ -187,6 +188,11 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const { isFocusVisible } = useFocusVisible();
 
   const {
@@ -206,7 +212,8 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
 
   const buttonRoleClasses = classnames(styles.tapTransition, getRoundingClassName(rounding), {
     [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutline]: !isInVRExperiment && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineVR]: isInVRExperiment && !disabled && isFocusVisible,
     [styles.fullHeight]: fullHeight,
     [styles.fullWidth]: fullWidth,
     [styles.copy]: mouseCursor === 'copy' && !disabled,

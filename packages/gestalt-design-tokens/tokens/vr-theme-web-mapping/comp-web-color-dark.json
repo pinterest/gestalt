@@ -1,0 +1,85 @@
+{
+  "color": {
+    "background": {
+      "badge": {
+        "neutral": {
+          "default": {
+            "value": "{sema.color.background.neutral.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.neutral.weak.value}"
+          }
+        },
+        "info": {
+          "default": {
+            "value": "{sema.color.background.info.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.info.weak.value}"
+          }
+        },
+        "error": {
+          "default": {
+            "value": "{sema.color.background.error.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.error.weak.value}"
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "{sema.color.background.warning.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.warning.weak.value}"
+          }
+        },
+        "success": {
+          "default": {
+            "value": "{sema.color.background.success.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.success.weak.value}"
+          }
+        },
+        "recommendation": {
+          "default": {
+            "value": "{sema.color.background.recommendation.weak.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.recommendation.weak.value}"
+          }
+        },
+        "lightwash": {
+          "default": {
+            "value": "{sema.color.background.wash.light.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.light.value}"
+          }
+        },
+        "darkwash": {
+          "default": {
+            "value": "{sema.color.background.wash.dark.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.dark.value}"
+          }
+        }
+      }
+    },
+    "border": {
+      "badge": {
+        "default": {
+          "value": "{sema.color.border.focus.inner.default.value}"
+        },
+        "light": {
+          "value": "{sema.color.border.focus.inner.light.value}"
+        },
+        "dark": {
+          "value": "{sema.color.border.focus.inner.dark.value}"
+        }
+      }
+    }
+  }
+}
