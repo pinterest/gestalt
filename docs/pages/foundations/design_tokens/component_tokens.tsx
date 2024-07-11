@@ -69,8 +69,12 @@ const components = [
   'video',
 ];
 
-export default function DesignTokensPage(props: { tokens: { name: string }[] }) {
-  const allTokens: ReadonlyArray<Token> = props.tokens;
+type Props = {
+  tokens: ReadonlyArray<Token>;
+};
+
+export default function DesignTokensPage({ tokens }: Props) {
+  const allTokens: ReadonlyArray<Token> = tokens;
 
   return (
     <Page title="Design component tokens">
