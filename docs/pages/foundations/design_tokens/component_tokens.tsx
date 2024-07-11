@@ -1,4 +1,4 @@
-import tokens from 'gestalt-design-tokens/dist/js/classic/tokens';
+import classicTokens from 'gestalt-design-tokens/dist/js/classic/tokens';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -46,8 +46,6 @@ export type Token = {
   category: string;
 };
 
-const allTokens: ReadonlyArray<Token> = tokens;
-
 const components = [
   'avatar',
   'badge',
@@ -71,7 +69,13 @@ const components = [
   'video',
 ];
 
-export default function DesignTokensPage() {
+type Props = {
+  tokens: ReadonlyArray<Token>;
+};
+
+export default function DesignTokensPage({ tokens }: Props) {
+  const allTokens: ReadonlyArray<Token> = tokens;
+
   return (
     <Page title="Design component tokens">
       <PageHeader
@@ -102,4 +106,12 @@ export default function DesignTokensPage() {
       ))}
     </Page>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      tokens: classicTokens,
+    },
+  };
 }
