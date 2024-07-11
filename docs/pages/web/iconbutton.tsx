@@ -203,7 +203,7 @@ Follow these guidelines for \`iconColor\`
           title="Icon color"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew iconColor={['red', 'dark', 'darkGray', 'gray', 'white', 'brandPrimary']}>
+          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}

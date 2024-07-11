@@ -21,7 +21,6 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
 
 const OLD_TO_NEW_COLOR_MAP = {
   white: 'inverse',
-  dark: 'dark',
   gray: 'subtle',
   darkGray: 'default',
   red: 'error',
@@ -80,7 +79,7 @@ type Props = {
   /**
    * Color applied to the [Icon](https://gestalt.pinterest.systems/web/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
    */
-  iconColor?: 'dark' | 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
   /**
    * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
    */
