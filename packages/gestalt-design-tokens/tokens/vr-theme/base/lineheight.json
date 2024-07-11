@@ -4,35 +4,35 @@
       "lineheight": {
         "110": {
           "type": "lineHeights",
-          "value": "110%"
+          "value": "1.1"
         },
         "120": {
           "type": "lineHeights",
-          "value": "120%"
+          "value": "1.2"
         },
         "130": {
           "type": "lineHeights",
-          "value": "130%"
+          "value": "1.3"
         },
         "140": {
           "type": "lineHeights",
-          "value": "140%"
+          "value": "1.4"
         },
         "150": {
           "type": "lineHeights",
-          "value": "150%"
+          "value": "1.5"
         },
         "160": {
           "type": "lineHeights",
-          "value": "160%"
+          "value": "1.6"
         },
         "170": {
           "type": "lineHeights",
-          "value": "170%"
+          "value": "1.7"
         },
         "180": {
           "type": "lineHeights",
-          "value": "180%"
+          "value": "1.8"
         }
       }
     }
