@@ -57,13 +57,14 @@ Follow these guidelines for \`bgColor\`
 Follow these guidelines for \`bgColor\`
 
 1. Transparent Dark Gray ("transparentDarkGray"). Medium emphasis, used for secondary actions, usually above a colored background.
-2. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
-3. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
+2. Wash Light ("washLight"). Used when there is a need of an IconButton over an image or colored background to provide a semi-transparent IconButton with a light wash.
+3. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
+4. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
 `}
           title="Background colors on color/image backgrounds"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew bgColor={['transparentDarkGray', 'white', 'transparent']}>
+          <CombinationNew bgColor={['transparentDarkGray', 'washLight', 'white', 'transparent']}>
             {({ bgColor }) => <Pog bgColor={bgColor} icon="heart" />}
           </CombinationNew>
         </MainSection.Subsection>

@@ -33,6 +33,7 @@ const defaultIconButtonIconColors = {
   transparent: 'darkGray',
   red: 'white',
   transparentDarkGray: 'white',
+  washLight: 'darkGray',
   white: 'darkGray',
 } as const;
 
@@ -49,7 +50,14 @@ type Props = {
   /**
    * The background color. See [color combinations](https://gestalt.pinterest.systems/web/pog#backgroundColorCombinations) for more details.
    */
-  bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red';
+  bgColor?:
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'washLight'
+    | 'white'
+    | 'red';
   /**
    * Used for custom icons within Pog. Make sure that the viewbox around the SVG path is 24x24.
    */

@@ -85,7 +85,9 @@ export default function CombinationNew({
     if (combinationTitles.some((title) => title.includes('"light"'))) {
       cardShadeColor = 'darkWash';
     }
-    if (combinationTitles.some((title) => title.includes('"dark"'))) {
+    if (
+      combinationTitles.some((title) => title.includes('"washLight"') || title.includes('"dark"'))
+    ) {
       cardShadeColor = 'lightWash';
     }
 
