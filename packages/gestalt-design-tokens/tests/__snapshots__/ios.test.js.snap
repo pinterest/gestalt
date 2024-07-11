@@ -911,14 +911,14 @@ public enum GestaltTokensFontFamilyVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightCKVR {
-    public static let baseLineheight180 = \\"180%\\"
-    public static let baseLineheight170 = \\"170%\\"
-    public static let baseLineheight160 = \\"160%\\"
-    public static let baseLineheight150 = \\"150%\\"
-    public static let baseLineheight140 = \\"140%\\"
-    public static let baseLineheight130 = \\"130%\\"
-    public static let baseLineheight120 = \\"120%\\"
-    public static let baseLineheight110 = \\"110%\\"
+    public static let baseLineheight180 = \\"1.8\\"
+    public static let baseLineheight170 = \\"1.7\\"
+    public static let baseLineheight160 = \\"1.6\\"
+    public static let baseLineheight150 = \\"1.5\\"
+    public static let baseLineheight140 = \\"1.4\\"
+    public static let baseLineheight130 = \\"1.3\\"
+    public static let baseLineheight120 = \\"1.2\\"
+    public static let baseLineheight110 = \\"1.1\\"
     public static let semaLineheightXl = baseLineheight150
     public static let semaLineheightLg = baseLineheight150
     public static let semaLineheightMd = baseLineheight150
@@ -933,14 +933,14 @@ public enum GestaltTokensFontLineHeightCKVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightDEFAULTVR {
-    public static let baseLineheight180 = \\"180%\\"
-    public static let baseLineheight170 = \\"170%\\"
-    public static let baseLineheight160 = \\"160%\\"
-    public static let baseLineheight150 = \\"150%\\"
-    public static let baseLineheight140 = \\"140%\\"
-    public static let baseLineheight130 = \\"130%\\"
-    public static let baseLineheight120 = \\"120%\\"
-    public static let baseLineheight110 = \\"110%\\"
+    public static let baseLineheight180 = \\"1.8\\"
+    public static let baseLineheight170 = \\"1.7\\"
+    public static let baseLineheight160 = \\"1.6\\"
+    public static let baseLineheight150 = \\"1.5\\"
+    public static let baseLineheight140 = \\"1.4\\"
+    public static let baseLineheight130 = \\"1.3\\"
+    public static let baseLineheight120 = \\"1.2\\"
+    public static let baseLineheight110 = \\"1.1\\"
     public static let semaLineheightXl = baseLineheight150
     public static let semaLineheightLg = baseLineheight140
     public static let semaLineheightMd = baseLineheight130
@@ -955,14 +955,14 @@ public enum GestaltTokensFontLineHeightDEFAULTVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightJAVR {
-    public static let baseLineheight180 = \\"180%\\"
-    public static let baseLineheight170 = \\"170%\\"
-    public static let baseLineheight160 = \\"160%\\"
-    public static let baseLineheight150 = \\"150%\\"
-    public static let baseLineheight140 = \\"140%\\"
-    public static let baseLineheight130 = \\"130%\\"
-    public static let baseLineheight120 = \\"120%\\"
-    public static let baseLineheight110 = \\"110%\\"
+    public static let baseLineheight180 = \\"1.8\\"
+    public static let baseLineheight170 = \\"1.7\\"
+    public static let baseLineheight160 = \\"1.6\\"
+    public static let baseLineheight150 = \\"1.5\\"
+    public static let baseLineheight140 = \\"1.4\\"
+    public static let baseLineheight130 = \\"1.3\\"
+    public static let baseLineheight120 = \\"1.2\\"
+    public static let baseLineheight110 = \\"1.1\\"
     public static let semaLineheightXl = baseLineheight160
     public static let semaLineheightLg = baseLineheight160
     public static let semaLineheightMd = baseLineheight150
@@ -977,14 +977,14 @@ public enum GestaltTokensFontLineHeightJAVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightTALLVR {
-    public static let baseLineheight180 = \\"180%\\"
-    public static let baseLineheight170 = \\"170%\\"
-    public static let baseLineheight160 = \\"160%\\"
-    public static let baseLineheight150 = \\"150%\\"
-    public static let baseLineheight140 = \\"140%\\"
-    public static let baseLineheight130 = \\"130%\\"
-    public static let baseLineheight120 = \\"120%\\"
-    public static let baseLineheight110 = \\"110%\\"
+    public static let baseLineheight180 = \\"1.8\\"
+    public static let baseLineheight170 = \\"1.7\\"
+    public static let baseLineheight160 = \\"1.6\\"
+    public static let baseLineheight150 = \\"1.5\\"
+    public static let baseLineheight140 = \\"1.4\\"
+    public static let baseLineheight130 = \\"1.3\\"
+    public static let baseLineheight120 = \\"1.2\\"
+    public static let baseLineheight110 = \\"1.1\\"
     public static let semaLineheightXl = baseLineheight170
     public static let semaLineheightLg = baseLineheight170
     public static let semaLineheightMd = baseLineheight160
@@ -999,14 +999,14 @@ public enum GestaltTokensFontLineHeightTALLVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightTHVR {
-    public static let baseLineheight180 = \\"180%\\"
-    public static let baseLineheight170 = \\"170%\\"
-    public static let baseLineheight160 = \\"160%\\"
-    public static let baseLineheight150 = \\"150%\\"
-    public static let baseLineheight140 = \\"140%\\"
-    public static let baseLineheight130 = \\"130%\\"
-    public static let baseLineheight120 = \\"120%\\"
-    public static let baseLineheight110 = \\"110%\\"
+    public static let baseLineheight180 = \\"1.8\\"
+    public static let baseLineheight170 = \\"1.7\\"
+    public static let baseLineheight160 = \\"1.6\\"
+    public static let baseLineheight150 = \\"1.5\\"
+    public static let baseLineheight140 = \\"1.4\\"
+    public static let baseLineheight130 = \\"1.3\\"
+    public static let baseLineheight120 = \\"1.2\\"
+    public static let baseLineheight110 = \\"1.1\\"
     public static let semaLineheightXl = baseLineheight180
     public static let semaLineheightLg = baseLineheight180
     public static let semaLineheightMd = baseLineheight170
@@ -1021,14 +1021,14 @@ public enum GestaltTokensFontLineHeightTHVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightVIVR {
-    public static let baseLineheight180 = \\"180%\\"
-    public static let baseLineheight170 = \\"170%\\"
-    public static let baseLineheight160 = \\"160%\\"
-    public static let baseLineheight150 = \\"150%\\"
-    public static let baseLineheight140 = \\"140%\\"
-    public static let baseLineheight130 = \\"130%\\"
-    public static let baseLineheight120 = \\"120%\\"
-    public static let baseLineheight110 = \\"110%\\"
+    public static let baseLineheight180 = \\"1.8\\"
+    public static let baseLineheight170 = \\"1.7\\"
+    public static let baseLineheight160 = \\"1.6\\"
+    public static let baseLineheight150 = \\"1.5\\"
+    public static let baseLineheight140 = \\"1.4\\"
+    public static let baseLineheight130 = \\"1.3\\"
+    public static let baseLineheight120 = \\"1.2\\"
+    public static let baseLineheight110 = \\"1.1\\"
     public static let semaLineheightXl = baseLineheight140
     public static let semaLineheightLg = baseLineheight130
     public static let semaLineheightMd = baseLineheight120
