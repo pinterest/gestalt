@@ -143,8 +143,6 @@ function SheetMobile({
   size = 'default',
   zIndex,
 }: Props) {
-
-
   if (size === 'full')
     return (
       <FullPage
