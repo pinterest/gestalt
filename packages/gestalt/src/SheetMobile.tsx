@@ -3,7 +3,6 @@ import AnimationProvider from './animation/AnimationContext';
 import DismissingElement from './animation/DismissingElement';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
 import Button from './Button';
-import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Link from './Link';
 import FullPage from './SheetMobile/FullPage';
 import PartialPage from './SheetMobile/PartialPage';
@@ -144,14 +143,7 @@ function SheetMobile({
   size = 'default',
   zIndex,
 }: Props) {
-  const deviceType = useDeviceType();
 
-  const isMobile = deviceType === 'mobile';
-
-  if (!isMobile)
-    throw new Error(
-      `Gestalt SheetMobile is a mobile-device only component. It should not be used in desktop experiences. Please, make sure to keep in sync [Gestalt DeviceTypeProvider](https://gestalt.pinterest.systems/web/utilities/devicetypeprovider) and the conditional rendering of this component.`,
-    );
 
   if (size === 'full')
     return (
