@@ -21,6 +21,7 @@ const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
 
 const OLD_TO_NEW_COLOR_MAP = {
   white: 'inverse',
+  dark: 'dark',
   gray: 'subtle',
   darkGray: 'default',
   red: 'error',
@@ -33,6 +34,7 @@ const defaultIconButtonIconColors = {
   transparent: 'darkGray',
   red: 'white',
   transparentDarkGray: 'white',
+  washLight: 'darkGray',
   white: 'darkGray',
 } as const;
 
@@ -49,7 +51,14 @@ type Props = {
   /**
    * The background color. See [color combinations](https://gestalt.pinterest.systems/web/pog#backgroundColorCombinations) for more details.
    */
-  bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red';
+  bgColor?:
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'washLight'
+    | 'white'
+    | 'red';
   /**
    * Used for custom icons within Pog. Make sure that the viewbox around the SVG path is 24x24.
    */
@@ -71,7 +80,7 @@ type Props = {
   /**
    * Color applied to the [Icon](https://gestalt.pinterest.systems/web/icon). See [color combinations](https://gestalt.pinterest.systems/web/pog#iconColorCombinations) for more details.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'dark' | 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
   /**
    * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
    */

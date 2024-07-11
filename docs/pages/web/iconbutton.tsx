@@ -203,7 +203,7 @@ Follow these guidelines for \`iconColor\`
           title="Icon color"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
+          <CombinationNew iconColor={['red', 'dark', 'darkGray', 'gray', 'white', 'brandPrimary']}>
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}
@@ -223,14 +223,23 @@ Follow these guidelines for \`bgColor\`
 2. Light Gray ("lightGray"). Medium emphasis, used for secondary actions.
 3. Transparent Dark Gray ("transparentDarkGray"). Medium emphasis, used for secondary actions, usually above a colored background.
 4. Gray ("gray"). Used for tertiary actions or in cases where the primary "red" is not an option. Medium emphasis when placed on dark backgrounds, used for secondary actions.
-5. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
-6. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
+5. Light Wash ("washLight"). Used when there is a need of a semi-transparent IconButton with a light wash over an item, like an image.
+6. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
+7. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
 `}
           title="Background color"
         >
           <CombinationNew
             // @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
-            bgColor={['red', 'lightGray', 'transparentDarkGray', 'gray', 'white', 'transparent']}
+            bgColor={[
+              'red',
+              'lightGray',
+              'transparentDarkGray',
+              'gray',
+              'washLight',
+              'white',
+              'transparent',
+            ]}
           >
             {({ bgColor }) => (
               <IconButton

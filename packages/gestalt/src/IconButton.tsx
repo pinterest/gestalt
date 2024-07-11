@@ -33,7 +33,14 @@ type Props = {
   /**
    * Primary colors to apply to the IconButton background.
    */
-  bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red';
+  bgColor?:
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'washLight'
+    | 'white'
+    | 'red';
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    */
@@ -55,7 +62,7 @@ type Props = {
   /**
    * Primary color to apply to the [Icon](/web/icon). See [icon color](https://gestalt.pinterest.systems/web/iconbutton#Icon-color) variant to learn more.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'dark' | 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
   /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
