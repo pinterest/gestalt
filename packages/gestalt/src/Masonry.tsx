@@ -123,16 +123,12 @@ type Props<T, U> = {
   _getColumnSpanConfig?: (item: T | U) => ColumnSpanConfig;
   /**
    * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
-   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
-   *
-   * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
    */
   _loadingStateItems?: ReadonlyArray<U>;
   /**
    * Experimental prop to render a loading state
-   * A function that renders the item you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    *
-   * If present, `heightAdjustment` indicates the number of pixels this item needs to grow/shrink to accommodate a 2-column item in the grid. Items must respond to this prop by adjusting their height or layout issues will occur.
+   * A function that renders the loading state items you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    */
   _renderLoadingStateItems?: (arg1: {
     readonly data: U;

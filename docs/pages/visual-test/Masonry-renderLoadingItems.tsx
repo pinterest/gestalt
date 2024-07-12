@@ -57,16 +57,15 @@ const styles = {
   backgroundColor: `${TOKEN_COLOR_GRAY_ROBOFLOW_300}`,
   backgroundSize: '200vw 100%',
   content: '',
-  display: 'flex',
-  flexDirection: 'column',
   position: 'relative',
   width: '100%',
 } as const;
 
-function SkeletonPin({ height }: { height: number }) {
+function SkeletonPin({ data }: { data: { id: number; height: number; width: number } }) {
+  const { id, height, width } = data;
   return (
     <div style={styles}>
-      <Box height={height} width="100%" />
+      <Box key={id} height={height} width={width} />
     </div>
   );
 }
@@ -127,7 +126,7 @@ export default function Snapshot() {
           _loadingStateItems={skeletonPins}
           // Since we are prefixing this prop with "_", we get this eslint warning
           // eslint-disable-next-line react/no-unstable-nested-components
-          _renderLoadingStateItems={({ data }) => <SkeletonPin height={data.height} />}
+          _renderLoadingStateItems={({ data }) => <SkeletonPin data={data} />}
           columnWidth={170}
           gutterWidth={20}
           items={items}
