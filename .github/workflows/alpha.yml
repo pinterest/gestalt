@@ -41,7 +41,7 @@ jobs:
           ALBERTO_GITHUB_PERSONAL_TOKEN: ${{ secrets.ALBERTO_GITHUB_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> ~/.netrc
-          echo "login dangerismycat" >> ~/.netrc
+          echo "login AlbertCarreras" >> ~/.netrc
           echo "password $ALBERTO_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
         id: pre_release
