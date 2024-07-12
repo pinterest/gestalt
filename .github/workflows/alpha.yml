@@ -38,11 +38,11 @@ jobs:
         run: yarn install
       - name: Setup GitHub access tokens
         env:
-          RYAN_GITHUB_PERSONAL_TOKEN: ${{ secrets.RYAN_GITHUB_PERSONAL_TOKEN }}
+          ALBERTO_GITHUB_PERSONAL_TOKEN: ${{ secrets.ALBERTO_GITHUB_PERSONAL_TOKEN }}
         run: |
           echo "machine github.com" >> ~/.netrc
-          echo "login dangerismycat" >> ~/.netrc
-          echo "password $RYAN_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
+          echo "login AlbertCarreras" >> ~/.netrc
+          echo "password $ALBERTO_GITHUB_PERSONAL_TOKEN" >> ~/.netrc
       - name: Release Steps
         id: pre_release
         run: ./scripts/releaseSteps.js
