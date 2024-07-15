@@ -100,7 +100,7 @@ const defaultLayout =
         })
       : items.reduce<Array<any>>((acc, item) => {
           const positions = acc;
-          const height = measurementCache.get(item) || (item as any).height;
+          const height = measurementCache.get(item);
           let position;
 
           if (height == null) {

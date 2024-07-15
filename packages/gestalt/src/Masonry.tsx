@@ -515,6 +515,7 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
       _logTwoColWhitespace,
       _getColumnSpanConfig,
       _loadingStateItems = [],
+      _renderLoadingStateItems,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -636,7 +637,8 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
       const itemsToMeasureCount = hasMultiColumnItems
         ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
         : minCols;
-      const itemsToMeasure = items
+
+      const itemsToMeasure = (items.length === 0 ? _loadingStateItems : items)
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
@@ -670,7 +672,7 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
                 )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
-            {itemsToMeasure.map((data, i) => {
+            {itemsToMeasure.map((data: T | U, i) => {
               // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
               // we normalize the index here relative to the item list as a whole so that itemIdx is correct
               // and so that React doesnt reuse the measurement nodes
@@ -697,11 +699,17 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
                     height: layoutNumberToCssDimension(position.height),
                   }}
                 >
-                  {renderItem({
-                    data,
-                    itemIdx: measurementIndex,
-                    isMeasuring: true,
-                  })}
+                  {itemsToRender.length === 0 && _renderLoadingStateItems
+                    ? _renderLoadingStateItems({
+                        data: data as U,
+                        itemIdx: measurementIndex,
+                        isMeasuring: true,
+                      })
+                    : renderItem({
+                        data: data as T,
+                        itemIdx: measurementIndex,
+                        isMeasuring: true,
+                      })}
                 </div>
               );
             })}
