@@ -23,7 +23,7 @@ type ExampleItem = {
  */
 export default function generateRealisticExampleItems({
   name = 'Pin',
-  numberOfItems = 20,
+  numberOfItems = 10,
   pinHeightsSample,
   previousItemCount = 0,
   randomNumberSeed = 0,

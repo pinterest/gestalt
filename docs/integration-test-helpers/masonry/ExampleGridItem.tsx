@@ -29,8 +29,9 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
       }}
     >
       <div
+        className="grid-item-test"
         style={{
-          height: expanded ? data.height + 100 : data.height,
+          height: expanded || isTwoColItem ? data.height + 100 : data.height,
           border: '1px solid #ff0000',
           background: isTwoColItem ? 'black' : data.color,
           color: isTwoColItem ? 'white' : undefined,

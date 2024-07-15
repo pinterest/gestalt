@@ -82,7 +82,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
     current: any | null;
   } = createRef();
 
-  randomNumberSeed: number = 0;
+  randomNumberSeed: number = 8;
 
   triggerReflow: () => void = () => {
     if (this.gridRef.current) {
@@ -255,7 +255,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             previousItemCount: from,
             randomNumberSeed: this.randomNumberSeed,
             pinHeightsSample,
-            twoColItems: twoColItems && from > TWO_COL_MINDEX,
+            twoColItems,
           })
         : generateExampleItems({
             name,
@@ -263,7 +263,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             previousItemCount: from,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
-            twoColItems: twoColItems && from > TWO_COL_MINDEX,
+            twoColItems,
           });
 
     this.setState(({ items }) => ({
@@ -300,7 +300,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             previousItemCount: defaultFrom,
             randomNumberSeed: this.randomNumberSeed,
             pinHeightsSample,
-            twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
+            twoColItems,
           })
         : generateExampleItems({
             name: undefined,
@@ -308,7 +308,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             previousItemCount: defaultFrom,
             baseHeight,
             randomNumberSeed: this.randomNumberSeed,
-            twoColItems: twoColItems && defaultFrom > TWO_COL_MINDEX,
+            twoColItems,
           });
 
     this.setState(({ items }) => ({

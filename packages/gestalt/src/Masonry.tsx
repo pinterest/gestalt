@@ -180,6 +180,27 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
+    this.idxToDataMap = {};
+
+    this.resizeObserver =
+      typeof window === 'undefined'
+        ? undefined
+        : new ResizeObserver((entries) => {
+            console.log('Inside resize observer');
+            for (let i = 0; i < entries.length; i += 1) {
+              const { target, contentRect } = entries[i];
+              const idx = Number(target.getAttribute('data-grid-item-idx'));
+              // console.log({ target, idx });
+
+              if (typeof idx === 'number') {
+                const item: T = this.idxToDataMap[idx];
+                // console.log({ idx, item, height: contentRect.height });
+                this.recalcHeights(item, contentRect.height);
+              }
+            }
+
+            // console.log('Size changed');
+          });
 
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
@@ -190,6 +211,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       width: undefined,
     };
   }
+
+  resizeObserver: any;
 
   containerHeight: number;
 
@@ -203,6 +226,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
   scrollContainer: ScrollContainer | null | undefined;
 
+  idxToDataMap: { [index: number]: any };
+
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
@@ -211,6 +236,142 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       this.setState({ width: this.gridWrapper.clientWidth });
     }
   }, RESIZE_DEBOUNCE);
+
+  recalcHeights = (changedItem: T, newHeight: number) => {
+    const { top, left, width, height } = this.positionStore.get(changedItem) || {};
+
+    // console.log({ top, left, width, height });
+
+    if (
+      typeof top !== 'number' ||
+      typeof left !== 'number' ||
+      typeof width !== 'number' ||
+      typeof height !== 'number' ||
+      height === newHeight
+    ) {
+      return;
+    }
+
+    console.log('An item changed heights, calculating');
+
+    this.state.measurementStore.set(changedItem, newHeight);
+
+    const { _getColumnSpanConfig } = this.props;
+
+    const itemsWithPositions = this.state.items.filter(
+      (item) => item && this.positionStore.has(item),
+    );
+    const multiColumnItemsPositions = _getColumnSpanConfig
+      ? itemsWithPositions
+          .filter((item) => _getColumnSpanConfig(item) !== 1)
+          .map((item) => ({ item, position: this.positionStore.get(item) }))
+          .sort((a, b) => a.position?.top - b.position?.top)
+      : [];
+
+    console.log({multiColumnItemsPositions})
+
+    function isBelowAndExtendArea(
+      area: { top: number; left: number; right: number },
+      position: Position,
+    ) {
+      return (
+        position &&
+        typeof position.left === 'number' &&
+        typeof position.width === 'number' &&
+        typeof position.top === 'number' &&
+        position.left < area.right &&
+        position.left + position.width > area.left &&
+        position.top > area.top &&
+        (position.left < area.left || position.left + position.width > area.right)
+      );
+    }
+
+    function isBelowArea(area: { top: number; left: number; right: number }, position: Position) {
+      return (
+        position &&
+        typeof position.left === 'number' &&
+        typeof position.width === 'number' &&
+        typeof position.top === 'number' &&
+        position.left < area.right &&
+        position.left + position.width > area.left &&
+        position.top > area.top
+      );
+    }
+
+    const areas = multiColumnItemsPositions.reduce(
+      (acc, itemPosition) => {
+        const { position } = itemPosition;
+        const lastArea = acc[acc.length - 1];
+        console.log({acc, itemPosition})
+        for (let i = 0; i < acc.length; i += 1) {
+          console.log({currentAcc: acc[i]})
+          if (position && isBelowAndExtendArea(acc[i], position)) {
+            console.log('creating new area');
+            console.log('position that is bellow the changes');
+            console.log({ itemPosition });
+            return lastArea.top === position.top
+              ? [
+                  ...acc.slice(-1),
+                  {
+                    top: position.top,
+                    left: Math.min(lastArea.left, position.left),
+                    right: Math.max(lastArea.right, position.left + position.width),
+                  },
+                ]
+              : [
+                  ...acc,
+                  { top: position.top, left: position.left, right: position.left + position.width },
+                ];
+          }
+        }
+
+        return acc;
+      },
+      [{ top, left, right: left + width }],
+    );
+
+    console.log({ areas });
+
+    this.positionStore.set(changedItem, { top, left, width, height: newHeight });
+    const heightDelta = newHeight - height;
+    console.log({ heightDelta, newHeight, height });
+
+    // itemsWithPositions.forEach((item) => {
+    //   const position = this.positionStore.get(item);
+    //   console.log({ position, item });
+    //
+    //   areas.forEach((area) => {
+    //     if (position && isBelowArea(area, position)) {
+    //       console.log('bellow the changed item');
+    //       console.log({ newposition: { ...position, top: position.top + heightDelta } });
+    //       this.positionStore.set(item, { ...position, top: position.top + heightDelta });
+    //     }
+    //   });
+    // });
+
+    itemsWithPositions
+      .reduce((acc: Array<{ item: T; position: Position }>, item: T) => {
+        const position = this.positionStore.get(item);
+        // console.log({ position, item });
+
+        for (let i = 0; i < areas.length; i += 1) {
+          if (position && isBelowArea(areas[i], position)) {
+            console.log('the item is bellow the changed item');
+            console.log('will add it to the stack to modify later');
+            console.log({ item, position });
+            // console.log({ newposition: { ...position, top: position.top + heightDelta } });
+            return [...acc, { item, position }];
+          }
+        }
+
+        return acc;
+      }, [])
+      .forEach(({ item, position }) => {
+        console.log({ newposition: { ...position, top: position.top + heightDelta } });
+        this.positionStore.set(item, { ...position, top: position.top + heightDelta });
+      });
+    this.forceUpdate();
+  };
 
   // Using throttle here to schedule the handler async, outside of the event
   // loop that produced the event.
@@ -454,6 +615,10 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     // on the client. If that assumption changes, this will need to be revisited
     const isRtl = document?.dir === 'rtl';
 
+    // if (itemData.name === 'Pin 123') {
+    //   console.log({ itemData, position });
+    // }
+
     const itemComponent = (
       <div
         key={`item-${idx}`}
@@ -471,7 +636,18 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        <div
+          ref={(el) => {
+            // console.log('inside div ref');
+            // console.log(el);
+            if (this.resizeObserver && el) {
+              this.resizeObserver.observe(el);
+            }
+          }}
+          data-grid-item-idx={idx}
+        >
+          {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        </div>
       </div>
     );
 
@@ -602,6 +778,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const hasMultiColumnItems =
         _getColumnSpanConfig &&
         itemsWithoutPositions.some((item) => _getColumnSpanConfig(item) !== 1);
+
+      // console.log('render triggered');
+
+      this.idxToDataMap = { ...itemsToRender };
+      // console.log({ idxToDataMap: this.idxToDataMap, itemsToRender });
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       // we need the batch size (number of one column items for the graph) + 1 (two column item)
