@@ -636,7 +636,9 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
       const itemsToMeasureCount = hasMultiColumnItems
         ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
         : minCols;
-      const itemsToMeasure = items.slice(0, itemsToMeasureCount);
+      const itemsToMeasure = items
+        .filter((item) => item && !measurementStore.has(item))
+        .slice(0, itemsToMeasureCount);
 
       const positions = getPositions(itemsToRender.length > 0 ? itemsToRender : _loadingStateItems);
       const measuringPositions = getPositions(itemsToMeasure);

@@ -5,7 +5,7 @@
 }
 
 .Masonry__Item {
-  composes: absolute from "./Layout.css"; /* might be able to remove this */
+  composes: absolute from "./Layout.css";
 }
 
 .Masonry__Item__Mounted {
