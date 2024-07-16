@@ -161,8 +161,8 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="Mask rounding2 willChangeTransform"
             style={
               Object {
-                "height": 32,
-                "width": 32,
+                "height": 36,
+                "width": 36,
               }
             }
           >
@@ -281,8 +281,8 @@ exports[`<Toast /> Text + Image 1`] = `
             className="Mask rounding2 willChangeTransform"
             style={
               Object {
-                "height": 32,
-                "width": 32,
+                "height": 36,
+                "width": 36,
               }
             }
           >

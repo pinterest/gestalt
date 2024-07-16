@@ -7,11 +7,11 @@
   max-width: min(716px, 100vw);
 }
 
-.toastVr .button {
+.toastButton {
   margin-right: var(--space-300);
 }
 
-.toastVr .avatarImage {
+.avatarImage {
   margin-left: var(--space-300);
 }
 
@@ -27,11 +27,11 @@
     width: auto;
   }
 
-  .toastVr .button {
+  .toastButton {
     margin-right: var(--space-300);
   }
 
-  .toastVr .avatarImage {
+  .avatarImage {
     margin-left: var(--space-300);
   }
 }

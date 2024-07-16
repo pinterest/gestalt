@@ -159,17 +159,13 @@ export default function Toast({
     !!thumbnail?.avatar &&
     // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
     Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar';
-
+  const classname = styles.toast;
+  const vrClassname = classnames(styles.toast, {
+    [styles.toastButton]: true,
+    [styles.avatarImage]: isAvatar || isImage,
+  });
   return (
-    <div
-      className={classnames(
-        styles.toast,
-        isInExperiment
-          ? { [styles.button]: !!primaryAction, [styles.avatarImage]: isAvatar || isImage }
-          : undefined,
-      )}
-      role="status"
-    >
+    <div className={isInExperiment ? vrClassname : classname} role="status">
       {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'. */}
       <Box color={containerColor} paddingX={4} paddingY={3} rounding={4} width="100%">
         <Flex alignItems="center" gap={4}>
