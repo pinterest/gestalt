@@ -130,11 +130,7 @@ type Props<T, U> = {
    *
    * A function that renders the loading state items you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
    */
-  _renderLoadingStateItems?: (arg1: {
-    readonly data: U;
-    readonly itemIdx: number;
-    readonly isMeasuring: boolean;
-  }) => ReactNode;
+  _renderLoadingStateItems?: (arg1: { readonly data: U; readonly itemIdx: number }) => ReactNode;
 };
 
 type State<T, U> = {
@@ -433,19 +429,12 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
     this.forceUpdate();
   }
 
-  renderMasonryComponent: ({
+  renderMasonryComponent: (itemData: T, idx: number, position: Position) => ReactNode = (
     itemData,
     idx,
     position,
-    isLoading,
-  }: {
-    itemData: T | U;
-    idx: number;
-    position: Position;
-    isLoading?: boolean;
-  }) => ReactNode = ({ itemData, idx, position, isLoading }) => {
+  ) => {
     const {
-      _renderLoadingStateItems,
       renderItem,
       scrollContainer,
       virtualize,
@@ -493,13 +482,49 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {isLoading && _renderLoadingStateItems
-          ? _renderLoadingStateItems({ data: itemData as U, itemIdx: idx, isMeasuring: false })
-          : renderItem({ data: itemData as T, itemIdx: idx, isMeasuring: false })}
+        {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
       </div>
     );
 
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
+  };
+
+  renderLoadingStateComponent: ({
+    itemData,
+    idx,
+    position,
+  }: {
+    itemData: U;
+    idx: number;
+    position: Position;
+  }) => ReactNode = ({ itemData, idx, position }) => {
+    const { _renderLoadingStateItems } = this.props;
+    const { top, left, width, height } = position;
+
+    if (_renderLoadingStateItems) {
+      return (
+        <div
+          key={`item-${idx}`}
+          className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
+          data-grid-item
+          role="listitem"
+          style={{
+            top: 0,
+            left: 0,
+            transform: `translateX(${left}px) translateY(${top}px)`,
+            WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
+            // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
+            width: layoutNumberToCssDimension(width),
+            // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
+            height: layoutNumberToCssDimension(height),
+          }}
+        >
+          {_renderLoadingStateItems({ data: itemData, itemIdx: idx })}
+        </div>
+      );
+    }
+
+    return null;
   };
 
   render() {
@@ -519,8 +544,9 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
+    const renderLoadingState = items.length === 0 && _loadingStateItems && _renderLoadingStateItems;
 
-    let getPositions: (itemsToCalulate: ReadonlyArray<T | U>) => ReadonlyArray<Position>;
+    let getPositions;
 
     if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
@@ -550,8 +576,7 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
         gutter,
         layout,
         minCols,
-        rawItemCount:
-          items.length === 0 && _loadingStateItems ? _loadingStateItems.length : items.length,
+        rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
@@ -561,7 +586,6 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
     let gridBody;
 
     if (width == null && hasPendingMeasurements) {
-      // SSR or very first hydration from SSR bc we dont know the width of container
       // When hyrdating from a server render, we don't have the width of the grid
       // and the measurement store is empty
       gridBody = (
@@ -624,6 +648,25 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
       gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
+    } else if (renderLoadingState) {
+      const positions = getPositions(_loadingStateItems);
+      const height = positions.length
+        ? Math.max(...positions.map((pos) => pos.top + pos.height))
+        : 0;
+
+      gridBody = (
+        <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
+          <div className={styles.Masonry} role="list" style={{ height, width }}>
+            {_loadingStateItems.map((itemData, idx) =>
+              this.renderLoadingStateComponent({
+                itemData,
+                idx,
+                position: positions[idx],
+              }),
+            )}
+          </div>
+        </div>
+      );
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
@@ -637,12 +680,11 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
       const itemsToMeasureCount = hasMultiColumnItems
         ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
         : minCols;
-
-      const itemsToMeasure = (items.length === 0 ? _loadingStateItems : items)
+      const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
 
-      const positions = getPositions(itemsToRender.length > 0 ? itemsToRender : _loadingStateItems);
+      const positions = getPositions(itemsToRender);
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
@@ -652,27 +694,18 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
-            {itemsToRender.length === 0 && _loadingStateItems
-              ? _loadingStateItems.map((itemData, idx) =>
-                  this.renderMasonryComponent({
-                    itemData,
-                    idx,
-                    position: positionStore.get(itemData) ?? positions[idx],
-                    isLoading: true,
-                  }),
-                )
-              : itemsToRender.map((itemData, idx) =>
-                  this.renderMasonryComponent({
-                    itemData,
-                    idx,
-                    // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
-                    // this is only required atm because the two column layout doesn't not return positions in their original item order
-                    position: positionStore.get(itemData) ?? positions[idx],
-                  }),
-                )}
+            {itemsToRender.map((item, i) =>
+              this.renderMasonryComponent(
+                item,
+                i,
+                // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
+                // this is only required atm because the two column layout doesn't not return positions in their original item order
+                positionStore.get(item) ?? positions[i],
+              ),
+            )}
           </div>
           <div className={styles.Masonry} style={{ width }}>
-            {itemsToMeasure.map((data: T | U, i) => {
+            {itemsToMeasure.map((data, i) => {
               // itemsToMeasure is always the length of minCols, so i will always be 0..minCols.length
               // we normalize the index here relative to the item list as a whole so that itemIdx is correct
               // and so that React doesnt reuse the measurement nodes
@@ -699,17 +732,11 @@ export default class Masonry<T, U> extends ReactComponent<Props<T, U>, State<T, 
                     height: layoutNumberToCssDimension(position.height),
                   }}
                 >
-                  {itemsToRender.length === 0 && _renderLoadingStateItems
-                    ? _renderLoadingStateItems({
-                        data: data as U,
-                        itemIdx: measurementIndex,
-                        isMeasuring: true,
-                      })
-                    : renderItem({
-                        data: data as T,
-                        itemIdx: measurementIndex,
-                        isMeasuring: true,
-                      })}
+                  {renderItem({
+                    data,
+                    itemIdx: measurementIndex,
+                    isMeasuring: true,
+                  })}
                 </div>
               );
             })}
