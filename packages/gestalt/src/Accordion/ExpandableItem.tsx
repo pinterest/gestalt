@@ -26,6 +26,7 @@ export default function AccordionExpandableItem({
   accessibilityExpandLabel,
   badge,
   children,
+  dataTestId,
   icon,
   iconAccessibilityLabel,
   iconButton,
@@ -41,6 +42,7 @@ export default function AccordionExpandableItem({
   accessibilityExpandLabel: string;
   badge?: BadgeType;
   children?: ReactNode;
+  dataTestId?: string;
   icon?: keyof typeof icons;
   iconAccessibilityLabel?: string;
   iconButton?: ReactElement;
@@ -53,6 +55,11 @@ export default function AccordionExpandableItem({
   type?: 'error' | 'info';
 }) {
   const { padding, gap, summaryListGap } = applyModuleDensityStyle(size);
+  const dataTestIdTap = dataTestId && `${dataTestId  }-taparea`;
+  const dataTestIdTitle = dataTestId && `${dataTestId  }-title`;
+  const dataTestIdCollapsedSummary = dataTestId && `${dataTestId  }-collapsed-summary`;
+  const dataTestIdArrow = dataTestId && `${dataTestId  }-arrow`;
+  const dataTestIdExpandedContent = dataTestId && `${dataTestId  }-expanded-content`;
   return (
     <Box padding={padding}>
       <Flex direction="column" gap={{ column: gap, row: 0 }}>
@@ -60,6 +67,7 @@ export default function AccordionExpandableItem({
           accessibilityControls={id}
           accessibilityExpanded={!isCollapsed}
           accessibilityLabel={isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel}
+          dataTestId={dataTestIdTap}
           onTap={({ event }) => {
             if (event?.target instanceof Element && event.target.closest('button') !== null) {
               return;
@@ -69,7 +77,7 @@ export default function AccordionExpandableItem({
         >
           <Flex>
             <Box alignItems="baseline" display="flex" flex="grow" marginEnd={6}>
-              <Box column={isCollapsed && summary ? 6 : 12}>
+              <Box column={isCollapsed && summary ? 6 : 12} data-test-id={dataTestIdTitle}>
                 <ModuleTitle
                   badge={badge}
                   icon={icon}
@@ -82,7 +90,7 @@ export default function AccordionExpandableItem({
               </Box>
 
               {summary && isCollapsed && (
-                <Box column={padding} marginStart={padding}>
+                <Box column={padding} data-test-id={dataTestIdCollapsedSummary} marginStart={padding}>
                   <Flex direction="column" gap={{ column: summaryListGap, row: 0 }}>
                     {summary.map((item, i) => (
                       // eslint-disable-next-line react/no-array-index-key
@@ -97,7 +105,7 @@ export default function AccordionExpandableItem({
 
             {/* Adding a max height because the line height is 24, and we don't want the icon container to expand */}
             {Boolean(children) && (
-              <Box alignItems="center" display="flex" id={id} maxHeight={24} padding={1}>
+              <Box alignItems="center" data-test-id={dataTestIdArrow} display="flex" id={id} maxHeight={24} padding={1}>
                 <Icon
                   accessibilityLabel={
                     isCollapsed ? accessibilityExpandLabel : accessibilityCollapseLabel
@@ -112,7 +120,7 @@ export default function AccordionExpandableItem({
         </TapArea>
 
         {/* Flex.Item necessary to prevent gap from being applied to each child */}
-        {!isCollapsed && <Flex.Item>{children}</Flex.Item>}
+        {!isCollapsed && <Flex.Item dataTestId={dataTestIdExpandedContent}>{children}</Flex.Item>}
       </Flex>
     </Box>
   );

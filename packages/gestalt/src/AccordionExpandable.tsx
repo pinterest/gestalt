@@ -39,6 +39,10 @@ type Props = {
    */
   borderStyle?: 'sm' | 'shadow' | 'none';
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The 0-based index indicating the item that should currently be expanded. This must be updated via `onExpandedChange` to ensure the correct item is expanded. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */
   expandedIndex?: number | null | undefined;
@@ -76,6 +80,7 @@ export default function AccordionExpandable({
   accessibilityExpandLabel,
   accessibilityCollapseLabel,
   borderStyle = 'shadow',
+  dataTestId,
   expandedIndex,
   id,
   items,
@@ -130,6 +135,7 @@ export default function AccordionExpandable({
               }
               accessibilityExpandLabel={accessibilityExpandLabel ?? defaultAccessibilityExpandLabel}
               badge={badge}
+              dataTestId={dataTestId}
               icon={icon}
               iconAccessibilityLabel={iconAccessibilityLabel}
               iconButton={iconButton}

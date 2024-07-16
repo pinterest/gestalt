@@ -82,3 +82,37 @@ test('renders correctly with multiple items with expandedId', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id with multiple items with expandedId', () => {
+  const tree = renderer
+    .create(
+      <AccordionExpandable
+        accessibilityCollapseLabel="click to collapse"
+        accessibilityExpandLabel="click to expand"
+        dataTestId='test'
+        expandedIndex={0}
+        id="uniqueTestID"
+        items={[
+          {
+            title: 'Title1',
+            summary: ['summary1'],
+            children: 'Children1',
+          },
+          {
+            title: 'Title2',
+            summary: ['summary2'],
+            children: 'Children2',
+          },
+          {
+            title: 'Title3',
+            summary: ['summary3'],
+            children: 'Children3',
+            type: 'error',
+          },
+        ]}
+        onExpandedChange={() => {}}
+      />,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
