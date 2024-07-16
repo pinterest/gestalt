@@ -26,4 +26,12 @@
     max-width: "min(716px, 100vw)";
     width: auto;
   }
+
+  .toastVr .button {
+    margin-right: var(--space-300);
+  }
+
+  .toastVr .avatarImage {
+    margin-left: var(--space-300);
+  }
 }
