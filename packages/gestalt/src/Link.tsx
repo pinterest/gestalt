@@ -20,8 +20,8 @@ import layoutStyles from './Layout.css';
 import styles from './Link.css';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
-import textStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 const externalLinkIconMap = {
@@ -148,6 +148,11 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
   }: Props,
   ref,
 ): ReactElement {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
@@ -172,7 +177,9 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 
   const { isFocusVisible } = useFocusVisible();
 
-  let underlineStyle = ['inline', 'inlineBlock'].includes(display) ? 'always' : 'hover';
+  const isInline = ['inline', 'inlineBlock'].includes(display);
+
+  let underlineStyle = isInline ? 'always' : 'hover';
 
   if (underline && underline !== 'auto') {
     underlineStyle = underline;
@@ -180,16 +187,35 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 
   const className = classnames(
     styles.link,
+    styles.inheritTextColor,
     touchableStyles.tapTransition,
     getRoundingClassName(rounding),
     layoutStyles[display],
     {
-      [textStyles.underline]: underlineStyle === 'always',
+      [styles.underline]: underlineStyle === 'always',
       [styles.hoverNoUnderline]: underlineStyle === 'always',
-      [textStyles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
       [styles.hoverUnderline]: underlineStyle === 'hover',
       [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
+      [styles.outlineFocus]: isFocusVisible,
+      [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
+    },
+  );
+
+  const VRclassName = classnames(
+    styles.link,
+    touchableStyles.tapTransition,
+    getRoundingClassName(rounding),
+    layoutStyles[display],
+    {
+      [styles.inheritTextColor]: isInline,
+      [styles.linkTextColor]: !isInline,
+      [styles.semiboldWeightText]: !isInline,
+      [styles.underline]: underlineStyle === 'always',
+      [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.hoverUnderline]: underlineStyle === 'hover',
+      [focusStyles.hideOutline]: !isFocusVisible,
+      [styles.outlineFocusVR]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
   );
@@ -222,15 +248,13 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     <a
       ref={innerRef}
       aria-label={ariaLabel}
-      className={className}
+      className={isInVRExperiment ? VRclassName : className}
       data-test-id={dataTestId}
       href={href}
       id={id}
       onBlur={(event) => {
         handleBlur();
-        if (onBlur) {
-          onBlur({ event });
-        }
+        onBlur?.({ event });
       }}
       onClick={(event) => {
         let defaultOnNavigationIsEnabled = true;
@@ -238,37 +262,31 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
           defaultOnNavigationIsEnabled = false;
         };
 
-        if (onClick) {
-          onClick({
-            event,
-            dangerouslyDisableOnNavigation,
-          });
-        }
+        onClick?.({
+          event,
+          dangerouslyDisableOnNavigation,
+        });
+
         if (onNavigationHandler && defaultOnNavigationIsEnabled) {
           onNavigationHandler({ event });
         }
       }}
       onFocus={(event) => {
-        if (onFocus) {
-          onFocus({ event });
-        }
+        onFocus?.({ event });
       }}
       onKeyPress={handleKeyPress}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchMove={handleTouchMove}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
-      // @ts-expect-error - TS2322 - Type '"_self" | "_blank" | null' is not assignable to type 'HTMLAttributeAnchorTarget | undefined'.
-      target={target ? `_${target}` : null}
+      target={target === null ? undefined : `_${target}`}
     >
       {children}
       {externalLinkIcon === 'none' ? null : (

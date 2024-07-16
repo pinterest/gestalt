@@ -1,6 +1,33 @@
 .link {
-  color: inherit; /* Links should have the correct underline color */
   outline: none;
+}
+
+.inheritTextColor {
+  color: inherit; /* Links should have the correct underline color */
+}
+
+.semiboldWeightText {
+  color: var(--base-font-weight-500);
+}
+
+.linkTextColor {
+  color: var(--sema-color-text-link);
+}
+
+.linkTextColor:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+.linkTextColor:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.noUnderline {
+  text-decoration: none;
 }
 
 .hoverNoUnderline:hover,
@@ -11,4 +38,15 @@
 .hoverUnderline:hover,
 .hoverUnderline:focus {
   text-decoration: underline;
+}
+
+.outlineFocus:focus {
+  outline: 4px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
+.outlineFocusVR:focus {
+  border-radius: var(--rounding-100);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
 }
