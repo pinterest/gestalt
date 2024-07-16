@@ -100,7 +100,7 @@ exports[`Status renders with rich title 1`] = `
         >
           <a
             aria-label="label"
-            className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+            className="link inheritTextColor tapTransition rounding0 block noUnderline hoverUnderline outlineFocus"
             href="http://www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}
@@ -113,7 +113,6 @@ exports[`Status renders with rich title 1`] = `
             onTouchMove={[Function]}
             onTouchStart={[Function]}
             rel=""
-            target={null}
           >
             Title
           </a>

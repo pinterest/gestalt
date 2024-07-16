@@ -93,7 +93,7 @@ exports[`BannerSlim renders complex message 1`] = `
           is regularly hitting its
            
           <a
-            className="link tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+            className="link inheritTextColor tapTransition rounding0 inlineBlock underline hoverNoUnderline outlineFocus"
             href="http://www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}
@@ -106,7 +106,6 @@ exports[`BannerSlim renders complex message 1`] = `
             onTouchMove={[Function]}
             onTouchStart={[Function]}
             rel=""
-            target={null}
           >
             daily cap
           </a>
@@ -394,7 +393,7 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
           >
             <a
               aria-label="Learn more Pinterest.com"
-              className="link tapTransition rounding0 inlineBlock underline hoverNoUnderline accessibilityOutline"
+              className="link inheritTextColor tapTransition rounding0 inlineBlock underline hoverNoUnderline outlineFocus"
               href="http://www.pinterest.com"
               onBlur={[Function]}
               onClick={[Function]}
@@ -407,7 +406,6 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Learn more
             </a>

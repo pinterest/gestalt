@@ -80,7 +80,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
             Saved to
              
             <a
-              className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -93,7 +93,6 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Home decor
             </a>
@@ -200,7 +199,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             Saved to
              
             <a
-              className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -213,7 +212,6 @@ exports[`<Toast /> Text + Image + Button 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Home decor
             </a>
@@ -320,7 +318,7 @@ exports[`<Toast /> Text + Image 1`] = `
             Saved to
              
             <a
-              className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -333,7 +331,6 @@ exports[`<Toast /> Text + Image 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Home decor
             </a>

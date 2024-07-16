@@ -627,7 +627,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       }
                     >
                       <a
-                        className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+                        className="link inheritTextColor tapTransition rounding0 block noUnderline hoverUnderline outlineFocus"
                         href="www.pinterest.com"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -640,7 +640,6 @@ exports[`PageHeader renders secondary action 1`] = `
                         onTouchMove={[Function]}
                         onTouchStart={[Function]}
                         rel=""
-                        target={null}
                       >
                         Help center
                       </a>

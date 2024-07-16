@@ -81,7 +81,7 @@ Array [
               Saved to
                
               <a
-                className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -94,7 +94,6 @@ Array [
                 onTouchMove={[Function]}
                 onTouchStart={[Function]}
                 rel=""
-                target={null}
               >
                 Home decor
               </a>
@@ -197,7 +196,7 @@ Array [
                 Saved to
                  
                 <a
-                  className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                  className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
                   href="https://www.pinterest.com/search/pins/?q=home%20decor"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -210,7 +209,6 @@ Array [
                   onTouchMove={[Function]}
                   onTouchStart={[Function]}
                   rel=""
-                  target={null}
                 >
                   Home decor
                 </a>
@@ -316,7 +314,7 @@ Array [
               Saved to
                
               <a
-                className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -329,7 +327,6 @@ Array [
                 onTouchMove={[Function]}
                 onTouchStart={[Function]}
                 rel=""
-                target={null}
               >
                 Home decor
               </a>
@@ -432,7 +429,7 @@ Array [
                 Saved to
                  
                 <a
-                  className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+                  className="link inheritTextColor tapTransition rounding0 inlineBlock noUnderline hoverUnderline outlineFocus"
                   href="https://www.pinterest.com/search/pins/?q=home%20decor"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -445,7 +442,6 @@ Array [
                   onTouchMove={[Function]}
                   onTouchStart={[Function]}
                   rel=""
-                  target={null}
                 >
                   Home decor
                 </a>

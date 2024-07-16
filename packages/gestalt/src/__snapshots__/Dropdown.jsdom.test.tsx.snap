@@ -684,7 +684,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
-                  class="link tapTransition rounding0 block noUnderline accessibilityOutline"
+                  class="link inheritTextColor tapTransition rounding0 block noUnderline outlineFocus"
                   href="https://pinterest.com"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -825,7 +825,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
-                  class="link tapTransition rounding0 block noUnderline accessibilityOutline"
+                  class="link inheritTextColor tapTransition rounding0 block noUnderline outlineFocus"
                   href="https://pinterest.com"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -924,7 +924,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                 class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
-                  class="link tapTransition rounding0 block noUnderline accessibilityOutline"
+                  class="link inheritTextColor tapTransition rounding0 block noUnderline outlineFocus"
                   href="https://pinterest.com"
                   rel="noopener noreferrer"
                   target="_blank"
