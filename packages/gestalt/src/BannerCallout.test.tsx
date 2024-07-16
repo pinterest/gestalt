@@ -159,4 +159,40 @@ describe('<BannerCallout />', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('validate data test id bannercallout with rich text message', () => {
+    const tree = create(
+      <BannerCallout
+        dataTestId='test'
+        dismissButton={{
+          accessibilityLabel: 'Dismiss this banner',
+          onDismiss: () => {},
+        }}
+        iconAccessibilityLabel="Info"
+        message={
+          <Text inline>
+            You have invited{' '}
+            <Text inline weight="bold">
+              Leaf Media Agency
+            </Text>{' '}
+            to your business hierarchy. Once they accept, you will be able to manage their business
+            account.
+          </Text>
+        }
+        primaryAction={{
+          accessibilityLabel: 'Resend invite',
+          label: 'Resend invite',
+          role: 'button',
+        }}
+        secondaryAction={{
+          accessibilityLabel: 'Cancel invite',
+          label: 'Cancel invite',
+          role: 'button',
+        }}
+        title="You've sent an invite"
+        type="info"
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

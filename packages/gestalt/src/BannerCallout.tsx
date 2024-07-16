@@ -32,6 +32,10 @@ export type ActionDataType =
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Adds a dismiss button to BannerCallout. See the [Dismissible variant](https://gestalt.pinterest.systems/web/bannercallout#Dismissible) for more info.
    * The `accessibilityLabel` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannercallout#Accessibility).
    */
@@ -165,6 +169,7 @@ function BannerCalloutAction({
  *
  */
 export default function BannerCallout({
+  dataTestId,
   dismissButton,
   iconAccessibilityLabel,
   message,
@@ -204,6 +209,7 @@ export default function BannerCallout({
     <Box
       // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
+      data-test-id={dataTestId}
       direction="column"
       display="flex"
       padding={6}
