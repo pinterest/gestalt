@@ -15,7 +15,12 @@ import throttle, { ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
 
-const layoutNumberToCssDimension = (n?: number | null) => (n !== Infinity ? n : undefined);
+const layoutNumberToCssDimension = (n?: number | null) => {
+  if (n) {
+    return n !== Infinity ? n : undefined;
+  }
+  return undefined;
+};
 
 type LoadingStateItem = { height: number };
 
@@ -481,9 +486,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           ...(isRtl ? { right: 0 } : { left: 0 }),
           transform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
-          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
           width: layoutNumberToCssDimension(width),
-          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
           height: layoutNumberToCssDimension(height),
         }}
       >
@@ -518,9 +521,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
             left: 0,
             transform: `translateX(${left}px) translateY(${top}px)`,
             WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
-            // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
             width: layoutNumberToCssDimension(width),
-            // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
             height: layoutNumberToCssDimension(height),
           }}
         >
@@ -630,7 +631,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   left: 0,
                   transform: 'translateX(0px) translateY(0px)',
                   WebkitTransform: 'translateX(0px) translateY(0px)',
-                  // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                   width:
                     layout === 'flexible' ||
                     layout === 'serverRenderedFlexible' ||
@@ -743,13 +743,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Top<string | number> | undefined'.
                     top: layoutNumberToCssDimension(position.top),
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Left<string | number> | undefined'.
                     left: layoutNumberToCssDimension(position.left),
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                     width: layoutNumberToCssDimension(position.width),
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
                     height: layoutNumberToCssDimension(position.height),
                   }}
                 >
