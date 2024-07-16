@@ -9,7 +9,7 @@ test('All Android Tokens Exist', async () => {
   await Promise.all(
     androidTokens.map(async (file) => {
       const contents = await readFile(file, 'utf8');
-      tokenFiles[file] = decomment(contents);
+      tokenFiles[file] = decomment(contents, { tolerant: true });
       return contents;
     }),
   );
