@@ -77,7 +77,7 @@ function MainSectionCard({
   const cardTitle = Array.isArray(title) ? title.join(', ') : title;
   // Only show code if it's a md or lg card and it's not a Do/Don't
   const shouldShowCode = showCode && cardSize !== 'sm' && type === 'info';
-  const showTitleAndDescriptionAboveExample = cardSize === 'lg' && type === 'info';
+  const showTitleAndDescriptionAboveExample = title && type === 'info';
 
   const cardShadeColor = shaded && !shadeColor ? 'secondary' : shadeColor;
 

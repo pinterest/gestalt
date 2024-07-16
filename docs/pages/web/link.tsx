@@ -259,6 +259,7 @@ Accessible content is critical if we consider that assistive technology also pre
                 name="Accessibility Checklist"
               />
             }
+            title="Learn more case"
           />
           <MainSection.Card
             sandpackExample={
@@ -268,6 +269,7 @@ Accessible content is critical if we consider that assistive technology also pre
                 name="Accessibility Tiers"
               />
             }
+            title="See more details case"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -308,7 +310,7 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
           description="Link depends on [Text](/web/text) to inherit style attributes including weight, color, and size. Aim to match the text size and style of the content they are accompanying. Always use Link within [Text](/web/text) to get the correct underline color."
           title="Link and Text"
         >
-          <SandpackExample code={variantLinkText} layout="column" name="Variants - Link and Text" />
+          <SandpackExample code={variantLinkText} layout="row" name="Variants - Link and Text" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -403,7 +405,7 @@ However, Link's underline style can be overridden at any time using the \`underl
           title="Inline"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={inline} name="Inline example" />}
+            sandpackExample={<SandpackExample code={inline} name="Inline example" previewHeight={450} />}
           />
         </MainSection.Subsection>
 
@@ -418,7 +420,7 @@ However, Link's underline style can be overridden at any time using the \`underl
         >
           <SandpackExample
             code={variantTarget}
-            layout="column"
+            layout="row"
             name="Variants - Target"
             previewHeight={160}
           />
@@ -447,11 +449,13 @@ The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \
                 name="Variant - External Icon"
               />
             }
+            title="Default treatment"
           />
           <MainSection.Card
             sandpackExample={
               <SandpackExample code={variantRel} layout="column" name="Variant - Rel" />
             }
+            title="Custom treatment"
           />
         </MainSection.Subsection>
 

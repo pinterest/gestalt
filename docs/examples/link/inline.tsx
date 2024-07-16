@@ -12,7 +12,7 @@ function TextExample({
     <Box borderStyle="sm" maxWidth={maxWidth} padding={2} rounding={2}>
       <Text>
         To stop seeing content from an advertiser,{' '}
-        <Text inline weight="bold">
+        <Text inline>
           <Link display={linkDisplay} href="/">
             learn how to block accounts.
           </Link>
@@ -38,7 +38,7 @@ export default function Example() {
           value={containerWidth}
         />
 
-        <Flex gap={6}>
+        <Flex direction="column" gap={6}>
           <Flex direction="column" gap={2}>
             <Text>Inline</Text>
             <TextExample linkDisplay="inline" maxWidth={containerWidth} />
