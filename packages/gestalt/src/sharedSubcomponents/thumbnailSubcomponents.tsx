@@ -17,7 +17,7 @@ import Mask from '../Mask';
 import Spinner from '../Spinner';
 import Text from '../Text';
 
-const SIZE_THUMBNAIL = 32;
+const SIZE_THUMBNAIL = 36;
 const SIZE_ICON = 24;
 
 export function Message({
