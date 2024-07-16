@@ -52,6 +52,7 @@ const defaultLayout =
     width,
     measurementCache,
     _getColumnSpanConfig,
+    renderLoadingState,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -66,6 +67,7 @@ const defaultLayout =
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     whitespaceThreshold?: number;
     logWhitespace?: (arg1: number) => void;
+    renderLoadingState?: boolean;
   }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
   (items): ReadonlyArray<Position> => {
     if (width == null) {
@@ -100,8 +102,13 @@ const defaultLayout =
         })
       : items.reduce<Array<any>>((acc, item) => {
           const positions = acc;
-          const height = measurementCache.get(item) || (item as any).height;
+          let height = measurementCache.get(item);
           let position;
+
+          if (renderLoadingState) {
+            // Height is a required key for _loadingStateItems
+            height = (item as { height: number }).height;
+          }
 
           if (height == null) {
             position = offscreen(columnWidth);

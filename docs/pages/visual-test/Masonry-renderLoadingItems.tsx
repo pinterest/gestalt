@@ -61,11 +61,11 @@ const styles = {
   width: '100%',
 } as const;
 
-function SkeletonPin({ data }: { data: { id: number; height: number; width: number } }) {
-  const { id, height, width } = data;
+function SkeletonPin({ data }: { data: { height: number } }) {
+  const { height } = data;
   return (
     <div style={styles}>
-      <Box key={id} height={height} width={width} />
+      <Box height={height} />
     </div>
   );
 }
@@ -98,11 +98,11 @@ const randomPinHeight = () => Math.random() * 200 + 100;
 
 const skeletonPins = [...new Array(3)]
   .map(() => [
-    { id: 1, height: randomPinHeight(), width: 474 },
-    { id: 2, height: randomPinHeight(), width: 474 },
-    { id: 3, height: randomPinHeight(), width: 474 },
-    { id: 4, height: randomPinHeight(), width: 474 },
-    { id: 5, height: randomPinHeight(), width: 474 },
+    { height: randomPinHeight() },
+    { height: randomPinHeight() },
+    { height: randomPinHeight() },
+    { height: randomPinHeight() },
+    { height: randomPinHeight() },
   ])
   .flat();
 
