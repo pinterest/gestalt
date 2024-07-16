@@ -778,22 +778,26 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             , 
                           </div>
                           <div
-                            class="Badge middle info"
+                            class="badge info middle"
                           >
                             <div
-                              class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                              class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                             >
                               <div
                                 class="FlexItem"
                               >
                                 <div
-                                  class="box xsDisplayInlineBlock"
-                                  style="margin-top: 2px;"
+                                  class="box contentCenter xsDisplayFlex"
                                 >
-                                  New
+                                  <span
+                                    class="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
+                                  >
+                                    New
+                                  </span>
                                 </div>
                               </div>
                             </div>
+                             
                           </div>
                         </div>
                       </div>
@@ -853,22 +857,26 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               , 
                             </div>
                             <div
-                              class="Badge middle info"
+                              class="badge info middle"
                             >
                               <div
-                                class="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                               >
                                 <div
                                   class="FlexItem"
                                 >
                                   <div
-                                    class="box xsDisplayInlineBlock"
-                                    style="margin-top: 2px;"
+                                    class="box contentCenter xsDisplayFlex"
                                   >
-                                    New
+                                    <span
+                                      class="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
+                                    >
+                                      New
+                                    </span>
                                   </div>
                                 </div>
                               </div>
+                               
                             </div>
                           </div>
                         </div>

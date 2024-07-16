@@ -34,6 +34,7 @@ type Props = {
     | 'shopping'
     | 'link'
     | 'inverse'
+    | 'recommendation'
     | 'light'
     | 'dark';
   /**

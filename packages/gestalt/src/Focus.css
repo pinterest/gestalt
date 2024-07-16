@@ -3,6 +3,11 @@
   outline-offset: 0;
 }
 
+.accessibilityOutlineVR:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
 .accessibilityOutlineFocusWithin .accessibilityOutline:focus-within {
   outline: 4px solid var(--color-border-focus);
   outline-offset: 0;

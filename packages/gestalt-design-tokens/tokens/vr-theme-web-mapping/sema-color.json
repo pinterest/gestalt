@@ -29,7 +29,7 @@
         "value": "{sema.color.text.light.value}"
       },
       "shopping": {
-        "value": "{sema.color.text.default.value}"
+        "value": "{sema.color.text.info.value}"
       },
       "link": {
         "value": "{sema.color.text.link.value}"
@@ -72,10 +72,10 @@
         }
       },
       "light": {
-        "value": "{sema.color.icon.default.value}"
+        "value": "{sema.color.icon.light.value}"
       },
       "dark": {
-        "value": "{sema.color.icon.default.value}"
+        "value": "{sema.color.icon.dark.value}"
       }
     },
     "background": {
@@ -226,7 +226,7 @@
         "value": "{sema.color.border.error.value}"
       },
       "focus": {
-        "value": "{sema.color.border.focus.outer.default}"
+        "value": "{sema.color.border.focus.outer.default.value}"
       }
     }
   }

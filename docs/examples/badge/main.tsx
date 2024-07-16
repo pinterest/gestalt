@@ -1,12 +1,9 @@
-import { Badge, Flex, Text } from 'gestalt';
+import { Badge, Flex } from 'gestalt';
 
 export default function Example() {
   return (
-    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <Flex alignItems="center" gap={2}>
-        <Text>Update your pronouns in your profile settings</Text>
-        <Badge text="New" />
-      </Flex>
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Badge text="New" />
     </Flex>
   );
 }

@@ -10,6 +10,27 @@ export default function Example() {
         <Text size="600">
           Ads & Campaigns <Badge position="top" text="Beta" />
         </Text>
+        <Text size="300">
+          Ads & Campaigns{' '}
+          <Badge
+            text="New"
+            tooltip={{
+              text: 'This is a beta feature',
+              idealDirection: 'up',
+            }}
+          />
+        </Text>
+        <Text size="600">
+          Ads & Campaigns{' '}
+          <Badge
+            position="top"
+            text="Beta"
+            tooltip={{
+              text: 'This is a beta feature',
+              idealDirection: 'up',
+            }}
+          />
+        </Text>
       </Flex>
     </Flex>
   );

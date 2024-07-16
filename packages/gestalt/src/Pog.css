@@ -62,6 +62,15 @@
   background-color: var(--color-background-button-tertiary-active);
 }
 
+.washLight {
+  background-color: var(--color-background-button-semitransparentwhite-default);
+}
+
+.washLight.hovered,
+.washLight.focused {
+  background-color: var(--color-background-button-semitransparentwhite-hover);
+}
+
 .white {
   background-color: var(--color-background-button-white-default);
 }

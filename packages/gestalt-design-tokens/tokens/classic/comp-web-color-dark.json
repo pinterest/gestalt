@@ -13,44 +13,68 @@
       },
       "badge": {
         "neutral": {
-          "value": "{color.background.tertiary.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.tertiary.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.tertiary.base.value}"
+          }
         },
         "info": {
           "default": {
-            "value": "{color.background.info.base.value}",
-            "comment": "Box component infoBase background color"
+            "value": "{color.background.info.base.value}"
           },
           "hover": {
-            "value": "{color.background.info.strong.value}",
-            "comment": "Box component infoBase background color"
+            "value": "{color.background.info.strong.value}"
           }
         },
         "error": {
-          "value": "{color.background.error.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.error.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.error.base.value}"
+          }
         },
         "warning": {
-          "value": "{color.background.warning.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.warning.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.warning.base.value}"
+          }
         },
         "success": {
-          "value": "{color.background.success.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.success.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.success.base.value}"
+          }
         },
         "recommendation": {
-          "value": "{color.background.recommendation.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.recommendation.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.recommendation.base.value}"
+          }
         },
         "lightwash": {
-          "value": "{color.background.wash.light.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.wash.light.value}"
+          },
+          "hover": {
+            "value": "{color.background.wash.light.value}"
+          }
         },
         "darkwash": {
-          "value": "{color.background.wash.dark.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.wash.dark.value}"
+          },
+          "hover": {
+            "value": "{color.background.wash.dark.value}"
+          }
         }
       },
       "box": {
@@ -616,6 +640,17 @@
       "avatar": {
         "value": "#030303",
         "comment": "Avatar component outline border color."
+      },
+      "badge": {
+        "default": {
+          "value": "{color.black.cosmicore.900.value}"
+        },
+        "light": {
+          "value": "{color.white.mochimalist.0.value}"
+        },
+        "dark": {
+          "value": "{color.black.cosmicore.900.value}"
+        }
       },
       "formfield": {
         "error": {
