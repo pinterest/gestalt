@@ -43,6 +43,10 @@ type InteractiveTypeOptions =
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
    */
   position?: Position;
@@ -67,7 +71,7 @@ type Props = {
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.ts-snapshots/Badge-dark-chromium-darwin.png)
  *
  */
-export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
+export default function Badge({ dataTestId, position = 'middle', text, type = 'info', tooltip }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -183,14 +187,14 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
           rounding={1}
           tapStyle="none"
         >
-          <Box alignContent="center" display="flex" height="100%">
+          <Box alignContent="center" data-test-id={dataTestId} display="flex" height="100%">
             <div className={cxStyles}>{badgeComponent} </div>
           </Box>
         </TapArea>
       </div>
     </Tooltip>
   ) : (
-    <div className={cxStyles}>{badgeComponent} </div>
+    <div className={cxStyles} data-test-id={dataTestId}>{badgeComponent} </div>
   );
 }
 
