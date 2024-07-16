@@ -2,7 +2,7 @@ const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
 
-// CONFIG
+// #region CONFIG
 
 const optionsFileHeader = {
   'options': {
@@ -24,6 +24,8 @@ const optionsFileHeaderOutputReferences = {
 const dimenResource = { 'resourceType': 'dimen' };
 
 const colorResource = { 'resourceType': 'color' };
+
+const integerResource = { 'resourceType': 'integer' };
 
 const filterColor = {
   'filter': {
@@ -101,9 +103,24 @@ const filterLineHeight = {
   },
 };
 
+const filterMotionDuration = {
+  'filter': 'filterMotionDuration',
+  '_filter_comment': 'Custom',
+};
+
+const filterMotionEasing = {
+  'filter': 'filterMotionEasing',
+  '_filter_comment': 'Custom',
+};
+
 const androidResources = {
   'format': 'android/resources',
   '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
+};
+
+const composeObject = {
+  'format': 'compose/object',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=composeobject',
 };
 
 const iosColorsH = {
@@ -176,8 +193,9 @@ const iOSSwiftEnumTransformGroup = {
   '_transformGroup_comment':
     'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
 };
+// #endregion
 
-// HELPER FUNCTIONS
+// #region HELPER FUNCTIONS
 
 const filterList = [
   filterColor,
@@ -189,11 +207,26 @@ const filterList = [
   filterFontFamily,
   filterFontSize,
   filterFontWeight,
+  filterMotionDuration,
+  filterMotionEasing,
 ];
 
 const getFilter = (category, type) => {
   // eslint-disable-next-line no-restricted-syntax
   for (const item of filterList) {
+    // eslint-disable-next-line no-underscore-dangle
+    if (item._filter_comment === 'Custom') {
+      if (
+        typeof item.filter === 'string' &&
+        item.filter.toLowerCase() === `filter${category}${type}`
+      ) {
+        return item;
+      }
+
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
     if (type === undefined) {
       if (item.filter.attributes.category === category) {
         return item;
@@ -314,20 +347,23 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/base/rounding.json',
     'tokens/vr-theme/base/space.json',
     'tokens/vr-theme/base/lineheight.json',
+    'tokens/vr-theme/base/motion/duration.json',
+    'tokens/vr-theme/base/motion/easing.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
-    platform === 'web'
+    ...(platform === 'web'
       ? [
           'tokens/vr-theme/base/color/pressed.json',
           'tokens/vr-theme/base/color/hover.json',
           `tokens/vr-theme/sema/color/${modeTheme}/hover.json`,
         ]
-      : [],
-    `tokens/vr-theme/sema/elevation.json`,
-    `tokens/vr-theme/sema/font.json`,
-    `tokens/vr-theme/sema/opacity.json`,
-    `tokens/vr-theme/sema/rounding.json`,
-    `tokens/vr-theme/sema/space.json`,
+      : []),
+    'tokens/vr-theme/sema/elevation.json',
+    'tokens/vr-theme/sema/font.json',
+    'tokens/vr-theme/sema/opacity.json',
+    'tokens/vr-theme/sema/rounding.json',
+    'tokens/vr-theme/sema/space.json',
     `tokens/vr-theme/sema/lineheight/${language}.json`,
+    'tokens/vr-theme/sema/motion.json',
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
@@ -344,8 +380,9 @@ function getSources({ theme, modeTheme, platform, language }) {
       : []),
   ];
 }
+// #endregion
 
-// X-PLATFORM REGISTERS
+// #region X-PLATFORM REGISTERS
 
 // REGISTER FILE HEADERS
 
@@ -554,9 +591,34 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerFilter({
+  name: 'filterMotionDuration',
+  matcher(token) {
+    return (
+      token.attributes.category === 'motion' &&
+      (token.attributes.type === 'duration' ||
+        token.attributes.item === 'duration' ||
+        token.attributes.subitem === 'duration')
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: 'filterMotionEasing',
+  matcher(token) {
+    return (
+      token.attributes.category === 'motion' &&
+      (token.attributes.type === 'easing' ||
+        token.attributes.item === 'easing' ||
+        token.attributes.subitem === 'easing')
+    );
+  },
+});
+// #endregion
+
 // BUILD CONFIGURATION
 
-// WEB PLATFORM
+// #region WEB PLATFORM
 
 // REGISTER TRANSFORMS
 
@@ -587,6 +649,29 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'value/duration/css',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'duration';
+  },
+  transformer(prop) {
+    return `${prop.value}ms`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/easing/css',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
+  },
+});
+
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'webCssTransformGroup',
@@ -596,6 +681,8 @@ StyleDictionary.registerTransformGroup({
     'name/conflictFixing',
     'value/elevation/css',
     'font-size/px',
+    'value/duration/css',
+    'value/easing/css',
     'color/css',
   ],
 });
@@ -608,6 +695,8 @@ StyleDictionary.registerTransformGroup({
     'name/conflictFixing',
     'value/elevation/css',
     'font-size/px',
+    'value/duration/css',
+    'value/easing/css',
     'color/hex',
   ],
 });
@@ -763,8 +852,9 @@ function getWebConfig({ theme, mode, language }) {
     },
   };
 }
+// #endregion
 
-// ANDROID PLATFORM
+// #region ANDROID PLATFORM
 
 // REGISTER TRANSFORM
 StyleDictionary.registerTransform({
@@ -780,6 +870,18 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'value/easing/android',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `PathInterpolatorCompat.create(${x1}f, ${y1}f, ${x2}f, ${y2}f)`;
+  },
+});
+
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'androidTransformGroup',
@@ -790,6 +892,7 @@ StyleDictionary.registerTransformGroup({
     'color/hex8android',
     'font-size/px',
     'size/pxToDpOrSp',
+    'value/easing/android',
   ],
 });
 
@@ -848,6 +951,22 @@ function getAndroidConfiguration({ theme, mode, language }) {
                   ...dimenResource,
                   ...filterLineHeight,
                 },
+                {
+                  'destination': 'motion-duration.xml',
+                  ...androidResources,
+                  ...integerResource,
+                  ...filterMotionDuration,
+                },
+                {
+                  'destination': 'motion-easing.kt',
+                  className: 'GestaltInterpolators',
+                  packageName: 'interpolator',
+                  options: {
+                    import: ['androidx.core.view.animation.PathInterpolatorCompat'],
+                  },
+                  ...composeObject,
+                  ...filterMotionEasing,
+                },
               ]
             : [
                 {
@@ -861,8 +980,9 @@ function getAndroidConfiguration({ theme, mode, language }) {
     },
   };
 }
+// #endregion
 
-// IOS PLATFORM
+// #region IOS PLATFORM
 
 // REGISTER TRANSFORM
 StyleDictionary.registerTransform({
@@ -893,6 +1013,41 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'value/duration/ios',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'duration';
+  },
+  transformer(prop) {
+    return prop.value / 1000;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/easing/ios',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `[CAMediaTimingFunction functionWithControlPoints:${x1} :${y1} :${x2} :${y2}]`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/easing/ios-swift',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `CAMediaTimingFunction(controlPoints: ${x1}, ${y1}, ${x2}, ${y2})`;
+  },
+});
+
 // REGISTER TRANSFORM GROUP
 StyleDictionary.registerTransformGroup({
   name: 'iOSTransformGroup',
@@ -907,6 +1062,7 @@ StyleDictionary.registerTransformGroup({
     'font-size/px',
     'size/remToPt',
     'font/objC/literal',
+    'value/easing/ios',
   ],
 });
 
@@ -923,6 +1079,8 @@ StyleDictionary.registerTransformGroup({
     'size/swift/remToCGFloat',
     'font-size/px',
     'font/swift/literal',
+    'value/duration/ios',
+    'value/easing/ios-swift',
   ],
 });
 
@@ -938,6 +1096,8 @@ function getIOSConfiguration({ theme, mode, language }) {
     'font size',
     'font weight',
     'font family',
+    'motion duration',
+    'motion easing',
   ];
 
   /**
@@ -1080,8 +1240,9 @@ function getIOSConfiguration({ theme, mode, language }) {
     },
   };
 }
+// #endregion
 
-// BUILD EXECUTION
+// #region BUILD EXECUTION
 
 const platformFileMap = {
   web: ['css', 'json', 'js'],
@@ -1118,3 +1279,4 @@ const platformFileMap = {
     });
   }),
 );
+// #endregion

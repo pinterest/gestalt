@@ -11,6 +11,8 @@
     "base/rounding",
     "base/space",
     "base/color",
+    "base/motion/duration",
+    "base/motion/easing",
     "sema/color/light/default",
     "sema/color/light/hover",
     "sema/color/light/pressed",
@@ -29,6 +31,7 @@
     "sema/lineheight/vi",
     "sema/opacity",
     "sema/rounding",
-    "sema/space"
+    "sema/space",
+    "sema/motion"
   ]
 }
