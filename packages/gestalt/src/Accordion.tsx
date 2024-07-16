@@ -34,6 +34,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library). See the [icon variant](https://gestalt.pinterest.systems/web/accordion#Static-Icon) for more details.
    */
   icon?: keyof typeof icons;
@@ -74,6 +78,7 @@ export default function Accordion({
   badge,
   borderStyle = 'shadow',
   children,
+  dataTestId,
   icon,
   iconAccessibilityLabel,
   iconButton,
@@ -86,6 +91,8 @@ export default function Accordion({
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const { gap, padding, rounding } = applyModuleDensityStyle(size);
+  const dataTestIdTitle = dataTestId && `${dataTestId  }-title`;
+  const dataTestIdContent = dataTestId && `${dataTestId  }-content`;
 
   return (
     <Box
@@ -99,6 +106,7 @@ export default function Accordion({
         {title && (
           <AccordionTitle
             badge={badge}
+            dataTestId={dataTestIdTitle}
             icon={icon}
             iconAccessibilityLabel={iconAccessibilityLabel}
             iconButton={iconButton}
@@ -108,7 +116,7 @@ export default function Accordion({
           />
         )}
         {/* Flex.Item necessary to prevent gap from being applied to each child */}
-        <Flex.Item>{children}</Flex.Item>
+        <Flex.Item dataTestId={dataTestIdContent}>{children}</Flex.Item>
       </Flex>
     </Box>
   );

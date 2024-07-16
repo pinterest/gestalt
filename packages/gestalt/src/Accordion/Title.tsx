@@ -22,6 +22,7 @@ export type BadgeType = {
 
 export default function AccordionTitle(props: {
   badge?: BadgeType;
+  dataTestId?: string | undefined;
   icon?: keyof typeof icons;
   iconAccessibilityLabel?: string;
   iconButton?: ReactElement;
@@ -29,7 +30,7 @@ export default function AccordionTitle(props: {
   type?: 'error' | 'info';
   size?: 'sm' | 'md' | 'lg';
 }) {
-  const { iconAccessibilityLabel = '', title, type = 'info', size = 'lg' } = props;
+  const { dataTestId, iconAccessibilityLabel = '', title, type = 'info', size = 'lg' } = props;
 
   // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ badge?: BadgeType | undefined; icon?: "replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | ... 321 more ... | undefined; ... 4 more ...; size?: "sm" | ... 2 more ... | undefined; }'.
   const decoration = ['icon', 'badge', 'iconButton'].find((prop) => !!props[prop]);
@@ -40,7 +41,7 @@ export default function AccordionTitle(props: {
   const { titleGap } = applyModuleDensityStyle(size);
 
   return (
-    <Flex alignItems="center" gap={{ row: titleGap, column: 0 }}>
+    <Flex alignItems="center" dataTestId={dataTestId} gap={{ row: titleGap, column: 0 }}>
       {hasIcon && (
         <Flex.Item minWidth={0}>
           <Icon
