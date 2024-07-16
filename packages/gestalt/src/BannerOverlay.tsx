@@ -28,6 +28,10 @@ const DEFAULT_COLORS = {
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Adds a dismiss button to BannerOverlay. See the [Dismissible variant](https://gestalt.pinterest.systems/web/banneroverlay#Dismissible) for more info.
    */
   onDismiss?: () => void;
@@ -110,6 +114,7 @@ type Props = {
  * ![BannerOverlay light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/BannerOverlay.spec.ts-snapshots/BannerOverlay-chromium-darwin.png)
  */
 export default function BannerOverlay({
+  dataTestId,
   message,
   title,
   onDismiss,
@@ -164,7 +169,7 @@ export default function BannerOverlay({
   const isMessageTextNode = checkTextNode();
   return (
     <Fragment>
-      <Box display="none" smDisplay="flex">
+      <Box data-test-id={dataTestId} display="none" smDisplay="flex">
         <Box
           alignContent="center"
           borderStyle="shadow"

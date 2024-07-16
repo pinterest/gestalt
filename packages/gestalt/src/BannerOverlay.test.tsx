@@ -76,4 +76,36 @@ describe('<BannerOverlay />', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('validate data test id with Text + Image + Button', () => {
+    const tree = create(
+      <BannerOverlay
+        dataTestId='test'
+        message={
+          <Text inline weight="bold">
+            Saved to{' '}
+            <Link
+              display="inlineBlock"
+              href="https://www.pinterest.com/search/pins/?q=home%20decor"
+              underline="hover"
+            >
+              Home decor
+            </Link>
+          </Text>
+        }
+        thumbnail={{
+          image: (
+            <Image
+              alt=""
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+            />
+          ),
+        }}
+        title="Text, image and button"
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
