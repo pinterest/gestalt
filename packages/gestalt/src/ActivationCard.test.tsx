@@ -99,4 +99,26 @@ describe('<ActivationCard />', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('validate dataTestId with message + title + link + dismissButton', () => {
+    const tree = create(
+      <ActivationCard
+        dataTestId='test'
+        dismissButton={{
+          accessibilityLabel: 'Dismiss card',
+          onDismiss: jest.fn(),
+        }}
+        link={{
+          href: 'https://pinterest.com',
+          label: 'Learn more',
+          accessibilityLabel: 'Learn more about tags',
+        }}
+        message="Oops! Your tag must be healthy to continue."
+        status="needsAttention"
+        statusMessage="Needs attention"
+        title="Tag is unhealthy"
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

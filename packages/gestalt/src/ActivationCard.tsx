@@ -30,6 +30,10 @@ type LinkData = {
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Callback fired when the dismiss button is clicked (pressed and released) with a mouse or keyboard.
    * Supply a short, descriptive label for screen-readers to provide sufficient context about the dismiss button action. IconButtons do not render text for screen readers to read requiring an accessibility label.
    * Accessibility: `accessibilityLabel` populates aria-label.
@@ -229,6 +233,7 @@ function UncompletedCard({
  *
  */
 export default function ActivationCard({
+  dataTestId,
   dismissButton,
   message,
   link,
@@ -246,6 +251,7 @@ export default function ActivationCard({
     <Box
       borderStyle="shadow"
       color={isDarkMode ? 'elevationFloating' : 'default'}
+      data-test-id={dataTestId}
       direction="column"
       display="flex"
       flex="grow"

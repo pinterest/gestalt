@@ -580,3 +580,163 @@ exports[`<ActivationCard /> message + title 1`] = `
   </div>
 </div>
 `;
+
+exports[`<ActivationCard /> validate dataTestId with message + title + link + dismissButton 1`] = `
+<div
+  className="box default flexGrow justifyCenter paddingX6 paddingY6 relative rounding4 shadow xsDirectionColumn xsDisplayFlex"
+  data-test-id="test"
+  style={
+    Object {
+      "height": "100%",
+      "maxWidth": 400,
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="box contentCenter xsDisplayFlex"
+    style={
+      Object {
+        "height": 24,
+      }
+    }
+  >
+    <div
+      className="box marginEnd2"
+    >
+      <svg
+        aria-hidden={null}
+        aria-label="Needs attention"
+        className="error icon iconBlock"
+        height={24}
+        role="img"
+        viewBox="0 0 24 24"
+        width={24}
+      >
+        <path
+          d="test-file-stub"
+        />
+      </svg>
+    </div>
+    <div
+      className="box marginTop0 selfCenter"
+    >
+      <div
+        className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
+      >
+        Needs attention
+      </div>
+    </div>
+  </div>
+  <div
+    className="box marginTop6"
+  >
+    <div
+      className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+    >
+      Tag is unhealthy
+    </div>
+  </div>
+  <div
+    className="box contentStart flexGrow marginTop2 xsDirectionColumn"
+  >
+    <div
+      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
+    >
+      Oops! Your tag must be healthy to continue.
+    </div>
+  </div>
+  <div
+    className="box"
+  >
+    <div
+      className="box marginEndAuto marginStartAuto marginTop8 paddingX1 pill xsItemsCenter"
+    >
+      <a
+        aria-label="Learn more about tags"
+        className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
+        href="https://pinterest.com"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+        target={null}
+      >
+        <div
+          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Text fontSize300 default alignCenter fontWeightSemiBold"
+            >
+              Learn more
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="rtlPos"
+  >
+    <button
+      aria-label="Dismiss card"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="button tapTransition enabled"
+      >
+        <div
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
+            }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="subtle icon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
