@@ -9,17 +9,17 @@ Object {
 import SwiftUI
 
 public enum GestaltTokensColor {
-    public static let dataVisualizationErrorGraph = UIColor(red: 0.929, green: 0.000, blue: 0.000, alpha: 1) 
-    public static let dataVisualization09 = UIColor(red: 0.949, green: 0.408, blue: 0.122, alpha: 1) 
-    public static let dataVisualization07 = UIColor(red: 0.000, green: 0.671, blue: 0.333, alpha: 1) 
-    public static let dataVisualization06 = UIColor(red: 1.000, green: 0.325, blue: 0.514, alpha: 1) 
-    public static let dataVisualization05 = UIColor(red: 0.000, green: 0.506, blue: 0.996, alpha: 1) 
-    public static let dataVisualization04 = UIColor(red: 0.820, green: 0.467, blue: 0.067, alpha: 1) 
-    public static let dataVisualization03 = UIColor(red: 0.573, green: 0.290, blue: 0.969, alpha: 1) 
-    public static let dataVisualization02 = UIColor(red: 0.067, green: 0.651, blue: 0.612, alpha: 1) 
-    public static let borderFocus = UIColor(red: 0.000, green: 0.518, blue: 1.000, alpha: 0.5) 
-    public static let backgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9) 
-    public static let backgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8) 
+    public static let dataVisualizationErrorGraph = UIColor(red: 0.929, green: 0.000, blue: 0.000, alpha: 1)
+    public static let dataVisualization09 = UIColor(red: 0.949, green: 0.408, blue: 0.122, alpha: 1)
+    public static let dataVisualization07 = UIColor(red: 0.000, green: 0.671, blue: 0.333, alpha: 1)
+    public static let dataVisualization06 = UIColor(red: 1.000, green: 0.325, blue: 0.514, alpha: 1)
+    public static let dataVisualization05 = UIColor(red: 0.000, green: 0.506, blue: 0.996, alpha: 1)
+    public static let dataVisualization04 = UIColor(red: 0.820, green: 0.467, blue: 0.067, alpha: 1)
+    public static let dataVisualization03 = UIColor(red: 0.573, green: 0.290, blue: 0.969, alpha: 1)
+    public static let dataVisualization02 = UIColor(red: 0.067, green: 0.651, blue: 0.612, alpha: 1)
+    public static let borderFocus = UIColor(red: 0.000, green: 0.518, blue: 1.000, alpha: 0.5)
+    public static let backgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9)
+    public static let backgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8)
     public static let transparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let blackCosmicore900 = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
     public static let grayRoboflow800 = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1)
@@ -129,77 +129,77 @@ public enum GestaltTokensColor {
     public static let redPushpin100 = UIColor(red: 1.000, green: 0.878, blue: 0.878, alpha: 1)
     public static let redPushpin50 = UIColor(red: 1.000, green: 0.922, blue: 0.922, alpha: 1)
     public static let redPushpin0 = UIColor(red: 1.000, green: 0.969, blue: 0.969, alpha: 1)
-    public static let dataVisualizationErrorText = redPushpin500 
-    public static let dataVisualizationSuccessText = greenMatchacado600 
-    public static let dataVisualizationSuccessGraph = greenMatchacado500 
-    public static let dataVisualizationPrimary = dataVisualization05 
-    public static let dataVisualization08 = purpleMysticool800 
-    public static let dataVisualization01 = blueSkycicle800 
-    public static let dataVisualization12 = orangeFiretini900 
-    public static let dataVisualization11 = pinkFlaminglow500 
-    public static let dataVisualization10 = tealSpabattical800 
-    public static let borderError = redPushpin500 
-    public static let borderDefault = grayRoboflow500 
-    public static let borderContainer = grayRoboflow300 
-    public static let backgroundElevationRaised = transparent 
-    public static let backgroundElevationFloating = transparent 
-    public static let backgroundElevationAccent = grayRoboflow100 
-    public static let backgroundLight = whiteMochimalist0 
-    public static let backgroundDark = blackCosmicore900 
-    public static let backgroundEducation = blueSkycicle500 
-    public static let backgroundBrand = redPushpin450 
-    public static let backgroundInverseStrong = grayRoboflow200 
-    public static let backgroundInverseBase = blackCosmicore900 
-    public static let backgroundSelectedWeak = grayRoboflow400 
-    public static let backgroundSelectedStrong = grayRoboflow700 
-    public static let backgroundSelectedBase = blackCosmicore900 
-    public static let backgroundTertiaryWeak = grayRoboflow300 
-    public static let backgroundTertiaryStrong = grayRoboflow700 
-    public static let backgroundTertiaryBase = grayRoboflow500 
-    public static let backgroundSecondaryWeak = grayRoboflow300 
-    public static let backgroundSecondaryStrong = grayRoboflow400 
-    public static let backgroundSecondaryBase = grayRoboflow200 
-    public static let backgroundPrimaryWeak = redPushpin300 
-    public static let backgroundPrimaryStrong = redPushpin600 
-    public static let backgroundPrimaryBase = redPushpin450 
-    public static let backgroundShopping = blueSkycicle500 
-    public static let backgroundNeutral = grayRoboflow500 
-    public static let backgroundRecommendationWeak = purpleMysticool100 
-    public static let backgroundRecommendationBase = purpleMysticool500 
-    public static let backgroundSuccessWeak = greenMatchacado100 
-    public static let backgroundSuccessBase = greenMatchacado500 
-    public static let backgroundWarningWeak = orangeFiretini100 
-    public static let backgroundWarningBase = yellowCaramellow500 
-    public static let backgroundErrorWeak = redPushpin100 
-    public static let backgroundErrorBase = redPushpin500 
-    public static let backgroundInfoStrong = blueSkycicle600 
-    public static let backgroundInfoWeak = blueSkycicle100 
-    public static let backgroundInfoBase = blueSkycicle500 
-    public static let backgroundDefault = whiteMochimalist0 
-    public static let iconDark = blackCosmicore900 
-    public static let iconLight = whiteMochimalist0 
-    public static let iconBrandPrimary = redPushpin450 
-    public static let iconShopping = blueSkycicle500 
-    public static let iconInverse = whiteMochimalist0 
-    public static let iconRecommendation = purpleMysticool500 
-    public static let iconInfo = blueSkycicle500 
-    public static let iconWarning = yellowCaramellow500 
-    public static let iconError = redPushpin500 
-    public static let iconDisabled = grayRoboflow400 
-    public static let iconSuccess = greenMatchacado600 
-    public static let iconSubtle = grayRoboflow500 
-    public static let iconDefault = blackCosmicore900 
-    public static let textLink = blueSkycicle700 
-    public static let textShopping = blueSkycicle500 
-    public static let textLight = whiteMochimalist0 
-    public static let textDark = blackCosmicore900 
-    public static let textInverse = whiteMochimalist0 
-    public static let textWarning = yellowCaramellow500 
-    public static let textError = redPushpin500 
-    public static let textDisabled = grayRoboflow400 
-    public static let textSuccess = greenMatchacado600 
-    public static let textSubtle = grayRoboflow500 
-    public static let textDefault = blackCosmicore900 
+    public static let dataVisualizationErrorText = redPushpin500
+    public static let dataVisualizationSuccessText = greenMatchacado600
+    public static let dataVisualizationSuccessGraph = greenMatchacado500
+    public static let dataVisualizationPrimary = dataVisualization05
+    public static let dataVisualization08 = purpleMysticool800
+    public static let dataVisualization01 = blueSkycicle800
+    public static let dataVisualization12 = orangeFiretini900
+    public static let dataVisualization11 = pinkFlaminglow500
+    public static let dataVisualization10 = tealSpabattical800
+    public static let borderError = redPushpin500
+    public static let borderDefault = grayRoboflow500
+    public static let borderContainer = grayRoboflow300
+    public static let backgroundElevationRaised = transparent
+    public static let backgroundElevationFloating = transparent
+    public static let backgroundElevationAccent = grayRoboflow100
+    public static let backgroundLight = whiteMochimalist0
+    public static let backgroundDark = blackCosmicore900
+    public static let backgroundEducation = blueSkycicle500
+    public static let backgroundBrand = redPushpin450
+    public static let backgroundInverseStrong = grayRoboflow200
+    public static let backgroundInverseBase = blackCosmicore900
+    public static let backgroundSelectedWeak = grayRoboflow400
+    public static let backgroundSelectedStrong = grayRoboflow700
+    public static let backgroundSelectedBase = blackCosmicore900
+    public static let backgroundTertiaryWeak = grayRoboflow300
+    public static let backgroundTertiaryStrong = grayRoboflow700
+    public static let backgroundTertiaryBase = grayRoboflow500
+    public static let backgroundSecondaryWeak = grayRoboflow300
+    public static let backgroundSecondaryStrong = grayRoboflow400
+    public static let backgroundSecondaryBase = grayRoboflow200
+    public static let backgroundPrimaryWeak = redPushpin300
+    public static let backgroundPrimaryStrong = redPushpin600
+    public static let backgroundPrimaryBase = redPushpin450
+    public static let backgroundShopping = blueSkycicle500
+    public static let backgroundNeutral = grayRoboflow500
+    public static let backgroundRecommendationWeak = purpleMysticool100
+    public static let backgroundRecommendationBase = purpleMysticool500
+    public static let backgroundSuccessWeak = greenMatchacado100
+    public static let backgroundSuccessBase = greenMatchacado500
+    public static let backgroundWarningWeak = orangeFiretini100
+    public static let backgroundWarningBase = yellowCaramellow500
+    public static let backgroundErrorWeak = redPushpin100
+    public static let backgroundErrorBase = redPushpin500
+    public static let backgroundInfoStrong = blueSkycicle600
+    public static let backgroundInfoWeak = blueSkycicle100
+    public static let backgroundInfoBase = blueSkycicle500
+    public static let backgroundDefault = whiteMochimalist0
+    public static let iconDark = blackCosmicore900
+    public static let iconLight = whiteMochimalist0
+    public static let iconBrandPrimary = redPushpin450
+    public static let iconShopping = blueSkycicle500
+    public static let iconInverse = whiteMochimalist0
+    public static let iconRecommendation = purpleMysticool500
+    public static let iconInfo = blueSkycicle500
+    public static let iconWarning = yellowCaramellow500
+    public static let iconError = redPushpin500
+    public static let iconDisabled = grayRoboflow400
+    public static let iconSuccess = greenMatchacado600
+    public static let iconSubtle = grayRoboflow500
+    public static let iconDefault = blackCosmicore900
+    public static let textLink = blueSkycicle700
+    public static let textShopping = blueSkycicle500
+    public static let textLight = whiteMochimalist0
+    public static let textDark = blackCosmicore900
+    public static let textInverse = whiteMochimalist0
+    public static let textWarning = yellowCaramellow500
+    public static let textError = redPushpin500
+    public static let textDisabled = grayRoboflow400
+    public static let textSuccess = greenMatchacado600
+    public static let textSubtle = grayRoboflow500
+    public static let textDefault = blackCosmicore900
 }
 ",
   "dist/ios-swift/classic/GestaltTokensColorDark.swift": "
@@ -209,12 +209,12 @@ public enum GestaltTokensColor {
 import SwiftUI
 
 public enum GestaltTokensColor {
-    public static let dataVisualization04 = UIColor(red: 0.992, green: 0.651, blue: 0.000, alpha: 1) 
-    public static let dataVisualization03 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1) 
-    public static let dataVisualization10 = UIColor(red: 0.000, green: 0.478, blue: 0.447, alpha: 1) 
-    public static let borderFocus = UIColor(red: 0.000, green: 0.518, blue: 1.000, alpha: 0.5) 
-    public static let backgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9) 
-    public static let backgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8) 
+    public static let dataVisualization04 = UIColor(red: 0.992, green: 0.651, blue: 0.000, alpha: 1)
+    public static let dataVisualization03 = UIColor(red: 0.694, green: 0.565, blue: 1.000, alpha: 1)
+    public static let dataVisualization10 = UIColor(red: 0.000, green: 0.478, blue: 0.447, alpha: 1)
+    public static let borderFocus = UIColor(red: 0.000, green: 0.518, blue: 1.000, alpha: 0.5)
+    public static let backgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9)
+    public static let backgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8)
     public static let transparent = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let blackCosmicore900 = UIColor(red: 0.067, green: 0.067, blue: 0.067, alpha: 1)
     public static let grayRoboflow800 = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1)
@@ -324,82 +324,82 @@ public enum GestaltTokensColor {
     public static let redPushpin100 = UIColor(red: 1.000, green: 0.878, blue: 0.878, alpha: 1)
     public static let redPushpin50 = UIColor(red: 1.000, green: 0.922, blue: 0.922, alpha: 1)
     public static let redPushpin0 = UIColor(red: 1.000, green: 0.969, blue: 0.969, alpha: 1)
-    public static let dataVisualizationErrorText = redPushpin400 
-    public static let dataVisualizationErrorGraph = redPushpin300 
-    public static let dataVisualizationSuccessText = greenMatchacado400 
-    public static let dataVisualizationSuccessGraph = greenMatchacado300 
-    public static let dataVisualization09 = orangeFiretini450 
-    public static let dataVisualization08 = purpleMysticool500 
-    public static let dataVisualization07 = greenMatchacado200 
-    public static let dataVisualization06 = pinkFlaminglow500 
-    public static let dataVisualization05 = blueSkycicle300 
-    public static let dataVisualization02 = tealSpabattical200 
-    public static let dataVisualization01 = blueSkycicle600 
-    public static let dataVisualization12 = orangeFiretini200 
-    public static let dataVisualization11 = pinkFlaminglow400 
-    public static let borderError = redPushpin300 
-    public static let borderDefault = grayRoboflow300 
-    public static let borderContainer = grayRoboflow500 
-    public static let backgroundElevationRaised = grayRoboflow600 
-    public static let backgroundElevationFloating = grayRoboflow700 
-    public static let backgroundElevationAccent = grayRoboflow800 
-    public static let backgroundLight = whiteMochimalist0 
-    public static let backgroundDark = blackCosmicore900 
-    public static let backgroundEducation = blueSkycicle300 
-    public static let backgroundBrand = redPushpin450 
-    public static let backgroundInverseStrong = grayRoboflow200 
-    public static let backgroundInverseBase = grayRoboflow50 
-    public static let backgroundSelectedWeak = grayRoboflow400 
-    public static let backgroundSelectedStrong = grayRoboflow700 
-    public static let backgroundSelectedBase = grayRoboflow200 
-    public static let backgroundTertiaryWeak = grayRoboflow300 
-    public static let backgroundTertiaryStrong = grayRoboflow700 
-    public static let backgroundTertiaryBase = grayRoboflow300 
-    public static let backgroundSecondaryWeak = grayRoboflow300 
-    public static let backgroundSecondaryStrong = grayRoboflow400 
-    public static let backgroundSecondaryBase = grayRoboflow500 
-    public static let backgroundPrimaryWeak = redPushpin300 
-    public static let backgroundPrimaryStrong = redPushpin600 
-    public static let backgroundPrimaryBase = redPushpin450 
-    public static let backgroundShopping = blueSkycicle300 
-    public static let backgroundNeutral = grayRoboflow300 
-    public static let backgroundRecommendationWeak = purpleMysticool700 
-    public static let backgroundRecommendationBase = purpleMysticool300 
-    public static let backgroundSuccessWeak = greenMatchacado700 
-    public static let backgroundSuccessBase = greenMatchacado300 
-    public static let backgroundWarningWeak = yellowCaramellow800 
-    public static let backgroundWarningBase = yellowCaramellow300 
-    public static let backgroundErrorWeak = redPushpin900 
-    public static let backgroundErrorBase = redPushpin300 
-    public static let backgroundInfoStrong = blueSkycicle200 
-    public static let backgroundInfoWeak = blueSkycicle800 
-    public static let backgroundInfoBase = blueSkycicle300 
-    public static let backgroundDefault = blackCosmicore900 
-    public static let iconDark = blackCosmicore900 
-    public static let iconLight = whiteMochimalist0 
-    public static let iconBrandPrimary = redPushpin450 
-    public static let iconShopping = blueSkycicle300 
-    public static let iconInverse = blackCosmicore900 
-    public static let iconRecommendation = purpleMysticool300 
-    public static let iconInfo = blueSkycicle300 
-    public static let iconWarning = yellowCaramellow400 
-    public static let iconError = redPushpin300 
-    public static let iconDisabled = grayRoboflow600 
-    public static let iconSuccess = greenMatchacado400 
-    public static let iconSubtle = grayRoboflow400 
-    public static let iconDefault = whiteMochimalist0 
-    public static let textLink = blueSkycicle400 
-    public static let textShopping = blueSkycicle300 
-    public static let textLight = whiteMochimalist0 
-    public static let textDark = blackCosmicore900 
-    public static let textInverse = blackCosmicore900 
-    public static let textWarning = yellowCaramellow400 
-    public static let textError = redPushpin300 
-    public static let textDisabled = grayRoboflow600 
-    public static let textSuccess = greenMatchacado400 
-    public static let textSubtle = grayRoboflow400 
-    public static let textDefault = whiteMochimalist0 
-    public static let dataVisualizationPrimary = dataVisualization05 
+    public static let dataVisualizationErrorText = redPushpin400
+    public static let dataVisualizationErrorGraph = redPushpin300
+    public static let dataVisualizationSuccessText = greenMatchacado400
+    public static let dataVisualizationSuccessGraph = greenMatchacado300
+    public static let dataVisualization09 = orangeFiretini450
+    public static let dataVisualization08 = purpleMysticool500
+    public static let dataVisualization07 = greenMatchacado200
+    public static let dataVisualization06 = pinkFlaminglow500
+    public static let dataVisualization05 = blueSkycicle300
+    public static let dataVisualization02 = tealSpabattical200
+    public static let dataVisualization01 = blueSkycicle600
+    public static let dataVisualization12 = orangeFiretini200
+    public static let dataVisualization11 = pinkFlaminglow400
+    public static let borderError = redPushpin300
+    public static let borderDefault = grayRoboflow300
+    public static let borderContainer = grayRoboflow500
+    public static let backgroundElevationRaised = grayRoboflow600
+    public static let backgroundElevationFloating = grayRoboflow700
+    public static let backgroundElevationAccent = grayRoboflow800
+    public static let backgroundLight = whiteMochimalist0
+    public static let backgroundDark = blackCosmicore900
+    public static let backgroundEducation = blueSkycicle300
+    public static let backgroundBrand = redPushpin450
+    public static let backgroundInverseStrong = grayRoboflow200
+    public static let backgroundInverseBase = grayRoboflow50
+    public static let backgroundSelectedWeak = grayRoboflow400
+    public static let backgroundSelectedStrong = grayRoboflow700
+    public static let backgroundSelectedBase = grayRoboflow200
+    public static let backgroundTertiaryWeak = grayRoboflow300
+    public static let backgroundTertiaryStrong = grayRoboflow700
+    public static let backgroundTertiaryBase = grayRoboflow300
+    public static let backgroundSecondaryWeak = grayRoboflow300
+    public static let backgroundSecondaryStrong = grayRoboflow400
+    public static let backgroundSecondaryBase = grayRoboflow500
+    public static let backgroundPrimaryWeak = redPushpin300
+    public static let backgroundPrimaryStrong = redPushpin600
+    public static let backgroundPrimaryBase = redPushpin450
+    public static let backgroundShopping = blueSkycicle300
+    public static let backgroundNeutral = grayRoboflow300
+    public static let backgroundRecommendationWeak = purpleMysticool700
+    public static let backgroundRecommendationBase = purpleMysticool300
+    public static let backgroundSuccessWeak = greenMatchacado700
+    public static let backgroundSuccessBase = greenMatchacado300
+    public static let backgroundWarningWeak = yellowCaramellow800
+    public static let backgroundWarningBase = yellowCaramellow300
+    public static let backgroundErrorWeak = redPushpin900
+    public static let backgroundErrorBase = redPushpin300
+    public static let backgroundInfoStrong = blueSkycicle200
+    public static let backgroundInfoWeak = blueSkycicle800
+    public static let backgroundInfoBase = blueSkycicle300
+    public static let backgroundDefault = blackCosmicore900
+    public static let iconDark = blackCosmicore900
+    public static let iconLight = whiteMochimalist0
+    public static let iconBrandPrimary = redPushpin450
+    public static let iconShopping = blueSkycicle300
+    public static let iconInverse = blackCosmicore900
+    public static let iconRecommendation = purpleMysticool300
+    public static let iconInfo = blueSkycicle300
+    public static let iconWarning = yellowCaramellow400
+    public static let iconError = redPushpin300
+    public static let iconDisabled = grayRoboflow600
+    public static let iconSuccess = greenMatchacado400
+    public static let iconSubtle = grayRoboflow400
+    public static let iconDefault = whiteMochimalist0
+    public static let textLink = blueSkycicle400
+    public static let textShopping = blueSkycicle300
+    public static let textLight = whiteMochimalist0
+    public static let textDark = blackCosmicore900
+    public static let textInverse = blackCosmicore900
+    public static let textWarning = yellowCaramellow400
+    public static let textError = redPushpin300
+    public static let textDisabled = grayRoboflow600
+    public static let textSuccess = greenMatchacado400
+    public static let textSubtle = grayRoboflow400
+    public static let textDefault = whiteMochimalist0
+    public static let dataVisualizationPrimary = dataVisualization05
 }
 ",
   "dist/ios-swift/classic/GestaltTokensElevation.swift": "
@@ -409,9 +409,9 @@ public enum GestaltTokensColor {
 import SwiftUI
 
 public enum GestaltTokensElevation {
-    public static let raisedBottom = 0px -2px 8px 0px #000000 1 
-    public static let raisedTop = 0px 2px 8px 0px #000000 1 
-    public static let floating = 0px 0px 8px 0px #000000 1 
+    public static let raisedBottom = 0px -2px 8px 0px #000000 1
+    public static let raisedTop = 0px 2px 8px 0px #000000 1
+    public static let floating = 0px 0px 8px 0px #000000 1
 }
 ",
   "dist/ios-swift/classic/GestaltTokensElevationDark.swift": "
@@ -421,9 +421,9 @@ public enum GestaltTokensElevation {
 import SwiftUI
 
 public enum GestaltTokensElevationDark {
-    public static let raisedBottom = 0px -0.5px 0px 0px #F9F9F9 1 
-    public static let raisedTop = 0px 0.5px 0px 0px #F9F9F9 1 
-    public static let floating = none 
+    public static let raisedBottom = 0px -0.5px 0px 0px #F9F9F9 1
+    public static let raisedTop = 0px 0.5px 0px 0px #F9F9F9 1
+    public static let floating = none
 }
 ",
   "dist/ios-swift/classic/GestaltTokensFontFamily.swift": "
@@ -433,9 +433,9 @@ public enum GestaltTokensElevationDark {
 import SwiftUI
 
 public enum GestaltTokensFontFamily {
-    public static let familyCode = \\"SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace\\" 
-    public static let familyDefaultJapanese = \\"'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\" 
-    public static let familyDefaultLatin = \\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\" 
+    public static let familyCode = \\"SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace\\"
+    public static let familyDefaultJapanese = \\"'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\"
+    public static let familyDefaultLatin = \\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\"
 }
 ",
   "dist/ios-swift/classic/GestaltTokensFontSize.swift": "
@@ -460,9 +460,9 @@ public enum GestaltTokensFontSize {
 import SwiftUI
 
 public enum GestaltTokensFontWeight {
-    public static let weightBold = \\"700\\" 
-    public static let weightSemibold = \\"600\\" 
-    public static let weightNormal = \\"400\\" 
+    public static let weightBold = \\"700\\"
+    public static let weightSemibold = \\"600\\"
+    public static let weightNormal = \\"400\\"
 }
 ",
   "dist/ios-swift/classic/GestaltTokensOpacity.swift": "
@@ -472,12 +472,12 @@ public enum GestaltTokensFontWeight {
 import SwiftUI
 
 public enum GestaltTokensOpacity {
-    public static let 500 = 0.9 
-    public static let 400 = 0.8 
-    public static let 300 = 0.4 
-    public static let 200 = 0.2 
-    public static let 100 = 0.04 
-    public static let 0 = 0 
+    public static let 500 = 0.9
+    public static let 400 = 0.8
+    public static let 300 = 0.4
+    public static let 200 = 0.2
+    public static let 100 = 0.04
+    public static let 0 = 0
 }
 ",
   "dist/ios-swift/classic/GestaltTokensRounding.swift": "
@@ -899,8 +899,8 @@ public enum GestaltTokensElevationVR {
 import SwiftUI
 
 public enum GestaltTokensFontFamilyVR {
-    public static let baseFamilyCode = \\"SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace\\" 
-    public static let baseFamilyDefaultJapanese = \\"'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\" 
+    public static let baseFamilyCode = \\"SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace\\"
+    public static let baseFamilyDefaultJapanese = \\"'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\"
     public static let baseFamilyDefaultLatin = \\"'Pin-Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif\\"
 }
 ",
