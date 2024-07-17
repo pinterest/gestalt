@@ -762,6 +762,8 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-data-visualization-success-text: #005f3e;
   --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
+  --color-hover-background-default: #f8f7f2;
+  --color-pressed-background-default: #ebebe5;
   --font-size-100: 12px;
   --font-size-200: 14px;
   --font-size-300: 16px;
@@ -1180,6 +1182,8 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-data-visualization-success-text: #005f3e;
   --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
+  --color-hover-background-default: #f8f7f2;
+  --color-pressed-background-default: #ebebe5;
   --font-size-100: 12px;
   --font-size-200: 14px;
   --font-size-300: 16px;
@@ -1598,6 +1602,8 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-data-visualization-success-text: #005f3e;
   --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
+  --color-hover-background-default: #f8f7f2;
+  --color-pressed-background-default: #ebebe5;
   --font-size-100: 12px;
   --font-size-200: 14px;
   --font-size-300: 16px;
