@@ -129,7 +129,7 @@ export default function ItemContent({
       color={itemColor}
       dangerouslySetInlineStyle={{
         __style: {
-          boxShadow: hasBorder ? `0 0 0 2px ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}` : undefined,
+          outline: hasBorder ? `2px solid ${TOKEN_COLOR_BACKGROUND_SELECTED_BASE}` : undefined,
           paddingInlineStart: collapsed ? undefined : nestingMargin,
           paddingInlineEnd: collapsed ? undefined : TOKEN_SPACE_400,
         },
