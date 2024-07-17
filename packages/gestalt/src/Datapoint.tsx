@@ -21,6 +21,10 @@ type TrendObject = {
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Adds a badge to the title. Currently a beta feature, expect changes.
    */
   badge?: BadgeObject;
@@ -62,6 +66,7 @@ type Props = {
  *
  */
 export default function Datapoint({
+  dataTestId,
   badge,
   size = 'md',
   title,
@@ -74,6 +79,7 @@ export default function Datapoint({
   return (
     <InternalDatapoint
       badge={badge}
+      dataTestId={dataTestId}
       size={size}
       title={title}
       tooltipText={tooltipText}

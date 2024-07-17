@@ -29,6 +29,13 @@ type TrendObject = {
 };
 
 type Props = {
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
+   * Adds a badge to the title. Currently a beta feature, expect changes.
+   */
   badge?: BadgeObject;
   /**
    * Changes the color of the text and internal items to be disabled
@@ -80,6 +87,7 @@ function MaybeMinWidth({
 }
 
 export default function InternalDatapoint({
+  dataTestId,
   badge,
   disabled = false,
   lineClamp,
@@ -96,7 +104,7 @@ export default function InternalDatapoint({
 }: Props) {
   const textColor = disabled ? 'subtle' : 'default';
   return (
-    <Flex direction="column" gap={{ column: 1, row: 0 }}>
+    <Flex dataTestId={dataTestId} direction="column" gap={{ column: 1, row: 0 }}>
       <Flex alignItems="center" gap={{ row: 1, column: 0 }} minHeight={24}>
         <MaybeMinWidth
           maxWidth={maxTitleWidth}

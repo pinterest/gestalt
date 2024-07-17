@@ -48,4 +48,18 @@ describe('Datapoint', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('validate data test id for Datapoint', () => {
+    const tree = create(
+      <Datapoint
+        badge={{ text: 'Early access' }}
+        dataTestId='test'
+        title="Title"
+        tooltipText="This is a good sign"
+        trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
+        value="1M"
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
