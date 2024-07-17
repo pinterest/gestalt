@@ -7,6 +7,10 @@ type Props = {
    */
   checked?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates whether or not Checkbox is disabled. Disabled Checkboxes do not respond to mouse events and cannot be reached by the keyboard. See the [state variant](https://gestalt.pinterest.systems/web/checkbox#State) to learn more.
    */
   disabled?: boolean;
@@ -71,6 +75,7 @@ type Props = {
 const CheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Checkbox(
   {
     checked = false,
+    dataTestId,
     disabled = false,
     errorMessage,
     helperText,
@@ -90,6 +95,7 @@ const CheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Chec
     <InternalCheckbox
       ref={ref}
       checked={checked}
+      dataTestId={dataTestId}
       disabled={disabled}
       errorMessage={errorMessage}
       helperText={helperText}

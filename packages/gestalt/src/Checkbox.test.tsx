@@ -77,3 +77,26 @@ test('Checkbox with an image', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id checkbox with an image', () => {
+  const tree = create(
+    <Checkbox
+      dataTestId='test'
+      id="id"
+      image={
+        <Box>
+          <Image
+            alt=""
+            naturalHeight={1}
+            naturalWidth={1}
+            src="https://i.ibb.co/FY2MKr5/stock6.jpg"
+          />
+        </Box>
+      }
+      label="Name"
+      onChange={() => {}}
+      size="sm"
+    />,
+  ).toJSON();
+  expect(tree).toMatchSnapshot();
+});
