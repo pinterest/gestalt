@@ -133,7 +133,7 @@ type Props<T> = {
   /**
    * Experimental prop to render a loading state
    *
-   * A function that renders the loading state items you would like displayed in the grid. This function is passed three props: the item's data, the item's index in the grid, and a flag indicating if Masonry is currently measuring the item.
+   * A function that renders the loading state items you would like displayed in the grid. This function is passed two props: the item's data and the item's index in the grid.
    */
   _renderLoadingStateItems?: (arg1: {
     readonly data: LoadingStateItem;
@@ -515,10 +515,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           data-grid-item
           role="listitem"
           style={{
-            top: 0,
-            left: 0,
-            transform: `translateX(${left}px) translateY(${top}px)`,
-            WebkitTransform: `translateX(${left}px) translateY(${top}px)`,
+            top,
+            left,
             width: layoutNumberToCssDimension(width),
             height: layoutNumberToCssDimension(height),
           }}
