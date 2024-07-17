@@ -1,3 +1,9 @@
+## 155.2.0 (Jul 17, 2024)
+
+### Minor
+
+- Tokens: Add missing sema-pressed tokens ([#3684](https://github.com/pinterest/gestalt/pull/3684)) - [Preview link](https://deploy-preview-3684--gestalt.netlify.app?devexample=true)
+
 ## 155.1.4 (Jul 12, 2024)
 
 ### Patch
