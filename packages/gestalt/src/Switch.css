@@ -29,11 +29,11 @@ html[dir="rtl"] .switch {
 }
 
 .vr.enabled:hover {
-  background-color: #f8f7f2;
+  background-color: var(--color-hovered-background-default);
 }
 
 .vr.enabled:active {
-  background-color: #ebebe5;
+  background-color: var(--color-pressed-background-default);
 }
 
 .enabledSelected {

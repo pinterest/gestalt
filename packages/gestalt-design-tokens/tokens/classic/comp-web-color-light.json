@@ -585,6 +585,20 @@
           "value": "#111"
         }
       }
+    },
+    "hover": {
+      "background": {
+        "default": {
+          "value": "#F8F7F2"
+        }
+      }
+    },
+    "pressed": {
+      "background": {
+        "default": {
+          "value": "#EBEBE5"
+        }
+      }
     }
   }
 }
