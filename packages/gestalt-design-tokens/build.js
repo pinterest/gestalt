@@ -347,8 +347,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/base/rounding.json',
     'tokens/vr-theme/base/space.json',
     'tokens/vr-theme/base/lineheight.json',
-    'tokens/vr-theme/base/motion/duration.json',
-    'tokens/vr-theme/base/motion/easing.json',
+    'tokens/vr-theme/base/motion.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
     ...(platform === 'web'
       ? [
