@@ -87,6 +87,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Adds a dismiss button to the BannerUpsell. The \`accessibilityLabel\` should follow the [Accessibility guidelines](https://gestalt.pinterest.systems/web/bannerupsell#Accessibility).
    */
   dismissButton?: {
@@ -135,6 +139,7 @@ type Props = {
  */
 export default function BannerUpsell({
   children,
+  dataTestId,
   dismissButton,
   imageData,
   message,
@@ -182,6 +187,7 @@ export default function BannerUpsell({
     <Box
       borderStyle="shadow"
       color={isDarkMode ? 'elevationFloating' : 'default'}
+      data-test-id={dataTestId}
       direction="column"
       display="flex"
       paddingX={12}

@@ -85,6 +85,10 @@ function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: Primar
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Helper [Link](https://gestalt.pinterest.systems/web/link) to be placed after the message. See the [Message variant](https://gestalt.pinterest.systems/web/bannerslim#Message) to learn more.
    */
   helperLink?: HelperLinkType;
@@ -135,6 +139,7 @@ type Props = {
  *
  */
 export default function BannerSlim({
+  dataTestId,
   helperLink,
   iconAccessibilityLabel,
   message,
@@ -184,6 +189,7 @@ export default function BannerSlim({
     <Box
       alignItems="center"
       color={isBare ? 'transparent' : backgroundColor}
+      data-test-id={dataTestId}
       direction="column"
       display="flex"
       mdDirection="row"

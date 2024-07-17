@@ -137,4 +137,30 @@ describe('<BannerUpsell />', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('validate data test id and message + title + dismissButton + image + form', () => {
+    const tree = create(
+      <BannerUpsell
+        dataTestId='test'
+        dismissButton={{
+          accessibilityLabel: 'Dismiss banner',
+          onDismiss: () => {},
+        }}
+        imageData={{
+          component: <Icon accessibilityLabel="Pin" color="default" icon="pinterest" size={32} />,
+        }}
+        message="Insert a clever upsell message here"
+        title="A Title"
+      >
+        <BannerUpsell.Form
+          onSubmit={() => {}}
+          submitButtonAccessibilityLabel="Submit button"
+          submitButtonText="Submit"
+        >
+          <TextField id="name" onChange={() => {}} placeholder="Name" />
+        </BannerUpsell.Form>
+      </BannerUpsell>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -82,4 +82,21 @@ describe('BannerSlim', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('validate data test id and renders primary action and dismiss button', () => {
+    const tree = create(
+      <BannerSlim
+        dataTestId='test'
+        message="test"
+        onDismiss={() => {}}
+        primaryAction={{
+          accessibilityLabel: 'test',
+          label: 'test',
+          onClick: () => {},
+          role: 'button',
+        }}
+      />,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

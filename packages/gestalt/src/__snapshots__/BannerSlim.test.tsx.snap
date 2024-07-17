@@ -418,3 +418,157 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
   </div>
 </div>
 `;
+
+exports[`BannerSlim validate data test id and renders primary action and dismiss button 1`] = `
+<div
+  className="box mdDirectionRow paddingX4 paddingY0 paddingY4 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  data-test-id="test"
+  style={
+    Object {
+      "width": "100%",
+    }
+  }
+>
+  <div
+    className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="FlexItem flexGrow"
+    >
+      <div
+        className="box"
+      >
+        <span
+          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        >
+          test
+        </span>
+      </div>
+    </div>
+    <div
+      className="FlexItem flexNone"
+    >
+      <div
+        className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+      >
+        <div
+          className="FlexItem"
+        >
+          <div
+            className="box flexNone mdDisplayFlex xsDisplayNone"
+          >
+            <button
+              aria-label="test"
+              className="button block accessibilityOutline parentButton"
+              disabled={false}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              tabIndex={0}
+              type="button"
+            >
+              <div
+                className="button block accessibilityOutline tapTransition sm white enabled childrenDiv"
+              >
+                <div
+                  className="Text fontSize200 default alignCenter fontWeightSemiBold"
+                >
+                  test
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div
+          className="FlexItem"
+        >
+          <button
+            aria-label="Dismiss banner"
+            className="parentButton"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <div
+              className="button tapTransition enabled"
+            >
+              <div
+                className="pog transparent"
+                style={
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  }
+                }
+              >
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="default icon iconBlock"
+                  height={12}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={12}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="box flexNone marginTop4 mdDisplayNone selfEnd xsDisplayFlex"
+  >
+    <button
+      aria-label="test"
+      className="button block accessibilityOutline parentButton"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        className="button block accessibilityOutline tapTransition sm white enabled childrenDiv"
+      >
+        <div
+          className="Text fontSize200 default alignCenter fontWeightSemiBold"
+        >
+          test
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
