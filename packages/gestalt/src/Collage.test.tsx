@@ -41,4 +41,8 @@ describe('<Collage />', () => {
   it('should match the snapshot when cover image is used', () => {
     expect(create(<Collage {...collageProps} cover />).toJSON()).toMatchSnapshot();
   });
+
+  it('validate data test id snapshot for 4 columns', () => {
+    expect(create(<Collage {...collageProps} columns={4} dataTestId='test' />).toJSON()).toMatchSnapshot();
+  });
 });

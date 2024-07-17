@@ -42,6 +42,7 @@ import { ReactNode } from 'react';
 import layoutStyles from '../Layout.css';
 
 type Props = {
+  dataTestId?: string;
   Item?: (arg1: { idx: number }) => ReactNode;
   layout: ReadonlyArray<{
     top: number;
@@ -57,7 +58,7 @@ type Props = {
 };
 
 export default function Collection(props: Props) {
-  const { Item, layout = [], renderItem, viewportTop = 0, viewportLeft = 0 } = props;
+  const { dataTestId, Item, layout = [], renderItem, viewportTop = 0, viewportLeft = 0 } = props;
 
   // Calculate the full dimensions of the item layer
   const width = Math.max(...layout.map((item) => item.left + item.width));
@@ -95,7 +96,7 @@ export default function Collection(props: Props) {
   );
 
   return (
-    <div className={layoutStyles.relative} style={{ width, height }}>
+    <div className={layoutStyles.relative} data-test-id={dataTestId} style={{ width, height }}>
       {items.map(({ idx, ...style }) => (
         <div key={idx} className={layoutStyles.absolute} style={style}>
           {/* @ts-expect-error - TS2786 - 'Item' cannot be used as a JSX component. */}

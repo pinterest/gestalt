@@ -156,6 +156,10 @@ type Props = {
    */
   cover?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The amount of vertical and horizontal space between images. See [Gutter example](https://gestalt.pinterest.systems#gutter) for more details.
    */
   gutter?: number;
@@ -185,7 +189,7 @@ type Props = {
  *
  */
 export default function Collage(props: Props) {
-  const { columns, cover, gutter, height, layoutKey, renderImage, width } = props;
+  const { columns, cover, dataTestId, gutter, height, layoutKey, renderImage, width } = props;
   const positions = getCollageLayout({
     columns,
     cover: !!cover,
@@ -196,6 +200,7 @@ export default function Collage(props: Props) {
   });
   return (
     <Collection
+      dataTestId={dataTestId}
       layout={positions}
       renderItem={({ idx: index }) =>
         renderImage({
