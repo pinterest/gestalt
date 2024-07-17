@@ -140,4 +140,30 @@ describe('DatePicker', () => {
     expect(screen.queryAllByRole('option', { name: 'January' })).toHaveLength(1);
     expect(screen.queryAllByRole('option', { name: '2017' })).toHaveLength(1);
   });
+
+  it('validate data test id and passes clicked date to onChange prop', () => {
+    const newDate = new Date(2018, 11, 13);
+
+    render(
+      <DatePicker
+        dataTestId='test'
+        id="fake_id"
+        onChange={mockOnChange}
+        placeholder="Select date"
+        value={initialDate}
+      />,
+    );
+
+    expect(screen.getByTestId('test')).toBeVisible();
+    fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+
+    // eslint-disable-next-line testing-library/prefer-presence-queries -- Please fix the next time this file is touched!
+    expect(screen.queryByText('December 2018')).toBeInTheDocument();
+
+    const selectedDay = screen.getByText('13');
+
+    fireEvent.click(selectedDay);
+
+    expect(mockOnChange).toHaveBeenCalledWith(expect.objectContaining({ value: newDate }));
+  });
 });

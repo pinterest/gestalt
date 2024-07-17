@@ -8,6 +8,7 @@ import styles from '../DatePicker.css';
 const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
   function InternalDatePicker(
     {
+      dataTestId,
       disabled,
       errorMessage,
       excludeDates,
@@ -83,7 +84,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
     };
 
     return (
-      <div className="_gestalt">
+      <div className="_gestalt" data-test-id={dataTestId}>
         {label && (
           <Label htmlFor={id}>
             <Box marginBottom={2}>

@@ -5,6 +5,10 @@ import InternalDatePicker from './DatePicker/InternalDatePicker';
 
 export type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/web/datepicker#States) to learn more.
    */
   disabled?: boolean;
@@ -102,6 +106,7 @@ export type Props = {
 
 const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function DatePicker(
   {
+    dataTestId,
     disabled,
     errorMessage,
     excludeDates,
@@ -140,6 +145,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   return (
     <InternalDatePicker
       ref={innerInputRef}
+      dataTestId={dataTestId}
       disabled={disabled}
       errorMessage={errorMessage}
       excludeDates={excludeDates}
