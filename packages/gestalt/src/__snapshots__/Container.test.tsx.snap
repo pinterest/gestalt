@@ -15,3 +15,20 @@ exports[`Container renders 1`] = `
   />
 </div>
 `;
+
+exports[`validate data test id Container 1`] = `
+<div
+  className="box justifyCenter xsDisplayFlex"
+  data-test-id="test"
+>
+  <div
+    className="box"
+    style={
+      Object {
+        "maxWidth": 800,
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
