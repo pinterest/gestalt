@@ -15,4 +15,18 @@ describe('BannerUpsellForm', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('validate data test id', () => {
+    const tree = create(
+      <BannerUpsellForm
+        dataTestId='test'
+        onSubmit={() => {}}
+        submitButtonAccessibilityLabel="Submit button"
+        submitButtonText="Submit"
+      >
+        <TextField id="name" onChange={() => {}} placeholder="Name" />
+      </BannerUpsellForm>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

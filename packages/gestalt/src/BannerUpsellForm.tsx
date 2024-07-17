@@ -6,6 +6,10 @@ import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Contents of the form, typically input components like [TextField](https://gestalt.pinterest.systems/web/textfield) or [NumberField](https://gestalt.pinterest.systems/web/numberfield).
    */
   children: ReactNode;
@@ -37,6 +41,7 @@ type Props = {
  * [BannerUpsell.Form](https://gestalt.pinterest.systems/web/bannerupsell#BannerUpsell.Form) can be used to add a short form to BannerUpsell for collecting data from the user.
  */
 export default function BannerUpsellForm({
+  dataTestId,
   children,
   onSubmit,
   submitButtonText,
@@ -48,7 +53,7 @@ export default function BannerUpsellForm({
 
   return (
     // @ts-expect-error - TS2322 - Type 'FormEvent<HTMLFormElement>' is not assignable to type 'MouseEvent<HTMLButtonElement, MouseEvent> | KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...>'.
-    <form onSubmit={(event) => onSubmit({ event })} style={{ width: '100%' }}>
+    <form data-test-id={dataTestId} onSubmit={(event) => onSubmit({ event })} style={{ width: '100%' }}>
       <Flex
         direction={isXsWidth ? 'column' : 'row'}
         gap={isXsWidth ? { column: 2, row: 0 } : { row: 2, column: 0 }}
