@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -37,6 +38,11 @@ type Props = {
  *
  */
 export default function Switch({ disabled = false, id, name, onChange, switched = false }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const [focused, setFocused] = useState(false);
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
@@ -49,17 +55,25 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
   const { isFocusVisible } = useFocusVisible();
 
   const switchStyles = classnames(styles.switch, {
-    [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+    [styles.vr]: isInVRExperiment,
+    [focusStyles.accessibilityOutlineVR]: isInVRExperiment && focused && isFocusVisible,
     [styles.disabledSelected]: disabled && switched,
     [styles.disabled]: disabled && !switched,
     [styles.enabledSelected]: !disabled && switched,
     [styles.enabled]: !disabled && !switched,
+    [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
   });
 
   const sliderStyles = classnames(
     styles.slider,
     switched ? styles.sliderRight : styles.sliderLeft,
     !disabled ? styles.sliderDark : styles.sliderLight,
+  );
+
+  const sliderVrStyles = classnames(
+    { [styles.blackSlider]: !switched, [styles.disabledSlider]: disabled && !switched },
+    styles.sliderVr,
+    sliderStyles,
   );
 
   const inputStyles = classnames(styles.checkbox, {
@@ -79,7 +93,7 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
         onFocus={() => setFocused(true)}
         type="checkbox"
       />
-      <div className={sliderStyles} />
+      <div className={isInVRExperiment ? sliderVrStyles : sliderStyles} />
     </div>
   );
 }

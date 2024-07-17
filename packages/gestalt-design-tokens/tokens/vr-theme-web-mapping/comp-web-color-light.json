@@ -66,6 +66,24 @@
             "value": "{sema.color.hover.background.wash.dark.value}"
           }
         }
+      },
+      "switch": {
+        "default": {
+          "unselected": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "selected": {
+            "value": "{sema.color.background.selected.value}"
+          }
+        },
+        "disabled": {
+          "unselected": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "selected": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        }
       }
     },
     "border": {

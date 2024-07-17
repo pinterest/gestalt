@@ -1,5 +1,6 @@
 :root {
   --g-switch-height: 24px;
+  --g-vr-slider-height: 18px;
   --g-switch-width: 40px;
   --g-switch-border: 1px;
 }
@@ -27,6 +28,14 @@ html[dir="rtl"] .switch {
   background-color: var(--color-background-switch-default-unselected);
 }
 
+.vr.enabled:hover {
+  background-color: #f8f7f2;
+}
+
+.vr.enabled:active {
+  background-color: #ebebe5;
+}
+
 .enabledSelected {
   composes: borderColorSelected from "./Borders.css";
   background-color: var(--color-background-switch-default-selected);
@@ -42,6 +51,11 @@ html[dir="rtl"] .switch {
   background-color: var(--color-background-switch-disabled-selected);
 }
 
+.vr.disabledSelected {
+  background-color: var(--color-background-switch-disabled-selected);
+  border-color: var(--color-transparent);
+}
+
 .slider {
   composes: borderBox absolute from "./Layout.css";
   composes: circle from "./Borders.css";
@@ -52,6 +66,21 @@ html[dir="rtl"] .switch {
   margin: -1px;
   transition: left 0.2s ease;
   width: var(--g-switch-height);
+}
+
+.sliderVr {
+  border: 0;
+  height: var(--g-vr-slider-height);
+  margin: 2px;
+  width: var(--g-vr-slider-height);
+}
+
+.blackSlider {
+  background-color: var(--color-background-switch-default-selected);
+}
+
+.disabledSlider {
+  background-color: var(--color-background-switch-disabled-selected);
 }
 
 .sliderRight {
