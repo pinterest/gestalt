@@ -646,4 +646,66 @@ describe('Dropdown', () => {
     // fireEvent.click(screen.getByText(/External Item 3/));
     // expect(onClickMock).toHaveBeenCalledTimes(1);
   });
+
+  it('validates data test id for a menu of 6 items', () => {
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    const mockOnDismiss = jest.fn<[], undefined>();
+    const onSelectMock = jest.fn<
+      [
+        {
+          event: React.ChangeEvent<HTMLInputElement>;
+          item: {
+            label: string;
+            subtext?: string;
+            value: string;
+          };
+        },
+      ],
+      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+      undefined
+    >();
+    const element = document.createElement('button');
+
+    const { baseElement } = render(
+      <Dropdown anchor={element} dataTestId='test' id="ex-1" onDismiss={mockOnDismiss}>
+        <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
+        <Dropdown.Item
+          onSelect={onSelectMock}
+          option={{
+            value: 'item 2',
+            label: 'Item 2 with a really long, detailed, complex name',
+          }}
+        />
+        <Dropdown.Link
+          href="https://pinterest.com"
+          isExternal
+          option={{
+            value: 'item 3',
+            label: 'External Item 3 with a really long, detailed, complex name',
+          }}
+        />
+        <Dropdown.Item
+          badge={{ text: 'New' }}
+          onSelect={onSelectMock}
+          option={{ value: 'item 4', label: 'Item 4' }}
+        />
+        <Dropdown.Link
+          badge={{ text: 'New' }}
+          href="https://pinterest.com"
+          isExternal
+          option={{
+            value: 'item 5',
+            label: 'Item 5 with a really long, detailed name',
+          }}
+        />
+        <Dropdown.Link
+          href="https://pinterest.com"
+          isExternal
+          option={{ value: 'item 6', label: 'Item 6' }}
+        />
+      </Dropdown>,
+    );
+
+    expect(baseElement).toMatchSnapshot();
+  });
 });

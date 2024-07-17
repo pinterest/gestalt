@@ -110,6 +110,10 @@ type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Enables correct behavior when Dropdown is used within a fixed container. To achieve this it removes the Layer component around Popover and enables positioning relative to its anchor element. Should only be used in cases where Layer breaks the Dropdown positionings such as when the anchor element is within a sticky component.
    */
   isWithinFixedContainer?: boolean;
@@ -157,6 +161,7 @@ type Props = {
 export default function Dropdown({
   anchor,
   children,
+  dataTestId,
   isWithinFixedContainer = false,
   headerContent,
   id,
@@ -299,6 +304,7 @@ export default function Dropdown({
     >
       <Box
         alignItems="center"
+        data-test-id={dataTestId}
         direction="column"
         display="flex"
         flex="grow"
