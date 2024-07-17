@@ -15,6 +15,10 @@ type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added.
    */
   id?: string;
@@ -40,6 +44,7 @@ type Props = {
  *
  */
 export default function Fieldset({
+  dataTestId,
   id = '',
   errorMessage,
   legend,
@@ -55,6 +60,7 @@ export default function Fieldset({
     <fieldset
       aria-describedby={errorMessage ? `${id}-error` : undefined}
       className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
+      data-test-id={dataTestId}
     >
       <legend
         className={classnames(

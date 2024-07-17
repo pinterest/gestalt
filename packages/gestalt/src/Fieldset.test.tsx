@@ -37,4 +37,20 @@ describe('Fieldset', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('validate data test id with errorMessage', () => {
+    const tree = create(
+      <Fieldset
+        dataTestId='test'
+        errorMessage="At least 1 item must be selected"
+        id="fieldset-with-error"
+        legend="What is your favorite dog?"
+        legendDisplay="hidden"
+      >
+        <Checkbox id="Schnauzer" label="Schnauzer" onChange={() => {}} />
+        <Checkbox id="Aussie" label="Aussie" onChange={() => {}} />
+      </Fieldset>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
