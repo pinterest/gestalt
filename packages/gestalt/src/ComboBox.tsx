@@ -38,6 +38,10 @@ type Props = {
    */
   accessibilityClearButtonLabel?: string;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
   disabled?: boolean;
@@ -151,6 +155,7 @@ type Props = {
 const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function ComboBox(
   {
     accessibilityClearButtonLabel,
+    dataTestId,
     disabled = false,
     errorMessage,
     helperText,
@@ -433,6 +438,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         aria-expanded={showOptionsList}
         aria-haspopup
         aria-owns={id}
+        data-test-id={dataTestId}
         position="relative"
         role="combobox"
       >

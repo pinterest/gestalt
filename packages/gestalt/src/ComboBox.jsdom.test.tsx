@@ -48,6 +48,7 @@ describe('ComboBox', () => {
     // Cmp Props
     accessibilityClearButtonLabel = CLEAR,
 
+    dataTestId = undefined,
     disabled = false,
     errorMessage,
     helperText,
@@ -70,6 +71,7 @@ describe('ComboBox', () => {
     accessibilityClearButtonLabel?: ComponentProps<
       typeof ComboBox
     >['accessibilityClearButtonLabel'];
+    dataTestId?: string;
     disabled?: ComponentProps<typeof ComboBox>['disabled'];
     errorMessage?: ComponentProps<typeof ComboBox>['errorMessage'];
     helperText?: ComponentProps<typeof ComboBox>['helperText'];
@@ -92,6 +94,7 @@ describe('ComboBox', () => {
     render(
       <ComboBox
         accessibilityClearButtonLabel={accessibilityClearButtonLabel}
+        dataTestId={dataTestId}
         disabled={disabled}
         errorMessage={errorMessage}
         helperText={helperText}
@@ -365,6 +368,17 @@ describe('ComboBox', () => {
 
       expect(screen.getByRole('option', { name: 'ey / em Selected item' })).toBeVisible();
       expect(screen.getByRole('img', { name: 'Selected item' })).toBeVisible();
+    });
+
+    it('validate data test id basic controlled components', () => {
+      const { baseElement } = renderComboBox({
+        dataTestId: 'test',
+        inputValue: '',
+        options: controlledOptions,
+      });
+
+      expect(screen.getByTestId('test')).toBeVisible();
+      expect(baseElement).toMatchSnapshot();
     });
   });
 
