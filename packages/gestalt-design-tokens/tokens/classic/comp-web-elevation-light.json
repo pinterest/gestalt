@@ -8,8 +8,7 @@
           "blurRadius": 8,
           "spreadRadius": 0,
           "color": "#000000",
-          "opacity": 0.1,
-          "comment": "DatePicker container elevation"
+          "opacity": 0.1
         }
       }
     }
