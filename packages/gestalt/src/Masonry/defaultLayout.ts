@@ -90,7 +90,7 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpanConfig && !isLoadingStateItems(items)
+    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -106,7 +106,7 @@ const defaultLayout =
           let position;
           let height;
 
-          if (renderLoadingState && isLoadingStateItem(item)) {
+          if (isLoadingStateItem(item, renderLoadingState)) {
             height = item.height;
           } else if (!isLoadingStateItem(item)) {
             height = measurementCache.get(item);
