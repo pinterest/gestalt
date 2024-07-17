@@ -174,7 +174,7 @@ export default function Toast({
         rounding={4}
         width="100%"
       >
-        <Flex alignItems="center" gap={4}>
+        <Flex alignItems="center" gap={isInExperiment ? 2 : 4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
             <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>
           ) : null}
