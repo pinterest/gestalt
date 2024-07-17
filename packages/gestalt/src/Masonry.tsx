@@ -9,7 +9,7 @@ import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, Position } from './Masonry/types';
+import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { ThrottleReturn } from './throttle';
 
@@ -21,8 +21,6 @@ const layoutNumberToCssDimension = (n?: number | null) => {
   }
   return undefined;
 };
-
-type LoadingStateItem = { height: number };
 
 type Props<T> = {
   /**
@@ -670,7 +668,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         _getColumnSpanConfig,
         renderLoadingState,
       });
-      const positions = getPositions(_loadingStateItems as any);
+      const positions = getPositions(_loadingStateItems);
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
         : 0;
