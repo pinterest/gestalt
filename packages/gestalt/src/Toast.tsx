@@ -1,5 +1,5 @@
 import { Children, ComponentProps, isValidElement, ReactElement, ReactNode } from 'react';
-import classnames from 'classnames';
+import { TOKEN_ROUNDING_300, TOKEN_ROUNDING_400 } from 'gestalt-design-tokens';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -159,15 +159,21 @@ export default function Toast({
     !!thumbnail?.avatar &&
     // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
     Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar';
-  const classname = styles.toast;
-  const vrClassname = classnames(styles.toast, {
-    [styles.toastButton]: true,
-    [styles.avatarImage]: isAvatar || isImage,
-  });
   return (
-    <div className={isInExperiment ? vrClassname : classname} role="status">
-      {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'. */}
-      <Box color={containerColor} paddingX={4} paddingY={3} rounding={4} width="100%">
+    <div className={styles.toast} role="status">
+      <Box
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
+        color={containerColor}
+        dangerouslySetInlineStyle={{
+          __style: {
+            paddingRight: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
+            paddingLeft: TOKEN_ROUNDING_400,
+          },
+        }}
+        paddingY={3}
+        rounding={4}
+        width="100%"
+      >
         <Flex alignItems="center" gap={4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
             <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>

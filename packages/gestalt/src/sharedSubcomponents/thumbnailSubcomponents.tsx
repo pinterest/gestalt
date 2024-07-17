@@ -16,8 +16,10 @@ import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';
 import Text from '../Text';
+import useInExperiment from '../useInExperiment';
 
-const SIZE_THUMBNAIL = 36;
+const SIZE_THUMBNAIL = 32;
+const SIZE_VR_THUMBNAIL = 36;
 const SIZE_ICON = 24;
 
 export function Message({
@@ -122,9 +124,18 @@ export function Message({
 }
 
 export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Box aria-hidden>
-      <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
+      <Mask
+        height={isInExperiment ? SIZE_VR_THUMBNAIL : SIZE_THUMBNAIL}
+        rounding={2}
+        width={isInExperiment ? SIZE_VR_THUMBNAIL : SIZE_THUMBNAIL}
+      >
         {thumbnail}
       </Mask>
     </Box>

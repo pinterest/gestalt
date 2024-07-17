@@ -6,9 +6,11 @@ exports[`<Toast /> Error Toast 1`] = `
   role="status"
 >
   <div
-    className="box errorBase paddingX4 paddingY3 rounding4"
+    className="box errorBase paddingY3 rounding4"
     style={
       Object {
+        "paddingLeft": "var(--rounding-400)",
+        "paddingRight": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -58,9 +60,11 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingLeft": "var(--rounding-400)",
+        "paddingRight": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -140,9 +144,11 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingLeft": "var(--rounding-400)",
+        "paddingRight": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -161,8 +167,8 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="Mask rounding2 willChangeTransform"
             style={
               Object {
-                "height": 36,
-                "width": 36,
+                "height": 32,
+                "width": 32,
               }
             }
           >
@@ -260,9 +266,11 @@ exports[`<Toast /> Text + Image 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingLeft": "var(--rounding-400)",
+        "paddingRight": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -281,8 +289,8 @@ exports[`<Toast /> Text + Image 1`] = `
             className="Mask rounding2 willChangeTransform"
             style={
               Object {
-                "height": 36,
-                "width": 36,
+                "height": 32,
+                "width": 32,
               }
             }
           >
@@ -351,9 +359,11 @@ exports[`<Toast /> Text Only 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingLeft": "var(--rounding-400)",
+        "paddingRight": "var(--rounding-400)",
         "width": "100%",
       }
     }
