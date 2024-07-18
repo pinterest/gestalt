@@ -18,7 +18,7 @@ import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import FormLabel from '../sharedSubcomponents/FormLabel';
 import { MaxLength } from '../TextField';
-import typography from '../Typography.css';
+import typographyStyle from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
@@ -211,7 +211,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           [focusStyles.accessibilityOutlineFocus]: focused,
           [styles.textFieldWrapper]: true,
         }
-      : { [typography.truncate]: true },
+      : { [typographyStyle.truncate]: true },
   );
 
   const unstyledClasses = classnames(styles.unstyledTextField);
