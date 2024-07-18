@@ -202,13 +202,13 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
   );
 
   const VRclassName = classnames(
-    styles.vrInheritColor,
     styles.noOutline,
     styles.inheritColor,
     getRoundingClassName(rounding),
     layoutStyles[display],
     touchableStyles.tapTransition,
     {
+      [styles.vrInheritColor]: isInline,
       [styles.standalone]: !isInline,
       [styles.underline]: underlineStyle === 'always',
       [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',

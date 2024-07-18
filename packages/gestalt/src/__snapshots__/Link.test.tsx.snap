@@ -2,7 +2,7 @@
 
 exports[`default 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -22,7 +22,7 @@ exports[`default 1`] = `
 
 exports[`external link with nofollow 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -61,7 +61,7 @@ exports[`external link with nofollow 1`] = `
 
 exports[`inline and auto underline 1`] = `
 <a
-  className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline accessibilityOutline"
+  className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -81,7 +81,7 @@ exports[`inline and auto underline 1`] = `
 
 exports[`inline and overriden underline="hover" 1`] = `
 <a
-  className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -101,7 +101,7 @@ exports[`inline and overriden underline="hover" 1`] = `
 
 exports[`inline and overriden underline="none" 1`] = `
 <a
-  className="noOutline inheritColor rounding0 inlineBlock tapTransition noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 inlineBlock tapTransition noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -121,7 +121,7 @@ exports[`inline and overriden underline="none" 1`] = `
 
 exports[`regular 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -141,7 +141,7 @@ exports[`regular 1`] = `
 
 exports[`target blank 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -162,7 +162,7 @@ exports[`target blank 1`] = `
 
 exports[`target null 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -182,7 +182,7 @@ exports[`target null 1`] = `
 
 exports[`target self 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -203,7 +203,7 @@ exports[`target self 1`] = `
 
 exports[`with custom rounding, and tapStyle 1`] = `
 <a
-  className="noOutline inheritColor pill block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor pill block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}
@@ -223,7 +223,7 @@ exports[`with custom rounding, and tapStyle 1`] = `
 
 exports[`with onClick 1`] = `
 <a
-  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
   href="https://example.com"
   onBlur={[Function]}
   onClick={[Function]}

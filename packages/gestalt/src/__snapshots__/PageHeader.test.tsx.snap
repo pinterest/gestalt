@@ -627,7 +627,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       }
                     >
                       <a
-                        className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline accessibilityOutline"
+                        className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
                         href="www.pinterest.com"
                         onBlur={[Function]}
                         onClick={[Function]}

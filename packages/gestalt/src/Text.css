@@ -4,12 +4,6 @@
 
 /* Link management */
 
-/* .standalone is so we can select base on class */
-
-.standalone {
-  color: inherit;
-}
-
 .noOutline {
   outline: none;
 }
@@ -41,6 +35,26 @@
   color: inherit; /* Links should have the correct underline color */
 }
 
+/* .standalone is so we can select base on class */
+
+.standalone {
+  color: inherit;
+}
+
+a.standalone {
+  color: var(--color-text-link);
+}
+
+a.standalone:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+a.standalone:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+/* .vrInheritColor is so we can select base on class */
+
 .vrInheritColor {
   color: inherit;
 }
@@ -51,6 +65,14 @@
 
 .dark a.vrInheritColor:active {
   color: var(--sema-color-pressed-text-dark);
+}
+
+.default a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-default);
+}
+
+.default a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-default);
 }
 
 .inverse a.vrInheritColor:hover {
@@ -77,18 +99,11 @@
   color: var(--sema-color-pressed-text-light);
 }
 
-.link,
-.default a.standalone {
-  color: var(--color-text-link);
-}
-
-.link a.vrInheritColor:hover,
-.default a.standalone:hover {
+.link a.vrInheritColor:hover {
   color: var(--sema-color-hover-text-link);
 }
 
-.link a.vrInheritColor:active,
-.default a.standalone:active {
+.link a.vrInheritColor:active {
   color: var(--sema-color-pressed-text-link);
 }
 
@@ -142,7 +157,7 @@
   text-decoration: none;
 }
 
-/* Color */
+/* Text color */
 
 .dark {
   color: var(--color-text-dark);
@@ -161,10 +176,6 @@
   color: var(--color-text-disabled);
 }
 
-.inverse {
-  color: var(--color-text-inverse);
-}
-
 .error {
   color: var(--color-text-error);
 }
@@ -178,24 +189,8 @@
   font-weight: var(--font-weight-semibold) !important;
 }
 
-.subtle {
-  color: var(--color-text-subtle);
-}
-
-.warning {
-  color: var(--color-text-warning);
-}
-
-.recommendation {
-  color: var(--color-icon-recommendation);
-}
-
-.success {
-  color: var(--color-text-success);
-}
-
-.shopping {
-  color: var(--color-text-shopping);
+.inverse {
+  color: var(--color-text-inverse);
 }
 
 .light {
@@ -205,4 +200,28 @@
 .textColorOverrideLight * {
   /* stylelint-disable-next-line declaration-no-important */
   color: var(--color-text-light) !important;
+}
+
+.link {
+  color: var(--color-text-link);
+}
+
+.recommendation {
+  color: var(--color-icon-recommendation);
+}
+
+.shopping {
+  color: var(--color-text-shopping);
+}
+
+.subtle {
+  color: var(--color-text-subtle);
+}
+
+.success {
+  color: var(--color-text-success);
+}
+
+.warning {
+  color: var(--color-text-warning);
 }

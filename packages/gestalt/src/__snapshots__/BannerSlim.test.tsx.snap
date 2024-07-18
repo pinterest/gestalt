@@ -93,7 +93,7 @@ exports[`BannerSlim renders complex message 1`] = `
           is regularly hitting its
            
           <a
-            className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline accessibilityOutline"
+            className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
             href="http://www.pinterest.com"
             onBlur={[Function]}
             onClick={[Function]}
@@ -393,7 +393,7 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
           >
             <a
               aria-label="Learn more Pinterest.com"
-              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
               href="http://www.pinterest.com"
               onBlur={[Function]}
               onClick={[Function]}

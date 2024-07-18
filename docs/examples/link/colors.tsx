@@ -3,6 +3,7 @@ import { Box, Flex, Label, Link, Switch, Text } from 'gestalt';
 
 export default function Example() {
   const [showIcon, setShowIcon] = useState(false);
+  const [display, setDisplay] = useState(false);
 
   return (
     <Flex
@@ -13,22 +14,32 @@ export default function Example() {
       justifyContent="center"
       width="100%"
     >
-      <Flex gap={{ column: 0, row: 2 }}>
-        <Switch
-          id="compress-buttons"
-          onChange={() => setShowIcon((value) => !value)}
-          switched={showIcon}
-        />
-        <Box flex="grow" paddingX={2}>
-          <Label htmlFor="compress-buttons">
-            <Text>Show external icon</Text>
-          </Label>
-        </Box>
+      <Flex gap={7}>
+        <Flex gap={2}>
+          <Switch id="display" onChange={() => setDisplay((value) => !value)} switched={display} />
+          <Box flex="grow" paddingX={2}>
+            <Label htmlFor="display">
+              <Text>{display ? 'Inlined link' : 'Standalone link'}</Text>
+            </Label>
+          </Box>
+        </Flex>
+        <Flex gap={2}>
+          <Switch
+            id="icon-display"
+            onChange={() => setShowIcon((value) => !value)}
+            switched={showIcon}
+          />
+          <Box flex="grow" paddingX={2}>
+            <Label htmlFor="icon-display">
+              <Text>Show external icon</Text>
+            </Label>
+          </Box>
+        </Flex>
       </Flex>
 
       <Flex alignItems="start" direction="column" gap={{ column: 3, row: 0 }}>
         <Text color="default">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -40,7 +51,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="subtle">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -53,7 +64,7 @@ export default function Example() {
         </Text>
         <Box color="inverse" padding={1}>
           <Text color="inverse">
-            <Link
+            <Link display={display ? 'inline' : undefined}
               externalLinkIcon={showIcon ? 'default' : 'none'}
               href="www.pinterest.com"
               onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -66,7 +77,7 @@ export default function Example() {
           </Text>
         </Box>
         <Text color="disabled">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -78,7 +89,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="error">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -90,7 +101,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="success">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -102,7 +113,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="warning">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -114,7 +125,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="recommendation">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -126,7 +137,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="link">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -138,7 +149,7 @@ export default function Example() {
           </Link>
         </Text>
         <Text color="shopping">
-          <Link
+          <Link display={display ? 'inline' : undefined}
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
             onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -151,7 +162,7 @@ export default function Example() {
         </Text>
         <Box color="primary" padding={1}>
           <Text color="light">
-            <Link
+            <Link display={display ? 'inline' : undefined}
               externalLinkIcon={showIcon ? 'default' : 'none'}
               href="www.pinterest.com"
               onClick={({ event, dangerouslyDisableOnNavigation }) => {
@@ -165,7 +176,7 @@ export default function Example() {
         </Box>
         <Box color="infoWeak" padding={1}>
           <Text color="dark">
-            <Link
+            <Link display={display ? 'inline' : undefined}
               externalLinkIcon={showIcon ? 'default' : 'none'}
               href="www.pinterest.com"
               onClick={({ event, dangerouslyDisableOnNavigation }) => {
