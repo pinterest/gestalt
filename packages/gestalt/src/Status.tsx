@@ -58,6 +58,10 @@ type StatusType =
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * If not using `title`, provide an accessibility label to give the user context about the icon. Be sure to [localize](https://gestalt.pinterest.systems/web/status#Localization) the label.
    */
   accessibilityLabel?: string;
@@ -82,12 +86,12 @@ type Props = {
  * ![Status dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Status-dark.spec.ts-snapshots/Status-dark-chromium-darwin.png)
  *
  */
-export default function Status({ accessibilityLabel, subtext, title, type }: Props) {
+export default function Status({ accessibilityLabel, subtext, title, type, dataTestId }: Props) {
   const { icon, color } = ICON_COLOR_MAP[type];
   const isTextNode = title && isComponentNode({ text: title, components: ['Text'] });
 
   return (
-    <Flex direction="column">
+    <Flex direction="column" data-test-id={dataTestId}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
         {isTextNode && <OverridingSpan size="200" textElement={title ?? ''} />}
