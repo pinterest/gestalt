@@ -40,6 +40,10 @@ const COLORS_BY_TYPE = Object.freeze({
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Allows to insert a custom button for user interaction. Do not use except for allowed cases where primaryAction doesn't support functionality required in it.
    */
   _dangerouslySetPrimaryAction?: ReactNode;
@@ -111,6 +115,7 @@ type Props = {
  * ![Toast light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Toast.spec.ts-snapshots/Toast-chromium-darwin.png)
  */
 export default function Toast({
+  dataTestId,
   _dangerouslySetPrimaryAction,
   _dangerouslySetThumbnail,
   dismissButton,
@@ -164,6 +169,7 @@ export default function Toast({
       <Box
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
         color={containerColor}
+        data-test-id={dataTestId}
         dangerouslySetInlineStyle={{
           __style: {
             paddingRight: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
