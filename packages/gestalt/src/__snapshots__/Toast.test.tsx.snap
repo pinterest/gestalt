@@ -9,8 +9,8 @@ exports[`<Toast /> Error Toast 1`] = `
     className="box errorBase paddingY3 rounding4"
     style={
       Object {
-        "paddingLeft": "var(--rounding-400)",
-        "paddingRight": "var(--rounding-400)",
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -63,8 +63,8 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
     className="box inverse paddingY3 rounding4"
     style={
       Object {
-        "paddingLeft": "var(--rounding-400)",
-        "paddingRight": "var(--rounding-400)",
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -147,8 +147,8 @@ exports[`<Toast /> Text + Image + Button 1`] = `
     className="box inverse paddingY3 rounding4"
     style={
       Object {
-        "paddingLeft": "var(--rounding-400)",
-        "paddingRight": "var(--rounding-400)",
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -245,7 +245,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="button inline accessibilityOutline tapTransition sm gray enabled childrenDiv"
+            className="button inline accessibilityOutline tapTransition sm white enabled childrenDiv"
           >
             <div
               className="Text fontSize200 default alignCenter fontWeightSemiBold"
@@ -269,8 +269,8 @@ exports[`<Toast /> Text + Image 1`] = `
     className="box inverse paddingY3 rounding4"
     style={
       Object {
-        "paddingLeft": "var(--rounding-400)",
-        "paddingRight": "var(--rounding-400)",
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -362,8 +362,8 @@ exports[`<Toast /> Text Only 1`] = `
     className="box inverse paddingY3 rounding4"
     style={
       Object {
-        "paddingLeft": "var(--rounding-400)",
-        "paddingRight": "var(--rounding-400)",
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
