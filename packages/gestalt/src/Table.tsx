@@ -15,6 +15,10 @@ import TableSortableHeaderCell from './TableSortableHeaderCell';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Must be instances of Table.Header, Table.Body, and/or Table.Footer components. See the [Subcomponent section](https://gestalt.pinterest.systems/web/table#Subcomponents) to learn more.
    */
   children: ReactNode;
@@ -44,6 +48,7 @@ type Props = {
  */
 export default function Table({
   accessibilityLabel,
+  dataTestId,
   borderStyle,
   children,
   maxHeight,
@@ -84,6 +89,7 @@ export default function Table({
   return (
     <Box
       overflow="auto"
+      data-test-id={dataTestId}
       {...(borderStyle === 'sm' ? { borderStyle: 'sm', rounding: 1 } : {})}
       // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
       ref={tableRef}
