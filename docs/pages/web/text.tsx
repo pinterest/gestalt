@@ -242,8 +242,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <MainSection.Subsection
           description={`There are multiple styles, such as bold and italic, that we can attach to the Text component.
 
-Note: Use "underline" style with caution. It should be limited to links and it's already internally managed by the component to adhere to best practices`
-        }
+Note: Use "underline" style with caution. It should be limited to links and it's already internally managed by the component to adhere to best practices`}
           title="Styles"
         >
           <SandpackExample code={variantStyles} name="Variants - Styles" previewHeight={200} />
