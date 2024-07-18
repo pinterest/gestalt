@@ -16,6 +16,20 @@ describe('TagData', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('TagData with dataTestId', () => {
+    const component = create(
+      <TagData
+        onTap={() => {}}
+        selected
+        text="Text Impressions"
+        dataTestId='some-test-id'
+      />,
+    );
+    const testInstance = component.root;
+    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    expect(tooltipElement).not.toBeNull();
+  });
+
   it('renders tagdata in RTL mode as expected', () => {
     const tree = create(
       <html dir="rtl" lang="en">

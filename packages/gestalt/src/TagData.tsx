@@ -56,6 +56,10 @@ type TooltipProps = {
 
 export type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * If your app uses [DefaultLabelProvider](https://gestalt.pinterest.systems/web/utilities/defaultlabelprovider), a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
   accessibilityRemoveIconLabel?: string;
@@ -118,6 +122,7 @@ const sizes = {
  * ![TagData dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/tagdata-dark.spec.ts-snapshots/tagdata-dark-chromium-darwin.png)
  */
 export default function TagData({
+  dataTestId,
   accessibilityRemoveIconLabel,
   baseColor = 'primary',
   color = '05',
@@ -198,6 +203,7 @@ export default function TagData({
       <MaybeTooltip disabled={disabled} tooltip={tooltip}>
         <TapArea
           disabled={disabled}
+          data-test-id={dataTestId}
           fullHeight
           fullWidth
           onBlur={handleOnBlur}
