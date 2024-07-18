@@ -36,9 +36,11 @@ export default function OverridingSpan({
       ? styles.textColorOverrideDark
       : styles.textColorOverrideLight;
   }
-  // Error type enforces bold weight
-  if (isError && !isInExperiment) {
-    textColorOverrideStyles = styles.textColorOverrideError;
+  // Error type enforces bold weight and red color
+  if (isError) {
+    textColorOverrideStyles = isInExperiment
+      ? styles.textColorOverrideErrorVr
+      : styles.textColorOverrideError;
   }
 
   return (

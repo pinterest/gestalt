@@ -1,6 +1,7 @@
 import { ComponentProps } from 'react';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
+import useInExperiment from '../useInExperiment';
 
 type Props =
   | {
@@ -22,6 +23,11 @@ type Props =
     };
 
 export default function PrimaryAction({ accessibilityLabel, label, size = 'lg', ...props }: Props) {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   if (props.role === 'link')
     return (
       <ButtonLink
@@ -39,7 +45,7 @@ export default function PrimaryAction({ accessibilityLabel, label, size = 'lg', 
   return (
     <Button
       accessibilityLabel={accessibilityLabel}
-      color="white"
+      color={isInExperiment ? 'white' : undefined}
       onClick={props.onClick}
       size={size}
       text={label}

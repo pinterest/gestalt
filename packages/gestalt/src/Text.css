@@ -19,6 +19,11 @@
   font-weight: var(--font-weight-semibold) !important;
 }
 
+.textColorOverrideErrorVr * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+}
+
 .default {
   color: var(--color-text-default);
 }
