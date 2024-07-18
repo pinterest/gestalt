@@ -53,6 +53,27 @@ describe('<Tabs />', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  test('Tabs renders with dataTestId', () => {
+    const component = create(
+      <Tabs
+        activeTabIndex={0}
+        dataTestId='some-test-id'
+        onChange={() => {}}
+        tabs={[
+          { text: 'News', href: '#' },
+          { text: 'You', href: '#' },
+        ]}
+      />,
+    );
+    const testInstance = component.root;
+    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id-0');
+    expect(tooltipElement).not.toBeNull();
+
+    const testInstance2 = component.root;
+    const tooltipElement2 = testInstance2.find((instance:any) => instance.props['data-test-id'] === 'some-test-id-1');
+    expect(tooltipElement2).not.toBeNull();
+  });
+
   test('matches snapshot with wrap', () => {
     const tree = create(
       <Tabs

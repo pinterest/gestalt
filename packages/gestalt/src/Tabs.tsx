@@ -191,6 +191,10 @@ TabWithForwardRef.displayName = 'Tab';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The index of the active tab.
    */
   activeTabIndex: number;
@@ -227,7 +231,7 @@ type Props = {
  * ![Tabs dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tabs-dark.spec.ts-snapshots/Tabs-dark-chromium-darwin.png)
  *
  */
-export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, tabs, wrap }: Props) {
+export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, tabs, wrap, dataTestId }: Props) {
   return (
     <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
@@ -235,6 +239,7 @@ export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, ta
           key={id || `${href}_${index}`}
           // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
           ref={ref}
+          data-test-id={`${dataTestId}-${index}`}
           bgColor={bgColor}
           href={href}
           id={id}
