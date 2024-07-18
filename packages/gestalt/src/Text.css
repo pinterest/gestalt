@@ -4,10 +4,6 @@
 
 /* Link management */
 
-.inheritColor {
-  color: inherit; /* Links should have the correct underline color */
-}
-
 .noOutline {
   outline: none;
 }
@@ -22,9 +18,20 @@
   text-decoration: underline;
 }
 
+.outlineFocus:focus {
+  outline: 4px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
+.outlineFocusVR:focus {
+  border-radius: var(--rounding-100);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
 /* Link color */
 
-.inheritTextColor {
+.inheritColor {
   color: inherit; /* Links should have the correct underline color */
 }
 

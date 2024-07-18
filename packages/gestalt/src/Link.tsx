@@ -194,25 +194,24 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       [styles.hoverUnderline]: underlineStyle === 'hover',
       [styles.underline]: underlineStyle === 'always',
       [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.outlineFocus]: isFocusVisible,
       [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
   );
 
   const VRclassName = classnames(
     styles.noOutline,
-    styles.inheritTextColor,
+    styles.inheritColor,
     getRoundingClassName(rounding),
     layoutStyles[display],
     touchableStyles.tapTransition,
     {
-      [styles.hoverNoUnderline]: underlineStyle === 'always',
-      [styles.hoverUnderline]: underlineStyle === 'hover',
       [styles.underline]: underlineStyle === 'always',
       [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.hoverUnderline]: underlineStyle === 'hover',
+      [styles.outlineFocusVR]: isFocusVisible,
       [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
   );
