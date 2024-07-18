@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../Text.css';
 import typography from '../Typography.css';
+import useInExperiment from '../useInExperiment';
 
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
@@ -18,6 +19,11 @@ export default function OverridingSpan({
   inverseTextColor?: boolean;
   size?: Size;
 }) {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
@@ -31,7 +37,7 @@ export default function OverridingSpan({
       : styles.textColorOverrideLight;
   }
   // Error type enforces bold weight
-  if (isError) {
+  if (isError && !isInExperiment) {
     textColorOverrideStyles = styles.textColorOverrideError;
   }
 

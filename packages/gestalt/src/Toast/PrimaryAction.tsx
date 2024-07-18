@@ -39,6 +39,7 @@ export default function PrimaryAction({ accessibilityLabel, label, size = 'lg', 
   return (
     <Button
       accessibilityLabel={accessibilityLabel}
+      color="white"
       onClick={props.onClick}
       size={size}
       text={label}
