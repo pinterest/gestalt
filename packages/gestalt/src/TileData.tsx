@@ -52,6 +52,10 @@ type TrendObject = {
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * A valid color code from the [data visualization palette](https://gestalt.pinterest.systems/foundations/data_visualization/color/palette).
    */
   color?: DataVisualizationColors;
@@ -106,6 +110,7 @@ type Props = {
  */
 export default function TileData({
   color = '05',
+  dataTestId,
   disabled = false,
   id,
   onTap,
@@ -150,6 +155,7 @@ export default function TileData({
       <Box>
         <TapArea
           disabled={disabled}
+          data-test-id={dataTestId}
           onBlur={handleOnBlur}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}
