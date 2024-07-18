@@ -1,3 +1,9 @@
+## 155.4.2 (Jul 18, 2024)
+
+### Patch
+
+- Link: external icon inheriting color + cleanups + TS removal + docs refactors ([#3687](https://github.com/pinterest/gestalt/pull/3687)) - [Preview link](https://deploy-preview-3687--gestalt.netlify.app?devexample=true)
+
 ## 155.4.1 (Jul 18, 2024)
 
 ### Patch
