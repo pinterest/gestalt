@@ -1,3 +1,9 @@
+## 155.4.1 (Jul 18, 2024)
+
+### Patch
+
+- SideNavigation: Use outline as border ([#3660](https://github.com/pinterest/gestalt/pull/3660)) - [Preview link](https://deploy-preview-3660--gestalt.netlify.app?devexample=true)
+
 ## 155.4.0 (Jul 18, 2024)
 
 ### Minor
