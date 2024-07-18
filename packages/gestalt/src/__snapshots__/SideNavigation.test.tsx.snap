@@ -119,9 +119,9 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -300,9 +300,9 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -434,9 +434,9 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -646,9 +646,9 @@ exports[`SideNavigation renders Sections 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -770,9 +770,9 @@ exports[`SideNavigation renders basic Item 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -892,9 +892,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -971,9 +971,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -1072,9 +1072,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -1152,9 +1152,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -1270,9 +1270,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -1455,9 +1455,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -1575,9 +1575,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
@@ -1633,9 +1633,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
@@ -1731,9 +1731,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -1788,9 +1788,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -1894,9 +1894,9 @@ exports[`SideNavigation renders static group 1`] = `
                     className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
-                        "border": undefined,
                         "height": undefined,
                         "minHeight": 44,
+                        "outline": undefined,
                         "paddingInlineEnd": "var(--space-400)",
                         "paddingInlineStart": "var(--space-400)",
                         "width": undefined,
@@ -1975,9 +1975,9 @@ exports[`SideNavigation renders static group 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
@@ -2012,9 +2012,9 @@ exports[`SideNavigation renders static group 1`] = `
                         className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
-                            "border": undefined,
                             "height": undefined,
                             "minHeight": 44,
+                            "outline": undefined,
                             "paddingInlineEnd": "var(--space-400)",
                             "paddingInlineStart": "var(--space-1200)",
                             "width": undefined,
@@ -2071,9 +2071,9 @@ exports[`SideNavigation renders static group 1`] = `
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -2128,9 +2128,9 @@ exports[`SideNavigation renders static group 1`] = `
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
