@@ -24,21 +24,6 @@ describe('TileData', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('TileData renders with dataTestId', () => {
-    const component = create(
-      <TileData
-        onTap={() => {}}
-        selected
-        dataTestId='some-test-id'
-        title="Text Impressions"
-        value="1.23M"
-      />,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
-    expect(tooltipElement).not.toBeNull();
-  });
-
   test('TileData renders all colors as expected', () => {
     const colors = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
     const component = create(
@@ -122,5 +107,20 @@ describe('TileData', () => {
     );
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
+  });
+
+  test('TileData renders with dataTestId', () => {
+    const component = create(
+      <TileData
+        onTap={() => {}}
+        selected
+        dataTestId='some-test-id'
+        title="Text Impressions"
+        value="1.23M"
+      />,
+    );
+    const testInstance = component.root;
+    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    expect(tooltipElement).not.toBeNull();
   });
 });
