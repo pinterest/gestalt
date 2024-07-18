@@ -15,12 +15,10 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName';
-import Icon from './Icon';
 import layoutStyles from './Layout.css';
-import styles from './Link.css';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
-import textStyles from './Typography.css';
+import styles from './Text.css';
 import useFocusVisible from './useFocusVisible';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
@@ -40,7 +38,6 @@ type ExternalLinkIcon =
   | 'none'
   | 'default'
   | {
-      color: ComponentProps<typeof Icon>['color'];
       size: ComponentProps<typeof Text>['size'];
     };
 
@@ -179,15 +176,15 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
   }
 
   const className = classnames(
-    styles.link,
-    touchableStyles.tapTransition,
+    styles.noOutline,
     getRoundingClassName(rounding),
     layoutStyles[display],
+    touchableStyles.tapTransition,
     {
-      [textStyles.underline]: underlineStyle === 'always',
       [styles.hoverNoUnderline]: underlineStyle === 'always',
-      [textStyles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
       [styles.hoverUnderline]: underlineStyle === 'hover',
+      [styles.underline]: underlineStyle === 'always',
+      [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
       [focusStyles.hideOutline]: !isFocusVisible,
       [focusStyles.accessibilityOutline]: isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
@@ -228,9 +225,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       id={id}
       onBlur={(event) => {
         handleBlur();
-        if (onBlur) {
-          onBlur({ event });
-        }
+        onBlur?.({ event });
       }}
       onClick={(event) => {
         let defaultOnNavigationIsEnabled = true;
@@ -238,45 +233,36 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
           defaultOnNavigationIsEnabled = false;
         };
 
-        if (onClick) {
-          onClick({
-            event,
-            dangerouslyDisableOnNavigation,
-          });
-        }
+        onClick?.({
+          event,
+          dangerouslyDisableOnNavigation,
+        });
+
         if (onNavigationHandler && defaultOnNavigationIsEnabled) {
           onNavigationHandler({ event });
         }
       }}
       onFocus={(event) => {
-        if (onFocus) {
-          onFocus({ event });
-        }
+        onFocus?.({ event });
       }}
       onKeyPress={handleKeyPress}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchMove={handleTouchMove}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
-      // @ts-expect-error - TS2322 - Type '"_self" | "_blank" | null' is not assignable to type 'HTMLAttributeAnchorTarget | undefined'.
-      target={target ? `_${target}` : null}
+      target={target ? `_${target}` : undefined}
     >
       {children}
       {externalLinkIcon === 'none' ? null : (
         <Box display="inlineBlock" marginStart={1}>
           <AccessibilityOpenNewTab
-            color={
-              externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'
-            }
             size={
               externalLinkIcon === 'default'
                 ? externalLinkIconMap['300']

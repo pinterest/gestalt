@@ -8,7 +8,7 @@ export default function Example() {
           Visit{' '}
           <Link
             display="inline"
-            externalLinkIcon={{ size: '100', color: 'dark' }}
+            externalLinkIcon={{ size: '100' }}
             href="https://authy.com/download/"
             rel="nofollow"
             target="blank"
@@ -20,7 +20,7 @@ export default function Example() {
         <Text color="success" inline size="400">
           <Link
             display="inline"
-            externalLinkIcon={{ size: '400', color: 'success' }}
+            externalLinkIcon={{ size: '400' }}
             href="https://authy.com/download/"
             rel="nofollow"
             target="blank"

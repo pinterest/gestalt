@@ -2,6 +2,57 @@
   composes: antialiased sansSerif from "./Typography.css";
 }
 
+/* Link management */
+
+.noOutline {
+  color: inherit; /* Links should have the correct underline color */
+  outline: none;
+}
+
+.hoverNoUnderline:hover,
+.hoverNoUnderline:focus {
+  text-decoration: none;
+}
+
+.hoverUnderline:hover,
+.hoverUnderline:focus {
+  text-decoration: underline;
+}
+
+.link {
+  color: var(--color-text-link);
+}
+
+/* Decoration */
+
+.underline {
+  text-decoration: underline;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+
+/* Color */
+
+.dark {
+  color: var(--color-text-dark);
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}
+
+.default {
+  color: var(--color-text-default);
+}
+
+.disabled {
+  color: var(--color-text-disabled);
+}
+
 .inverse {
   color: var(--color-text-inverse);
 }
@@ -17,14 +68,6 @@
   color: var(--color-text-light) !important;
   /* stylelint-disable-next-line declaration-no-important */
   font-weight: var(--font-weight-semibold) !important;
-}
-
-.default {
-  color: var(--color-text-default);
-}
-
-.disabled {
-  color: var(--color-text-disabled);
 }
 
 .subtle {
@@ -47,9 +90,6 @@
   color: var(--color-text-shopping);
 }
 
-.link {
-  color: var(--color-text-link);
-}
 
 .light {
   color: var(--color-text-light);
@@ -58,13 +98,4 @@
 .textColorOverrideLight * {
   /* stylelint-disable-next-line declaration-no-important */
   color: var(--color-text-light) !important;
-}
-
-.dark {
-  color: var(--color-text-dark);
-}
-
-.textColorOverrideDark * {
-  /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-text-dark) !important;
 }

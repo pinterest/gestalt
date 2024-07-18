@@ -85,7 +85,7 @@ export default function Footer() {
         >
           <Text inline size="100">
             <Link
-              externalLinkIcon={{ color: 'default', size: '100' }}
+              externalLinkIcon={{ size: '100' }}
               href="https://www.netlify.com/"
               target="blank"
             >

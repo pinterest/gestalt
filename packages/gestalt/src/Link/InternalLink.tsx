@@ -7,9 +7,8 @@ import focusStyles from '../Focus.css';
 import getRoundingClassName, { Rounding } from '../getRoundingClassName';
 import iconButtonStyles from '../IconButton.css';
 import layoutStyles from '../Layout.css';
-import linkStyles from '../Link.css';
 import touchableStyles from '../TapArea.css';
-import textStyles from '../Typography.css';
+import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
 
@@ -112,8 +111,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const isIconButton = wrappedComponent === 'iconButton';
 
   const className = classnames(
-    linkStyles.link,
-    textStyles.noUnderline,
+    styles.link,
+    styles.noUnderline,
     touchableStyles.tapTransition,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
     {
@@ -180,8 +179,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       onClick({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
-
   return (
+    // @ts-expect-error TS2322 Types of property '"aria-selected"' are incompatible. Type '"section" | undefined' is not assignable to type 'Booleanish | undefined'
     <a
       ref={innerRef}
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
@@ -232,19 +231,15 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchMove={handleTouchMove}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
-      // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
-      tabIndex={disabled ? null : tabIndex}
+      tabIndex={disabled ? undefined : tabIndex}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
-      // @ts-expect-error - TS2322 - Type '"_self" | "_blank" | null' is not assignable to type 'HTMLAttributeAnchorTarget | undefined'.
-      target={target ? `_${target}` : null}
+      target={target ? `_${target}` : undefined}
     >
       {children}
     </a>
