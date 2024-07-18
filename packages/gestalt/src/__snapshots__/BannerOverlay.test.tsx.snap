@@ -81,7 +81,7 @@ Array [
               Saved to
                
               <a
-                className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+                className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -196,7 +196,7 @@ Array [
                 Saved to
                  
                 <a
-                  className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+                  className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
                   href="https://www.pinterest.com/search/pins/?q=home%20decor"
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -314,7 +314,7 @@ Array [
               Saved to
                
               <a
-                className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+                className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
                 href="https://www.pinterest.com/search/pins/?q=home%20decor"
                 onBlur={[Function]}
                 onClick={[Function]}
@@ -429,7 +429,7 @@ Array [
                 Saved to
                  
                 <a
-                  className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+                  className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
                   href="https://www.pinterest.com/search/pins/?q=home%20decor"
                   onBlur={[Function]}
                   onClick={[Function]}

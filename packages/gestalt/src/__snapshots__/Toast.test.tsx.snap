@@ -84,7 +84,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
             Saved to
              
             <a
-              className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -205,7 +205,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             Saved to
              
             <a
-              className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -326,7 +326,7 @@ exports[`<Toast /> Text + Image 1`] = `
             Saved to
              
             <a
-              className="noOutline rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline accessibilityOutline"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}

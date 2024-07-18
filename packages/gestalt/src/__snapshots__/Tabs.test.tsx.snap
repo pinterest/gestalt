@@ -12,7 +12,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     >
       <a
         aria-current="page"
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -86,7 +86,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
       className="box paddingY3"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -148,7 +148,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     >
       <a
         aria-current="page"
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -236,7 +236,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
       className="box paddingY3"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -312,7 +312,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     >
       <a
         aria-current="page"
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -386,7 +386,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
       className="box paddingY3"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}

@@ -22,7 +22,7 @@ exports[`TableOfContents renders 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -89,7 +89,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -147,7 +147,7 @@ exports[`TableOfContents renders nested items 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -194,7 +194,7 @@ exports[`TableOfContents renders nested items 1`] = `
           className="noStyle marginTop1"
         >
           <a
-            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
             href="#"
             onBlur={[Function]}
             onClick={[Function]}
@@ -239,7 +239,7 @@ exports[`TableOfContents renders nested items 1`] = `
           className="noStyle marginTop1"
         >
           <a
-            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
             href="#"
             onBlur={[Function]}
             onClick={[Function]}
@@ -299,7 +299,7 @@ exports[`TableOfContents renders without title 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -344,7 +344,7 @@ exports[`TableOfContents renders without title 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}

@@ -177,6 +177,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 
   const className = classnames(
     styles.noOutline,
+    styles.inheritColor,
     getRoundingClassName(rounding),
     layoutStyles[display],
     touchableStyles.tapTransition,

@@ -4,8 +4,12 @@
 
 /* Link management */
 
-.noOutline {
+
+.inheritColor {
   color: inherit; /* Links should have the correct underline color */
+}
+
+.noOutline {
   outline: none;
 }
 

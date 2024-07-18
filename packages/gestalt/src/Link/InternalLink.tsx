@@ -111,7 +111,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const isIconButton = wrappedComponent === 'iconButton';
 
   const className = classnames(
-    styles.link,
+    styles.noOutline,
+    styles.inheritColor,
     styles.noUnderline,
     touchableStyles.tapTransition,
     getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),

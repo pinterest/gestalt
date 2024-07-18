@@ -416,7 +416,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -571,7 +571,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
       >
         <a
           aria-label="Learn more: bannercallout messages"
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg transparent"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg transparent"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -609,7 +609,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -715,7 +715,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg white"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
