@@ -8,6 +8,10 @@ import TableOfContentsItem from './TableOfContentsItem';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * String that clients such as VoiceOver will read to describe the element. See [accessibility](https://gestalt.pinterest.systems/web/tableofcontents#Accessibility) section to learn more.
    */
   accessibilityLabel?: string;
@@ -27,13 +31,14 @@ type Props = {
  * ![TableOfContents light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents.spec.ts-snapshots/TableOfContents-chromium-darwin.png)
  * ![TableOfContents dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents-dark.spec.ts-snapshots/TableOfContents-dark-chromium-darwin.png)
  */
-export default function TableOfContents({ accessibilityLabel, title, children }: Props) {
+export default function TableOfContents({ accessibilityLabel, title, children, dataTestId }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } =
     useDefaultLabelContext('TableOfContents');
 
   return (
     <div
       aria-label={accessibilityLabel ?? accessibilityLabelDefault}
+      data-test-id={dataTestId}
       className={styles.container}
       role="navigation"
     >
