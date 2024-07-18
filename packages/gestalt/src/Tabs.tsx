@@ -239,7 +239,7 @@ export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, ta
           key={id || `${href}_${index}`}
           // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
           ref={ref}
-          data-test-id={`${dataTestId}-${index}`}
+          data-test-id={dataTestId &&`${dataTestId}-${index}`}
           bgColor={bgColor}
           href={href}
           id={id}
