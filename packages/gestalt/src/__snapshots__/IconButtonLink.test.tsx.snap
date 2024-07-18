@@ -80,7 +80,6 @@ exports[`IconButtonLink renders disabled 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="noopener noreferrer nofollow"
-  tabIndex={null}
   target="_blank"
 >
   <div
@@ -278,7 +277,6 @@ exports[`IconButtonLink renders with tooltip 1`] = `
       onTouchStart={[Function]}
       rel=""
       tabIndex={0}
-      target={null}
     >
       <div
         className="pog transparent"

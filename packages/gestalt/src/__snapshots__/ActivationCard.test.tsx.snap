@@ -334,7 +334,6 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -493,7 +492,6 @@ exports[`<ActivationCard /> message + title + link 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"

@@ -29,7 +29,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -104,7 +103,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -167,7 +165,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -256,7 +253,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -333,7 +329,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -408,7 +403,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"

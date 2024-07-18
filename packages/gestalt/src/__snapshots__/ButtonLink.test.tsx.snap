@@ -68,7 +68,6 @@ exports[`ButtonLink renders disabled 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="noopener noreferrer nofollow"
-  tabIndex={null}
   target="_blank"
 >
   <div

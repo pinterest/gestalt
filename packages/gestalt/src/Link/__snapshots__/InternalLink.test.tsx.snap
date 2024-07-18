@@ -44,7 +44,6 @@ exports[`renders Button & target null 1`] = `
   onTouchStart={[Function]}
   rel=""
   tabIndex={0}
-  target={null}
 >
   InternalLink
 </a>
@@ -94,7 +93,6 @@ exports[`renders Button with nofollow 1`] = `
   onTouchStart={[Function]}
   rel="nofollow"
   tabIndex={0}
-  target={null}
 >
   InternalLink
 </a>
@@ -119,7 +117,6 @@ exports[`renders Button with onClick 1`] = `
   onTouchStart={[Function]}
   rel=""
   tabIndex={0}
-  target={null}
 >
   InternalLink
 </a>
@@ -144,7 +141,6 @@ exports[`renders IconButton 1`] = `
   onTouchStart={[Function]}
   rel=""
   tabIndex={0}
-  target={null}
 >
   <div
     className="pog transparent"
@@ -191,7 +187,6 @@ exports[`renders TapArea 1`] = `
   onTouchStart={[Function]}
   rel=""
   tabIndex={0}
-  target={null}
 >
   <div
     className="Text fontSize300 default alignStart breakWord fontWeightNormal"
@@ -220,7 +215,6 @@ exports[`renders full-width Button 1`] = `
   onTouchStart={[Function]}
   rel=""
   tabIndex={0}
-  target={null}
 >
   InternalLink
 </a>
@@ -245,7 +239,6 @@ exports[`renders inline Button 1`] = `
   onTouchStart={[Function]}
   rel=""
   tabIndex={0}
-  target={null}
 >
   InternalLink
 </a>

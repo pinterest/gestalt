@@ -433,7 +433,6 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -589,7 +588,6 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -628,7 +626,6 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -735,7 +732,6 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"

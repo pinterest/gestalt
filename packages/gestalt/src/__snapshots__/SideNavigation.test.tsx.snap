@@ -113,7 +113,6 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -294,7 +293,6 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -428,7 +426,6 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -640,7 +637,6 @@ exports[`SideNavigation renders Sections 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -764,7 +760,6 @@ exports[`SideNavigation renders basic Item 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -886,7 +881,6 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -965,7 +959,6 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -1066,7 +1059,6 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -1569,7 +1561,6 @@ exports[`SideNavigation renders expanded group 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -1725,7 +1716,6 @@ exports[`SideNavigation renders expanded group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -1782,7 +1772,6 @@ exports[`SideNavigation renders expanded group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -1969,7 +1958,6 @@ exports[`SideNavigation renders static group 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -2065,7 +2053,6 @@ exports[`SideNavigation renders static group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
@@ -2122,7 +2109,6 @@ exports[`SideNavigation renders static group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
