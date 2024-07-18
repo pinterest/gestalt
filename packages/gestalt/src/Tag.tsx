@@ -28,6 +28,10 @@ const iconsByType = Object.freeze({
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * If your app uses DefaultLabelProvider, a default value for this label will be used. Using this prop will override the default label value with a more specific label if desired. This populates the `aria-label` on the remove icon.
    */
   accessibilityRemoveIconLabel?: string;
@@ -99,6 +103,7 @@ const applyDensityTheme = (size: 'sm' | 'md' | 'lg') => {
  */
 export default function Tag({
   accessibilityRemoveIconLabel,
+  dataTestId,
   disabled = false,
   onRemove,
   size = 'md',
@@ -139,6 +144,7 @@ export default function Tag({
   return (
     <Box
       aria-disabled={disabled}
+      data-test-id={dataTestId}
       color={bgColor}
       dangerouslySetInlineStyle={{
         __style:
