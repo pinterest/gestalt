@@ -1,4 +1,5 @@
 import { Children, ComponentProps, isValidElement, ReactElement, ReactNode } from 'react';
+import { TOKEN_ROUNDING_300, TOKEN_ROUNDING_400 } from 'gestalt-design-tokens';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -16,6 +17,7 @@ import {
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
+import useInExperiment from './useInExperiment';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 import isComponentNode from './utils/isComponentNode';
 
@@ -118,6 +120,10 @@ export default function Toast({
   thumbnail,
   type = 'default',
 }: Props) {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
@@ -130,45 +136,64 @@ export default function Toast({
   const isDefaultToast = type === 'default';
   const isNotDefaultToast = ['success', 'error', 'progress'].includes(type);
 
+  const isImage =
+    isDefaultToast &&
+    !_dangerouslySetThumbnail &&
+    // @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+    !!thumbnail?.image &&
+    // @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+    Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image';
+
+  const isIcon =
+    isDefaultToast &&
+    !_dangerouslySetThumbnail &&
+    // @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+    !!thumbnail?.icon &&
+    // @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+    Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon';
+
+  const isAvatar =
+    isDefaultToast &&
+    !_dangerouslySetThumbnail &&
+    // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+    !!thumbnail?.avatar &&
+    // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
+    Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar';
   return (
     <div className={styles.toast} role="status">
-      {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'. */}
-      <Box color={containerColor} paddingX={4} paddingY={3} rounding={4} width="100%">
-        <Flex alignItems="center" gap={4}>
+      <Box
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
+        color={containerColor}
+        dangerouslySetInlineStyle={{
+          __style: {
+            paddingRight: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
+            paddingLeft: TOKEN_ROUNDING_400,
+          },
+        }}
+        paddingY={3}
+        rounding={4}
+        width="100%"
+      >
+        <Flex alignItems="center" gap={isInExperiment ? 2 : 4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
             <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>
           ) : null}
 
-          {isDefaultToast &&
-          !_dangerouslySetThumbnail &&
-          // @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          !!thumbnail?.image &&
-          // @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
+          {isImage ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'image' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <ImageThumbnail thumbnail={thumbnail.image} />
             </Flex.Item>
           ) : null}
 
-          {isDefaultToast &&
-          !_dangerouslySetThumbnail &&
-          // @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          !!thumbnail?.icon &&
-          // @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
+          {isIcon ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'icon' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <IconThumbnail overrideColor="inverse" thumbnail={thumbnail.icon} />
             </Flex.Item>
           ) : null}
 
-          {isDefaultToast &&
-          !_dangerouslySetThumbnail &&
-          // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          !!thumbnail?.avatar &&
-          // @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'.
-          Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
+          {isAvatar ? (
             <Flex.Item flex="none">
               {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist on type '{ image: any; } | { avatar: any; } | { icon: any; }'. */}
               <AvatarThumbnail thumbnail={thumbnail.avatar} />

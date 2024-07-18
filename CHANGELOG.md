@@ -1,3 +1,9 @@
+## 155.3.0 (Jul 17, 2024)
+
+### Minor
+
+- Toast: VR implementation ([#3683](https://github.com/pinterest/gestalt/pull/3683)) - [Preview link](https://deploy-preview-3683--gestalt.netlify.app?devexample=true)
+
 ## 155.2.1 (Jul 17, 2024)
 
 ### Patch

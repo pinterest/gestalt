@@ -1,3 +1,5 @@
+import desktop from 'docs/examples/toast/desktop';
+import mobile from 'docs/examples/toast/mobile';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -293,6 +295,13 @@ If  confirmation toast's text with more complex style is required, such as bold 
             cardSize="lg"
             sandpackExample={<SandpackExample code={dismissable} name="Dismissable" />}
           />
+        </MainSection.Subsection>
+      </MainSection>
+      <MainSection name="Responsive">
+        <MainSection.Subsection>
+          <MainSection.Card description="Toast is responsive to different devices to preserve a great usability experience and consistency with other components." />
+          <SandpackExample code={mobile} hideEditor name="Mobile Toast example" />
+          <SandpackExample code={desktop} hideEditor name="Desktop Toast example" />
         </MainSection.Subsection>
       </MainSection>
 
