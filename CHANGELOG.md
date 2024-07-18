@@ -1,3 +1,9 @@
+## 155.4.0 (Jul 18, 2024)
+
+### Minor
+
+- Tokens: Add motion tokens ([#3680](https://github.com/pinterest/gestalt/pull/3680)) - [Preview link](https://deploy-preview-3680--gestalt.netlify.app?devexample=true)
+
 ## 155.3.0 (Jul 17, 2024)
 
 ### Minor
