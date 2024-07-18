@@ -245,7 +245,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           type="button"
         >
           <div
-            className="button inline accessibilityOutline tapTransition sm white enabled childrenDiv"
+            className="button inline accessibilityOutline tapTransition sm gray enabled childrenDiv"
           >
             <div
               className="Text fontSize200 default alignCenter fontWeightSemiBold"
