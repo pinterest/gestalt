@@ -14,6 +14,10 @@ type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * `"start"` and `"end"` should be used for regular alignment since they flip with locale direction. `"forceLeft"` and `"forceRight"` should only be used in special cases where locale direction should be ignored, such as tabular or numeric text. See the [alignment variant](https://gestalt.pinterest.systems/web/text#Alignment) for more details.
    */
   align?: 'start' | 'end' | 'center' | 'forceLeft' | 'forceRight';
@@ -84,6 +88,7 @@ type Props = {
 const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
   {
     align = 'start',
+    dataTestId,
     children,
     color = 'default',
     inline = false,
@@ -140,6 +145,7 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
       title={
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }
+      data-test-id={dataTestId}
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
       // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
       ref={ref}

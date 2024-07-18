@@ -6,6 +6,13 @@ test('Text renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Text renders with dataTestId', () => {
+  const component = create(<Text dataTestId='some-test-id'/>);
+  const testInstance = component.root;
+  const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  expect(tooltipElement).not.toBeNull();
+});
+
 test('Text warning adds the warning color class', () => {
   const tree = create(<Text color="warning" />).toJSON();
   expect(tree).toMatchSnapshot();
