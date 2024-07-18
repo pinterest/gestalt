@@ -15,6 +15,17 @@ test('Tooltip renders', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Tooltip renders with dataTestId', () => {
+  const component = create(
+    <Tooltip text="This is a tooltip" dataTestId="tooltip-test-id">
+      <div>Hi</div>
+    </Tooltip>,
+  );
+  const testInstance = component.root;
+  const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'tooltip-test-id');
+  expect(tooltipElement).not.toBeNull();
+});
+
 test('Tooltip renders the link when hovered', () => {
   const { container } = render(
     <Tooltip

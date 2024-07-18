@@ -4,6 +4,10 @@ import { Indexable } from './zIndex';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Label to provide more context around the Tooltip’s function or purpose. By default `text` is used but this prop allows you to override it. Learn more about when to override it in the [Accessibility](https://gestalt.pinterest.systems/web/tooltip#Labels) section.
    */
   accessibilityLabel?: string;
@@ -43,6 +47,7 @@ type Props = {
  */
 export default function Tooltip({
   accessibilityLabel,
+  dataTestId,
   children,
   link,
   idealDirection = 'down',
@@ -53,6 +58,7 @@ export default function Tooltip({
   return (
     <InternalTooltip
       accessibilityLabel={accessibilityLabel}
+      data-test-id={dataTestId}
       idealDirection={idealDirection}
       inline={inline}
       link={link}
