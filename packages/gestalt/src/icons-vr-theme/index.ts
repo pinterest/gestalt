@@ -52,12 +52,14 @@ import audioMix from './audio-mix.svg';
 import audioPlaying from './audio-playing.svg';
 import bell from './bell.svg';
 import bellFill from './bell-fill.svg';
+import birthdayCake from './birthday-cake.svg';
 import board from './board.svg';
 import boardStickerLarge from './board-sticker-large.svg';
 import boardStickerSmall from './board-sticker-small.svg';
 import border from './border.svg';
 import borderShadow from './border-shadow.svg';
 import briefcase from './briefcase.svg';
+import buildingBusiness from './building-business.svg';
 import businessHierarchy from './business-hierarchy.svg';
 import calendar from './calendar.svg';
 import calendarCheck from './calendar-check.svg';
@@ -180,6 +182,7 @@ import layout from './layout.svg';
 import lightbulb from './lightbulb.svg';
 import lightningBoltCircle from './lightning-bolt-circle.svg';
 import link from './link.svg';
+import linkBroken from './link-broken.svg';
 import lips from './lips.svg';
 import location from './location.svg';
 import lock from './lock.svg';
@@ -276,13 +279,13 @@ import speechEllipsis from './speech-ellipsis.svg';
 import speechEllipsisFill from './speech-ellipsis-fill.svg';
 import speechExclamationPoint from './speech-exclamation-point.svg';
 import speechHeart from './speech-heart.svg';
-import speechoutline from './speech-outline.svg';
+import speechOutline from './speech-outline.svg';
 import speed from './speed.svg';
 import speedThirdX from './speed-.3x.svg';
-import speedFofthX from './speed-.5x.svg';
+import speedFifthX from './speed-.5x.svg';
 import speed1X from './speed-1x.svg';
-import speed2x from './speed-2x.svg';
-import speed3x from './speed-3x.svg';
+import speedDoubleX from './speed-2x.svg';
+import speed3X from './speed-3x.svg';
 import spread from './spread.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
@@ -321,13 +324,13 @@ import trending from './trending.svg';
 import undo from './undo.svg';
 import unlock from './unlock.svg';
 import uploadFeed from './upload-feed.svg';
-import videoAdvance10seconds from './video-advance-10-seconds.svg';
+import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
-import videoRewind10seconds from './video-rewind-10-seconds.svg';
+import videoRewind10Seconds from './video-rewind-10-seconds.svg';
 import viewTypeDefault from './view-type-default.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
-import viewTypeSpace from './view-type-space.svg';
+import viewTypeSparse from './view-type-sparse.svg';
 import visit from './visit.svg';
 import warmth from './warmth.svg';
 import wave from './wave.svg';
@@ -342,14 +345,14 @@ import workflowStatusProblem from './workflow-status-problem.svg';
 import workflowStatusQueued from './workflow-status-queued.svg';
 import workflowStatusUnstarted from './workflow-status-unstarted.svg';
 import workflowStatusWarning from './workflow-status-warning.svg';
-import x from './x.svg';
+import xSocial from './x-social.svg';
 import yahoo from './yahoo.svg';
 import youtube from './youtube.svg';
 
 const icons = Object.freeze({
+  '360': threeSixty,
   '3d': threeD,
   '3d-move': threeDMove,
-  '360': threeSixty,
   'accessibility': accessibility,
   'ad': ad,
   'ad-group': adGroup,
@@ -401,12 +404,14 @@ const icons = Object.freeze({
   'audio-playing': audioPlaying,
   'bell': bell,
   'bell-fill': bellFill,
+  'birthday-cake': birthdayCake,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
   'border': border,
   'border-shadow': borderShadow,
   'briefcase': briefcase,
+  'building-business': buildingBusiness,
   'business-hierarchy': businessHierarchy,
   'calendar': calendar,
   'calendar-check': calendarCheck,
@@ -463,8 +468,8 @@ const icons = Object.freeze({
   'edit': edit,
   'ellipsis': ellipsis,
   'envelope': envelope,
-  'erase-auto': eraseAuto,
   'erase': erase,
+  'erase-auto': eraseAuto,
   'etsy': etsy,
   'expand': expand,
   'eye': eye,
@@ -529,6 +534,7 @@ const icons = Object.freeze({
   'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
   'link': link,
+  'link-broken': linkBroken,
   'lips': lips,
   'location': location,
   'lock': lock,
@@ -579,10 +585,10 @@ const icons = Object.freeze({
   'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
-  'record-limit-5': recordLimit5,
-  'record-limit-15': recordLimit15,
   'record-limit-10': recordLimit10,
+  'record-limit-15': recordLimit15,
   'record-limit-30': recordLimit30,
+  'record-limit-5': recordLimit5,
   'record-limit-60': recordLimit60,
   'redo': redo,
   'refresh': refresh,
@@ -625,13 +631,13 @@ const icons = Object.freeze({
   'speech-ellipsis-fill': speechEllipsisFill,
   'speech-exclamation-point': speechExclamationPoint,
   'speech-heart': speechHeart,
-  'speech-outline': speechoutline,
+  'speech-outline': speechOutline,
   'speed': speed,
   'speed-.3x': speedThirdX,
-  'speed-.5x': speedFofthX,
+  'speed-.5x': speedFifthX,
   'speed-1x': speed1X,
-  'speed-2x': speed2x,
-  'speed-3x': speed3x,
+  'speed-2x': speedDoubleX,
+  'speed-3x': speed3X,
   'spread': spread,
   'star': star,
   'star-half': starHalf,
@@ -663,20 +669,20 @@ const icons = Object.freeze({
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,
-  'timer-3': timer3,
   'timer-10': timer10,
+  'timer-3': timer3,
   'trash-can': trashCan,
   'trending': trending,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
-  'video-advance-10-seconds': videoAdvance10seconds,
+  'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
-  'video-rewind-10-seconds': videoRewind10seconds,
+  'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
-  'view-type-space': viewTypeSpace,
+  'view-type-sparse': viewTypeSparse,
   'visit': visit,
   'warmth': warmth,
   'wave': wave,
@@ -691,7 +697,7 @@ const icons = Object.freeze({
   'workflow-status-queued': workflowStatusQueued,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
-  'x': x,
+  'x-social': xSocial,
   'yahoo': yahoo,
   'youtube': youtube,
 });
