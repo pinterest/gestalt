@@ -4,6 +4,12 @@
 
 /* Link management */
 
+/* .standalone is so we can select base on class */
+
+.standalone {
+  color: inherit;
+}
+
 .noOutline {
   outline: none;
 }
@@ -29,14 +35,101 @@
   outline-offset: 2px;
 }
 
-/* Link color */
+/* Link color management */
 
 .inheritColor {
   color: inherit; /* Links should have the correct underline color */
 }
 
-.link {
+.vrInheritColor {
+  color: inherit;
+}
+
+.dark a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-dark);
+}
+
+.dark a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-dark);
+}
+
+.inverse a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-inverse);
+}
+
+.inverse a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-inverse);
+}
+
+.error a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-error);
+}
+
+.error a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-error);
+}
+
+.light a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-light);
+}
+
+.light a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-light);
+}
+
+.link,
+.default a.standalone {
   color: var(--color-text-link);
+}
+
+.link a.vrInheritColor:hover,
+.default a.standalone:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+.link a.vrInheritColor:active,
+.default a.standalone:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+.recommendation a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-recommendation);
+}
+
+.recommendation a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-recommendation);
+}
+
+.shopping a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+.shopping a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+.subtle a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-subtle);
+}
+
+.subtle a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-subtle);
+}
+
+.success a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-success);
+}
+
+.success a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-success);
+}
+
+.warning a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-warning);
+}
+
+.warning a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-warning);
 }
 
 /* Decoration */

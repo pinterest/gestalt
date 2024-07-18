@@ -19,6 +19,7 @@ import layoutStyles from './Layout.css';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
 import styles from './Text.css';
+import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
@@ -201,16 +202,19 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
   );
 
   const VRclassName = classnames(
+    styles.vrInheritColor,
     styles.noOutline,
     styles.inheritColor,
     getRoundingClassName(rounding),
     layoutStyles[display],
     touchableStyles.tapTransition,
     {
+      [styles.standalone]: !isInline,
       [styles.underline]: underlineStyle === 'always',
       [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
       [styles.hoverUnderline]: underlineStyle === 'hover',
       [styles.outlineFocusVR]: isFocusVisible,
+      [typographyStyles.fontWeightSemiBold]: !isInline,
       [focusStyles.hideOutline]: !isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
