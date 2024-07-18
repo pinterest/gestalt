@@ -6,6 +6,10 @@ import useFocusVisible from './useFocusVisible';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates if the input is currently disabled. See [Switch combinations](https://gestalt.pinterest.systems/web/switch#Disabled-and-switched-combinations) for more details.
    */
   disabled?: boolean;
@@ -36,7 +40,7 @@ type Props = {
  * ![Switch dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Switch-dark.spec.ts-snapshots/Switch-dark-chromium-darwin.png)
  *
  */
-export default function Switch({ disabled = false, id, name, onChange, switched = false }: Props) {
+export default function Switch({ disabled = false, id, name, onChange, switched = false, dataTestId }: Props) {
   const [focused, setFocused] = useState(false);
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
@@ -70,6 +74,7 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
     <div className={switchStyles}>
       <input
         checked={switched}
+        data-test-id={dataTestId}
         className={inputStyles}
         disabled={disabled}
         id={id}
