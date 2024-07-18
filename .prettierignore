@@ -10,5 +10,5 @@ node_modules
 package.json
 docs/graphics/year-in-review-2023/lottie/*.json
 .rollup.cache/
-public/vr-icons-diff.html
-public/icons-diff.html
+docs/public/icons-diff.html
+docs/public/vr-icons-diff.html
