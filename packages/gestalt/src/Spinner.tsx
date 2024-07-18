@@ -11,6 +11,10 @@ const SIZE_NAME_TO_PIXEL = {
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * String that clients such as VoiceOver will read to describe the element. Always localize the label.
    */
   accessibilityLabel?: string;
@@ -40,6 +44,7 @@ type Props = {
  */
 export default function Spinner({
   accessibilityLabel,
+  dataTestId,
   color = 'subtle',
   delay = true,
   show,
@@ -47,7 +52,7 @@ export default function Spinner({
 }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   return show ? (
-    <Box display="flex" justifyContent="around" overflow="hidden">
+    <Box display="flex" justifyContent="around" overflow="hidden" data-test-id={dataTestId}>
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}

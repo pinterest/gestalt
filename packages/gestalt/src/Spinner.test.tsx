@@ -16,6 +16,13 @@ test('Spinner renders when passed show', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Spinner renders with dataTestId', () => {
+  const component = create(<Spinner {...baseProps} show  dataTestId='some-test-id'/>);
+  const testInstance = component.root;
+  const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  expect(tooltipElement).not.toBeNull();
+});
+
 test('Spinner renders with no delay', () => {
   const tree = create(<Spinner {...baseProps} delay={false} show />).toJSON();
   expect(tree).toMatchSnapshot();
