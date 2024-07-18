@@ -27,7 +27,7 @@ export default function Example() {
       </Flex>
 
       <Flex alignItems="start" direction="column" gap={{ column: 3, row: 0 }}>
-        <Text color="default" size="400">
+        <Text color="default">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -39,7 +39,7 @@ export default function Example() {
             Default
           </Link>
         </Text>
-        <Text color="subtle" size="400">
+        <Text color="subtle">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -52,7 +52,7 @@ export default function Example() {
           </Link>
         </Text>
         <Box color="inverse" padding={1}>
-          <Text color="inverse" size="400">
+          <Text color="inverse">
             <Link
               externalLinkIcon={showIcon ? 'default' : 'none'}
               href="www.pinterest.com"
@@ -65,7 +65,7 @@ export default function Example() {
             </Link>
           </Text>
         </Box>
-        <Text color="disabled" size="400">
+        <Text color="disabled">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -77,7 +77,7 @@ export default function Example() {
             Disabled
           </Link>
         </Text>
-        <Text color="error" size="400">
+        <Text color="error">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -89,7 +89,7 @@ export default function Example() {
             Error
           </Link>
         </Text>
-        <Text color="success" size="400">
+        <Text color="success">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -101,7 +101,7 @@ export default function Example() {
             Success
           </Link>
         </Text>
-        <Text color="warning" size="400">
+        <Text color="warning">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -113,7 +113,7 @@ export default function Example() {
             Warning
           </Link>
         </Text>
-        <Text color="recommendation" size="400">
+        <Text color="recommendation">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -125,7 +125,7 @@ export default function Example() {
             Recommendation
           </Link>
         </Text>
-        <Text color="link" size="400">
+        <Text color="link">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -137,7 +137,7 @@ export default function Example() {
             Link
           </Link>
         </Text>
-        <Text color="shopping" size="400">
+        <Text color="shopping">
           <Link
             externalLinkIcon={showIcon ? 'default' : 'none'}
             href="www.pinterest.com"
@@ -150,7 +150,7 @@ export default function Example() {
           </Link>
         </Text>
         <Box color="primary" padding={1}>
-          <Text color="light" size="400">
+          <Text color="light">
             <Link
               externalLinkIcon={showIcon ? 'default' : 'none'}
               href="www.pinterest.com"
@@ -164,7 +164,7 @@ export default function Example() {
           </Text>
         </Box>
         <Box color="infoWeak" padding={1}>
-          <Text color="dark" size="400">
+          <Text color="dark">
             <Link
               externalLinkIcon={showIcon ? 'default' : 'none'}
               href="www.pinterest.com"
