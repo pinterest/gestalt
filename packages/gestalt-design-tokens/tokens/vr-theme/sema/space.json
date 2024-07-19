@@ -1,112 +1,162 @@
 {
   "sema": {
     "space": {
-      "gap": {
-        "horizontal": {
-          "XS": {
-            "type": "spacing",
-            "value": "{base.space.2}"
-          },
-          "SM": {
-            "type": "spacing",
-            "value": "{base.space.4}"
-          },
-          "MD": {
-            "type": "spacing",
-            "value": "{base.space.6}"
-          },
-          "LG": {
-            "type": "spacing",
-            "value": "{base.space.8}"
-          },
-          "XL": {
-            "type": "spacing",
-            "value": "{base.space.12}"
-          },
-          "XXL": {
-            "type": "spacing",
-            "value": "{base.space.16}"
-          }
-        },
-        "vertical": {
-          "XS": {
-            "type": "spacing",
-            "value": "{base.space.2}"
-          },
-          "SM": {
-            "type": "spacing",
-            "value": "{base.space.4}"
-          },
-          "MD": {
-            "type": "spacing",
-            "value": "{base.space.6}"
-          },
-          "LG": {
-            "type": "spacing",
-            "value": "{base.space.8}"
-          },
-          "XL": {
-            "type": "spacing",
-            "value": "{base.space.12}"
-          },
-          "XXL": {
-            "type": "spacing",
-            "value": "{base.space.16}"
-          }
-        }
+      "0": {
+        "value": "0",
+        "type": "spacing"
       },
-      "padding": {
-        "horizontal": {
-          "XS": {
-            "type": "spacing",
-            "value": "{base.space.2}"
-          },
-          "SM": {
-            "type": "spacing",
-            "value": "{base.space.4}"
-          },
-          "MD": {
-            "type": "spacing",
-            "value": "{base.space.6}"
-          },
-          "LG": {
-            "type": "spacing",
-            "value": "{base.space.8}"
-          },
-          "XL": {
-            "type": "spacing",
-            "value": "{base.space.12}"
-          },
-          "XXL": {
-            "type": "spacing",
-            "value": "{base.space.16}"
-          }
+      "25": {
+        "value": "{base.space.unit} * 0.25",
+        "type": "spacing"
+      },
+      "50": {
+        "value": "{base.space.unit} * 0.5",
+        "type": "spacing"
+      },
+      "100": {
+        "value": "{base.space.unit} * 1",
+        "type": "spacing"
+      },
+      "150": {
+        "value": "{base.space.unit} * 1.5",
+        "type": "spacing"
+      },
+      "200": {
+        "value": "{base.space.unit} * 2",
+        "type": "spacing"
+      },
+      "300": {
+        "value": "{base.space.unit} * 3",
+        "type": "spacing"
+      },
+      "400": {
+        "value": "{base.space.unit} * 4",
+        "type": "spacing"
+      },
+      "500": {
+        "value": "{base.space.unit} * 5",
+        "type": "spacing"
+      },
+      "600": {
+        "value": "{base.space.unit} * 6",
+        "type": "spacing"
+      },
+      "700": {
+        "value": "{base.space.unit} * 7",
+        "type": "spacing"
+      },
+      "800": {
+        "value": "{base.space.unit} * 8",
+        "type": "spacing"
+      },
+      "900": {
+        "value": "{base.space.unit} * 9",
+        "type": "spacing"
+      },
+      "1000": {
+        "value": "{base.space.unit} * 10",
+        "type": "spacing"
+      },
+      "1100": {
+        "value": "{base.space.unit} * 11",
+        "type": "spacing"
+      },
+      "1200": {
+        "value": "{base.space.unit} * 12",
+        "type": "spacing"
+      },
+      "1300": {
+        "value": "{base.space.unit} * 13",
+        "type": "spacing"
+      },
+      "1400": {
+        "value": "{base.space.unit} * 14",
+        "type": "spacing"
+      },
+      "1500": {
+        "value": "{base.space.unit} * 15",
+        "type": "spacing"
+      },
+      "1600": {
+        "value": "{base.space.unit} * 16",
+        "type": "spacing"
+      },
+      "negative": {
+        "25": {
+          "value": "{base.space.unit} * -0.25",
+          "type": "spacing"
         },
-        "vertical": {
-          "XS": {
-            "type": "spacing",
-            "value": "{base.space.2}"
-          },
-          "SM": {
-            "type": "spacing",
-            "value": "{base.space.4}"
-          },
-          "MD": {
-            "type": "spacing",
-            "value": "{base.space.6}"
-          },
-          "LG": {
-            "type": "spacing",
-            "value": "{base.space.8}"
-          },
-          "XL": {
-            "type": "spacing",
-            "value": "{base.space.12}"
-          },
-          "XXL": {
-            "type": "spacing",
-            "value": "{base.space.16}"
-          }
+        "50": {
+          "value": "{base.space.unit} * -0.5",
+          "type": "spacing"
+        },
+        "100": {
+          "value": "{base.space.unit} * -1",
+          "type": "spacing"
+        },
+        "150": {
+          "value": "{base.space.unit} * -1.5",
+          "type": "spacing"
+        },
+        "200": {
+          "value": "{base.space.unit} * -2",
+          "type": "spacing"
+        },
+        "300": {
+          "value": "{base.space.unit} * -3",
+          "type": "spacing"
+        },
+        "400": {
+          "value": "{base.space.unit} * -4",
+          "type": "spacing"
+        },
+        "500": {
+          "value": "{base.space.unit} * -5",
+          "type": "spacing"
+        },
+        "600": {
+          "value": "{base.space.unit} * -6",
+          "type": "spacing"
+        },
+        "700": {
+          "value": "{base.space.unit} * -7",
+          "type": "spacing"
+        },
+        "800": {
+          "value": "{base.space.unit} * -8",
+          "type": "spacing"
+        },
+        "900": {
+          "value": "{base.space.unit} * -9",
+          "type": "spacing"
+        },
+        "1000": {
+          "value": "{base.space.unit} * -10",
+          "type": "spacing"
+        },
+        "1100": {
+          "value": "{base.space.unit} * -11",
+          "type": "spacing"
+        },
+        "1200": {
+          "value": "{base.space.unit} * -12",
+          "type": "spacing"
+        },
+        "1300": {
+          "value": "{base.space.unit} * -13",
+          "type": "spacing"
+        },
+        "1400": {
+          "value": "{base.space.unit} * -14",
+          "type": "spacing"
+        },
+        "1500": {
+          "value": "{base.space.unit} * -15",
+          "type": "spacing"
+        },
+        "1600": {
+          "value": "{base.space.unit} * -16",
+          "type": "spacing"
         }
       }
     }

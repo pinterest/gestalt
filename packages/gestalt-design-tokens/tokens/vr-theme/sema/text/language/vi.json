@@ -1,0 +1,28 @@
+{
+  "sema": {
+    "font": {
+      "lineheight": {
+        "XL": {
+          "type": "other",
+          "value": "{base.font.lineheight.140}"
+        },
+        "LG": {
+          "type": "other",
+          "value": "{base.font.lineheight.130}"
+        },
+        "MD": {
+          "type": "other",
+          "value": "{base.font.lineheight.120}"
+        },
+        "SM": {
+          "type": "other",
+          "value": "{base.font.lineheight.120}"
+        },
+        "XS": {
+          "type": "other",
+          "value": "{base.font.lineheight.120}"
+        }
+      }
+    }
+  }
+}

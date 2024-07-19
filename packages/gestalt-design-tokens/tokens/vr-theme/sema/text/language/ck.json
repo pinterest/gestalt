@@ -2,25 +2,25 @@
   "sema": {
     "font": {
       "lineheight": {
-        "XXS": {
+        "XL": {
           "type": "other",
-          "value": "{base.font.lineheight.120}"
+          "value": "{base.font.lineheight.150}"
+        },
+        "LG": {
+          "type": "other",
+          "value": "{base.font.lineheight.150}"
+        },
+        "MD": {
+          "type": "other",
+          "value": "{base.font.lineheight.150}"
+        },
+        "SM": {
+          "type": "other",
+          "value": "{base.font.lineheight.130}"
         },
         "XS": {
           "type": "other",
           "value": "{base.font.lineheight.120}"
-        },
-        "MD": {
-          "type": "other",
-          "value": "{base.font.lineheight.120}"
-        },
-        "LG": {
-          "type": "other",
-          "value": "{base.font.lineheight.130}"
-        },
-        "XL": {
-          "type": "other",
-          "value": "{base.font.lineheight.140}"
         }
       }
     }

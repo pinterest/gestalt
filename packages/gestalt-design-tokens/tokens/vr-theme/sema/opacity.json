@@ -1,31 +1,37 @@
 {
   "sema": {
     "opacity": {
-      "light": {
-        "type": "opacity",
-        "value": "{base.opacity.20}"
+      "0": {
+        "value": "0",
+        "type": "opacity"
       },
-      "medium": {
-        "type": "opacity",
-        "value": "{base.opacity.40}"
+      "4": {
+        "value": "0.04",
+        "type": "opacity"
       },
-      "heavy": {
-        "type": "opacity",
-        "value": "{base.opacity.90}"
+      "20": {
+        "value": "0.2",
+        "type": "opacity"
       },
-      "transparent": {
-        "type": "opacity",
-        "value": "{base.opacity.0}"
+      "40": {
+        "value": "0.4",
+        "type": "opacity"
       },
-      "overlay": {
-        "type": "opacity",
-        "value": "{base.opacity.80}"
+      "60": {
+        "value": "0.6",
+        "type": "opacity"
       },
-      "pin": {
-        "wash": {
-          "type": "opacity",
-          "value": "{base.opacity.4}"
-        }
+      "80": {
+        "value": "0.8",
+        "type": "opacity"
+      },
+      "90": {
+        "value": "0.9",
+        "type": "opacity"
+      },
+      "100": {
+        "value": "1",
+        "type": "opacity"
       }
     }
   }

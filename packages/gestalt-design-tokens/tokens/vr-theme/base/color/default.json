@@ -3,7 +3,7 @@
     "color": {
       "transparent": {
         "type": "color",
-        "value": "rgba (0,0,0,0)"
+        "value": "rgba(255,255,255,0)"
       },
       "grayscale": {
         "0": {
@@ -163,104 +163,6 @@
         "500": {
           "type": "color",
           "value": "#9B4B1C"
-        }
-      },
-      "dataviz": {
-        "10": {
-          "type": "color",
-          "value": "#005062"
-        },
-        "11": {
-          "type": "color",
-          "value": "#de2c62"
-        },
-        "12": {
-          "type": "color",
-          "value": "#660e00"
-        },
-        "13": {
-          "type": "color",
-          "value": "#005FCB"
-        },
-        "14": {
-          "type": "color",
-          "value": "#75E4D5"
-        },
-        "15": {
-          "type": "color",
-          "value": "#B190FF"
-        },
-        "16": {
-          "type": "color",
-          "value": "#FDA600"
-        },
-        "17": {
-          "type": "color",
-          "value": "#75BFFF"
-        },
-        "18": {
-          "type": "color",
-          "value": "#DE2C62"
-        },
-        "19": {
-          "type": "color",
-          "value": "#A4F9AC"
-        },
-        "20": {
-          "type": "color",
-          "value": "#812AE7"
-        },
-        "21": {
-          "type": "color",
-          "value": "#FF5B45"
-        },
-        "22": {
-          "type": "color",
-          "value": "#007A72"
-        },
-        "23": {
-          "type": "color",
-          "value": "#F76593"
-        },
-        "24": {
-          "type": "color",
-          "value": "#FFC58F"
-        },
-        "01": {
-          "type": "color",
-          "value": "#003c96"
-        },
-        "02": {
-          "type": "color",
-          "value": "#11a69c"
-        },
-        "03": {
-          "type": "color",
-          "value": "#924af7"
-        },
-        "04": {
-          "type": "color",
-          "value": "#d17711"
-        },
-        "05": {
-          "type": "color",
-          "value": "#0081fe"
-        },
-        "06": {
-          "type": "color",
-          "value": "#ff5383"
-        },
-        "07": {
-          "type": "color",
-          "value": "#00ab55"
-        },
-        "08": {
-          "type": "color",
-          "value": "#400387"
-        },
-        "09": {
-          "type": "color",
-          "value": "#f2681f"
         }
       }
     }

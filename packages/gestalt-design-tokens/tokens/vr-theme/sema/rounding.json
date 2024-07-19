@@ -1,54 +1,49 @@
 {
   "sema": {
     "rounding": {
-      "date": {
-        "container": {
-          "type": "other",
-          "value": "{base.rounding.16}"
-        },
-        "range": {
-          "middle": {
-            "type": "other",
-            "value": "{base.rounding.0}"
-          }
-        },
-        "start": {
-          "type": "other",
-          "value": "{base.rounding.circle} {base.rounding.0} {base.rounding.0} {base.rounding.circle}"
-        },
-        "end": {
-          "type": "other",
-          "value": "{base.rounding.0} {base.rounding.circle} {base.rounding.circle} {base.rounding.0}"
-        }
+      "0": {
+        "value": "0",
+        "type": "borderRadius"
       },
-      "XL": {
-        "type": "other",
-        "value": "{base.rounding.20}"
+      "100": {
+        "value": "{base.rounding.unit} * 1",
+        "type": "borderRadius"
       },
-      "LG": {
-        "type": "other",
-        "value": "{base.rounding.16}"
+      "200": {
+        "value": "{base.rounding.unit} * 2",
+        "type": "borderRadius"
       },
-      "MD": {
-        "type": "other",
-        "value": "{base.rounding.12}"
+      "300": {
+        "value": "{base.rounding.unit} * 3",
+        "type": "borderRadius"
       },
-      "SM": {
-        "type": "other",
-        "value": "{base.rounding.8}"
+      "400": {
+        "value": "{base.rounding.unit} * 4",
+        "type": "borderRadius"
       },
-      "XS": {
-        "type": "other",
-        "value": "{base.rounding.4}"
+      "500": {
+        "value": "{base.rounding.unit} * 5",
+        "type": "borderRadius"
       },
-      "circleappenda": {
-        "$extensions": {
-          "studio.tokens": {
-            "modify": {}
-          }
-        },
-        "type": "other",
-        "value": "{base.rounding.circle}"
+      "600": {
+        "value": "{base.rounding.unit} * 6",
+        "type": "borderRadius"
+      },
+      "700": {
+        "value": "{base.rounding.unit} * 7",
+        "type": "borderRadius"
+      },
+      "800": {
+        "value": "{base.rounding.unit} * 8",
+        "type": "borderRadius"
+      },
+      "pill": {
+        "value": "999",
+        "type": "borderRadius"
+      },
+      "circle": {
+        "value": "50%",
+        "type": "borderRadius"
       }
     }
   }
