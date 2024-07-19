@@ -7,7 +7,8 @@
       "base/color/default": "enabled",
       "base/text/font": "enabled",
       "base/space": "source",
-      "base/rounding": "source"
+      "base/rounding": "source",
+      "base/motion": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4995:2",
     "$figmaModeId": "7410:0",
@@ -86,7 +87,6 @@
       "base/color/hover": "enabled",
       "base/color/pressed": "enabled"
     },
-    "group": "Base (ext.)",
     "$figmaCollectionId": "VariableCollectionId:6:2",
     "$figmaModeId": "6:0",
     "$figmaVariableReferences": {
@@ -164,7 +164,8 @@
       "base.color.hover.orange.300": "3241259c96b71e0fc031db44bc3e929f5744c8fb",
       "base.color.hover.orange.400": "048978fb788c13f1852c6b0ab100ba3bad128414",
       "base.color.hover.orange.500": "c3de55fd63167e346c9b00224089415285d50839"
-    }
+    },
+    "group": "Base (ext.)"
   },
   {
     "id": "3b4d116e636294819da8d101249348f7e4a960ae",
@@ -769,6 +770,16 @@
     "group": "Semantic opacity"
   },
   {
+    "id": "95e163a80ee404a647d227303776f903358103a9",
+    "name": "Default",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "base/motion": "source",
+      "sema/motion": "enabled"
+    },
+    "group": "Semantic motion"
+  },
+  {
     "id": "e409f598b2932c533467fc79cbf9ca6734be7493",
     "name": "Default",
     "$figmaStyleReferences": {},
@@ -949,73 +960,5 @@
       "sema.font.lineheight.compact.XS": "72a5039e93f3ef82d6e059c2596cad4419747081"
     },
     "group": "Semantic typography"
-  },
-  {
-    "id": "1ef15cd6eb7152efb8de821450cdf42585237b97",
-    "name": "Web",
-    "$figmaStyleReferences": {},
-    "selectedTokenSets": {
-      "base/color/default": "source",
-      "base/color/hover": "source",
-      "base/color/pressed": "source",
-      "base/text/font": "source",
-      "base/rounding": "source",
-      "base/space": "source",
-      "sema/color/light/default": "source",
-      "sema/color/light/hover": "source",
-      "sema/color/light/pressed": "source",
-      "sema/elevation/light": "source",
-      "sema/opacity": "source",
-      "sema/rounding": "source",
-      "sema/space": "source",
-      "sema/text/language/default": "source",
-      "sema/text/font": "source",
-      "sema/text/typography": "source"
-    },
-    "$figmaCollectionId": "VariableCollectionId:7295:2813",
-    "$figmaModeId": "7295:8",
-    "$figmaVariableReferences": {
-      "comp.web.button.rounding.LG": "5a6028930b5cd285d88419ff143b3493019f6edf",
-      "comp.web.button.rounding.MD": "ce88bc398dd0c7590538f987d0b8633962ca8215",
-      "comp.web.button.rounding.SM": "7afaf1e2bf0ad7ffaddfdfcc4a99f440c7178e9f",
-      "comp.web.button.color.background.primary": "714ff602cd86cf61f5c8d464307668928658d704",
-      "comp.web.button.color.background.secondary": "a508bfa1a2dbf81fb8a2594eb6c33f5c6b135e87",
-      "comp.web.button.color.background.tertiary": "2d5ea2ec00cd4ec7391dac744cc9fab1ee7beec1",
-      "comp.web.button.color.background.selected": "23b66d69cac90caa6870fc0471cf625d3134e26c",
-      "comp.web.button.color.background.disabled": "e47966944f53736ab6fd467df70480f24f63e52d",
-      "comp.web.button.color.text.primary": "b91ed1cf7bb0ee33db08b1056ca3a8746fbae942",
-      "comp.web.button.color.text.secondary": "0204c33c7a9c9b514847369551c2f7ccfa15f793",
-      "comp.web.button.color.text.tertiary": "ba4636919715a9fb93ce089960fb2d231f9e5833",
-      "comp.web.button.color.text.selected": "ce4a28610828084e2dc050ccad7ecdfcf8e7dcbe",
-      "comp.web.button.color.text.disabled": "64074a84823279aff26fd8a7265b0f88ba9c36d9",
-      "comp.web.button.color.icon.primary": "eaa8766e3b549c01d1ed08e559f92c5fad98c127",
-      "comp.web.button.color.icon.secondary": "45a1027bc16f31b6a9f53eed9d4b41afd6e596fb",
-      "comp.web.button.color.icon.tertiary": "53bbae5cc87eb560bfe96d7b14d383ddc5213b54",
-      "comp.web.button.color.icon.selected": "6250b90c02054952bf95c07f53043ee1cee78b16",
-      "comp.web.button.color.icon.disabled": "3935dbf9d42ee508b0e4b703bfa6be54c9b60b37",
-      "comp.web.comp.badge.color.background.info": "6f0ad767c7a18b060b5c52b0da30bd70f91e19c4",
-      "comp.web.comp.badge.color.background.success": "0e8497e322f7370c93263d592d5c149064c4dbac",
-      "comp.web.comp.badge.color.background.warning": "3def1c85179f4db1268f7fc59ea2fc036d761c16",
-      "comp.web.comp.badge.color.background.error": "2ca283938fca47b380f9791e007a426ef04d6b91",
-      "comp.web.comp.badge.color.background.recommendation": "e6792b3100ee29600d9ca48dcd05f59c4f793c27",
-      "comp.web.comp.badge.color.background.neutral": "8ffc3c3d6f404eaca394e00cc4bec06a40b3bc11",
-      "comp.web.comp.badge.color.text.info": "0f93d05164efef80b22f8a7cb66a6420889244bd",
-      "comp.web.comp.badge.color.text.success": "18e0f229fdd72f9d6c8dc86520a2b78ab91b332e",
-      "comp.web.comp.badge.color.text.warning": "1c6a240370de1e739dfb9870e1748f414436c954",
-      "comp.web.comp.badge.color.text.error": "95c0ca093baf6faa67a6bee9bf9d3adfc8be3e53",
-      "comp.web.comp.badge.color.text.recommendation": "6ad7ee110d419a7e4907ac5d3ebe5f958171c93e",
-      "comp.web.comp.badge.color.text.neutral": "1759cf65fc5b5b9eaf296cfd331dfd2d7ae02ae8",
-      "comp.web.comp.badge.color.text.light": "1a740971bb05b517bacfbef45e3818324c27d0c0",
-      "comp.web.comp.badge.color.text.dark": "2715e793ffba9bbfcaaa0186b04a3d442d931596",
-      "comp.web.comp.badge.color.icon.info": "7b3e7877ff50c44bbafbe5e39fcfd2b0aedfa837",
-      "comp.web.comp.badge.color.icon.success": "6a1078981b16e717b6ea725145f2f6885f338bb0",
-      "comp.web.comp.badge.color.icon.warning": "79da46436d13472509f8e9daaad221e6b5cb58c5",
-      "comp.web.comp.badge.color.icon.error": "30e8d8181ecea7e7acc3d65f03c7d386ab691f1d",
-      "comp.web.comp.badge.color.icon.recommendation": "72bcd2ea47a0116c632aeb2bb4e79a2f53485b99",
-      "comp.web.comp.badge.color.icon.neutral": "3190b28365d1fcf78770294db09a0a0d4aff88c5",
-      "comp.web.comp.badge.color.icon.light": "83a8a60a772f41b3cf7386e337edb55c2a37045b",
-      "comp.web.comp.badge.color.icon.dark": "2cd4e4c493ca1ded736a5919b150be1be13b85b4"
-    },
-    "group": "Component"
   }
 ]

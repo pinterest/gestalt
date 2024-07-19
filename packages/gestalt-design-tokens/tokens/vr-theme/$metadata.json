@@ -6,6 +6,7 @@
     "base/text/font",
     "base/rounding",
     "base/space",
+    "base/motion",
     "sema/color/light/default",
     "sema/color/light/hover",
     "sema/color/light/pressed",
@@ -24,6 +25,7 @@
     "sema/text/language/th",
     "sema/text/language/vi",
     "sema/text/font",
-    "sema/text/typography"
+    "sema/text/typography",
+    "sema/motion"
   ]
 }
