@@ -13,15 +13,16 @@ test('renders correctly', () => {
 });
 
 test('renders with dataTestId', () => {
-  const component = renderer
-    .create(
-      <Table accessibilityLabel="test" dataTestId="some-test-id" >
-        <div>rest of table</div>
-      </Table>,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
-    expect(tooltipElement).not.toBeNull();
+  const component = renderer.create(
+    <Table accessibilityLabel="test" dataTestId="some-test-id">
+      <div>rest of table</div>
+    </Table>,
+  );
+  const testInstance = component.root;
+  const tooltipElement = testInstance.find(
+    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+  );
+  expect(tooltipElement).not.toBeNull();
 });
 
 test('renders correctly with border', () => {

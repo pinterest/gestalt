@@ -53,7 +53,11 @@ export default function BannerUpsellForm({
 
   return (
     // @ts-expect-error - TS2322 - Type 'FormEvent<HTMLFormElement>' is not assignable to type 'MouseEvent<HTMLButtonElement, MouseEvent> | KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<...>'.
-    <form data-test-id={dataTestId} onSubmit={(event) => onSubmit({ event })} style={{ width: '100%' }}>
+    <form
+      data-test-id={dataTestId}
+      onSubmit={(event) => onSubmit({ event })}
+      style={{ width: '100%' }}
+    >
       <Flex
         direction={isXsWidth ? 'column' : 'row'}
         gap={isXsWidth ? { column: 2, row: 0 } : { row: 2, column: 0 }}

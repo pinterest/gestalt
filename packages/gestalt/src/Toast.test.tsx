@@ -18,7 +18,9 @@ describe('<Toast />', () => {
       <Toast text="Same great profile, slightly new look. Learn more?" dataTestId="some-test-id" />,
     );
     const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    const tooltipElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(tooltipElement).not.toBeNull();
   });
 

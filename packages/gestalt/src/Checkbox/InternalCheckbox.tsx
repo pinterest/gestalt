@@ -132,7 +132,14 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
   return (
     <Box>
-      <Box alignItems="start" data-test-id={dataTestId} display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
+      <Box
+        alignItems="start"
+        data-test-id={dataTestId}
+        display="flex"
+        justifyContent="start"
+        marginEnd={-1}
+        marginStart={-1}
+      >
         <Box paddingX={1} position="relative">
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html

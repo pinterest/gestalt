@@ -114,13 +114,15 @@ describe('TileData', () => {
       <TileData
         onTap={() => {}}
         selected
-        dataTestId='some-test-id'
+        dataTestId="some-test-id"
         title="Text Impressions"
         value="1.23M"
       />,
     );
     const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    const tooltipElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(tooltipElement).not.toBeNull();
   });
 });

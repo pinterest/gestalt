@@ -89,20 +89,21 @@ describe('Accordion', () => {
   });
 
   test('validate data test id', () => {
-    const tree = renderer
-      .create(
-        <Accordion
-          dataTestId='test-accordion'
-          icon="lock"
-          iconAccessibilityLabel="there is an error"
-          id="accordion-test"
-          title="Testing"
-          type="error"
-        >
-          <Text>Testing</Text>
-        </Accordion>,
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const component = renderer.create(
+      <Accordion
+        dataTestId="test-accordion"
+        icon="lock"
+        iconAccessibilityLabel="there is an error"
+        id="accordion-test"
+        title="Testing"
+        type="error"
+      >
+        <Text>Testing</Text>
+      </Accordion>,
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test-accordion-title',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

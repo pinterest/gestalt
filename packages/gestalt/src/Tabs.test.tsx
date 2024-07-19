@@ -57,7 +57,7 @@ describe('<Tabs />', () => {
     const component = create(
       <Tabs
         activeTabIndex={0}
-        dataTestId='some-test-id'
+        dataTestId="some-test-id"
         onChange={() => {}}
         tabs={[
           { text: 'News', href: '#' },
@@ -66,11 +66,15 @@ describe('<Tabs />', () => {
       />,
     );
     const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id-0');
+    const tooltipElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id-0',
+    );
     expect(tooltipElement).not.toBeNull();
 
     const testInstance2 = component.root;
-    const tooltipElement2 = testInstance2.find((instance:any) => instance.props['data-test-id'] === 'some-test-id-1');
+    const tooltipElement2 = testInstance2.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id-1',
+    );
     expect(tooltipElement2).not.toBeNull();
   });
 

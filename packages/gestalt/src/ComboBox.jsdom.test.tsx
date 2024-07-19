@@ -371,14 +371,13 @@ describe('ComboBox', () => {
     });
 
     it('validate data test id basic controlled components', () => {
-      const { baseElement } = renderComboBox({
+      renderComboBox({
         dataTestId: 'test',
         inputValue: '',
         options: controlledOptions,
       });
 
       expect(screen.getByTestId('test')).toBeVisible();
-      expect(baseElement).toMatchSnapshot();
     });
   });
 

@@ -133,15 +133,12 @@ describe('TagData', () => {
 
   it('TagData with dataTestId', () => {
     const component = create(
-      <TagData
-        onTap={() => {}}
-        selected
-        text="Text Impressions"
-        dataTestId='some-test-id'
-      />,
+      <TagData onTap={() => {}} selected text="Text Impressions" dataTestId="some-test-id" />,
     );
     const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    const tooltipElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(tooltipElement).not.toBeNull();
   });
 });

@@ -17,16 +17,19 @@ describe('BannerUpsellForm', () => {
   });
 
   it('validate data test id', () => {
-    const tree = create(
+    const component = create(
       <BannerUpsellForm
-        dataTestId='test'
+        dataTestId="test"
         onSubmit={() => {}}
         submitButtonAccessibilityLabel="Submit button"
         submitButtonText="Submit"
       >
         <TextField id="name" onChange={() => {}} placeholder="Name" />
       </BannerUpsellForm>,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

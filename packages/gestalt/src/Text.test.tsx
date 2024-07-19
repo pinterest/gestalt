@@ -7,9 +7,11 @@ test('Text renders', () => {
 });
 
 test('Text renders with dataTestId', () => {
-  const component = create(<Text dataTestId='some-test-id'/>);
+  const component = create(<Text dataTestId="some-test-id" />);
   const testInstance = component.root;
-  const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  const tooltipElement = testInstance.find(
+    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+  );
   expect(tooltipElement).not.toBeNull();
 });
 

@@ -91,8 +91,8 @@ export default function Accordion({
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const { gap, padding, rounding } = applyModuleDensityStyle(size);
-  const dataTestIdTitle = dataTestId && `${dataTestId  }-title`;
-  const dataTestIdContent = dataTestId && `${dataTestId  }-content`;
+  const dataTestIdTitle = dataTestId && `${dataTestId}-title`;
+  const dataTestIdContent = dataTestId && `${dataTestId}-content`;
 
   return (
     <Box

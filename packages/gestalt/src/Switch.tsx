@@ -40,7 +40,14 @@ type Props = {
  * ![Switch dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Switch-dark.spec.ts-snapshots/Switch-dark-chromium-darwin.png)
  *
  */
-export default function Switch({ disabled = false, id, name, onChange, switched = false, dataTestId }: Props) {
+export default function Switch({
+  disabled = false,
+  id,
+  name,
+  onChange,
+  switched = false,
+  dataTestId,
+}: Props) {
   const [focused, setFocused] = useState(false);
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (

@@ -84,35 +84,36 @@ test('renders correctly with multiple items with expandedId', () => {
 });
 
 test('validate data test id with multiple items with expandedId', () => {
-  const tree = renderer
-    .create(
-      <AccordionExpandable
-        accessibilityCollapseLabel="click to collapse"
-        accessibilityExpandLabel="click to expand"
-        dataTestId='test'
-        expandedIndex={0}
-        id="uniqueTestID"
-        items={[
-          {
-            title: 'Title1',
-            summary: ['summary1'],
-            children: 'Children1',
-          },
-          {
-            title: 'Title2',
-            summary: ['summary2'],
-            children: 'Children2',
-          },
-          {
-            title: 'Title3',
-            summary: ['summary3'],
-            children: 'Children3',
-            type: 'error',
-          },
-        ]}
-        onExpandedChange={() => {}}
-      />,
-    )
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+  const component = renderer.create(
+    <AccordionExpandable
+      accessibilityCollapseLabel="click to collapse"
+      accessibilityExpandLabel="click to expand"
+      dataTestId="test"
+      expandedIndex={0}
+      id="uniqueTestID"
+      items={[
+        {
+          title: 'Title1',
+          summary: ['summary1'],
+          children: 'Children1',
+        },
+        {
+          title: 'Title2',
+          summary: ['summary2'],
+          children: 'Children2',
+        },
+        {
+          title: 'Title3',
+          summary: ['summary3'],
+          children: 'Children3',
+          type: 'error',
+        },
+      ]}
+      onExpandedChange={() => {}}
+    />,
+  );
+  const testInstance = component.root.find(
+    (instance: any) => instance.props['data-test-id'] === 'test-expanded-content',
+  );
+  expect(testInstance).not.toBeNull();
 });

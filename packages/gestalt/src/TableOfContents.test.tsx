@@ -13,13 +13,15 @@ describe('TableOfContents', () => {
 
   it('renders with dataTestId', () => {
     const component = create(
-      <TableOfContents title="Title" dataTestId='some-test-id'>
+      <TableOfContents title="Title" dataTestId="some-test-id">
         <TableOfContents.Item active href="#" label="Item 1" onClick={() => {}} />
         <TableOfContents.Item active href="#" label="Item 2" onClick={() => {}} />
       </TableOfContents>,
     );
     const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    const tooltipElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(tooltipElement).not.toBeNull();
   });
 

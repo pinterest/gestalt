@@ -146,7 +146,7 @@ describe('DatePicker', () => {
 
     render(
       <DatePicker
-        dataTestId='test'
+        dataTestId="test"
         id="fake_id"
         onChange={mockOnChange}
         placeholder="Select date"

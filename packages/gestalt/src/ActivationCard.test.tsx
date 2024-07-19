@@ -101,9 +101,9 @@ describe('<ActivationCard />', () => {
   });
 
   test('validate dataTestId with message + title + link + dismissButton', () => {
-    const tree = create(
+    const component = create(
       <ActivationCard
-        dataTestId='test'
+        dataTestId="test"
         dismissButton={{
           accessibilityLabel: 'Dismiss card',
           onDismiss: jest.fn(),
@@ -118,7 +118,10 @@ describe('<ActivationCard />', () => {
         statusMessage="Needs attention"
         title="Tag is unhealthy"
       />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

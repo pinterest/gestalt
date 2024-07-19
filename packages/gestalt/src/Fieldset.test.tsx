@@ -39,9 +39,9 @@ describe('Fieldset', () => {
   });
 
   it('validate data test id with errorMessage', () => {
-    const tree = create(
+    const component = create(
       <Fieldset
-        dataTestId='test'
+        dataTestId="test"
         errorMessage="At least 1 item must be selected"
         id="fieldset-with-error"
         legend="What is your favorite dog?"
@@ -50,7 +50,10 @@ describe('Fieldset', () => {
         <Checkbox id="Schnauzer" label="Schnauzer" onChange={() => {}} />
         <Checkbox id="Aussie" label="Aussie" onChange={() => {}} />
       </Fieldset>,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

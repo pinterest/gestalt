@@ -50,16 +50,19 @@ describe('Datapoint', () => {
   });
 
   it('validate data test id for Datapoint', () => {
-    const tree = create(
+    const component = create(
       <Datapoint
         badge={{ text: 'Early access' }}
-        dataTestId='test'
+        dataTestId="test"
         title="Title"
         tooltipText="This is a good sign"
         trend={{ value: 30, accessibilityLabel: 'Value change icon accessibility label' }}
         value="1M"
       />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

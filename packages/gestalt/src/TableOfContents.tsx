@@ -31,7 +31,12 @@ type Props = {
  * ![TableOfContents light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents.spec.ts-snapshots/TableOfContents-chromium-darwin.png)
  * ![TableOfContents dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TableOfContents-dark.spec.ts-snapshots/TableOfContents-dark-chromium-darwin.png)
  */
-export default function TableOfContents({ accessibilityLabel, title, children, dataTestId }: Props) {
+export default function TableOfContents({
+  accessibilityLabel,
+  title,
+  children,
+  dataTestId,
+}: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } =
     useDefaultLabelContext('TableOfContents');
 

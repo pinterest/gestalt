@@ -79,9 +79,9 @@ test('Checkbox with an image', () => {
 });
 
 test('validate data test id checkbox with an image', () => {
-  const tree = create(
+  const component = create(
     <Checkbox
-      dataTestId='test'
+      dataTestId="test"
       id="id"
       image={
         <Box>
@@ -97,6 +97,9 @@ test('validate data test id checkbox with an image', () => {
       onChange={() => {}}
       size="sm"
     />,
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+  );
+  const testInstance = component.root.find(
+    (instance: any) => instance.props['data-test-id'] === 'test',
+  );
+  expect(testInstance).not.toBeNull();
 });

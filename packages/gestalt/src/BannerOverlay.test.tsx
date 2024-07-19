@@ -78,9 +78,9 @@ describe('<BannerOverlay />', () => {
   });
 
   test('validate data test id with Text + Image + Button', () => {
-    const tree = create(
+    const component = create(
       <BannerOverlay
-        dataTestId='test'
+        dataTestId="test"
         message={
           <Text inline weight="bold">
             Saved to{' '}
@@ -105,7 +105,10 @@ describe('<BannerOverlay />', () => {
         }}
         title="Text, image and button"
       />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

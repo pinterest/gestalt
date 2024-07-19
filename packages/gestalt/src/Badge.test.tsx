@@ -24,5 +24,7 @@ it('should render with a wash', () => {
 it('validate data test id', () => {
   const instance = create(<Badge dataTestId="test" text="Badge" type="lightWash" />).root;
 
-  expect(instance.find((element: any) => element.type === 'div').props['data-test-id']).toContain("test");
+  expect(instance.find((element: any) => element.type === 'div').props['data-test-id']).toContain(
+    'test',
+  );
 });

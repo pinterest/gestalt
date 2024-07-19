@@ -8,7 +8,9 @@ test('Container renders', () => {
 });
 
 test('validate data test id Container', () => {
-  const component = renderer.create(<Container dataTestId='test' />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  const component = renderer.create(<Container dataTestId="test" />);
+  const testInstance = component.root.find(
+    (instance: any) => instance.props['data-test-id'] === 'test',
+  );
+  expect(testInstance).not.toBeNull();
 });

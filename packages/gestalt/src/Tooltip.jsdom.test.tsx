@@ -22,7 +22,9 @@ test('Tooltip renders with dataTestId', () => {
     </Tooltip>,
   );
   const testInstance = component.root;
-  const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'tooltip-test-id');
+  const tooltipElement = testInstance.find(
+    (instance: any) => instance.props['data-test-id'] === 'tooltip-test-id',
+  );
   expect(tooltipElement).not.toBeNull();
 });
 

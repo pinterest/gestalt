@@ -71,7 +71,13 @@ type Props = {
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.ts-snapshots/Badge-dark-chromium-darwin.png)
  *
  */
-export default function Badge({ dataTestId, position = 'middle', text, type = 'info', tooltip }: Props) {
+export default function Badge({
+  dataTestId,
+  position = 'middle',
+  text,
+  type = 'info',
+  tooltip,
+}: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -194,7 +200,9 @@ export default function Badge({ dataTestId, position = 'middle', text, type = 'i
       </div>
     </Tooltip>
   ) : (
-    <div className={cxStyles} data-test-id={dataTestId}>{badgeComponent} </div>
+    <div className={cxStyles} data-test-id={dataTestId}>
+      {badgeComponent}{' '}
+    </div>
   );
 }
 

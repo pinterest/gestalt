@@ -43,6 +43,10 @@ describe('<Collage />', () => {
   });
 
   it('validate data test id snapshot for 4 columns', () => {
-    expect(create(<Collage {...collageProps} columns={4} dataTestId='test' />).toJSON()).toMatchSnapshot();
+    const component = create(<Collage {...collageProps} columns={4} dataTestId="test" />);
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

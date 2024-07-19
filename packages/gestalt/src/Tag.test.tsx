@@ -11,10 +11,17 @@ describe('Tag', () => {
 
   it('Tag renders with dataTestId', () => {
     const component = create(
-      <Tag accessibilityRemoveIconLabel="Remove New tag" onRemove={() => {}} text="New" dataTestId='some-test-id' />,
+      <Tag
+        accessibilityRemoveIconLabel="Remove New tag"
+        onRemove={() => {}}
+        text="New"
+        dataTestId="some-test-id"
+      />,
     );
     const testInstance = component.root;
-    const tooltipElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+    const tooltipElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(tooltipElement).not.toBeNull();
   });
 

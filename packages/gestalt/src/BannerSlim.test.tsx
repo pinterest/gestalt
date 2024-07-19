@@ -86,7 +86,7 @@ describe('BannerSlim', () => {
   it('validate data test id and renders primary action and dismiss button', () => {
     const tree = create(
       <BannerSlim
-        dataTestId='test'
+        dataTestId="test"
         message="test"
         onDismiss={() => {}}
         primaryAction={{

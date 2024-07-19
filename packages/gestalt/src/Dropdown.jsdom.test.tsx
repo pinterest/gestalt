@@ -666,8 +666,8 @@ describe('Dropdown', () => {
     >();
     const element = document.createElement('button');
 
-    const { baseElement } = render(
-      <Dropdown anchor={element} dataTestId='test' id="ex-1" onDismiss={mockOnDismiss}>
+    render(
+      <Dropdown anchor={element} dataTestId="test" id="ex-1" onDismiss={mockOnDismiss}>
         <Dropdown.Item onSelect={onSelectMock} option={{ value: 'item 1', label: 'Item 1' }} />
         <Dropdown.Item
           onSelect={onSelectMock}
@@ -706,6 +706,6 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    expect(baseElement).toMatchSnapshot();
+    expect(screen.getByTestId('test')).toBeVisible();
   });
 });

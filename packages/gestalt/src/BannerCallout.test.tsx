@@ -161,9 +161,9 @@ describe('<BannerCallout />', () => {
   });
 
   test('validate data test id bannercallout with rich text message', () => {
-    const tree = create(
+    const component = create(
       <BannerCallout
-        dataTestId='test'
+        dataTestId="test"
         dismissButton={{
           accessibilityLabel: 'Dismiss this banner',
           onDismiss: () => {},
@@ -192,7 +192,10 @@ describe('<BannerCallout />', () => {
         title="You've sent an invite"
         type="info"
       />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });

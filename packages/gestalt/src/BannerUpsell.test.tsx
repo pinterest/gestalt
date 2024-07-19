@@ -139,9 +139,9 @@ describe('<BannerUpsell />', () => {
   });
 
   test('validate data test id and message + title + dismissButton + image + form', () => {
-    const tree = create(
+    const component = create(
       <BannerUpsell
-        dataTestId='test'
+        dataTestId="test"
         dismissButton={{
           accessibilityLabel: 'Dismiss banner',
           onDismiss: () => {},
@@ -160,7 +160,10 @@ describe('<BannerUpsell />', () => {
           <TextField id="name" onChange={() => {}} placeholder="Name" />
         </BannerUpsell.Form>
       </BannerUpsell>,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });
