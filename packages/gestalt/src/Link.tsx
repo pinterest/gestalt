@@ -19,7 +19,9 @@ import layoutStyles from './Layout.css';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
 import styles from './Text.css';
+import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 const externalLinkIconMap = {
@@ -147,6 +149,11 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 ): ReactElement {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -169,7 +176,9 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 
   const { isFocusVisible } = useFocusVisible();
 
-  let underlineStyle = ['inline', 'inlineBlock'].includes(display) ? 'always' : 'hover';
+  const isInline = ['inline', 'inlineBlock'].includes(display);
+
+  let underlineStyle = isInline ? 'always' : 'hover';
 
   if (underline && underline !== 'auto') {
     underlineStyle = underline;
@@ -186,8 +195,27 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       [styles.hoverUnderline]: underlineStyle === 'hover',
       [styles.underline]: underlineStyle === 'always',
       [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.outlineFocus]: isFocusVisible,
       [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
+      [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
+    },
+  );
+
+  const VRclassName = classnames(
+    styles.noOutline,
+    styles.inheritColor,
+    getRoundingClassName(rounding),
+    layoutStyles[display],
+    touchableStyles.tapTransition,
+    {
+      [styles.vrInheritColor]: isInline,
+      [styles.standalone]: !isInline,
+      [styles.underline]: underlineStyle === 'always',
+      [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.hoverUnderline]: underlineStyle === 'hover',
+      [styles.outlineFocusVR]: isFocusVisible,
+      [typographyStyles.fontWeightSemiBold]: !isInline,
+      [focusStyles.hideOutline]: !isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
   );
@@ -220,7 +248,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     <a
       ref={innerRef}
       aria-label={ariaLabel}
-      className={className}
+      className={isInVRExperiment ? VRclassName : className}
       data-test-id={dataTestId}
       href={href}
       id={id}
