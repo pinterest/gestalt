@@ -123,6 +123,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
+   */
+  _dynamicHeights?: boolean;
 };
 
 type State<T> = {
@@ -185,9 +189,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     this.idxToDataMap = {};
 
     this.resizeObserver =
-      typeof window === 'undefined'
-        ? undefined
-        : new ResizeObserver((entries) => {
+      /* eslint-disable-next-line no-underscore-dangle */
+      props._dynamicHeights && typeof window !== 'undefined' && this.positionStore
+        ? new ResizeObserver((entries) => {
             for (let i = 0; i < entries.length; i += 1) {
               const { target, contentRect } = entries[i];
               const idx = Number(target.getAttribute('data-grid-item-idx'));
@@ -206,7 +210,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                 this.forceUpdate();
               }
             }
-          });
+          })
+        : undefined;
 
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
@@ -502,9 +507,13 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           height: layoutNumberToCssDimension(height),
         }}
       >
-        <ItemResizeObserverWrapper idx={idx} resizeObserver={this.resizeObserver}>
-          {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
-        </ItemResizeObserverWrapper>
+        {this.resizeObserver ? (
+          <ItemResizeObserverWrapper idx={idx} resizeObserver={this.resizeObserver}>
+            {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+          </ItemResizeObserverWrapper>
+        ) : (
+          renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })
+        )}
       </div>
     );
 

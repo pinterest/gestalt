@@ -141,6 +141,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
+   */
+  _dynamicHeights?: boolean;
 };
 
 type MasonryRef = {
@@ -566,9 +570,13 @@ function MasonryItem<T>({
       // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
       style={style}
     >
-      <ItemResizeObserverWrapper idx={idx} resizeObserver={resizeObserver}>
-        {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
-      </ItemResizeObserverWrapper>
+      {resizeObserver ? (
+        <ItemResizeObserverWrapper idx={idx} resizeObserver={resizeObserver}>
+          {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+        </ItemResizeObserverWrapper>
+      ) : (
+        renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })
+      )}
     </div>
   );
 }
@@ -596,6 +604,7 @@ function Masonry<T>(
     _measureAll,
     _useRAF,
     _getColumnSpanConfig,
+    _dynamicHeights,
   }: Props<T>,
   ref:
     | {
@@ -688,9 +697,8 @@ function Masonry<T>(
 
   const resizeObserver = useMemo(
     () =>
-      typeof window === 'undefined'
-        ? undefined
-        : new ResizeObserver((entries) => {
+      _dynamicHeights && typeof window !== 'undefined' && positionStore
+        ? new ResizeObserver((entries) => {
             for (let i = 0; i < entries.length; i += 1) {
               const { target, contentRect } = entries[i];
               const idx = Number(target.getAttribute('data-grid-item-idx'));
@@ -708,8 +716,9 @@ function Masonry<T>(
                 forceUpdate();
               }
             }
-          }),
-    [_getColumnSpanConfig, forceUpdate, items, measurementStore, positionStore],
+          })
+        : undefined,
+    [_getColumnSpanConfig, _dynamicHeights, forceUpdate, items, measurementStore, positionStore],
   );
 
   useFetchOnScroll({
