@@ -3,7 +3,7 @@
 exports[`IconButtonLink renders 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline tapTransition pill accessibilityOutline button enabled"
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline button enabled"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -65,7 +65,7 @@ exports[`IconButtonLink renders 1`] = `
 exports[`IconButtonLink renders disabled 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline tapTransition pill button disabled"
+  className="noOutline inheritColor noUnderline tapTransition pill button disabled"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -80,7 +80,6 @@ exports[`IconButtonLink renders disabled 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="noopener noreferrer nofollow"
-  tabIndex={null}
   target="_blank"
 >
   <div
@@ -126,7 +125,7 @@ exports[`IconButtonLink renders disabled 1`] = `
 exports[`IconButtonLink renders with icon 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline tapTransition pill accessibilityOutline button enabled"
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline button enabled"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -188,7 +187,7 @@ exports[`IconButtonLink renders with icon 1`] = `
 exports[`IconButtonLink renders with svg 1`] = `
 <a
   aria-label="test; Opens a new tab"
-  className="link noUnderline tapTransition pill accessibilityOutline button enabled"
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline button enabled"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -261,7 +260,7 @@ exports[`IconButtonLink renders with tooltip 1`] = `
   >
     <a
       aria-label="Share"
-      className="link noUnderline tapTransition pill accessibilityOutline button enabled"
+      className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline button enabled"
       href="#"
       onBlur={[Function]}
       onClick={[Function]}
@@ -278,7 +277,6 @@ exports[`IconButtonLink renders with tooltip 1`] = `
       onTouchStart={[Function]}
       rel=""
       tabIndex={0}
-      target={null}
     >
       <div
         className="pog transparent"

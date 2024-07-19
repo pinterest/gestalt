@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import cx from 'classnames';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../Text.css';
-import typography from '../Typography.css';
+import typographyStyle from '../Typography.css';
 
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
 
@@ -36,7 +36,7 @@ export default function OverridingSpan({
   }
 
   return (
-    <span className={cx(typography[`fontSize${size}Override`], textColorOverrideStyles)}>
+    <span className={cx(typographyStyle[`fontSize${size}Override`], textColorOverrideStyles)}>
       {textElement}
     </span>
   );

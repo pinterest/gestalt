@@ -2,8 +2,178 @@
   composes: antialiased sansSerif from "./Typography.css";
 }
 
-.inverse {
-  color: var(--color-text-inverse);
+/* Link management */
+
+.noOutline {
+  outline: none;
+}
+
+.hoverNoUnderline:hover,
+.hoverNoUnderline:focus {
+  text-decoration: none;
+}
+
+.hoverUnderline:hover,
+.hoverUnderline:focus {
+  text-decoration: underline;
+}
+
+.outlineFocus:focus {
+  outline: 4px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
+.outlineFocusVR:focus {
+  border-radius: var(--rounding-100);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Link color management */
+
+.inheritColor {
+  color: inherit; /* Links should have the correct underline color */
+}
+
+/* .standalone is so we can select base on class */
+
+.standalone {
+  color: inherit;
+}
+
+a.standalone {
+  color: var(--color-text-link);
+}
+
+a.standalone:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+a.standalone:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+/* .vrInheritColor is so we can select base on class */
+
+.vrInheritColor {
+  color: inherit;
+}
+
+.dark a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-dark);
+}
+
+.dark a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-dark);
+}
+
+.default a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-default);
+}
+
+.default a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-default);
+}
+
+.inverse a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-inverse);
+}
+
+.inverse a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-inverse);
+}
+
+.error a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-error);
+}
+
+.error a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-error);
+}
+
+.light a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-light);
+}
+
+.light a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-light);
+}
+
+.link a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+.link a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+.recommendation a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-recommendation);
+}
+
+.recommendation a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-recommendation);
+}
+
+.shopping a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-link);
+}
+
+.shopping a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-link);
+}
+
+.subtle a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-subtle);
+}
+
+.subtle a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-subtle);
+}
+
+.success a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-success);
+}
+
+.success a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-success);
+}
+
+.warning a.vrInheritColor:hover {
+  color: var(--sema-color-hover-text-warning);
+}
+
+.warning a.vrInheritColor:active {
+  color: var(--sema-color-pressed-text-warning);
+}
+
+/* Decoration */
+
+.underline {
+  text-decoration: underline;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+/* Text color */
+
+.dark {
+  color: var(--color-text-dark);
+}
+
+.textColorOverrideDark * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-dark) !important;
+}
+
+.default {
+  color: var(--color-text-default);
+}
+
+.disabled {
+  color: var(--color-text-disabled);
 }
 
 .error {
@@ -19,36 +189,8 @@
   font-weight: var(--font-weight-semibold) !important;
 }
 
-.default {
-  color: var(--color-text-default);
-}
-
-.disabled {
-  color: var(--color-text-disabled);
-}
-
-.subtle {
-  color: var(--color-text-subtle);
-}
-
-.warning {
-  color: var(--color-text-warning);
-}
-
-.recommendation {
-  color: var(--color-icon-recommendation);
-}
-
-.success {
-  color: var(--color-text-success);
-}
-
-.shopping {
-  color: var(--color-text-shopping);
-}
-
-.link {
-  color: var(--color-text-link);
+.inverse {
+  color: var(--color-text-inverse);
 }
 
 .light {
@@ -60,11 +202,26 @@
   color: var(--color-text-light) !important;
 }
 
-.dark {
-  color: var(--color-text-dark);
+.link {
+  color: var(--color-text-link);
 }
 
-.textColorOverrideDark * {
-  /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-text-dark) !important;
+.recommendation {
+  color: var(--color-icon-recommendation);
+}
+
+.shopping {
+  color: var(--color-text-shopping);
+}
+
+.subtle {
+  color: var(--color-text-subtle);
+}
+
+.success {
+  color: var(--color-text-success);
+}
+
+.warning {
+  color: var(--color-text-warning);
 }

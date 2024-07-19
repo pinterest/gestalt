@@ -1,3 +1,27 @@
+## 155.5.0 (Jul 19, 2024)
+
+### Minor
+
+- Link: enabling VR design ([#3688](https://github.com/pinterest/gestalt/pull/3688)) - [Preview link](https://deploy-preview-3688--gestalt.netlify.app?devexample=true)
+
+## 155.4.2 (Jul 18, 2024)
+
+### Patch
+
+- Link: external icon inheriting color + cleanups + TS removal + docs refactors ([#3687](https://github.com/pinterest/gestalt/pull/3687)) - [Preview link](https://deploy-preview-3687--gestalt.netlify.app?devexample=true)
+
+## 155.4.1 (Jul 18, 2024)
+
+### Patch
+
+- SideNavigation: Use outline as border ([#3660](https://github.com/pinterest/gestalt/pull/3660)) - [Preview link](https://deploy-preview-3660--gestalt.netlify.app?devexample=true)
+
+## 155.4.0 (Jul 18, 2024)
+
+### Minor
+
+- Tokens: Add motion tokens ([#3680](https://github.com/pinterest/gestalt/pull/3680)) - [Preview link](https://deploy-preview-3680--gestalt.netlify.app?devexample=true)
+
 ## 155.3.0 (Jul 17, 2024)
 
 ### Minor

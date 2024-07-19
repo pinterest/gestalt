@@ -332,7 +332,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -349,7 +349,6 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -471,7 +470,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -488,7 +487,6 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -610,7 +608,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
       >
         <a
           aria-label="Learn more: upsell messages"
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg gray"
           href="pinterest.com/help"
           onBlur={[Function]}
           onClick={[Function]}
@@ -627,7 +625,6 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -649,7 +646,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -666,7 +663,6 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
@@ -739,7 +735,7 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
       >
         <a
           aria-label=""
-          className="link noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
+          className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline flex justifyCenter xsItemsCenter button lg red"
           href="pinterest.com"
           onBlur={[Function]}
           onClick={[Function]}
@@ -756,7 +752,6 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
           onTouchStart={[Function]}
           rel=""
           tabIndex={0}
-          target={null}
         >
           <div
             className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"

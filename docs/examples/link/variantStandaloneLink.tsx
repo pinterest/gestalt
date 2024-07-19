@@ -16,7 +16,7 @@ export default function Example() {
           'Terms',
         ].map((item, idx) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Text key={idx} color="subtle" weight="bold">
+          <Text key={idx} weight="bold">
             <Box paddingY={1}>
               <Link href="https://www.pinterest.com/">{item}</Link>
             </Box>
