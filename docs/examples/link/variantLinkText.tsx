@@ -3,7 +3,7 @@ import { Box, Flex, Link, Text } from 'gestalt';
 export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center">
-      <Box color="infoBase" padding={4} rounding={3} width="50%">
+      <Box color="infoBase" padding={4} rounding={3} width="70%">
         <Flex alignItems="center" direction="column" gap={{ column: 3, row: 0 }}>
           <Text color="inverse" size="600" weight="bold">
             Tips

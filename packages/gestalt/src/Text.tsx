@@ -2,7 +2,7 @@ import { forwardRef, ReactElement, ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Text.css';
 import { semanticColors } from './textTypes';
-import typography from './Typography.css';
+import typographyStyle from './Typography.css';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -101,12 +101,12 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
 
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
-      return typography.breakAll;
+      return typographyStyle.breakAll;
     }
 
     // default to breakWord if lineClamp is set
     if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
-      return typography.breakWord;
+      return typographyStyle.breakWord;
     }
 
     return undefined;
@@ -114,22 +114,22 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
 
   const cs = cx(
     styles.Text,
-    typography[`fontSize${size}`],
+    typographyStyle[`fontSize${size}`],
     color && colorClass,
-    align === 'center' && typography.alignCenter,
+    align === 'center' && typographyStyle.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
-    align === 'justify' && typography.alignJustify,
-    align === 'start' && typography.alignStart,
-    align === 'end' && typography.alignEnd,
-    align === 'forceLeft' && typography.alignForceLeft,
-    align === 'forceRight' && typography.alignForceRight,
+    align === 'justify' && typographyStyle.alignJustify,
+    align === 'start' && typographyStyle.alignStart,
+    align === 'end' && typographyStyle.alignEnd,
+    align === 'forceLeft' && typographyStyle.alignForceLeft,
+    align === 'forceRight' && typographyStyle.alignForceRight,
     getWordBreakStyle(),
-    overflow === 'noWrap' && typography.noWrap,
-    italic && typography.fontStyleItalic,
-    underline && typography.underline,
-    weight === 'bold' && typography.fontWeightSemiBold,
-    weight === 'normal' && typography.fontWeightNormal,
-    isNotNullish(lineClamp) && typography.lineClamp,
+    overflow === 'noWrap' && typographyStyle.noWrap,
+    italic && typographyStyle.fontStyleItalic,
+    underline && styles.underline,
+    weight === 'bold' && typographyStyle.fontWeightSemiBold,
+    weight === 'normal' && typographyStyle.fontWeightNormal,
+    isNotNullish(lineClamp) && typographyStyle.lineClamp,
   );
 
   const Tag: As = inline ? 'span' : 'div';

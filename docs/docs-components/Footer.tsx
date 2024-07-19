@@ -84,11 +84,7 @@ export default function Footer() {
           padding={2}
         >
           <Text inline size="100">
-            <Link
-              externalLinkIcon={{ color: 'default', size: '100' }}
-              href="https://www.netlify.com/"
-              target="blank"
-            >
+            <Link externalLinkIcon={{ size: '100' }} href="https://www.netlify.com/" target="blank">
               This site is powered by Netlify
             </Link>
           </Text>
