@@ -15,7 +15,9 @@ import {
 import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
+import recalcHeights from './Masonry/dynamicHeightsUtils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
+import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
@@ -501,6 +503,7 @@ function MasonryItem<T>({
   top,
   updateMeasurement,
   width,
+  resizeObserver,
 }: {
   height: number | null | undefined;
   idx: number;
@@ -514,6 +517,7 @@ function MasonryItem<T>({
   top: number;
   updateMeasurement: (arg1: T, arg2: number) => void;
   width: number | null | undefined;
+  resizeObserver: any;
 }) {
   // This isn't great since it currently returns false during server render/hydration and potentially true after
   // This should be revisited
@@ -562,7 +566,9 @@ function MasonryItem<T>({
       // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
       style={style}
     >
-      {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+      <ItemResizeObserverWrapper idx={idx} resizeObserver={resizeObserver}>
+        {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+      </ItemResizeObserverWrapper>
     </div>
   );
 }
@@ -680,6 +686,32 @@ function Masonry<T>(
     _getColumnSpanConfig,
   });
 
+  const resizeObserver = useMemo(
+    () =>
+      typeof window === 'undefined'
+        ? undefined
+        : new ResizeObserver((entries) => {
+            for (let i = 0; i < entries.length; i += 1) {
+              const { target, contentRect } = entries[i];
+              const idx = Number(target.getAttribute('data-grid-item-idx'));
+
+              if (typeof idx === 'number') {
+                const item: T = items[idx];
+                recalcHeights({
+                  items,
+                  changedItem: item,
+                  newHeight: contentRect.height,
+                  positionStore,
+                  measurementStore,
+                  getColumnSpanConfig: _getColumnSpanConfig,
+                });
+                forceUpdate();
+              }
+            }
+          }),
+    [_getColumnSpanConfig, forceUpdate, items, measurementStore, positionStore],
+  );
+
   useFetchOnScroll({
     containerHeight,
     containerOffset,
@@ -758,6 +790,7 @@ function Masonry<T>(
               layout={layout}
               left={position.left}
               renderItem={renderItem}
+              resizeObserver={resizeObserver}
               serializedColumnSpanConfig={serializedColumnSpanConfig}
               top={position.top}
               updateMeasurement={updateMeasurement}
