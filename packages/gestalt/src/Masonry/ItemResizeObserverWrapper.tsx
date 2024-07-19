@@ -11,17 +11,9 @@ function ItemResizeObserverWrapper({
 }) {
   const ref = useRef(null);
 
-  // console.log('inside item resize wrapper');
-  // console.log({
-  //   el: ref.current,
-  //   resizeObserver,
-  //   idx,
-  // });
-
   useEffect(() => {
     const el = ref.current;
     if (resizeObserver && el) {
-      // console.log('resize observer observing');
       resizeObserver.observe(el);
     }
 

@@ -485,10 +485,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     // on the client. If that assumption changes, this will need to be revisited
     const isRtl = document?.dir === 'rtl';
 
-    // if (itemData.name === 'Pin 123') {
-    //   console.log({ itemData, position });
-    // }
-
     const itemComponent = (
       <div
         key={`item-${idx}`}

@@ -122,7 +122,6 @@ export default function TestPage({
               ? generateRealisticExampleItems({
                   name: 'InitialPin',
                   pinHeightsSample,
-                  twoColItems: true,
                 })
               : generateExampleItems({ name: 'InitialPin' })
           }
