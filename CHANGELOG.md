@@ -1,3 +1,9 @@
+## 155.6.0 (Jul 19, 2024)
+
+### Minor
+
+- Toast: VR Fixes ([#3689](https://github.com/pinterest/gestalt/pull/3689)) - [Preview link](https://deploy-preview-3689--gestalt.netlify.app?devexample=true)
+
 ## 155.5.0 (Jul 19, 2024)
 
 ### Minor
