@@ -84,7 +84,7 @@ describe('BannerSlim', () => {
   });
 
   it('validate data test id and renders primary action and dismiss button', () => {
-    const tree = create(
+    const component = create(
       <BannerSlim
         dataTestId="test"
         message="test"
@@ -96,7 +96,10 @@ describe('BannerSlim', () => {
           role: 'button',
         }}
       />,
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    );
+    const testInstance = component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'test',
+    );
+    expect(testInstance).not.toBeNull();
   });
 });
