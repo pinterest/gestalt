@@ -1,3 +1,9 @@
+## 155.5.0 (Jul 19, 2024)
+
+### Minor
+
+- Link: enabling VR design ([#3688](https://github.com/pinterest/gestalt/pull/3688)) - [Preview link](https://deploy-preview-3688--gestalt.netlify.app?devexample=true)
+
 ## 155.4.2 (Jul 18, 2024)
 
 ### Patch
