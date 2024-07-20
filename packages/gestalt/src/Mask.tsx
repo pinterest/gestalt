@@ -11,6 +11,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+  */
+  dataTestId?: string;
+  /**
    * Use numbers for pixels (`height={100}`) and strings for percentages (`height="100%"`).
    */
   height?: number | string;
@@ -40,6 +44,7 @@ type Props = {
  */
 export default function Mask({
   children,
+  dataTestId,
   rounding = 0,
   width,
   height,
@@ -51,6 +56,7 @@ export default function Mask({
       className={cx(styles.Mask, getRoundingClassName(rounding), {
         [styles.willChangeTransform]: willChangeTransform,
       })}
+      data-test-id={dataTestId}
       style={{ width, height }}
     >
       {children}

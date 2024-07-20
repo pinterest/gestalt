@@ -20,3 +20,14 @@ test('Mask has the correct width', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Mask renders with dataTestId', () => {
+  const component = renderer.create(
+    <Mask dataTestId='some-test-id'>
+      <img alt="Painting" src="https://pinterest.com/img/painting.png" />
+    </Mask>,
+  );
+  const testInstance = component.root;
+  const maskElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  expect(maskElement).not.toBeNull();
+});
