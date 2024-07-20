@@ -20,6 +20,10 @@ html[dir="rtl"] .rtlSupport {
 
 /* semantic icon colors */
 
+.inherit {
+  color: inherit;
+}
+
 .inverse {
   color: var(--color-icon-inverse);
 }

@@ -1080,6 +1080,65 @@ public enum GestaltTokensFontWeightVR {
     public static let semaWeightHeadingBold = baseWeight700
 }
 ",
+  "dist/ios-swift/vr-theme/GestaltTokensMotionDurationVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensMotionDurationVR {
+    public static let baseDuration900 = 0.9
+    public static let baseDuration700 = 0.7
+    public static let baseDuration600 = 0.6
+    public static let baseDuration500 = 0.5
+    public static let baseDuration400 = 0.4
+    public static let baseDuration300 = 0.3
+    public static let baseDuration200 = 0.2
+    public static let baseDuration150 = 0.15
+    public static let baseDuration100 = 0.1
+    public static let baseDuration50 = 0.05
+    public static let baseDuration0 = 0
+    public static let semaOpacityDurationInstant = baseDuration0
+    public static let semaOpacityDurationDefault = baseDuration300
+    public static let semaColorchangeDuration = baseDuration300
+    public static let semaScaleSwipeDuration = baseDuration400
+    public static let semaScaleOnDuration = baseDuration150
+    public static let semaPositionSwipeDuration = baseDuration400
+    public static let semaPositionOffDuration = baseDuration200
+    public static let semaPositionOnDuration = baseDuration300
+    public static let semaPositionExitDuration = baseDuration300
+    public static let semaPositionEnterDuration = baseDuration300
+    public static let semaPositionFadeoutDuration = baseDuration200
+    public static let semaPositionFadeinDuration = baseDuration300
+}
+",
+  "dist/ios-swift/vr-theme/GestaltTokensMotionEasingVR.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensMotionEasingVR {
+    public static let baseEasingExit = CAMediaTimingFunction(controlPoints: 0.3, 0, 0.8, 0.15)
+    public static let baseEasingEnter = CAMediaTimingFunction(controlPoints: 0.05, 0.7, 0.1, 1)
+    public static let baseEasingBounce = CAMediaTimingFunction(controlPoints: 0, 0.35, 0, 1.25)
+    public static let baseEasingLateral = CAMediaTimingFunction(controlPoints: 0.8, 0, 0.2, 1)
+    public static let baseEasingExpressive = CAMediaTimingFunction(controlPoints: 0.55, 0, 0, 1)
+    public static let baseEasingLinear = CAMediaTimingFunction(controlPoints: 0, 0, 1, 1)
+    public static let semaOpacityEasingInstant = baseEasingLinear
+    public static let semaOpacityEasingDefault = baseEasingLinear
+    public static let semaColorchangeEasing = baseEasingLinear
+    public static let semaScaleSwipeEasing = baseEasingLateral
+    public static let semaScaleOnEasing = baseEasingLinear
+    public static let semaPositionSwipeEasing = baseEasingLateral
+    public static let semaPositionOffEasing = baseEasingLateral
+    public static let semaPositionOnEasing = baseEasingBounce
+    public static let semaPositionExitEasing = baseEasingExit
+    public static let semaPositionEnterEasing = baseEasingBounce
+    public static let semaPositionFadeoutEasing = baseEasingLateral
+    public static let semaPositionFadeinEasing = baseEasingLateral
+}
+",
   "dist/ios-swift/vr-theme/GestaltTokensOpacityVR.swift": "
 
 

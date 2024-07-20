@@ -6,7 +6,7 @@ import Box from '../Box';
 import styles from '../Icon.css';
 import icons from '../icons/index';
 import vrIcons from '../icons-vr-theme/index';
-import typography from '../Typography.css';
+import typographyStyle from '../Typography.css';
 import useInExperiment from '../useInExperiment';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
@@ -84,9 +84,9 @@ export default function AvatarFoundation({
           {title ? <title>{title}</title> : null}
           <text
             className={[
-              typography.antialiased,
-              typography.sansSerif,
-              typography.fontWeightSemiBold,
+              typographyStyle.antialiased,
+              typographyStyle.sansSerif,
+              typographyStyle.fontWeightSemiBold,
               translate && avatarStyles[translate], // if addCollaborator button is present, translateX moves numbers closer to the edge
             ].join(' ')}
             dy="0.35em"

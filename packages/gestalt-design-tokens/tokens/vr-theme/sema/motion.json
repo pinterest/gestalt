@@ -1,0 +1,60 @@
+{
+  "sema": {
+    "motion": {
+      "position": {
+        "fadein": {
+          "duration": { "value": "{base.motion.duration.300}" },
+          "easing": { "value": "{base.motion.easing.lateral}" }
+        },
+        "fadeout": {
+          "duration": { "value": "{base.motion.duration.200}" },
+          "easing": { "value": "{base.motion.easing.lateral}" }
+        },
+        "enter": {
+          "duration": { "value": "{base.motion.duration.300}" },
+          "easing": { "value": "{base.motion.easing.bounce}" }
+        },
+        "exit": {
+          "duration": { "value": "{base.motion.duration.300}" },
+          "easing": { "value": "{base.motion.easing.exit}" }
+        },
+        "on": {
+          "duration": { "value": "{base.motion.duration.300}" },
+          "easing": { "value": "{base.motion.easing.bounce}" }
+        },
+        "off": {
+          "duration": { "value": "{base.motion.duration.200}" },
+          "easing": { "value": "{base.motion.easing.lateral}" }
+        },
+        "swipe": {
+          "duration": { "value": "{base.motion.duration.400}" },
+          "easing": { "value": "{base.motion.easing.lateral}" }
+        }
+      },
+      "scale": {
+        "on": {
+          "duration": { "value": "{base.motion.duration.150}" },
+          "easing": { "value": "{base.motion.easing.linear}" }
+        },
+        "swipe": {
+          "duration": { "value": "{base.motion.duration.400}" },
+          "easing": { "value": "{base.motion.easing.lateral}" }
+        }
+      },
+      "colorchange": {
+        "duration": { "value": "{base.motion.duration.300}" },
+        "easing": { "value": "{base.motion.easing.linear}" }
+      },
+      "opacity": {
+        "duration": {
+          "default": { "value": "{base.motion.duration.300}" },
+          "instant": { "value": "{base.motion.duration.0}" }
+        },
+        "easing": {
+          "default": { "value": "{base.motion.easing.linear}" },
+          "instant": { "value": "{base.motion.easing.linear}" }
+        }
+      }
+    }
+  }
+}
