@@ -574,6 +574,14 @@
             "value": "#C7C6C1"
           }
         },
+        "focus": {
+          "inner": {
+            "value": "#FFFFFF"
+          },
+          "outer": {
+            "value": "#007DB8"
+          }
+        },
         "hover": {
           "unselected": {
             "value": "#626260"

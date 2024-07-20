@@ -570,6 +570,16 @@
           "_darkMode": "Unsupported color"
         }
       },
+      "switch": {
+        "focus": {
+          "inner": {
+            "value": "#000000"
+          },
+          "outer": {
+            "value": "#C5EAF7"
+          }
+        }
+      },
       "table": {
         "row": {
           "selected": {

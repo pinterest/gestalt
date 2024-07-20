@@ -229,6 +229,14 @@
         "value": "{sema.color.border.focus.outer.default.value}"
       }
     },
+    "focus": {
+      "inner": {
+        "value": "{sema.color.border.focus.outer.default.value}"
+      },
+      "outer": {
+        "value": "{sema.color.border.focus.inner.default.value}"
+      }
+    },
     "hover": {
       "background": {
         "default": "{sema.color.hover.background.default.value}"

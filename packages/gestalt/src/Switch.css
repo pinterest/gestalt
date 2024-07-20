@@ -29,6 +29,14 @@ html[dir="rtl"] .switch {
   background-color: var(--color-background-switch-default-unselected);
 }
 
+.vr.focusInnerBorder {
+  border: 1px solid;
+  border-color: var(--color-border-switch-focus-inner);
+  outline: 2px solid var(--color-border-switch-focus-outer);
+  outline-offset: 0;
+  padding: var(--space-0) var(--space-100);
+}
+
 .vr.enabled {
   border-color: var(--color-border-switch-default-unselected);
 }

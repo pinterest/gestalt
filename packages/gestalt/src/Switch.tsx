@@ -55,13 +55,13 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
   const { isFocusVisible } = useFocusVisible();
 
   const switchStyles = classnames(styles.switch, {
+    [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible && !isInVRExperiment,
     [styles.vr]: isInVRExperiment,
-    [focusStyles.accessibilityOutlineVR]: isInVRExperiment && focused && isFocusVisible,
     [styles.disabledSelected]: disabled && switched,
     [styles.disabled]: disabled && !switched,
     [styles.enabledSelected]: !disabled && switched,
-    [styles.enabled]: !disabled && !switched,
-    [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+    [styles.enabled]: !disabled && !switched && (!focused || !isFocusVisible),
+    [styles.focusInnerBorder]: focused && isFocusVisible && isInVRExperiment,
   });
 
   const sliderStyles = classnames(
