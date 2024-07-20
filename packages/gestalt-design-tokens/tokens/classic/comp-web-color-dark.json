@@ -428,6 +428,22 @@
           "selected": {
             "value": "#ababab"
           }
+        },
+        "hover": {
+          "selected": {
+            "value": "#E7E6DF"
+          },
+          "unselected": {
+            "value": "#242423"
+          }
+        },
+        "pressed": {
+          "selected": {
+            "value": "#D8D7CF"
+          },
+          "unselected": {
+            "value": "#393937"
+          }
         }
       },
       "table": {

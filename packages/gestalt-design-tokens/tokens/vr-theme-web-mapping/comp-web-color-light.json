@@ -85,11 +85,17 @@
           }
         },
         "hover": {
+          "selected": {
+            "value": "{sema.color.hover.background.selected.value}"
+          },
           "unselected": {
             "value": "{sema.color.hover.background.default.value}"
           }
         },
         "pressed": {
+          "selected": {
+            "value": "{sema.color.pressed.background.selected.value}"
+          },
           "unselected": {
             "value": "{sema.color.pressed.background.default.value}"
           }

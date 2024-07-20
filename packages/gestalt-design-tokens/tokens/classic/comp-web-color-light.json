@@ -417,11 +417,17 @@
           }
         },
         "hover": {
+          "selected": {
+            "value": "#242423"
+          },
           "unselected": {
             "value": "#F8F7F2"
           }
         },
         "pressed": {
+          "selected": {
+            "value": "#393937"
+          },
           "unselected": {
             "value": "#EBEBE5"
           }
