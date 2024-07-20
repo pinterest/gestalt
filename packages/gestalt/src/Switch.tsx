@@ -71,8 +71,12 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
   );
 
   const sliderVrStyles = classnames(
-    { [styles.blackSlider]: !switched, [styles.disabledSlider]: disabled && !switched },
-    styles.sliderVr,
+    {
+      [styles.blackSlider]: !switched,
+      [styles.disabledSlider]: disabled && !switched,
+      [styles.slsiderVrOn]: switched,
+      [styles.sliderVrOff]: !switched,
+    },
     sliderStyles,
   );
 

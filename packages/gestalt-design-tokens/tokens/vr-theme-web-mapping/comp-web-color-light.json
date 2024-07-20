@@ -83,6 +83,16 @@
           "selected": {
             "value": "{sema.color.background.disabled.value}"
           }
+        },
+        "hover": {
+          "unselected": {
+            "value": "{sema.color.hover.background.default.value}"
+          }
+        },
+        "pressed": {
+          "unselected": {
+            "value": "{sema.color.pressed.background.default.value}"
+          }
         }
       }
     },
@@ -97,16 +107,6 @@
         "dark": {
           "value": "{sema.color.border.focus.inner.dark.value}"
         }
-      }
-    },
-    "hover": {
-      "background": {
-        "default": "{sema.color.hover.background.default.value}"
-      }
-    },
-    "pressed": {
-      "background": {
-        "default": "{sema.color.pressed.background.default.value}"
       }
     }
   }

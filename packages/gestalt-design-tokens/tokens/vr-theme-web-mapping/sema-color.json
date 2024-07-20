@@ -232,11 +232,17 @@
     "hover": {
       "background": {
         "default": "{sema.color.hover.background.default.value}"
+      },
+      "border": {
+        "interactive": "{sema.color.hover.border.interactive.value}"
       }
     },
     "pressed": {
       "background": {
         "default": "{sema.color.pressed.background.default.value}"
+      },
+      "border": {
+        "interactive": "{sema.color.pressed.border.interactive.value}"
       }
     }
   }

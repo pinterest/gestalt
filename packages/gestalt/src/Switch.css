@@ -1,6 +1,7 @@
 :root {
   --g-switch-height: 24px;
-  --g-vr-slider-height: 18px;
+  --g-vr-slider-height-on: 18px;
+  --g-vr-slider-height-off: 17px;
   --g-switch-width: 40px;
   --g-switch-border: 1px;
 }
@@ -28,12 +29,18 @@ html[dir="rtl"] .switch {
   background-color: var(--color-background-switch-default-unselected);
 }
 
-.vr.enabled:hover {
-  background-color: var(--color-hovered-background-default);
+.vr.enabled {
+  border-color: var(--color-border-switch-default-unselected);
 }
 
 .vr.enabled:active {
-  background-color: var(--color-pressed-background-default);
+  background-color: var(--color-background-switch-pressed-unselected);
+  border-color: var(--color-border-switch-pressed-unselected);
+}
+
+.vr.enabled:hover {
+  background-color: var(--color-background-switch-hover-unselected);
+  border-color: var(--color-border-switch-hover-unselected);
 }
 
 .enabledSelected {
@@ -46,13 +53,16 @@ html[dir="rtl"] .switch {
   background-color: var(--color-background-switch-disabled-unselected);
 }
 
+.vr.disabled {
+  border-color: var(--color-border-switch-disabled-unselected);
+}
+
 .disabledSelected {
   composes: borderColorDarkGray from "./Borders.css";
   background-color: var(--color-background-switch-disabled-selected);
 }
 
 .vr.disabledSelected {
-  background-color: var(--color-background-switch-disabled-selected);
   border-color: var(--color-transparent);
 }
 
@@ -68,11 +78,18 @@ html[dir="rtl"] .switch {
   width: var(--g-switch-height);
 }
 
-.sliderVr {
+.slsiderVrOn {
   border: 0;
-  height: var(--g-vr-slider-height);
+  height: var(--g-vr-slider-height-on);
   margin: 2px;
-  width: var(--g-vr-slider-height);
+  width: var(--g-vr-slider-height-on);
+}
+
+.sliderVrOff {
+  border: 0;
+  height: var(--g-vr-slider-height-off);
+  margin: 3px;
+  width: var(--g-vr-slider-height-off);
 }
 
 .blackSlider {

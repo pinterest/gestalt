@@ -415,6 +415,16 @@
           "selected": {
             "value": "{color.gray.roboflow.500.value}"
           }
+        },
+        "hover": {
+          "unselected": {
+            "value": "#F8F7F2"
+          }
+        },
+        "pressed": {
+          "unselected": {
+            "value": "#EBEBE5"
+          }
         }
       },
       "table": {
@@ -553,6 +563,28 @@
           "value": "#dce9fa"
         }
       },
+      "switch": {
+        "default": {
+          "unselected": {
+            "value": "#757570"
+          }
+        },
+        "disabled": {
+          "unselected": {
+            "value": "#C7C6C1"
+          }
+        },
+        "hover": {
+          "unselected": {
+            "value": "#626260"
+          }
+        },
+        "pressed": {
+          "unselected": {
+            "value": "#585856"
+          }
+        }
+      },
       "table": {
         "row": {
           "selected": {
@@ -583,20 +615,6 @@
       "avatar": {
         "default": {
           "value": "#111"
-        }
-      }
-    },
-    "hover": {
-      "background": {
-        "default": {
-          "value": "#F8F7F2"
-        }
-      }
-    },
-    "pressed": {
-      "background": {
-        "default": {
-          "value": "#EBEBE5"
         }
       }
     }
