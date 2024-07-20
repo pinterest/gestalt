@@ -2887,8 +2887,6 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-border-badge-dark: #000000;
   --color-border-switch-focus-inner: #000000;
   --color-border-switch-focus-outer: #c5eaf7;
-  --color-focus-inner: #c5eaf7;
-  --color-focus-outer: #000000;
   --elevation-floating: 0px 4px 16px 0px rgba(0,0,0,0.2), 0px 1px 4px 0px rgba(0,0,0,0.2);
   --elevation-raised-top: 0px 2px 8px 0px rgba(0,0,0,0.3), 0px 1px 2px 0px rgba(0,0,0,0.3);
   --elevation-raised-bottom: 0px -2px 8px 0px rgba(0,0,0,0.3), 0px -1px 2px 0px rgba(0,0,0,0.3);
@@ -3711,8 +3709,6 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-border-badge-dark: #000000;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
-  --color-focus-inner: #007db8;
-  --color-focus-outer: #ffffff;
   --elevation-floating: 0px 4px 16px 0px rgba(0,0,0,0.1), 0px 1px 4px 0px rgba(0,0,0,0.08);
   --elevation-raised-top: 0px 1px 0px 0.5px rgba(0,0,0,0.06), 0px 2px 8px 0px rgba(0,0,0,0.12), 0px -1px 2px 0px rgba(0,0,0,0.06);
   --elevation-raised-bottom: 0px -1px 0px 0.5px rgba(0,0,0,0.06), 0px -2px 8px 0px rgba(0,0,0,0.12), 0px -1px 2px 0px rgba(0,0,0,0.06);
