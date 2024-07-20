@@ -40,3 +40,10 @@ test('Pog hovered renders', () => {
   const tree = create(<Pog hovered icon="heart" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Pog renders with dataTestId', () => {
+  const component = create(<Pog dataTestId='some-test-id' icon="heart" />);
+  const testInstance = component.root;
+  const pogElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  expect(pogElement).not.toBeNull();
+});
