@@ -56,6 +56,14 @@ html[dir="rtl"] .switch {
   background-color: var(--color-background-switch-default-selected);
 }
 
+.vr.enabledSelected:hover {
+  background-color: var(--color-background-switch-hover-selected);
+}
+
+.vr.enabledSelected:active {
+  background-color: var(--color-background-switch-pressed-selected);
+}
+
 .disabled {
   composes: borderColorLightGray from "./Borders.css";
   background-color: var(--color-background-switch-disabled-unselected);
