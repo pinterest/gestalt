@@ -25,6 +25,10 @@ type Props = {
    */
   autoComplete?: 'on' | 'off' | 'username' | 'name';
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Error text displayed below the input field.
    */
   errorMessage?: string;
@@ -90,6 +94,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     accessibilityLabel,
     accessibilityClearButtonLabel,
     autoComplete,
+    dataTestId,
     id,
     label,
     labelDisplay = 'visible',
@@ -161,7 +166,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
   );
 
   return (
-    <span>
+    <span data-test-id={dataTestId}>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} />}
       <Box
         alignItems="center"
