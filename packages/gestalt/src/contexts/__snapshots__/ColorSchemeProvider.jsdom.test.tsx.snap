@@ -703,6 +703,8 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-switch-default-selected: #111111;
   --color-background-switch-disabled-unselected: #efefef;
   --color-background-switch-disabled-selected: #767676;
+  --color-background-switch-hover-unselected: #f8f7f2;
+  --color-background-switch-pressed-unselected: #ebebe5;
   --color-background-table-footer: #ffffff;
   --color-background-table-row-hover: #efefef;
   --color-background-table-row-selected: #efefef;
@@ -743,6 +745,10 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-border-popover-education: #0074e8;
   --color-border-pulsar-default: #0074e8;
   --color-border-pulsar-hover: #dce9fa;
+  --color-border-switch-default-unselected: #757570;
+  --color-border-switch-disabled-unselected: #c7c6c1;
+  --color-border-switch-hover-unselected: #626260;
+  --color-border-switch-pressed-unselected: #585856;
   --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
   --color-data-visualization-10: #005062;
@@ -762,8 +768,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-data-visualization-success-text: #005f3e;
   --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
-  --color-hover-background-default: #f8f7f2;
-  --color-pressed-background-default: #ebebe5;
   --font-size-100: 12px;
   --font-size-200: 14px;
   --font-size-300: 16px;
@@ -1123,6 +1127,8 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-switch-default-selected: #111111;
   --color-background-switch-disabled-unselected: #efefef;
   --color-background-switch-disabled-selected: #767676;
+  --color-background-switch-hover-unselected: #f8f7f2;
+  --color-background-switch-pressed-unselected: #ebebe5;
   --color-background-table-footer: #ffffff;
   --color-background-table-row-hover: #efefef;
   --color-background-table-row-selected: #efefef;
@@ -1163,6 +1169,10 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-border-popover-education: #0074e8;
   --color-border-pulsar-default: #0074e8;
   --color-border-pulsar-hover: #dce9fa;
+  --color-border-switch-default-unselected: #757570;
+  --color-border-switch-disabled-unselected: #c7c6c1;
+  --color-border-switch-hover-unselected: #626260;
+  --color-border-switch-pressed-unselected: #585856;
   --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
   --color-data-visualization-10: #005062;
@@ -1182,8 +1192,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-data-visualization-success-text: #005f3e;
   --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
-  --color-hover-background-default: #f8f7f2;
-  --color-pressed-background-default: #ebebe5;
   --font-size-100: 12px;
   --font-size-200: 14px;
   --font-size-300: 16px;
@@ -1543,6 +1551,8 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-switch-default-selected: #111111;
   --color-background-switch-disabled-unselected: #efefef;
   --color-background-switch-disabled-selected: #767676;
+  --color-background-switch-hover-unselected: #f8f7f2;
+  --color-background-switch-pressed-unselected: #ebebe5;
   --color-background-table-footer: #ffffff;
   --color-background-table-row-hover: #efefef;
   --color-background-table-row-selected: #efefef;
@@ -1583,6 +1593,10 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-border-popover-education: #0074e8;
   --color-border-pulsar-default: #0074e8;
   --color-border-pulsar-hover: #dce9fa;
+  --color-border-switch-default-unselected: #757570;
+  --color-border-switch-disabled-unselected: #c7c6c1;
+  --color-border-switch-hover-unselected: #626260;
+  --color-border-switch-pressed-unselected: #585856;
   --color-border-table-row-selected: #111111;
   --color-border-tag-disabled: #767676;
   --color-data-visualization-10: #005062;
@@ -1602,8 +1616,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-data-visualization-success-text: #005f3e;
   --color-data-visualization-error-graph: #ed0000;
   --color-data-visualization-error-text: #cc0000;
-  --color-hover-background-default: #f8f7f2;
-  --color-pressed-background-default: #ebebe5;
   --font-size-100: 12px;
   --font-size-200: 14px;
   --font-size-300: 16px;
