@@ -12,7 +12,7 @@ type Props = {
   children?: ReactNode;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-  */
+   */
   dataTestId?: string;
   /**
    * Use numbers for pixels (`height={100}`) and strings for percentages (`height="100%"`).

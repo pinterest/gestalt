@@ -43,8 +43,8 @@ export default function TableOfContents({
   return (
     <div
       aria-label={accessibilityLabel ?? accessibilityLabelDefault}
-      data-test-id={dataTestId}
       className={styles.container}
+      data-test-id={dataTestId}
       role="navigation"
     >
       {title ? (

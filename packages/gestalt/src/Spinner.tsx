@@ -52,7 +52,7 @@ export default function Spinner({
 }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   return show ? (
-    <Box display="flex" justifyContent="around" overflow="hidden" data-test-id={dataTestId}>
+    <Box data-test-id={dataTestId} display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}

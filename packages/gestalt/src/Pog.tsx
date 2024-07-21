@@ -66,7 +66,7 @@ type Props = {
   };
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-  */
+   */
   dataTestId?: string;
   /**
    * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.

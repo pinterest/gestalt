@@ -133,7 +133,7 @@ describe('TagData', () => {
 
   it('TagData with dataTestId', () => {
     const component = create(
-      <TagData onTap={() => {}} selected text="Text Impressions" dataTestId="some-test-id" />,
+      <TagData dataTestId="some-test-id" onTap={() => {}} selected text="Text Impressions" />,
     );
     const testInstance = component.root;
     const tooltipElement = testInstance.find(

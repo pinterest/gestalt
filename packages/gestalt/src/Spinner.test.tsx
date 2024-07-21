@@ -17,7 +17,7 @@ test('Spinner renders when passed show', () => {
 });
 
 test('Spinner renders with dataTestId', () => {
-  const component = create(<Spinner {...baseProps} show dataTestId="some-test-id" />);
+  const component = create(<Spinner {...baseProps} dataTestId="some-test-id" show />);
   const testInstance = component.root;
   const tooltipElement = testInstance.find(
     (instance: any) => instance.props['data-test-id'] === 'some-test-id',

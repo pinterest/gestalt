@@ -154,8 +154,8 @@ export default function TileData({
     <MaybeTooltip disabled={disabled} tooltip={tooltip}>
       <Box>
         <TapArea
-          disabled={disabled}
           data-test-id={dataTestId}
+          disabled={disabled}
           onBlur={handleOnBlur}
           onMouseEnter={handleOnMouseEnter}
           onMouseLeave={handleOnMouseLeave}

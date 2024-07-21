@@ -144,12 +144,12 @@ export default function Tag({
   return (
     <Box
       aria-disabled={disabled}
-      data-test-id={dataTestId}
       color={bgColor}
       dangerouslySetInlineStyle={{
         __style:
           disabled && !hasIcon ? { border: `solid 1px ${TOKEN_COLOR_BORDER_TAG_DISABLED}` } : {},
       }}
+      data-test-id={dataTestId}
       display="inlineBlock"
       height={height}
       maxWidth={300}

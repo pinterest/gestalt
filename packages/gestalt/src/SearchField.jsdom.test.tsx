@@ -81,19 +81,21 @@ describe('<SearchField />', () => {
       fireEvent.keyDown(screen.getByRole('searchbox'), { key: 'a' });
     }));
 
-    it('should render SearchField with dataTestId', () => {
-      const component = create(
-        <SearchField
-          accessibilityLabel="Demo Search Field"
-          id="searchField"
-          onChange={() => {}}
-          placeholder="Search and explore"
-          value="Search"
-          dataTestId='some-test-id'>
-        </SearchField>
-      );
-      const testInstance = component.root;
-      const searchFieldElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
-      expect(searchFieldElement).not.toBeNull();
-    });
+  it('should render SearchField with dataTestId', () => {
+    const component = create(
+      <SearchField
+        accessibilityLabel="Demo Search Field"
+        dataTestId="some-test-id"
+        id="searchField"
+        onChange={() => {}}
+        placeholder="Search and explore"
+        value="Search"
+       />,
+    );
+    const testInstance = component.root;
+    const searchFieldElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
+    expect(searchFieldElement).not.toBeNull();
+  });
 });

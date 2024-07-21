@@ -169,13 +169,13 @@ export default function Toast({
       <Box
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
         color={containerColor}
-        data-test-id={dataTestId}
         dangerouslySetInlineStyle={{
           __style: {
             paddingInlineStart: TOKEN_ROUNDING_400,
             paddingInlineEnd: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
           },
         }}
+        data-test-id={dataTestId}
         paddingY={3}
         rounding={4}
         width="100%"

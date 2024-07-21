@@ -15,7 +15,7 @@ describe('<Toast />', () => {
 
   test('DataTestId', () => {
     const component = create(
-      <Toast text="Same great profile, slightly new look. Learn more?" dataTestId="some-test-id" />,
+      <Toast dataTestId="some-test-id" text="Same great profile, slightly new look. Learn more?" />,
     );
     const testInstance = component.root;
     const tooltipElement = testInstance.find(

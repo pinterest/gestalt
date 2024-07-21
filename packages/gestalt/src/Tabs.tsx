@@ -87,6 +87,7 @@ type BgColor = 'default' | 'transparent';
 
 type TabProps = TabType & {
   bgColor: BgColor;
+  dataTestId?: string | null;
   index: number;
   isActive: boolean;
   onChange: OnChangeHandler;
@@ -109,7 +110,7 @@ const COLORS = {
 } as const;
 
 const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
-  { bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps,
+  { bgColor, dataTestId, href, indicator, id, index, isActive, onChange, text }: TabProps,
   ref,
 ) {
   const [hovered, setHovered] = useState(false);
@@ -128,7 +129,7 @@ const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
   }
 
   return (
-    <Box ref={ref} id={id} paddingY={3}>
+    <Box ref={ref} data-test-id={dataTestId} id={id} paddingY={3}>
       <TapAreaLink
         accessibilityCurrent={isActive ? 'page' : undefined}
         href={href}
@@ -246,8 +247,8 @@ export default function Tabs({
           key={id || `${href}_${index}`}
           // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
           ref={ref}
-          data-test-id={dataTestId && `${dataTestId}-${index}`}
           bgColor={bgColor}
+          dataTestId={dataTestId && `${dataTestId}-${index}`}
           href={href}
           id={id}
           index={index}

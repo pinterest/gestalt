@@ -202,8 +202,8 @@ export default function TagData({
     <Box display="inlineBlock" maxWidth={300} position="relative" rounding={2}>
       <MaybeTooltip disabled={disabled} tooltip={tooltip}>
         <TapArea
-          disabled={disabled}
           data-test-id={dataTestId}
+          disabled={disabled}
           fullHeight
           fullWidth
           onBlur={handleOnBlur}

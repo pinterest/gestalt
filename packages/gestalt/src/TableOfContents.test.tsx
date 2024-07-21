@@ -13,7 +13,7 @@ describe('TableOfContents', () => {
 
   it('renders with dataTestId', () => {
     const component = create(
-      <TableOfContents title="Title" dataTestId="some-test-id">
+      <TableOfContents dataTestId="some-test-id" title="Title">
         <TableOfContents.Item active href="#" label="Item 1" onClick={() => {}} />
         <TableOfContents.Item active href="#" label="Item 2" onClick={() => {}} />
       </TableOfContents>,

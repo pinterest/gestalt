@@ -112,9 +112,9 @@ describe('TileData', () => {
   test('TileData renders with dataTestId', () => {
     const component = create(
       <TileData
+        dataTestId="some-test-id"
         onTap={() => {}}
         selected
-        dataTestId="some-test-id"
         title="Text Impressions"
         value="1.23M"
       />,

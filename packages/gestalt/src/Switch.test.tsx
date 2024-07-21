@@ -7,7 +7,7 @@ test('Switch', () => {
 });
 
 test('Switch dataTestId', () => {
-  const component = create(<Switch id="test" dataTestId="some-test-id" onChange={() => {}} />);
+  const component = create(<Switch dataTestId="some-test-id" id="test" onChange={() => {}} />);
   const testInstance = component.root;
   const tooltipElement = testInstance.find(
     (instance: any) => instance.props['data-test-id'] === 'some-test-id',

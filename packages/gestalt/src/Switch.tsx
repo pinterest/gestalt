@@ -81,8 +81,8 @@ export default function Switch({
     <div className={switchStyles}>
       <input
         checked={switched}
-        data-test-id={dataTestId}
         className={inputStyles}
+        data-test-id={dataTestId}
         disabled={disabled}
         id={id}
         name={name}

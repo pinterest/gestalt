@@ -13,9 +13,9 @@ describe('Tag', () => {
     const component = create(
       <Tag
         accessibilityRemoveIconLabel="Remove New tag"
+        dataTestId="some-test-id"
         onRemove={() => {}}
         text="New"
-        dataTestId="some-test-id"
       />,
     );
     const testInstance = component.root;

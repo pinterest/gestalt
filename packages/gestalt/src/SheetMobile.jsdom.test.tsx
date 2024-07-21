@@ -233,21 +233,37 @@ describe('SheetMobile', () => {
   it('renders correctly full size with dataTestId', () => {
     const component = create(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="test" onDismiss={() => {}} size="full" subHeading="test" dataTestId="some-test-id"/>
+        <SheetMobile
+          dataTestId="some-test-id"
+          heading="test"
+          onDismiss={() => {}}
+          size="full"
+          subHeading="test"
+        />
       </DeviceTypeProvider>,
     );
     const testInstance = component.root;
-    const sheetMobileElement = testInstance.find((instance:any) => instance.props["data-test-id"] === "some-test-id");
+    const sheetMobileElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(sheetMobileElement).not.toBeNull();
   });
 
   it('renders correctly default size with dataTestId', () => {
     const component = create(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile heading="test" onDismiss={() => {}} subHeading="test" dataTestId="some-test-id"/>
-      </DeviceTypeProvider>)
+        <SheetMobile
+          dataTestId="some-test-id"
+          heading="test"
+          onDismiss={() => {}}
+          subHeading="test"
+        />
+      </DeviceTypeProvider>,
+    );
     const testInstance = component.root;
-    const sheetMobileElement = testInstance.find((instance:any) => instance.props["data-test-id"] === "some-test-id");
+    const sheetMobileElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
     expect(sheetMobileElement).not.toBeNull();
   });
 });

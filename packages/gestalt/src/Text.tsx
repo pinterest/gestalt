@@ -142,10 +142,10 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
   return (
     <Tag
       className={cs}
+      data-test-id={dataTestId}
       title={
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }
-      data-test-id={dataTestId}
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
       // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
       ref={ref}

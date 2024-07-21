@@ -11,7 +11,7 @@ describe('Status', () => {
 
   it('renders with dataTestId', () => {
     const component = create(
-      <Status title="Unstarted" type="unstarted" dataTestId="some-test-id" />,
+      <Status dataTestId="some-test-id" title="Unstarted" type="unstarted" />,
     );
     const testInstance = component.root;
     const tooltipElement = testInstance.find(

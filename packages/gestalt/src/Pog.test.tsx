@@ -42,8 +42,10 @@ test('Pog hovered renders', () => {
 });
 
 test('Pog renders with dataTestId', () => {
-  const component = create(<Pog dataTestId='some-test-id' icon="heart" />);
+  const component = create(<Pog dataTestId="some-test-id" icon="heart" />);
   const testInstance = component.root;
-  const pogElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  const pogElement = testInstance.find(
+    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+  );
   expect(pogElement).not.toBeNull();
 });

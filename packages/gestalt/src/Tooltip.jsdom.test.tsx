@@ -17,7 +17,7 @@ test('Tooltip renders', () => {
 
 test('Tooltip renders with dataTestId', () => {
   const component = create(
-    <Tooltip text="This is a tooltip" dataTestId="tooltip-test-id">
+    <Tooltip dataTestId="tooltip-test-id" text="This is a tooltip">
       <div>Hi</div>
     </Tooltip>,
   );
