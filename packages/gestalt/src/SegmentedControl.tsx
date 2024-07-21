@@ -21,6 +21,10 @@ type Props = {
    */
   onChange: OnChange;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * By default, items have equal widths. If this prop is true, the width of an item is based on its content. See the [responsive example](https://gestalt.pinterest.systems/web/segmentedcontrol#Example:-Responsive) for more details.
    */
   responsive?: boolean;
@@ -120,6 +124,7 @@ function SegmentedControlItem({
  *
  */
 export default function SegmentedControl({
+  dataTestId,
   items,
   onChange,
   responsive,
@@ -130,6 +135,7 @@ export default function SegmentedControl({
   return (
     <div
       className={classnames(styles.SegmentedControl, applyMinHeight(size), applyDensityStyle(size))}
+      data-test-id={dataTestId}
       role="tablist"
     >
       {items.map((item, i) => (

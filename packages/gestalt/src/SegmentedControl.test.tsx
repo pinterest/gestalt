@@ -23,3 +23,17 @@ test('SegmentedControl with responsive widths renders', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('SegmentedControl renders with dataTestId', () => {
+  const component = create(
+    <SegmentedControl
+      dataTestId='some-test-id'
+      items={['News', 'You', 'Messages', <div key="dummy" />]}
+      onChange={() => {}}
+      selectedItemIndex={0}
+    />
+  );
+  const testInstance = component.root;
+  const segmentedControlElement = testInstance.find((instance:any) => instance.props['data-test-id'] === 'some-test-id');
+  expect(segmentedControlElement).not.toBeNull();
+});
