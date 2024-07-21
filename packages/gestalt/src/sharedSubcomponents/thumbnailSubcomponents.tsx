@@ -19,7 +19,6 @@ import Text from '../Text';
 import useInExperiment from '../useInExperiment';
 
 const SIZE_THUMBNAIL = 32;
-const SIZE_VR_THUMBNAIL = 36;
 const SIZE_ICON = 24;
 
 export function Message({
@@ -43,6 +42,10 @@ export function Message({
   };
   type?: 'default' | 'success' | 'error' | 'progress';
 }) {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const isError = type === 'error';
   const textRef = useRef<null | HTMLElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
@@ -84,13 +87,17 @@ export function Message({
           lineClamp={2}
           title={isTruncated && typeof text === 'string' ? text : undefined}
           // Set title prop manually if text is truncated
-          weight={isError ? 'bold' : undefined}
+          weight={isError && !isInExperiment ? 'bold' : undefined}
         >
           {text}
           {helperLink ? (
             <Fragment>
               {' '}
-              <Text color={textColor} inline weight={isError ? 'bold' : undefined}>
+              <Text
+                color={textColor}
+                inline
+                weight={isError && !isInExperiment ? 'bold' : undefined}
+              >
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
                   display="inlineBlock"
@@ -107,7 +114,7 @@ export function Message({
       ) : null}
       {/* Should the helkper link */}
       {isTruncatedWithHelperLink ? (
-        <Text color={textColor} weight={isError ? 'bold' : undefined}>
+        <Text color={textColor} weight={isError && !isInExperiment ? 'bold' : undefined}>
           <Link
             accessibilityLabel={helperLink?.accessibilityLabel ?? ''}
             display="inlineBlock"
@@ -124,18 +131,9 @@ export function Message({
 }
 
 export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-
   return (
     <Box aria-hidden>
-      <Mask
-        height={isInExperiment ? SIZE_VR_THUMBNAIL : SIZE_THUMBNAIL}
-        rounding={2}
-        width={isInExperiment ? SIZE_VR_THUMBNAIL : SIZE_THUMBNAIL}
-      >
+      <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
         {thumbnail}
       </Mask>
     </Box>

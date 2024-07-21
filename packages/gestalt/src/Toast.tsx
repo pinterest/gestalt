@@ -172,8 +172,8 @@ export default function Toast({
         data-test-id={dataTestId}
         dangerouslySetInlineStyle={{
           __style: {
-            paddingRight: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
-            paddingLeft: TOKEN_ROUNDING_400,
+            paddingInlineStart: TOKEN_ROUNDING_400,
+            paddingInlineEnd: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
           },
         }}
         paddingY={3}
