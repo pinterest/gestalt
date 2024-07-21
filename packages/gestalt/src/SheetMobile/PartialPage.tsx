@@ -35,6 +35,7 @@ type Props = {
   };
   children?: ReactNode;
   closeOnOutsideClick?: boolean;
+  dataTestId?: string;
   footer?: ReactNode;
   forwardIconButton?: {
     accessibilityLabel: string;
@@ -67,6 +68,7 @@ export default function PartialPage({
   backIconButton,
   children,
   closeOnOutsideClick = true,
+  dataTestId,
   onAnimationEnd,
   onDismiss,
   onOutsideClick,
@@ -179,6 +181,7 @@ export default function PartialPage({
             sheetMobileStyles.container,
             sheetMobileStyles.partialPageContainer,
           )}
+          data-test-id={dataTestId}
           style={zIndex ? { zIndex: zIndex.index() } : undefined}
         >
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>

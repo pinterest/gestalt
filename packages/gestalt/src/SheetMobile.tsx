@@ -36,6 +36,10 @@ type Props = {
    */
   closeOnOutsideClick?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Supply the element(s) that will be used as SheetMobile's custom footer. See the [footer variant](https://gestalt.pinterest.systems/web/sheetmobile#Footer) for more info.
    */
   footer?: ReactNode;
@@ -129,6 +133,7 @@ function SheetMobile({
   backIconButton,
   children,
   closeOnOutsideClick = true,
+  dataTestId,
   forwardIconButton,
   onAnimationEnd,
   onDismiss,
@@ -148,6 +153,7 @@ function SheetMobile({
       <FullPage
         align={align}
         backIconButton={backIconButton}
+        dataTestId={dataTestId}
         footer={footer}
         forwardIconButton={forwardIconButton}
         heading={heading}
@@ -170,6 +176,7 @@ function SheetMobile({
             align={align}
             backIconButton={backIconButton}
             closeOnOutsideClick={closeOnOutsideClick}
+            dataTestId={dataTestId}
             footer={footer}
             forwardIconButton={forwardIconButton}
             heading={heading}

@@ -229,4 +229,25 @@ describe('SheetMobile', () => {
 
     expect(mockOnClickPrimaryAction).toHaveBeenCalled();
   });
+
+  it('renders correctly full size with dataTestId', () => {
+    const component = create(
+      <DeviceTypeProvider deviceType="mobile">
+        <SheetMobile heading="test" onDismiss={() => {}} size="full" subHeading="test" dataTestId="some-test-id"/>
+      </DeviceTypeProvider>,
+    );
+    const testInstance = component.root;
+    const sheetMobileElement = testInstance.find((instance:any) => instance.props["data-test-id"] === "some-test-id");
+    expect(sheetMobileElement).not.toBeNull();
+  });
+
+  it('renders correctly default size with dataTestId', () => {
+    const component = create(
+      <DeviceTypeProvider deviceType="mobile">
+        <SheetMobile heading="test" onDismiss={() => {}} subHeading="test" dataTestId="some-test-id"/>
+      </DeviceTypeProvider>)
+    const testInstance = component.root;
+    const sheetMobileElement = testInstance.find((instance:any) => instance.props["data-test-id"] === "some-test-id");
+    expect(sheetMobileElement).not.toBeNull();
+  });
 });

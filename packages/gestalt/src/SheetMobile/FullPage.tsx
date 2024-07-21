@@ -30,6 +30,7 @@ type Props = {
     onClick: OnClickType;
   };
   children?: ReactNode;
+  dataTestId?: string;
   footer?: ReactNode;
   forwardIconButton?: {
     accessibilityLabel: string;
@@ -57,6 +58,7 @@ export default function FullPage({
   align,
   backIconButton,
   children,
+  dataTestId,
   onDismiss,
   footer,
   forwardIconButton,
@@ -128,6 +130,7 @@ export default function FullPage({
       <TrapFocusBehavior>
         <div
           className={classnames(sheetMobileStyles.container, sheetMobileStyles.fullPageContainer)}
+          data-test-id={dataTestId}
         >
           <Backdrop closeOnOutsideClick={false}>
             <div
