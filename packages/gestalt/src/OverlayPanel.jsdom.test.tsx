@@ -541,7 +541,7 @@ describe('OverlayPanel', () => {
   });
 
   it('should render element with dataTestId property', () => {
-    const { container } = render(
+    render(
       <OverlayPanel
         accessibilityDismissButtonLabel="Dismiss"
         accessibilityLabel="OverlayPanel"
