@@ -285,7 +285,7 @@ import speedThirdX from './ic_speed-.3x_gestalt.svg';
 import speedFifthX from './ic_speed-.5x_gestalt.svg';
 import speed1X from './ic_speed-1x_gestalt.svg';
 import speedDoubleX from './ic_speed-2x_gestalt.svg';
-import speed3X from './ic_speed-3x_gestalt.svg';
+import speedTripleX from './ic_speed-3x_gestalt.svg';
 import spread from './ic_spread_gestalt.svg';
 import star from './ic_star_gestalt.svg';
 import starHalf from './ic_star-half_gestalt.svg';
@@ -637,7 +637,7 @@ const icons = Object.freeze({
   'speed-.5x': speedFifthX,
   'speed-1x': speed1X,
   'speed-2x': speedDoubleX,
-  'speed-3x': speed3X,
+  'speed-3x': speedTripleX,
   'spread': spread,
   'star': star,
   'star-half': starHalf,
