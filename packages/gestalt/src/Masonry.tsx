@@ -34,6 +34,10 @@ type Props<T> = {
    */
   columnWidth?: number;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The amount of vertical and horizontal space between each item, specified in pixels.
    */
   gutterWidth?: number;
@@ -486,6 +490,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       items,
       layout = 'basic',
       minCols,
+      dataTestId,
       renderItem,
       scrollContainer,
       _logTwoColWhitespace,
@@ -541,6 +546,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           className={styles.Masonry}
           role="list"
           style={{ height: 0, width: '100%' }}
+          data-test-id={dataTestId}
         >
           {items.filter(Boolean).map((item, i) => {
             const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
@@ -594,7 +600,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     } else if (width == null) {
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
-      gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
+      gridBody = (
+        <div ref={this.setGridWrapperRef} style={{ width: '100%' }} data-test-id={dataTestId} />
+      );
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
@@ -620,7 +628,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         : 0;
 
       gridBody = (
-        <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
+        <div ref={this.setGridWrapperRef} style={{ width: '100%' }} data-test-id={dataTestId}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(
