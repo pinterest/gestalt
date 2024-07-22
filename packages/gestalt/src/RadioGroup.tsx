@@ -12,6 +12,10 @@ type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * A unique identifier for this RadioGroup.
    *
    */
@@ -44,6 +48,7 @@ type Props = {
  */
 function RadioGroup({
   children,
+  dataTestId,
   direction = 'column',
   errorMessage,
   id,
@@ -63,6 +68,7 @@ function RadioGroup({
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
       <Fieldset errorMessage={errorMessage} id={id} legend={legend} legendDisplay={legendDisplay}>
         <Flex
+          dataTestId={dataTestId}
           direction={direction}
           gap={direction === 'row' ? { row: 4, column: 0 } : { column: 2, row: 0 }}
         >
