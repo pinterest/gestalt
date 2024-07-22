@@ -45,6 +45,10 @@ type Props = {
    */
   borderStyle?: 'sm' | 'none';
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Label used for screen readers to provide information about the action [IconButton](https://gestalt.pinterest.systems/web/iconbutton) displayed under the [sm breakpoint](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)). See the [primary action variant](https://gestalt.pinterest.systems/web/pageheader#Primary-action) or [secondary action variant](https://gestalt.pinterest.systems/web/pageheader#Secondary-action) to learn more.
    */
   dropdownAccessibilityLabel?: string;
@@ -122,6 +126,7 @@ type Props = {
 export default function PageHeader({
   badge,
   dropdownAccessibilityLabel,
+  dataTestId,
   helperIconButton,
   helperLink,
   items,
@@ -134,7 +139,10 @@ export default function PageHeader({
   borderStyle = 'none',
 }: Props) {
   return (
-    <div className={borderStyle === 'sm' ? styles.pageHeaderBorderBottom : styles.pageHeader}>
+    <div
+      className={borderStyle === 'sm' ? styles.pageHeaderBorderBottom : styles.pageHeader}
+      data-test-id={dataTestId}
+    >
       <Box color="default" paddingX={8} paddingY={4} width="100%">
         <Flex flex="grow" justifyContent="center" maxWidth="100%">
           <Flex flex="grow" maxWidth={maxWidth}>
