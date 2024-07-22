@@ -189,9 +189,11 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     onKeyDown?.({ event, value: event.currentTarget.value });
 
   const handleMouseWheel = (event: WheelEvent): void => {
-    if (type === 'number') {
-      event.preventDefault();
-    }
+    const target = event.target as HTMLElement;
+    target.blur();
+    setTimeout(() => {
+      target.focus();
+    });
   };
 
   // ==== STYLING ====
