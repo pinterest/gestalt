@@ -12,3 +12,12 @@ test('Pulsar is hidden when paused', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Pulsar renders with dataTestId', () => {
+  const component = renderer.create(<Pulsar dataTestId="some-test-id" />);
+  const testInstance = component.root;
+  const pulsarElement = testInstance.find(
+    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+  );
+  expect(pulsarElement).not.toBeNull();
+});

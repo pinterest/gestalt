@@ -3,6 +3,10 @@ import styles from './Pulsar.css';
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Used to hide the element. See the [paused variant](https://gestalt.pinterest.systems/web/pulsar#Paused) for more details.
    */
   paused?: boolean;
@@ -18,7 +22,7 @@ type Props = {
  * ![Pulsar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar.spec.ts-snapshots/Pulsar-chromium-darwin.png)
  * ![Pulsar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Pulsar-dark.spec.ts-snapshots/Pulsar-dark-chromium-darwin.png)
  */
-export default function Pulsar({ paused, size = 136 }: Props) {
+export default function Pulsar({ paused, size = 136, dataTestId }: Props) {
   return (
     <Box
       dangerouslySetInlineStyle={{
@@ -28,6 +32,7 @@ export default function Pulsar({ paused, size = 136 }: Props) {
           boxShadow: 'none',
         },
       }}
+      data-test-id={dataTestId}
       display={paused ? 'none' : 'block'}
       height={size}
       position="relative"
