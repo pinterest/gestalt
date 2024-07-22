@@ -41,6 +41,10 @@ export type Props = {
    */
   counter?: Counter;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Nested directories can be static or expandable.  See the [group display variant](https://gestalt.pinterest.systems/web/sidenavigation#Group-display) to learn more.
    */
   display?: Display;
@@ -101,6 +105,7 @@ export default function SideNavigationGroup({
   children,
   counter,
   display = 'expandable',
+  dataTestId,
   expanded: expandedProp,
   icon,
   notificationAccessibilityLabel,
@@ -173,6 +178,7 @@ export default function SideNavigationGroup({
       <SideNavigationGroupMobile
         badge={badge}
         counter={counter}
+        dataTestId={dataTestId}
         display={display}
         hasActiveChild={hasAnyActiveChild}
         icon={icon}
@@ -187,7 +193,7 @@ export default function SideNavigationGroup({
 
   return (
     <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
-      <li className={classnames(styles.liItem)}>
+      <li className={classnames(styles.liItem)} data-test-id={dataTestId}>
         <SideNavigationGroupItemTapControl
           accessibilityControls={itemId}
           accessibilityCurrent={active === 'page' ? active : undefined}

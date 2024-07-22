@@ -21,6 +21,7 @@ export default function SideNavigationGroupMobile({
   children,
   badge,
   counter,
+  dataTestId,
   display = 'expandable',
   hasActiveChild = false,
   icon,
@@ -130,7 +131,7 @@ export default function SideNavigationGroupMobile({
 
   return (
     <NestingProvider componentName="SideNavigation" maxNestedLevels={2}>
-      <li className={classnames(styles.liItem)}>
+      <li className={classnames(styles.liItem)} data-test-id={dataTestId}>
         <TapArea
           accessibilityControls={display === 'expandable' ? itemId : undefined}
           accessibilityExpanded={display === 'expandable' ? expanded : undefined}

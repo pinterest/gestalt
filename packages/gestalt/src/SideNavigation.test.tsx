@@ -184,4 +184,40 @@ describe('SideNavigation', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('renders elements with dataTestId', () => {
+    const component = create(
+      <SideNavigation accessibilityLabel="Static items example">
+        <SideNavigation.Group
+          display="static"
+          icon="people"
+          label="Christmas"
+          dataTestId="group-test-id"
+        >
+          <SideNavigation.NestedItem
+            href="#"
+            label="Luxury Christmas"
+            onClick={({ event }: any) => event.preventDefault()}
+          />
+          <SideNavigation.NestedGroup display="static" label="Classic Christmas">
+            <SideNavigation.NestedItem
+              href="#"
+              label="West Coast"
+              onClick={({ event }: any) => event.preventDefault()}
+            />
+            <SideNavigation.NestedItem
+              href="#"
+              label="East Coast"
+              onClick={({ event }: any) => event.preventDefault()}
+            />
+          </SideNavigation.NestedGroup>
+        </SideNavigation.Group>
+      </SideNavigation>,
+    );
+    const testInstance = component.root;
+    const groupElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'group-test-id',
+    );
+    expect(groupElement).not.toBeNull();
+  });
 });
