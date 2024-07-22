@@ -6,6 +6,7 @@ import {
   useImperativeHandle,
   useRef,
   useState,
+  WheelEvent,
 } from 'react';
 import classnames from 'classnames';
 import { TOKEN_SPACE_100 } from 'gestalt-design-tokens';
@@ -187,6 +188,12 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) =>
     onKeyDown?.({ event, value: event.currentTarget.value });
 
+  const handleMouseWheel = (event: WheelEvent): void => {
+    if (type === 'number') {
+      event.preventDefault();
+    }
+  };
+
   // ==== STYLING ====
   const hasErrorMessage = Boolean(errorMessage);
 
@@ -254,6 +261,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       onClick={handleClick}
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}
+      onWheel={handleMouseWheel}
       // type='number' doesn't work on ios safari without a pattern
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
       pattern={type === 'number' ? '\\d*' : undefined}
