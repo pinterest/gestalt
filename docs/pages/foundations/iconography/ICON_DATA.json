@@ -281,10 +281,22 @@
       "keywords": ["notifications"]
     },
     {
+      "name": "birthday-cake",
+      "categories": ["Utility and tools"],
+      "description": "Used to suggest a birthday date",
+      "keywords": ["birthdate", "celebrate", "year"]
+    },
+    {
       "name": "briefcase",
       "categories": ["Utility and tools"],
       "description": "Indicates business manager and business-related tasks",
       "keywords": ["business manager", "business", "company"]
+    },
+    {
+      "name": "building-business",
+      "categories": ["Utility and tools"],
+      "description": "Indicates a business or market",
+      "keywords": ["place", "location"]
     },
     {
       "name": "business-hierarchy",
@@ -930,6 +942,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a link source, to copy a link to clipboard, or to jump into a new page section",
       "keywords": ["chain", "section"]
+    },
+    {
+      "name": "link-broken",
+      "categories": ["Utility and tools"],
+      "description": "Indicates a disconnected link",
+      "keywords": ["chain", "section", "disconnected"]
     },
     {
       "name": "lips",
@@ -1599,7 +1617,7 @@
       "keywords": []
     },
     {
-      "name": "view-type-space",
+      "name": "view-type-sparse",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to change the view type to space",
       "keywords": ["square"]
@@ -1671,7 +1689,7 @@
       "keywords": []
     },
     {
-      "name": "x",
+      "name": "x-social",
       "categories": ["Social"],
       "description": "Indicates an X service",
       "keywords": ["Twitter"]
