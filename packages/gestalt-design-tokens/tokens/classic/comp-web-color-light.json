@@ -572,20 +572,20 @@
       "switch": {
         "default": {
           "unselected": {
-            "value": "#757570"
+            "value": "{color.gray.roboflow.500.value}"
           }
         },
         "disabled": {
           "unselected": {
-            "value": "#C7C6C1"
+            "value": "{color.gray.roboflow.300.value}"
           }
         },
         "focus": {
           "inner": {
-            "value": "#FFFFFF"
+            "value": "{color.white.mochimalist.0.value}"
           },
           "outer": {
-            "value": "#007DB8"
+            "value": "{color.blue.skycicle.600.value}"
           }
         },
         "hover": {

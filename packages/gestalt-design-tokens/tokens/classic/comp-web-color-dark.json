@@ -589,10 +589,7 @@
       "switch": {
         "focus": {
           "inner": {
-            "value": "#000000"
-          },
-          "outer": {
-            "value": "#C5EAF7"
+            "value": "{color.black.cosmicore.900.value}"
           }
         }
       },
