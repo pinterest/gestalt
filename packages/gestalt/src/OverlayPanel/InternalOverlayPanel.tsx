@@ -28,6 +28,7 @@ type InternalSheetProps = {
   accessibilityLabel: string;
   children: NodeOrRenderProp;
   closeOnOutsideClick: boolean;
+  dataTestId?: string;
   footer: NodeOrRenderProp;
   heading?: string;
   onAnimationEnd: (arg1: { animationState: 'in' | 'out' }) => void | null | undefined;
@@ -73,6 +74,7 @@ export default function InternalOverlayPanel({
   accessibilityLabel,
   children,
   closeOnOutsideClick,
+  dataTestId,
   dismissConfirmation,
   footer,
   heading,
@@ -187,7 +189,7 @@ export default function InternalOverlayPanel({
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div className={overlayPanelStyles.container}>
+        <div className={overlayPanelStyles.container} data-test-id={dataTestId}>
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleBackdropClick}>
             <div
               aria-label={accessibilityLabel}

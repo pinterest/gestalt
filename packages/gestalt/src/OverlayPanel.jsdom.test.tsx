@@ -539,4 +539,25 @@ describe('OverlayPanel', () => {
       }),
     ).toBeVisible();
   });
+
+  it('should render element with dataTestId property', () => {
+    const { container } = render(
+      <OverlayPanel
+        accessibilityDismissButtonLabel="Dismiss"
+        accessibilityLabel="OverlayPanel"
+        closeOnOutsideClick
+        dataTestId="some-test-id"
+        footer={<footer />}
+        heading="OverlayPanel title"
+        onDismiss={jest.fn()}
+        size="sm"
+        subHeading={<nav />}
+      >
+        <section />
+      </OverlayPanel>,
+    );
+
+    const overlayPanelElement = screen.getByTestId('some-test-id');
+    expect(overlayPanelElement).toBeInTheDocument();
+  });
 });

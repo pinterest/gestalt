@@ -24,6 +24,10 @@ type Props = {
    */
   closeOnOutsideClick?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Supply the container element(s) or render prop that will be used as OverlayPanel's custom footer. See the [footer variant](https://gestalt.pinterest.systems/web/overlaypanel#Footer) for more info..
    */
   footer?: NodeOrRenderProp;
@@ -89,6 +93,7 @@ function OverlayPanel({
   accessibilityLabel,
   children,
   closeOnOutsideClick = true,
+  dataTestId,
   footer,
   heading,
   onAnimationEnd,
@@ -104,6 +109,7 @@ function OverlayPanel({
           accessibilityDismissButtonLabel={accessibilityDismissButtonLabel}
           accessibilityLabel={accessibilityLabel}
           closeOnOutsideClick={closeOnOutsideClick}
+          dataTestId={dataTestId}
           dismissConfirmation={dismissConfirmation}
           footer={footer}
           heading={heading}
