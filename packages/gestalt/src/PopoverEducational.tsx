@@ -74,6 +74,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Unique id to identify each PopoverEducational. Used for [accessibility](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) purposes.
    */
   id?: string;
@@ -124,6 +128,7 @@ export default function PopoverEducational({
   accessibilityLabel = 'Popover',
   anchor,
   children,
+  dataTestId,
   id,
   idealDirection,
   message,
@@ -162,7 +167,7 @@ export default function PopoverEducational({
   }
 
   return (
-    <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
+    <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex} data-test-id={dataTestId}>
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
