@@ -127,4 +127,20 @@ describe('List', () => {
 
     expect(tree).toMatchSnapshot();
   });
+
+  it('renders a bare unordered list with data test id', () => {
+    const component = create(
+      <List label="label test" type="bare">
+        <List.Item dataTestId='list-item-1' text="List item text">
+          <List.Item dataTestId='list-item-2' text="List item text" />
+        </List.Item>
+      </List>,
+    );
+    expect(component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'list-item-1',
+    )).not.toBeNull();
+    expect(component.root.find(
+      (instance: any) => instance.props['data-test-id'] === 'list-item-2',
+    )).not.toBeNull();
+  });
 });
