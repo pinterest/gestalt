@@ -1,7 +1,7 @@
 :root {
   --g-switch-height: 24px;
-  --g-vr-slider-height-on: 18px;
-  --g-vr-slider-height-off: 16px;
+  --g-slider-height-on: 18px;
+  --g-slider-height-off: 16px;
   --g-switch-width: 40px;
   --g-switch-border: 1px;
 }
@@ -94,21 +94,21 @@ html[dir="rtl"] .switch {
   width: var(--g-switch-height);
 }
 
-.slsiderVrOn {
+.sliderVrOn {
   border: 0;
-  height: var(--g-vr-slider-height-on);
+  height: var(--g-slider-height-on);
   margin: 2px;
-  width: var(--g-vr-slider-height-on);
+  width: var(--g-slider-height-on);
 }
 
 .sliderVrOff {
   border: 0;
-  height: var(--g-vr-slider-height-off);
+  height: var(--g-slider-height-off);
   margin: 3px;
-  width: var(--g-vr-slider-height-off);
+  width: var(--g-slider-height-off);
 }
 
-.blackSlider {
+.enabledSlider {
   background-color: var(--color-background-switch-default-selected);
 }
 
