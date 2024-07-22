@@ -35,6 +35,10 @@ type Props = {
    */
   checked?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates if the input is disabled. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
   disabled?: boolean;
@@ -97,6 +101,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     value,
     badge,
     size = 'md',
+    dataTestId,
   }: Props,
   ref,
 ) {
@@ -144,7 +149,14 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   }
 
   return (
-    <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
+    <Box
+      alignItems="start"
+      display="flex"
+      justifyContent="start"
+      marginEnd={-1}
+      marginStart={-1}
+      data-test-id={dataTestId}
+    >
       <Box paddingX={1}>
         <div
           className={classnames(bgStyle, borderStyle, borderWidth, styleSize, styles.RadioButton, {

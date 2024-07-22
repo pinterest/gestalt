@@ -37,4 +37,23 @@ describe('RadioGroup', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('renders radioButton with dataTestId', () => {
+    const component = create(
+      <RadioGroup direction="row" id="radioGroup" legend="testing" legendDisplay="hidden">
+        <RadioGroup.RadioButton
+          id="choice-1"
+          name="choice"
+          onChange={() => {}}
+          value="choice-1"
+          dataTestId="some-test-id"
+        />
+      </RadioGroup>,
+    );
+    const testInstance = component.root;
+    const radioButtonElement = testInstance.find(
+      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
+    );
+    expect(radioButtonElement).not.toBeNull();
+  });
 });
