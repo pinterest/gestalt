@@ -41,14 +41,14 @@ html[dir="rtl"] .switch {
   border-color: var(--color-border-switch-default-unselected);
 }
 
-.vr.enabled:active {
-  background-color: var(--color-background-switch-pressed-unselected);
-  border-color: var(--color-border-switch-pressed-unselected);
-}
-
 .vr.enabled:hover {
   background-color: var(--color-background-switch-hover-unselected);
   border-color: var(--color-border-switch-hover-unselected);
+}
+
+.vr.enabled:active {
+  background-color: var(--color-background-switch-pressed-unselected);
+  border-color: var(--color-border-switch-pressed-unselected);
 }
 
 .enabledSelected {
