@@ -44,6 +44,10 @@ type Props<T> = {
    */
   columnWidth?: number;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The amount of vertical and horizontal space between each item, specified in pixels.
    */
   gutterWidth?: number;
@@ -573,6 +577,7 @@ function Masonry<T>(
   {
     align = 'center',
     columnWidth = 236,
+    dataTestId,
     gutterWidth: gutter,
     items,
     layout = 'basic',
@@ -768,7 +773,7 @@ function Masonry<T>(
       : null;
 
   return (
-    <div ref={gridWrapperRef} style={{ width: '100%' }}>
+    <div ref={gridWrapperRef} data-test-id={dataTestId} style={{ width: '100%' }}>
       {/* @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'. */}
       <div className={styles.Masonry} role="list" style={{ height, width }}>
         {gridBody}

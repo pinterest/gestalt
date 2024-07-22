@@ -20,6 +20,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * The content of the list item. See the [text variant](https://gestalt.pinterest.systems/web/list#Text-and-label) for guidance.
    */
   text: string | ReactElement;
@@ -31,7 +35,7 @@ type Props = {
  * Lists that don't require a alternating between "ordered", "unordered" or "base" can just nest List.Item into each other to build nested lists. If type alternation is required, use [List](https://gestalt.pinterest.systems/web/list#List)
  *
  */
-function ListItem({ text, children }: Props) {
+function ListItem({ text, children, dataTestId }: Props) {
   const {
     type: inheritedType,
     spacing: inheritedSpacing,
@@ -90,7 +94,7 @@ function ListItem({ text, children }: Props) {
 
   return (
     // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'FontSize<string | number> | undefined'.
-    <li className={className} style={{ fontSize: inheritedFontSize && sizeMap[inheritedFontSize] }}>
+    <li className={className} data-test-id={dataTestId} style={{ fontSize: inheritedFontSize && sizeMap[inheritedFontSize] }}>
       <ListText size={inheritedFontSize || undefined} text={text} />
       {listChildren}
     </li>
