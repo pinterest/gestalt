@@ -16,6 +16,7 @@ type Props = {
   anchor: HTMLElement | null | undefined;
   children?: ReactNode;
   color?: Color;
+  dataTestId?: string;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
   id?: string;
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
@@ -44,6 +45,7 @@ export default function InternalPopover({
   idealDirection,
   onDismiss,
   color = 'white',
+  dataTestId,
   role,
   shouldFocus,
   showCaret,
@@ -71,6 +73,7 @@ export default function InternalPopover({
       bgColor={color}
       border
       caret={showCaret}
+      dataTestId={dataTestId}
       disablePortal={disablePortal}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}

@@ -28,6 +28,10 @@ type Props = {
    */
   color?: Color;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Callback for key stroke events allowing keyboard navigation in Popover's children.
    */
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
@@ -99,6 +103,7 @@ export default function Popover({
   accessibilityDismissButtonLabel,
   anchor,
   children,
+  dataTestId,
   showDismissButton,
   onKeyDown,
   id,
@@ -122,6 +127,7 @@ export default function Popover({
       accessibilityLabel={accessibilityLabel}
       anchor={anchor}
       color={color === 'deprecatedBlue' ? 'blue' : color}
+      dataTestId={dataTestId}
       disablePortal={disablePortal ?? positionRelativeToAnchor}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}

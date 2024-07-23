@@ -20,6 +20,7 @@ type Props = {
   border?: boolean;
   caret?: boolean;
   children?: ReactNode;
+  dataTestId?: string;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
   id?: string;
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
@@ -43,6 +44,7 @@ export default function Controller({
   border,
   caret,
   children,
+  dataTestId,
   id,
   idealDirection,
   role,
@@ -74,7 +76,7 @@ export default function Controller({
   };
 
   const contents = (
-    <OutsideEventBehavior onClick={handlePageClick}>
+    <OutsideEventBehavior onClick={handlePageClick} dataTestId={dataTestId}>
       <Contents
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}

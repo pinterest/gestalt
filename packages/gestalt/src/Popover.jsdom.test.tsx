@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Popover from './Popover';
 import Text from './Text';
 
@@ -38,5 +38,21 @@ describe('Popover', () => {
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('renders correctly with dataTestId', () => {
+    const element = document.createElement('div');
+    render(
+      <Popover
+        accessibilityLabel="text"
+        anchor={element}
+        onDismiss={jest.fn()}
+        dataTestId="some-test-id"
+      >
+        <Text>Custom children</Text>
+      </Popover>,
+    );
+    const component = screen.getByTestId('some-test-id');
+    expect(component).toBeInTheDocument();
   });
 });
