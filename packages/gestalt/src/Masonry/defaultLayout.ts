@@ -102,15 +102,12 @@ const defaultLayout =
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {
-          const positions = acc;
           let position;
-          let height;
 
-          if (isLoadingStateItem(item, renderLoadingState)) {
-            height = item.height;
-          } else if (!isLoadingStateItem(item)) {
-            height = measurementCache.get(item);
-          }
+          const positions = acc;
+          const height = isLoadingStateItem(item, renderLoadingState)
+            ? item.height
+            : measurementCache.get(item);
 
           if (height == null) {
             position = offscreen(columnWidth);

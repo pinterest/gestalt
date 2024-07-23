@@ -11,5 +11,5 @@ export function isLoadingStateItems<T>(
   items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>,
   renderLoadingState?: boolean,
 ): items is ReadonlyArray<LoadingStateItem> {
-  return items.every((item) => isLoadingStateItem(item, renderLoadingState));
+  return items.some((item) => isLoadingStateItem(item, renderLoadingState));
 }
