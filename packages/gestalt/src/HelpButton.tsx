@@ -47,6 +47,10 @@ type Props = {
    */
   accessibilityPopoverLabel: string;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Specifies the preferred position of the tooltip and popover relative to HelpButton. See [Popover's ideal direction variant](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left';
@@ -83,6 +87,7 @@ type Props = {
 export default function HelpButton({
   accessibilityLabel,
   accessibilityPopoverLabel,
+  dataTestId,
   idealDirection = 'down',
   isWithinFixedContainer = false,
   link,
@@ -220,7 +225,7 @@ export default function HelpButton({
 
   return (
     // The only purpose of this Flex is to make zIndex work (Tooltip over Popover).
-    <Flex alignItems="center" flex="none" justifyContent="center">
+    <Flex alignItems="center" dataTestId={dataTestId} flex="none" justifyContent="center">
       <Tooltip
         accessibilityLabel=""
         idealDirection={idealDirection}

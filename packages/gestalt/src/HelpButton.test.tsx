@@ -110,4 +110,19 @@ describe('HelpButton', () => {
       instance.findAll((element: any) => element.type === 'div')[3].props['aria-label'],
     ).toContain('Click to learn more');
   });
+
+  test('HelpButton renders with dataTestId', () => {
+    const idName = 'data-test-id-csoft';
+    const instance = create(
+      <HelpButton
+        accessibilityLabel="Click to learn more about Pinterest"
+        accessibilityPopoverLabel="Expanded information about Pinterest"
+        dataTestId={idName}
+        text="Good test"
+      />,
+    ).root;
+    expect(
+      instance.findAll((element: any) => element.type === 'div')[0].props['data-test-id'],
+    ).toContain(idName);
+  });
 });
