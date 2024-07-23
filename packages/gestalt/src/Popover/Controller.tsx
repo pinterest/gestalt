@@ -76,7 +76,7 @@ export default function Controller({
   };
 
   const contents = (
-    <OutsideEventBehavior onClick={handlePageClick} dataTestId={dataTestId}>
+    <OutsideEventBehavior dataTestId={dataTestId} onClick={handlePageClick}>
       <Contents
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}

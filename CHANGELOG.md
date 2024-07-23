@@ -1,3 +1,9 @@
+## 156.1.0 (Jul 23, 2024)
+
+### Minor
+
+- Masonry: Add \_loadingStateItems & \_renderLoadingStateItems props ([#3637](https://github.com/pinterest/gestalt/pull/3637)) - [Preview link](https://deploy-preview-3637--gestalt.netlify.app?devexample=true)
+
 ## 156.0.0 (Jul 22, 2024)
 
 ### Major

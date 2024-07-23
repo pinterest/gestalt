@@ -46,8 +46,8 @@ describe('Popover', () => {
       <Popover
         accessibilityLabel="text"
         anchor={element}
-        onDismiss={jest.fn()}
         dataTestId="some-test-id"
+        onDismiss={jest.fn()}
       >
         <Text>Custom children</Text>
       </Popover>,
