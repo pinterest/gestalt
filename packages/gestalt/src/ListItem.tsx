@@ -93,10 +93,10 @@ function ListItem({ text, children, dataTestId }: Props) {
   });
 
   return (
-    // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'FontSize<string | number> | undefined'.
     <li
       className={className}
       data-test-id={dataTestId}
+      // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'FontSize<string | number> | undefined'.
       style={{ fontSize: inheritedFontSize && sizeMap[inheritedFontSize] }}
     >
       <ListText size={inheritedFontSize || undefined} text={text} />
