@@ -23,15 +23,10 @@ test('Icon flipped if its in the flip on rtl list', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Icon renders with dataTestId prop', () => {
-  const tree = create(<Icon accessibilityLabel="send" icon="send" />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('accessibilityLabel="Click to learn more about Pinterest" accessibilityPopoverLabel', () => {
+test('Icon renders with dataTestId', () => {
   const idName = 'data-test-id-csoft';
   const instance = create(<Icon accessibilityLabel="send" dataTestId={idName} icon="send" />).root;
-  expect(
-    instance.findAll((element: any) => element.type === 'svg')[0].props['data-test-id'],
-  ).toContain(idName);
+  expect(instance.find((element: any) => element.type === 'svg').props['data-test-id']).toContain(
+    idName,
+  );
 });

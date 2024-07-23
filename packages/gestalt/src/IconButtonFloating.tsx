@@ -28,6 +28,10 @@ type Props = {
     __path: string;
   };
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * When disabled, IconButtonFloating looks inactive and cannot be interacted with.
    */
   disabled?: boolean;
@@ -76,6 +80,7 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
       accessibilityPopupRole,
       accessibilityLabel,
       dangerouslySetSvgPath,
+      dataTestId,
       disabled,
       icon,
       onClick,
@@ -94,6 +99,7 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
           accessibilityPopupRole={accessibilityPopupRole}
           bgColor="transparent"
           dangerouslySetSvgPath={dangerouslySetSvgPath}
+          dataTestId={dataTestId}
           disabled={disabled}
           icon={icon}
           onClick={onClick}
