@@ -7,6 +7,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Unique id of the element this label is describing.
    */
   htmlFor: string;
@@ -19,8 +23,12 @@ type Props = {
  * ![Label dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Label-dark.spec.ts-snapshots/Label-dark-chromium-darwin.png)
  *
  */
-export default function Label({ children, htmlFor }: Props) {
-  return <InternalLabel htmlFor={htmlFor}>{children}</InternalLabel>;
+export default function Label({ children, dataTestId, htmlFor }: Props) {
+  return (
+    <InternalLabel dataTestId={dataTestId} htmlFor={htmlFor}>
+      {children}
+    </InternalLabel>
+  );
 }
 
 Label.displayName = 'Label';

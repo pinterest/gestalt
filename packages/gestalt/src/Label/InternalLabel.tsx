@@ -5,17 +5,19 @@ import boxStyles from '../Box.css';
 
 type Props = {
   children?: ReactNode;
+  dataTestId?: string;
   htmlFor: string;
   // This is used by ComboBox but not intended for direct external use.
   _labelDisplay?: 'visible' | 'hidden';
 };
 
-export default function InternalLabel({ children, htmlFor, _labelDisplay }: Props) {
+export default function InternalLabel({ children, dataTestId, htmlFor, _labelDisplay }: Props) {
   return (
     <label
       className={classnames(styles.label, {
         [boxStyles.visuallyHidden]: _labelDisplay === 'hidden',
       })}
+      data-test-id={dataTestId}
       htmlFor={htmlFor}
     >
       {children}

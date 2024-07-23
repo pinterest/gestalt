@@ -6,3 +6,15 @@ test('Label renders', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Label renders with dataTestId', () => {
+  const idName = 'data-test-id-csoft';
+  const instance = renderer.create(
+    <Label dataTestId={idName} htmlFor="email">
+      Email
+    </Label>,
+  ).root;
+  expect(instance.find((element: any) => element.type === 'label').props['data-test-id']).toContain(
+    idName,
+  );
+});
