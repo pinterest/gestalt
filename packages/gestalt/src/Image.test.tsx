@@ -79,3 +79,20 @@ test('Image with decoding specified matches snapshot', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('Image renders with dataTestId', () => {
+  const idName = 'data-test-id-csoft';
+  const instance = renderer.create(
+    <Image
+      alt="foo"
+      dataTestId={idName}
+      decoding="sync"
+      naturalHeight={50}
+      naturalWidth={50}
+      src="foo.png"
+    />,
+  ).root;
+  expect(instance.find((element: any) => element.type === 'img').props['data-test-id']).toContain(
+    idName,
+  );
+});
