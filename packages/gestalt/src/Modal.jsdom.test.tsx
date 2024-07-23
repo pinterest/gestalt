@@ -110,3 +110,27 @@ describe('Modal', () => {
     expect(screen.getByLabelText('Dismiss bottom sheet')).toBeVisible();
   });
 });
+
+test('Modal renders with dataTestId', () => {
+  const idName = 'data-test-id-csoft';
+  render(
+    <Modal
+      accessibilityModalLabel="Test modal"
+      dataTestId={idName}
+      footer={
+        <Flex gap={2} justifyContent="end">
+          <Button color="gray" text="Cancel" />
+          <Button color="red" text="Next" />
+        </Flex>
+      }
+      heading="Heading"
+      onDismiss={() => {}}
+      size="sm"
+      subHeading="Subheading"
+    >
+      Modal content
+    </Modal>,
+  );
+
+  expect(screen.getByTestId(idName)).toBeInTheDocument();
+});

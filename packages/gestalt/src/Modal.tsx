@@ -37,6 +37,10 @@ type Props = {
    */
   closeOnOutsideClick?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Supply the element(s) that will be used as Modal's custom footer. See the [Best Practices](https://gestalt.pinterest.systems/web/modal#Best-practices) for more info.
    */
   footer?: ReactNode;
@@ -111,6 +115,7 @@ export default function Modal({
   align = 'center',
   children,
   closeOnOutsideClick = true,
+  dataTestId,
   onDismiss,
   footer,
   padding = 'default',
@@ -190,7 +195,12 @@ export default function Modal({
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div aria-label={accessibilityModalLabel} className={modalStyles.container} role={role}>
+        <div
+          aria-label={accessibilityModalLabel}
+          className={modalStyles.container}
+          data-test-id={dataTestId}
+          role={role}
+        >
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleOutsideClick}>
             <div
               className={classnames(modalStyles.wrapper, focusStyles.hideOutline)}
