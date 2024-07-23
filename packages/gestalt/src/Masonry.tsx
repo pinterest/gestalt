@@ -9,13 +9,18 @@ import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, Position } from './Masonry/types';
+import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
 
-const layoutNumberToCssDimension = (n?: number | null) => (n !== Infinity ? n : undefined);
+const layoutNumberToCssDimension = (n?: number | null) => {
+  if (n) {
+    return n !== Infinity ? n : undefined;
+  }
+  return undefined;
+};
 
 type Props<T> = {
   /**
@@ -121,6 +126,19 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
+   */
+  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
+  /**
+   * Experimental prop to render a loading state
+   *
+   * A function that renders the loading state items you would like displayed in the grid. This function is passed two props: the item's data and the item's index in the grid.
+   */
+  _renderLoadingStateItems?: (arg1: {
+    readonly data: LoadingStateItem;
+    readonly itemIdx: number;
+  }) => ReactNode;
 };
 
 type State<T> = {
@@ -433,6 +451,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       virtualBufferFactor,
     } = this.props;
     const { top, left, width, height } = position;
+
     let isVisible;
     if (scrollContainer && virtualBufferFactor) {
       const virtualBuffer = this.containerHeight * virtualBufferFactor;
@@ -465,9 +484,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           ...(isRtl ? { right: 0 } : { left: 0 }),
           transform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
           WebkitTransform: `translateX(${isRtl ? left * -1 : left}px) translateY(${top}px)`,
-          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
           width: layoutNumberToCssDimension(width),
-          // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
           height: layoutNumberToCssDimension(height),
         }}
       >
@@ -476,6 +493,40 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     );
 
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
+  };
+
+  renderLoadingStateComponent: ({
+    itemData,
+    idx,
+    position,
+  }: {
+    itemData: LoadingStateItem;
+    idx: number;
+    position: Position;
+  }) => ReactNode = ({ itemData, idx, position }) => {
+    const { _renderLoadingStateItems } = this.props;
+    const { top, left, width, height } = position;
+
+    if (_renderLoadingStateItems) {
+      return (
+        <div
+          key={`item-${idx}`}
+          className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
+          data-grid-item
+          role="listitem"
+          style={{
+            top,
+            left,
+            width: layoutNumberToCssDimension(width),
+            height: layoutNumberToCssDimension(height),
+          }}
+        >
+          {_renderLoadingStateItems({ data: itemData, itemIdx: idx })}
+        </div>
+      );
+    }
+
+    return null;
   };
 
   render() {
@@ -490,9 +541,14 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       scrollContainer,
       _logTwoColWhitespace,
       _getColumnSpanConfig,
+      _loadingStateItems = [],
+      _renderLoadingStateItems,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
+    const renderLoadingState = Boolean(
+      items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
+    );
 
     let getPositions;
 
@@ -532,6 +588,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     }
 
     let gridBody;
+
     if (width == null && hasPendingMeasurements) {
       // When hyrdating from a server render, we don't have the width of the grid
       // and the measurement store is empty
@@ -570,7 +627,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   left: 0,
                   transform: 'translateX(0px) translateY(0px)',
                   WebkitTransform: 'translateX(0px) translateY(0px)',
-                  // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                   width:
                     layout === 'flexible' ||
                     layout === 'serverRenderedFlexible' ||
@@ -595,6 +651,39 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
       gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
+    } else if (renderLoadingState) {
+      getPositions = defaultLayout({
+        align,
+        measurementCache: measurementStore,
+        positionCache: positionStore,
+        columnWidth,
+        gutter,
+        layout,
+        minCols,
+        rawItemCount: _loadingStateItems.length,
+        width,
+        logWhitespace: _logTwoColWhitespace,
+        _getColumnSpanConfig,
+        renderLoadingState,
+      });
+      const positions = getPositions(_loadingStateItems);
+      const height = positions.length
+        ? Math.max(...positions.map((pos) => pos.top + pos.height))
+        : 0;
+
+      gridBody = (
+        <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
+          <div className={styles.Masonry} role="list" style={{ height, width }}>
+            {_loadingStateItems.map((itemData, idx) =>
+              this.renderLoadingStateComponent({
+                itemData,
+                idx,
+                position: positions[idx],
+              }),
+            )}
+          </div>
+        </div>
+      );
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
@@ -650,13 +739,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                   style={{
                     visibility: 'hidden',
                     position: 'absolute',
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Top<string | number> | undefined'.
                     top: layoutNumberToCssDimension(position.top),
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Left<string | number> | undefined'.
                     left: layoutNumberToCssDimension(position.left),
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Width<string | number> | undefined'.
                     width: layoutNumberToCssDimension(position.width),
-                    // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'Height<string | number> | undefined'.
                     height: layoutNumberToCssDimension(position.height),
                   }}
                 >
