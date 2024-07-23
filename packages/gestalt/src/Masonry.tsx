@@ -544,9 +544,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         <div
           ref={this.setGridWrapperRef}
           className={styles.Masonry}
+          data-test-id={dataTestId}
           role="list"
           style={{ height: 0, width: '100%' }}
-          data-test-id={dataTestId}
         >
           {items.filter(Boolean).map((item, i) => {
             const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
@@ -601,7 +601,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
       gridBody = (
-        <div ref={this.setGridWrapperRef} style={{ width: '100%' }} data-test-id={dataTestId} />
+        <div ref={this.setGridWrapperRef} data-test-id={dataTestId} style={{ width: '100%' }} />
       );
     } else {
       // Full layout is possible
@@ -628,7 +628,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         : 0;
 
       gridBody = (
-        <div ref={this.setGridWrapperRef} style={{ width: '100%' }} data-test-id={dataTestId}>
+        <div ref={this.setGridWrapperRef} data-test-id={dataTestId} style={{ width: '100%' }}>
           <div className={styles.Masonry} role="list" style={{ height, width }}>
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(

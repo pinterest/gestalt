@@ -108,6 +108,7 @@ type CardProps = Props & {
 };
 
 function CompletedCard({
+  dataTestId,
   dismissButton,
   message,
   status,
@@ -118,7 +119,7 @@ function CompletedCard({
 
   return (
     <Fragment>
-      <Box display="flex">
+      <Box data-test-id={dataTestId} display="flex">
         {icon && (
           <Box alignContent="center" display="flex">
             <Box marginEnd={4}>
@@ -163,6 +164,7 @@ function CompletedCard({
 }
 
 function UncompletedCard({
+  dataTestId,
   dismissButton,
   message,
   link,
@@ -175,7 +177,7 @@ function UncompletedCard({
 
   return (
     <Fragment>
-      <Box alignContent="center" display="flex" height={24}>
+      <Box alignContent="center" data-test-id={dataTestId} display="flex" height={24}>
         {icon && (
           <Box marginEnd={2}>
             <Icon
@@ -251,7 +253,6 @@ export default function ActivationCard({
     <Box
       borderStyle="shadow"
       color={isDarkMode ? 'elevationFloating' : 'default'}
-      data-test-id={dataTestId}
       direction="column"
       display="flex"
       flex="grow"
@@ -265,6 +266,7 @@ export default function ActivationCard({
     >
       {isCompleted ? (
         <CompletedCard
+          dataTestId={dataTestId}
           dismissButton={
             dismissButton && {
               onDismiss: dismissButton.onDismiss,
@@ -279,6 +281,7 @@ export default function ActivationCard({
         />
       ) : (
         <UncompletedCard
+          dataTestId={dataTestId}
           dismissButton={
             dismissButton && {
               onDismiss: dismissButton.onDismiss,

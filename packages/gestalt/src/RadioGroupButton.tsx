@@ -151,11 +151,11 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   return (
     <Box
       alignItems="start"
+      data-test-id={dataTestId}
       display="flex"
       justifyContent="start"
       marginEnd={-1}
       marginStart={-1}
-      data-test-id={dataTestId}
     >
       <Box paddingX={1}>
         <div

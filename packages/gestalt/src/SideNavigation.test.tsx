@@ -189,10 +189,10 @@ describe('SideNavigation', () => {
     const component = create(
       <SideNavigation accessibilityLabel="Static items example">
         <SideNavigation.Group
+          dataTestId="group-test-id"
           display="static"
           icon="people"
           label="Christmas"
-          dataTestId="group-test-id"
         >
           <SideNavigation.NestedItem
             href="#"

@@ -167,7 +167,7 @@ export default function PopoverEducational({
   }
 
   return (
-    <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex} data-test-id={dataTestId}>
+    <Box data-test-id={dataTestId} position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}

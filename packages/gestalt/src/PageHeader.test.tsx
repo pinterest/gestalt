@@ -80,7 +80,7 @@ describe('PageHeader', () => {
     expect(tree).toMatchSnapshot();
   });
   it('render PageHeader with dataTestId', () => {
-    const component = create(<PageHeader title="Settings" dataTestId="some-test-id" />);
+    const component = create(<PageHeader dataTestId="some-test-id" title="Settings" />);
     const testInstance = component.root;
     const pageHeaderElement = testInstance.find(
       (instance: any) => instance.props['data-test-id'] === 'some-test-id',

@@ -90,7 +90,7 @@ describe('<SearchField />', () => {
         onChange={() => {}}
         placeholder="Search and explore"
         value="Search"
-       />,
+      />,
     );
     const testInstance = component.root;
     const searchFieldElement = testInstance.find(

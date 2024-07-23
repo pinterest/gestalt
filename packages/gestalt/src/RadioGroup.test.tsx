@@ -41,18 +41,18 @@ describe('RadioGroup', () => {
   it('renders radios with dataTestId', () => {
     const component = create(
       <RadioGroup
+        dataTestId="radio-group-test-id"
         direction="row"
         id="radioGroup"
         legend="testing"
         legendDisplay="hidden"
-        dataTestId="radio-group-test-id"
       >
         <RadioGroup.RadioButton
+          dataTestId="radio-button-test-id"
           id="choice-1"
           name="choice"
           onChange={() => {}}
           value="choice-1"
-          dataTestId="radio-button-test-id"
         />
       </RadioGroup>,
     );
