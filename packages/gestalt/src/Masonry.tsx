@@ -658,6 +658,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // div to collect the width for layout
       gridBody = (
         <div ref={this.setGridWrapperRef} data-test-id={dataTestId} style={{ width: '100%' }} />
+      );
     } else if (renderLoadingState) {
       getPositions = defaultLayout({
         align,
@@ -716,8 +717,13 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         : 0;
 
       gridBody = (
-        <div ref={this.setGridWrapperRef} data-test-id={dataTestId} style={{ width: '100%' }}>
-          <div className={styles.Masonry} role="list" style={{ height, width }}>
+        <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
+          <div
+            className={styles.Masonry}
+            data-test-id={dataTestId}
+            role="list"
+            style={{ height, width }}
+          >
             {itemsToRender.map((item, i) =>
               this.renderMasonryComponent(
                 item,
