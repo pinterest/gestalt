@@ -185,37 +185,6 @@ describe('SideNavigation', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders elements with dataTestId', () => {
-    const component = create(
-      <SideNavigation accessibilityLabel="Static items example">
-        <SideNavigation.Group dataTestId="test" display="static" icon="people" label="Christmas">
-          <SideNavigation.NestedItem
-            href="#"
-            label="Luxury Christmas"
-            onClick={({ event }: any) => event.preventDefault()}
-          />
-          <SideNavigation.NestedGroup display="static" label="Classic Christmas">
-            <SideNavigation.NestedItem
-              href="#"
-              label="West Coast"
-              onClick={({ event }: any) => event.preventDefault()}
-            />
-            <SideNavigation.NestedItem
-              href="#"
-              label="East Coast"
-              onClick={({ event }: any) => event.preventDefault()}
-            />
-          </SideNavigation.NestedGroup>
-        </SideNavigation.Group>
-      </SideNavigation>,
-    ).root;
-    expect(
-      component
-        .findAll((element) => element.type === 'li')
-        .filter((node) => node.props['data-test-id'] === 'test'),
-    ).toHaveLength(1);
-  });
-
   it('SideNavigation renders elements with dataTestId', () => {
     const component = create(
       <SideNavigation accessibilityLabel="Static items example" dataTestId="test">
