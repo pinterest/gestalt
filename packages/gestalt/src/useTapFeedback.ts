@@ -8,7 +8,7 @@ type Coordinate = {
   readonly y: number;
 };
 
-type TapTargetHTMLElement = HTMLDivElement;
+type TapTargetHTMLElement = HTMLDivElement | HTMLAnchorElement;
 
 export const keyPressShouldTriggerTap = (
   event: React.KeyboardEvent<HTMLDivElement> | React.KeyboardEvent<HTMLAnchorElement>,

@@ -2,7 +2,7 @@
 
 exports[`TapAreaLink renders 1`] = `
 <a
-  className="link noUnderline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+  className="noOutline inheritColor noUnderline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -41,7 +41,7 @@ exports[`TapAreaLink renders 1`] = `
 
 exports[`TapAreaLink renders disabled 1`] = `
 <a
-  className="link noUnderline tapTransition rounding0 block fullWidth"
+  className="noOutline inheritColor noUnderline tapTransition rounding0 block fullWidth"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -56,7 +56,6 @@ exports[`TapAreaLink renders disabled 1`] = `
   onTouchMove={[Function]}
   onTouchStart={[Function]}
   rel="noopener noreferrer nofollow"
-  tabIndex={null}
   target="_blank"
 >
   TapAreaLink

@@ -19,7 +19,7 @@ export default function Screenshot() {
         <Text color="success" inline size="400">
           <Link
             display="inlineBlock"
-            externalLinkIcon={{ size: '400', color: 'success' }}
+            externalLinkIcon={{ size: '400' }}
             href="https://authy.com/download/"
             rel="nofollow"
             target="blank"

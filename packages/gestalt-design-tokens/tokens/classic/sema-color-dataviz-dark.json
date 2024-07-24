@@ -2,27 +2,22 @@
   "color": {
     "data-visualization": {
       "primary": {
-        "value": "{color.data-visualization.05.value}",
-        "comment": "Primary data visualization color, used for showing total value or whenever only 1 color is needed in a visualization."
+        "value": "{color.data-visualization.05.value}"
       },
       "success": {
         "graph": {
-          "value": "{color.green.matchacado.300.value}",
-          "comment": "Semantic color used to show positive or successful changes in graphs"
+          "value": "{color.green.matchacado.300.value}"
         },
         "text": {
-          "value": "{color.green.matchacado.400.value}",
-          "comment": "Semantic color used for text or icons related to positive or successful info in graphs"
+          "value": "{color.green.matchacado.400.value}"
         }
       },
       "error": {
         "graph": {
-          "value": "{color.red.pushpin.300.value}",
-          "comment": "Semantic color used to show negative changes in graphs"
+          "value": "{color.red.pushpin.300.value}"
         },
         "text": {
-          "value": "{color.red.pushpin.400.value}",
-          "comment": "Semantic color used for text or icons related to negative info in graphs"
+          "value": "{color.red.pushpin.400.value}"
         }
       }
     }

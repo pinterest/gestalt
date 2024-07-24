@@ -6,9 +6,11 @@ exports[`<Toast /> Error Toast 1`] = `
   role="status"
 >
   <div
-    className="box errorBase paddingX4 paddingY3 rounding4"
+    className="box errorBase paddingY3 rounding4"
     style={
       Object {
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -58,9 +60,11 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -80,7 +84,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
             Saved to
              
             <a
-              className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -93,7 +97,6 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Home decor
             </a>
@@ -140,9 +143,11 @@ exports[`<Toast /> Text + Image + Button 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -200,7 +205,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             Saved to
              
             <a
-              className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -213,7 +218,6 @@ exports[`<Toast /> Text + Image + Button 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Home decor
             </a>
@@ -260,9 +264,11 @@ exports[`<Toast /> Text + Image 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }
@@ -320,7 +326,7 @@ exports[`<Toast /> Text + Image 1`] = `
             Saved to
              
             <a
-              className="link tapTransition rounding0 inlineBlock noUnderline hoverUnderline accessibilityOutline"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
               onBlur={[Function]}
               onClick={[Function]}
@@ -333,7 +339,6 @@ exports[`<Toast /> Text + Image 1`] = `
               onTouchMove={[Function]}
               onTouchStart={[Function]}
               rel=""
-              target={null}
             >
               Home decor
             </a>
@@ -351,9 +356,11 @@ exports[`<Toast /> Text Only 1`] = `
   role="status"
 >
   <div
-    className="box inverse paddingX4 paddingY3 rounding4"
+    className="box inverse paddingY3 rounding4"
     style={
       Object {
+        "paddingInlineEnd": "var(--rounding-400)",
+        "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
       }
     }

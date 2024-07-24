@@ -10,6 +10,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityBoxes from '../../examples/link/accessibilityBoxes';
 import accessibilityTiers from '../../examples/link/accessibilityTiers';
+import colors from '../../examples/link/colors';
 import doClarity from '../../examples/link/doClarity';
 import doDisplayExternal from '../../examples/link/doDisplayExternal';
 import doMatchStyle from '../../examples/link/doMatchStyle';
@@ -25,14 +26,14 @@ import doWeightLists from '../../examples/link/doWeightLists';
 import inline from '../../examples/link/inline';
 import localizationLabels from '../../examples/link/localizationLabels';
 import main from '../../examples/link/main';
-import variantExternalIcon from '../../examples/link/variantExternalIcon';
-import variantHiddenUnderline from '../../examples/link/variantHiddenUnderline';
-import variantInlineLink from '../../examples/link/variantInlineLink';
-import variantInlineOverride from '../../examples/link/variantInlineOverride';
-import variantLinkText from '../../examples/link/variantLinkText';
-import variantRel from '../../examples/link/variantRel';
-import variantStandaloneLink from '../../examples/link/variantStandaloneLink';
-import variantTarget from '../../examples/link/variantTarget';
+import externalIcon from '../../examples/link/variantExternalIcon';
+import hiddenUnderline from '../../examples/link/variantHiddenUnderline';
+import inlineLink from '../../examples/link/variantInlineLink';
+import inlineOverride from '../../examples/link/variantInlineOverride';
+import linkText from '../../examples/link/variantLinkText';
+import rel from '../../examples/link/variantRel';
+import standaloneLink from '../../examples/link/variantStandaloneLink';
+import target from '../../examples/link/variantTarget';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
@@ -252,6 +253,7 @@ Accessible content is critical if we consider that assistive technology also pre
           title="Accessible content"
         >
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={accessibilityBoxes}
@@ -259,8 +261,10 @@ Accessible content is critical if we consider that assistive technology also pre
                 name="Accessibility Checklist"
               />
             }
+            title="'Learn more' case"
           />
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={accessibilityTiers}
@@ -268,6 +272,7 @@ Accessible content is critical if we consider that assistive technology also pre
                 name="Accessibility Tiers"
               />
             }
+            title="'See details' case"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -306,9 +311,9 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
       <MainSection name="Variants">
         <MainSection.Subsection
           description="Link depends on [Text](/web/text) to inherit style attributes including weight, color, and size. Aim to match the text size and style of the content they are accompanying. Always use Link within [Text](/web/text) to get the correct underline color."
-          title="Link and Text"
+          title="Style"
         >
-          <SandpackExample code={variantLinkText} layout="column" name="Variants - Link and Text" />
+          <SandpackExample code={linkText} layout="row" name="Variants - Text style" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -327,8 +332,10 @@ For external links where an external Gestalt Link doesn't apply, check out [Butt
 6. Documentation: \`color="link"\`
     Reserved color for links within documentation and internal subsites when a color is needed to convey interactivity. Please note: This color shouldn't be used on links across Pinterest customer-facing UI.
           `}
-          title="Link and color"
-        />
+          title="Color"
+        >
+          <SandpackExample code={colors} layout="row" name="Variants - Color" previewHeight={550} />
+        </MainSection.Subsection>
 
         <MainSection.Subsection
           columns={2}
@@ -342,24 +349,22 @@ Link with \`display="inline"\` or \`display="inlineBlock"\` sets the underline s
 
 However, Link's underline style can be overridden at any time using the \`underline\` prop.
 
-\`underline="none"\` doesn't show any underline style. However, for cases where underline isn’t needed to convey interactivity or when the link element doesn’t function as a link visually, consider using [TapArea](/web/taparea) or [Button](/web/button) with \`role=link\`.
+\`underline="none"\` doesn't show any underline style. However, for cases where underline isn’t needed to convey interactivity or when the link element doesn’t function as a link visually, consider using [TapAreLink](/web/taparealink) or [ButtonLink](/web/buttonlink).
 `}
           title="Underline"
         >
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantInlineLink}
-                layout="column"
-                name="Variants - Inline Link"
-              />
+              <SandpackExample code={inlineLink} layout="column" name="Variants - Inline Link" />
             }
             title="Inline Link"
           />
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={variantStandaloneLink}
+                code={standaloneLink}
                 layout="column"
                 name="Variants - Standalone Link"
               />
@@ -369,9 +374,10 @@ However, Link's underline style can be overridden at any time using the \`underl
         </MainSection.Subsection>
         <MainSection.Subsection columns={2}>
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={variantInlineOverride}
+                code={inlineOverride}
                 layout="column"
                 name="Variants - Inline Overriden Underline"
               />
@@ -379,9 +385,10 @@ However, Link's underline style can be overridden at any time using the \`underl
             title="Inline Link with overridden underline"
           />
           <MainSection.Card
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={variantHiddenUnderline}
+                code={hiddenUnderline}
                 layout="column"
                 name="Variants - Inline Overriden Underline"
               />
@@ -403,7 +410,9 @@ However, Link's underline style can be overridden at any time using the \`underl
           title="Inline"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={inline} name="Inline example" />}
+            sandpackExample={
+              <SandpackExample code={inline} name="Inline example" previewHeight={400} />
+            }
           />
         </MainSection.Subsection>
 
@@ -417,8 +426,8 @@ However, Link's underline style can be overridden at any time using the \`underl
           title="Target"
         >
           <SandpackExample
-            code={variantTarget}
-            layout="column"
+            code={target}
+            layout="row"
             name="Variants - Target"
             previewHeight={160}
           />
@@ -435,23 +444,17 @@ However, Link's underline style can be overridden at any time using the \`underl
 As the "visit" icon is a visual/graphic representation, it's hidden to assistive technologies to avoid duplication of information. Instead, follow accessibility best practices for external links as detailed in the [Accessibility section](#External-links).
 
 
-The "visit" icon should also match [Text](/web/text)'s \`size\` and \`color\`. \`externalLinkIcon="default"\` automatically sets the "visit" icon style to match Text's default properties: \`size="300"\` and \`color="default"\` as shown in the first example. However, for different Text treatments, \`externalLinkIcon\` can be used to match custom Text properties as shown in the second example.
+The "visit" icon should also match [Text](/web/text)'s \`size\`. \`externalLinkIcon="default"\` automatically sets the "visit" icon style to match Text's default size: \`size="300"\` as shown in the first example. However, for different Text treatments, \`externalLinkIcon\` can be used to match custom Text properties as shown in the second example. Icon color is inherited from Text.
       `}
           title="externalLinkIcon and rel"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={variantExternalIcon}
-                layout="column"
-                name="Variant - External Icon"
-              />
+              <SandpackExample code={externalIcon} layout="column" name="Variant - External Icon" />
             }
           />
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={variantRel} layout="column" name="Variant - Rel" />
-            }
+            sandpackExample={<SandpackExample code={rel} layout="column" name="Variant - Rel" />}
           />
         </MainSection.Subsection>
 
