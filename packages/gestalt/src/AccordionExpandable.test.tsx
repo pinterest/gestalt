@@ -111,9 +111,10 @@ test('validate data test id with multiple items with expandedId', () => {
       ]}
       onExpandedChange={() => {}}
     />,
-  );
-  const testInstance = component.root.find(
-    (instance: any) => instance.props['data-test-id'] === 'test-expanded-content',
-  );
-  expect(testInstance).not.toBeNull();
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test-expanded-content'),
+  ).toHaveLength(1);
 });

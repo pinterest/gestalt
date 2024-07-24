@@ -252,18 +252,13 @@ describe('SheetMobile', () => {
   it('renders correctly default size with dataTestId', () => {
     const component = create(
       <DeviceTypeProvider deviceType="mobile">
-        <SheetMobile
-          dataTestId="some-test-id"
-          heading="test"
-          onDismiss={() => {}}
-          subHeading="test"
-        />
+        <SheetMobile dataTestId="test" heading="test" onDismiss={() => {}} subHeading="test" />
       </DeviceTypeProvider>,
-    );
-    const testInstance = component.root;
-    const sheetMobileElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-    );
-    expect(sheetMobileElement).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 });

@@ -81,18 +81,19 @@ test('Image with decoding specified matches snapshot', () => {
 });
 
 test('Image renders with dataTestId', () => {
-  const idName = 'data-test-id-csoft';
-  const instance = renderer.create(
+  const component = renderer.create(
     <Image
       alt="foo"
-      dataTestId={idName}
+      dataTestId="test"
       decoding="sync"
       naturalHeight={50}
       naturalWidth={50}
       src="foo.png"
     />,
   ).root;
-  expect(instance.find((element: any) => element.type === 'img').props['data-test-id']).toContain(
-    idName,
-  );
+  expect(
+    component
+      .findAll((element) => element.type === 'img')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

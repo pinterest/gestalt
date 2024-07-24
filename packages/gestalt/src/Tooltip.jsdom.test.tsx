@@ -17,15 +17,15 @@ test('Tooltip renders', () => {
 
 test('Tooltip renders with dataTestId', () => {
   const component = create(
-    <Tooltip dataTestId="tooltip-test-id" text="This is a tooltip">
+    <Tooltip dataTestId="some-test-id" text="This is a tooltip">
       <div>Hi</div>
     </Tooltip>,
-  );
-  const testInstance = component.root;
-  const tooltipElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'tooltip-test-id',
-  );
-  expect(tooltipElement).not.toBeNull();
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'some-test-id'),
+  ).toHaveLength(1);
 });
 
 test('Tooltip renders the link when hovered', () => {

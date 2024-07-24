@@ -91,7 +91,7 @@ export default function Status({ accessibilityLabel, subtext, title, type, dataT
   const isTextNode = title && isComponentNode({ text: title, components: ['Text'] });
 
   return (
-    <Flex data-test-id={dataTestId} direction="column">
+    <Flex dataTestId={dataTestId} direction="column">
       <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
         <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
         {isTextNode && <OverridingSpan size="200" textElement={title ?? ''} />}

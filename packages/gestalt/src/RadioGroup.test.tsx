@@ -55,15 +55,16 @@ describe('RadioGroup', () => {
           value="choice-1"
         />
       </RadioGroup>,
-    );
-    const testInstance = component.root;
-    const radioGroupElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'radio-group-test-id',
-    );
-    const radioButtonElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'radio-button-test-id',
-    );
-    expect(radioGroupElement).not.toBeNull();
-    expect(radioButtonElement).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'radio-group-test-id'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'radio-button-test-id'),
+    ).toHaveLength(1);
   });
 });

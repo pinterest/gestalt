@@ -10,14 +10,12 @@ describe('Status', () => {
   });
 
   it('renders with dataTestId', () => {
-    const component = create(
-      <Status dataTestId="some-test-id" title="Unstarted" type="unstarted" />,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-    );
-    expect(tooltipElement).not.toBeNull();
+    const component = create(<Status dataTestId="test" title="Unstarted" type="unstarted" />).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 
   it('renders with rich title', () => {

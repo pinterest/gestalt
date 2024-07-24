@@ -134,11 +134,11 @@ describe('TagData', () => {
   it('TagData with dataTestId', () => {
     const component = create(
       <TagData dataTestId="some-test-id" onTap={() => {}} selected text="Text Impressions" />,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-    );
-    expect(tooltipElement).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'some-test-id'),
+    ).toHaveLength(1);
   });
 });

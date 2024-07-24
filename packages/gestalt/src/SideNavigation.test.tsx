@@ -188,12 +188,7 @@ describe('SideNavigation', () => {
   it('renders elements with dataTestId', () => {
     const component = create(
       <SideNavigation accessibilityLabel="Static items example">
-        <SideNavigation.Group
-          dataTestId="group-test-id"
-          display="static"
-          icon="people"
-          label="Christmas"
-        >
+        <SideNavigation.Group dataTestId="test" display="static" icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
             label="Luxury Christmas"
@@ -213,18 +208,17 @@ describe('SideNavigation', () => {
           </SideNavigation.NestedGroup>
         </SideNavigation.Group>
       </SideNavigation>,
-    );
-    const testInstance = component.root;
-    const groupElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'group-test-id',
-    );
-    expect(groupElement).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'li')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 
   it('SideNavigation renders elements with dataTestId', () => {
-    const idName = 'data-test-id-csoft';
     const component = create(
-      <SideNavigation accessibilityLabel="Static items example" dataTestId={idName}>
+      <SideNavigation accessibilityLabel="Static items example" dataTestId="test">
         <SideNavigation.Group display="static" icon="people" label="Christmas">
           <SideNavigation.NestedItem
             href="#"
@@ -246,9 +240,10 @@ describe('SideNavigation', () => {
         </SideNavigation.Group>
       </SideNavigation>,
     ).root;
-
     expect(
-      component.findAll((element: any) => element.type === 'nav')[0].props['data-test-id'],
-    ).toContain(idName);
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 });

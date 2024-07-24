@@ -43,10 +43,11 @@ describe('<Collage />', () => {
   });
 
   it('validate data test id snapshot for 4 columns', () => {
-    const component = create(<Collage {...collageProps} columns={4} dataTestId="test" />);
-    const testInstance = component.root.find(
-      (instance: any) => instance.props['data-test-id'] === 'test',
-    );
-    expect(testInstance).not.toBeNull();
+    const component = create(<Collage {...collageProps} columns={4} dataTestId="test" />).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 });

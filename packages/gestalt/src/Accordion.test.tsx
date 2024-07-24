@@ -100,10 +100,16 @@ describe('Accordion', () => {
       >
         <Text>Testing</Text>
       </Accordion>,
-    );
-    const testInstance = component.root.find(
-      (instance: any) => instance.props['data-test-id'] === 'test-accordion-title',
-    );
-    expect(testInstance).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-accordion-title'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-accordion-content'),
+    ).toHaveLength(1);
   });
 });

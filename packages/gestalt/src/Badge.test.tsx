@@ -22,9 +22,10 @@ it('should render with a wash', () => {
 });
 
 it('validate data test id', () => {
-  const instance = create(<Badge dataTestId="test" text="Badge" type="lightWash" />).root;
-
-  expect(instance.find((element: any) => element.type === 'div').props['data-test-id']).toContain(
-    'test',
-  );
+  const component = create(<Badge dataTestId="test" text="Badge" type="lightWash" />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

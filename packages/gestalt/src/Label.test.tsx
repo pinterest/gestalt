@@ -8,13 +8,14 @@ test('Label renders', () => {
 });
 
 test('Label renders with dataTestId', () => {
-  const idName = 'data-test-id-csoft';
-  const instance = renderer.create(
-    <Label dataTestId={idName} htmlFor="email">
+  const component = renderer.create(
+    <Label dataTestId="test" htmlFor="email">
       Email
     </Label>,
   ).root;
-  expect(instance.find((element: any) => element.type === 'label').props['data-test-id']).toContain(
-    idName,
-  );
+  expect(
+    component
+      .findAll((element) => element.type === 'label')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

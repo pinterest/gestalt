@@ -13,16 +13,16 @@ describe('TableOfContents', () => {
 
   it('renders with dataTestId', () => {
     const component = create(
-      <TableOfContents dataTestId="some-test-id" title="Title">
+      <TableOfContents dataTestId="test" title="Title">
         <TableOfContents.Item active href="#" label="Item 1" onClick={() => {}} />
         <TableOfContents.Item active href="#" label="Item 2" onClick={() => {}} />
       </TableOfContents>,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-    );
-    expect(tooltipElement).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 
   it('renders an accessibility label', () => {

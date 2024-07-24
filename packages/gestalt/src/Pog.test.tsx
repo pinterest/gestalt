@@ -42,10 +42,10 @@ test('Pog hovered renders', () => {
 });
 
 test('Pog renders with dataTestId', () => {
-  const component = create(<Pog dataTestId="some-test-id" icon="heart" />);
-  const testInstance = component.root;
-  const pogElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-  );
-  expect(pogElement).not.toBeNull();
+  const component = create(<Pog dataTestId="test" icon="heart" />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

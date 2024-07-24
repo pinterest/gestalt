@@ -64,18 +64,17 @@ describe('<Tabs />', () => {
           { text: 'You', href: '#' },
         ]}
       />,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id-0',
-    );
-    expect(tooltipElement).not.toBeNull();
-
-    const testInstance2 = component.root;
-    const tooltipElement2 = testInstance2.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id-1',
-    );
-    expect(tooltipElement2).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'some-test-id-0'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'some-test-id-1'),
+    ).toHaveLength(1);
   });
 
   test('matches snapshot with wrap', () => {

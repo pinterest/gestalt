@@ -17,12 +17,12 @@ test('Spinner renders when passed show', () => {
 });
 
 test('Spinner renders with dataTestId', () => {
-  const component = create(<Spinner {...baseProps} dataTestId="some-test-id" show />);
-  const testInstance = component.root;
-  const tooltipElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-  );
-  expect(tooltipElement).not.toBeNull();
+  const component = create(<Spinner {...baseProps} dataTestId="test" show />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });
 
 test('Spinner renders with no delay', () => {

@@ -16,12 +16,12 @@ describe('<Toast />', () => {
   test('DataTestId', () => {
     const component = create(
       <Toast dataTestId="some-test-id" text="Same great profile, slightly new look. Learn more?" />,
-    );
-    const testInstance = component.root;
-    const tooltipElement = testInstance.find(
-      (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-    );
-    expect(tooltipElement).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'some-test-id'),
+    ).toHaveLength(1);
   });
 
   test('Error Toast', () => {

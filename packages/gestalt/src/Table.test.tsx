@@ -14,15 +14,15 @@ test('renders correctly', () => {
 
 test('renders with dataTestId', () => {
   const component = renderer.create(
-    <Table accessibilityLabel="test" dataTestId="some-test-id">
+    <Table accessibilityLabel="test" dataTestId="test">
       <div>rest of table</div>
     </Table>,
-  );
-  const testInstance = component.root;
-  const tooltipElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-  );
-  expect(tooltipElement).not.toBeNull();
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });
 
 test('renders correctly with border', () => {

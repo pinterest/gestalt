@@ -14,10 +14,10 @@ test('Pulsar is hidden when paused', () => {
 });
 
 test('Pulsar renders with dataTestId', () => {
-  const component = renderer.create(<Pulsar dataTestId="some-test-id" />);
-  const testInstance = component.root;
-  const pulsarElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-  );
-  expect(pulsarElement).not.toBeNull();
+  const component = renderer.create(<Pulsar dataTestId="test" />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

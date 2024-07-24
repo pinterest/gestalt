@@ -112,17 +112,18 @@ describe('HelpButton', () => {
   });
 
   test('HelpButton renders with dataTestId', () => {
-    const idName = 'data-test-id-csoft';
-    const instance = create(
+    const component = create(
       <HelpButton
         accessibilityLabel="Click to learn more about Pinterest"
         accessibilityPopoverLabel="Expanded information about Pinterest"
-        dataTestId={idName}
+        dataTestId="data-test-id-csoft"
         text="Good test"
       />,
     ).root;
     expect(
-      instance.findAll((element: any) => element.type === 'div')[0].props['data-test-id'],
-    ).toContain(idName);
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'data-test-id-csoft'),
+    ).toHaveLength(1);
   });
 });

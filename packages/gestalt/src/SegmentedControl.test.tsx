@@ -27,15 +27,15 @@ test('SegmentedControl with responsive widths renders', () => {
 test('SegmentedControl renders with dataTestId', () => {
   const component = create(
     <SegmentedControl
-      dataTestId="some-test-id"
+      dataTestId="test"
       items={['News', 'You', 'Messages', <div key="dummy" />]}
       onChange={() => {}}
       selectedItemIndex={0}
     />,
-  );
-  const testInstance = component.root;
-  const segmentedControlElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-  );
-  expect(segmentedControlElement).not.toBeNull();
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

@@ -59,6 +59,7 @@ type Props = {
   /**
    * Whether to show the tooltip or not
    */
+  dataTestId?: string;
   disabled?: boolean;
   idealDirection?: 'up' | 'right' | 'down' | 'left';
   inline?: boolean;
@@ -70,6 +71,7 @@ type Props = {
 export default function InternalTooltip({
   accessibilityLabel,
   children,
+  dataTestId,
   disabled,
   link,
   idealDirection,
@@ -129,7 +131,7 @@ export default function InternalTooltip({
   const accessibilityLabelFallback = typeof text === 'string' ? text : text.join('');
 
   return (
-    <Box display={inline ? 'inlineBlock' : 'block'}>
+    <Box data-test-id={dataTestId} display={inline ? 'inlineBlock' : 'block'}>
       <Box
         ref={childRef}
         aria-label={

@@ -7,12 +7,12 @@ test('Switch', () => {
 });
 
 test('Switch dataTestId', () => {
-  const component = create(<Switch dataTestId="some-test-id" id="test" onChange={() => {}} />);
-  const testInstance = component.root;
-  const tooltipElement = testInstance.find(
-    (instance: any) => instance.props['data-test-id'] === 'some-test-id',
-  );
-  expect(tooltipElement).not.toBeNull();
+  const component = create(<Switch dataTestId="test" id="test" onChange={() => {}} />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'input')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });
 
 test('Switch disabled', () => {

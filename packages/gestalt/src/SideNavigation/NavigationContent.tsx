@@ -115,7 +115,6 @@ export default function NavigationContent({
       aria-label={accessibilityLabel}
       as="nav"
       color="default"
-      data-test-id={dataTestId}
       height="100%"
       minWidth={collapsible ? undefined : normalWidth}
       position="relative"
@@ -130,6 +129,7 @@ export default function NavigationContent({
           [borderStyles.raisedBottom]: overlayPreview,
           [boxStyles.default]: collapsible,
         })}
+        data-test-id={dataTestId}
         style={{ width: collapsible ? 'max-content' : undefined }}
       >
         {/* 3rd wrapper - when collapsible=true, it has static width and responsible for expand/collpase transition */}

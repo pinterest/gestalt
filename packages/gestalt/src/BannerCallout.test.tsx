@@ -192,10 +192,11 @@ describe('<BannerCallout />', () => {
         title="You've sent an invite"
         type="info"
       />,
-    );
-    const testInstance = component.root.find(
-      (instance: any) => instance.props['data-test-id'] === 'test',
-    );
-    expect(testInstance).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 });

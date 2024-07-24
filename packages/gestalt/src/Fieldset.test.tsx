@@ -50,10 +50,11 @@ describe('Fieldset', () => {
         <Checkbox id="Schnauzer" label="Schnauzer" onChange={() => {}} />
         <Checkbox id="Aussie" label="Aussie" onChange={() => {}} />
       </Fieldset>,
-    );
-    const testInstance = component.root.find(
-      (instance: any) => instance.props['data-test-id'] === 'test',
-    );
-    expect(testInstance).not.toBeNull();
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'fieldset')
+        .filter((node) => node.props['data-test-id'] === 'test'),
+    ).toHaveLength(1);
   });
 });

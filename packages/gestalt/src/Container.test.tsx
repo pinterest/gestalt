@@ -8,9 +8,10 @@ test('Container renders', () => {
 });
 
 test('validate data test id Container', () => {
-  const component = renderer.create(<Container dataTestId="test" />);
-  const testInstance = component.root.find(
-    (instance: any) => instance.props['data-test-id'] === 'test',
-  );
-  expect(testInstance).not.toBeNull();
+  const component = renderer.create(<Container dataTestId="test" />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test'),
+  ).toHaveLength(1);
 });

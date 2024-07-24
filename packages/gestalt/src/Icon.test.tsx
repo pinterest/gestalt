@@ -24,9 +24,12 @@ test('Icon flipped if its in the flip on rtl list', () => {
 });
 
 test('Icon renders with dataTestId', () => {
-  const idName = 'data-test-id-csoft';
-  const instance = create(<Icon accessibilityLabel="send" dataTestId={idName} icon="send" />).root;
-  expect(instance.find((element: any) => element.type === 'svg').props['data-test-id']).toContain(
-    idName,
-  );
+  const component = create(
+    <Icon accessibilityLabel="send" dataTestId="data-test-id-csoft" icon="send" />,
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'svg')
+      .filter((node) => node.props['data-test-id'] === 'data-test-id-csoft'),
+  ).toHaveLength(1);
 });

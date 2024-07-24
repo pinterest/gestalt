@@ -58,7 +58,7 @@ export default function Tooltip({
   return (
     <InternalTooltip
       accessibilityLabel={accessibilityLabel}
-      data-test-id={dataTestId}
+      dataTestId={dataTestId}
       idealDirection={idealDirection}
       inline={inline}
       link={link}

@@ -135,12 +135,16 @@ describe('List', () => {
           <List.Item dataTestId="list-item-2" text="List item text" />
         </List.Item>
       </List>,
-    );
+    ).root;
     expect(
-      component.root.find((instance: any) => instance.props['data-test-id'] === 'list-item-1'),
-    ).not.toBeNull();
+      component
+        .findAll((element) => element.type === 'li')
+        .filter((node) => node.props['data-test-id'] === 'list-item-1'),
+    ).toHaveLength(1);
     expect(
-      component.root.find((instance: any) => instance.props['data-test-id'] === 'list-item-2'),
-    ).not.toBeNull();
+      component
+        .findAll((element) => element.type === 'li')
+        .filter((node) => node.props['data-test-id'] === 'list-item-2'),
+    ).toHaveLength(1);
   });
 });
