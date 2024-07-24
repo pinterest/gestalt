@@ -115,6 +115,11 @@
         }
       },
       "switch": {
+        "default": {
+          "unselected": {
+            "value": "{sema.color.border.interactive.value}"
+          }
+        },
         "focus": {
           "inner": {
             "value": "{sema.color.border.focus.inner.default.value}"

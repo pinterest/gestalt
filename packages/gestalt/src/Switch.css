@@ -15,21 +15,47 @@
   border-width: var(--g-switch-border);
   flex-shrink: 0;
   height: var(--g-switch-height);
+  width: var(--g-switch-width);
+}
+
+.borderColorTransition {
   transition: background-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975),
     border-color 250ms cubic-bezier(0.25, 0.375, 0.1, 0.975);
-  width: var(--g-switch-width);
 }
 
 html[dir="rtl"] .switch {
   transform: rotateY(180deg);
 }
 
-.enabled {
-  composes: borderColorDarkGray from "./Borders.css";
+.enabledUnselected {
   background-color: var(--color-background-switch-default-unselected);
+  border-color: var(--color-border-switch-default-unselected);
 }
 
-.vr.focusInnerBorder {
+.enabledUnselected:hover {
+  background-color: var(--color-background-switch-hover-unselected);
+  border-color: var(--color-border-switch-hover-unselected);
+}
+
+.enabledUnselected:active {
+  background-color: var(--color-background-switch-pressed-unselected);
+  border-color: var(--color-border-switch-pressed-unselected);
+}
+
+.enabledSelected {
+  background-color: var(--color-background-switch-default-selected);
+  border-color: var(--color-border-switch-default-selected);
+}
+
+.enabledSelected:hover {
+  background-color: var(--color-background-switch-hover-selected);
+}
+
+.enabledSelected:active {
+  background-color: var(--color-background-switch-pressed-selected);
+}
+
+.focus {
   border: 1px solid;
   border-color: var(--color-border-switch-focus-inner);
   outline: 2px solid var(--color-border-switch-focus-outer);
@@ -37,48 +63,13 @@ html[dir="rtl"] .switch {
   padding: var(--space-0) var(--space-100);
 }
 
-.vr.enabled {
-  border-color: var(--color-border-switch-default-unselected);
-}
-
-.vr.enabled:hover {
-  background-color: var(--color-background-switch-hover-unselected);
-  border-color: var(--color-border-switch-hover-unselected);
-}
-
-.vr.enabled:active {
-  background-color: var(--color-background-switch-pressed-unselected);
-  border-color: var(--color-border-switch-pressed-unselected);
-}
-
-.enabledSelected {
-  composes: borderColorSelected from "./Borders.css";
-  background-color: var(--color-background-switch-default-selected);
-}
-
-.vr.enabledSelected:hover {
-  background-color: var(--color-background-switch-hover-selected);
-}
-
-.vr.enabledSelected:active {
-  background-color: var(--color-background-switch-pressed-selected);
-}
-
-.disabled {
-  composes: borderColorLightGray from "./Borders.css";
+.disabledUnselected {
   background-color: var(--color-background-switch-disabled-unselected);
-}
-
-.vr.disabled {
   border-color: var(--color-border-switch-disabled-unselected);
 }
 
 .disabledSelected {
-  composes: borderColorDarkGray from "./Borders.css";
   background-color: var(--color-background-switch-disabled-selected);
-}
-
-.vr.disabledSelected {
   border-color: var(--color-transparent);
 }
 
@@ -94,22 +85,20 @@ html[dir="rtl"] .switch {
   width: var(--g-switch-height);
 }
 
-.sliderVrOn {
+.sliderVrRight {
+  background-color: var(--sema-color-background-default);
   border: 0;
   height: var(--g-slider-height-on);
   margin: 2px;
   width: var(--g-slider-height-on);
 }
 
-.sliderVrOff {
+.sliderVrLeft {
+  background-color: var(--sema-color-background-inverse);
   border: 0;
   height: var(--g-slider-height-off);
   margin: 3px;
   width: var(--g-slider-height-off);
-}
-
-.enabledSlider {
-  background-color: var(--color-background-switch-default-selected);
 }
 
 .disabledSlider {

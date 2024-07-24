@@ -55,12 +55,13 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
 
   const switchStyles = classnames(styles.switch, {
     [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
-    [styles.vr]: isInVRExperiment,
+    [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
     [styles.disabledSelected]: disabled && switched,
-    [styles.disabled]: disabled && !switched,
+    [styles.disabledUnselected]: disabled && !switched,
     [styles.enabledSelected]: !disabled && switched,
-    [styles.enabled]: !disabled && !switched && (!isFocused || !isFocusVisible),
-    [styles.focusInnerBorder]: isFocused && isFocusVisible && isInVRExperiment,
+    [styles.enabledUnselected]:
+      !disabled && !switched && !(isFocused && isFocusVisible && isInVRExperiment),
+    [styles.borderColorTransition]: !isInVRExperiment,
   });
 
   const sliderStyles = classnames(
@@ -71,10 +72,9 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
 
   const sliderVrStyles = classnames(
     {
-      [styles.enabledSlider]: !switched,
+      [styles.sliderVrRight]: switched,
+      [styles.sliderVrLeft]: !switched,
       [styles.disabledSlider]: disabled && !switched,
-      [styles.sliderVrOn]: switched,
-      [styles.sliderVrOff]: !switched,
     },
     sliderStyles,
   );

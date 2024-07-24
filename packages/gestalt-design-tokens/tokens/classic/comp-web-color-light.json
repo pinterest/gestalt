@@ -353,7 +353,6 @@
           }
         }
       },
-
       "tag": {
         "primary": {
           "default": {
@@ -401,35 +400,35 @@
       },
       "switch": {
         "default": {
-          "unselected": {
-            "value": "#fff"
-          },
           "selected": {
             "value": "#111"
+          },
+          "unselected": {
+            "value": "#fff"
           }
         },
         "disabled": {
-          "unselected": {
-            "value": "#efefef"
-          },
           "selected": {
             "value": "{color.gray.roboflow.500.value}"
+          },
+          "unselected": {
+            "value": "#efefef"
           }
         },
         "hover": {
           "selected": {
-            "value": "#242423"
+            "value": "#111"
           },
           "unselected": {
-            "value": "#F8F7F2"
+            "value": "#fff"
           }
         },
         "pressed": {
           "selected": {
-            "value": "#393937"
+            "value": "#111"
           },
           "unselected": {
-            "value": "#EBEBE5"
+            "value": "#fff"
           }
         }
       },
@@ -571,31 +570,37 @@
       },
       "switch": {
         "default": {
+          "selected": {
+            "value": "{color.background.selected.base}"
+          },
           "unselected": {
-            "value": "{color.gray.roboflow.500.value}"
+            "value": "{color.border.default}"
           }
         },
         "disabled": {
+          "selected": {
+            "value": "{color.background.default}"
+          },
           "unselected": {
-            "value": "{color.gray.roboflow.300.value}"
+            "value": "{color.border.container}"
           }
         },
         "focus": {
           "inner": {
-            "value": "{color.white.mochimalist.0.value}"
+            "value": "{color.border.default}"
           },
           "outer": {
-            "value": "{color.blue.skycicle.600.value}"
+            "value": "{color.border.default}"
           }
         },
         "hover": {
           "unselected": {
-            "value": "#626260"
+            "value": "{color.border.default}"
           }
         },
         "pressed": {
           "unselected": {
-            "value": "#585856"
+            "value": "{color.border.default}"
           }
         }
       },
