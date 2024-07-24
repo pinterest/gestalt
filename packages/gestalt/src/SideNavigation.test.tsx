@@ -220,4 +220,35 @@ describe('SideNavigation', () => {
     );
     expect(groupElement).not.toBeNull();
   });
+
+  it('SideNavigation renders elements with dataTestId', () => {
+    const idName = 'data-test-id-csoft';
+    const component = create(
+      <SideNavigation accessibilityLabel="Static items example" dataTestId={idName}>
+        <SideNavigation.Group display="static" icon="people" label="Christmas">
+          <SideNavigation.NestedItem
+            href="#"
+            label="Luxury Christmas"
+            onClick={({ event }: any) => event.preventDefault()}
+          />
+          <SideNavigation.NestedGroup display="static" label="Classic Christmas">
+            <SideNavigation.NestedItem
+              href="#"
+              label="West Coast"
+              onClick={({ event }: any) => event.preventDefault()}
+            />
+            <SideNavigation.NestedItem
+              href="#"
+              label="East Coast"
+              onClick={({ event }: any) => event.preventDefault()}
+            />
+          </SideNavigation.NestedGroup>
+        </SideNavigation.Group>
+      </SideNavigation>,
+    ).root;
+
+    expect(
+      component.findAll((element: any) => element.type === 'nav')[0].props['data-test-id'],
+    ).toContain(idName);
+  });
 });

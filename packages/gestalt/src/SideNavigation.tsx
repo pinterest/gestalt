@@ -21,6 +21,10 @@ export type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Content to display at the bottom of SideNavigation. Open slot available to display other functionality required in the page. See the [Footer variant](https://gestalt.pinterest.systems/web/sidenavigation#Header) to learn more.
    */
   footer?: ReactNode;
@@ -69,6 +73,7 @@ export type Props = {
 export default function SideNavigation({
   accessibilityLabel,
   children,
+  dataTestId,
   dismissButton,
   footer,
   header,
@@ -96,6 +101,7 @@ export default function SideNavigation({
         <ScrollBoundaryContainer>
           <SideNavigationMobile
             accessibilityLabel={accessibilityLabel}
+            dataTestId={dataTestId}
             dismissButton={
               dismissButton && {
                 onDismiss: dismissButton.onDismiss,
@@ -126,6 +132,7 @@ export default function SideNavigation({
       <ScrollBoundaryContainer overflow={collapsible ? 'visible' : undefined}>
         <SideNavigationContent
           accessibilityLabel={accessibilityLabel}
+          dataTestId={dataTestId}
           footer={footer}
           header={header}
           showBorder={showBorder}

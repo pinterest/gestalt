@@ -12,12 +12,14 @@ import { Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
 
 type Props = SideNavigationProps & {
+  dataTestId?: string;
   id: string;
 };
 
 export default function SideNavigationMobile({
   accessibilityLabel,
   children,
+  dataTestId,
   footer,
   header,
   id,
@@ -41,7 +43,14 @@ export default function SideNavigationMobile({
   }, [dismissButtonRef]);
 
   return (
-    <Box aria-label={accessibilityLabel} as="nav" height="100%" id={id} width="100%">
+    <Box
+      aria-label={accessibilityLabel}
+      as="nav"
+      data-test-id={dataTestId}
+      height="100%"
+      id={id}
+      width="100%"
+    >
       <div
         className={showBorder ? classnames(borderStyles.borderRight, styles.fullHeight) : undefined}
       >

@@ -23,6 +23,7 @@ type Timeout = ReturnType<typeof setTimeout>;
 export default function NavigationContent({
   accessibilityLabel,
   children,
+  dataTestId,
   footer,
   header,
   showBorder,
@@ -114,6 +115,7 @@ export default function NavigationContent({
       aria-label={accessibilityLabel}
       as="nav"
       color="default"
+      data-test-id={dataTestId}
       height="100%"
       minWidth={collapsible ? undefined : normalWidth}
       position="relative"
