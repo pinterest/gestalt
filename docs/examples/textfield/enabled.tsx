@@ -7,11 +7,10 @@ export default function Example() {
   return (
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <TextField
-        disabled
-        id="variants-disabled"
+        id="variants-default"
         label="Email address"
         onChange={(e) => setValue(e.value)}
-        placeholder="Name"
+        placeholder="Email"
         value={value}
       />
     </Box>

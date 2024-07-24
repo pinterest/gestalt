@@ -1,18 +1,12 @@
-import {
-  forwardRef,
-  ReactElement,
-  ReactNode,
-  useId,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, ReactElement, ReactNode, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { autoCompleteType } from './InternalTextField';
 import styles from './VRInternalTextField.css';
+import boxStyles from '../Box.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import { MaxLength } from '../TextField';
+import typographyStyle from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
@@ -90,9 +84,9 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const labelId = useId();
-
   const hasErrorMessage = Boolean(errorMessage);
+
+  const isLabelVisible = labelDisplay === 'visible';
 
   // ==== STATE ====
   const [focused, setFocused] = useState(false);
@@ -103,20 +97,37 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   let ariaDescribedby;
 
   if (hasErrorMessage) {
-    ariaDescribedby = `${labelId}-error`;
+    ariaDescribedby = `${id}-error`;
   }
 
   if (helperText || maxLength) {
-    ariaDescribedby = `${labelId}-helperText`;
+    ariaDescribedby = `${id}-helperText`;
   }
 
   return (
     <div>
-      <div className={classnames(styles.parentLabel)}>
-        <label className={classnames(styles.label)} htmlFor={labelId}>
-          Label
-        </label>
-      </div>
+      {label && (
+        <div className={classnames(styles.parentLabel)}>
+          <label
+            className={classnames(styles.label, {
+              // sm
+              [styles.sm_label]: size === 'sm',
+              [styles.sm_labelPos]: size === 'sm',
+              // md
+              [styles.md_label]: size === 'md',
+              [styles.md_labelPos]: size === 'md',
+              // lg
+              [styles.lg_label]: size === 'lg',
+              [styles.lg_labelPos]: size === 'lg',
+
+              [boxStyles.visuallyHidden]: !isLabelVisible,
+            })}
+            htmlFor={id}
+          >
+            {label}
+          </label>
+        </div>
+      )}
       <input
         ref={innerRef}
         aria-activedescendant={accessibilityActiveDescendant}
@@ -124,14 +135,28 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         aria-describedby={focused ? ariaDescribedby : undefined}
         aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
         autoComplete={autoComplete}
-        className={classnames(styles.input, styles.inputHorizontalPadding, {
+        className={classnames(styles.input, typographyStyle.truncate, {
           [styles.enabled]: !disabled,
-          [styles.enabledLabel]: true,
+          // sm
+          [styles.sm_input]: size === 'sm',
+          [styles.sm_inputHorizontalPadding]: size === 'sm',
+          [styles.sm_visibleLabel]: size === 'sm' && label && isLabelVisible,
+          [styles.sm_hiddenLabel]: size === 'sm'  && label && !isLabelVisible,
+          // md
+          [styles.md_input]: size === 'md',
+          [styles.md_inputHorizontalPadding]: size === 'md',
+          [styles.md_visibleLabel]: size === 'md'  && label && isLabelVisible,
+          [styles.md_hiddenLabel]: size === 'md'  && label && !isLabelVisible,
+          // lg
+          [styles.lg_input]: size === 'lg',
+          [styles.lg_inputHorizontalPadding]: size === 'lg',
+          [styles.lg_visibleLabel]: size === 'lg'  && label && isLabelVisible,
+          [styles.lg_hiddenLabel]: size === 'lg'  && label && !isLabelVisible,
         })}
         data-test-id={dataTestId}
         disabled={disabled}
         enterKeyHint={mobileEnterKeyHint}
-        id={labelId}
+        id={id}
         inputMode={mobileInputMode}
         max={type === 'number' ? max : undefined}
         maxLength={maxLength?.characterCount}
@@ -162,7 +187,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       {(helperText || maxLength) && !errorMessage ? (
         <FormHelperText
           currentLength={currentLength}
-          id={`${labelId}-helperText`}
+          id={`${id}-helperText`}
           maxLength={maxLength}
           size={size}
           text={helperText}
@@ -170,7 +195,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       ) : null}
 
       {hasErrorMessage ? (
-        <FormErrorMessage id={`${labelId}-error`} size={size} text={errorMessage} />
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
     </div>
   );

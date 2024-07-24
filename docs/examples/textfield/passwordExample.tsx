@@ -10,7 +10,7 @@ export default function Example() {
         id="enter-password"
         label="Account password"
         onChange={({ value }) => setPassword(value)}
-        placeholder="Password"
+        placeholder="6-18 characters"
         type="password"
         value={password}
       />

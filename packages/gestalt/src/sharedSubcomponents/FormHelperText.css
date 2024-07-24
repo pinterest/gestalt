@@ -1,0 +1,77 @@
+/* sm */
+
+.sm_topPadding {
+  padding-top: var(--space-100);
+}
+
+html[dir="rtl"] .sm_startPadding {
+  padding-right: var(--space-0);
+}
+
+html:not([dir="rtl"]) .sm_startPadding {
+  padding-left: var(--space-0);
+}
+
+.vr_sm_topPadding {
+  padding-top: var(--sema-space-gap-vertical-sm);
+}
+
+html[dir="rtl"] .vr_sm_startPadding {
+  padding-right: var(--sema-space-padding-horizontal-lg);
+}
+
+html:not([dir="rtl"]) .vr_sm_startPadding {
+  padding-left: var(--sema-space-padding-horizontal-lg);
+}
+
+/* md */
+
+.md_topPadding {
+  padding-top: var(--space-100);
+}
+
+html[dir="rtl"] .md_startPadding {
+  padding-right: var(--space-0);
+}
+
+html:not([dir="rtl"]) .md_startPadding {
+  padding-left: var(--space-0);
+}
+
+.vr_md_topPadding {
+  padding-top: var(--sema-space-gap-vertical-sm);
+}
+
+html[dir="rtl"] .vr_md_startPadding {
+  padding-right: var(--sema-space-padding-horizontal-xl);
+}
+
+html:not([dir="rtl"]) .vr_md_startPadding {
+  padding-left: var(--sema-space-padding-horizontal-xl);
+}
+
+/* lg */
+
+.lg_topPadding {
+  padding-top: var(--space-200);
+}
+
+html[dir="rtl"] .lg_startPadding {
+  padding-right: var(--space-0);
+}
+
+html:not([dir="rtl"]) .lg_startPadding {
+  padding-left: var(--space-0);
+}
+
+.vr_lg_topPadding {
+  padding-top: var(--sema-space-gap-vertical-lg);
+}
+
+html[dir="rtl"] .vr_lg_startPadding {
+  padding-right: var(--sema-space-padding-horizontal-xxl);
+}
+
+html:not([dir="rtl"]) .vr_lg_startPadding {
+  padding-left: var(--sema-space-padding-horizontal-xxl);
+}

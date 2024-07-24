@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Flex, Heading, TextField } from 'gestalt';
+import { Box, Flex, TextField } from 'gestalt';
 
 export default function TextFieldSizes() {
   const [input1text, setInput1Text] = useState('');
@@ -7,54 +7,45 @@ export default function TextFieldSizes() {
   const [input3text, setInput3Text] = useState('');
 
   return (
-    <Box padding={8}>
-      <Flex direction="column" gap={{ column: 6, row: 0 }}>
-        <Flex direction="column" gap={{ column: 3, row: 0 }}>
-          <Heading size="300">Small</Heading>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={6} width="100%">
           <TextField
-            helperText="Enter a title that captures the imagination of Pinners"
+            helperText="Helper text"
             id="field1"
-            label="Email Address"
+            label="Label"
             onChange={({ value }) => {
               setInput1Text(value);
             }}
-            placeholder="Enter your pin title"
+            placeholder="Placeholder"
             size="sm"
             type="text"
             value={input1text}
           />
-        </Flex>
 
-        <Flex direction="column" gap={{ column: 3, row: 0 }}>
-          <Heading size="300">Medium</Heading>
           <TextField
-            helperText="Enter a title that captures the imagination of Pinners"
+            helperText="Helper text"
             id="field2"
-            label="Title"
+            label="Label"
             onChange={({ value }) => {
               setInput2Text(value);
             }}
-            placeholder="Enter your pin title"
+            placeholder="Placeholder"
             size="md"
             type="text"
             value={input2text}
           />
-        </Flex>
-        <Flex direction="column" gap={{ column: 3, row: 0 }}>
-          <Heading size="300">Large</Heading>
           <TextField
-            helperText="Enter a title that captures the imagination of Pinners"
+            helperText="Helper text"
             id="field3"
-            label="Title"
+            label="Label"
             onChange={({ value }) => {
               setInput3Text(value);
             }}
-            placeholder="Enter your pin title"
+            placeholder="Placeholder"
             size="lg"
             type="text"
             value={input3text}
           />
-        </Flex>
       </Flex>
     </Box>
   );

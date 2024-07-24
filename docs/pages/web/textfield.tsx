@@ -14,11 +14,13 @@ import dontMarkFieldsAsRequired from '../../examples/textfield/dontMarkFieldsAsR
 import dontPlaceUnrelatedFieldsSameLine from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine';
 import dontPutEssentialInformationPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder';
 import dontRemoveLabel from '../../examples/textfield/dontRemoveLabel';
+import enabled from '../../examples/textfield/enabled';
 import ensureVisibleLabel from '../../examples/textfield/ensureVisibleLabel';
 import errorMessageExample from '../../examples/textfield/errorMessageExample';
 import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo';
+import hiddenLabel from '../../examples/textfield/hiddenLabel';
+import labelled from '../../examples/textfield/labelled';
 import labelsExample from '../../examples/textfield/labelsExample';
-import labelVisibilityExample from '../../examples/textfield/labelVisibilityExample';
 import localizationLabels from '../../examples/textfield/localizationLabels';
 import main from '../../examples/textfield/main';
 import maximumLengthExample from '../../examples/textfield/maximumLengthExample';
@@ -33,8 +35,8 @@ import provideClearUsefulErrorMessages from '../../examples/textfield/provideCle
 import readOnlyExample from '../../examples/textfield/readOnlyExample';
 import textFieldSizes from '../../examples/textfield/sizesExample';
 import tagsExample from '../../examples/textfield/tagsExample';
-import textFieldRefAnchorPopover from '../../examples/textfield/textFieldRefAnchorPopover';
 import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation';
+import visibleLabel from '../../examples/textfield/visibleLabel';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
@@ -275,6 +277,101 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          description="TextField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
+          title="Size"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={textFieldSizes} name="TextField Sizes" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`
+1. Enabled
+The enabled state of Textfield that represents it can be interacted with.
+
+2. Error
+TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest. Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
+
+3. Read-only
+Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+
+4. Disabled
+TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+`}
+          title="State"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={enabled} layout="column" name="Enabled example" />
+            }
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabledExample} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={errorMessageExample}
+                layout="column"
+                name="Error message example"
+              />
+            }
+            title="Error"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={readOnlyExample} layout="column" name="Read-only example" />
+            }
+            title="Read-only"
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          columns={2}
+          description={`'label' is an optional prop; however, TextField should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/textfield#Labels).
+
+1. Built-in label. Preferred. Consistent Textfield design and tested accessibility.
+
+In some cases, the label for a TextField is represented in a different way visually, as demonstrated below. We can take 2 approaches in this case.
+
+2. Labelled Textfield (Label + Textfield). This is the best approach when a custom label is needed. The label focuses the Textfield when pressed.
+
+3. Hidden built-in label (Label + Textfield). This is the best approach when there's significant visual distance between the label and the input. You can set \`labelDisplay="hidden"\` to ensure TextField is properly labeled for screen readers while using a different element to represent the label visually. The 'visual' label doesn't focus the Textfield when pressed.`}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={visibleLabel} layout="column" name="Built-in label example" />
+            }
+            title="Built-in label"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelled} layout="column" name="Labelled example" />
+            }
+            title="Label + Textfield"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={hiddenLabel} layout="column" name="Hidden label example" />
+            }
+            title="Hidden label"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`
           Whenever you want to provide more information about a form field, you should use \`helperText\`.
           `}
@@ -289,25 +386,34 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`In some cases, the label for a TextField is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure TextField is properly labeled for screen readers while using a different element to represent the label visually.`}
-          title="Label visibility"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={labelVisibilityExample} name="Label Visibility Example" />
-            }
-          />
-        </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit."
-          title="Read-only"
+          columns={2}
+          description={`Textfield supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in Textfield. \`maxLength\` must be an integer value 0 or higher.
+
+The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the \`maxLength\`.
+
+When \`maxLength\` is passed to TextField, the component displays a character counter as well as a [warning or problem Status](/web/status) when the user reaches or the prepopulated controlled value exceeds the maximum length of characters.
+
+The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the warning and problem Status.`}
+          title="Maximum length"
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={readOnlyExample} name="Read-only Text Field Example" />
+              <SandpackExample
+                code={maximumLengthExample}
+                layout="column"
+                name="Maximum Length Text Field Example"
+              />
+            }
+          />
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={maximumLengthExampleSingleLine}
+                layout="column"
+                name="Maximum Length Single Line Text Field"
+              />
             }
           />
         </MainSection.Subsection>
@@ -319,30 +425,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             sandpackExample={
               <SandpackExample code={passwordExample} name="Password Text Field Example" />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description="`disabled` TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use `readOnly` instead)."
-          title="Disabled"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={disabledExample} name="Disabled Text Field Example" />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest.
-Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
-          `}
-          title="Error message"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={errorMessageExample} name="Error Message Example" />
             }
           />
         </MainSection.Subsection>
@@ -419,59 +501,6 @@ Use \`type\` when TextField needs to capture phone numbers, emails or URLs.
                 name="Mobile Style Example (3)"
               />
             }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`Textfield supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in Textfield. \`maxLength\` must be an integer value 0 or higher.
-
-The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the \`maxLength\`.
-
-When \`maxLength\` is passed to TextField, the component displays a character counter as well as a [warning or problem Status](/web/status) when the user reaches or the prepopulated controlled value exceeds the maximum length of characters.
-
-The first example shows an empty Textfield with \`maxLength\` set to 20 characters. The second example shows the warning and problem Status.`}
-          title="Maximum length"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={maximumLengthExample}
-                layout="column"
-                name="Maximum Length Text Field Example"
-              />
-            }
-          />
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={maximumLengthExampleSingleLine}
-                layout="column"
-                name="Maximum Length Single Line Text Field"
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-          TextField can accept a ref for anchoring [Popover](/web/popover)-based components.
-          `}
-          title="Refs"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample
-                code={textFieldRefAnchorPopover}
-                name="TextField Ref for Anchoring Popover"
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description="TextField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
-          title="Size"
-        >
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={textFieldSizes} name="TextField Sizes" />}
           />
         </MainSection.Subsection>
       </MainSection>

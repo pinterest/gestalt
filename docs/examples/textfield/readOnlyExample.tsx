@@ -10,7 +10,7 @@ export default function Example() {
         id="variants-readonly"
         label="Email address"
         onChange={(e) => setValue(e.value)}
-        placeholder="Name"
+        placeholder="Email"
         readOnly
         value={value}
       />
