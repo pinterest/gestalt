@@ -1,3 +1,9 @@
+## 156.2.0 (Jul 24, 2024)
+
+### Minor
+
+- Tokens: Fixing background button disabled token ([#3694](https://github.com/pinterest/gestalt/pull/3694)) - [Preview link](https://deploy-preview-3694--gestalt.netlify.app?devexample=true)
+
 ## 156.1.0 (Jul 23, 2024)
 
 ### Minor
