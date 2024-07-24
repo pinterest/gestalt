@@ -1,0 +1,61 @@
+.input {
+  border-radius: var(--sema-rounding-md);
+  box-sizing: border-box;
+  display: block;
+  font-size: var(--sema-font-size-ui-md);
+  font-weight: var(--sema-font-weight-body);
+  line-height: var(--sema-font-lineheight-body-MD);
+  padding-bottom: var(--sema-space-gap-vertical-lg);
+  padding-top: calc(var(--sema-space-gap-vertical-xxl) + 8px);
+  width: 100%;
+}
+
+.input:focus {
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.enabledLabel {
+  min-height: 36px;
+}
+
+.enabled {
+  background: var(--sema-color-background-default);
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+html[dir="rtl"] .inputHorizontalPadding {
+  padding-left: var(--sema-space-padding-horizontal-lg);
+  padding-right: var(--sema-space-padding-horizontal-xl);
+}
+
+html:not([dir="rtl"]) .inputHorizontalPadding {
+  padding-left: var(--sema-space-padding-horizontal-xl);
+  padding-right: var(--sema-space-padding-horizontal-lg);
+}
+
+.parentTextField {
+  display: inline-flex;
+}
+
+.parentLabel {
+  position: relative;
+}
+
+.label {
+  font-size: var(--sema-font-size-ui-xs);
+  font-weight: var(--sema-font-weight-ui);
+  line-height: var(--sema-font-lineheight-UI-XS);
+  padding: 0;
+  position: absolute;
+  top: var(--sema-space-gap-vertical-lg);
+  z-index: 1;
+}
+
+html[dir="rtl"] .label {
+  right: var(--sema-space-padding-horizontal-xl);
+}
+
+html:not([dir="rtl"]) .label {
+  left: var(--sema-space-padding-horizontal-xl);
+}
+
