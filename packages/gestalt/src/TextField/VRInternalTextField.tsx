@@ -140,7 +140,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         className={classnames(styles.input, typographyStyle.truncate, {
           [styles.enabled]: !disabled,
           [styles.disabled]: disabled,
-          [styles.enabledText]: !disabled,
+          [styles.enabledBorder]: !disabled && !hasErrorMessage,
+          [styles.disabledBorder]: disabled && !hasErrorMessage,
+          [styles.errorBorder]: hasErrorMessage,
+          [styles.enabledText]: !disabled ,
           [styles.disabledText]: disabled,
           // sm
           [styles.sm_input]: size === 'sm',
@@ -189,7 +192,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         type={type}
         value={value}
       />
-      {(helperText || maxLength) && !errorMessage ? (
+      {(helperText || maxLength) && !hasErrorMessage ? (
         <FormHelperText
           currentLength={currentLength}
           id={`${id}-helperText`}

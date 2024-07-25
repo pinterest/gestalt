@@ -22,12 +22,22 @@
 
 .enabled {
   background: var(--sema-color-background-default);
-  border: 1px solid var(--sema-color-border-interactive);
 }
 
 .disabled {
   background-color: var(--sema-color-background-disabled);
+}
+
+.enabledBorder {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.disabledBorder {
   border: 1px solid var(--sema-color-border-disabled);
+}
+
+.errorBorder {
+  border: 1.5px solid var(--sema-color-border-error);
 }
 
 .parentTextField {
