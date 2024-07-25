@@ -118,9 +118,9 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderStyle = styles.borderHovered;
   }
 
-  const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
-
   const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
+
+  const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
 
   const divStyles = classnames(bgStyle, borderStyle, borderRadiusStyle, styleSize, styles.check, {
     [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible,
