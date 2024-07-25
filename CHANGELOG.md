@@ -1,3 +1,9 @@
+## 156.2.1 (Jul 25, 2024)
+
+### Patch
+
+- Checkbox: Cleanup pre-VR work ([#3695](https://github.com/pinterest/gestalt/pull/3695)) - [Preview link](https://deploy-preview-3695--gestalt.netlify.app?devexample=true)
+
 ## 156.2.0 (Jul 24, 2024)
 
 ### Minor
