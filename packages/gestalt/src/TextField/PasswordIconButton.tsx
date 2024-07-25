@@ -31,7 +31,7 @@ type Props = {
   hoverStyle?: 'default' | 'none';
   icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide';
   onClick: () => void;
-  paddingSize: 'sm' | 'md' | 'lg';
+  paddingSize?: 'sm' | 'md' | 'lg';
   pogPadding?: 1 | 2;
   role?: 'switch';
   tapStyle?: ComponentProps<typeof TapArea>['tapStyle'];
