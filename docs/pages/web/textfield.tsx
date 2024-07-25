@@ -7,17 +7,20 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import doAsRequired from '../../examples/textfield/considerAllFieldsAsRequired';
 import disabled from '../../examples/textfield/disabled';
-import dontGeneric from '../../examples/textfield/dontDisplayGenericErrorMessages';
-import dontAsRequired from '../../examples/textfield/dontMarkFieldsAsRequired';
-import dontUnrelated from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine';
-import dontPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder';
-import dontLabel from '../../examples/textfield/dontRemoveLabel';
+import doAsRequired from '../../examples/textfield/doAsRequired';
+import doError from '../../examples/textfield/doError';
+import doHelperImportant from '../../examples/textfield/doHelperImportant';
+import doHelperOptional from '../../examples/textfield/doHelperOptional';
+import doLabel from '../../examples/textfield/doLabel';
+import dontAsRequired from '../../examples/textfield/dontAsRequired';
+import dontGeneric from '../../examples/textfield/dontGeneric';
+import dontLabel from '../../examples/textfield/dontLabel';
+import dontPlaceholder from '../../examples/textfield/dontPlaceholder';
+import dontUnrelated from '../../examples/textfield/dontUnrelated';
+import doRelated from '../../examples/textfield/doRelated';
 import enabled from '../../examples/textfield/enabled';
-import doLabel from '../../examples/textfield/ensureVisibleLabel';
 import error from '../../examples/textfield/error';
-import doHelperOptional from '../../examples/textfield/helperTextExplainOptionalInfo';
 import hiddenLabel from '../../examples/textfield/hiddenLabel';
 import labelled from '../../examples/textfield/labelled';
 import localizationLabels from '../../examples/textfield/localizationLabels';
@@ -28,13 +31,10 @@ import mobileExample1 from '../../examples/textfield/mobileExample1';
 import mobileExample2 from '../../examples/textfield/mobileExample2';
 import mobileExample3 from '../../examples/textfield/mobileExample3';
 import mobileExample4 from '../../examples/textfield/mobileExample4';
-import doRelated from '../../examples/textfield/onlyPlaceRelatedFieldsSameLine';
 import password from '../../examples/textfield/password';
-import doError from '../../examples/textfield/provideClearUsefulErrorMessages';
-import readOnlyExample from '../../examples/textfield/readOnly';
+import readOnly from '../../examples/textfield/readOnly';
 import size from '../../examples/textfield/size';
 import tags from '../../examples/textfield/tags';
-import doHelperImportant from '../../examples/textfield/useHelperTextImportantInformation';
 import visibleLabel from '../../examples/textfield/visibleLabel';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
@@ -325,7 +325,7 @@ TextFields cannot be interacted with using the mouse or keyboard. They also do n
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={readOnlyExample} layout="column" name="Read-only example" />
+              <SandpackExample code={readOnly} layout="column" name="Read-only example" />
             }
             title="Read-only"
           />

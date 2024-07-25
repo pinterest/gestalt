@@ -10,7 +10,7 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <Flex direction="column" gap={{ column: 3, row: 0 }}>
+      <Flex direction="column" gap={3} width="100%">
         <TextField
           helperText="* This field is required."
           id="best-practices-dont-required-firstName"

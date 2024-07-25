@@ -7,7 +7,7 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <Flex gap={{ column: 0, row: 4 }}>
+      <Flex gap={4} width="100%">
         <TextField
           id="best-practices-do-related-city"
           label="City"

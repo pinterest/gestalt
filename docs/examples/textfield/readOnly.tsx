@@ -15,6 +15,7 @@ export default function Example() {
           onChange={({ value }) => setValueSm(value)}
           placeholder="Email"
           readOnly
+          size="sm"
           value={valueSm}
         />
         <TextField
@@ -23,6 +24,7 @@ export default function Example() {
           onChange={({ value }) => setValueMd(value)}
           placeholder="Email"
           readOnly
+          size="md"
           value={valueMd}
         />
         <TextField
@@ -31,6 +33,7 @@ export default function Example() {
           onChange={({ value }) => setValueLg(value)}
           placeholder="Email"
           readOnly
+          size="lg"
           value={valueLg}
         />
       </Flex>
