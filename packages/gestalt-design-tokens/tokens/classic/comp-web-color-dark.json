@@ -272,7 +272,7 @@
         },
         "disabled": {
           "default": {
-            "value": "{color.gray.roboflow.600.value}"
+            "value": "{color.gray.roboflow.700.value}"
           }
         },
         "selected": {

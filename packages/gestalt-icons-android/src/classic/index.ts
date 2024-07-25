@@ -52,12 +52,14 @@ import audioMix from './ic_audio-mix_gestalt.svg';
 import audioPlaying from './ic_audio-playing_gestalt.svg';
 import bell from './ic_bell_gestalt.svg';
 import bellFill from './ic_bell-fill_gestalt.svg';
+import birthdayCake from './ic_birthday-cake_gestalt.svg';
 import board from './ic_board_gestalt.svg';
 import boardStickerLarge from './ic_board-sticker-large_gestalt.svg';
 import boardStickerSmall from './ic_board-sticker-small_gestalt.svg';
 import border from './ic_border_gestalt.svg';
 import borderShadow from './ic_border-shadow_gestalt.svg';
 import briefcase from './ic_briefcase_gestalt.svg';
+import buildingBusiness from './ic_building-business_gestalt.svg';
 import businessHierarchy from './ic_business-hierarchy_gestalt.svg';
 import calendar from './ic_calendar_gestalt.svg';
 import calendarCheck from './ic_calendar-check_gestalt.svg';
@@ -180,6 +182,7 @@ import layout from './ic_layout_gestalt.svg';
 import lightbulb from './ic_lightbulb_gestalt.svg';
 import lightningBoltCircle from './ic_lightning-bolt-circle_gestalt.svg';
 import link from './ic_link_gestalt.svg';
+import linkBroken from './ic_link-broken_gestalt.svg';
 import lips from './ic_lips_gestalt.svg';
 import location from './ic_location_gestalt.svg';
 import lock from './ic_lock_gestalt.svg';
@@ -276,13 +279,13 @@ import speechEllipsis from './ic_speech-ellipsis_gestalt.svg';
 import speechEllipsisFill from './ic_speech-ellipsis-fill_gestalt.svg';
 import speechExclamationPoint from './ic_speech-exclamation-point_gestalt.svg';
 import speechHeart from './ic_speech-heart_gestalt.svg';
-import speechoutline from './ic_speech-outline_gestalt.svg';
+import speechOutline from './ic_speech-outline_gestalt.svg';
 import speed from './ic_speed_gestalt.svg';
 import speedThirdX from './ic_speed-.3x_gestalt.svg';
-import speedFofthX from './ic_speed-.5x_gestalt.svg';
+import speedFifthX from './ic_speed-.5x_gestalt.svg';
 import speed1X from './ic_speed-1x_gestalt.svg';
-import speed2x from './ic_speed-2x_gestalt.svg';
-import speed3x from './ic_speed-3x_gestalt.svg';
+import speedDoubleX from './ic_speed-2x_gestalt.svg';
+import speedTripleX from './ic_speed-3x_gestalt.svg';
 import spread from './ic_spread_gestalt.svg';
 import star from './ic_star_gestalt.svg';
 import starHalf from './ic_star-half_gestalt.svg';
@@ -321,13 +324,13 @@ import trending from './ic_trending_gestalt.svg';
 import undo from './ic_undo_gestalt.svg';
 import unlock from './ic_unlock_gestalt.svg';
 import uploadFeed from './ic_upload-feed_gestalt.svg';
-import videoAdvance10seconds from './ic_video-advance-10-seconds_gestalt.svg';
+import videoAdvance10Seconds from './ic_video-advance-10-seconds_gestalt.svg';
 import videoCamera from './ic_video-camera_gestalt.svg';
-import videoRewind10seconds from './ic_video-rewind-10-seconds_gestalt.svg';
+import videoRewind10Seconds from './ic_video-rewind-10-seconds_gestalt.svg';
 import viewTypeDefault from './ic_view-type-default_gestalt.svg';
 import viewTypeDense from './ic_view-type-dense_gestalt.svg';
 import viewTypeList from './ic_view-type-list_gestalt.svg';
-import viewTypeSpace from './ic_view-type-space_gestalt.svg';
+import viewTypeSparse from './ic_view-type-sparse_gestalt.svg';
 import visit from './ic_visit_gestalt.svg';
 import warmth from './ic_warmth_gestalt.svg';
 import wave from './ic_wave_gestalt.svg';
@@ -342,14 +345,14 @@ import workflowStatusProblem from './ic_workflow-status-problem_gestalt.svg';
 import workflowStatusQueued from './ic_workflow-status-queued_gestalt.svg';
 import workflowStatusUnstarted from './ic_workflow-status-unstarted_gestalt.svg';
 import workflowStatusWarning from './ic_workflow-status-warning_gestalt.svg';
-import x from './ic_x_gestalt.svg';
+import xSocial from './ic_x-social_gestalt.svg';
 import yahoo from './ic_yahoo_gestalt.svg';
 import youtube from './ic_youtube_gestalt.svg';
 
 const icons = Object.freeze({
+  '360': threeSixty,
   '3d': threeD,
   '3d-move': threeDMove,
-  '360': threeSixty,
   'accessibility': accessibility,
   'ad': ad,
   'ad-group': adGroup,
@@ -401,12 +404,14 @@ const icons = Object.freeze({
   'audio-playing': audioPlaying,
   'bell': bell,
   'bell-fill': bellFill,
+  'birthday-cake': birthdayCake,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
   'border': border,
   'border-shadow': borderShadow,
   'briefcase': briefcase,
+  'building-business': buildingBusiness,
   'business-hierarchy': businessHierarchy,
   'calendar': calendar,
   'calendar-check': calendarCheck,
@@ -463,8 +468,8 @@ const icons = Object.freeze({
   'edit': edit,
   'ellipsis': ellipsis,
   'envelope': envelope,
-  'erase-auto': eraseAuto,
   'erase': erase,
+  'erase-auto': eraseAuto,
   'etsy': etsy,
   'expand': expand,
   'eye': eye,
@@ -529,6 +534,7 @@ const icons = Object.freeze({
   'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
   'link': link,
+  'link-broken': linkBroken,
   'lips': lips,
   'location': location,
   'lock': lock,
@@ -579,10 +585,10 @@ const icons = Object.freeze({
   'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
-  'record-limit-5': recordLimit5,
-  'record-limit-15': recordLimit15,
   'record-limit-10': recordLimit10,
+  'record-limit-15': recordLimit15,
   'record-limit-30': recordLimit30,
+  'record-limit-5': recordLimit5,
   'record-limit-60': recordLimit60,
   'redo': redo,
   'refresh': refresh,
@@ -625,13 +631,13 @@ const icons = Object.freeze({
   'speech-ellipsis-fill': speechEllipsisFill,
   'speech-exclamation-point': speechExclamationPoint,
   'speech-heart': speechHeart,
-  'speech-outline': speechoutline,
+  'speech-outline': speechOutline,
   'speed': speed,
   'speed-.3x': speedThirdX,
-  'speed-.5x': speedFofthX,
+  'speed-.5x': speedFifthX,
   'speed-1x': speed1X,
-  'speed-2x': speed2x,
-  'speed-3x': speed3x,
+  'speed-2x': speedDoubleX,
+  'speed-3x': speedTripleX,
   'spread': spread,
   'star': star,
   'star-half': starHalf,
@@ -663,20 +669,20 @@ const icons = Object.freeze({
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,
-  'timer-3': timer3,
   'timer-10': timer10,
+  'timer-3': timer3,
   'trash-can': trashCan,
   'trending': trending,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
-  'video-advance-10-seconds': videoAdvance10seconds,
+  'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
-  'video-rewind-10-seconds': videoRewind10seconds,
+  'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
-  'view-type-space': viewTypeSpace,
+  'view-type-sparse': viewTypeSparse,
   'visit': visit,
   'warmth': warmth,
   'wave': wave,
@@ -691,7 +697,7 @@ const icons = Object.freeze({
   'workflow-status-queued': workflowStatusQueued,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
-  'x': x,
+  'x-social': xSocial,
   'yahoo': yahoo,
   'youtube': youtube,
 });

@@ -1,5 +1,6 @@
-import { Align, Layout } from 'gestalt/src//Masonry/types';
+import { Align, Layout, LoadingStateItem } from 'gestalt/src//Masonry/types';
 import { Cache } from './Cache';
+import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { Position } from './types';
@@ -52,6 +53,7 @@ const defaultLayout =
     width,
     measurementCache,
     _getColumnSpanConfig,
+    renderLoadingState,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -66,7 +68,8 @@ const defaultLayout =
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     whitespaceThreshold?: number;
     logWhitespace?: (arg1: number) => void;
-  }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
+    renderLoadingState?: boolean;
+  }): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) =>
   (items): ReadonlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));
@@ -87,7 +90,7 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpanConfig
+    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -99,9 +102,12 @@ const defaultLayout =
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {
-          const positions = acc;
-          const height = measurementCache.get(item);
           let position;
+
+          const positions = acc;
+          const height = isLoadingStateItem(item, renderLoadingState)
+            ? item.height
+            : measurementCache.get(item);
 
           if (height == null) {
             position = offscreen(columnWidth);

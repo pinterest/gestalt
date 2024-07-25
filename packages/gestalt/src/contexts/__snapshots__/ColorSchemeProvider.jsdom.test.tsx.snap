@@ -248,7 +248,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-button-semitransparentdark-default: rgba(255, 255, 255, 0.8);
   --color-background-button-semitransparentdark-hover: #f0f0f0;
   --color-background-button-semitransparentdark-active: #e0e0e0;
-  --color-background-button-disabled-default: #4a4a4a;
+  --color-background-button-disabled-default: #2b2b2b;
   --color-background-button-selected-default: #e9e9e9;
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #404040;
@@ -677,6 +677,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-button-selected-default: #111111;
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #efefef;
+  --color-background-checkbox-disabled: #efefef;
+  --color-background-checkbox-checked: #111111;
+  --color-background-checkbox-unchecked: #ffffff;
   --color-background-datepicker-container: #ffffff;
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
@@ -746,6 +749,11 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-border-badge-default: #ffffff;
   --color-border-badge-light: #ffffff;
   --color-border-badge-dark: #111111;
+  --color-border-checkbox-checked: #111111;
+  --color-border-checkbox-disabled: #efefef;
+  --color-border-checkbox-error: #cc0000;
+  --color-border-checkbox-hover: #a5a5a5;
+  --color-border-checkbox-unchecked: #767676;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
   --color-border-formfield-disabled: #efefef;
@@ -1107,6 +1115,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-button-selected-default: #111111;
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #efefef;
+  --color-background-checkbox-disabled: #efefef;
+  --color-background-checkbox-checked: #111111;
+  --color-background-checkbox-unchecked: #ffffff;
   --color-background-datepicker-container: #ffffff;
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
@@ -1176,6 +1187,11 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-border-badge-default: #ffffff;
   --color-border-badge-light: #ffffff;
   --color-border-badge-dark: #111111;
+  --color-border-checkbox-checked: #111111;
+  --color-border-checkbox-disabled: #efefef;
+  --color-border-checkbox-error: #cc0000;
+  --color-border-checkbox-hover: #a5a5a5;
+  --color-border-checkbox-unchecked: #767676;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
   --color-border-formfield-disabled: #efefef;
@@ -1537,6 +1553,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-button-selected-default: #111111;
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #efefef;
+  --color-background-checkbox-disabled: #efefef;
+  --color-background-checkbox-checked: #111111;
+  --color-background-checkbox-unchecked: #ffffff;
   --color-background-datepicker-container: #ffffff;
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
@@ -1606,6 +1625,11 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-border-badge-default: #ffffff;
   --color-border-badge-light: #ffffff;
   --color-border-badge-dark: #111111;
+  --color-border-checkbox-checked: #111111;
+  --color-border-checkbox-disabled: #efefef;
+  --color-border-checkbox-error: #cc0000;
+  --color-border-checkbox-hover: #a5a5a5;
+  --color-border-checkbox-unchecked: #767676;
   --color-border-formfield-error-default: #cc0000;
   --color-border-formfield-error-hover: #ad081b;
   --color-border-formfield-disabled: #efefef;
@@ -1964,7 +1988,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-button-semitransparentdark-default: rgba(255, 255, 255, 0.8);
   --color-background-button-semitransparentdark-hover: #f0f0f0;
   --color-background-button-semitransparentdark-active: #e0e0e0;
-  --color-background-button-disabled-default: #4a4a4a;
+  --color-background-button-disabled-default: #2b2b2b;
   --color-background-button-selected-default: #e9e9e9;
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #404040;

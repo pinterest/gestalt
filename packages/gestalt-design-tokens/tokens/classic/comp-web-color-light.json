@@ -283,6 +283,17 @@
           }
         }
       },
+      "checkbox": {
+        "disabled": {
+          "value": "{color.background.formfield.disabled.value}"
+        },
+        "checked": {
+          "value": "{color.background.formfield.selected.value}"
+        },
+        "unchecked": {
+          "value": "{color.background.formfield.primary.value}"
+        }
+      },
       "datepicker": {
         "container": {
           "value": "#fff"
@@ -534,6 +545,23 @@
         },
         "dark": {
           "value": "{color.black.cosmicore.900.value}"
+        }
+      },
+      "checkbox": {
+        "checked": {
+          "value": "{color.background.selected.base.value}"
+        },
+        "disabled": {
+          "value": "{color.border.formfield.disabled.value}"
+        },
+        "error": {
+          "value": "{color.border.error.value}"
+        },
+        "hover": {
+          "value": "{color.gray.roboflow.400.value}"
+        },
+        "unchecked": {
+          "value": "{color.border.default.value}"
         }
       },
       "formfield": {
