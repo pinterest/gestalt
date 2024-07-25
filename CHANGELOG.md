@@ -1,3 +1,9 @@
+## 156.3.0 (Jul 25, 2024)
+
+### Minor
+
+- Switch: VR Implementation ([#3686](https://github.com/pinterest/gestalt/pull/3686)) - [Preview link](https://deploy-preview-3686--gestalt.netlify.app?devexample=true)
+
 ## 156.2.1 (Jul 25, 2024)
 
 ### Patch
