@@ -74,6 +74,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     readOnly,
     size = 'md',
     step,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     tags,
     type = 'text',
     value,

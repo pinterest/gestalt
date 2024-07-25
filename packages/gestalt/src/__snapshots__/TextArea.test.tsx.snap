@@ -49,7 +49,8 @@ exports[`TextArea TextArea with error 1`] = `
     rows={3}
   />
   <div
-    className="box marginTop2"
+    className=""
+    id="test-error"
   >
     <div
       className="Text fontSize100 error alignStart breakWord fontWeightNormal"
@@ -68,19 +69,23 @@ exports[`TextArea TextArea with error 1`] = `
             <div
               className="FlexItem"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="error icon iconBlock"
-                height={16}
-                role="img"
-                viewBox="0 0 24 24"
-                width={16}
+              <div
+                className="box"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="error icon iconBlock"
+                  height={16}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={16}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               className="FlexItem"
@@ -163,7 +168,7 @@ exports[`TextArea TextField with maxLength character counter 1`] = `
     rows={3}
   />
   <div
-    className="box marginTop2"
+    className=""
     id="test-helperText"
   >
     <div
@@ -190,7 +195,7 @@ exports[`TextArea TextField with maxLength character counter 1`] = `
           </div>
         </div>
         <div
-          className="Flex rowGap1 columnGap1 xsDirectionRow"
+          className="Flex rowGap1 columnGap1 justifyCenter xsDirectionRow"
         >
           <div
             className="FlexItem"
