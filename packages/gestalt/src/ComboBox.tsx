@@ -20,7 +20,7 @@ import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';
 import Text from './Text';
 import InternalTextField from './TextField/InternalTextField';
-import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
+import PasswordIconButton from './TextField/PasswordIconButton';
 import handleContainerScrolling, { DirectionOptionType, KEYS } from './utils/keyboardNavigation';
 import { Indexable } from './zIndex';
 
@@ -453,7 +453,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
           helperText={helperText}
           iconButton={
             controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
-              <InternalTextFieldIconButton
+              <PasswordIconButton
                 accessibilityLabel={
                   accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
                 }
@@ -464,7 +464,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                 tapStyle="compress"
               />
             ) : (
-              <InternalTextFieldIconButton
+              <PasswordIconButton
                 accessibilityHidden
                 hoverStyle="none"
                 icon="arrow-down"

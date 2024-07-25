@@ -250,14 +250,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
-      onClick={handleClick}
       // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
+      onClick={handleClick}
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}
-      onWheel={(event) => {
-        event.preventDefault()
-        console.log(123, event)}
-      }
       // type='number' doesn't work on ios safari without a pattern
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
       pattern={type === 'number' ? '\\d*' : undefined}

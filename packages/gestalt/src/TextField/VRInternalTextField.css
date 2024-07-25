@@ -4,6 +4,7 @@
   display: block;
   font-weight: var(--sema-font-weight-body);
   line-height: 16px;
+  position: relative;
   width: 100%;
 }
 
@@ -61,6 +62,10 @@
   z-index: 1;
 }
 
+.actionButtonParent {
+  position: relative;
+}
+
 /* sm */
 
 .sm_input {
@@ -98,6 +103,14 @@ html:not([dir="rtl"]) .sm_label {
 
 .sm_labelPos {
   top: var(--sema-space-gap-vertical-sm);
+}
+
+html:not([dir="rtl"]) .sm_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .sm_actionButton {
+  padding-left: var(--space-800);
 }
 
 /* md */
@@ -139,6 +152,14 @@ html:not([dir="rtl"]) .md_label {
   top: var(--sema-space-gap-vertical-lg);
 }
 
+html:not([dir="rtl"]) .md_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .md_actionButton {
+  padding-left: var(--space-800);
+}
+
 /* lg */
 
 .lg_input {
@@ -176,4 +197,12 @@ html:not([dir="rtl"]) .lg_label {
 
 .lg_labelPos {
   top: var(--sema-space-gap-vertical-xl);
+}
+
+html:not([dir="rtl"]) .lg_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .lg_actionButton {
+  padding-left: var(--space-800);
 }

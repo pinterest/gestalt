@@ -88,6 +88,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   const isLabelVisible = labelDisplay === 'visible';
 
+  const isSM = size === 'sm';
+  const isMD = size === 'md';
+  const isLG = size === 'lg';
+
   // ==== STATE ====
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
@@ -105,7 +109,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   }
 
   return (
-    <div>
+    <div className={classnames({ [styles.actionButtonParent]: iconButton })}>
       {label && (
         <div className={classnames(styles.parentLabel)}>
           <label
@@ -113,14 +117,14 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
               [styles.enabledText]: !disabled,
               [styles.disabledText]: disabled,
               // sm
-              [styles.sm_label]: size === 'sm',
-              [styles.sm_labelPos]: size === 'sm',
+              [styles.sm_label]: isSM,
+              [styles.sm_labelPos]: isSM,
               // md
-              [styles.md_label]: size === 'md',
-              [styles.md_labelPos]: size === 'md',
+              [styles.md_label]: isMD,
+              [styles.md_labelPos]: isMD,
               // lg
-              [styles.lg_label]: size === 'lg',
-              [styles.lg_labelPos]: size === 'lg',
+              [styles.lg_label]: isLG,
+              [styles.lg_labelPos]: isLG,
 
               [boxStyles.visuallyHidden]: !isLabelVisible,
             })}
@@ -143,23 +147,26 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           [styles.enabledBorder]: !disabled && !hasErrorMessage,
           [styles.disabledBorder]: disabled && !hasErrorMessage,
           [styles.errorBorder]: hasErrorMessage,
-          [styles.enabledText]: !disabled ,
+          [styles.enabledText]: !disabled,
           [styles.disabledText]: disabled,
           // sm
-          [styles.sm_input]: size === 'sm',
-          [styles.sm_inputHorizontalPadding]: size === 'sm',
-          [styles.sm_visibleLabel]: size === 'sm' && label && isLabelVisible,
-          [styles.sm_noLabel]: size === 'sm' && (!label || (label && !isLabelVisible)),
+          [styles.sm_input]: isSM,
+          [styles.sm_inputHorizontalPadding]: isSM,
+          [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
+          [styles.sm_noLabel]: isSM && (!label || (label && !isLabelVisible)),
+          [styles.sm_actionButton]: isSM && iconButton,
           // md
-          [styles.md_input]: size === 'md',
-          [styles.md_inputHorizontalPadding]: size === 'md',
-          [styles.md_visibleLabel]: size === 'md' && label && isLabelVisible,
-          [styles.md_noLabel]: size === 'md' && (!label || (label && !isLabelVisible)),
+          [styles.md_input]: isMD,
+          [styles.md_inputHorizontalPadding]: isMD,
+          [styles.md_visibleLabel]: isMD && label && isLabelVisible,
+          [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
+          [styles.md_actionButton]: isMD && iconButton,
           // lg
-          [styles.lg_input]: size === 'lg',
-          [styles.lg_inputHorizontalPadding]: size === 'lg',
-          [styles.lg_visibleLabel]: size === 'lg' && label && isLabelVisible,
-          [styles.lg_noLabel]: size === 'lg' && (!label || (label && !isLabelVisible)),
+          [styles.lg_input]: isLG,
+          [styles.lg_inputHorizontalPadding]: isLG,
+          [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
+          [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
+          [styles.lg_actionButton]: isLG && iconButton,
         })}
         data-test-id={dataTestId}
         disabled={disabled}
@@ -192,6 +199,8 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         type={type}
         value={value}
       />
+      {!disabled && iconButton}
+
       {(helperText || maxLength) && !hasErrorMessage ? (
         <FormHelperText
           currentLength={currentLength}

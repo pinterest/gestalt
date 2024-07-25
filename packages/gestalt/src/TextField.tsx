@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
-import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
+import PasswordIconButton from './TextField/PasswordIconButton';
 import VRInternalTextField from './TextField/VRInternalTextField';
 import useInExperiment from './useInExperiment';
 
@@ -168,7 +168,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     useDefaultLabelContext('TextField');
 
   const iconButton = isPasswordField ? (
-    <InternalTextFieldIconButton
+    <PasswordIconButton
       accessibilityChecked={!isCurrentlyPasswordType}
       accessibilityLabel={
         isCurrentlyPasswordType
@@ -179,8 +179,8 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
       onClick={() => {
         setType(isCurrentlyPasswordType ? 'text' : 'password');
       }}
-      role="switch"
-      tooltipText={
+      paddingSize={size}
+      role="switch" tooltipText={
         isCurrentlyPasswordType
           ? accessibilityShowPasswordLabel ?? ''
           : accessibilityHidePasswordLabel ?? ''
