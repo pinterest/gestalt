@@ -3,40 +3,46 @@
   --g-size-md: var(--space-600);
 }
 
+.sizeSm {
+  height: var(--g-size-sm);
+  width: var(--g-size-sm);
+}
+
+.sizeMd {
+  height: var(--g-size-md);
+  width: var(--g-size-md);
+}
+
 .enabled {
-  background-color: var(--color-background-formfield-primary);
+  background-color: var(--color-background-checkbox-unchecked);
 }
 
 .disabled {
-  background-color: var(--color-background-formfield-disabled);
+  background-color: var(--color-background-checkbox-disabled);
 }
 
 .checked {
-  background-color: var(--color-background-formfield-selected);
+  background-color: var(--color-background-checkbox-checked);
 }
 
 .border {
-  composes: borderColorDarkGray from "../Borders.css";
+  border-color: var(--color-border-checkbox-unchecked);
 }
 
 .borderSelected {
-  composes: borderColorSelected from "../Borders.css";
-}
-
-.borderDarkGray {
-  composes: borderColorDarkGray from "../Borders.css";
+  border-color: var(--color-border-checkbox-checked);
 }
 
 .borderDisabled {
-  composes: borderColorLightGrayDisabled from "../Borders.css";
+  border-color: var(--color-border-checkbox-disabled);
 }
 
 .borderError {
-  composes: borderColorRed from "../Borders.css";
+  border-color: var(--color-border-checkbox-error);
 }
 
 .borderHovered {
-  composes: borderColorLightGrayHovered from "../Borders.css";
+  border-color: var(--color-border-checkbox-hover);
 }
 
 .borderRadiusSm {
@@ -71,14 +77,4 @@
   appearance: none;
   opacity: var(--opacity-0);
   outline: 0;
-}
-
-.sizeSm {
-  height: var(--g-size-sm);
-  width: var(--g-size-sm);
-}
-
-.sizeMd {
-  height: var(--g-size-md);
-  width: var(--g-size-md);
 }
