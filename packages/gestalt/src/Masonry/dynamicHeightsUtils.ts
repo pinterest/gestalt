@@ -20,6 +20,7 @@ function isBelowArea(area: { top: number; left: number; right: number }, positio
 function recalcHeights<T>({
   items,
   changedItem,
+  changedItemPosition,
   newHeight,
   positionStore,
   measurementStore,
@@ -27,21 +28,20 @@ function recalcHeights<T>({
 }: {
   items: ReadonlyArray<T>;
   changedItem: T;
+  changedItemPosition: Position;
   newHeight: number;
   positionStore: Cache<T, Position>;
   measurementStore: Cache<T, number>;
   getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 }) {
-  const changedItemPosition = positionStore.get(changedItem);
-
-  if (!changedItemPosition || changedItemPosition.height === newHeight) {
-    return;
-  }
-
   measurementStore.set(changedItem, newHeight);
 
   const { top, left, width, height } = changedItemPosition;
-  const itemsWithPositions = items.filter((item) => item && positionStore.has(item));
+
+  const itemsWithPositions = items.filter((item) => {
+    const position = positionStore.get(item);
+    return position && position.top > changedItemPosition.top;
+  });
   const multiColumnItemsPositions = getColumnSpanConfig
     ? itemsWithPositions
         .filter((item) => getColumnSpanConfig(item) !== 1)

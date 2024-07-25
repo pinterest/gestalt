@@ -204,29 +204,42 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       props.measurementStore || Masonry.createMeasurementStore();
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
-    this.idxToDataMap = {};
 
     this.resizeObserver =
       /* eslint-disable-next-line no-underscore-dangle */
       props._dynamicHeights && typeof window !== 'undefined' && this.positionStore
         ? new ResizeObserver((entries) => {
+            let triggerUpdate = false;
             for (let i = 0; i < entries.length; i += 1) {
               const { target, contentRect } = entries[i];
               const idx = Number(target.getAttribute('data-grid-item-idx'));
 
               if (typeof idx === 'number') {
-                const item: T = this.idxToDataMap[idx];
-                recalcHeights({
-                  items: this.state.items,
-                  changedItem: item,
-                  newHeight: contentRect.height,
-                  positionStore: this.positionStore,
-                  measurementStore: this.state.measurementStore,
-                  /* eslint-disable-next-line no-underscore-dangle */
-                  getColumnSpanConfig: this.props._getColumnSpanConfig,
-                });
-                this.forceUpdate();
+                const item: T = this.state.items[idx];
+                const changedItemPosition = this.positionStore.get(item);
+                const newHeight = contentRect.height;
+
+                if (
+                  changedItemPosition &&
+                  newHeight > 0 &&
+                  Math.floor(changedItemPosition.height) !== Math.floor(newHeight)
+                ) {
+                  recalcHeights({
+                    items: this.state.items,
+                    changedItem: item,
+                    changedItemPosition,
+                    newHeight,
+                    positionStore: this.positionStore,
+                    measurementStore: this.state.measurementStore,
+                    /* eslint-disable-next-line no-underscore-dangle */
+                    getColumnSpanConfig: this.props._getColumnSpanConfig,
+                  });
+                  triggerUpdate = true;
+                }
               }
+            }
+            if (triggerUpdate) {
+              this.forceUpdate();
             }
           })
         : undefined;
@@ -241,7 +254,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     };
   }
 
-  resizeObserver: any;
+  resizeObserver: ResizeObserver | undefined;
 
   containerHeight: number;
 
@@ -254,8 +267,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
   insertAnimationFrame: number | null = null;
 
   scrollContainer: ScrollContainer | null | undefined;
-
-  idxToDataMap: { [index: number]: any };
 
   /**
    * Delays resize handling in case the scroll container is still being resized.
@@ -733,9 +744,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const hasMultiColumnItems =
         _getColumnSpanConfig &&
         itemsWithoutPositions.some((item) => _getColumnSpanConfig(item) !== 1);
-
-      // Map to relate DOM nodes to item object for dynamic heights logic
-      this.idxToDataMap = { ...itemsToRender };
 
       // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       // we need the batch size (number of one column items for the graph) + 1 (two column item)

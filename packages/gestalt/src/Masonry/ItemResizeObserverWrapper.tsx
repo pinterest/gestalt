@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useLayoutEffect, useRef } from 'react';
 
 function ItemResizeObserverWrapper({
   resizeObserver,
@@ -11,7 +11,7 @@ function ItemResizeObserverWrapper({
 }) {
   const ref = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (resizeObserver && el) {
       resizeObserver.observe(el);
