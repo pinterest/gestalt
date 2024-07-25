@@ -699,22 +699,36 @@ function Masonry<T>(
     () =>
       _dynamicHeights && typeof window !== 'undefined' && positionStore
         ? new ResizeObserver((entries) => {
+            let triggerUpdate = false;
             for (let i = 0; i < entries.length; i += 1) {
               const { target, contentRect } = entries[i];
               const idx = Number(target.getAttribute('data-grid-item-idx'));
 
               if (typeof idx === 'number') {
                 const item: T = items[idx];
-                recalcHeights({
-                  items,
-                  changedItem: item,
-                  newHeight: contentRect.height,
-                  positionStore,
-                  measurementStore,
-                  getColumnSpanConfig: _getColumnSpanConfig,
-                });
-                forceUpdate();
+                const changedItemPosition = positionStore.get(item);
+                const newHeight = contentRect.height;
+
+                if (
+                  changedItemPosition &&
+                  newHeight > 0 &&
+                  Math.floor(changedItemPosition.height) !== Math.floor(newHeight)
+                ) {
+                  recalcHeights({
+                    items,
+                    changedItem: item,
+                    changedItemPosition,
+                    newHeight: contentRect.height,
+                    positionStore,
+                    measurementStore,
+                    getColumnSpanConfig: _getColumnSpanConfig,
+                  });
+                  triggerUpdate = true;
+                }
               }
+            }
+            if (triggerUpdate) {
+              forceUpdate();
             }
           })
         : undefined,
