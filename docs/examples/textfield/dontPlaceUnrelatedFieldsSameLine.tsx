@@ -6,7 +6,7 @@ export default function Example() {
   const [zipCodeValue, setZipCodeValue] = useState('');
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box padding={8} width="100%">
       <Flex gap={{ column: 0, row: 4 }}>
         <TextField
           autoComplete="new-password"

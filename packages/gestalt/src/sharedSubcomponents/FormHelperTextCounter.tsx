@@ -1,9 +1,10 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
-import Status from '../Status';
+import Icon from '../Icon';
 import Text from '../Text';
 import { MaxLength } from '../TextField';
+import useInExperiment from '../useInExperiment';
 
 type Props = {
   maxLength: MaxLength;
@@ -12,7 +13,13 @@ type Props = {
 
 export default function FormHelperTextCounter({ currentLength, maxLength }: Props) {
   const ref = useRef<null | HTMLElement>(null);
+
   const [width, setWidth] = useState<undefined | number>(undefined);
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   useEffect(() => {
     const containerWidth = ref?.current?.getBoundingClientRect().width;
@@ -23,15 +30,15 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
 
   const maxLengthReached = (currentLength ?? 0) >= (maxLength.characterCount ?? 0);
 
-  let status = 'warning';
-  let textColor = 'warning';
+  let icon: 'workflow-status-warning' | 'workflow-status-problem' = 'workflow-status-warning';
+  let textColor: 'warning' | 'error' = 'warning';
 
   if (
     typeof currentLength === 'number' &&
     typeof maxLength?.characterCount === 'number' &&
     currentLength > maxLength?.characterCount
   ) {
-    status = 'problem';
+    icon = 'workflow-status-problem';
     textColor = 'error';
   }
 
@@ -47,23 +54,26 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
           {`${maxLengthChars}/${maxLengthChars}`}
         </Text>
       </Box>
-      <Flex gap={1}>
+      <Flex gap={1} justifyContent="center">
         {maxLengthReached ? (
           <Fragment>
             {/* This visually hidden error message is accessible by screenreaders. It alerts the user right after the maximum length is reached. */}
             <Box display="visuallyHidden" role="alert">
               {maxLength?.errorAccessibilityLabel}
             </Box>
-            <Box aria-hidden>
-              {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'StatusType'. */}
-              <Status accessibilityLabel="" type={status} />
+            <Box alignItems="center" aria-hidden display="flex" height="100%">
+              <Icon
+                accessibilityLabel=""
+                color={textColor}
+                icon={icon}
+                size={isInVRExperiment ? 12 : 16}
+              />
             </Box>
           </Fragment>
         ) : (
-          <Box width={16} />
+          <Box width={isInVRExperiment ? 12 : 16} />
         )}
         <Flex justifyContent="end" width={width}>
-          {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"link" | "warning" | "error" | "default" | "subtle" | "success" | "shopping" | "inverse" | "light" | "dark" | undefined'. */}
           <Text align="end" color={maxLengthReached ? textColor : 'subtle'} size="100">
             <Box display="visuallyHidden">,</Box>
             {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}

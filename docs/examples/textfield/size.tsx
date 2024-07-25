@@ -11,7 +11,7 @@ export default function TextFieldSizes() {
       <Flex direction="column" gap={6} width="100%">
           <TextField
             helperText="Helper text"
-            id="field1"
+            id="xs"
             label="Label"
             onChange={({ value }) => {
               setInput1Text(value);
@@ -24,7 +24,7 @@ export default function TextFieldSizes() {
 
           <TextField
             helperText="Helper text"
-            id="field2"
+            id="sm"
             label="Label"
             onChange={({ value }) => {
               setInput2Text(value);
@@ -36,7 +36,7 @@ export default function TextFieldSizes() {
           />
           <TextField
             helperText="Helper text"
-            id="field3"
+            id="lg"
             label="Label"
             onChange={({ value }) => {
               setInput3Text(value);

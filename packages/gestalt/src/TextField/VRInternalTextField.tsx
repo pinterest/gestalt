@@ -110,6 +110,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         <div className={classnames(styles.parentLabel)}>
           <label
             className={classnames(styles.label, {
+              [styles.disabledText]: disabled,
               // sm
               [styles.sm_label]: size === 'sm',
               [styles.sm_labelPos]: size === 'sm',
@@ -137,21 +138,23 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         autoComplete={autoComplete}
         className={classnames(styles.input, typographyStyle.truncate, {
           [styles.enabled]: !disabled,
+          [styles.disabled]: disabled,
+          [styles.disabledText]: disabled,
           // sm
           [styles.sm_input]: size === 'sm',
           [styles.sm_inputHorizontalPadding]: size === 'sm',
           [styles.sm_visibleLabel]: size === 'sm' && label && isLabelVisible,
-          [styles.sm_hiddenLabel]: size === 'sm'  && label && !isLabelVisible,
+          [styles.sm_noLabel]: size === 'sm' && (!label || (label && !isLabelVisible)),
           // md
           [styles.md_input]: size === 'md',
           [styles.md_inputHorizontalPadding]: size === 'md',
-          [styles.md_visibleLabel]: size === 'md'  && label && isLabelVisible,
-          [styles.md_hiddenLabel]: size === 'md'  && label && !isLabelVisible,
+          [styles.md_visibleLabel]: size === 'md' && label && isLabelVisible,
+          [styles.md_noLabel]: size === 'md' && (!label || (label && !isLabelVisible)),
           // lg
           [styles.lg_input]: size === 'lg',
           [styles.lg_inputHorizontalPadding]: size === 'lg',
-          [styles.lg_visibleLabel]: size === 'lg'  && label && isLabelVisible,
-          [styles.lg_hiddenLabel]: size === 'lg'  && label && !isLabelVisible,
+          [styles.lg_visibleLabel]: size === 'lg' && label && isLabelVisible,
+          [styles.lg_noLabel]: size === 'lg' && (!label || (label && !isLabelVisible)),
         })}
         data-test-id={dataTestId}
         disabled={disabled}

@@ -10,26 +10,29 @@ export default function Example() {
     <Box padding={8} width="100%">
       <Flex direction="column" gap={6} width="100%">
         <TextField
-          id="variants-defaul-sm"
+          disabled
+          id="variants-disabled-sm"
           label="Email address"
           onChange={({ value }) => setValueSm(value)}
-          placeholder="Email"
+          placeholder="Name"
           size="sm"
           value={valueSm}
         />
         <TextField
-          id="variants-default-md"
+          disabled
+          id="variants-disabled-md"
           label="Email address"
           onChange={({ value }) => setValueMd(value)}
-          placeholder="Email"
+          placeholder="Name"
           size="md"
           value={valueMd}
         />
         <TextField
-          id="variants-default-lg"
+          disabled
+          id="variants-disabled-lg"
           label="Email address"
           onChange={({ value }) => setValueLg(value)}
-          placeholder="Email"
+          placeholder="Name"
           size="lg"
           value={valueLg}
         />

@@ -7,35 +7,34 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import considerAllFieldsAsRequired from '../../examples/textfield/considerAllFieldsAsRequired';
-import disabledExample from '../../examples/textfield/disabledExample';
-import dontDisplayGenericErrorMessages from '../../examples/textfield/dontDisplayGenericErrorMessages';
-import dontMarkFieldsAsRequired from '../../examples/textfield/dontMarkFieldsAsRequired';
-import dontPlaceUnrelatedFieldsSameLine from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine';
-import dontPutEssentialInformationPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder';
-import dontRemoveLabel from '../../examples/textfield/dontRemoveLabel';
+import doAsRequired from '../../examples/textfield/considerAllFieldsAsRequired';
+import disabled from '../../examples/textfield/disabled';
+import dontGeneric from '../../examples/textfield/dontDisplayGenericErrorMessages';
+import dontAsRequired from '../../examples/textfield/dontMarkFieldsAsRequired';
+import dontUnrelated from '../../examples/textfield/dontPlaceUnrelatedFieldsSameLine';
+import dontPlaceholder from '../../examples/textfield/dontPutEssentialInformationPlaceholder';
+import dontLabel from '../../examples/textfield/dontRemoveLabel';
 import enabled from '../../examples/textfield/enabled';
-import ensureVisibleLabel from '../../examples/textfield/ensureVisibleLabel';
-import errorMessageExample from '../../examples/textfield/errorMessageExample';
-import helperTextExplainOptionalInfo from '../../examples/textfield/helperTextExplainOptionalInfo';
+import doLabel from '../../examples/textfield/ensureVisibleLabel';
+import error from '../../examples/textfield/error';
+import doHelperOptional from '../../examples/textfield/helperTextExplainOptionalInfo';
 import hiddenLabel from '../../examples/textfield/hiddenLabel';
 import labelled from '../../examples/textfield/labelled';
-import labelsExample from '../../examples/textfield/labelsExample';
 import localizationLabels from '../../examples/textfield/localizationLabels';
 import main from '../../examples/textfield/main';
-import maximumLengthExample from '../../examples/textfield/maximumLengthExample';
-import maximumLengthExampleSingleLine from '../../examples/textfield/maximumLengthExampleSingleLine';
+import maximumLength from '../../examples/textfield/maximumLength';
+import maximumLengthSingleLine from '../../examples/textfield/maximumLengthSingleLine';
 import mobileExample1 from '../../examples/textfield/mobileExample1';
 import mobileExample2 from '../../examples/textfield/mobileExample2';
 import mobileExample3 from '../../examples/textfield/mobileExample3';
 import mobileExample4 from '../../examples/textfield/mobileExample4';
-import onlyPlaceRelatedFieldsSameLine from '../../examples/textfield/onlyPlaceRelatedFieldsSameLine';
-import passwordExample from '../../examples/textfield/passwordExample';
-import provideClearUsefulErrorMessages from '../../examples/textfield/provideClearUsefulErrorMessages';
-import readOnlyExample from '../../examples/textfield/readOnlyExample';
-import textFieldSizes from '../../examples/textfield/sizesExample';
-import tagsExample from '../../examples/textfield/tagsExample';
-import useHelperTextImportantInformation from '../../examples/textfield/useHelperTextImportantInformation';
+import doRelated from '../../examples/textfield/onlyPlaceRelatedFieldsSameLine';
+import password from '../../examples/textfield/password';
+import doError from '../../examples/textfield/provideClearUsefulErrorMessages';
+import readOnlyExample from '../../examples/textfield/readOnly';
+import size from '../../examples/textfield/size';
+import tags from '../../examples/textfield/tags';
+import doHelperImportant from '../../examples/textfield/useHelperTextImportantInformation';
 import visibleLabel from '../../examples/textfield/visibleLabel';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
@@ -80,7 +79,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use helper text for important information. Helper text helps users understand how to complete the text field or to indicate any needed input."
             sandpackExample={
               <SandpackExample
-                code={useHelperTextImportantInformation}
+                code={doHelperImportant}
                 hideEditor
                 layout="column"
                 name="Use Helper Text for Important Information"
@@ -93,7 +92,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Put essential information in the placeholder text, since it disappears when the user types. The placeholder text is not a replacement for the label."
             sandpackExample={
               <SandpackExample
-                code={dontPutEssentialInformationPlaceholder}
+                code={dontPlaceholder}
                 hideControls
                 hideEditor
                 layout="column"
@@ -110,7 +109,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Always ensure the text field has a visible label. The label provides context and supports users when filling in information."
             sandpackExample={
               <SandpackExample
-                code={ensureVisibleLabel}
+                code={doLabel}
                 hideEditor
                 layout="column"
                 name="Ensure TextField Has a Visible Label"
@@ -123,7 +122,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Remove the label, as this creates accessibility and usability issues."
             sandpackExample={
               <SandpackExample
-                code={dontRemoveLabel}
+                code={dontLabel}
                 hideControls
                 hideEditor
                 layout="column"
@@ -140,7 +139,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Only place related fields on the same line."
             sandpackExample={
               <SandpackExample
-                code={onlyPlaceRelatedFieldsSameLine}
+                code={doRelated}
                 hideEditor
                 layout="column"
                 name="Only Place Related Fields on the Same Line"
@@ -153,7 +152,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Place unrelated text fields on the same line, as this can create comprehension issues."
             sandpackExample={
               <SandpackExample
-                code={dontPlaceUnrelatedFieldsSameLine}
+                code={dontUnrelated}
                 hideControls
                 hideEditor
                 layout="column"
@@ -170,7 +169,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Provide clear and useful error messages that help the user fix the issue. Error messages should be displayed in a timely manner — typically once the field loses focus or when the form is submitted."
             sandpackExample={
               <SandpackExample
-                code={provideClearUsefulErrorMessages}
+                code={doError}
                 hideEditor
                 layout="column"
                 name="Provide Clear and Useful Error Messages"
@@ -183,7 +182,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description={`Display generic error messages, such as "There is an error".`}
             sandpackExample={
               <SandpackExample
-                code={dontDisplayGenericErrorMessages}
+                code={dontGeneric}
                 hideControls
                 hideEditor
                 layout="column"
@@ -200,7 +199,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Consider all text fields as required, unless explicitly noted as optional."
             sandpackExample={
               <SandpackExample
-                code={considerAllFieldsAsRequired}
+                code={doAsRequired}
                 hideEditor
                 layout="column"
                 name="Consider All TextFields as Required"
@@ -213,7 +212,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Mark fields as required."
             sandpackExample={
               <SandpackExample
-                code={dontMarkFieldsAsRequired}
+                code={dontAsRequired}
                 hideControls
                 hideEditor
                 layout="column"
@@ -234,13 +233,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           description={`
       TextField comes with [Label](/web/label) built-in: just use the \`label\` prop. We strongly encourage always supplying a label. Be sure to provide a unique \`id\` so the Label is associated with the correct TextField.
 
-      If TextField is labeled by content elsewhere on the page, or a more complex label is needed, the \`labelDisplay\` prop can be used to visually hide the label. In this case, it is still available to screen reader users, but will not appear visually on the screen.`}
+      If TextField is labeled by content elsewhere on the page, there are different approaches to make the field accessible. [See the Label section for more information](/web/textfield#Label)`}
           title="Labels"
-        >
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={labelsExample} name="Labels Example" />}
-          />
-        </MainSection.Subsection>
+         />
         <MainSection.Subsection
           description={`
     When providing a validation message, make sure the instructions are clear and help users complete the field. For example, "Passwords must contain at least 20 characters". In addition, use the helper text to provide instructions to help users understand how to complete the text field or to indicate any needed input, allowed formats, timing limitations, or other pertinent information.
@@ -281,7 +276,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           title="Size"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={textFieldSizes} name="TextField Sizes" />}
+            sandpackExample={<SandpackExample code={size} name="TextField Sizes" />}
           />
         </MainSection.Subsection>
 
@@ -312,7 +307,7 @@ TextFields cannot be interacted with using the mouse or keyboard. They also do n
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={disabledExample} layout="column" name="Disabled example" />
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
             }
             title="Disabled"
           />
@@ -320,7 +315,7 @@ TextFields cannot be interacted with using the mouse or keyboard. They also do n
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={errorMessageExample}
+                code={error}
                 layout="column"
                 name="Error message example"
               />
@@ -380,7 +375,7 @@ In some cases, the label for a TextField is represented in a different way visua
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={helperTextExplainOptionalInfo}
+                code={doHelperOptional}
                 name="Helper Text to Explain More about Optional Info"
               />
             }
@@ -401,7 +396,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={maximumLengthExample}
+                code={maximumLength}
                 layout="column"
                 name="Maximum Length Text Field Example"
               />
@@ -410,7 +405,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={maximumLengthExampleSingleLine}
+                code={maximumLengthSingleLine}
                 layout="column"
                 name="Maximum Length Single Line Text Field"
               />
@@ -424,7 +419,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample code={passwordExample} name="Password Text Field Example" />
+              <SandpackExample code={password} name="Password Text Field Example" />
             }
           />
         </MainSection.Subsection>
@@ -440,7 +435,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
           title="Tags"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={tagsExample} name="Tags Text Field Example" />}
+            sandpackExample={<SandpackExample code={tags} name="Tags Text Field Example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection

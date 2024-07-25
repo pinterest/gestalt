@@ -9,8 +9,8 @@ export default function Example() {
   });
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <Flex direction="column" gap={{ column: 3, row: 0 }}>
+    <Box  height="100%" padding={8} width="100%">
+      <Flex direction="column" gap={3} width="100%">
         <TextField
           id="best-practices-do-required-firstName"
           label="First name"

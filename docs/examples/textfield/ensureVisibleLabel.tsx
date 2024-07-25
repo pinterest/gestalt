@@ -2,20 +2,20 @@ import { useState } from 'react';
 import { Box, TextField } from 'gestalt';
 
 export default function Example() {
-  const [value, setValue] = useState('');
+  const [username, setUsername] = useState('');
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box padding={8} width="100%">
       <Box color="light" padding={2}>
         <TextField
           autoComplete="username"
           id="best-practices-do-label"
           label="Username"
-          onChange={(e) => {
-            setValue(e.value);
+          onChange={({ value }) => {
+            setUsername(value);
           }}
           type="text"
-          value={value}
+          value={username}
         />
       </Box>
     </Box>

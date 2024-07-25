@@ -6,7 +6,7 @@ export default function Example() {
   const [stateValue, setStateValue] = useState('');
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box padding={8} width="100%">
       <Flex gap={{ column: 0, row: 4 }}>
         <TextField
           id="best-practices-do-related-city"

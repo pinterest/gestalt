@@ -17,6 +17,15 @@
   border: 1px solid var(--sema-color-border-interactive);
 }
 
+.disabled {
+  background-color: var(--sema-color-background-disabled);
+  border: 1px solid var(--sema-color-border-disabled);
+}
+
+.disabledText {
+  color: var(--sema-color-text-disabled);
+}
+
 .parentTextField {
   display: inline-flex;
 }
@@ -50,7 +59,7 @@
   padding-top: calc(var(--sema-space-gap-vertical-sm) + 16px);
 }
 
-.sm_hiddenLabel {
+.sm_noLabel {
   min-height: 36px;
   padding-top: var(--sema-space-gap-vertical-sm);
 }
@@ -89,7 +98,7 @@ html:not([dir="rtl"]) .sm_label {
   padding-top: calc(var(--sema-space-padding-horizontal-xl) + 16px);
 }
 
-.md_hiddenLabel {
+.md_noLabel {
   min-height: 36px;
   padding-top: var(--sema-space-gap-vertical-lg);
 }
@@ -128,7 +137,7 @@ html:not([dir="rtl"]) .md_label {
   padding-top: calc(var(--sema-space-gap-vertical-xxl) + 16px);
 }
 
-.lg_hiddenLabel {
+.lg_noLabel {
   min-height: 36px;
   padding-top: var(--sema-space-gap-vertical-xxl);
 }
