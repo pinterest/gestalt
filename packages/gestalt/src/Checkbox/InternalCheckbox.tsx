@@ -1,12 +1,4 @@
-import {
-  forwardRef,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
@@ -17,6 +9,7 @@ import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
+import useInteractiveStates from '../utils/useInteractiveStates';
 
 type Props = {
   checked?: boolean;
@@ -69,9 +62,6 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const [focused, setFocused] = useState(false);
-  const [hovered, setHover] = useState(false);
-
   useEffect(() => {
     if (innerRef && innerRef.current) {
       innerRef.current.indeterminate = indeterminate;
@@ -90,9 +80,25 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     }
   };
 
-  const handleHover = () => {
-    setHover(!hovered);
-  };
+  const {
+    handleOnMouseEnter,
+    handleOnMouseLeave,
+    handleOnBlur,
+    handleOnFocus,
+    isFocused,
+    isHovered,
+  } = useInteractiveStates();
+  const { isFocusVisible } = useFocusVisible();
+
+  let ariaDescribedby;
+
+  if (errorMessage) {
+    ariaDescribedby = `${id}-error`;
+  }
+
+  if (label && helperText) {
+    ariaDescribedby = `${id}-helperText`;
+  }
 
   let bgStyle = styles.enabled;
   if (disabled) {
@@ -108,25 +114,22 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderStyle = styles.borderSelected;
   } else if (errorMessage) {
     borderStyle = styles.borderError;
-  } else if (!disabled && hovered) {
+  } else if (!disabled && isHovered) {
     borderStyle = styles.borderHovered;
   }
 
-  const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
-
   const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
 
-  const { isFocusVisible } = useFocusVisible();
+  const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
 
-  let ariaDescribedby;
+  const divStyles = classnames(bgStyle, borderStyle, borderRadiusStyle, styleSize, styles.check, {
+    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible,
+  });
 
-  if (errorMessage) {
-    ariaDescribedby = `${id}-error`;
-  }
-
-  if (label && helperText) {
-    ariaDescribedby = `${id}-helperText`;
-  }
+  const inputStyles = classnames(styles.input, styleSize, {
+    [styles.inputEnabled]: !disabled,
+    [styles.readOnly]: readOnly,
+  });
 
   return (
     <Box>
@@ -135,39 +138,24 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
             ref={innerRef}
-            aria-describedby={focused ? ariaDescribedby : undefined}
+            aria-describedby={isFocused ? ariaDescribedby : undefined}
             aria-hidden={readOnly ? true : undefined}
             aria-invalid={errorMessage ? 'true' : 'false'}
             checked={checked}
-            className={classnames(styles.input, styleSize, {
-              [styles.inputEnabled]: !disabled,
-              [styles.readOnly]: readOnly,
-            })}
+            className={inputStyles}
             disabled={readOnly || disabled}
             id={id}
             name={name}
-            onBlur={() => setFocused(false)}
+            onBlur={handleOnBlur}
             onChange={handleChange}
             // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
             onClick={handleClick}
-            onFocus={() => setFocused(true)}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHover}
+            onFocus={handleOnFocus}
+            onMouseEnter={handleOnMouseEnter}
+            onMouseLeave={handleOnMouseLeave}
             type="checkbox"
           />
-          <div
-            className={classnames(
-              bgStyle,
-              borderStyle,
-              borderRadiusStyle,
-              styleSize,
-              styles.check,
-              {
-                [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
-              },
-            )}
-            style={style}
-          >
+          <div className={divStyles} style={style}>
             {(checked || indeterminate) && (
               <Icon
                 accessibilityLabel=""
