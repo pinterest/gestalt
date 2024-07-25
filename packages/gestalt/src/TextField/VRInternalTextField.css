@@ -33,12 +33,20 @@
   border: 1px solid var(--sema-color-border-interactive);
 }
 
+.enabledBorder:not(:focus):hover {
+  border: 1px solid var(--sema-color-hover-border-interactive);
+}
+
 .disabledBorder {
   border: 1px solid var(--sema-color-border-disabled);
 }
 
 .errorBorder {
   border: 1.5px solid var(--sema-color-border-error);
+}
+
+.errorBorder:hover {
+  border: 1.5px solid var(--sema-color-hover-border-error);
 }
 
 .labelParent {
