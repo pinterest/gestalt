@@ -6,7 +6,6 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <Box color="light" padding={2}>
         <TextField
           autoComplete="new-password"
           helperText="Password should be at least 20 characters long"
@@ -16,7 +15,6 @@ export default function Example() {
           type="password"
           value={password}
         />
-      </Box>
     </Box>
   );
 }

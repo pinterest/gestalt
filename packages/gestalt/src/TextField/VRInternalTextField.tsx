@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, Fragment, ReactElement, ReactNode, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import { autoCompleteType } from './InternalTextField';
 import styles from './VRInternalTextField.css';
@@ -109,7 +109,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   }
 
   return (
-    <div className={classnames({ [styles.actionButtonParent]: iconButton })}>
+    <Fragment>
       {label && (
         <div className={classnames(styles.parentLabel)}>
           <label
@@ -134,72 +134,75 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           </label>
         </div>
       )}
-      <input
-        ref={innerRef}
-        aria-activedescendant={accessibilityActiveDescendant}
-        aria-controls={accessibilityControls}
-        aria-describedby={focused ? ariaDescribedby : undefined}
-        aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-        autoComplete={autoComplete}
-        className={classnames(styles.input, typographyStyle.truncate, {
-          [styles.enabled]: !disabled,
-          [styles.disabled]: disabled,
-          [styles.enabledBorder]: !disabled && !hasErrorMessage,
-          [styles.disabledBorder]: disabled && !hasErrorMessage,
-          [styles.errorBorder]: hasErrorMessage,
-          [styles.enabledText]: !disabled,
-          [styles.disabledText]: disabled,
-          // sm
-          [styles.sm_input]: isSM,
-          [styles.sm_inputHorizontalPadding]: isSM,
-          [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
-          [styles.sm_noLabel]: isSM && (!label || (label && !isLabelVisible)),
-          [styles.sm_actionButton]: isSM && iconButton,
-          // md
-          [styles.md_input]: isMD,
-          [styles.md_inputHorizontalPadding]: isMD,
-          [styles.md_visibleLabel]: isMD && label && isLabelVisible,
-          [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
-          [styles.md_actionButton]: isMD && iconButton,
-          // lg
-          [styles.lg_input]: isLG,
-          [styles.lg_inputHorizontalPadding]: isLG,
-          [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
-          [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
-          [styles.lg_actionButton]: isLG && iconButton,
-        })}
-        data-test-id={dataTestId}
-        disabled={disabled}
-        enterKeyHint={mobileEnterKeyHint}
-        id={id}
-        inputMode={mobileInputMode}
-        max={type === 'number' ? max : undefined}
-        maxLength={maxLength?.characterCount}
-        min={type === 'number' ? min : undefined}
-        name={name}
-        onBlur={(event) => {
-          setFocused(false);
-          onBlur?.({ event, value: event.currentTarget.value });
-        }}
-        onChange={(event) => {
-          setCurrentLength(event.currentTarget.value?.length ?? 0);
-          onChange({ event, value: event.currentTarget.value });
-        }}
-        onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
-        onFocus={(event) => {
-          setFocused(true);
-          onFocus?.({ event, value: event.currentTarget.value });
-        }}
-        onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
-        pattern={type === 'number' ? '\\d*' : undefined}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        spellCheck={['email', 'password'].includes(type) ? false : undefined}
-        step={type === 'number' ? step : undefined}
-        type={type}
-        value={value}
-      />
-      {!disabled && iconButton}
+      <div className={classnames({ [styles.actionButtonParent]: iconButton })}>
+        <input
+          ref={innerRef}
+          aria-activedescendant={accessibilityActiveDescendant}
+          aria-controls={accessibilityControls}
+          aria-describedby={focused ? ariaDescribedby : undefined}
+          aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+          autoComplete={autoComplete}
+          className={classnames(styles.input, typographyStyle.truncate, {
+            [styles.enabled]: !disabled,
+            [styles.disabled]: disabled,
+            [styles.enabledBorder]: !disabled && !hasErrorMessage,
+            [styles.disabledBorder]: disabled && !hasErrorMessage,
+            [styles.errorBorder]: hasErrorMessage,
+            [styles.enabledText]: !disabled,
+            [styles.disabledText]: disabled,
+            // sm
+            [styles.sm_input]: isSM,
+            [styles.sm_inputHorizontalPadding]: isSM,
+            [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
+            [styles.sm_noLabel]: isSM && (!label || (label && !isLabelVisible)),
+            [styles.sm_actionButton]: isSM && iconButton,
+            // md
+            [styles.md_input]: isMD,
+            [styles.md_inputHorizontalPadding]: isMD,
+            [styles.md_visibleLabel]: isMD && label && isLabelVisible,
+            [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
+            [styles.md_actionButton]: isMD && iconButton,
+            // lg
+            [styles.lg_input]: isLG,
+            [styles.lg_inputHorizontalPadding]: isLG,
+            [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
+            [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
+            [styles.lg_actionButton]: isLG && iconButton,
+          })}
+          data-test-id={dataTestId}
+          disabled={disabled}
+          enterKeyHint={mobileEnterKeyHint}
+          id={id}
+          inputMode={mobileInputMode}
+          max={type === 'number' ? max : undefined}
+          maxLength={maxLength?.characterCount}
+          min={type === 'number' ? min : undefined}
+          name={name}
+          onBlur={(event) => {
+            setFocused(false);
+            onBlur?.({ event, value: event.currentTarget.value });
+          }}
+          onChange={(event) => {
+            setCurrentLength(event.currentTarget.value?.length ?? 0);
+            onChange({ event, value: event.currentTarget.value });
+          }}
+          onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
+          onFocus={(event) => {
+            setFocused(true);
+            onFocus?.({ event, value: event.currentTarget.value });
+          }}
+          onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
+          pattern={type === 'number' ? '\\d*' : undefined}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          spellCheck={['email', 'password'].includes(type) ? false : undefined}
+          step={type === 'number' ? step : undefined}
+          type={type}
+          value={value}
+        />
+
+        {!disabled && iconButton}
+      </div>
 
       {(helperText || maxLength) && !hasErrorMessage ? (
         <FormHelperText
@@ -214,7 +217,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       {hasErrorMessage ? (
         <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
-    </div>
+    </Fragment>
   );
 });
 

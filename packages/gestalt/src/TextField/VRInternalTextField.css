@@ -113,6 +113,10 @@ html[dir="rtl"] .sm_actionButton {
   padding-left: var(--space-800);
 }
 
+.sm_actionButtonPaddingBottom {
+  padding-bottom: var(--sema-space-gap-vertical-sm);
+}
+
 /* md */
 
 .md_input {

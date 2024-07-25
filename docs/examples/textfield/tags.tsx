@@ -64,7 +64,6 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <Box color="light" padding={2}>
         <TextField
           // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={ref}
@@ -76,7 +75,6 @@ export default function Example() {
           tags={renderedTags}
           value={value}
         />
-      </Box>
     </Box>
   );
 }
