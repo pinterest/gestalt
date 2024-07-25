@@ -110,6 +110,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         <div className={classnames(styles.parentLabel)}>
           <label
             className={classnames(styles.label, {
+              [styles.enabledText]: !disabled,
               [styles.disabledText]: disabled,
               // sm
               [styles.sm_label]: size === 'sm',
@@ -139,6 +140,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         className={classnames(styles.input, typographyStyle.truncate, {
           [styles.enabled]: !disabled,
           [styles.disabled]: disabled,
+          [styles.enabledText]: !disabled,
           [styles.disabledText]: disabled,
           // sm
           [styles.sm_input]: size === 'sm',

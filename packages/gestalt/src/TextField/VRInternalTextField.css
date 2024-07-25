@@ -1,11 +1,18 @@
 .input {
   border-radius: var(--sema-rounding-md);
   box-sizing: border-box;
-  color: var(--sema-color-text-default);
   display: block;
   font-weight: var(--sema-font-weight-body);
   line-height: 16px;
   width: 100%;
+}
+
+.enabledText {
+  color: var(--sema-color-text-default);
+}
+
+.disabledText {
+  color: var(--sema-color-text-disabled);
 }
 
 .input:focus {
@@ -23,10 +30,6 @@
   border: 1px solid var(--sema-color-border-disabled);
 }
 
-.disabledText {
-  color: var(--sema-color-text-disabled);
-}
-
 .parentTextField {
   display: inline-flex;
 }
@@ -40,7 +43,6 @@
 }
 
 .label {
-  color: var(--sema-color-text-default);
   font-size: var(--sema-font-size-ui-xs);
   font-weight: var(--sema-font-weight-ui);
   line-height: var(--sema-font-lineheight-UI-XS);
