@@ -41,11 +41,7 @@
   border: 1.5px solid var(--sema-color-border-error);
 }
 
-.parentTextField {
-  display: inline-flex;
-}
-
-.parentLabel {
+.labelParent {
   position: relative;
 }
 

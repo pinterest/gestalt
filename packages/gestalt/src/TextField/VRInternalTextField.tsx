@@ -111,7 +111,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   return (
     <Fragment>
       {label && (
-        <div className={classnames(styles.parentLabel)}>
+        <div className={classnames(styles.labelParent)}>
           <label
             className={classnames(styles.label, {
               [styles.enabledText]: !disabled,
