@@ -28,6 +28,10 @@
   border: 1px solid var(--sema-color-border-interactive);
 }
 
+.errorBorder {
+  border: 1.5px solid var(--sema-color-border-error);
+}
+
 .enabledBorder:focus,
 .errorBorder:focus {
   border: 1px solid var(--sema-color-border-focus-inner-default);
@@ -38,16 +42,12 @@
   border: 1px solid var(--sema-color-hover-border-interactive);
 }
 
-.disabledBorder {
-  border: 1px solid var(--sema-color-border-disabled);
-}
-
-.errorBorder {
-  border: 1.5px solid var(--sema-color-border-error);
-}
-
 .errorBorder:not(:focus):hover {
   border: 1.5px solid var(--sema-color-hover-border-error);
+}
+
+.disabledBorder {
+  border: 1px solid var(--sema-color-border-disabled);
 }
 
 .labelParent {
