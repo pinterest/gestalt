@@ -180,7 +180,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
           autoComplete={autoComplete}
-          className={classnames(styles.input, typographyStyle.truncate, {
+          className={classnames(styles.input, typographyStyle.truncate, typographyStyle.lineClamp, {
             [styles.enabled]: !disabled && !hasErrorMessage,
             [styles.enabledText]: !disabled,
             [styles.enabledBorder]: !disabled && !hasErrorMessage,
