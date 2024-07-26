@@ -283,6 +283,17 @@
           }
         }
       },
+      "checkbox": {
+        "disabled": {
+          "value": "{color.background.formfield.disabled.value}"
+        },
+        "checked": {
+          "value": "{color.background.formfield.selected.value}"
+        },
+        "unchecked": {
+          "value": "{color.background.formfield.primary.value}"
+        }
+      },
       "datepicker": {
         "container": {
           "value": "#fff"
@@ -353,7 +364,6 @@
           }
         }
       },
-
       "tag": {
         "primary": {
           "default": {
@@ -401,19 +411,35 @@
       },
       "switch": {
         "default": {
-          "unselected": {
-            "value": "#fff"
-          },
           "selected": {
             "value": "#111"
+          },
+          "unselected": {
+            "value": "#fff"
           }
         },
         "disabled": {
-          "unselected": {
-            "value": "#efefef"
-          },
           "selected": {
             "value": "{color.gray.roboflow.500.value}"
+          },
+          "unselected": {
+            "value": "#efefef"
+          }
+        },
+        "hover": {
+          "selected": {
+            "value": "#111"
+          },
+          "unselected": {
+            "value": "#fff"
+          }
+        },
+        "pressed": {
+          "selected": {
+            "value": "#111"
+          },
+          "unselected": {
+            "value": "#fff"
           }
         }
       },
@@ -521,6 +547,23 @@
           "value": "{color.black.cosmicore.900.value}"
         }
       },
+      "checkbox": {
+        "checked": {
+          "value": "{color.background.selected.base.value}"
+        },
+        "disabled": {
+          "value": "{color.border.formfield.disabled.value}"
+        },
+        "error": {
+          "value": "{color.border.error.value}"
+        },
+        "hover": {
+          "value": "{color.gray.roboflow.400.value}"
+        },
+        "unchecked": {
+          "value": "{color.border.default.value}"
+        }
+      },
       "formfield": {
         "error": {
           "default": {
@@ -551,6 +594,42 @@
         },
         "hover": {
           "value": "#dce9fa"
+        }
+      },
+      "switch": {
+        "default": {
+          "selected": {
+            "value": "{color.background.selected.base}"
+          },
+          "unselected": {
+            "value": "{color.border.default}"
+          }
+        },
+        "disabled": {
+          "selected": {
+            "value": "{color.background.default}"
+          },
+          "unselected": {
+            "value": "{color.border.container}"
+          }
+        },
+        "focus": {
+          "inner": {
+            "value": "{color.border.default}"
+          },
+          "outer": {
+            "value": "{color.border.default}"
+          }
+        },
+        "hover": {
+          "unselected": {
+            "value": "{color.border.default}"
+          }
+        },
+        "pressed": {
+          "unselected": {
+            "value": "{color.border.default}"
+          }
         }
       },
       "table": {

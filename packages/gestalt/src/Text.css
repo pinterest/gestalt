@@ -225,3 +225,8 @@ a.standalone:active {
 .warning {
   color: var(--color-text-warning);
 }
+
+.textColorOverrideErrorVr * {
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-light) !important;
+}

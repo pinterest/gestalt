@@ -166,8 +166,8 @@ export default function Toast({
         color={containerColor}
         dangerouslySetInlineStyle={{
           __style: {
-            paddingRight: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
-            paddingLeft: TOKEN_ROUNDING_400,
+            paddingInlineStart: TOKEN_ROUNDING_400,
+            paddingInlineEnd: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
           },
         }}
         paddingY={3}

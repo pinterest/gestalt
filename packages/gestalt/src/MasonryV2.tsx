@@ -21,7 +21,6 @@ import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
 import throttle from './throttle';
-import useIsomorphicLayoutEffect from './useIsomorphicLayoutEffect';
 
 const RESIZE_DEBOUNCE = 300;
 
@@ -216,9 +215,31 @@ function useScrollContainer({
   gridWrapper: HTMLElement | null | undefined;
   scrollContainer: HTMLElement | null | undefined;
 }) {
-  const [containerHeight, setContainerHeight] = useState(0);
-  const [containerOffset, setContainerOffset] = useState(0);
+  const containerHeight = useRef(0);
+  const containerOffset = useRef(0);
   const scrollPos = useRef(0);
+
+  const measureContainer = useCallback(() => {
+    if (scrollContainer) {
+      containerHeight.current = getElementHeight(scrollContainer);
+      if (gridWrapper instanceof HTMLElement) {
+        // todo - look into using IntersectionObserver instead
+        containerOffset.current =
+          gridWrapper.getBoundingClientRect().top + getRelativeScrollTop(scrollContainer);
+      }
+    }
+  }, [gridWrapper, scrollContainer]);
+
+  // created a debounced version of measureContainer to avoid measuring the container on every render
+  // this is mostly because the calls to getBoundingClientRect are expensive and result in forced reflows
+  const measureContainerAsync = useMemo(() => debounce(measureContainer, 100), [measureContainer]);
+
+  if (containerHeight.current === 0 && containerOffset.current === 0) {
+    // initialize value on first render
+    // doing this here vs in the `useRef` to avoid measureContainer always being called
+    // https://18.react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
+    measureContainer();
+  }
 
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
@@ -241,23 +262,15 @@ function useScrollContainer({
     () => 0,
   );
 
-  useIsomorphicLayoutEffect(() => {
-    if (scrollContainer) {
-      setContainerHeight(getElementHeight(scrollContainer));
-    }
-  }, [scrollContainer]);
-
-  useIsomorphicLayoutEffect(() => {
-    // recalculate container offset right before browser paints in order to ensure getBoundingClientRect is accurate
-    if (scrollContainer && gridWrapper instanceof HTMLElement) {
-      const relativeScrollTop = getRelativeScrollTop(scrollContainer);
-      setContainerOffset(gridWrapper.getBoundingClientRect().top + relativeScrollTop);
-    }
-  }, [gridWrapper, scrollContainer]);
+  useEffect(() => {
+    // trigger an async measurement whenever an update occurs
+    // todo - followup on this and figure out a more ideal way to handle this.
+    measureContainerAsync();
+  });
 
   return {
-    containerHeight,
-    containerOffset,
+    containerHeight: containerHeight.current,
+    containerOffset: containerOffset.current,
     scrollTop,
   };
 }
@@ -409,7 +422,7 @@ function useLayout<T>({
     // - items: if we get new items, we should always recalculate positions
     // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
-    // eslint-disable-next-line react-compiler/react-compiler
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemMeasurementsCount, items, canPerformLayout]);
 
@@ -660,7 +673,7 @@ function Masonry<T>(
     if (!hasSetInitialWidth.current && width != null) {
       hasSetInitialWidth.current = true;
     }
-    // eslint-disable-next-line react-compiler/react-compiler
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 

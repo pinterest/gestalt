@@ -1,3 +1,45 @@
+## 156.3.1 (Jul 26, 2024)
+
+### Patch
+
+- Masonry: Update logic around updating containerOffset + containerHeight (MasonryV2) ([#3696](https://github.com/pinterest/gestalt/pull/3696)) - [Preview link](https://deploy-preview-3696--gestalt.netlify.app?devexample=true)
+
+## 156.3.0 (Jul 25, 2024)
+
+### Minor
+
+- Switch: VR Implementation ([#3686](https://github.com/pinterest/gestalt/pull/3686)) - [Preview link](https://deploy-preview-3686--gestalt.netlify.app?devexample=true)
+
+## 156.2.1 (Jul 25, 2024)
+
+### Patch
+
+- Checkbox: Cleanup pre-VR work ([#3695](https://github.com/pinterest/gestalt/pull/3695)) - [Preview link](https://deploy-preview-3695--gestalt.netlify.app?devexample=true)
+
+## 156.2.0 (Jul 24, 2024)
+
+### Minor
+
+- Tokens: Fixing background button disabled token ([#3694](https://github.com/pinterest/gestalt/pull/3694)) - [Preview link](https://deploy-preview-3694--gestalt.netlify.app?devexample=true)
+
+## 156.1.0 (Jul 23, 2024)
+
+### Minor
+
+- Masonry: Add \_loadingStateItems & \_renderLoadingStateItems props ([#3637](https://github.com/pinterest/gestalt/pull/3637)) - [Preview link](https://deploy-preview-3637--gestalt.netlify.app?devexample=true)
+
+## 156.0.0 (Jul 22, 2024)
+
+### Major
+
+- Icon: Update Icons [GESTALT-8259] ([#3691](https://github.com/pinterest/gestalt/pull/3691)) - [Preview link](https://deploy-preview-3691--gestalt.netlify.app?devexample=true)
+
+## 155.6.0 (Jul 19, 2024)
+
+### Minor
+
+- Toast: VR Fixes ([#3689](https://github.com/pinterest/gestalt/pull/3689)) - [Preview link](https://deploy-preview-3689--gestalt.netlify.app?devexample=true)
+
 ## 155.5.0 (Jul 19, 2024)
 
 ### Minor
