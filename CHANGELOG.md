@@ -1,3 +1,9 @@
+## 156.3.1 (Jul 26, 2024)
+
+### Patch
+
+- Masonry: Update logic around updating containerOffset + containerHeight (MasonryV2) ([#3696](https://github.com/pinterest/gestalt/pull/3696)) - [Preview link](https://deploy-preview-3696--gestalt.netlify.app?devexample=true)
+
 ## 156.3.0 (Jul 25, 2024)
 
 ### Minor
