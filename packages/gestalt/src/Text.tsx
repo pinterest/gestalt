@@ -81,7 +81,7 @@ type Props = {
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.ts-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.ts-snapshots/Text-dark-chromium-darwin.png)
  */
-const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
+const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   {
     align = 'start',
     children,
@@ -141,7 +141,6 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
-      // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
       ref={ref}
     >
       {children}

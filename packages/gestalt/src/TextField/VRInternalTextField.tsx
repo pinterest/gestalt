@@ -3,6 +3,8 @@ import {
   Fragment,
   ReactElement,
   ReactNode,
+  useCallback,
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
@@ -90,6 +92,8 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   ref,
 ) {
   const innerRef = useRef<null | HTMLInputElement>(null);
+  const labelRef = useRef<null | HTMLLabelElement>(null);
+
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -104,6 +108,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   // ==== STATE ====
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
+  const [ellipsisActive, setEllipsisActive] = useState(false);
 
   // ==== A11Y ====
 
@@ -117,11 +122,35 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     ariaDescribedby = `${id}-helperText`;
   }
 
+  // const isEllipsisActive = (element: HTMLElement) =>
+  //   element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
+
+  // const checkEllipsisActive = useCallback(() => {
+  //   if (labelRef.current && !ellipsisActive && isEllipsisActive(labelRef?.current)) {
+  //     setEllipsisActive(true);
+  //   } else if (labelRef.current && ellipsisActive && !isEllipsisActive(labelRef?.current)) {
+  //     setEllipsisActive(false);
+  //   }
+  // }, [ellipsisActive]);
+
+  // useEffect(() => {
+  //   if (!label) return  () => {}
+
+  //   checkEllipsisActive();
+
+  //   if (typeof window !== 'undefined') window.addEventListener('resize', checkEllipsisActive);
+
+  //   return () => {
+  //     if (typeof window !== 'undefined') window?.removeEventListener('resize', checkEllipsisActive);
+  //   };
+  // }, [label, checkEllipsisActive]);
+
   return (
     <Fragment>
       {label && (
         <div className={classnames(styles.labelParent)}>
           <label
+            ref={labelRef}
             className={classnames(styles.label, {
               [styles.enabledText]: !disabled,
               [styles.disabledText]: disabled,
