@@ -134,7 +134,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   }, [ellipsisActive]);
 
   useEffect(() => {
-    if (!label) return  () => {}
+    if (!label) return () => {};
 
     checkEllipsisActive();
 
@@ -149,7 +149,8 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     <Fragment>
       {label && (
         <div className={classnames(styles.labelParent)}>
-          <label ref={labelRef}
+          <label
+            ref={labelRef}
             className={classnames(styles.label, typographyStyle.truncate, {
               [styles.enabledText]: !disabled,
               [styles.disabledText]: disabled,
@@ -166,7 +167,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
               [boxStyles.visuallyHidden]: !isLabelVisible,
             })}
             htmlFor={id}
-            title={ellipsisActive ? label : ""}
+            title={ellipsisActive ? label : ''}
           >
             {label}
           </label>

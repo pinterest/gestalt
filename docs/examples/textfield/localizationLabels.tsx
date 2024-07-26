@@ -14,7 +14,7 @@ export default function Example() {
         },
       }}
     >
-    <Box padding={8} width="100%">
+      <Box padding={8} width="100%">
         <TextField
           id="enter-password"
           label="Konto-Passwort"

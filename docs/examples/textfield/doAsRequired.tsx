@@ -9,7 +9,7 @@ export default function Example() {
   });
 
   return (
-    <Box  height="100%" padding={8} width="100%">
+    <Box height="100%" padding={8} width="100%">
       <Flex direction="column" gap={3} width="100%">
         <TextField
           id="best-practices-do-required-firstName"

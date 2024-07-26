@@ -180,7 +180,8 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
         setType(isCurrentlyPasswordType ? 'text' : 'password');
       }}
       paddingSize={size}
-      role="switch" tooltipText={
+      role="switch"
+      tooltipText={
         isCurrentlyPasswordType
           ? accessibilityShowPasswordLabel ?? ''
           : accessibilityHidePasswordLabel ?? ''

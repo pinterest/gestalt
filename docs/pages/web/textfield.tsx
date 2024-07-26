@@ -235,7 +235,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       If TextField is labeled by content elsewhere on the page, there are different approaches to make the field accessible. [See the Label section for more information](/web/textfield#Label)`}
           title="Labels"
-         />
+        />
         <MainSection.Subsection
           description={`
     When providing a validation message, make sure the instructions are clear and help users complete the field. For example, "Passwords must contain at least 20 characters". In addition, use the helper text to provide instructions to help users understand how to complete the text field or to indicate any needed input, allowed formats, timing limitations, or other pertinent information.
@@ -314,11 +314,7 @@ TextFields cannot be interacted with using the mouse or keyboard. They also do n
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={error}
-                layout="column"
-                name="Error message example"
-              />
+              <SandpackExample code={error} layout="column" name="Error message example" />
             }
             title="Error"
           />
@@ -418,9 +414,7 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
           title="Password"
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={password} name="Password Text Field Example" />
-            }
+            sandpackExample={<SandpackExample code={password} name="Password Text Field Example" />}
           />
         </MainSection.Subsection>
 
