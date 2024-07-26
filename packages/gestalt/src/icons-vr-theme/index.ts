@@ -28,6 +28,7 @@ import animate from './animate.svg';
 import api from './api.svg';
 import apple from './apple.svg';
 import apps from './apps.svg';
+import arTryOn from './ar-try-on.svg';
 import arrowBack from './arrow-back.svg';
 import arrowCircleBack from './arrow-circle-back.svg';
 import arrowCircleDown from './arrow-circle-down.svg';
@@ -380,6 +381,7 @@ const icons = Object.freeze({
   'api': api,
   'apple': apple,
   'apps': apps,
+  'ar-try-on': arTryOn,
   'arrow-back': arrowBack,
   'arrow-circle-back': arrowCircleBack,
   'arrow-circle-down': arrowCircleDown,
