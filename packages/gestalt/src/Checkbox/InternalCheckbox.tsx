@@ -104,10 +104,11 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     ariaDescribedby = `${id}-helperText`;
   }
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
+  const isInVRExperiment =
+    useInExperiment({
+      webExperimentName: 'web_gestalt_visualRefresh',
+      mwebExperimentName: 'web_gestalt_visualRefresh',
+    }) && !style;
 
   const iconSizes = {
     sm: 8,
