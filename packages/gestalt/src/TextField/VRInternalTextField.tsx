@@ -246,6 +246,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       {(helperText || maxLength) && !hasErrorMessage ? (
         <FormHelperText
           currentLength={currentLength}
+          disabled={disabled}
           id={`${id}-helperText`}
           maxLength={maxLength}
           size={size}
@@ -253,7 +254,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         />
       ) : null}
 
-      {hasErrorMessage ? (
+      {!disabled && hasErrorMessage ? (
         <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
     </Fragment>

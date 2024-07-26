@@ -9,9 +9,10 @@ import useInExperiment from '../useInExperiment';
 type Props = {
   maxLength: MaxLength;
   currentLength?: number;
+  disabled?: boolean;
 };
 
-export default function FormHelperTextCounter({ currentLength, maxLength }: Props) {
+export default function FormHelperTextCounter({ disabled, currentLength, maxLength }: Props) {
   const ref = useRef<null | HTMLElement>(null);
 
   const [width, setWidth] = useState<undefined | number>(undefined);
@@ -31,7 +32,7 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
   const maxLengthReached = (currentLength ?? 0) >= (maxLength.characterCount ?? 0);
 
   let icon: 'workflow-status-warning' | 'workflow-status-problem' = 'workflow-status-warning';
-  let textColor: 'warning' | 'error' = 'warning';
+  let textColor: 'warning' | 'error' | 'disabled' = 'warning';
 
   if (
     typeof currentLength === 'number' &&
@@ -42,6 +43,10 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
     textColor = 'error';
   }
 
+  if (disabled) {
+    textColor = 'disabled';
+  }
+
   return (
     <Fragment>
       {/* This hidden container is used to calculate the width of the character tracker and prevent spacing changes on each input value changes */}
@@ -50,7 +55,7 @@ export default function FormHelperTextCounter({ currentLength, maxLength }: Prop
         dangerouslySetInlineStyle={{ __style: { visibility: 'hidden' } }}
         position="absolute"
       >
-        <Text color="subtle" size="100">
+        <Text color={disabled ? 'disabled' : 'subtle'} size="100">
           {`${maxLengthChars}/${maxLengthChars}`}
         </Text>
       </Box>
