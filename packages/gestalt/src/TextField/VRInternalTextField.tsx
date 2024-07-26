@@ -1,4 +1,12 @@
-import { forwardRef, Fragment, ReactElement, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  Fragment,
+  ReactElement,
+  ReactNode,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import { autoCompleteType } from './InternalTextField';
 import styles from './VRInternalTextField.css';
@@ -144,13 +152,13 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
           autoComplete={autoComplete}
           className={classnames(styles.input, typographyStyle.truncate, {
-            [styles.enabled]: !disabled,
-            [styles.disabled]: disabled,
-            [styles.enabledBorder]: !disabled && !hasErrorMessage,
-            [styles.disabledBorder]: disabled && !hasErrorMessage,
-            [styles.errorBorder]: hasErrorMessage,
+            [styles.enabled]: !disabled && !hasErrorMessage,
             [styles.enabledText]: !disabled,
+            [styles.enabledBorder]: !disabled && !hasErrorMessage,
+            [styles.errorBorder]: !disabled && hasErrorMessage,
+            [styles.disabled]: disabled,
             [styles.disabledText]: disabled,
+            [styles.disabledBorder]: disabled,
             // sm
             [styles.sm_input]: isSM,
             [styles.sm_inputHorizontalPadding]: isSM,

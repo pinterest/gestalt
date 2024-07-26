@@ -16,11 +16,6 @@
   color: var(--sema-color-text-disabled);
 }
 
-.input:focus {
-  border: 1px solid var(--sema-color-border-focus-inner-default);
-  outline: 2px solid var(--sema-color-border-focus-outer-default);
-}
-
 .enabled {
   background: var(--sema-color-background-default);
 }
@@ -32,6 +27,12 @@
 .enabledBorder {
   border: 1px solid var(--sema-color-border-interactive);
 }
+
+.enabledBorder:focus {
+  border: 1px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
 
 .enabledBorder:not(:focus):hover {
   border: 1px solid var(--sema-color-hover-border-interactive);
