@@ -45,7 +45,7 @@
   border: 1.5px solid var(--sema-color-border-error);
 }
 
-.errorBorder:hover {
+.errorBorder:not(:focus):hover {
   border: 1.5px solid var(--sema-color-hover-border-error);
 }
 
