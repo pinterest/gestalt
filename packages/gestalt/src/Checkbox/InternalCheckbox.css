@@ -69,6 +69,11 @@
   border-color: var(--sema-color-pressed-border-error);
 }
 
+.hovered {
+  background-color: var(--sema-color-hover-background-selected);
+  border-color: var(--sema-color-hover-background-selected);
+}
+
 .focus {
   border-color: var(--sema-color-border-focus-inner-default);
   border-style: solid;
@@ -76,11 +81,6 @@
   outline: 2px solid var(--sema-color-border-focus-outer-default);
   outline-offset: 0;
   padding: var(--space-0) var(--space-100);
-}
-
-.hovered {
-  background-color: var(--sema-color-hover-background-selected);
-  border-color: var(--sema-color-hover-background-selected);
 }
 
 .hoveredError {
