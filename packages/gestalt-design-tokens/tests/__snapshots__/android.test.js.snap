@@ -943,6 +943,65 @@ Object {
 
   </resources>
 ",
+  "dist/android/vr-theme/motion-duration.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+
+<resources>
+  <integer name=\\"base_motion_duration_0\\">0</integer>
+  <integer name=\\"base_motion_duration_50\\">50</integer>
+  <integer name=\\"base_motion_duration_100\\">100</integer>
+  <integer name=\\"base_motion_duration_150\\">150</integer>
+  <integer name=\\"base_motion_duration_200\\">200</integer>
+  <integer name=\\"base_motion_duration_300\\">300</integer>
+  <integer name=\\"base_motion_duration_400\\">400</integer>
+  <integer name=\\"base_motion_duration_500\\">500</integer>
+  <integer name=\\"base_motion_duration_600\\">600</integer>
+  <integer name=\\"base_motion_duration_700\\">700</integer>
+  <integer name=\\"base_motion_duration_900\\">900</integer>
+  <integer name=\\"sema_motion_position_fadein_duration\\">@integer/base_motion_duration_300</integer>
+  <integer name=\\"sema_motion_position_fadeout_duration\\">@integer/base_motion_duration_200</integer>
+  <integer name=\\"sema_motion_position_enter_duration\\">@integer/base_motion_duration_300</integer>
+  <integer name=\\"sema_motion_position_exit_duration\\">@integer/base_motion_duration_300</integer>
+  <integer name=\\"sema_motion_position_on_duration\\">@integer/base_motion_duration_300</integer>
+  <integer name=\\"sema_motion_position_off_duration\\">@integer/base_motion_duration_200</integer>
+  <integer name=\\"sema_motion_position_swipe_duration\\">@integer/base_motion_duration_400</integer>
+  <integer name=\\"sema_motion_scale_on_duration\\">@integer/base_motion_duration_150</integer>
+  <integer name=\\"sema_motion_scale_swipe_duration\\">@integer/base_motion_duration_400</integer>
+  <integer name=\\"sema_motion_colorchange_duration\\">@integer/base_motion_duration_300</integer>
+  <integer name=\\"sema_motion_opacity_duration_default\\">@integer/base_motion_duration_300</integer>
+  <integer name=\\"sema_motion_opacity_duration_instant\\">@integer/base_motion_duration_0</integer>
+
+  </resources>
+",
+  "dist/android/vr-theme/motion-easing.kt": "
+
+
+
+
+package interpolator;
+
+import androidx.core.view.animation.PathInterpolatorCompat
+
+object GestaltInterpolators {
+  val base_motion_easing_exit = PathInterpolatorCompat.create(0.3f, 0f, 0.8f, 0.15f)
+  val base_motion_easing_enter = PathInterpolatorCompat.create(0.05f, 0.7f, 0.1f, 1f)
+  val base_motion_easing_bounce = PathInterpolatorCompat.create(0f, 0.35f, 0f, 1.25f)
+  val base_motion_easing_lateral = PathInterpolatorCompat.create(0.8f, 0f, 0.2f, 1f)
+  val base_motion_easing_expressive = PathInterpolatorCompat.create(0.55f, 0f, 0f, 1f)
+  val base_motion_easing_linear = PathInterpolatorCompat.create(0f, 0f, 1f, 1f)
+  val sema_motion_opacity_easing_instant = base_motion_easing_linear
+  val sema_motion_opacity_easing_default = base_motion_easing_linear
+  val sema_motion_colorchange_easing = base_motion_easing_linear
+  val sema_motion_scale_swipe_easing = base_motion_easing_lateral
+  val sema_motion_scale_on_easing = base_motion_easing_linear
+  val sema_motion_position_swipe_easing = base_motion_easing_lateral
+  val sema_motion_position_off_easing = base_motion_easing_lateral
+  val sema_motion_position_on_easing = base_motion_easing_bounce
+  val sema_motion_position_exit_easing = base_motion_easing_exit
+  val sema_motion_position_enter_easing = base_motion_easing_bounce
+  val sema_motion_position_fadeout_easing = base_motion_easing_lateral
+  val sema_motion_position_fadein_easing = base_motion_easing_lateral
+}
+",
   "dist/android/vr-theme/opacity.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
