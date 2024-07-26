@@ -9,6 +9,7 @@ import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type Props = {
@@ -85,8 +86,11 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     handleOnMouseLeave,
     handleOnBlur,
     handleOnFocus,
+    handleOnMouseDown,
+    handleOnMouseUp,
     isFocused,
     isHovered,
+    isActive,
   } = useInteractiveStates();
   const { isFocusVisible } = useFocusVisible();
 
@@ -100,30 +104,68 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     ariaDescribedby = `${id}-helperText`;
   }
 
-  let bgStyle = styles.enabled;
-  if (disabled) {
-    bgStyle = styles.disabled;
-  } else if (checked || indeterminate) {
-    bgStyle = styles.checked;
-  }
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
-  let borderStyle = styles.border;
-  if (disabled) {
-    borderStyle = styles.borderDisabled;
-  } else if (!disabled && (checked || indeterminate)) {
-    borderStyle = styles.borderSelected;
-  } else if (errorMessage) {
-    borderStyle = styles.borderError;
-  } else if (!disabled && isHovered) {
-    borderStyle = styles.borderHovered;
-  }
+  const iconSizes = {
+    sm: 8,
+    md: 12,
+  };
+
+  const vrIconSizes = {
+    sm: 12,
+    md: 16,
+  };
 
   const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
-
   const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
+  const vrTextColor = disabled ? 'disabled' : undefined;
+  const textColor = disabled ? 'subtle' : undefined;
+  const vrIconColorEnabled = errorMessage ? 'error' : 'inverse';
+  const vrIconColor = disabled ? 'disabled' : vrIconColorEnabled;
+
+  const bgStyle = classnames({
+    [styles.enabled]: !isInVRExperiment && !disabled && !(checked || indeterminate),
+    [styles.disabled]: disabled,
+    [styles.checked]: (checked || indeterminate) && !disabled,
+    [styles.error]: isInVRExperiment && errorMessage && !(checked || indeterminate),
+    [styles.errorChecked]: isInVRExperiment && errorMessage && (checked || indeterminate),
+    [styles.hovered]:
+      isInVRExperiment && !disabled && isHovered && !errorMessage && (checked || indeterminate),
+    [styles.hoveredError]:
+      !disabled && isHovered && isInVRExperiment && errorMessage && (checked || indeterminate),
+    [styles.pressed]:
+      isInVRExperiment && isActive && !disabled && (checked || indeterminate) && !errorMessage,
+    [styles.pressedError]:
+      isInVRExperiment && isActive && !disabled && (checked || indeterminate) && errorMessage,
+  });
+
+  const borderStyle = classnames({
+    [styles.border]: !disabled && !(checked || indeterminate) && !errorMessage && !isHovered,
+    [styles.borderDisabled]: disabled,
+    [styles.borderSelected]: !disabled && (checked || indeterminate),
+    [styles.borderErrorUnchecked]: errorMessage && !checked && !indeterminate,
+    [styles.borderErrorChecked]: errorMessage && (checked || indeterminate) && isInVRExperiment,
+    [styles.borderHovered]:
+      !disabled && isHovered && (isInVRExperiment || !errorMessage) && !(checked || indeterminate),
+    [styles.borderHoveredError]:
+      !disabled && isHovered && isInVRExperiment && errorMessage && !(checked || indeterminate),
+    [styles.borderPressed]:
+      isInVRExperiment && isActive && !disabled && !(checked || indeterminate) && !errorMessage,
+    [styles.borderPressedError]:
+      isInVRExperiment && isActive && !disabled && !(checked || indeterminate) && errorMessage,
+  });
 
   const divStyles = classnames(bgStyle, borderStyle, borderRadiusStyle, styleSize, styles.check, {
+    [styles.thickBorder]:
+      !isInVRExperiment ||
+      (errorMessage && !(checked || indeterminate) && !(isHovered || isActive)),
+    [styles.thinBorder]:
+      isInVRExperiment && !(isHovered || isActive) && (!errorMessage || checked || indeterminate),
     [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible,
+    [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
   });
 
   const inputStyles = classnames(styles.input, styleSize, {
@@ -151,17 +193,19 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
             onClick={handleClick}
             onFocus={handleOnFocus}
+            onMouseDown={handleOnMouseDown}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
+            onMouseUp={handleOnMouseUp}
             type="checkbox"
           />
           <div className={divStyles} style={style}>
             {(checked || indeterminate) && (
               <Icon
                 accessibilityLabel=""
-                color="inverse"
+                color={isInVRExperiment ? vrIconColor : 'inverse'}
                 icon={indeterminate ? 'dash' : 'check'}
-                size={size === 'sm' ? 8 : 12}
+                size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
               />
             )}
           </div>
@@ -177,13 +221,16 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           >
             <Label htmlFor={id}>
               <Box paddingX={1}>
-                <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+                <Text
+                  color={isInVRExperiment ? vrTextColor : textColor}
+                  size={size === 'sm' ? '200' : '300'}
+                >
                   {label}
                 </Text>
               </Box>
             </Label>
             <Box paddingX={1}>
-              {helperText && !errorMessage ? (
+              {helperText ? (
                 <FormHelperText id={`${id}-helperText`} size={size} text={helperText} />
               ) : null}
               {errorMessage ? (

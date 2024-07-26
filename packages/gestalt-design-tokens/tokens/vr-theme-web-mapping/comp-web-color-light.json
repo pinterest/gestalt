@@ -67,6 +67,27 @@
           }
         }
       },
+      "checkbox": {
+        "checked": {
+          "default": {
+            "value": "{sema.color.background.selected.value}"
+          },
+          "error": {
+            "value": "{sema.color.background.error.weak.value}"
+          }
+        },
+        "disabled": {
+          "value": "{sema.color.background.disabled.value}"
+        },
+        "unchecked": {
+          "default": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "error": {
+            "value": "{sema.color.background.default.value}"
+          }
+        }
+      },
       "switch": {
         "default": {
           "unselected": {
@@ -112,6 +133,33 @@
         },
         "dark": {
           "value": "{sema.color.border.focus.inner.dark.value}"
+        }
+      },
+      "checkbox": {
+        "checked": {
+          "default": {
+            "value": "{sema.color.background.selected.value}"
+          },
+          "error": {
+            "value": "{sema.color.background.error.weak.value}"
+          }
+        },
+        "disabled": {
+          "value": "{sema.color.background.disabled.value}"
+        },
+        "unchecked": {
+          "default": {
+            "value": "{sema.color.border.interactive.value}"
+          },
+          "error": {
+            "value": "{sema.color.border.error.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.border.interactive.value}"
+          },
+          "pressed": {
+            "value": "{sema.color.pressed.border.interactive.value}"
+          }
         }
       },
       "switch": {

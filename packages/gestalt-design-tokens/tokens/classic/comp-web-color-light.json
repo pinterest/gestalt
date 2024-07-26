@@ -288,10 +288,20 @@
           "value": "{color.background.formfield.disabled.value}"
         },
         "checked": {
-          "value": "{color.background.formfield.selected.value}"
+          "default": {
+            "value": "{color.background.formfield.selected.value}"
+          },
+          "error": {
+            "value": "{color.background.formfield.selected.value}"
+          }
         },
         "unchecked": {
-          "value": "{color.background.formfield.primary.value}"
+          "default": {
+            "value": "{color.background.formfield.primary.value}"
+          },
+          "error": {
+            "value": "{color.background.formfield.primary.value}"
+          }
         }
       },
       "datepicker": {
@@ -549,19 +559,29 @@
       },
       "checkbox": {
         "checked": {
-          "value": "{color.background.selected.base.value}"
+          "default": {
+            "value": "{color.background.selected.base.value}"
+          },
+          "error": {
+            "value": "{color.border.error.value}"
+          }
         },
         "disabled": {
           "value": "{color.border.formfield.disabled.value}"
         },
-        "error": {
-          "value": "{color.border.error.value}"
-        },
-        "hover": {
-          "value": "{color.gray.roboflow.400.value}"
-        },
         "unchecked": {
-          "value": "{color.border.default.value}"
+          "default": {
+            "value": "{color.border.default.value}"
+          },
+          "error": {
+            "value": "{color.border.error.value}"
+          },
+          "hover": {
+            "value": "{color.gray.roboflow.400.value}"
+          },
+          "pressed": {
+            "value": "{color.gray.roboflow.400.value}"
+          }
         }
       },
       "formfield": {
