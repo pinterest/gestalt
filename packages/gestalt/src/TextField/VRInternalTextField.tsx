@@ -181,7 +181,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
           autoComplete={autoComplete}
           className={classnames(styles.input, typographyStyle.truncate, typographyStyle.lineClamp, {
-            [styles.enabled]: !disabled && !hasErrorMessage,
+            [styles.enabled]: !disabled,
             [styles.enabledText]: !disabled,
             [styles.enabledBorder]: !disabled && !hasErrorMessage,
             [styles.errorBorder]: !disabled && hasErrorMessage,

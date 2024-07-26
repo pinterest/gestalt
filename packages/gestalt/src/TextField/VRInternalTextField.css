@@ -28,7 +28,8 @@
   border: 1px solid var(--sema-color-border-interactive);
 }
 
-.enabledBorder:focus {
+.enabledBorder:focus,
+.errorBorder:focus {
   border: 1px solid var(--sema-color-border-focus-inner-default);
   outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
