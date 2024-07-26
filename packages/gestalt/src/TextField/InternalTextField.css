@@ -108,8 +108,7 @@ html[dir="rtl"] .actionButton {
 html:not([dir="rtl"]) .actionButtonContainer,
 html:not([dir="rtl"]) .vr_sm_actionButtonContainer,
 html:not([dir="rtl"]) .vr_md_actionButtonContainer,
-html:not([dir="rtl"]) .vr_lg_actionButtonContainer
- {
+html:not([dir="rtl"]) .vr_lg_actionButtonContainer {
   right: var(--space-0);
 }
 
