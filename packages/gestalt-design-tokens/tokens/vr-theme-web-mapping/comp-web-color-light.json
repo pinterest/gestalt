@@ -156,9 +156,6 @@
           },
           "hover": {
             "value": "{sema.color.hover.border.interactive.value}"
-          },
-          "pressed": {
-            "value": "{sema.color.pressed.border.interactive.value}"
           }
         }
       },

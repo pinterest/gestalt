@@ -153,13 +153,10 @@
           },
           "error": {
             "value": "{sema.color.border.error.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.border.interactive.value}"
           }
-        },
-        "hovered": {
-          "value": "{sema.color.hover.border.interactive.value}"
-        },
-        "pressed": {
-          "value": "{sema.color.pressed.border.interactive.value}"
         }
       },
       "switch": {

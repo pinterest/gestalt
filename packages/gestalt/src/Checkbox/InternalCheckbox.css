@@ -62,7 +62,7 @@
 }
 
 .borderPressed {
-  border-color: var(--color-border-checkbox-unchecked-pressed);
+  border-color: var(--sema-color-pressed-border-interactive);
 }
 
 .borderPressedError {
@@ -70,8 +70,9 @@
 }
 
 .focus {
-  border: 1px solid;
   border-color: var(--sema-color-border-focus-inner-default);
+  border-style: solid;
+  border-width: 2px;
   outline: 2px solid var(--sema-color-border-focus-outer-default);
   outline-offset: 0;
   padding: var(--space-0) var(--space-100);

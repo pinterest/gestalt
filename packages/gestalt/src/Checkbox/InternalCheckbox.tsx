@@ -126,46 +126,43 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   const textColor = disabled ? 'subtle' : undefined;
   const vrIconColorEnabled = errorMessage ? 'error' : 'inverse';
   const vrIconColor = disabled ? 'disabled' : vrIconColorEnabled;
+  const unchecked = !(checked || indeterminate);
 
   const bgStyle = classnames({
-    [styles.enabled]: !isInVRExperiment && !disabled && !(checked || indeterminate),
+    [styles.enabled]: !isInVRExperiment && !disabled && unchecked,
     [styles.disabled]: disabled,
-    [styles.checked]: (checked || indeterminate) && !disabled,
-    [styles.error]: isInVRExperiment && errorMessage && !(checked || indeterminate),
-    [styles.errorChecked]: isInVRExperiment && errorMessage && (checked || indeterminate),
+    [styles.checked]: !unchecked && !disabled,
+    [styles.error]: isInVRExperiment && errorMessage && unchecked,
+    [styles.errorChecked]: isInVRExperiment && errorMessage && !unchecked,
     [styles.hovered]:
-      isInVRExperiment && !disabled && isHovered && !errorMessage && (checked || indeterminate),
+      isInVRExperiment && !disabled && isHovered && !isActive && !errorMessage && !unchecked,
     [styles.hoveredError]:
-      !disabled && isHovered && isInVRExperiment && errorMessage && (checked || indeterminate),
-    [styles.pressed]:
-      isInVRExperiment && isActive && !disabled && (checked || indeterminate) && !errorMessage,
-    [styles.pressedError]:
-      isInVRExperiment && isActive && !disabled && (checked || indeterminate) && errorMessage,
+      !disabled && isHovered && !isActive && isInVRExperiment && errorMessage && !unchecked,
+    [styles.pressed]: isInVRExperiment && isActive && !disabled && !unchecked && !errorMessage,
+    [styles.pressedError]: isInVRExperiment && isActive && !disabled && !unchecked && errorMessage,
   });
 
   const borderStyle = classnames({
-    [styles.border]: !disabled && !(checked || indeterminate) && !errorMessage && !isHovered,
+    [styles.border]: !disabled && unchecked && !errorMessage && !isHovered,
     [styles.borderDisabled]: disabled,
-    [styles.borderSelected]: !disabled && (checked || indeterminate),
-    [styles.borderErrorUnchecked]: errorMessage && !checked && !indeterminate,
-    [styles.borderErrorChecked]: errorMessage && (checked || indeterminate) && isInVRExperiment,
+    [styles.borderSelected]: !disabled && !unchecked,
+    [styles.borderErrorUnchecked]: errorMessage && unchecked,
+    [styles.borderErrorChecked]: errorMessage && !unchecked && isInVRExperiment,
     [styles.borderHovered]:
-      !disabled && isHovered && (isInVRExperiment || !errorMessage) && !(checked || indeterminate),
+      !disabled && isHovered && !isActive && unchecked && (isInVRExperiment || !errorMessage),
     [styles.borderHoveredError]:
-      !disabled && isHovered && isInVRExperiment && errorMessage && !(checked || indeterminate),
-    [styles.borderPressed]:
-      isInVRExperiment && isActive && !disabled && !(checked || indeterminate) && !errorMessage,
+      !disabled && isHovered && !isActive && isInVRExperiment && errorMessage && unchecked,
+    [styles.borderPressed]: isInVRExperiment && isActive && !disabled && unchecked && !errorMessage,
     [styles.borderPressedError]:
-      isInVRExperiment && isActive && !disabled && !(checked || indeterminate) && errorMessage,
+      isInVRExperiment && isActive && !disabled && unchecked && errorMessage,
   });
 
   const divStyles = classnames(bgStyle, borderStyle, borderRadiusStyle, styleSize, styles.check, {
     [styles.thickBorder]:
-      !isInVRExperiment ||
-      (errorMessage && !(checked || indeterminate) && !(isHovered || isActive)),
+      !isInVRExperiment || (errorMessage && unchecked && !(isHovered || isActive)),
     [styles.thinBorder]:
-      isInVRExperiment && !(isHovered || isActive) && (!errorMessage || checked || indeterminate),
-    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible,
+      isInVRExperiment && !((isFocused && isFocusVisible) || isHovered || isActive || errorMessage),
+    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
     [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
   });
 
