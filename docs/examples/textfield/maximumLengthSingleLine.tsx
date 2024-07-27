@@ -10,7 +10,7 @@ export default function TextFieldExample() {
 
   return (
     <Box padding={8} width="100%">
-      <Flex direction="column" gap={12}>
+      <Flex direction="column" gap={3}>
         <TextField
           helperText="Enter a title that captures the imagination of Pinners"
           id="maxLengthReached"
@@ -23,6 +23,30 @@ export default function TextFieldExample() {
           value={valueA}
         />
         <TextField
+          helperText="Enter a title that captures the imagination of Pinners"
+          id="maxLengthExceeded"
+          label="Title"
+          maxLength={{ characterCount, errorAccessibilityLabel }}
+          onBlur={() => {}}
+          onChange={({ value }) => setValueB(value)}
+          onFocus={() => {}}
+          placeholder="Enter your pin title"
+          value={valueB}
+        />
+        <TextField
+          disabled
+          helperText="Enter a title that captures the imagination of Pinners"
+          id="maxLengthReached"
+          label="Title"
+          maxLength={{ characterCount, errorAccessibilityLabel }}
+          onBlur={() => {}}
+          onChange={({ value }) => setValueA(value)}
+          onFocus={() => {}}
+          placeholder="Enter your pin title"
+          value={valueA}
+        />
+        <TextField
+          disabled
           helperText="Enter a title that captures the imagination of Pinners"
           id="maxLengthExceeded"
           label="Title"

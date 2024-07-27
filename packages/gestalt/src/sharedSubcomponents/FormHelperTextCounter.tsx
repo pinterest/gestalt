@@ -79,7 +79,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
           <Box width={isInVRExperiment ? 12 : 16} />
         )}
         <Flex justifyContent="end" width={width}>
-          <Text align="end" color={maxLengthReached ? textColor : 'subtle'} size="100">
+          <Text align="end" color={maxLengthReached || disabled ? textColor : 'subtle'} size="100">
             <Box display="visuallyHidden">,</Box>
             {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}
           </Text>
