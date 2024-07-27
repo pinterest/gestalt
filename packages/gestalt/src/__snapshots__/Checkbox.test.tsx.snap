@@ -529,7 +529,8 @@ exports[`Checkbox with error 1`] = `
         className="box paddingX1"
       >
         <div
-          className="box marginTop1"
+          className="sm_startPadding sm_topPadding"
+          id="id-error"
         >
           <div
             className="Text fontSize100 error alignStart breakWord fontWeightNormal"
@@ -548,19 +549,23 @@ exports[`Checkbox with error 1`] = `
                   <div
                     className="FlexItem"
                   >
-                    <svg
-                      aria-hidden={true}
-                      aria-label=""
-                      className="error icon iconBlock"
-                      height={12}
-                      role="img"
-                      viewBox="0 0 24 24"
-                      width={12}
+                    <div
+                      className="box"
                     >
-                      <path
-                        d="test-file-stub"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="error icon iconBlock"
+                        height={12}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={12}
+                      >
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
+                    </div>
                   </div>
                   <div
                     className="FlexItem"
@@ -632,7 +637,7 @@ exports[`Checkbox with helperText 1`] = `
         className="box paddingX1"
       >
         <div
-          className="box marginTop1"
+          className="sm_startPadding sm_topPadding"
           id="id-helperText"
         >
           <div

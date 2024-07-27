@@ -47,11 +47,11 @@ export function Message({
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
   const isError = type === 'error';
-  const textRef = useRef<null | HTMLElement>(null);
+  const textRef = useRef<null | HTMLDivElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
 
   // There’s two attributes for HTML elements which we can use to check if the text is truncated, offsetHeight and scrollHeight. scrollHeight is the total scrollable content height, and offsetHeight is the visible height on the screen. For an overflow view, the scrollHeight is larger than offsetHeight. We can deduce that if the scrollHeight is larger than the offsetHeight, then the element is truncated.
-  const isEllipsisActive = (element: HTMLElement) =>
+  const isEllipsisActive = (element: HTMLDivElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
 
   const checkEllipsisActive = useCallback(() => {
