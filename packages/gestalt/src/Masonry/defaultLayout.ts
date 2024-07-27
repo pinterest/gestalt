@@ -1,9 +1,8 @@
-import { Align, Layout, LoadingStateItem } from 'gestalt/src//Masonry/types';
+import { Align, Layout, LoadingStateItem, Position } from './types';
 import { Cache } from './Cache';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
-import { Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,
