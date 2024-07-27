@@ -17,7 +17,14 @@ type Props = {
   disabled?: boolean;
 };
 
-export default function FormHelperText({ disabled,  id, currentLength, text, maxLength, size }: Props) {
+export default function FormHelperText({
+  disabled,
+  id,
+  currentLength,
+  text,
+  maxLength,
+  size,
+}: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -49,13 +56,17 @@ export default function FormHelperText({ disabled,  id, currentLength, text, max
       <Flex gap={4}>
         <Flex.Item flex="grow">
           {text ? (
-            <Text color={disabled ? 'disabled' : "subtle"} size="100">
+            <Text color={disabled ? 'disabled' : 'subtle'} size="100">
               {text}
             </Text>
           ) : null}
         </Flex.Item>
         {maxLength ? (
-          <FormHelperTextCounter currentLength={currentLength} disabled={disabled} maxLength={maxLength} />
+          <FormHelperTextCounter
+            currentLength={currentLength}
+            disabled={disabled}
+            maxLength={maxLength}
+          />
         ) : null}
       </Flex>
     </div>
