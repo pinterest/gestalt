@@ -2,40 +2,40 @@
   "color": {
     "data-visualization": {
       "01": {
-        "value": "{base.color.dataviz.13.value}"
+        "value": "{sema.color.dataviz.13.value}"
       },
       "02": {
-        "value": "{base.color.dataviz.14.value}"
+        "value": "{sema.color.dataviz.14.value}"
       },
       "03": {
-        "value": "{base.color.dataviz.15.value}"
+        "value": "{sema.color.dataviz.15.value}"
       },
       "04": {
-        "value": "{base.color.dataviz.16.value}"
+        "value": "{sema.color.dataviz.16.value}"
       },
       "05": {
-        "value": "{base.color.dataviz.17.value}"
+        "value": "{sema.color.dataviz.17.value}"
       },
       "06": {
-        "value": "{base.color.dataviz.18.value}"
+        "value": "{sema.color.dataviz.18.value}"
       },
       "07": {
-        "value": "{base.color.dataviz.19.value}"
+        "value": "{sema.color.dataviz.19.value}"
       },
       "08": {
-        "value": "{base.color.dataviz.20.value}"
+        "value": "{sema.color.dataviz.20.value}"
       },
       "09": {
-        "value": "{base.color.dataviz.21.value}"
+        "value": "{sema.color.dataviz.21.value}"
       },
       "10": {
-        "value": "{base.color.dataviz.22.value}"
+        "value": "{sema.color.dataviz.22.value}"
       },
       "11": {
-        "value": "{base.color.dataviz.23.value}"
+        "value": "{sema.color.dataviz.23.value}"
       },
       "12": {
-        "value": "{base.color.dataviz.24.value}"
+        "value": "{sema.color.dataviz.24.value}"
       }
     }
   }
