@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import styles, { noStartPadding } from './FormHelperText.css';
+import styles from './FormHelperText.css';
 import FormHelperTextCounter from './FormHelperTextCounter';
 import Flex from '../Flex';
 import Text from '../Text';
