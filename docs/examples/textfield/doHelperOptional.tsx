@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { Box, TextField } from 'gestalt';
 
 export default function Example() {
-  const [password, setPassword] = useState<string>('');
+  const [password, setPassword] = useState('');
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box padding={8} width="100%">
       <TextField
-        id="enter-password"
-        label="Account password"
+        autoComplete="new-password"
+        helperText="Password should be at least 20 characters long"
+        id="variants-helper-text"
+        label="Password"
         onChange={({ value }) => setPassword(value)}
-        placeholder="Password"
         type="password"
         value={password}
       />

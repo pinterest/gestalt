@@ -170,7 +170,8 @@ exports[`RadioGroup renders an error 1`] = `
     </div>
   </div>
   <div
-    className="box marginTop2"
+    className=""
+    id="testingErrorEx-error"
   >
     <div
       className="Text fontSize100 error alignStart breakWord fontWeightNormal"
@@ -189,19 +190,23 @@ exports[`RadioGroup renders an error 1`] = `
             <div
               className="FlexItem"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="error icon iconBlock"
-                height={16}
-                role="img"
-                viewBox="0 0 24 24"
-                width={16}
+              <div
+                className="box"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="error icon iconBlock"
+                  height={16}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={16}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               className="FlexItem"

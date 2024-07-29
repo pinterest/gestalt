@@ -1,3 +1,15 @@
+## 156.5.0 (Jul 27, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8286] ([#3700](https://github.com/pinterest/gestalt/pull/3700)) - [Preview link](https://deploy-preview-3700--gestalt.netlify.app?devexample=true)
+
+## 156.4.0 (Jul 27, 2024)
+
+### Minor
+
+- TextField: enabling VR design ([#3697](https://github.com/pinterest/gestalt/pull/3697)) - [Preview link](https://deploy-preview-3697--gestalt.netlify.app?devexample=true)
+
 ## 156.3.1 (Jul 26, 2024)
 
 ### Patch

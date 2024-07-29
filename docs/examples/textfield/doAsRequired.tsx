@@ -9,11 +9,10 @@ export default function Example() {
   });
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <Flex direction="column" gap={{ column: 3, row: 0 }}>
+    <Box height="100%" padding={8} width="100%">
+      <Flex direction="column" gap={3} width="100%">
         <TextField
-          helperText="* This field is required."
-          id="best-practices-dont-required-firstName"
+          id="best-practices-do-required-firstName"
           label="First name"
           onChange={({ value }) => {
             setName((nameFields) => ({ ...nameFields, first: value }));
@@ -22,8 +21,8 @@ export default function Example() {
           value={name.first}
         />
         <TextField
-          id="best-practices-dont-required-middleName"
-          label="Middle name"
+          id="best-practices-do-required-middleName"
+          label="Middle name (optional)"
           onChange={({ value }) => {
             setName((nameFields) => ({ ...nameFields, middle: value }));
           }}
@@ -31,8 +30,7 @@ export default function Example() {
           value={name.middle}
         />
         <TextField
-          helperText="* This field is required."
-          id="best-practices-dont-required-lastName"
+          id="best-practices-do-required-lastName"
           label="Last name"
           onChange={({ value }) => {
             setName((nameFields) => ({ ...nameFields, last: value }));

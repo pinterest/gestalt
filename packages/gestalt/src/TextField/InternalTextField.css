@@ -90,10 +90,31 @@ html[dir="rtl"] .actionButton {
   top: var(--space-0);
 }
 
-html:not([dir="rtl"]) .actionButtonContainer {
+.vr_sm_actionButtonContainer {
+  bottom: var(--sema-space-gap-vertical-sm);
+  position: absolute;
+}
+
+.vr_md_actionButtonContainer {
+  bottom: var(--sema-space-gap-vertical-lg);
+  position: absolute;
+}
+
+.vr_lg_actionButtonContainer {
+  bottom: var(--sema-space-gap-vertical-xl);
+  position: absolute;
+}
+
+html:not([dir="rtl"]) .actionButtonContainer,
+html:not([dir="rtl"]) .vr_sm_actionButtonContainer,
+html:not([dir="rtl"]) .vr_md_actionButtonContainer,
+html:not([dir="rtl"]) .vr_lg_actionButtonContainer {
   right: var(--space-0);
 }
 
-html[dir="rtl"] .actionButtonContainer {
+html[dir="rtl"] .actionButtonContainer,
+html[dir="rtl"] .vr_sm_actionButtonContainer,
+html[dir="rtl"] .vr_md_actionButtonContainer,
+html[dir="rtl"] .vr_lg_actionButtonContainer {
   left: var(--space-0);
 }

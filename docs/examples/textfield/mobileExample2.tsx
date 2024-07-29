@@ -2,8 +2,8 @@ import { Box, Flex, Image, TextField } from 'gestalt';
 
 export default function Example() {
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <Flex gap={2}>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={2}>
         <TextField
           id="decimal"
           label="Decimal virtual keyboard"
