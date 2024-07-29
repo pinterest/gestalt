@@ -106,6 +106,14 @@
   composes: rounding2 from "../Borders.css";
 }
 
+.vrBorderRadiusSm {
+  border-radius: var(--sema-rounding-xs);
+}
+
+.vrBorderRadiusMd {
+  border-radius: var(--sema-rounding-sm);
+}
+
 .check {
   composes: block from "../Layout.css";
   composes: borderBox from "../Layout.css";

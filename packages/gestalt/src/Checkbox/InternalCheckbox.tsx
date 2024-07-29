@@ -121,6 +121,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   };
 
   const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
+  const borderRadiusStyleVr = size === 'sm' ? styles.vrBorderRadiusSm : styles.vrBorderRadiusMd;
   const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
   const vrTextColor = disabled ? 'disabled' : undefined;
   const textColor = disabled ? 'subtle' : undefined;
@@ -157,14 +158,22 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
       isInVRExperiment && isActive && !disabled && unchecked && errorMessage,
   });
 
-  const divStyles = classnames(bgStyle, borderStyle, borderRadiusStyle, styleSize, styles.check, {
-    [styles.thickBorder]:
-      !isInVRExperiment || (errorMessage && unchecked && !(isHovered || isActive)),
-    [styles.thinBorder]:
-      isInVRExperiment && !((isFocused && isFocusVisible) || isHovered || isActive || errorMessage),
-    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
-    [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
-  });
+  const divStyles = classnames(
+    bgStyle,
+    borderStyle,
+    isInVRExperiment ? borderRadiusStyleVr : borderRadiusStyle,
+    styleSize,
+    styles.check,
+    {
+      [styles.thickBorder]:
+        !isInVRExperiment || (errorMessage && unchecked && !(isHovered || isActive)),
+      [styles.thinBorder]:
+        isInVRExperiment &&
+        !((isFocused && isFocusVisible) || isHovered || isActive || errorMessage),
+      [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
+      [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
+    },
+  );
 
   const inputStyles = classnames(styles.input, styleSize, {
     [styles.inputEnabled]: !disabled,
