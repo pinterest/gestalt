@@ -166,7 +166,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     styles.check,
     {
       [styles.thickBorder]:
-        !isInVRExperiment || (errorMessage && unchecked && !(isHovered || isActive)),
+        !isInVRExperiment || (errorMessage && unchecked) || isHovered || isActive,
       [styles.thinBorder]:
         isInVRExperiment &&
         !((isFocused && isFocusVisible) || isHovered || isActive || errorMessage),
