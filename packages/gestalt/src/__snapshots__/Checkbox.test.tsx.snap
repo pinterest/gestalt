@@ -545,7 +545,7 @@ exports[`Checkbox with error 1`] = `
         className="box paddingX1"
       >
         <div
-          className="noStartPadding"
+          className="noStartPadding sm_topPadding"
           id="id-error"
         >
           <div
@@ -655,7 +655,7 @@ exports[`Checkbox with helperText 1`] = `
         className="box paddingX1"
       >
         <div
-          className="noStartPadding"
+          className="noStartPadding sm_topPadding"
           id="id-helperText"
         >
           <div
