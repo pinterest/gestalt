@@ -25,7 +25,7 @@ export default function FormHelperText({
   text,
   maxLength,
   size,
-  noPadding,
+  noPadding: noStartPadding,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -38,22 +38,22 @@ export default function FormHelperText({
     <div
       className={classnames({
         // none
-        [styles.noStartPadding]: !isInVRExperiment && noPadding,
+        [styles.noStartPadding]: !isInVRExperiment && noStartPadding,
         // sm
-        [styles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noPadding,
-        [styles.sm_topPadding]: !isInVRExperiment && size === 'sm' && !noPadding,
-        [styles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noPadding,
-        [styles.vr_sm_topPadding]: isInVRExperiment && size === 'sm' && !noPadding,
+        [styles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noStartPadding,
+        [styles.sm_topPadding]: !isInVRExperiment && size === 'sm',
+        [styles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noStartPadding,
+        [styles.vr_sm_topPadding]: isInVRExperiment && size === 'sm',
         // md
-        [styles.md_startPadding]: !isInVRExperiment && size === 'md' && !noPadding,
-        [styles.md_topPadding]: !isInVRExperiment && size === 'md' && !noPadding,
-        [styles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noPadding,
-        [styles.vr_md_topPadding]: isInVRExperiment && size === 'md' && !noPadding,
+        [styles.md_startPadding]: !isInVRExperiment && size === 'md' && !noStartPadding,
+        [styles.md_topPadding]: !isInVRExperiment && size === 'md',
+        [styles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noStartPadding,
+        [styles.vr_md_topPadding]: isInVRExperiment && size === 'md',
         // lg
-        [styles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noPadding,
-        [styles.lg_topPadding]: !isInVRExperiment && size === 'lg' && !noPadding,
-        [styles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noPadding,
-        [styles.vr_lg_topPadding]: isInVRExperiment && size === 'lg' && !noPadding,
+        [styles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noStartPadding,
+        [styles.lg_topPadding]: !isInVRExperiment && size === 'lg',
+        [styles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noStartPadding,
+        [styles.vr_lg_topPadding]: isInVRExperiment && size === 'lg',
       })}
       id={id}
     >
