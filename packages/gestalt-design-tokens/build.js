@@ -341,14 +341,14 @@ function getSources({ theme, modeTheme, platform, language }) {
 
   return [
     'tokens/vr-theme/base/color/default.json',
-    `tokens/vr-theme/base/elevation/${modeTheme}.json`,
-    'tokens/vr-theme/base/font.json',
+    'tokens/vr-theme/base/text/font.json',
     'tokens/vr-theme/base/opacity.json',
     'tokens/vr-theme/base/rounding.json',
     'tokens/vr-theme/base/space.json',
     'tokens/vr-theme/base/lineheight.json',
     'tokens/vr-theme/base/motion.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
+    `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
     ...(platform === 'web'
       ? [
           'tokens/vr-theme/base/color/pressed.json',
@@ -358,7 +358,6 @@ function getSources({ theme, modeTheme, platform, language }) {
         ]
       : []),
     'tokens/vr-theme/sema/elevation.json',
-    'tokens/vr-theme/sema/font.json',
     'tokens/vr-theme/sema/opacity.json',
     'tokens/vr-theme/sema/rounding.json',
     'tokens/vr-theme/sema/space.json',
