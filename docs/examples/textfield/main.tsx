@@ -10,7 +10,7 @@ export default function Example() {
         <TextField
           autoComplete="username"
           id="header-example"
-          label="Username"
+          label="Username This simple description uses the Text component This simple description uses the Text component"
           onChange={({ value }) => {
             setInput(value);
           }}

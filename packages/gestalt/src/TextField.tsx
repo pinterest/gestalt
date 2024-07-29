@@ -1,7 +1,9 @@
 import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
-import InternalTextFieldIconButton from './TextField/InternalTextFieldIconButton';
+import PasswordIconButton from './TextField/PasswordIconButton';
+import VRInternalTextField from './TextField/VRInternalTextField';
+import useInExperiment from './useInExperiment';
 
 export type MaxLength = {
   characterCount: number;
@@ -150,6 +152,11 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
    */
   const [type, setType] = useState<Type>(typeProp);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   useEffect(() => {
     setType(typeProp);
   }, [typeProp]);
@@ -161,7 +168,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     useDefaultLabelContext('TextField');
 
   const iconButton = isPasswordField ? (
-    <InternalTextFieldIconButton
+    <PasswordIconButton
       accessibilityChecked={!isCurrentlyPasswordType}
       accessibilityLabel={
         isCurrentlyPasswordType
@@ -172,6 +179,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
       onClick={() => {
         setType(isCurrentlyPasswordType ? 'text' : 'password');
       }}
+      paddingSize={size}
       role="switch"
       tooltipText={
         isCurrentlyPasswordType
@@ -181,7 +189,35 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     />
   ) : undefined;
 
-  return (
+  return isInVRExperiment ? (
+    <VRInternalTextField
+      ref={ref}
+      autoComplete={autoComplete}
+      dataTestId={dataTestId}
+      disabled={disabled}
+      errorMessage={errorMessage}
+      hasError={hasError}
+      helperText={helperText}
+      iconButton={iconButton}
+      id={id}
+      label={label}
+      labelDisplay={labelDisplay}
+      maxLength={maxLength}
+      mobileEnterKeyHint={mobileEnterKeyHint}
+      mobileInputMode={mobileInputMode}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      size={size}
+      tags={tags}
+      type={type}
+      value={value}
+    />
+  ) : (
     <InternalTextField
       ref={ref}
       autoComplete={autoComplete}
