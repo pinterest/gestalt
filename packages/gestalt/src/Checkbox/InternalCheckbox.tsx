@@ -229,10 +229,10 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             </Label>
             <Box paddingX={1}>
               {helperText ? (
-                <FormHelperText id={`${id}-helperText`} size={size} text={helperText} />
+                <FormHelperText id={`${id}-helperText`} noPadding size={size} text={helperText} />
               ) : null}
               {errorMessage ? (
-                <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+                <FormErrorMessage id={`${id}-error`} noPadding size={size} text={errorMessage} />
               ) : null}
             </Box>
           </Box>

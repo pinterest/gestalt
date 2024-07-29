@@ -14,12 +14,13 @@ type Props = {
   id: string;
   text?: ReactNode;
   size?: SizeType;
+  noPadding?: boolean;
 };
 
 const icon = 'workflow-status-problem';
 const color = 'error';
 
-export default function FormErrorMessage({ id, size, text = '' }: Props) {
+export default function FormErrorMessage({ id, size, text = '', noPadding }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -28,21 +29,23 @@ export default function FormErrorMessage({ id, size, text = '' }: Props) {
   return (
     <div
       className={classnames({
+        // none
+        [helperTextStyles.noStartPadding]: noPadding,
         // sm
-        [helperTextStyles.sm_startPadding]: !isInVRExperiment && size === 'sm',
-        [helperTextStyles.sm_topPadding]: !isInVRExperiment && size === 'sm',
-        [helperTextStyles.vr_sm_startPadding]: isInVRExperiment && size === 'sm',
-        [helperTextStyles.vr_sm_topPadding]: isInVRExperiment && size === 'sm',
+        [helperTextStyles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noPadding,
+        [helperTextStyles.sm_topPadding]: !isInVRExperiment && size === 'sm' && !noPadding,
+        [helperTextStyles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noPadding,
+        [helperTextStyles.vr_sm_topPadding]: isInVRExperiment && size === 'sm' && !noPadding,
         // md
-        [helperTextStyles.md_startPadding]: !isInVRExperiment && size === 'md',
-        [helperTextStyles.md_topPadding]: !isInVRExperiment && size === 'md',
-        [helperTextStyles.vr_md_startPadding]: isInVRExperiment && size === 'md',
-        [helperTextStyles.vr_md_topPadding]: isInVRExperiment && size === 'md',
+        [helperTextStyles.md_startPadding]: !isInVRExperiment && size === 'md' && !noPadding,
+        [helperTextStyles.md_topPadding]: !isInVRExperiment && size === 'md' && !noPadding,
+        [helperTextStyles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noPadding,
+        [helperTextStyles.vr_md_topPadding]: isInVRExperiment && size === 'md' && !noPadding,
         // lg
-        [helperTextStyles.lg_startPadding]: !isInVRExperiment && size === 'lg',
-        [helperTextStyles.lg_topPadding]: !isInVRExperiment && size === 'lg',
-        [helperTextStyles.vr_lg_startPadding]: isInVRExperiment && size === 'lg',
-        [helperTextStyles.vr_lg_topPadding]: isInVRExperiment && size === 'lg',
+        [helperTextStyles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noPadding,
+        [helperTextStyles.lg_topPadding]: !isInVRExperiment && size === 'lg' && !noPadding,
+        [helperTextStyles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noPadding,
+        [helperTextStyles.vr_lg_topPadding]: isInVRExperiment && size === 'lg' && !noPadding,
       })}
       id={id}
     >
