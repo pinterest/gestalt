@@ -1,3 +1,9 @@
+## 156.5.2 (Jul 30, 2024)
+
+### Patch
+
+- Internal: fixes ([#3705](https://github.com/pinterest/gestalt/pull/3705)) - [Preview link](https://deploy-preview-3705--gestalt.netlify.app?devexample=true)
+
 ## 156.5.1 (Jul 30, 2024)
 
 ### Patch
