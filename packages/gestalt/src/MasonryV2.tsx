@@ -333,6 +333,7 @@ function useLayout<T>({
   minCols,
   positionStore,
   width,
+  heightUpdateTrigger,
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
@@ -347,6 +348,7 @@ function useLayout<T>({
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
+  heightUpdateTrigger: number;
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
@@ -417,7 +419,7 @@ function useLayout<T>({
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
     // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemMeasurementsCount, items, canPerformLayout]);
+  }, [itemMeasurementsCount, items, canPerformLayout, heightUpdateTrigger]);
 
   const forceUpdate = useForceUpdate();
   const rafId = useRef<number | null>(null);
@@ -570,13 +572,9 @@ function MasonryItem<T>({
       // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
       style={style}
     >
-      {resizeObserver ? (
-        <ItemResizeObserverWrapper idx={idx} resizeObserver={resizeObserver}>
-          {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
-        </ItemResizeObserverWrapper>
-      ) : (
-        renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })
-      )}
+      <ItemResizeObserverWrapper idx={idx} resizeObserver={resizeObserver}>
+        {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+      </ItemResizeObserverWrapper>
     </div>
   );
 }
@@ -679,21 +677,7 @@ function Masonry<T>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
-  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
-    align,
-    columnWidth,
-    gutter,
-    items,
-    layout,
-    measurementStore,
-    minCols,
-    positionStore,
-    width,
-    _logTwoColWhitespace,
-    _measureAll,
-    _useRAF,
-    _getColumnSpanConfig,
-  });
+  const [heightUpdateTrigger, setHeightUpdateTrigger] = useState(0);
 
   const resizeObserver = useMemo(
     () =>
@@ -705,35 +689,44 @@ function Masonry<T>(
               const idx = Number(target.getAttribute('data-grid-item-idx'));
 
               if (typeof idx === 'number') {
-                const item: T = items[idx];
-                const changedItemPosition = positionStore.get(item);
-                const newHeight = contentRect.height;
+                const changedItem: T = items[idx];
 
-                if (
-                  changedItemPosition &&
-                  newHeight > 0 &&
-                  Math.floor(changedItemPosition.height) !== Math.floor(newHeight)
-                ) {
+                triggerUpdate =
                   recalcHeights({
                     items,
-                    changedItem: item,
-                    changedItemPosition,
+                    changedItem,
                     newHeight: contentRect.height,
                     positionStore,
                     measurementStore,
                     getColumnSpanConfig: _getColumnSpanConfig,
-                  });
-                  triggerUpdate = true;
-                }
+                  }) || triggerUpdate;
               }
             }
             if (triggerUpdate) {
+              setHeightUpdateTrigger((prev) => prev + 1);
               forceUpdate();
             }
           })
         : undefined,
     [_getColumnSpanConfig, _dynamicHeights, forceUpdate, items, measurementStore, positionStore],
   );
+
+  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
+    align,
+    columnWidth,
+    gutter,
+    items,
+    layout,
+    measurementStore,
+    minCols,
+    positionStore,
+    width,
+    heightUpdateTrigger,
+    _logTwoColWhitespace,
+    _measureAll,
+    _useRAF,
+    _getColumnSpanConfig,
+  });
 
   useFetchOnScroll({
     containerHeight,

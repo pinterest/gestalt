@@ -5,92 +5,64 @@ import { Cache } from './Cache';
 import { ColumnSpanConfig } from './multiColumnLayout';
 import { Position } from './types';
 
-function shouldExtendArea(area: { top: number; left: number; right: number }, position: Position) {
-  return position.left < area.left || position.left + position.width > area.right;
-}
-
-function isBelowArea(area: { top: number; left: number; right: number }, position: Position) {
-  return (
-    position.left < area.right &&
-    position.left + position.width > area.left &&
-    position.top > area.top
-  );
+function isBelowArea(area: { left: number; right: number }, position: Position) {
+  return position.left < area.right && position.left + position.width > area.left;
 }
 
 function recalcHeights<T>({
   items,
   changedItem,
-  changedItemPosition,
   newHeight,
   positionStore,
   measurementStore,
-  getColumnSpanConfig,
 }: {
   items: ReadonlyArray<T>;
   changedItem: T;
-  changedItemPosition: Position;
   newHeight: number;
   positionStore: Cache<T, Position>;
   measurementStore: Cache<T, number>;
   getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-}) {
-  measurementStore.set(changedItem, newHeight);
+}): boolean {
+  const changedItemPosition = positionStore.get(changedItem);
+
+  if (
+    !changedItemPosition ||
+    newHeight === 0 ||
+    Math.floor(changedItemPosition.height) === Math.floor(newHeight)
+  ) {
+    return false;
+  }
 
   const { top, left, width, height } = changedItemPosition;
-
-  const itemsWithPositions = items.filter((item) => {
-    const position = positionStore.get(item);
-    return position && position.top > changedItemPosition.top;
-  });
-  const multiColumnItemsPositions = getColumnSpanConfig
-    ? itemsWithPositions
-        .filter((item) => getColumnSpanConfig(item) !== 1)
-        .map((item) => {
-          const position = positionStore.get(item);
-          return position ? { item, position } : undefined;
-        })
-        .filter((itemPosition) => !!itemPosition)
-        .sort((a, b) => a.position.top - b.position.top)
-    : [];
-
-  const areas = multiColumnItemsPositions.reduce(
-    (acc, itemPosition) => {
-      const { position } = itemPosition;
-      const lastArea = acc[acc.length - 1];
-
-      for (let i = 0; i < acc.length; i += 1) {
-        if (position && isBelowArea(acc[i], position) && shouldExtendArea(acc[i], position)) {
-          return lastArea.top === position.top
-            ? [
-                ...acc.slice(-1),
-                {
-                  top: position.top,
-                  left: Math.min(lastArea.left, position.left),
-                  right: Math.max(lastArea.right, position.left + position.width),
-                },
-              ]
-            : [
-                ...acc,
-                { top: position.top, left: position.left, right: position.left + position.width },
-              ];
-        }
-      }
-
-      return acc;
-    },
-    [{ top, left, right: left + width }],
-  );
-
-  positionStore.set(changedItem, { top, left, width, height: newHeight });
   const heightDelta = newHeight - height;
 
-  itemsWithPositions.forEach((item) => {
-    const position = positionStore.get(item);
+  items
+    .map((item) => {
+      const position = positionStore.get(item);
+      return position && position.top >= changedItemPosition.top + changedItemPosition.height
+        ? { item, position }
+        : undefined;
+    })
+    .filter((itemPosition) => !!itemPosition)
+    .sort((a, b) => a.position.top - b.position.top)
+    .reduce(
+      (area, { item, position }) => {
+        if (isBelowArea(area, position)) {
+          positionStore.set(item, { ...position, top: position.top + heightDelta });
+          return {
+            left: Math.min(area.left, position.left),
+            right: Math.max(area.right, position.left + position.width),
+          };
+        }
+        return area;
+      },
+      { left, right: left + width } as { left: number; right: number },
+    );
 
-    if (position && areas.some((area) => isBelowArea(area, position))) {
-      positionStore.set(item, { ...position, top: position.top + heightDelta });
-    }
-  });
+  measurementStore.set(changedItem, newHeight);
+  positionStore.set(changedItem, { top, left, width, height: newHeight });
+
+  return true;
 }
 
 export default recalcHeights;

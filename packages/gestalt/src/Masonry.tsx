@@ -215,27 +215,19 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
               const idx = Number(target.getAttribute('data-grid-item-idx'));
 
               if (typeof idx === 'number') {
-                const item: T = this.state.items[idx];
-                const changedItemPosition = this.positionStore.get(item);
+                const changedItem: T = this.state.items[idx];
                 const newHeight = contentRect.height;
 
-                if (
-                  changedItemPosition &&
-                  newHeight > 0 &&
-                  Math.floor(changedItemPosition.height) !== Math.floor(newHeight)
-                ) {
+                triggerUpdate =
                   recalcHeights({
                     items: this.state.items,
-                    changedItem: item,
-                    changedItemPosition,
+                    changedItem,
                     newHeight,
                     positionStore: this.positionStore,
                     measurementStore: this.state.measurementStore,
                     /* eslint-disable-next-line no-underscore-dangle */
                     getColumnSpanConfig: this.props._getColumnSpanConfig,
-                  });
-                  triggerUpdate = true;
-                }
+                  }) || triggerUpdate;
               }
             }
             if (triggerUpdate) {
@@ -535,13 +527,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {this.resizeObserver ? (
-          <ItemResizeObserverWrapper idx={idx} resizeObserver={this.resizeObserver}>
-            {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
-          </ItemResizeObserverWrapper>
-        ) : (
-          renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })
-        )}
+        <ItemResizeObserverWrapper idx={idx} resizeObserver={this.resizeObserver}>
+          {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        </ItemResizeObserverWrapper>
       </div>
     );
 

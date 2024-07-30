@@ -1,17 +1,18 @@
-import { ReactNode, useLayoutEffect, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
+import useIsomorphicLayoutEffect from '../useIsomorphicLayoutEffect';
 
 function ItemResizeObserverWrapper({
   resizeObserver,
   idx,
   children,
 }: {
-  resizeObserver: any;
+  resizeObserver: ResizeObserver | undefined;
   idx: number;
   children: ReactNode;
 }) {
   const ref = useRef(null);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = ref.current;
     if (resizeObserver && el) {
       resizeObserver.observe(el);
