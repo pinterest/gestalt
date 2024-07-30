@@ -74,50 +74,6 @@
   z-index: 1;
 }
 
-/* sm */
-
-.sm_input {
-  font-size: var(--sema-font-size-ui-sm);
-  min-height: 28px;
-  padding-bottom: var(--sema-space-gap-vertical-sm);
-}
-
-.sm_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-gap-vertical-sm) + (var(--sema-font-size-ui-sm) * 1.1)
-  );
-}
-
-.sm_noLabel {
-  padding-top: var(--sema-space-gap-vertical-sm);
-}
-
-html[dir="rtl"] .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-sm);
-  padding-right: var(--sema-space-padding-horizontal-lg);
-}
-
-html:not([dir="rtl"]) .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-lg);
-  padding-right: var(--sema-space-padding-horizontal-sm);
-}
-
-html[dir="rtl"] .sm_label {
-  left: calc(var(--sema-space-padding-horizontal-lg));
-  right: calc(var(--sema-space-padding-horizontal-lg) + 1px);
-}
-
-html:not([dir="rtl"]) .sm_label {
-  left: calc(var(--sema-space-padding-horizontal-lg) + 1px);
-  right: calc(var(--sema-space-padding-horizontal-lg));
-}
-
-.sm_labelPos {
-  top: var(--sema-space-gap-vertical-sm);
-}
-
-/* md */
-
 .md_input {
   font-size: var(--sema-font-size-ui-md);
   min-height: 36px;
@@ -159,44 +115,3 @@ html:not([dir="rtl"]) .md_label {
   top: var(--sema-space-gap-vertical-lg);
 }
 
-/* lg */
-
-.lg_input {
-  font-size: var(--sema-font-size-ui-md);
-  min-height: 48px;
-  padding-bottom: var(--sema-space-gap-vertical-xl);
-}
-
-.lg_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-gap-vertical-xxl) + (var(--sema-font-size-ui-md) * 1.1)
-  );
-}
-
-.lg_noLabel {
-  padding-top: var(--sema-space-gap-vertical-xl);
-}
-
-html[dir="rtl"] .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xl);
-  padding-right: var(--sema-space-padding-horizontal-xxl);
-}
-
-html:not([dir="rtl"]) .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xxl);
-  padding-right: var(--sema-space-padding-horizontal-xl);
-}
-
-html[dir="rtl"] .lg_label {
-  left: calc(var(--sema-space-padding-horizontal-xxl));
-  right: calc(var(--sema-space-padding-horizontal-xxl) + 1px);
-}
-
-html:not([dir="rtl"]) .lg_label {
-  left: calc(var(--sema-space-padding-horizontal-xxl) + 1px);
-  right: calc(var(--sema-space-padding-horizontal-xxl));
-}
-
-.lg_labelPos {
-  top: var(--sema-space-gap-vertical-xl);
-}
