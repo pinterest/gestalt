@@ -14,7 +14,7 @@
 }
 
 .enabled {
-  background-color: var(--color-background-checkbox-unchecked);
+  background-color: var(--color-background-checkbox-unchecked-default);
 }
 
 .disabled {
@@ -22,27 +22,79 @@
 }
 
 .checked {
-  background-color: var(--color-background-checkbox-checked);
+  background-color: var(--color-background-checkbox-checked-default);
+}
+
+.errorChecked {
+  background-color: var(--color-background-checkbox-checked-error);
+}
+
+.error {
+  background-color: var(--color-background-checkbox-unchecked-error);
 }
 
 .border {
-  border-color: var(--color-border-checkbox-unchecked);
+  border-color: var(--color-border-checkbox-unchecked-default);
 }
 
 .borderSelected {
-  border-color: var(--color-border-checkbox-checked);
+  border-color: var(--color-border-checkbox-checked-default);
 }
 
 .borderDisabled {
   border-color: var(--color-border-checkbox-disabled);
 }
 
-.borderError {
-  border-color: var(--color-border-checkbox-error);
+.borderErrorChecked {
+  border-color: var(--color-border-checkbox-checked-error);
+}
+
+.borderErrorUnchecked {
+  border-color: var(--color-border-checkbox-unchecked-error);
 }
 
 .borderHovered {
-  border-color: var(--color-border-checkbox-hover);
+  border-color: var(--color-border-checkbox-unchecked-hover);
+}
+
+.borderHoveredError {
+  border-color: var(--sema-color-hover-border-error);
+}
+
+.borderPressed {
+  border-color: var(--sema-color-pressed-border-interactive);
+}
+
+.borderPressedError {
+  border-color: var(--sema-color-pressed-border-error);
+}
+
+.hovered {
+  background-color: var(--sema-color-hover-background-selected);
+  border-color: var(--sema-color-hover-background-selected);
+}
+
+.focus {
+  border-color: var(--sema-color-border-focus-inner-default);
+  border-style: solid;
+  border-width: 2px;
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+}
+
+.hoveredError {
+  background-color: var(--sema-color-hover-background-error-weak);
+  border-color: var(--sema-color-hover-background-error-weak);
+}
+
+.pressed {
+  background-color: var(--sema-color-pressed-background-selected);
+  border-color: var(--sema-color-pressed-background-selected);
+}
+
+.pressedError {
+  background-color: var(--sema-color-pressed-background-error-weak);
+  border-color: var(--sema-color-pressed-background-error-weak);
 }
 
 .borderRadiusSm {
@@ -53,14 +105,34 @@
   composes: rounding2 from "../Borders.css";
 }
 
+.vrBorderRadiusSm {
+  border-radius: var(--sema-rounding-xs);
+}
+
+.vrBorderRadiusMd {
+  border-radius: var(--sema-rounding-sm);
+}
+
 .check {
   composes: block from "../Layout.css";
   composes: borderBox from "../Layout.css";
   composes: flex from "../Layout.css";
   composes: xsItemsCenter from "../Layout.css";
   composes: justifyCenter from "../Layout.css";
-  composes: sizeLg from "../Borders.css";
   composes: solid from "../Borders.css";
+}
+
+.sizeLg {
+  height: var(--space-600);
+  width: var(--space-600);
+}
+
+.thinBorder {
+  composes: sizeSm from "../Borders.css";
+}
+
+.thickBorder {
+  composes: sizeLg from "../Borders.css";
 }
 
 .inputEnabled {

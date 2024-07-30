@@ -12,6 +12,7 @@ type Props = {
   id?: string;
   text: string | null | undefined;
   maxLength?: MaxLength | null | undefined;
+  noPadding?: boolean;
   currentLength?: number;
   size?: SizeType;
   disabled?: boolean;
@@ -24,6 +25,7 @@ export default function FormHelperText({
   text,
   maxLength,
   size,
+  noPadding: noStartPadding,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -35,20 +37,22 @@ export default function FormHelperText({
 
     <div
       className={classnames({
+        // none
+        [styles.noStartPadding]: !isInVRExperiment && noStartPadding,
         // sm
-        [styles.sm_startPadding]: !isInVRExperiment && size === 'sm',
+        [styles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noStartPadding,
         [styles.sm_topPadding]: !isInVRExperiment && size === 'sm',
-        [styles.vr_sm_startPadding]: isInVRExperiment && size === 'sm',
+        [styles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noStartPadding,
         [styles.vr_sm_topPadding]: isInVRExperiment && size === 'sm',
         // md
-        [styles.md_startPadding]: !isInVRExperiment && size === 'md',
+        [styles.md_startPadding]: !isInVRExperiment && size === 'md' && !noStartPadding,
         [styles.md_topPadding]: !isInVRExperiment && size === 'md',
-        [styles.vr_md_startPadding]: isInVRExperiment && size === 'md',
+        [styles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noStartPadding,
         [styles.vr_md_topPadding]: isInVRExperiment && size === 'md',
         // lg
-        [styles.lg_startPadding]: !isInVRExperiment && size === 'lg',
+        [styles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noStartPadding,
         [styles.lg_topPadding]: !isInVRExperiment && size === 'lg',
-        [styles.vr_lg_startPadding]: isInVRExperiment && size === 'lg',
+        [styles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noStartPadding,
         [styles.vr_lg_topPadding]: isInVRExperiment && size === 'lg',
       })}
       id={id}
