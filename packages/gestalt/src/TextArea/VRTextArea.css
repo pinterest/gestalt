@@ -4,8 +4,9 @@
   border: none;
   color: inherit;
   display: block;
+  font-size: var(--sema-font-size-UI-MD);
   font-weight: var(--sema-font-weight-body);
-  line-height: 16px;
+  line-height: 1.5;
   outline: 0;
   padding: 0;
   resize: none;
