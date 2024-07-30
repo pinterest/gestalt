@@ -574,5 +574,3 @@ const BoxWithForwardRef = forwardRef<HTMLElement, Props>(function Box(
 BoxWithForwardRef.displayName = 'Box';
 
 export default BoxWithForwardRef;
-
-<BoxWithForwardRef id="foo" />;
