@@ -1,11 +1,4 @@
-import {
-  forwardRef,
-  Fragment,
-  ReactNode,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './VRTextArea.css';
 import boxStyles from '../Box.css';
@@ -14,8 +7,6 @@ import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import { MaxLength } from '../TextField';
 import typographyStyle from '../Typography.css';
 import useInteractiveStates from '../utils/useInteractiveStates';
-
-type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
   // REQUIRED
@@ -38,7 +29,6 @@ type Props = {
   placeholder?: string;
   readOnly?: boolean;
   rows?: number;
-  size?: SizeType;
   value?: string;
 };
 
@@ -62,7 +52,6 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     placeholder,
     readOnly,
     rows = 3,
-    size = 'md',
     value,
   }: Props,
   ref,
@@ -86,10 +75,6 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
 
   const isLabelVisible = labelDisplay === 'visible';
 
-  const isSM = size === 'sm';
-  const isMD = size === 'md';
-  const isLG = size === 'lg';
-
   // ==== STATE ====
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
@@ -109,48 +94,31 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     <Fragment>
       <div onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
         <div
-          className={classnames(styles.inputParent, {
-            [styles.enabled]: !disabled,
-            [styles.enabledBorder]: !disabled && !isFocused && !hasErrorMessage,
-            [styles.enabledBorderHover]: !disabled && !isFocused && !hasErrorMessage && !isHovered,
-            [styles.enabledBorderFocus]: !disabled && isFocused,
-            [styles.errorBorder]: !disabled && !isFocused && hasErrorMessage,
-            [styles.errorBorderHover]: !disabled && !isFocused && hasErrorMessage && isHovered,
-            [styles.disabled]: disabled,
-            [styles.disabledBorder]: disabled,
-            // sm
-            [styles.sm_input]: isSM,
-            [styles.sm_inputHorizontalPadding]: isSM,
-            [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
-            [styles.sm_noLabel]: isSM && (!label || (label && !isLabelVisible)),
-            // md
-            [styles.md_input]: isMD,
-            [styles.md_inputHorizontalPadding]: isMD,
-            [styles.md_visibleLabel]: isMD && label && isLabelVisible,
-            [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
-            // lg
-            [styles.lg_input]: isLG,
-            [styles.lg_inputHorizontalPadding]: isLG,
-            [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
-            [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
-          })}
+          className={classnames(
+            styles.inputParent,
+            styles.md_input,
+            styles.md_inputHorizontalPadding,
+            {
+              [styles.enabled]: !disabled,
+              [styles.enabledBorder]: !disabled && !isFocused && !hasErrorMessage && !isHovered,
+              [styles.enabledBorderHover]: !disabled && !isFocused && !hasErrorMessage && isHovered,
+              [styles.enabledBorderFocus]: !disabled && isFocused,
+              [styles.errorBorder]: !disabled && !isFocused && hasErrorMessage && !isHovered,
+              [styles.errorBorderHover]: !disabled && !isFocused && hasErrorMessage && isHovered,
+              [styles.disabled]: disabled,
+              [styles.disabledBorder]: disabled,
+              // md
+              [styles.md_visibleLabel]: label && isLabelVisible,
+              [styles.md_noLabel]: !label || (label && !isLabelVisible),
+            },
+          )}
         >
           {label && (
             <label
               ref={labelRef}
-              className={classnames(styles.label, typographyStyle.truncate, {
+              className={classnames(styles.label,styles.md_label, styles.md_labelPos,  typographyStyle.truncate, {
                 [styles.enabledText]: !disabled,
                 [styles.disabledText]: disabled,
-                // sm
-                [styles.sm_label]: isSM,
-                [styles.sm_labelPos]: isSM,
-                // md
-                [styles.md_label]: isMD,
-                [styles.md_labelPos]: isMD,
-                // lg
-                [styles.lg_label]: isLG,
-                [styles.lg_labelPos]: isLG,
-
                 [boxStyles.visuallyHidden]: !isLabelVisible,
               })}
               htmlFor={id}
@@ -198,13 +166,13 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
           disabled={disabled}
           id={`${id}-helperText`}
           maxLength={maxLength}
-          size={size}
+          size='md'
           text={helperText}
         />
       ) : null}
 
       {!disabled && hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+        <FormErrorMessage id={`${id}-error`} size='md' text={errorMessage} />
       ) : null}
     </Fragment>
   );
