@@ -1,3 +1,9 @@
+## 156.6.0 (Jul 30, 2024)
+
+### Minor
+
+- Checkbox: VR Implementation ([#3699](https://github.com/pinterest/gestalt/pull/3699)) - [Preview link](https://deploy-preview-3699--gestalt.netlify.app?devexample=true)
+
 ## 156.5.3 (Jul 30, 2024)
 
 ### Patch
