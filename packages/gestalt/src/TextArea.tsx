@@ -7,6 +7,8 @@ import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
 import styles from './TextArea.css';
+import VRTextArea from './TextArea/VRTextArea';
+import useInExperiment from './useInExperiment';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
@@ -132,6 +134,11 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCurrentLength(event.currentTarget.value?.length ?? 0);
     onChange({ event, value: event.currentTarget.value });
@@ -215,7 +222,29 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     maxHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
   } as const;
 
-  return (
+  return isInVRExperiment ? (
+    <VRTextArea
+      ref={ref}
+      dataTestId={dataTestId}
+      disabled={disabled}
+      errorMessage={errorMessage}
+      hasError={hasError}
+      helperText={helperText}
+      id={id}
+      label={label}
+      labelDisplay={labelDisplay}
+      maxLength={maxLength}
+      name={name}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      onKeyDown={onKeyDown}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      rows={rows}
+      value={value}
+    />
+  ) : (
     <span>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size="lg" />}
       {tags ? (
