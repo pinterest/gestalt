@@ -2,7 +2,7 @@ import { Cache } from './Cache';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
-import { Align, Layout, LoadingStateItem , Position } from './types';
+import { Align, Layout, LoadingStateItem, Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,
