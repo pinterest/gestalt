@@ -573,6 +573,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         gutter,
         minCols,
         width,
+        renderLoadingState,
       });
     } else {
       getPositions = defaultLayout({

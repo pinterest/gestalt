@@ -102,3 +102,27 @@ test('multiple rows, unequal heights', () => {
     { top: 134, left: 0, width: 236, height: 100 },
   ]);
 });
+
+describe('loadingStateItems', () => {
+  test("uses the loadingStateItem's height", () => {
+    const loadingStateItems = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+
+    const layout = uniformRowLayout({
+      cache: stubCache(),
+      width: 500,
+      renderLoadingState: true,
+    });
+
+    expect(layout(loadingStateItems)).toEqual([
+      { top: 0, height: 100, left: 0, width: 236 },
+      { top: 0, height: 120, left: 250, width: 236 },
+      { top: 0, height: 80, left: 500, width: 236 },
+      { top: 134, height: 100, left: 0, width: 236 },
+    ]);
+  });
+});
