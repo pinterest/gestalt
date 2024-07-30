@@ -9,8 +9,7 @@ export default function Example() {
       <TextArea
         id="best-practices-do-content-length"
         label="Board description"
-               onChange={({ value }) => setInput(value)}
-
+        onChange={({ value }) => setInput(value)}
         placeholder="What's your board about?"
         value={input}
       />

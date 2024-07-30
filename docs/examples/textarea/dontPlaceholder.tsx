@@ -9,8 +9,7 @@ export default function Example() {
       <TextArea
         id="best-practices-dont-placeholder"
         label="Campaign description"
-                  onChange={({ value }) => setInput(value)}
-
+        onChange={({ value }) => setInput(value)}
         placeholder="Maximum of 500 characters"
         value={input}
       />

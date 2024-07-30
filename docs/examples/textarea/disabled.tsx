@@ -9,7 +9,7 @@ export default function Example() {
         disabled
         id="disabled"
         label="About me"
-          onChange={({ value }) => setInput(value)}
+        onChange={({ value }) => setInput(value)}
         placeholder="Write something about yourself..."
         value={input}
       />

@@ -9,8 +9,7 @@ export default function Example() {
       <TextArea
         id="best-practices-dont-row-height-1"
         label="Send a message"
-                onChange={({ value }) => setInput(value)}
-
+        onChange={({ value }) => setInput(value)}
         rows={1}
         value={input}
       />

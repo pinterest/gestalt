@@ -10,7 +10,7 @@ export default function Example() {
         helperText="Describe your favorite hobbies, foods, or books."
         id="aboutmemore"
         label="About me"
-          onChange={({ value }) => setInput(value)}
+        onChange={({ value }) => setInput(value)}
         placeholder="Write something about yourself..."
         value={input}
       />

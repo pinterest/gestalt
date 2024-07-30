@@ -10,7 +10,7 @@ export default function Example() {
         errorMessage={!input ? "This field can't be blank!" : null}
         id="witherror"
         label="About me"
-          onChange={({ value }) => setInput(value)}
+        onChange={({ value }) => setInput(value)}
         placeholder="Write something about yourself..."
         value={input}
       />

@@ -10,7 +10,7 @@ export default function Example() {
         <Text size="300" weight="bold">
           About me
         </Text>
-        <Flex alignItems='center' gap={2} width="100%">
+        <Flex alignItems="center" gap={2} width="100%">
           <Avatar
             accessibilityLabel="Shanice, Verified account"
             name="Shanice"
