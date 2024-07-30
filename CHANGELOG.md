@@ -1,3 +1,9 @@
+## 156.5.3 (Jul 30, 2024)
+
+### Patch
+
+- Masonry: Revert revert Update logic around updating containerOffset … ([#3707](https://github.com/pinterest/gestalt/pull/3707)) - [Preview link](https://deploy-preview-3707--gestalt.netlify.app?devexample=true)
+
 ## 156.5.2 (Jul 30, 2024)
 
 ### Patch
