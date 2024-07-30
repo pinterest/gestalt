@@ -10,8 +10,7 @@ export default function Example() {
         helperText="This text will be read aloud by screen readers"
         id="best-practices-do-helpertext"
         label="Explain what people can see in this Pin"
-                 onChange={({ value }) => setInput(value)}
-
+        onChange={({ value }) => setInput(value)}
         value={input}
       />
     </Box>

@@ -9,8 +9,7 @@ export default function Example() {
       <TextArea
         id="best-practices-do-label"
         label="Tell everyone what this Pin is about"
-                  onChange={({ value }) => setInput(value)}
-
+        onChange={({ value }) => setInput(value)}
         value={input}
       />
     </Box>

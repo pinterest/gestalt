@@ -58,7 +58,6 @@
   outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
-
 .disabled {
   background-color: var(--sema-color-background-disabled);
   border: 1px solid var(--sema-color-border-disabled);

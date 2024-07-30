@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, TextArea } from 'gestalt';
 
 export default function Example() {
-    const [input, setInput] =  useState(
+  const [input, setInput] = useState(
     'To keep shopping inspirational and actionable, we set high standards for our Merchants. Your website was not approved due to fuzzy, low quality images.',
   );
 
@@ -11,7 +11,7 @@ export default function Example() {
       <TextArea
         id="aboutmereadonly"
         label="Current errors"
-          onChange={({ value }) => setInput(value)}
+        onChange={({ value }) => setInput(value)}
         readOnly
         value={input}
       />

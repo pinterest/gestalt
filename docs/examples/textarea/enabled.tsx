@@ -9,7 +9,7 @@ export default function Example() {
       <TextArea
         id="aboutme"
         label="About me"
-          onChange={({ value }) => setInput(value)}
+        onChange={({ value }) => setInput(value)}
         placeholder="Write something about yourself..."
         value={input}
       />

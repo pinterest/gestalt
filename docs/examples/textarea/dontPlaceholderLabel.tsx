@@ -8,8 +8,7 @@ export default function Example() {
     <Box padding={8} width="100%">
       <TextArea
         id="best-practices-dont-remove-label"
-                  onChange={({ value }) => setInput(value)}
-
+        onChange={({ value }) => setInput(value)}
         placeholder="Tell us your story"
         value={input}
       />

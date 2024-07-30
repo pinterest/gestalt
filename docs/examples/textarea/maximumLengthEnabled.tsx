@@ -15,11 +15,11 @@ export default function TextAreaExample() {
           errorAccessibilityLabel: 'Limit reached. You can only use 200 characters in this field.',
         }}
         onBlur={() => {}}
-          onChange={({ value }) => setInput(value)}
+        onChange={({ value }) => setInput(value)}
         onFocus={() => {}}
         placeholder="Enter the image alt text"
         rows={4}
-          value={input}
+        value={input}
       />
     </Box>
   );
