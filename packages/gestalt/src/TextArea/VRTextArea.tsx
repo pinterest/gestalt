@@ -99,14 +99,16 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
             styles.md_input,
             styles.md_inputHorizontalPadding,
             {
+              [styles.disabled]: disabled,
+              [styles.disabledText]: disabled,
               [styles.enabled]: !disabled,
+              [styles.enabledText]: !disabled,
+              [styles.borderFocus]: !disabled && isFocused && !hasErrorMessage,
+              [styles.errorBorderFocus]: !disabled && isFocused && hasErrorMessage,
               [styles.enabledBorder]: !disabled && !isFocused && !hasErrorMessage && !isHovered,
               [styles.enabledBorderHover]: !disabled && !isFocused && !hasErrorMessage && isHovered,
-              [styles.enabledBorderFocus]: !disabled && isFocused,
-              [styles.errorBorder]: !disabled && !isFocused && hasErrorMessage && !isHovered,
+              [styles.errorBorder]: !disabled && !isFocused && hasErrorMessage,
               [styles.errorBorderHover]: !disabled && !isFocused && hasErrorMessage && isHovered,
-              [styles.disabled]: disabled,
-              [styles.disabledBorder]: disabled,
               // md
               [styles.md_visibleLabel]: label && isLabelVisible,
               [styles.md_noLabel]: !label || (label && !isLabelVisible),
@@ -116,11 +118,15 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
           {label && (
             <label
               ref={labelRef}
-              className={classnames(styles.label,styles.md_label, styles.md_labelPos,  typographyStyle.truncate, {
-                [styles.enabledText]: !disabled,
-                [styles.disabledText]: disabled,
-                [boxStyles.visuallyHidden]: !isLabelVisible,
-              })}
+              className={classnames(
+                styles.label,
+                styles.md_label,
+                styles.md_labelPos,
+                typographyStyle.truncate,
+                {
+                  [boxStyles.visuallyHidden]: !isLabelVisible,
+                },
+              )}
               htmlFor={id}
             >
               {label}
@@ -130,10 +136,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
             ref={innerRef}
             aria-describedby={isFocused ? ariaDescribedby : undefined}
             aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-            className={classnames(styles.input, {
-              [styles.enabledText]: !disabled,
-              [styles.disabledText]: disabled,
-            })}
+            className={classnames(styles.input)}
             data-test-id={dataTestId}
             disabled={disabled}
             id={id}
@@ -166,13 +169,13 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
           disabled={disabled}
           id={`${id}-helperText`}
           maxLength={maxLength}
-          size='md'
+          size="md"
           text={helperText}
         />
       ) : null}
 
       {!disabled && hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size='md' text={errorMessage} />
+        <FormErrorMessage id={`${id}-error`} size="md" text={errorMessage} />
       ) : null}
     </Fragment>
   );
