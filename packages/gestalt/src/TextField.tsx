@@ -1,5 +1,6 @@
 import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import TagArea from './TagArea/TagArea';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
 import PasswordIconButton from './TextField/PasswordIconButton';
 import VRInternalTextField from './TextField/VRInternalTextField';
@@ -119,7 +120,7 @@ type Props = {
  *
  */
 
-const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
+const TextFieldWithForwardRef = forwardRef<HTMLInputElement , Props>(function TextField(
   {
     autoComplete,
     dataTestId,
@@ -189,35 +190,67 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     />
   ) : undefined;
 
-  return isInVRExperiment ? (
-    <VRInternalTextField
-      ref={ref}
-      autoComplete={autoComplete}
-      dataTestId={dataTestId}
-      disabled={disabled}
-      errorMessage={errorMessage}
-      hasError={hasError}
-      helperText={helperText}
-      iconButton={iconButton}
-      id={id}
-      label={label}
-      labelDisplay={labelDisplay}
-      maxLength={maxLength}
-      mobileEnterKeyHint={mobileEnterKeyHint}
-      mobileInputMode={mobileInputMode}
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      size={size}
-      tags={tags}
-      type={type}
-      value={value}
-    />
-  ) : (
+  if (isInVRExperiment && !tags) {
+    return (
+      <VRInternalTextField
+        ref={ref}
+        autoComplete={autoComplete}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        hasError={hasError}
+        helperText={helperText}
+        iconButton={iconButton}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        maxLength={maxLength}
+        mobileEnterKeyHint={mobileEnterKeyHint}
+        mobileInputMode={mobileInputMode}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        size={size}
+        tags={tags}
+        type={type}
+        value={value}
+      />
+    );
+  }
+
+  if (isInVRExperiment && tags)
+    return (
+      <TagArea
+        // @ts-expect-error - TS2322
+        ref={ref}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        hasError={hasError}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        maxLength={maxLength}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        size={size}
+        tags={tags}
+        value={value}
+      />
+
+    );
+
+  return (
     <InternalTextField
       ref={ref}
       autoComplete={autoComplete}
