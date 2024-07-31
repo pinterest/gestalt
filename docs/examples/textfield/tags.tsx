@@ -64,12 +64,13 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <Flex direction="column" gap={2}>
+      <Flex direction="column" gap={4}>
         <TextField
           // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={ref}
           autoComplete="off"
-          id="variants-tags"
+          helperText="Select your target locations"
+          id="variants-tag-sm"
           label="Emails"
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
@@ -81,25 +82,39 @@ export default function Example() {
           // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={ref}
           autoComplete="off"
-          id="variants-tags"
+          helperText="Select your target locations"
+          id="variants-tags-md"
           label="Emails"
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
+          size="md"
           tags={renderedTags}
           value={value}
-          size="md"
         />
         <TextField
           // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={ref}
           autoComplete="off"
-          id="variants-tags"
+          helperText="Select your target locations"
+          id="variants-tags-lg"
           label="Emails"
           onChange={onChangeTagManagement}
           onKeyDown={onKeyDownTagManagement}
+          size="lg"
           tags={renderedTags}
           value={value}
-          size="lg"
+        />   <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref} autoComplete="off"
+          disabled
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="sm"
+          tags={renderedTags}
+          value={value}
         />
       </Flex>
     </Box>

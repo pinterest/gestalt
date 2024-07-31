@@ -79,8 +79,12 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
   const innerRef = useRef<null | HTMLDivElement>(null);
   const labelRef = useRef<null | HTMLLabelElement>(null);
 
-  const [ellipsisActive, setEllipsisActive] = useState(false);
+  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLTextAreaElement | null' is not assignable to type 'HTMLTextAreaElement'.
+  useImperativeHandle(ref, () => innerRef.current);
 
+  // ==== STATE ====
+  const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
+  const [ellipsisActive, setEllipsisActive] = useState(false);
   const {
     handleOnBlur,
     handleOnFocus,
@@ -89,16 +93,6 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     isHovered,
     isFocused,
   } = useInteractiveStates();
-
-  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLTextAreaElement | null' is not assignable to type 'HTMLTextAreaElement'.
-  useImperativeHandle(ref, () => innerRef.current);
-
-  const hasErrorMessage = Boolean(errorMessage);
-
-  const isLabelVisible = labelDisplay === 'visible';
-  const isSM = size === 'sm';
-  const isMD = size === 'md';
-  const isLG = size === 'lg';
 
   const isEllipsisActive = (element: HTMLElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
@@ -111,6 +105,24 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     }
   }, [ellipsisActive]);
 
+  // ==== VARIABLES ====
+
+  const hasErrorMessage = Boolean(errorMessage);
+  const isLabelVisible = labelDisplay === 'visible';
+  const isSM = size === 'sm';
+  const isMD = size === 'md';
+  const isLG = size === 'lg';
+
+  let ariaDescribedby;
+
+  if (hasErrorMessage) {
+    ariaDescribedby = `${id}-error`;
+  }
+
+  if (helperText || maxLength) {
+    ariaDescribedby = `${id}-helperText`;
+  }
+
   useEffect(() => {
     if (!label) return () => {};
 
@@ -122,21 +134,6 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
       if (typeof window !== 'undefined') window?.removeEventListener('resize', checkEllipsisActive);
     };
   }, [label, checkEllipsisActive]);
-
-  // ==== STATE ====
-  const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
-
-  // ==== A11Y ====
-
-  let ariaDescribedby;
-
-  if (hasErrorMessage) {
-    ariaDescribedby = `${id}-error`;
-  }
-
-  if (helperText || maxLength) {
-    ariaDescribedby = `${id}-helperText`;
-  }
 
   return (
     <Fragment>
