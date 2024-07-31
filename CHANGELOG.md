@@ -1,3 +1,9 @@
+## 156.7.1 (Jul 31, 2024)
+
+### Patch
+
+- TextArea: VR Implementation ([#3703](https://github.com/pinterest/gestalt/pull/3703)) - [Preview link](https://deploy-preview-3703--gestalt.netlify.app?devexample=true)
+
 ## 156.7.0 (Jul 31, 2024)
 
 ### Minor
