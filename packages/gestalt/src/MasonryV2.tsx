@@ -704,11 +704,10 @@ function Masonry<T>(
             }
             if (triggerUpdate) {
               setHeightUpdateTrigger((prev) => prev + 1);
-              forceUpdate();
             }
           })
         : undefined,
-    [_getColumnSpanConfig, _dynamicHeights, forceUpdate, items, measurementStore, positionStore],
+    [_getColumnSpanConfig, _dynamicHeights, items, measurementStore, positionStore],
   );
 
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
