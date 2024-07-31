@@ -1,4 +1,13 @@
-import { forwardRef, Fragment, ReactNode, useCallback,useEffect,useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  Fragment,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import styles from './VRTextArea.css';
 import boxStyles from '../Box.css';
@@ -11,8 +20,10 @@ import useInteractiveStates from '../utils/useInteractiveStates';
 type Props = {
   // REQUIRED
   id: string;
-  onChange: (arg1: { event: React.ChangeEvent<HTMLTextAreaElement>; value: string }) => void;
+  onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   // OPTIONAL
+  accessibilityControls?: string;
+  accessibilityActiveDescendant?: string;
   dataTestId?: string;
   disabled?: boolean;
   errorMessage?: ReactNode;
@@ -22,18 +33,20 @@ type Props = {
   labelDisplay?: 'visible' | 'hidden';
   maxLength?: MaxLength | null | undefined;
   name?: string;
-  onBlur?: (arg1: { event: React.FocusEvent<HTMLTextAreaElement>; value: string }) => void;
-  onClick?: (arg1: { event: React.MouseEvent<HTMLTextAreaElement>; value: string }) => void;
-  onFocus?: (arg1: { event: React.FocusEvent<HTMLTextAreaElement>; value: string }) => void;
-  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLTextAreaElement>; value: string }) => void;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+  onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+  onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
   readOnly?: boolean;
   rows?: number;
   value?: string;
 };
 
-const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function TextArea(
+const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function TextArea(
   {
+    accessibilityControls,
+    accessibilityActiveDescendant,
     dataTestId,
     disabled = false,
     errorMessage,
@@ -56,9 +69,10 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   }: Props,
   ref,
 ) {
-  const innerRef = useRef<null | HTMLTextAreaElement>(null);
-  const [ellipsisActive, setEllipsisActive] = useState(false);
+  const innerRef = useRef<null | HTMLDivElement>(null);
   const labelRef = useRef<null | HTMLLabelElement>(null);
+
+  const [ellipsisActive, setEllipsisActive] = useState(false);
 
   const {
     handleOnBlur,
@@ -72,6 +86,10 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLTextAreaElement | null' is not assignable to type 'HTMLTextAreaElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
+  const hasErrorMessage = Boolean(errorMessage);
+
+  const isLabelVisible = labelDisplay === 'visible';
+
   const isEllipsisActive = (element: HTMLElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
 
@@ -83,7 +101,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     }
   }, [ellipsisActive]);
 
-    useEffect(() => {
+  useEffect(() => {
     if (!label) return () => {};
 
     checkEllipsisActive();
@@ -94,11 +112,6 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
       if (typeof window !== 'undefined') window?.removeEventListener('resize', checkEllipsisActive);
     };
   }, [label, checkEllipsisActive]);
-
-
-  const hasErrorMessage = Boolean(errorMessage);
-
-  const isLabelVisible = labelDisplay === 'visible';
 
   // ==== STATE ====
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
@@ -117,7 +130,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
 
   return (
     <Fragment>
-      <div onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
+      <div ref={innerRef} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
         <div
           className={classnames(
             styles.inputParent,
@@ -142,6 +155,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         >
           {label && (
             <label
+              ref={labelRef}
               className={classnames(
                 styles.label,
                 styles.md_label,
@@ -157,11 +171,13 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
               {label}
             </label>
           )}
-          <textarea
-            ref={innerRef}
+          <input
+            aria-activedescendant={accessibilityActiveDescendant}
+            aria-controls={accessibilityControls}
+            // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
             aria-describedby={isFocused ? ariaDescribedby : undefined}
             aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-            className={classnames(styles.input)}
+            className={ unstyledClasses}
             data-test-id={dataTestId}
             disabled={disabled}
             id={id}
@@ -183,7 +199,6 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
             onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
             placeholder={placeholder}
             readOnly={readOnly}
-            rows={rows}
             value={value}
           />
         </div>
@@ -206,6 +221,6 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   );
 });
 
-TextAreaWithForwardRef.displayName = 'TextArea';
+TagAreaWithForwardRef.displayName = 'TagArea';
 
-export default TextAreaWithForwardRef;
+export default TagAreaWithForwardRef;

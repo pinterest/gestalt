@@ -7,6 +7,7 @@ import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
 import styles from './TextArea.css';
+import VRTagArea from './TextArea/VRTagArea';
 import VRTextArea from './TextArea/VRTextArea';
 import useInExperiment from './useInExperiment';
 
@@ -222,29 +223,62 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     maxHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
   } as const;
 
-  return isInVRExperiment ? (
-    <VRTextArea
-      ref={ref}
-      dataTestId={dataTestId}
-      disabled={disabled}
-      errorMessage={errorMessage}
-      hasError={hasError}
-      helperText={helperText}
-      id={id}
-      label={label}
-      labelDisplay={labelDisplay}
-      maxLength={maxLength}
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
-      placeholder={placeholder}
-      readOnly={readOnly}
-      rows={rows}
-      value={value}
-    />
-  ) : (
+  if (isInVRExperiment && !tags)
+    return (
+      <VRTextArea
+        ref={ref}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        hasError={hasError}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        maxLength={maxLength}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        rows={rows}
+        value={value}
+      />
+    );
+
+  if (isInVRExperiment && tags)
+    return (
+      <VRTagArea
+        ref={ref}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        hasError={hasError}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        maxLength={maxLength}
+        name={name}
+        // @ts-expect-error - TS2322
+        onBlur={onBlur}
+        // @ts-expect-error - TS2322
+        onChange={onChange}
+        // @ts-expect-error - TS2322
+        onFocus={onFocus}
+        // @ts-expect-error - TS2322
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        rows={rows}
+        tags={tags}
+        value={value}
+      />
+    );
+
+  return (
     <span>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size="lg" />}
       {tags ? (
