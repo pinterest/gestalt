@@ -1,3 +1,9 @@
+## 156.8.1 (Jul 31, 2024)
+
+### Patch
+
+- Masonry: Initial proposal for dynamic heights on masonry ([#3679](https://github.com/pinterest/gestalt/pull/3679)) - [Preview link](https://deploy-preview-3679--gestalt.netlify.app?devexample=true)
+
 ## 156.8.0 (Jul 31, 2024)
 
 ### Minor
