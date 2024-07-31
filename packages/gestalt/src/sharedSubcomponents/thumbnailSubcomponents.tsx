@@ -168,6 +168,10 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
     accessibilityIconErrorLabel,
     accessibilityProcessingLabel,
   } = useDefaultLabelContext('Toast');
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   return (
     <Fragment>
@@ -186,7 +190,7 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
         >
           <Icon
             accessibilityLabel={accessibilityIconSuccessLabel}
-            color="success"
+            color={isInExperiment ? 'default' : 'success'}
             icon="workflow-status-ok"
             size={SIZE_ICON}
           />
