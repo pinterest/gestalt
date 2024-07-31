@@ -15,7 +15,9 @@ import {
 import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
+import recalcHeights from './Masonry/dynamicHeightsUtils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
+import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
@@ -138,6 +140,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
+   */
+  _dynamicHeights?: boolean;
 };
 
 type MasonryRef = {
@@ -340,6 +346,7 @@ function useLayout<T>({
   minCols,
   positionStore,
   width,
+  heightUpdateTrigger,
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
@@ -354,6 +361,7 @@ function useLayout<T>({
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
+  heightUpdateTrigger: number;
   _logTwoColWhitespace?: (arg1: number) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
@@ -424,7 +432,7 @@ function useLayout<T>({
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemMeasurementsCount, items, canPerformLayout]);
+  }, [itemMeasurementsCount, items, canPerformLayout, heightUpdateTrigger]);
 
   const forceUpdate = useForceUpdate();
   const rafId = useRef<number | null>(null);
@@ -514,6 +522,7 @@ function MasonryItem<T>({
   top,
   updateMeasurement,
   width,
+  resizeObserver,
 }: {
   height: number | null | undefined;
   idx: number;
@@ -527,6 +536,7 @@ function MasonryItem<T>({
   top: number;
   updateMeasurement: (arg1: T, arg2: number) => void;
   width: number | null | undefined;
+  resizeObserver: any;
 }) {
   // This isn't great since it currently returns false during server render/hydration and potentially true after
   // This should be revisited
@@ -575,7 +585,9 @@ function MasonryItem<T>({
       // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
       style={style}
     >
-      {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+      <ItemResizeObserverWrapper idx={idx} resizeObserver={resizeObserver}>
+        {renderItem({ data: item, itemIdx: idx, isMeasuring: isMeasurement })}
+      </ItemResizeObserverWrapper>
     </div>
   );
 }
@@ -603,6 +615,7 @@ function Masonry<T>(
     _measureAll,
     _useRAF,
     _getColumnSpanConfig,
+    _dynamicHeights,
   }: Props<T>,
   ref:
     | {
@@ -677,6 +690,38 @@ function Masonry<T>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
+  const [heightUpdateTrigger, setHeightUpdateTrigger] = useState(0);
+
+  const resizeObserver = useMemo(
+    () =>
+      _dynamicHeights && typeof window !== 'undefined' && positionStore
+        ? new ResizeObserver((entries) => {
+            let triggerUpdate = false;
+            for (let i = 0; i < entries.length; i += 1) {
+              const { target, contentRect } = entries[i];
+              const idx = Number(target.getAttribute('data-grid-item-idx'));
+
+              if (typeof idx === 'number') {
+                const changedItem: T = items[idx];
+
+                triggerUpdate =
+                  recalcHeights({
+                    items,
+                    changedItem,
+                    newHeight: contentRect.height,
+                    positionStore,
+                    measurementStore,
+                  }) || triggerUpdate;
+              }
+            }
+            if (triggerUpdate) {
+              setHeightUpdateTrigger((prev) => prev + 1);
+            }
+          })
+        : undefined,
+    [_dynamicHeights, items, measurementStore, positionStore],
+  );
+
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
     align,
     columnWidth,
@@ -687,6 +732,7 @@ function Masonry<T>(
     minCols,
     positionStore,
     width,
+    heightUpdateTrigger,
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
@@ -771,6 +817,7 @@ function Masonry<T>(
               layout={layout}
               left={position.left}
               renderItem={renderItem}
+              resizeObserver={resizeObserver}
               serializedColumnSpanConfig={serializedColumnSpanConfig}
               top={position.top}
               updateMeasurement={updateMeasurement}
