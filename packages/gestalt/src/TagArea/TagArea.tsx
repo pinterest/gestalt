@@ -210,7 +210,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
                   }}
                   marginEnd={1}
                 >
-                  {cloneElement(tag, { size: size === 'lg' ? 'md' : 'sm' })}
+                  {cloneElement(tag, { size: size === 'lg' ? 'md' : 'sm', disabled })}
                 </Box>
               ))}
               <Flex.Item flex="grow">

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Box, Tag, TextArea } from 'gestalt';
+import { Box, Flex, Tag, TextArea } from 'gestalt';
 
 type ChangeTagHandler = (arg1: {
   event: React.ChangeEvent<HTMLTextAreaElement>;
@@ -64,15 +64,27 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <TextArea
-        ref={ref}
-        id="variants-tags"
-        label="Emails"
-        onChange={onChangeTagManagement}
-        onKeyDown={onKeyDownTagManagement}
-        tags={renderedTags}
-        value={value}
-      />
+      <Flex direction="column" gap={4}>
+        <TextArea
+          ref={ref}
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+        />
+        <TextArea
+          ref={ref}
+          disabled
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+        />
+      </Flex>
     </Box>
   );
 }
