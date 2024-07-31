@@ -1,0 +1,117 @@
+.input {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  display: block;
+  font-size: var(--sema-font-size-UI-MD);
+  font-weight: var(--sema-font-weight-body);
+  line-height: 1.5;
+  outline: 0;
+  padding: 0;
+  resize: none;
+  width: 100%;
+}
+
+.inputParent {
+  border-radius: var(--sema-rounding-md);
+  box-sizing: border-box;
+  display: block;
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+}
+
+.enabledText {
+  color: var(--sema-color-text-default);
+}
+
+.disabledText {
+  color: var(--sema-color-text-disabled);
+}
+
+.borderFocus {
+  border: 1px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.enabled {
+  background: var(--sema-color-background-default);
+}
+
+.enabledBorder {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.enabledBorderHover {
+  border: 1px solid var(--sema-color-hover-border-interactive);
+}
+
+.errorBorder {
+  border: 1.5px solid var(--sema-color-border-error);
+}
+
+.errorBorderHover {
+  border: 1.5px solid var(--sema-color-hover-border-error);
+}
+
+.errorBorderFocus {
+  border: 1.5px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.disabled {
+  background-color: var(--sema-color-background-disabled);
+  border: 1px solid var(--sema-color-border-disabled);
+}
+
+.label {
+  color: inherit;
+  font-size: var(--sema-font-size-ui-xs);
+  font-weight: var(--sema-font-weight-ui);
+  line-height: var(--sema-font-lineheight-UI-XS);
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.md_input {
+  font-size: var(--sema-font-size-ui-md);
+  min-height: 36px;
+  padding-bottom: var(--sema-space-gap-vertical-lg);
+}
+
+.md_visibleLabel {
+  padding-top: calc(
+    var(--sema-space-padding-horizontal-xl) +
+      (var(--sema-font-size-ui-md) * 1.1)
+  );
+}
+
+.md_noLabel {
+  padding-top: var(--sema-space-gap-vertical-lg);
+}
+
+html[dir="rtl"] .md_inputHorizontalPadding {
+  padding-left: var(--sema-space-padding-horizontal-lg);
+  padding-right: var(--sema-space-padding-horizontal-xl);
+}
+
+html:not([dir="rtl"]) .md_inputHorizontalPadding {
+  padding-left: var(--sema-space-padding-horizontal-xl);
+  padding-right: var(--sema-space-padding-horizontal-lg);
+}
+
+html[dir="rtl"] .md_label {
+  left: calc(var(--sema-space-padding-horizontal-xl));
+  right: calc(var(--sema-space-padding-horizontal-xl) + 1px);
+}
+
+html:not([dir="rtl"]) .md_label {
+  left: calc(var(--sema-space-padding-horizontal-xl) + 1px);
+  right: calc(var(--sema-space-padding-horizontal-xl));
+}
+
+.md_labelPos {
+  top: var(--sema-space-gap-vertical-lg);
+}

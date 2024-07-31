@@ -147,8 +147,8 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   return (
     <Fragment>
-      {label && (
-        <div className={classnames(styles.labelParent)}>
+      <div className={classnames(styles.inputParent)}>
+        {label && (
           <label
             ref={labelRef}
             className={classnames(styles.label, typographyStyle.truncate, {
@@ -171,9 +171,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           >
             {label}
           </label>
-        </div>
-      )}
-      <div className={classnames({ [styles.actionButtonParent]: iconButton })}>
+        )}
         <input
           ref={innerRef}
           aria-activedescendant={accessibilityActiveDescendant}
