@@ -225,8 +225,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                     newHeight,
                     positionStore: this.positionStore,
                     measurementStore: this.state.measurementStore,
-                    /* eslint-disable-next-line no-underscore-dangle */
-                    getColumnSpanConfig: this.props._getColumnSpanConfig,
                   }) || triggerUpdate;
               }
             }

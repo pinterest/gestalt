@@ -2,7 +2,6 @@
  * Util functions used to update positions when an item changes the height dynamically
  */
 import { Cache } from './Cache';
-import { ColumnSpanConfig } from './multiColumnLayout';
 import { Position } from './types';
 
 function isBelowArea(area: { left: number; right: number }, position: Position) {
@@ -21,7 +20,6 @@ function recalcHeights<T>({
   newHeight: number;
   positionStore: Cache<T, Position>;
   measurementStore: Cache<T, number>;
-  getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
 }): boolean {
   const changedItemPosition = positionStore.get(changedItem);
 
