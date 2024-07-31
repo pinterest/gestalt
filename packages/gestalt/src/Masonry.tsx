@@ -550,7 +550,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
     );
 
-    let getPositions;
+    let getPositions: (
+      itemsToGetPosition: readonly T[] | readonly LoadingStateItem[],
+    ) => ReadonlyArray<Position>;
 
     if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
@@ -562,6 +564,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         width,
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
+        renderLoadingState,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -570,6 +573,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         gutter,
         minCols,
         width,
+        renderLoadingState,
       });
     } else {
       getPositions = defaultLayout({
@@ -580,10 +584,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         gutter,
         layout,
         minCols,
-        rawItemCount: items.length,
+        rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
+        renderLoadingState,
       });
     }
 
@@ -652,20 +657,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // div to collect the width for layout
       gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
     } else if (renderLoadingState) {
-      getPositions = defaultLayout({
-        align,
-        measurementCache: measurementStore,
-        positionCache: positionStore,
-        columnWidth,
-        gutter,
-        layout,
-        minCols,
-        rawItemCount: _loadingStateItems.length,
-        width,
-        logWhitespace: _logTwoColWhitespace,
-        _getColumnSpanConfig,
-        renderLoadingState,
-      });
       const positions = getPositions(_loadingStateItems);
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))
