@@ -1,3 +1,9 @@
+## 156.7.0 (Jul 31, 2024)
+
+### Minor
+
+- Masonry: Support flexible and uniformRow layouts for rendering loading state items ([#3708](https://github.com/pinterest/gestalt/pull/3708)) - [Preview link](https://deploy-preview-3708--gestalt.netlify.app?devexample=true)
+
 ## 156.6.0 (Jul 30, 2024)
 
 ### Minor
