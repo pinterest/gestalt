@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Box, Tag, TextField } from 'gestalt';
+import { Box, Flex, Tag, TextField } from 'gestalt';
 
 type ChangeTagHandler = (arg1: {
   event: React.ChangeEvent<HTMLInputElement>;
@@ -64,17 +64,44 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <TextField
-        // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
-        ref={ref}
-        autoComplete="off"
-        id="variants-tags"
-        label="Emails"
-        onChange={onChangeTagManagement}
-        onKeyDown={onKeyDownTagManagement}
-        tags={renderedTags}
-        value={value}
-      />
+      <Flex direction="column" gap={2}>
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+          size="md"
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+          size="lg"
+        />
+      </Flex>
     </Box>
   );
 }

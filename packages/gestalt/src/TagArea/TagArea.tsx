@@ -96,6 +96,9 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
   const hasErrorMessage = Boolean(errorMessage);
 
   const isLabelVisible = labelDisplay === 'visible';
+  const isSM = size === 'sm';
+  const isMD = size === 'md';
+  const isLG = size === 'lg';
 
   const isEllipsisActive = (element: HTMLElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
@@ -141,8 +144,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
         <div
           className={classnames(
             styles.inputParent,
-            styles.md_input,
-            styles.md_inputHorizontalPadding,
+
             {
               [styles.disabled]: disabled,
               [styles.disabledText]: disabled,
@@ -154,9 +156,21 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               [styles.enabledBorderHover]: !disabled && !isFocused && !hasErrorMessage && isHovered,
               [styles.errorBorder]: !disabled && !isFocused && hasErrorMessage,
               [styles.errorBorderHover]: !disabled && !isFocused && hasErrorMessage && isHovered,
+              // sm
+              [styles.sm_input]: isSM,
+              [styles.sm_inputHorizontalPadding]: isSM,
+              [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
+              [styles.sm_noLabel]: (isSM && !label) || (label && !isLabelVisible),
               // md
-              [styles.md_visibleLabel]: label && isLabelVisible,
-              [styles.md_noLabel]: !label || (label && !isLabelVisible),
+              [styles.md_input]: isMD,
+              [styles.md_inputHorizontalPadding]: isMD,
+              [styles.md_visibleLabel]: isMD && label && isLabelVisible,
+              [styles.md_noLabel]: (isMD && !label) || (label && !isLabelVisible),
+              // lg
+              [styles.lg_input]: isLG,
+              [styles.lg_inputHorizontalPadding]: isLG,
+              [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
+              [styles.lg_noLabel]: (isLG && !label) || (label && !isLabelVisible),
             },
           )}
         >
@@ -165,10 +179,18 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               ref={labelRef}
               className={classnames(
                 styles.label,
-                styles.md_label,
-                styles.md_labelPos,
+
                 typographyStyle.truncate,
                 {
+                  // sm
+                  [styles.sm_label]: isSM,
+                  [styles.sm_labelPos]: isSM,
+                  // md
+                  [styles.md_label]: isMD,
+                  [styles.md_labelPos]: isMD,
+                  // lg
+                  [styles.lg_label]: isLG,
+                  [styles.lg_labelPos]: isLG,
                   [boxStyles.visuallyHidden]: !isLabelVisible,
                 },
               )}
