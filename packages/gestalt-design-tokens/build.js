@@ -1,6 +1,13 @@
+const {
+  registerTransforms: registerTokenStudioTransforms,
+  checkAndEvaluateMath,
+  transformDimension,
+} = require('@tokens-studio/sd-transforms');
+
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
+const { registerTokenTransformGroups } = require('./transform');
 
 // #region CONFIG
 
@@ -250,6 +257,8 @@ function buildShadowValue(values, platform) {
   // x, y, blur, spread, color, alpha;
   // convert hex code to rgba string
 
+  // print the last value
+
   return Object.values(values)
     .map((value) => {
       //  Note: we have two formats for elevation tokens.
@@ -260,7 +269,8 @@ function buildShadowValue(values, platform) {
       const opacity = tinycolor(rgbString).getAlpha();
 
       // older format has an explicit opacity value
-      if ('opacity' in value) {
+
+      if (typeof value === 'object' && 'opacity' in value) {
         const shadowColor = tinycolor(rgbString);
         shadowColor.setAlpha(value.opacity);
         rgbString = shadowColor.toRgbString();
@@ -497,6 +507,53 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'token-studio/size/px',
+  type: 'value',
+  matcher: (token) => ['space', 'rounding'].includes(token.attributes.category),
+  transformer: (token) => {
+    console.log(token);
+    if (token.original.value.includes('*')) {
+      throw new Error('Math expressions are not allowed in token values');
+    }
+
+    return `${token.original.value}`;
+  },
+});
+
+/**
+ * The transforms below are transitive transforms, because their values
+ * can contain references, e.g.:
+ * - rgba({color.r}, {color.g}, 0, 0)
+ * - {dimension.scale} * {spacing.sm}
+ * - { fontSize: "{foo}" }
+ * - { width: "{bar}" }
+ * - { blur: "{qux}" }
+ * or because the modifications have to be done on this specific token,
+ * after resolution, e.g. color modify
+ */
+StyleDictionary.registerTransform({
+  name: 'token-studio/resolveMath',
+  type: 'value',
+  transitive: true,
+  matcher: (token) =>
+    typeof token.value === 'string' && ['space', 'rounding'].includes(token.attributes.category),
+  transformer: (token) => {
+    const value = token.value.toString().replace('px', '');
+    const computed = checkAndEvaluateMath(value);
+    const val = computed.toString(); // hasUnits ? `${computed.toString()}` : `${computed.toString()}px`;
+
+    // if the original value is a math expression, set the original value as the computed value
+    if (token.original.value.includes('*')) {
+      // eslint-disable-next-line no-param-reassign -- mutating the token inline
+      token.original.value = `${val}px`;
+    }
+
+    // check if the original value has units
+    return val;
+  },
+});
+
 StyleDictionary.registerFormat({
   name: `constantLibrary-javascript/es6/vr-theme`,
   formatter({ dictionary }) {
@@ -629,7 +686,6 @@ StyleDictionary.registerTransform({
   },
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
-
     return buildShadowValue(prop.value, 'css');
   },
 });
@@ -669,35 +725,6 @@ StyleDictionary.registerTransform({
     const { x1, y1, x2, y2 } = prop.value;
     return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
   },
-});
-
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'webCssTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/kebab',
-    'name/conflictFixing',
-    'value/elevation/css',
-    'font-size/px',
-    'value/duration/css',
-    'value/easing/css',
-    'color/css',
-  ],
-});
-
-StyleDictionary.registerTransformGroup({
-  name: 'webJsTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/pascal',
-    'name/conflictFixing',
-    'value/elevation/css',
-    'font-size/px',
-    'value/duration/css',
-    'value/easing/css',
-    'color/hex',
-  ],
 });
 
 // REGISTER FILTERS
@@ -881,20 +908,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'androidTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/snake',
-    'name/conflictFixing',
-    'color/hex8android',
-    'font-size/px',
-    'size/pxToDpOrSp',
-    'value/easing/android',
-  ],
-});
-
 function getAndroidConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
@@ -1007,7 +1020,6 @@ StyleDictionary.registerTransform({
   },
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
-
     return buildShadowValue(prop.value, 'ios');
   },
 });
@@ -1045,42 +1057,6 @@ StyleDictionary.registerTransform({
     const { x1, y1, x2, y2 } = prop.value;
     return `CAMediaTimingFunction(controlPoints: ${x1}, ${y1}, ${x2}, ${y2})`;
   },
-});
-
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'iOSTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/pascal',
-    'name/conflictFixing',
-    'value/elevation/ios',
-    'color/UIColor',
-    'content/objC/literal',
-    'asset/objC/literal',
-    'font-size/px',
-    'size/remToPt',
-    'font/objC/literal',
-    'value/easing/ios',
-  ],
-});
-
-StyleDictionary.registerTransformGroup({
-  name: 'iOSSwiftEnumTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/custom-ti/camel',
-    'name/conflictFixing',
-    'value/elevation/ios',
-    'color/UIColorSwift',
-    'content/swift/literal',
-    'asset/swift/literal',
-    'size/swift/remToCGFloat',
-    'font-size/px',
-    'font/swift/literal',
-    'value/duration/ios',
-    'value/easing/ios-swift',
-  ],
 });
 
 function getIOSConfiguration({ theme, mode, language }) {
@@ -1248,6 +1224,11 @@ const platformFileMap = {
   android: ['android'],
   ios: ['ios', 'ios-swift'],
 };
+
+// Token Studio related transforms
+registerTokenStudioTransforms(StyleDictionary);
+
+registerTokenTransformGroups(StyleDictionary);
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {

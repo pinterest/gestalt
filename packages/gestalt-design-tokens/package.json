@@ -17,12 +17,15 @@
       "dist/*"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "@tokens-studio/sd-transforms": "0.12.2"
+  },
   "devDependencies": {
+    "@tokens-studio/sd-transforms": "^0.12.2",
     "decomment": "^0.9.5",
+    "lodash.camelcase": "4.3.0",
     "style-dictionary": "^3.9.2",
-    "tinycolor2": "1.6.0",
-    "lodash.camelcase": "4.3.0"
+    "tinycolor2": "1.6.0"
   },
   "peerDependencies": {
     "gestalt": ">0.0.0"
