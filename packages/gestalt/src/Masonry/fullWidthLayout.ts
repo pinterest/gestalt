@@ -44,7 +44,7 @@ const fullWidthLayout = <T>({
   const columnWidthAndGutter = columnWidth + gutter;
   const centerOffset = gutter / 2;
 
-  return (items: ReadonlyArray<T>) => {
+  return (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => {
     const heights = new Array<number>(columnCount).fill(0);
     return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
       ? multiColumnLayout({
