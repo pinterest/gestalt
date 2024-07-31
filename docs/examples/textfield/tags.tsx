@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import { Box, Flex, Tag, TextField } from 'gestalt';
-import { errorMessage } from '../../../packages/eslint-plugin-gestalt/src/no-box-marginleft-marginright';
 
 type ChangeTagHandler = (arg1: {
   event: React.ChangeEvent<HTMLInputElement>;
