@@ -369,7 +369,7 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
     This example showcases the recommended behavior.`}
           title="Tags"
         >
-          <MainSection.Card sandpackExample={<SandpackExample code={tags} name="Tags Example" />} />
+          <MainSection.Card sandpackExample={<SandpackExample code={tags} name="Tags Example"  previewHeight={600}/>} />
         </MainSection.Subsection>
       </MainSection>
 

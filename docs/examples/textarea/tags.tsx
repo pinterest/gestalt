@@ -84,6 +84,26 @@ export default function Example() {
           tags={renderedTags}
           value={value}
         />
+        <TextArea
+          ref={ref}
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          readOnly
+          tags={renderedTags}
+          value={value}
+        />
+        <TextArea
+          ref={ref}
+          errorMessage="Select minimum of five"
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+        />
       </Flex>
     </Box>
   );

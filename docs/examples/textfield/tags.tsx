@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Box, Flex, Tag, TextField } from 'gestalt';
+import { errorMessage } from '../../../packages/eslint-plugin-gestalt/src/no-box-marginleft-marginright';
 
 type ChangeTagHandler = (arg1: {
   event: React.ChangeEvent<HTMLInputElement>;
@@ -109,6 +110,34 @@ export default function Example() {
           ref={ref}
           autoComplete="off"
           disabled
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+         <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          readOnly
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          errorMessage="Select minimum of five"
           helperText="Select your target locations"
           id="variants-tag-sm"
           label="Emails"
