@@ -6,8 +6,8 @@ import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
+import VRTagArea from './TagArea/VRTagArea';
 import styles from './TextArea.css';
-import VRTagArea from './TextArea/VRTagArea';
 import VRTextArea from './TextArea/VRTextArea';
 import useInExperiment from './useInExperiment';
 
@@ -273,6 +273,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         placeholder={placeholder}
         readOnly={readOnly}
         rows={rows}
+        size="md"
         tags={tags}
         value={value}
       />

@@ -1,6 +1,8 @@
 import {
+  cloneElement,
   forwardRef,
   Fragment,
+  ReactElement,
   ReactNode,
   useCallback,
   useEffect,
@@ -9,8 +11,11 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import styles from './VRTextArea.css';
+import { TOKEN_SPACE_100 } from 'gestalt-design-tokens';
+import styles from './VRTagArea.css';
+import Box from '../Box';
 import boxStyles from '../Box.css';
+import Flex from '../Flex';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import { MaxLength } from '../TextField';
@@ -39,11 +44,12 @@ type Props = {
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
   readOnly?: boolean;
-  rows?: number;
+  size: 'sm' | 'md' | 'lg';
+  tags: ReadonlyArray<ReactElement>;
   value?: string;
 };
 
-const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function TextArea(
+const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function TagArea(
   {
     accessibilityControls,
     accessibilityActiveDescendant,
@@ -64,7 +70,8 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Te
     onKeyDown,
     placeholder,
     readOnly,
-    rows = 3,
+    size,
+    tags,
     value,
   }: Props,
   ref,
@@ -171,36 +178,56 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Te
               {label}
             </label>
           )}
-          <input
-            aria-activedescendant={accessibilityActiveDescendant}
-            aria-controls={accessibilityControls}
-            // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
-            aria-describedby={isFocused ? ariaDescribedby : undefined}
-            aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-            className={ unstyledClasses}
-            data-test-id={dataTestId}
-            disabled={disabled}
-            id={id}
-            maxLength={maxLength?.characterCount}
-            name={name}
-            onBlur={(event) => {
-              handleOnBlur();
-              onBlur?.({ event, value: event.currentTarget.value });
-            }}
-            onChange={(event) => {
-              setCurrentLength(event.currentTarget.value?.length ?? 0);
-              onChange({ event, value: event.currentTarget.value });
-            }}
-            onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
-            onFocus={(event) => {
-              handleOnFocus();
-              onFocus?.({ event, value: event.currentTarget.value });
-            }}
-            onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
-            placeholder={placeholder}
-            readOnly={readOnly}
-            value={value}
-          />
+          <Flex gap={1}>
+            <Flex wrap>
+              {tags.map((tag, tagIndex) => (
+                <Box
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={tagIndex}
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      marginBottom: size === 'sm' || size === 'md' ? '2px' : TOKEN_SPACE_100,
+                    },
+                  }}
+                  marginEnd={1}
+                >
+                  {cloneElement(tag, { size: size === 'lg' ? 'md' : 'sm' })}
+                </Box>
+              ))}
+              <Flex.Item flex="grow">
+                <input
+                  aria-activedescendant={accessibilityActiveDescendant}
+                  aria-controls={accessibilityControls}
+                  // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+                  aria-describedby={isFocused ? ariaDescribedby : undefined}
+                  aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+                  className={classnames(styles.input)}
+                  data-test-id={dataTestId}
+                  disabled={disabled}
+                  id={id}
+                  maxLength={maxLength?.characterCount}
+                  name={name}
+                  onBlur={(event) => {
+                    handleOnBlur();
+                    onBlur?.({ event, value: event.currentTarget.value });
+                  }}
+                  onChange={(event) => {
+                    setCurrentLength(event.currentTarget.value?.length ?? 0);
+                    onChange({ event, value: event.currentTarget.value });
+                  }}
+                  onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
+                  onFocus={(event) => {
+                    handleOnFocus();
+                    onFocus?.({ event, value: event.currentTarget.value });
+                  }}
+                  onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
+                  placeholder={placeholder}
+                  readOnly={readOnly}
+                  value={value}
+                />
+              </Flex.Item>
+            </Flex>
+          </Flex>
         </div>
       </div>
       {(helperText || maxLength) && !hasErrorMessage ? (

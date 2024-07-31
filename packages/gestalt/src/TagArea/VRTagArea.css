@@ -1,18 +1,3 @@
-.input {
-  appearance: none;
-  background: none;
-  border: none;
-  color: inherit;
-  display: inline-block;
-  font-size: var(--sema-font-size-UI-MD);
-  font-weight: var(--sema-font-weight-body);
-  line-height: 1.5;
-  outline: 0;
-  padding: 0;
-  resize: none;
-  width: 100%;
-}
-
 .inputParent {
   border-radius: var(--sema-rounding-md);
   box-sizing: border-box;
@@ -21,12 +6,56 @@
   width: 100%;
 }
 
-.enabledText {
-  color: var(--sema-color-text-default);
+.input {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  display: block;
+  font-size: var(--sema-font-size-UI-MD);
+  font-weight: var(--sema-font-weight-body);
+  line-height: 1.5;
+  outline: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.inliner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.md_input {
+  font-size: var(--sema-font-size-ui-md);
+  min-height: 36px;
+  padding-bottom: var(--sema-space-gap-vertical-lg);
+}
+
+html[dir="rtl"] .md_inputHorizontalPadding {
+  padding-left: var(--sema-space-padding-horizontal-lg);
+  padding-right: var(--sema-space-padding-horizontal-xl);
+}
+
+html:not([dir="rtl"]) .md_inputHorizontalPadding {
+  padding-left: var(--sema-space-padding-horizontal-xl);
+  padding-right: var(--sema-space-padding-horizontal-lg);
+}
+
+.disabled {
+  background-color: var(--sema-color-background-disabled);
+  border: 1px solid var(--sema-color-border-disabled);
 }
 
 .disabledText {
   color: var(--sema-color-text-disabled);
+}
+
+.enabledText {
+  color: var(--sema-color-text-default);
+}
+
+.enabled {
+  background: var(--sema-color-background-default);
 }
 
 .borderFocus {
@@ -34,8 +63,9 @@
   outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
-.enabled {
-  background: var(--sema-color-background-default);
+.errorBorderFocus {
+  border: 1.5px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
 .enabledBorder {
@@ -54,32 +84,6 @@
   border: 1.5px solid var(--sema-color-hover-border-error);
 }
 
-.errorBorderFocus {
-  border: 1.5px solid var(--sema-color-border-focus-inner-default);
-  outline: 2px solid var(--sema-color-border-focus-outer-default);
-}
-
-.disabled {
-  background-color: var(--sema-color-background-disabled);
-  border: 1px solid var(--sema-color-border-disabled);
-}
-
-.label {
-  color: inherit;
-  font-size: var(--sema-font-size-ui-xs);
-  font-weight: var(--sema-font-weight-ui);
-  line-height: var(--sema-font-lineheight-UI-XS);
-  padding: 0;
-  position: absolute;
-  z-index: 1;
-}
-
-.md_input {
-  font-size: var(--sema-font-size-ui-md);
-  min-height: 36px;
-  padding-bottom: var(--sema-space-gap-vertical-lg);
-}
-
 .md_visibleLabel {
   padding-top: calc(
     var(--sema-space-padding-horizontal-xl) +
@@ -91,14 +95,14 @@
   padding-top: var(--sema-space-gap-vertical-lg);
 }
 
-html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-lg);
-  padding-right: var(--sema-space-padding-horizontal-xl);
-}
-
-html:not([dir="rtl"]) .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xl);
-  padding-right: var(--sema-space-padding-horizontal-lg);
+.label {
+  color: inherit;
+  font-size: var(--sema-font-size-ui-xs);
+  font-weight: var(--sema-font-weight-ui);
+  line-height: var(--sema-font-lineheight-UI-XS);
+  padding: 0;
+  position: absolute;
+  z-index: 1;
 }
 
 html[dir="rtl"] .md_label {
