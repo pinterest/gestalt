@@ -1,9 +1,3 @@
-const {
-  registerTransforms: registerTokenStudioTransforms,
-  checkAndEvaluateMath,
-  transformDimension,
-} = require('@tokens-studio/sd-transforms');
-
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
@@ -1177,9 +1171,6 @@ const platformFileMap = {
   android: ['android'],
   ios: ['ios', 'ios-swift'],
 };
-
-// Token Studio related transforms
-registerTokenStudioTransforms(StyleDictionary);
 
 registerTokenTransformGroups(StyleDictionary);
 

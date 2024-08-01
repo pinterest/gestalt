@@ -17,11 +17,8 @@
       "dist/*"
     ]
   },
-  "dependencies": {
-    "@tokens-studio/sd-transforms": "0.12.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@tokens-studio/sd-transforms": "^0.12.2",
     "decomment": "^0.9.5",
     "lodash.camelcase": "4.3.0",
     "style-dictionary": "^3.9.2",
