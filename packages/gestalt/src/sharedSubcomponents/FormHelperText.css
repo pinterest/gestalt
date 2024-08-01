@@ -1,3 +1,10 @@
+/* none */
+
+.noStartPadding {
+  padding-left: var(--space-0);
+  padding-right: var(--space-0);
+}
+
 /* sm */
 
 .sm_topPadding {

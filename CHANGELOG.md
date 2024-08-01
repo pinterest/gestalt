@@ -1,3 +1,57 @@
+## 156.9.0 (Aug 1, 2024)
+
+### Minor
+
+- TextArea, TextField: Add support for Tags with internal TagArea #3710 ([#3711](https://github.com/pinterest/gestalt/pull/3711)) - [Preview link](https://deploy-preview-3711--gestalt.netlify.app?devexample=true)
+
+## 156.8.1 (Jul 31, 2024)
+
+### Patch
+
+- Masonry: Initial proposal for dynamic heights on masonry ([#3679](https://github.com/pinterest/gestalt/pull/3679)) - [Preview link](https://deploy-preview-3679--gestalt.netlify.app?devexample=true)
+
+## 156.8.0 (Jul 31, 2024)
+
+### Minor
+
+- Toast: VR implementation changes ([#3709](https://github.com/pinterest/gestalt/pull/3709)) - [Preview link](https://deploy-preview-3709--gestalt.netlify.app?devexample=true)
+
+## 156.7.1 (Jul 31, 2024)
+
+### Patch
+
+- TextArea: VR Implementation ([#3703](https://github.com/pinterest/gestalt/pull/3703)) - [Preview link](https://deploy-preview-3703--gestalt.netlify.app?devexample=true)
+
+## 156.7.0 (Jul 31, 2024)
+
+### Minor
+
+- Masonry: Support flexible and uniformRow layouts for rendering loading state items ([#3708](https://github.com/pinterest/gestalt/pull/3708)) - [Preview link](https://deploy-preview-3708--gestalt.netlify.app?devexample=true)
+
+## 156.6.0 (Jul 30, 2024)
+
+### Minor
+
+- Checkbox: VR Implementation ([#3699](https://github.com/pinterest/gestalt/pull/3699)) - [Preview link](https://deploy-preview-3699--gestalt.netlify.app?devexample=true)
+
+## 156.5.3 (Jul 30, 2024)
+
+### Patch
+
+- Masonry: Revert revert Update logic around updating containerOffset … ([#3707](https://github.com/pinterest/gestalt/pull/3707)) - [Preview link](https://deploy-preview-3707--gestalt.netlify.app?devexample=true)
+
+## 156.5.2 (Jul 30, 2024)
+
+### Patch
+
+- Internal: fixes ([#3705](https://github.com/pinterest/gestalt/pull/3705)) - [Preview link](https://deploy-preview-3705--gestalt.netlify.app?devexample=true)
+
+## 156.5.1 (Jul 30, 2024)
+
+### Patch
+
+- Masonry: Revert Update logic around updating containerOffset + conta… ([#3704](https://github.com/pinterest/gestalt/pull/3704)) - [Preview link](https://deploy-preview-3704--gestalt.netlify.app?devexample=true)
+
 ## 156.5.0 (Jul 27, 2024)
 
 ### Minor

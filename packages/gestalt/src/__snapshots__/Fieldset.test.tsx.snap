@@ -32,12 +32,14 @@ exports[`Fieldset renders 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -87,12 +89,14 @@ exports[`Fieldset renders 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -158,12 +162,14 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -213,12 +219,14 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -285,12 +293,14 @@ exports[`Fieldset renders with errorMessage 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -340,12 +350,14 @@ exports[`Fieldset renders with errorMessage 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div

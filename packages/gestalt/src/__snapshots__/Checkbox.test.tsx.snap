@@ -20,12 +20,14 @@ exports[`Checkbox 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="enabled border borderRadiusMd sizeMd check"
+        className="enabled border borderRadiusMd sizeMd check thickBorder"
       />
     </div>
     <div
@@ -78,12 +80,14 @@ exports[`Checkbox checked 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="checked borderSelected borderRadiusMd sizeMd check"
+        className="checked borderSelected borderRadiusMd sizeMd check thickBorder"
       >
         <svg
           aria-hidden={true}
@@ -150,12 +154,14 @@ exports[`Checkbox disabled & checked 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="disabled borderDisabled borderRadiusSm sizeSm check"
+        className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
       >
         <svg
           aria-hidden={true}
@@ -222,12 +228,14 @@ exports[`Checkbox disabled 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="disabled borderDisabled borderRadiusSm sizeSm check"
+        className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
       />
     </div>
     <div
@@ -280,12 +288,14 @@ exports[`Checkbox indeterminate 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="checked borderSelected borderRadiusMd sizeMd check"
+        className="checked borderSelected borderRadiusMd sizeMd check thickBorder"
       >
         <svg
           aria-hidden={true}
@@ -352,12 +362,14 @@ exports[`Checkbox small 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="enabled border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check thickBorder"
       />
     </div>
     <div
@@ -410,12 +422,14 @@ exports[`Checkbox with an image 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="enabled border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check thickBorder"
       />
     </div>
     <div
@@ -495,12 +509,14 @@ exports[`Checkbox with error 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="enabled borderError borderRadiusSm sizeSm check"
+        className="enabled borderErrorUnchecked borderRadiusSm sizeSm check thickBorder"
       />
     </div>
     <div
@@ -529,7 +545,7 @@ exports[`Checkbox with error 1`] = `
         className="box paddingX1"
       >
         <div
-          className="sm_startPadding sm_topPadding"
+          className="noStartPadding sm_topPadding"
           id="id-error"
         >
           <div
@@ -603,12 +619,14 @@ exports[`Checkbox with helperText 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="enabled border borderRadiusSm sizeSm check"
+        className="enabled border borderRadiusSm sizeSm check thickBorder"
       />
     </div>
     <div
@@ -637,7 +655,7 @@ exports[`Checkbox with helperText 1`] = `
         className="box paddingX1"
       >
         <div
-          className="sm_startPadding sm_topPadding"
+          className="noStartPadding sm_topPadding"
           id="id-helperText"
         >
           <div
@@ -680,12 +698,14 @@ exports[`Checkbox without label 1`] = `
         onChange={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
+        onMouseDown={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseUp={[Function]}
         type="checkbox"
       />
       <div
-        className="enabled border borderRadiusMd sizeMd check"
+        className="enabled border borderRadiusMd sizeMd check thickBorder"
       />
     </div>
   </div>

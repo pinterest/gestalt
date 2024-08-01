@@ -229,7 +229,7 @@ export const fallbackLabels: DefaultLabelContextType = {
     tooltipMessage: 'Click to learn more',
   },
   Toast: {
-    accessibilityDismissButtonLabel: 'Dismiss toast',
+    accessibilityDismissButtonLabel: 'Dismiss message',
     accessibilityIconSuccessLabel: 'Success message',
     accessibilityIconErrorLabel: 'Error message',
     accessibilityProcessingLabel: 'Processing message',

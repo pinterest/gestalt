@@ -1,8 +1,8 @@
-import { Box, Checkbox } from 'gestalt';
+import { Checkbox, Flex } from 'gestalt';
 
 export default function CheckboxExample() {
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Flex alignItems="start" direction="column" gap={6} height="100%" justifyContent="center">
       <Checkbox
         errorMessage="You must agree to the Terms and Conditions"
         id="error"
@@ -10,6 +10,14 @@ export default function CheckboxExample() {
         name="error"
         onChange={() => {}}
       />
-    </Box>
+      <Checkbox
+        checked
+        errorMessage="You must read the privacy policy first!"
+        id="error"
+        label="I agree with the Privacy Policy"
+        name="error"
+        onChange={() => {}}
+      />
+    </Flex>
   );
 }
