@@ -2,25 +2,89 @@
   "sema": {
     "font": {
       "lineheight": {
-        "XS": {
-          "type": "other",
-          "value": "{base.font.lineheight.130.value}"
-        },
-        "SM": {
-          "type": "other",
-          "value": "{base.font.lineheight.140.value}"
-        },
-        "MD": {
-          "type": "other",
-          "value": "{base.font.lineheight.160.value}"
+        "XL": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.170}"
         },
         "LG": {
-          "type": "other",
-          "value": "{base.font.lineheight.170.value}"
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.170}"
         },
-        "XL": {
-          "type": "other",
-          "value": "{base.font.lineheight.170.value}"
+        "MD": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.160}"
+        },
+        "SM": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.140}"
+        },
+        "XS": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.130}"
+        },
+        "heading": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "40"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "31"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "22"
+          },
+          "XXS": {
+            "type": "lineHeights",
+            "value": "20"
+          }
+        },
+        "UI": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "19"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "17"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "16"
+          }
+        },
+        "body": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "28"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "22"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "20"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "17"
+          }
+        },
+        "compact": {
+          "XS": {
+            "type": "lineHeights",
+            "value": "14"
+          }
         }
       }
     }

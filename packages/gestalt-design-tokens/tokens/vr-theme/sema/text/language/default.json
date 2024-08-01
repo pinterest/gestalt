@@ -3,23 +3,23 @@
     "font": {
       "lineheight": {
         "XL": {
-          "type": "other",
+          "type": "lineHeights",
           "value": "{base.font.lineheight.150}"
         },
         "LG": {
-          "type": "other",
+          "type": "lineHeights",
           "value": "{base.font.lineheight.140}"
         },
         "MD": {
-          "type": "other",
+          "type": "lineHeights",
           "value": "{base.font.lineheight.130}"
         },
         "SM": {
-          "type": "other",
+          "type": "lineHeights",
           "value": "{base.font.lineheight.120}"
         },
         "XS": {
-          "type": "other",
+          "type": "lineHeights",
           "value": "{base.font.lineheight.110}"
         },
         "heading": {
