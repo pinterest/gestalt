@@ -3,6 +3,7 @@ import {
   forwardRef,
   ReactElement,
   ReactNode,
+  useEffect,
   useImperativeHandle,
   useRef,
   useState,
@@ -121,6 +122,10 @@ type Props = {
 
 const applyDensityStyle = (size: SizeType) => styles[`${size}`];
 
+interface EventListenerOptionsWithPassive extends AddEventListenerOptions {
+  passive?: boolean;
+}
+
 const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
   {
     accessibilityControls,
@@ -166,6 +171,28 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
+  useEffect(() => {
+    const input = innerRef.current;
+
+    const handleMouseWheel = (event: Event) => {
+      const wheelEvent = event as unknown as WheelEvent; // Double type assertion
+      wheelEvent.preventDefault();
+      console.log(wheelEvent.deltaY);
+    };
+
+    const options: EventListenerOptionsWithPassive = { passive: false };
+
+    if (input) {
+      input.addEventListener('wheel', handleMouseWheel, options);
+    }
+
+    return () => {
+      if (input) {
+        input.removeEventListener('wheel', handleMouseWheel, options);
+      }
+    };
+  }, []);
+
   // ==== HANDLERS ====
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setFocused(false);
@@ -188,11 +215,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) =>
     onKeyDown?.({ event, value: event.currentTarget.value });
 
-  const handleMouseWheel = (event: WheelEvent): void => {
-    if (type === 'number') {
-      event.preventDefault();
-    }
-  };
+  // const handleMouseWheel = (event: WheelEvent): void => {
+  //     console.log(event.value);
+  //     event.preventDefault();
+  // };
 
   // ==== STYLING ====
   const hasErrorMessage = Boolean(errorMessage);
@@ -261,7 +287,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       onClick={handleClick}
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}
-      onWheel={handleMouseWheel}
+      // onWheel={handleMouseWheel}
       // type='number' doesn't work on ios safari without a pattern
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
       pattern={type === 'number' ? '\\d*' : undefined}
