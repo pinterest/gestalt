@@ -1,3 +1,87 @@
+## 156.8.1 (Jul 31, 2024)
+
+### Patch
+
+- Masonry: Initial proposal for dynamic heights on masonry ([#3679](https://github.com/pinterest/gestalt/pull/3679)) - [Preview link](https://deploy-preview-3679--gestalt.netlify.app?devexample=true)
+
+## 156.8.0 (Jul 31, 2024)
+
+### Minor
+
+- Toast: VR implementation changes ([#3709](https://github.com/pinterest/gestalt/pull/3709)) - [Preview link](https://deploy-preview-3709--gestalt.netlify.app?devexample=true)
+
+## 156.7.1 (Jul 31, 2024)
+
+### Patch
+
+- TextArea: VR Implementation ([#3703](https://github.com/pinterest/gestalt/pull/3703)) - [Preview link](https://deploy-preview-3703--gestalt.netlify.app?devexample=true)
+
+## 156.7.0 (Jul 31, 2024)
+
+### Minor
+
+- Masonry: Support flexible and uniformRow layouts for rendering loading state items ([#3708](https://github.com/pinterest/gestalt/pull/3708)) - [Preview link](https://deploy-preview-3708--gestalt.netlify.app?devexample=true)
+
+## 156.6.0 (Jul 30, 2024)
+
+### Minor
+
+- Checkbox: VR Implementation ([#3699](https://github.com/pinterest/gestalt/pull/3699)) - [Preview link](https://deploy-preview-3699--gestalt.netlify.app?devexample=true)
+
+## 156.5.3 (Jul 30, 2024)
+
+### Patch
+
+- Masonry: Revert revert Update logic around updating containerOffset … ([#3707](https://github.com/pinterest/gestalt/pull/3707)) - [Preview link](https://deploy-preview-3707--gestalt.netlify.app?devexample=true)
+
+## 156.5.2 (Jul 30, 2024)
+
+### Patch
+
+- Internal: fixes ([#3705](https://github.com/pinterest/gestalt/pull/3705)) - [Preview link](https://deploy-preview-3705--gestalt.netlify.app?devexample=true)
+
+## 156.5.1 (Jul 30, 2024)
+
+### Patch
+
+- Masonry: Revert Update logic around updating containerOffset + conta… ([#3704](https://github.com/pinterest/gestalt/pull/3704)) - [Preview link](https://deploy-preview-3704--gestalt.netlify.app?devexample=true)
+
+## 156.5.0 (Jul 27, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8286] ([#3700](https://github.com/pinterest/gestalt/pull/3700)) - [Preview link](https://deploy-preview-3700--gestalt.netlify.app?devexample=true)
+
+## 156.4.0 (Jul 27, 2024)
+
+### Minor
+
+- TextField: enabling VR design ([#3697](https://github.com/pinterest/gestalt/pull/3697)) - [Preview link](https://deploy-preview-3697--gestalt.netlify.app?devexample=true)
+
+## 156.3.1 (Jul 26, 2024)
+
+### Patch
+
+- Masonry: Update logic around updating containerOffset + containerHeight (MasonryV2) ([#3696](https://github.com/pinterest/gestalt/pull/3696)) - [Preview link](https://deploy-preview-3696--gestalt.netlify.app?devexample=true)
+
+## 156.3.0 (Jul 25, 2024)
+
+### Minor
+
+- Switch: VR Implementation ([#3686](https://github.com/pinterest/gestalt/pull/3686)) - [Preview link](https://deploy-preview-3686--gestalt.netlify.app?devexample=true)
+
+## 156.2.1 (Jul 25, 2024)
+
+### Patch
+
+- Checkbox: Cleanup pre-VR work ([#3695](https://github.com/pinterest/gestalt/pull/3695)) - [Preview link](https://deploy-preview-3695--gestalt.netlify.app?devexample=true)
+
+## 156.2.0 (Jul 24, 2024)
+
+### Minor
+
+- Tokens: Fixing background button disabled token ([#3694](https://github.com/pinterest/gestalt/pull/3694)) - [Preview link](https://deploy-preview-3694--gestalt.netlify.app?devexample=true)
+
 ## 156.1.0 (Jul 23, 2024)
 
 ### Minor

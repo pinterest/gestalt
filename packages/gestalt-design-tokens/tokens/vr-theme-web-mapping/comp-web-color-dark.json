@@ -66,6 +66,61 @@
             "value": "{sema.color.hover.background.wash.dark.value}"
           }
         }
+      },
+      "checkbox": {
+        "checked": {
+          "default": {
+            "value": "{sema.color.background.selected.value}"
+          },
+          "error": {
+            "value": "{sema.color.background.error.weak.value}"
+          }
+        },
+        "disabled": {
+          "value": "{sema.color.background.disabled.value}"
+        },
+        "unchecked": {
+          "default": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "error": {
+            "value": "{sema.color.background.default.value}"
+          }
+        }
+      },
+      "switch": {
+        "default": {
+          "unselected": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "selected": {
+            "value": "{sema.color.background.selected.value}"
+          }
+        },
+        "disabled": {
+          "unselected": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "selected": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "hover": {
+          "selected": {
+            "value": "{sema.color.hover.background.selected.value}"
+          },
+          "unselected": {
+            "value": "{sema.color.hover.background.default.value}"
+          }
+        },
+        "pressed": {
+          "selected": {
+            "value": "{sema.color.pressed.background.selected.value}"
+          },
+          "unselected": {
+            "value": "{sema.color.pressed.background.default.value}"
+          }
+        }
       }
     },
     "border": {
@@ -78,6 +133,40 @@
         },
         "dark": {
           "value": "{sema.color.border.focus.inner.dark.value}"
+        }
+      },
+      "checkbox": {
+        "checked": {
+          "default": {
+            "value": "{sema.color.background.selected.value}"
+          },
+          "error": {
+            "value": "{sema.color.background.error.weak.value}"
+          }
+        },
+        "disabled": {
+          "value": "{sema.color.background.disabled.value}"
+        },
+        "unchecked": {
+          "default": {
+            "value": "{sema.color.border.interactive.value}"
+          },
+          "error": {
+            "value": "{sema.color.border.error.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.border.interactive.value}"
+          }
+        }
+      },
+      "switch": {
+        "focus": {
+          "inner": {
+            "value": "{sema.color.border.focus.inner.default.value}"
+          },
+          "outer": {
+            "value": "{sema.color.border.focus.outer.default.value}"
+          }
         }
       }
     }

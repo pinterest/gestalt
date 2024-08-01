@@ -272,7 +272,7 @@
         },
         "disabled": {
           "default": {
-            "value": "{color.gray.roboflow.600.value}"
+            "value": "{color.gray.roboflow.700.value}"
           }
         },
         "selected": {
@@ -366,7 +366,6 @@
           }
         }
       },
-
       "tag": {
         "primary": {
           "default": {
@@ -414,19 +413,35 @@
       },
       "switch": {
         "default": {
-          "unselected": {
-            "value": "#030303"
-          },
           "selected": {
             "value": "#efefef"
+          },
+          "unselected": {
+            "value": "#030303"
           }
         },
         "disabled": {
-          "unselected": {
-            "value": "#404040"
-          },
           "selected": {
             "value": "#ababab"
+          },
+          "unselected": {
+            "value": "#404040"
+          }
+        },
+        "hover": {
+          "selected": {
+            "value": "#efefef"
+          },
+          "unselected": {
+            "value": "#030303"
+          }
+        },
+        "pressed": {
+          "selected": {
+            "value": "#efefef"
+          },
+          "unselected": {
+            "value": "#030303"
           }
         }
       },
@@ -568,6 +583,21 @@
         "hover": {
           "value": "#dce9fa",
           "_darkMode": "Unsupported color"
+        }
+      },
+      "switch": {
+        "focus": {
+          "inner": {
+            "value": "{color.border.default}"
+          }
+        },
+        "disabled": {
+          "selected": {
+            "value": "{color.background.default}"
+          },
+          "unselected": {
+            "value": "{color.border.container}"
+          }
         }
       },
       "table": {

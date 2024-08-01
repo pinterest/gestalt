@@ -275,7 +275,7 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
     {
       component: 'Toast',
       prop: 'accessibilityDismissButtonLabel',
-      label: 'Dismiss toast',
+      label: 'Dismiss message',
     },
     {
       component: 'Toast',

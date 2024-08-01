@@ -31,6 +31,12 @@
       "keywords": ["promotion", "campaign"]
     },
     {
+      "name": "ar-try-on",
+      "categories": ["Utility and tools", "Time"],
+      "description": "Indicates the ability to try on an item in augmented reality.",
+      "keywords": ["augmented", "reality", "test", "fashion", "makeup"]
+    },
+    {
       "name": "ad-group",
       "categories": ["Ads and measurement"],
       "description": "Indicates a group of ads accounts",

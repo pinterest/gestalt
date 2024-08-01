@@ -28,6 +28,7 @@ import animate from './ic_animate_gestalt.svg';
 import api from './ic_api_gestalt.svg';
 import apple from './ic_apple_gestalt.svg';
 import apps from './ic_apps_gestalt.svg';
+import arTryOn from './ic_ar-try-on_gestalt.svg';
 import arrowBack from './ic_arrow-back_gestalt.svg';
 import arrowCircleBack from './ic_arrow-circle-back_gestalt.svg';
 import arrowCircleDown from './ic_arrow-circle-down_gestalt.svg';
@@ -380,6 +381,7 @@ const icons = Object.freeze({
   'api': api,
   'apple': apple,
   'apps': apps,
+  'ar-try-on': arTryOn,
   'arrow-back': arrowBack,
   'arrow-circle-back': arrowCircleBack,
   'arrow-circle-down': arrowCircleDown,
