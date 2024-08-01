@@ -863,11 +863,25 @@ Object {
   <dimen name=\\"base_font_lineheight_160\\">1.6</dimen>
   <dimen name=\\"base_font_lineheight_170\\">1.7</dimen>
   <dimen name=\\"base_font_lineheight_180\\">1.8</dimen>
-  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_130</dimen>
-  <dimen name=\\"sema_font_lineheight_sm\\">@dimen/base_font_lineheight_140</dimen>
-  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_160</dimen>
-  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_170</dimen>
   <dimen name=\\"sema_font_lineheight_xl\\">@dimen/base_font_lineheight_170</dimen>
+  <dimen name=\\"sema_font_lineheight_lg\\">@dimen/base_font_lineheight_170</dimen>
+  <dimen name=\\"sema_font_lineheight_md\\">@dimen/base_font_lineheight_160</dimen>
+  <dimen name=\\"sema_font_lineheight_sm\\">@dimen/base_font_lineheight_140</dimen>
+  <dimen name=\\"sema_font_lineheight_xs\\">@dimen/base_font_lineheight_130</dimen>
+  <dimen name=\\"sema_font_lineheight_heading_lg\\">46</dimen>
+  <dimen name=\\"sema_font_lineheight_heading_md\\">36</dimen>
+  <dimen name=\\"sema_font_lineheight_heading_sm\\">28</dimen>
+  <dimen name=\\"sema_font_lineheight_heading_xs\\">27</dimen>
+  <dimen name=\\"sema_font_lineheight_heading_xxs\\">24</dimen>
+  <dimen name=\\"sema_font_lineheight_ui_lg\\">28</dimen>
+  <dimen name=\\"sema_font_lineheight_ui_md\\">22</dimen>
+  <dimen name=\\"sema_font_lineheight_ui_sm\\">20</dimen>
+  <dimen name=\\"sema_font_lineheight_ui_xs\\">20</dimen>
+  <dimen name=\\"sema_font_lineheight_body_lg\\">34</dimen>
+  <dimen name=\\"sema_font_lineheight_body_md\\">27</dimen>
+  <dimen name=\\"sema_font_lineheight_body_sm\\">24</dimen>
+  <dimen name=\\"sema_font_lineheight_body_xs\\">22</dimen>
+  <dimen name=\\"sema_font_lineheight_compact_xs\\">17</dimen>
 
   </resources>
 ",
