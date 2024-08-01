@@ -863,6 +863,20 @@ public enum GestaltTokensFontFamilyVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightCKVR {
+    public static let semaLineheightCompactXs = \\"16\\"
+    public static let semaLineheightBodyXs = \\"18\\"
+    public static let semaLineheightBodySm = \\"21\\"
+    public static let semaLineheightBodyMd = \\"24\\"
+    public static let semaLineheightBodyLg = \\"30\\"
+    public static let semaLineheightUiXs = \\"18\\"
+    public static let semaLineheightUiSm = \\"18\\"
+    public static let semaLineheightUiMd = \\"21\\"
+    public static let semaLineheightUiLg = \\"26\\"
+    public static let semaLineheightHeadingXxs = \\"21\\"
+    public static let semaLineheightHeadingXs = \\"24\\"
+    public static let semaLineheightHeadingSm = \\"26\\"
+    public static let semaLineheightHeadingMd = \\"34\\"
+    public static let semaLineheightHeadingLg = \\"43\\"
     public static let baseLineheight180 = \\"1.8\\"
     public static let baseLineheight170 = \\"1.7\\"
     public static let baseLineheight160 = \\"1.6\\"
@@ -871,6 +885,11 @@ public enum GestaltTokensFontLineHeightCKVR {
     public static let baseLineheight130 = \\"1.3\\"
     public static let baseLineheight120 = \\"1.2\\"
     public static let baseLineheight110 = \\"1.1\\"
+    public static let semaLineheightXs = baseLineheight120
+    public static let semaLineheightSm = baseLineheight130
+    public static let semaLineheightMd = baseLineheight150
+    public static let semaLineheightLg = baseLineheight150
+    public static let semaLineheightXl = baseLineheight150
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontLineHeightVR-DEFAULT.swift": "
@@ -880,6 +899,20 @@ public enum GestaltTokensFontLineHeightCKVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightDEFAULTVR {
+    public static let semaLineheightCompactXs = \\"14\\"
+    public static let semaLineheightBodyXs = \\"17\\"
+    public static let semaLineheightBodySm = \\"20\\"
+    public static let semaLineheightBodyMd = \\"22\\"
+    public static let semaLineheightBodyLg = \\"28\\"
+    public static let semaLineheightUiXs = \\"16\\"
+    public static let semaLineheightUiSm = \\"17\\"
+    public static let semaLineheightUiMd = \\"19\\"
+    public static let semaLineheightUiLg = \\"24\\"
+    public static let semaLineheightHeadingXxs = \\"20\\"
+    public static let semaLineheightHeadingXs = \\"22\\"
+    public static let semaLineheightHeadingSm = \\"24\\"
+    public static let semaLineheightHeadingMd = \\"31\\"
+    public static let semaLineheightHeadingLg = \\"40\\"
     public static let baseLineheight180 = \\"1.8\\"
     public static let baseLineheight170 = \\"1.7\\"
     public static let baseLineheight160 = \\"1.6\\"
@@ -888,6 +921,11 @@ public enum GestaltTokensFontLineHeightDEFAULTVR {
     public static let baseLineheight130 = \\"1.3\\"
     public static let baseLineheight120 = \\"1.2\\"
     public static let baseLineheight110 = \\"1.1\\"
+    public static let semaLineheightXs = baseLineheight110
+    public static let semaLineheightSm = baseLineheight120
+    public static let semaLineheightMd = baseLineheight130
+    public static let semaLineheightLg = baseLineheight140
+    public static let semaLineheightXl = baseLineheight150
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontLineHeightVR-JA.swift": "
@@ -897,6 +935,20 @@ public enum GestaltTokensFontLineHeightDEFAULTVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightJAVR {
+    public static let semaLineheightCompactXs = \\"16\\"
+    public static let semaLineheightBodyXs = \\"19\\"
+    public static let semaLineheightBodySm = \\"22\\"
+    public static let semaLineheightBodyMd = \\"26\\"
+    public static let semaLineheightBodyLg = \\"32\\"
+    public static let semaLineheightUiXs = \\"18\\"
+    public static let semaLineheightUiSm = \\"18\\"
+    public static let semaLineheightUiMd = \\"21\\"
+    public static let semaLineheightUiLg = \\"26\\"
+    public static let semaLineheightHeadingXxs = \\"22\\"
+    public static let semaLineheightHeadingXs = \\"26\\"
+    public static let semaLineheightHeadingSm = \\"26\\"
+    public static let semaLineheightHeadingMd = \\"34\\"
+    public static let semaLineheightHeadingLg = \\"43\\"
     public static let baseLineheight180 = \\"1.8\\"
     public static let baseLineheight170 = \\"1.7\\"
     public static let baseLineheight160 = \\"1.6\\"
@@ -905,6 +957,11 @@ public enum GestaltTokensFontLineHeightJAVR {
     public static let baseLineheight130 = \\"1.3\\"
     public static let baseLineheight120 = \\"1.2\\"
     public static let baseLineheight110 = \\"1.1\\"
+    public static let semaLineheightXs = baseLineheight120
+    public static let semaLineheightSm = baseLineheight130
+    public static let semaLineheightMd = baseLineheight150
+    public static let semaLineheightLg = baseLineheight160
+    public static let semaLineheightXl = baseLineheight160
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontLineHeightVR-TALL.swift": "
@@ -922,6 +979,11 @@ public enum GestaltTokensFontLineHeightTALLVR {
     public static let baseLineheight130 = \\"1.3\\"
     public static let baseLineheight120 = \\"1.2\\"
     public static let baseLineheight110 = \\"1.1\\"
+    public static let semaLineheightXl = baseLineheight170
+    public static let semaLineheightLg = baseLineheight170
+    public static let semaLineheightMd = baseLineheight160
+    public static let semaLineheightSm = baseLineheight140
+    public static let semaLineheightXs = baseLineheight130
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontLineHeightVR-TH.swift": "
@@ -931,6 +993,20 @@ public enum GestaltTokensFontLineHeightTALLVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightTHVR {
+    public static let semaLineheightCompactXs = \\"18\\"
+    public static let semaLineheightBodyXs = \\"22\\"
+    public static let semaLineheightBodySm = \\"25\\"
+    public static let semaLineheightBodyMd = \\"29\\"
+    public static let semaLineheightBodyLg = \\"36\\"
+    public static let semaLineheightUiXs = \\"20\\"
+    public static let semaLineheightUiSm = \\"21\\"
+    public static let semaLineheightUiMd = \\"24\\"
+    public static let semaLineheightUiLg = \\"30\\"
+    public static let semaLineheightHeadingXxs = \\"25\\"
+    public static let semaLineheightHeadingXs = \\"29\\"
+    public static let semaLineheightHeadingSm = \\"30\\"
+    public static let semaLineheightHeadingMd = \\"36\\"
+    public static let semaLineheightHeadingLg = \\"47\\"
     public static let baseLineheight180 = \\"1.8\\"
     public static let baseLineheight170 = \\"1.7\\"
     public static let baseLineheight160 = \\"1.6\\"
@@ -939,6 +1015,11 @@ public enum GestaltTokensFontLineHeightTHVR {
     public static let baseLineheight130 = \\"1.3\\"
     public static let baseLineheight120 = \\"1.2\\"
     public static let baseLineheight110 = \\"1.1\\"
+    public static let semaLineheightXs = baseLineheight130
+    public static let semaLineheightSm = baseLineheight150
+    public static let semaLineheightMd = baseLineheight170
+    public static let semaLineheightLg = baseLineheight180
+    public static let semaLineheightXl = baseLineheight180
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontLineHeightVR-VI.swift": "
@@ -948,6 +1029,20 @@ public enum GestaltTokensFontLineHeightTHVR {
 import SwiftUI
 
 public enum GestaltTokensFontLineHeightVIVR {
+    public static let semaLineheightCompactXs = \\"14\\"
+    public static let semaLineheightBodyXs = \\"16\\"
+    public static let semaLineheightBodySm = \\"18\\"
+    public static let semaLineheightBodyMd = \\"21\\"
+    public static let semaLineheightBodyLg = \\"26\\"
+    public static let semaLineheightUiXs = \\"14\\"
+    public static let semaLineheightUiSm = \\"17\\"
+    public static let semaLineheightUiMd = \\"19\\"
+    public static let semaLineheightUiLg = \\"24\\"
+    public static let semaLineheightHeadingXxs = \\"18\\"
+    public static let semaLineheightHeadingXs = \\"21\\"
+    public static let semaLineheightHeadingSm = \\"24\\"
+    public static let semaLineheightHeadingMd = \\"34\\"
+    public static let semaLineheightHeadingLg = \\"43\\"
     public static let baseLineheight180 = \\"1.8\\"
     public static let baseLineheight170 = \\"1.7\\"
     public static let baseLineheight160 = \\"1.6\\"
@@ -956,6 +1051,11 @@ public enum GestaltTokensFontLineHeightVIVR {
     public static let baseLineheight130 = \\"1.3\\"
     public static let baseLineheight120 = \\"1.2\\"
     public static let baseLineheight110 = \\"1.1\\"
+    public static let semaLineheightXs = baseLineheight120
+    public static let semaLineheightSm = baseLineheight120
+    public static let semaLineheightMd = baseLineheight120
+    public static let semaLineheightLg = baseLineheight130
+    public static let semaLineheightXl = baseLineheight140
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensFontSizeVR.swift": "
@@ -1069,7 +1169,7 @@ import SwiftUI
 
 public enum GestaltTokensRoundingVR {
     public static let semaCircle = 50%
-    public static let semaPill = 999
+    public static let semaPill = 999px
     public static let sema800 = 32px
     public static let sema700 = 28px
     public static let sema600 = 24px
@@ -1078,8 +1178,8 @@ public enum GestaltTokensRoundingVR {
     public static let sema300 = 12px
     public static let sema200 = 8px
     public static let sema100 = 4px
-    public static let sema0 = 0
-    public static let baseUnit = 4
+    public static let sema0 = 0px
+    public static let baseUnit = 4px
 }
 ",
   "dist/ios-swift/vr-theme/GestaltTokensSpaceVR.swift": "
@@ -1127,8 +1227,8 @@ public enum GestaltTokensSpaceVR {
     public static let sema100 = 4px
     public static let sema50 = 2px
     public static let sema25 = 1px
-    public static let sema0 = 0
-    public static let baseUnit = 4
+    public static let sema0 = 0px
+    public static let baseUnit = 4px
 }
 ",
 }

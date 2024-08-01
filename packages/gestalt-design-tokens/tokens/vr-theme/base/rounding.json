@@ -2,7 +2,7 @@
   "base": {
     "rounding": {
       "unit": {
-        "value": "4",
+        "value": "4px",
         "type": "other"
       }
     }

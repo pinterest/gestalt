@@ -2,7 +2,7 @@
   "base": {
     "space": {
       "unit": {
-        "value": "4",
+        "value": "4px",
         "type": "other"
       }
     }

@@ -371,7 +371,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/sema/opacity.json',
     'tokens/vr-theme/sema/rounding.json',
     'tokens/vr-theme/sema/space.json',
-    `tokens/vr-theme/sema/lineheight/${language}.json`,
+    `tokens/vr-theme/sema/text/language/${language}.json`,
     'tokens/vr-theme/sema/motion.json',
     ...(theme === 'vr-theme-web-mapping'
       ? [
@@ -504,53 +504,6 @@ StyleDictionary.registerTransform({
     const val = parseFloat(prop.value);
     if (Number.isNaN(val)) return val;
     return `${val}px`;
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'token-studio/size/px',
-  type: 'value',
-  matcher: (token) => ['space', 'rounding'].includes(token.attributes.category),
-  transformer: (token) => {
-    console.log(token);
-    if (token.original.value.includes('*')) {
-      throw new Error('Math expressions are not allowed in token values');
-    }
-
-    return `${token.original.value}`;
-  },
-});
-
-/**
- * The transforms below are transitive transforms, because their values
- * can contain references, e.g.:
- * - rgba({color.r}, {color.g}, 0, 0)
- * - {dimension.scale} * {spacing.sm}
- * - { fontSize: "{foo}" }
- * - { width: "{bar}" }
- * - { blur: "{qux}" }
- * or because the modifications have to be done on this specific token,
- * after resolution, e.g. color modify
- */
-StyleDictionary.registerTransform({
-  name: 'token-studio/resolveMath',
-  type: 'value',
-  transitive: true,
-  matcher: (token) =>
-    typeof token.value === 'string' && ['space', 'rounding'].includes(token.attributes.category),
-  transformer: (token) => {
-    const value = token.value.toString().replace('px', '');
-    const computed = checkAndEvaluateMath(value);
-    const val = computed.toString(); // hasUnits ? `${computed.toString()}` : `${computed.toString()}px`;
-
-    // if the original value is a math expression, set the original value as the computed value
-    if (token.original.value.includes('*')) {
-      // eslint-disable-next-line no-param-reassign -- mutating the token inline
-      token.original.value = `${val}px`;
-    }
-
-    // check if the original value has units
-    return val;
   },
 });
 

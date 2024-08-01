@@ -2,160 +2,160 @@
   "sema": {
     "space": {
       "0": {
-        "value": "0",
+        "value": "0px",
         "type": "spacing"
       },
       "25": {
-        "value": "{base.space.unit} * 0.25",
+        "value": "1px",
         "type": "spacing"
       },
       "50": {
-        "value": "{base.space.unit} * 0.5",
+        "value": "2px",
         "type": "spacing"
       },
       "100": {
-        "value": "{base.space.unit} * 1",
+        "value": "4px",
         "type": "spacing"
       },
       "150": {
-        "value": "{base.space.unit} * 1.5",
+        "value": "6px",
         "type": "spacing"
       },
       "200": {
-        "value": "{base.space.unit} * 2",
+        "value": "8px",
         "type": "spacing"
       },
       "300": {
-        "value": "{base.space.unit} * 3",
+        "value": "12px",
         "type": "spacing"
       },
       "400": {
-        "value": "{base.space.unit} * 4",
+        "value": "16px",
         "type": "spacing"
       },
       "500": {
-        "value": "{base.space.unit} * 5",
+        "value": "20px",
         "type": "spacing"
       },
       "600": {
-        "value": "{base.space.unit} * 6",
+        "value": "24px",
         "type": "spacing"
       },
       "700": {
-        "value": "{base.space.unit} * 7",
+        "value": "28px",
         "type": "spacing"
       },
       "800": {
-        "value": "{base.space.unit} * 8",
+        "value": "32px",
         "type": "spacing"
       },
       "900": {
-        "value": "{base.space.unit} * 9",
+        "value": "36px",
         "type": "spacing"
       },
       "1000": {
-        "value": "{base.space.unit} * 10",
+        "value": "40px",
         "type": "spacing"
       },
       "1100": {
-        "value": "{base.space.unit} * 11",
+        "value": "44px",
         "type": "spacing"
       },
       "1200": {
-        "value": "{base.space.unit} * 12",
+        "value": "48px",
         "type": "spacing"
       },
       "1300": {
-        "value": "{base.space.unit} * 13",
+        "value": "52px",
         "type": "spacing"
       },
       "1400": {
-        "value": "{base.space.unit} * 14",
+        "value": "56px",
         "type": "spacing"
       },
       "1500": {
-        "value": "{base.space.unit} * 15",
+        "value": "60px",
         "type": "spacing"
       },
       "1600": {
-        "value": "{base.space.unit} * 16",
+        "value": "64px",
         "type": "spacing"
       },
       "negative": {
         "25": {
-          "value": "{base.space.unit} * -0.25",
+          "value": "-1px",
           "type": "spacing"
         },
         "50": {
-          "value": "{base.space.unit} * -0.5",
+          "value": "-2px",
           "type": "spacing"
         },
         "100": {
-          "value": "{base.space.unit} * -1",
+          "value": "-4px",
           "type": "spacing"
         },
         "150": {
-          "value": "{base.space.unit} * -1.5",
+          "value": "-6px",
           "type": "spacing"
         },
         "200": {
-          "value": "{base.space.unit} * -2",
+          "value": "-8px",
           "type": "spacing"
         },
         "300": {
-          "value": "{base.space.unit} * -3",
+          "value": "-12px",
           "type": "spacing"
         },
         "400": {
-          "value": "{base.space.unit} * -4",
+          "value": "-16px",
           "type": "spacing"
         },
         "500": {
-          "value": "{base.space.unit} * -5",
+          "value": "-20px",
           "type": "spacing"
         },
         "600": {
-          "value": "{base.space.unit} * -6",
+          "value": "-24px",
           "type": "spacing"
         },
         "700": {
-          "value": "{base.space.unit} * -7",
+          "value": "-28px",
           "type": "spacing"
         },
         "800": {
-          "value": "{base.space.unit} * -8",
+          "value": "-32px",
           "type": "spacing"
         },
         "900": {
-          "value": "{base.space.unit} * -9",
+          "value": "-36px",
           "type": "spacing"
         },
         "1000": {
-          "value": "{base.space.unit} * -10",
+          "value": "-40px",
           "type": "spacing"
         },
         "1100": {
-          "value": "{base.space.unit} * -11",
+          "value": "-44px",
           "type": "spacing"
         },
         "1200": {
-          "value": "{base.space.unit} * -12",
+          "value": "-48px",
           "type": "spacing"
         },
         "1300": {
-          "value": "{base.space.unit} * -13",
+          "value": "-52px",
           "type": "spacing"
         },
         "1400": {
-          "value": "{base.space.unit} * -14",
+          "value": "-56px",
           "type": "spacing"
         },
         "1500": {
-          "value": "{base.space.unit} * -15",
+          "value": "-60px",
           "type": "spacing"
         },
         "1600": {
-          "value": "{base.space.unit} * -16",
+          "value": "-64px",
           "type": "spacing"
         }
       }

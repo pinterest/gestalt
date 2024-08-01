@@ -2,43 +2,43 @@
   "sema": {
     "rounding": {
       "0": {
-        "value": "0",
+        "value": "0px",
         "type": "borderRadius"
       },
       "100": {
-        "value": "{base.rounding.unit} * 1",
+        "value": "4px",
         "type": "borderRadius"
       },
       "200": {
-        "value": "{base.rounding.unit} * 2",
+        "value": "8px",
         "type": "borderRadius"
       },
       "300": {
-        "value": "{base.rounding.unit} * 3",
+        "value": "12px",
         "type": "borderRadius"
       },
       "400": {
-        "value": "{base.rounding.unit} * 4",
+        "value": "16px",
         "type": "borderRadius"
       },
       "500": {
-        "value": "{base.rounding.unit} * 5",
+        "value": "20px",
         "type": "borderRadius"
       },
       "600": {
-        "value": "{base.rounding.unit} * 6",
+        "value": "24px",
         "type": "borderRadius"
       },
       "700": {
-        "value": "{base.rounding.unit} * 7",
+        "value": "28px",
         "type": "borderRadius"
       },
       "800": {
-        "value": "{base.rounding.unit} * 8",
+        "value": "32px",
         "type": "borderRadius"
       },
       "pill": {
-        "value": "999",
+        "value": "999px",
         "type": "borderRadius"
       },
       "circle": {

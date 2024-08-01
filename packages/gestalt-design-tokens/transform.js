@@ -3,10 +3,10 @@ const { transforms: tokenStudioBaseTransforms } = require('@tokens-studio/sd-tra
 // eslint-disable-next-line no-unused-vars -- Importing for type definitions
 const StyleDictionary = require('style-dictionary');
 
-const transforms = ['attribute/custom-cti', 'token-studio/resolveMath', 'token-studio/size/px'];
+const baseTransforms = ['attribute/custom-cti'];
 
 const webCssTransformGroup = [
-  ...transforms,
+  ...baseTransforms,
   'name/cti/kebab',
   'name/conflictFixing',
   'value/elevation/css',
@@ -17,7 +17,7 @@ const webCssTransformGroup = [
 ];
 
 const webJsTransformGroup = [
-  ...transforms,
+  ...baseTransforms,
   'name/cti/pascal',
   'name/conflictFixing',
   'value/elevation/css',
@@ -28,7 +28,7 @@ const webJsTransformGroup = [
 ];
 
 const androidTransformGroup = [
-  ...transforms,
+  ...baseTransforms,
   'name/cti/snake',
   'name/conflictFixing',
   'color/hex8android',
@@ -38,7 +38,7 @@ const androidTransformGroup = [
 ];
 
 const iOSTransformGroup = [
-  ...transforms,
+  ...baseTransforms,
   'name/cti/pascal',
   'name/conflictFixing',
   'value/elevation/ios',
@@ -52,7 +52,7 @@ const iOSTransformGroup = [
 ];
 
 const iOSSwiftEnumTransformGroup = [
-  ...transforms,
+  ...baseTransforms,
   'name/custom-ti/camel',
   'name/conflictFixing',
   'value/elevation/ios',

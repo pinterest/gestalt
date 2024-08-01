@@ -21,6 +21,70 @@
         "XS": {
           "type": "other",
           "value": "{base.font.lineheight.120}"
+        },
+        "heading": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "43"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "34"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "26"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "XXS": {
+            "type": "lineHeights",
+            "value": "21"
+          }
+        },
+        "UI": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "26"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "21"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "18"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "18"
+          }
+        },
+        "body": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "30"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "21"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "18"
+          }
+        },
+        "compact": {
+          "XS": {
+            "type": "lineHeights",
+            "value": "16"
+          }
         }
       }
     }
