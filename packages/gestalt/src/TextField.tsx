@@ -120,7 +120,7 @@ type Props = {
  *
  */
 
-const TextFieldWithForwardRef = forwardRef<HTMLInputElement , Props>(function TextField(
+const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
   {
     autoComplete,
     dataTestId,
@@ -247,7 +247,6 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement , Props>(function Te
         tags={tags}
         value={value}
       />
-
     );
 
   return (

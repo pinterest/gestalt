@@ -118,7 +118,7 @@ export default function Example() {
           tags={renderedTags}
           value={value}
         />
-         <TextField
+        <TextField
           // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
           ref={ref}
           autoComplete="off"
