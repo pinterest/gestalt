@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Box, Tag, TextArea } from 'gestalt';
+import { Box, Flex, Tag, TextArea } from 'gestalt';
 
 type ChangeTagHandler = (arg1: {
   event: React.ChangeEvent<HTMLTextAreaElement>;
@@ -11,21 +11,18 @@ type KeyDownHandler = (arg1: {
   value: string;
 }) => void;
 
-const CITIES = ['San Francisco', 'New York'];
-
 export default function Example() {
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState(CITIES);
-
+  const [tags, setTags] = useState(['a@pinterest.com', 'b@pinterest.com']);
   const ref = useRef<HTMLTextAreaElement | null>(null);
 
   const onChangeTagManagement: ChangeTagHandler = (e) => {
-    // Create new tags around new lines
-    const tagInput = e.value.split(/\\n+/);
+    // Create new tags around spaces, commas, and semicolons.
+    const tagInput = e.value.split(/[\\s,;]+/);
     if (tagInput.length > 1) {
       setTags([
         ...tags,
-        // Avoid creating a tag on content on the last line, and filter out
+        // Avoid creating a tag on content after the separators, and filter out
         // empty tags
         ...tagInput.splice(0, tagInput.length - 1).filter((val) => val !== ''),
       ]);
@@ -42,6 +39,10 @@ export default function Example() {
     if (keyCode === 8 /* Backspace */ && selectionEnd === 0) {
       // Remove tag on backspace if the cursor is at the beginning of the field
       setTags([...tags.slice(0, -1)]);
+    } else if (keyCode === 13 /* Enter */ && value.trim() !== '') {
+      // Create a new tag on enter
+      setTags([...tags, value.trim()]);
+      setValue('');
     }
   };
 
@@ -53,7 +54,9 @@ export default function Example() {
         const newTags = [...tags];
         newTags.splice(idx, 1);
         setTags([...newTags]);
-        ref.current?.focus();
+        if (ref.current) {
+          ref.current.focus();
+        }
       }}
       text={tag}
     />
@@ -61,16 +64,47 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <TextArea
-        ref={ref}
-        id="cities"
-        label="Cities"
-        onChange={onChangeTagManagement}
-        onKeyDown={onKeyDownTagManagement}
-        placeholder={value.length > 0 || tags.length > 0 ? '' : "Cities you've lived in"}
-        tags={renderedTags}
-        value={value}
-      />
+      <Flex direction="column" gap={4}>
+        <TextArea
+          ref={ref}
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+        />
+        <TextArea
+          ref={ref}
+          disabled
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+        />
+        <TextArea
+          ref={ref}
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          readOnly
+          tags={renderedTags}
+          value={value}
+        />
+        <TextArea
+          ref={ref}
+          errorMessage="Select minimum of five"
+          id="variants-tags"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          tags={renderedTags}
+          value={value}
+        />
+      </Flex>
     </Box>
   );
 }
