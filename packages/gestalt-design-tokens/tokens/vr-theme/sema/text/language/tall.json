@@ -25,44 +25,26 @@
         "heading": {
           "LG": {
             "type": "lineHeights",
-            "value": "40"
+            "value": "46"
           },
           "MD": {
             "type": "lineHeights",
-            "value": "31"
+            "value": "36"
           },
           "SM": {
             "type": "lineHeights",
-            "value": "24"
+            "value": "28"
           },
           "XS": {
             "type": "lineHeights",
-            "value": "22"
+            "value": "27"
           },
           "XXS": {
             "type": "lineHeights",
-            "value": "20"
+            "value": "24"
           }
         },
         "UI": {
-          "LG": {
-            "type": "lineHeights",
-            "value": "24"
-          },
-          "MD": {
-            "type": "lineHeights",
-            "value": "19"
-          },
-          "SM": {
-            "type": "lineHeights",
-            "value": "17"
-          },
-          "XS": {
-            "type": "lineHeights",
-            "value": "16"
-          }
-        },
-        "body": {
           "LG": {
             "type": "lineHeights",
             "value": "28"
@@ -77,13 +59,31 @@
           },
           "XS": {
             "type": "lineHeights",
-            "value": "17"
+            "value": "20"
+          }
+        },
+        "body": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "34"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "27"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "22"
           }
         },
         "compact": {
           "XS": {
             "type": "lineHeights",
-            "value": "14"
+            "value": "17"
           }
         }
       }
