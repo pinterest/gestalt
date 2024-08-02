@@ -34,6 +34,7 @@ type Props = {
   errorMessage?: ReactNode;
   hasError?: boolean;
   helperText?: string;
+  iconButton?: ReactElement;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
   maxLength?: MaxLength | null | undefined;
@@ -58,6 +59,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     errorMessage,
     hasError = false,
     helperText,
+    iconButton,
     id,
     label,
     labelDisplay,
@@ -158,16 +160,21 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               [styles.sm_inputHorizontalPadding]: isSM,
               [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
               [styles.sm_noLabel]: (isSM && !label) || (label && !isLabelVisible),
+              [styles.sm_actionButton]: isSM && iconButton,
+
               // md
               [styles.md_input]: isMD,
               [styles.md_inputHorizontalPadding]: isMD,
               [styles.md_visibleLabel]: isMD && label && isLabelVisible,
               [styles.md_noLabel]: (isMD && !label) || (label && !isLabelVisible),
+              [styles.md_actionButton]: isMD && iconButton,
+
               // lg
               [styles.lg_input]: isLG,
               [styles.lg_inputHorizontalPadding]: isLG,
               [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
               [styles.lg_noLabel]: (isLG && !label) || (label && !isLabelVisible),
+              [styles.lg_actionButton]: isLG && iconButton,
             },
           )}
         >
@@ -250,6 +257,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               </Flex.Item>
             </Flex>
           </Flex>
+          {!disabled && iconButton}
         </div>
       </div>
       {(helperText || maxLength) && !hasErrorMessage ? (

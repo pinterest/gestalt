@@ -18,9 +18,12 @@ import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';
+import TagArea from './TagArea/TagArea';
 import Text from './Text';
+import IconButtonEnd from './TextField/IconButtonEnd';
 import InternalTextField from './TextField/InternalTextField';
-import PasswordIconButton from './TextField/PasswordIconButton';
+import VRInternalTextField from './TextField/VRInternalTextField';
+import useInExperiment from './useInExperiment';
 import handleContainerScrolling, { DirectionOptionType, KEYS } from './utils/keyboardNavigation';
 import { Indexable } from './zIndex';
 
@@ -178,6 +181,11 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
     accessibilityClearButtonLabel: accessibilityClearButtonLabelDefault,
     noResultText: noResultTextDefault,
   } = useDefaultLabelContext('ComboBox');
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   // ==== REFS ====
 
@@ -436,58 +444,158 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         position="relative"
         role="combobox"
       >
-        <InternalTextField
-          // add accessibilityControls once the option list element exists
-          ref={innerRef}
-          // add accessibilityActiveDescendant once the option list element exists
-          accessibilityActiveDescendant={
-            showOptionsList && innerRef.current && hoveredItemIndex !== null
-              ? `${id}-item-${hoveredItemIndex}`
-              : undefined
-          }
-          accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
-          autoComplete="off"
-          disabled={disabled}
-          errorMessage={errorMessage}
-          hasError={!!errorMessage}
-          helperText={helperText}
-          iconButton={
-            controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
-              <PasswordIconButton
-                accessibilityLabel={
-                  accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
-                }
-                hoverStyle="default"
-                icon="cancel"
-                onClick={handleOnClickIconButtonClear}
-                pogPadding={size === 'lg' ? 2 : 1}
-                tapStyle="compress"
-              />
-            ) : (
-              <PasswordIconButton
-                accessibilityHidden
-                hoverStyle="none"
-                icon="arrow-down"
-                onClick={handleSetShowOptionsList}
-                pogPadding={size === 'lg' ? 2 : 1}
-                tapStyle="none"
-              />
-            )
-          }
-          id={`combobox-${id}`}
-          label={label}
-          labelDisplay={labelDisplay}
-          onBlur={handleOnBlur}
-          onChange={handleOnChange}
-          onClick={handleSetShowOptionsList}
-          onFocus={handleOnFocus}
-          onKeyDown={handleOnKeyDown}
-          placeholder={tags && tags.length > 0 ? '' : placeholder}
-          size={size}
-          tags={selectedTags}
-          type="text"
-          value={controlledInputValue ?? textfieldInput}
-        />
+        {isInVRExperiment && !tags && (
+          <VRInternalTextField
+            ref={innerRef}
+            accessibilityActiveDescendant={
+              showOptionsList && innerRef.current && hoveredItemIndex !== null
+                ? `${id}-item-${hoveredItemIndex}`
+                : undefined
+            }
+            accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
+            autoComplete="off"
+            disabled={disabled}
+            errorMessage={errorMessage}
+            hasError={!!errorMessage}
+            helperText={helperText}
+            iconButton={
+              controlledInputValue || textfieldInput ? (
+                <IconButtonEnd
+                  accessibilityLabel={
+                    accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
+                  }
+                  icon="cancel"
+                  onClick={handleOnClickIconButtonClear}
+                  paddingSize={size}
+                />
+              ) : (
+                <IconButtonEnd
+                  accessibilityHidden
+                  icon="arrow-down"
+                  onClick={handleSetShowOptionsList}
+                  paddingSize={size}
+                />
+              )
+            }
+            id={`combobox-${id}`}
+            label={label}
+            labelDisplay={labelDisplay}
+            onBlur={handleOnBlur}
+            onChange={handleOnChange}
+            onClick={handleSetShowOptionsList}
+            onFocus={handleOnFocus}
+            onKeyDown={handleOnKeyDown}
+            placeholder={placeholder}
+            size={size}
+            type="text"
+            value={controlledInputValue ?? textfieldInput}
+          />
+        )}
+        {isInVRExperiment && tags && selectedTags && (
+          <TagArea
+            // @ts-expect-error - TS2322
+            // add accessibilityControls once the option list element exists
+            ref={innerRef}
+            // add accessibilityActiveDescendant once the option list element exists
+            accessibilityActiveDescendant={
+              showOptionsList && innerRef.current && hoveredItemIndex !== null
+                ? `${id}-item-${hoveredItemIndex}`
+                : undefined
+            }
+            accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
+            autoComplete="off"
+            disabled={disabled}
+            errorMessage={errorMessage}
+            hasError={!!errorMessage}
+            helperText={helperText}
+            iconButton={
+              controlledInputValue || textfieldInput || tags.length > 0 ? (
+                <IconButtonEnd
+                  accessibilityLabel={
+                    accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
+                  }
+                  icon="cancel"
+                  onClick={handleOnClickIconButtonClear}
+                  paddingSize={size}
+                />
+              ) : (
+                <IconButtonEnd
+                  accessibilityHidden
+                  icon="arrow-down"
+                  onClick={handleSetShowOptionsList}
+                  paddingSize={size}
+                />
+              )
+            }
+            id={`combobox-${id}`}
+            label={label}
+            labelDisplay={labelDisplay}
+            onBlur={handleOnBlur}
+            onChange={handleOnChange}
+            onClick={handleSetShowOptionsList}
+            onFocus={handleOnFocus}
+            onKeyDown={handleOnKeyDown}
+            placeholder={tags && tags.length > 0 ? '' : placeholder}
+            size={size}
+            tags={selectedTags}
+            type="text"
+            value={controlledInputValue ?? textfieldInput}
+          />
+        )}
+        {!isInVRExperiment && (
+          <InternalTextField
+            // add accessibilityControls once the option list element exists
+            ref={innerRef}
+            // add accessibilityActiveDescendant once the option list element exists
+            accessibilityActiveDescendant={
+              showOptionsList && innerRef.current && hoveredItemIndex !== null
+                ? `${id}-item-${hoveredItemIndex}`
+                : undefined
+            }
+            accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
+            autoComplete="off"
+            disabled={disabled}
+            errorMessage={errorMessage}
+            hasError={!!errorMessage}
+            helperText={helperText}
+            iconButton={
+              controlledInputValue || textfieldInput || (tags && tags.length > 0) ? (
+                <IconButtonEnd
+                  accessibilityLabel={
+                    accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
+                  }
+                  hoverStyle="default"
+                  icon="cancel"
+                  onClick={handleOnClickIconButtonClear}
+                  pogPadding={size === 'lg' ? 2 : 1}
+                  tapStyle="compress"
+                />
+              ) : (
+                <IconButtonEnd
+                  accessibilityHidden
+                  hoverStyle="none"
+                  icon="arrow-down"
+                  onClick={handleSetShowOptionsList}
+                  pogPadding={size === 'lg' ? 2 : 1}
+                  tapStyle="none"
+                />
+              )
+            }
+            id={`combobox-${id}`}
+            label={label}
+            labelDisplay={labelDisplay}
+            onBlur={handleOnBlur}
+            onChange={handleOnChange}
+            onClick={handleSetShowOptionsList}
+            onFocus={handleOnFocus}
+            onKeyDown={handleOnKeyDown}
+            placeholder={tags && tags.length > 0 ? '' : placeholder}
+            size={size}
+            tags={selectedTags}
+            type="text"
+            value={controlledInputValue ?? textfieldInput}
+          />
+        )}
       </Box>
       {showOptionsList && innerRef.current ? (
         <Layer zIndex={zIndex}>

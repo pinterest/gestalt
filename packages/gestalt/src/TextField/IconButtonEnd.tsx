@@ -38,7 +38,7 @@ type Props = {
   tooltipText?: string;
 };
 
-export default function PasswordIconButton({
+export default function IconButtonEnd({
   accessibilityChecked,
   accessibilityHidden,
   accessibilityLabel,
