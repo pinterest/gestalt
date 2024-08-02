@@ -8,13 +8,14 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import controlled from '../../examples/combobox/controlled';
+import disabled from '../../examples/combobox/disabled';
 import error from '../../examples/combobox/error';
 import helperText from '../../examples/combobox/helperText';
 import labels from '../../examples/combobox/labels';
 import localizationLabels from '../../examples/combobox/localizationLabels';
 import main from '../../examples/combobox/main';
 import programmatic from '../../examples/combobox/programmatic';
-import ref from '../../examples/combobox/ref';
+import readOnly from '../../examples/combobox/readOnly';
 import sizes from '../../examples/combobox/sizes';
 import subtext from '../../examples/combobox/subtext';
 import tags from '../../examples/combobox/tags';
@@ -149,33 +150,63 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`
-    Include [Tag](/web/tag) elements in the input using the \`tags\` prop.
-
-    Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
-
-    To use ComboBox with [tags](/web/tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
-          title="Tags"
+          description="ComboBox can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
+          title="Size"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={tags} name="Tags example" previewHeight={PREVIEW_HEIGHT} />
+              <SandpackExample code={sizes} name="ComboBox Sizes" previewHeight={PREVIEW_HEIGHT} />
             }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`To control focus or position and anchor components to ComboBox, use \`ref\` as shown in the examples below.`}
-          title="Ref"
+          columns={2}
+          description={`
+1. Enabled
+The enabled state of Textfield that represents it can be interacted with.
+
+2. Error
+TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest. Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
+
+3. Read-only
+Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+
+4. Disabled
+TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+`}
+          title="State"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={ref} name="ref" previewHeight={PREVIEW_HEIGHT} />
+              <SandpackExample code={sizes} layout="column" name="Enabled example" />
             }
-            title="Focus management with ref example"
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={error} layout="column" name="Error message example" />
+            }
+            title="Error"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={readOnly} layout="column" name="Read-only example" />
+            }
+            title="Read-only"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           description="Display `subtext` under each selection option"
           title="Subtext"
@@ -187,17 +218,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          description="ComboBox can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
-          title="Size"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={sizes} name="ComboBox Sizes" previewHeight={PREVIEW_HEIGHT} />
-            }
-          />
-        </MainSection.Subsection>
+
         <MainSection.Subsection
           description="Whenever you want to provide more information about a form field, you should use `helperText`."
           title="Helper text"
@@ -214,13 +235,18 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="For most use cases, pass a string with a helpful error message (be sure to localize!). In certain instances it can be useful to make some text clickable; to support this, you may instead pass a React.Node to wrap text in [Link](/web/link) or [TapArea](/web/taparea)"
-          title="Error message"
+          description={`
+    Include [Tag](/web/tag) elements in the input using the \`tags\` prop.
+
+    Note that the \`ComboBox\` component doesn't internally manage tags; therefore, it must be a [controlled component](#Controlled-vs-Uncontrolled). A controlled ComboBox requires three value props: \`options\`,  \`inputValue\`,  and \`tags\`.
+
+    To use ComboBox with [tags](/web/tag), it's recommended to create new tags on enter key presses, to remove them on backspaces when the cursor is in the beginning of the field and to filter out empty tags. These best practices are shown in the following example.`}
+          title="Tags"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={error} name="Error example" previewHeight={PREVIEW_HEIGHT} />
+              <SandpackExample code={tags} name="Tags example" previewHeight={820} />
             }
           />
         </MainSection.Subsection>

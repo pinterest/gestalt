@@ -183,7 +183,6 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               ref={labelRef}
               className={classnames(
                 styles.label,
-
                 typographyStyle.truncate,
                 {
                   // sm

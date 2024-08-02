@@ -1,7 +1,6 @@
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example() {
-
   const options = Array(20)
     .fill(0)
     .map((item, index) => ({
@@ -21,6 +20,7 @@ export default function Example() {
           options={options}
           placeholder="Select a value"
           size="sm"
+          readOnly
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
@@ -30,6 +30,7 @@ export default function Example() {
           options={options}
           placeholder="Select a value"
           size="md"
+          readOnly
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
@@ -39,6 +40,7 @@ export default function Example() {
           options={options}
           placeholder="Select a value"
           size="lg"
+          readOnly
         />
       </Flex>
     </Box>
