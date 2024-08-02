@@ -34,24 +34,20 @@ export default function Example() {
   const resetErrorMessage = errorMessage ? () => setErrorMessage() : () => {};
 
   return (
-    <Box height="100%" padding={2} width="100%">
-      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-        <Box width={320}>
-          <ComboBox
-            accessibilityClearButtonLabel="Clear the current value"
-            errorMessage={errorMessage}
-            helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-            id="uncontrolled"
-            label="Pronouns"
-            noResultText="No results for your selection"
-            onBlur={handleOnBlur}
-            onChange={resetErrorMessage}
-            onClear={resetErrorMessage}
-            options={options}
-            placeholder="Add your pronouns"
-          />
-        </Box>
-      </Flex>
+    <Box padding={8} width="100%">
+      <ComboBox
+        accessibilityClearButtonLabel="Clear the current value"
+        errorMessage={errorMessage}
+        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+        id="uncontrolled"
+        label="Pronouns"
+        noResultText="No results for your selection"
+        onBlur={handleOnBlur}
+        onChange={resetErrorMessage}
+        onClear={resetErrorMessage}
+        options={options}
+        placeholder="Add your pronouns"
+      />
     </Box>
   );
 }
