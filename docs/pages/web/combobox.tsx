@@ -11,7 +11,7 @@ import controlled from '../../examples/combobox/controlled';
 import disabled from '../../examples/combobox/disabled';
 import error from '../../examples/combobox/error';
 import helperText from '../../examples/combobox/helperText';
-import labels from '../../examples/combobox/labels';
+import hiddenLabel from '../../examples/combobox/hiddenLabel';
 import localizationLabels from '../../examples/combobox/localizationLabels';
 import main from '../../examples/combobox/main';
 import programmatic from '../../examples/combobox/programmatic';
@@ -83,7 +83,7 @@ export default function ComboBoxPage({ generatedDocGen }: { generatedDocGen: Doc
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={labels}
+                code={hiddenLabel}
                 name="Example with accessibility labels"
                 previewHeight={PREVIEW_HEIGHT}
               />
