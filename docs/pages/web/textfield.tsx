@@ -429,7 +429,9 @@ The first example shows an empty Textfield with \`maxLength\` set to 20 characte
           title="Tags"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={tags} name="Tags Text Field Example" />}
+            sandpackExample={
+              <SandpackExample code={tags} name="Tags Text Field Example" previewHeight={600} />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection

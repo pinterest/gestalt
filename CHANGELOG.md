@@ -1,3 +1,9 @@
+## 156.9.0 (Aug 1, 2024)
+
+### Minor
+
+- TextArea, TextField: Add support for Tags with internal TagArea #3710 ([#3711](https://github.com/pinterest/gestalt/pull/3711)) - [Preview link](https://deploy-preview-3711--gestalt.netlify.app?devexample=true)
+
 ## 156.8.1 (Jul 31, 2024)
 
 ### Patch
