@@ -9,9 +9,9 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import styles from './VRInternalTextField.css';
+import IconEnd from './IconEnd';
+import styles from './VRSelectList.css';
 import boxStyles from '../Box.css';
-import Icon from '../Icon';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import typographyStyle from '../Typography.css';
@@ -114,7 +114,12 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
 
   return (
     <Fragment>
-      <div className={classnames(styles.inputParent)}>
+      <div
+        className={classnames(styles.inputParent, {
+          [styles.enabled]: !disabled,
+          [styles.disabled]: disabled,
+        })}
+      >
         {label && (
           <label
             ref={labelRef}
@@ -139,15 +144,14 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             {label}
           </label>
         )}
+        {!disabled && <IconEnd disabled={disabled} size={size} />}
         <select
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage ? 'true' : 'false'}
-          className={classnames(styles.input, typographyStyle.truncate, typographyStyle.lineClamp, {
-            [styles.enabled]: !disabled,
+          className={classnames(styles.input, typographyStyle.truncate, {
             [styles.enabledText]: !disabled,
             [styles.enabledBorder]: !disabled && !hasErrorMessage,
             [styles.errorBorder]: !disabled && hasErrorMessage,
-            [styles.disabled]: disabled,
             [styles.disabledText]: disabled,
             [styles.disabledBorder]: disabled,
             // sm
@@ -198,15 +202,6 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
           )}
           {children}
         </select>
-
-        {!disabled && (
-          <Icon
-            accessibilityLabel=""
-            color={disabled ? 'subtle' : 'default'}
-            icon="arrow-down"
-            size={12}
-          />
-        )}
       </div>
 
       {helperText && !hasErrorMessage ? (

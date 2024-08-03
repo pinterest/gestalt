@@ -1,9 +1,12 @@
 .input {
+  appearance: none;
+  background-color: var(--base-color-transparent);
   border-radius: var(--sema-rounding-md);
   box-sizing: border-box;
   display: block;
   font-weight: var(--sema-font-weight-body);
   line-height: 16px;
+  margin-right: 10px;
   position: relative;
   width: 100%;
 }
@@ -118,10 +121,6 @@ html[dir="rtl"] .sm_actionButton {
   padding-left: var(--space-800);
 }
 
-.sm_actionButtonPaddingBottom {
-  padding-bottom: var(--sema-space-gap-vertical-sm);
-}
-
 /* md */
 
 .md_input {
@@ -221,4 +220,33 @@ html:not([dir="rtl"]) .lg_actionButton {
 
 html[dir="rtl"] .lg_actionButton {
   padding-left: var(--space-800);
+}
+
+.vr_sm_actionButtonContainer {
+  bottom: var(--sema-space-gap-vertical-sm);
+  position: absolute;
+}
+
+.vr_md_actionButtonContainer {
+  bottom: var(--sema-space-gap-vertical-lg);
+  position: absolute;
+}
+
+.vr_lg_actionButtonContainer {
+  bottom: var(--sema-space-gap-vertical-xl);
+  position: absolute;
+}
+
+html:not([dir="rtl"]) .actionButtonContainer,
+html:not([dir="rtl"]) .vr_sm_actionButtonContainer,
+html:not([dir="rtl"]) .vr_md_actionButtonContainer,
+html:not([dir="rtl"]) .vr_lg_actionButtonContainer {
+  right: var(--space-0);
+}
+
+html[dir="rtl"] .actionButtonContainer,
+html[dir="rtl"] .vr_sm_actionButtonContainer,
+html[dir="rtl"] .vr_md_actionButtonContainer,
+html[dir="rtl"] .vr_lg_actionButtonContainer {
+  left: var(--space-0);
 }

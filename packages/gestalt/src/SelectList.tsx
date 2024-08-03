@@ -158,7 +158,8 @@ function SelectList({
   if (label && helperText) {
     ariaDescribedby = `${id}-helperText`;
   }
-   if (isInVRExperiment) {
+
+  if (isInVRExperiment) {
     return (
       <VRSelectList
         dataTestId={dataTestId}
@@ -176,10 +177,11 @@ function SelectList({
         readOnly={readOnly}
         size={size}
         value={value}
-      >{children}</VRSelectList>
+      >
+        {children}
+      </VRSelectList>
     );
   }
-
 
   return (
     <Box>
