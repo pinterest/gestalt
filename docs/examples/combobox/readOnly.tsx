@@ -19,8 +19,8 @@ export default function Example() {
           noResultText="No results for your selection"
           options={options}
           placeholder="Select a value"
-          size="sm"
           readOnly
+          size="sm"
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
@@ -29,8 +29,8 @@ export default function Example() {
           noResultText="No results for your selection"
           options={options}
           placeholder="Select a value"
-          size="md"
           readOnly
+          size="md"
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
@@ -39,8 +39,8 @@ export default function Example() {
           noResultText="No results for your selection"
           options={options}
           placeholder="Select a value"
-          size="lg"
           readOnly
+          size="lg"
         />
       </Flex>
     </Box>

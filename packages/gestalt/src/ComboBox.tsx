@@ -492,6 +492,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             onKeyDown={handleOnKeyDown}
             placeholder={placeholder}
             readOnly={readOnly}
+            readOnlyNoIconButton={readOnly}
             size={size}
             type="text"
             value={controlledInputValue ?? textfieldInput}
@@ -543,6 +544,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             onKeyDown={handleOnKeyDown}
             placeholder={tags && tags.length > 0 ? '' : placeholder}
             readOnly={readOnly}
+            readOnlyNoIconButton={readOnly}
             size={size}
             tags={selectedTags}
             type="text"
@@ -605,7 +607,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
           />
         )}
       </Box>
-      {showOptionsList && innerRef.current ? (
+      {showOptionsList && innerRef.current && !readOnly ? (
         <Layer zIndex={zIndex}>
           <InternalPopover
             anchor={innerRef.current}

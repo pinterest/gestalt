@@ -45,6 +45,7 @@ type Props = {
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
   readOnly?: boolean;
+  readOnlyNoIconButton?: boolean;
   size: 'sm' | 'md' | 'lg';
   tags: ReadonlyArray<ReactElement>;
   value?: string;
@@ -72,6 +73,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     onKeyDown,
     placeholder,
     readOnly,
+    readOnlyNoIconButton,
     size,
     tags,
     value,
@@ -181,22 +183,18 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
           {label && (
             <label
               ref={labelRef}
-              className={classnames(
-                styles.label,
-                typographyStyle.truncate,
-                {
-                  // sm
-                  [styles.sm_label]: isSM,
-                  [styles.sm_labelPos]: isSM,
-                  // md
-                  [styles.md_label]: isMD,
-                  [styles.md_labelPos]: isMD,
-                  // lg
-                  [styles.lg_label]: isLG,
-                  [styles.lg_labelPos]: isLG,
-                  [boxStyles.visuallyHidden]: !isLabelVisible,
-                },
-              )}
+              className={classnames(styles.label, typographyStyle.truncate, {
+                // sm
+                [styles.sm_label]: isSM,
+                [styles.sm_labelPos]: isSM,
+                // md
+                [styles.md_label]: isMD,
+                [styles.md_labelPos]: isMD,
+                // lg
+                [styles.lg_label]: isLG,
+                [styles.lg_labelPos]: isLG,
+                [boxStyles.visuallyHidden]: !isLabelVisible,
+              })}
               htmlFor={id}
               title={ellipsisActive ? label : ''}
             >
@@ -256,7 +254,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               </Flex.Item>
             </Flex>
           </Flex>
-          {!disabled && iconButton}
+          {!disabled && !readOnlyNoIconButton && iconButton}
         </div>
       </div>
       {(helperText || maxLength) && !hasErrorMessage ? (
