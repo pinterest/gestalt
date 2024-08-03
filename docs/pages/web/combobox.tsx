@@ -12,6 +12,7 @@ import disabled from '../../examples/combobox/disabled';
 import error from '../../examples/combobox/error';
 import helperText from '../../examples/combobox/helperText';
 import hiddenLabel from '../../examples/combobox/hiddenLabel';
+import labelled from '../../examples/combobox/labelled';
 import localizationLabels from '../../examples/combobox/localizationLabels';
 import main from '../../examples/combobox/main';
 import programmatic from '../../examples/combobox/programmatic';
@@ -20,6 +21,7 @@ import sizes from '../../examples/combobox/sizes';
 import subtext from '../../examples/combobox/subtext';
 import tags from '../../examples/combobox/tags';
 import uncontrolled from '../../examples/combobox/uncontrolled';
+import visibleLabel from '../../examples/combobox/visibleLabel';
 
 const PREVIEW_HEIGHT = 320;
 
@@ -204,6 +206,42 @@ TextFields cannot be interacted with using the mouse or keyboard. They also do n
               <SandpackExample code={readOnly} layout="column" name="Read-only example" />
             }
             title="Read-only"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`'label' is an optional prop; however, ComboBox should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/textfield#Labels).
+
+1. Built-in label. Preferred. Consistent ComboBox design and tested accessibility.
+
+In some cases, the label for a ComboBox is represented in a different way visually, as demonstrated below. We can take 2 approaches in this case.
+
+2. Labelled ComboBox (Label + ComboBox). This is the best approach when a custom label is needed. The label focuses the Textfield when pressed.
+
+3. Hidden built-in label (Label + Textfield). This is the best approach when there's significant visual distance between the label and the input. You can set \`labelDisplay="hidden"\` to ensure ComboBox is properly labeled for screen readers while using a different element to represent the label visually. The 'visual' label doesn't focus the Textfield when pressed.`}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={visibleLabel} layout="column" name="Built-in label example" />
+            }
+            title="Built-in label"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelled} layout="column" name="Labelled example" />
+            }
+            title="Label + ComboBox"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={hiddenLabel} layout="column" name="Hidden label example" />
+            }
+            title="Hidden label"
           />
         </MainSection.Subsection>
 

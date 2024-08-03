@@ -75,7 +75,7 @@ export default function Example() {
             <ComboBox
               accessibilityClearButtonLabel="Clear category value"
               errorMessage={errorMessage}
-              id="displayLabel"
+              id="hiddenLabel"
               label="Choose a category to display top search trends"
               labelDisplay="hidden"
               noResultText="No results for your selection"

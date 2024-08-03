@@ -42,7 +42,7 @@ export default function Example() {
             onChange={() => {}}
             size="lg"
           />
-        </Flex>{' '}
+        </Flex>
       </Flex>
     </Box>
   );
