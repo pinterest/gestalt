@@ -7,10 +7,12 @@ import layout from './Layout.css';
 import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup';
 import SelectListOption from './SelectList/SelectListOption';
+import VRSelectList from './SelectList/VRSelectList';
 import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
+import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -67,6 +69,10 @@ type Props = {
    */
   placeholder?: string;
   /**
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textfield#Read-only) for more details.
+   */
+  readOnly?: boolean;
+  /**
    * md: 40px, lg: 48px. See the [size](https://gestalt.pinterest.systems/web/selectlist#Size) variant to learn more.
    */
   size?: 'md' | 'lg';
@@ -97,10 +103,16 @@ function SelectList({
   onChange,
   onFocus,
   placeholder,
+  readOnly,
   size = 'md',
   value,
 }: Props) {
   const [focused, setFocused] = useState(false);
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const handleOnChange: (event: React.ChangeEvent<HTMLSelectElement>) => void = (event) => {
     if (value !== event.target.value) {
@@ -146,6 +158,28 @@ function SelectList({
   if (label && helperText) {
     ariaDescribedby = `${id}-helperText`;
   }
+   if (isInVRExperiment) {
+    return (
+      <VRSelectList
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        size={size}
+        value={value}
+      >{children}</VRSelectList>
+    );
+  }
+
 
   return (
     <Box>
@@ -189,6 +223,7 @@ function SelectList({
           onBlur={handleBlur}
           onChange={handleOnChange}
           onFocus={handleFocus}
+          readOnly={readOnly}
           // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
           value={showPlaceholder ? placeholder : value}
         >
