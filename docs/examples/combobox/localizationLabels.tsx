@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, ComboBox, DefaultLabelProvider, Flex } from 'gestalt';
+import { Box, ComboBox, DefaultLabelProvider } from 'gestalt';
 
 export default function Example() {
   const PRONOUNS = [
