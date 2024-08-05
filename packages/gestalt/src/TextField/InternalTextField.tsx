@@ -231,52 +231,50 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   }
 
   const inputElement = (
-    <div
-    onFocus={(e) =>
-      e.target.addEventListener(
-        "wheel",
-        (event) => {
-          console.log(event);
-          event.preventDefault();
-        },
-        { passive: false },
-      )}>
-      <input
-        aria-activedescendant={accessibilityActiveDescendant}
-        aria-controls={accessibilityControls}
-        // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
-        aria-describedby={focused ? ariaDescribedby : undefined}
-        aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-        autoComplete={autoComplete}
-        className={tags ? unstyledClasses : styledClasses}
-        data-test-id={dataTestId}
-        disabled={disabled}
-        enterKeyHint={mobileEnterKeyHint}
-        id={id}
-        inputMode={mobileInputMode}
-        max={type === 'number' ? max : undefined}
-        maxLength={maxLength?.characterCount}
-        min={type === 'number' ? min : undefined}
-        name={name}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
-        onClick={handleClick}
-        onFocus={handleFocus}
-        onKeyDown={handleKeyDown}
-        // type='number' doesn't work on ios safari without a pattern
-        // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
-        pattern={type === 'number' ? '\\d*' : undefined}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        // This config is required to prevent exposing passwords and usernames to spell-checking servers during login processes. More info here: https://www.androidpolice.com/google-chrome-servers-get-passwords-enhanced-spell-check/
-        spellCheck={['email', 'password'].includes(type) ? false : undefined}
-        step={type === 'number' ? step : undefined}
-        {...(tags ? {} : { ref: innerRef })}
-        type={type}
-        value={value}
-      />
-    </div>
+    <input
+      aria-activedescendant={accessibilityActiveDescendant}
+      aria-controls={accessibilityControls}
+      // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+      aria-describedby={focused ? ariaDescribedby : undefined}
+      aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+      autoComplete={autoComplete}
+      className={tags ? unstyledClasses : styledClasses}
+      data-test-id={dataTestId}
+      disabled={disabled}
+      enterKeyHint={mobileEnterKeyHint}
+      id={id}
+      inputMode={mobileInputMode}
+      max={type === 'number' ? max : undefined}
+      maxLength={maxLength?.characterCount}
+      min={type === 'number' ? min : undefined}
+      name={name}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
+      onClick={handleClick}
+      onFocus={handleFocus}
+      onKeyDown={handleKeyDown}
+      onWheel={(e) =>
+        e.target.addEventListener(
+          'wheel',
+          (event) => {
+            event.preventDefault();
+          },
+          { passive: false },
+        )
+      }
+      // type='number' doesn't work on ios safari without a pattern
+      // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
+      pattern={type === 'number' ? '\\d*' : undefined}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      // This config is required to prevent exposing passwords and usernames to spell-checking servers during login processes. More info here: https://www.androidpolice.com/google-chrome-servers-get-passwords-enhanced-spell-check/
+      spellCheck={['email', 'password'].includes(type) ? false : undefined}
+      step={type === 'number' ? step : undefined}
+      {...(tags ? {} : { ref: innerRef })}
+      type={type}
+      value={value}
+    />
   );
 
   // Explicit margin for the small size, we don't have a token for 2px
