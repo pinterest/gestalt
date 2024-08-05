@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import { BannerSlim,Box, Flex, SelectList, Text } from 'gestalt';
+import { BannerSlim, Box, Flex, SelectList, Text } from 'gestalt';
 
 export default function Example() {
   const [range, setRange] = useState('');
 
   return (
     <Box padding={8} width="100%">
-      <Flex direction='column' gap={6}>
-        <Text size="400" weight='bold'>Select a Pin release date range</Text>
-         <BannerSlim
+      <Flex direction="column" gap={6}>
+        <Text size="400" weight="bold">
+          Select a Pin release date range
+        </Text>
+        <BannerSlim
           iconAccessibilityLabel="Recommendation"
           message="Pin launches work better on weekends."
           type="recommendationBare"
         />
-         <SelectList
+        <SelectList
           id="selectlist-hidden-label"
           label="Date range"
           onChange={({ value }) => setRange(value)}
