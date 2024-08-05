@@ -6,21 +6,20 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import controlledComponentExample from '../../examples/selectlist/controlledComponentExample';
-import customLabelVisibilityExample from '../../examples/selectlist/customLabelVisibilityExample';
-import dontMixDropdownAndItemListInGroup from '../../examples/selectlist/dontMixDropdownAndItemListInGroup';
-import dontUseIfAdditionalFeaturesNeeded from '../../examples/selectlist/dontUseIfAdditionalFeaturesNeeded';
-import dontUseIfLessThanFourItems from '../../examples/selectlist/dontUseIfLessThanFourItems';
-import errorMessageExample from '../../examples/selectlist/errorMessageExample';
-import groupingRelatedOptionsExample from '../../examples/selectlist/groupingRelatedOptionsExample';
-import helperTextExample from '../../examples/selectlist/helperTextExample';
-import labelsWithBuiltInFeaturesExample from '../../examples/selectlist/labelsWithBuiltInFeaturesExample';
-import largeSizeExample from '../../examples/selectlist/largeSizeExample';
+import controlled from '../../examples/selectlist/controlled';
+import customLabel from '../../examples/selectlist/customLabel';
+import dontFeatures from '../../examples/selectlist/dontFeatures';
+import dontFourItems from '../../examples/selectlist/dontFourItems';
+import dontMix from '../../examples/selectlist/dontMix';
+import doOrder from '../../examples/selectlist/doOrder';
+import doSelection from '../../examples/selectlist/doSelection';
+import doSimple from '../../examples/selectlist/doSimple';
+import error from '../../examples/selectlist/error';
+import grouping from '../../examples/selectlist/grouping';
+import helperText from '../../examples/selectlist/helperText';
+import labels from '../../examples/selectlist/labels';
 import main from '../../examples/selectlist/main';
-import maintainSelectionTypeForGroup from '../../examples/selectlist/maintainSelectionTypeForGroup';
-import mediumSizeExample from '../../examples/selectlist/mediumSizeExample';
-import orderItemsByAlphabetOrUsage from '../../examples/selectlist/orderItemsByAlphabetOrUsage';
-import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList';
+import size from '../../examples/selectlist/size';
 
 export default function DocsPage({
   generatedDocGen,
@@ -76,7 +75,7 @@ export default function DocsPage({
             description="Use SelectList when the user needs to select from a simple list of items."
             sandpackExample={
               <SandpackExample
-                code={useForSimpleItemList}
+                code={doSimple}
                 hideEditor
                 layout="column"
                 name="Use For Simple Item List"
@@ -90,7 +89,7 @@ export default function DocsPage({
             description="Use SelectList when additional functionality such as subtext or images are needed. Use [Dropdown](/web/dropdown) instead."
             sandpackExample={
               <SandpackExample
-                code={dontUseIfAdditionalFeaturesNeeded}
+                code={dontFeatures}
                 hideControls
                 hideEditor
                 layout="column"
@@ -107,7 +106,7 @@ export default function DocsPage({
             description="Order the list items in SelectList either alphabetically or by usage."
             sandpackExample={
               <SandpackExample
-                code={orderItemsByAlphabetOrUsage}
+                code={doOrder}
                 hideEditor
                 layout="column"
                 name="Order Items By Alphabet or Usage"
@@ -121,7 +120,7 @@ export default function DocsPage({
             description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use [RadioGroup](/web/radiogroup) instead."
             sandpackExample={
               <SandpackExample
-                code={dontUseIfLessThanFourItems}
+                code={dontFourItems}
                 hideControls
                 hideEditor
                 layout="column"
@@ -138,7 +137,7 @@ export default function DocsPage({
             description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/web/dropdown), use Dropdown for all the items in the group."
             sandpackExample={
               <SandpackExample
-                code={maintainSelectionTypeForGroup}
+                code={doSelection}
                 hideEditor
                 layout="column"
                 name="Maintain Selection Type For Group"
@@ -152,7 +151,7 @@ export default function DocsPage({
             description="Mix [Dropdown](/web/dropdown) and SelectList in a group of items."
             sandpackExample={
               <SandpackExample
-                code={dontMixDropdownAndItemListInGroup}
+                code={dontMix}
                 hideControls
                 hideEditor
                 layout="column"
@@ -174,7 +173,7 @@ export default function DocsPage({
           <MainSection.Card
             sandpackExample={
               <SandpackExample
-                code={labelsWithBuiltInFeaturesExample}
+                code={labels}
                 name="Labels with Built-in Features Example"
               />
             }
@@ -210,21 +209,14 @@ export default function DocsPage({
         <MainSection.Subsection columns={2} title="Size">
           <MainSection.Card
             cardSize="md"
-            description={`Use \`lg\` as the recommended size within Pinterest products.`}
-            sandpackExample={
-              <SandpackExample code={largeSizeExample} layout="column" name="Large Size Example" />
-            }
-            title="Large"
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            description={`Use \`md\` on denser surfaces, such as business products or internal tools.`}
+            description={`
+              Use \`lg\` as the recommended size within Pinterest products.
+              Use \`md\` on denser surfaces, such as business products or internal tools.`}
             sandpackExample={
               <SandpackExample
-                code={mediumSizeExample}
+                code={size}
                 layout="column"
-                name="Medium Size Example"
+                name="Size example"
               />
             }
             title="Medium"
@@ -239,7 +231,7 @@ export default function DocsPage({
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={customLabelVisibilityExample}
+                code={customLabel}
                 name="CustomLabel Visibility Example"
               />
             }
@@ -253,7 +245,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={helperTextExample} name="Helper Text Example" />
+              <SandpackExample code={helperText} name="Helper Text Example" />
             }
           />
         </MainSection.Subsection>
@@ -266,7 +258,7 @@ export default function DocsPage({
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={controlledComponentExample}
+                code={controlled}
                 name="Controlled Component Example"
               />
             }
@@ -280,7 +272,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={errorMessageExample} name="Error Message Example" />
+              <SandpackExample code={error} name="Error Message Example" />
             }
           />
         </MainSection.Subsection>
@@ -293,7 +285,7 @@ export default function DocsPage({
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={groupingRelatedOptionsExample}
+                code={grouping}
                 name="Grouping Related Options Example"
               />
             }
