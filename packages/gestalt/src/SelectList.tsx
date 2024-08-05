@@ -69,10 +69,6 @@ type Props = {
    */
   placeholder?: string;
   /**
-   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textfield#Read-only) for more details.
-   */
-  readOnly?: boolean;
-  /**
    * md: 40px, lg: 48px. See the [size](https://gestalt.pinterest.systems/web/selectlist#Size) variant to learn more.
    */
   size?: 'md' | 'lg';
@@ -103,7 +99,6 @@ function SelectList({
   onChange,
   onFocus,
   placeholder,
-  readOnly,
   size = 'md',
   value,
 }: Props) {
@@ -174,7 +169,6 @@ function SelectList({
         onChange={onChange}
         onFocus={onFocus}
         placeholder={placeholder}
-        readOnly={readOnly}
         size={size}
         value={value}
       >
@@ -225,7 +219,6 @@ function SelectList({
           onBlur={handleBlur}
           onChange={handleOnChange}
           onFocus={handleFocus}
-          readOnly={readOnly}
           // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
           value={showPlaceholder ? placeholder : value}
         >

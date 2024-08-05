@@ -6,7 +6,7 @@ export default function Example() {
   return (
     <Box padding={8} width="100%">
       <SelectList
-        id="selectlistexample13"
+        id="selectlist-controlled"
         label="Country"
         name="country"
         onChange={({ value }) => setCountry(value)}

@@ -20,11 +20,10 @@ export default function Example() {
         </Flex>
 
         <SelectList
-          id="selectlistexampleHiddenLabel"
+          id="selectlist-custom-label"
           label="Date range"
           labelDisplay="hidden"
           onChange={() => {}}
-          size="lg"
         >
           {[
             { label: 'Last 5 days', value: '5' },

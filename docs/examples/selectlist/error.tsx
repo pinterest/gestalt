@@ -1,15 +1,18 @@
+import { useState } from 'react';
 import { Box, SelectList } from 'gestalt';
 
 export default function Example() {
+  const [country, setCountry] = useState('');
   return (
     <Box padding={8} width="100%">
       <SelectList
         errorMessage="You must select a country"
-        id="selectlistexample14"
+        id="selectlist-error"
         label="Country"
-        onChange={() => {}}
+        name="country"
+        onChange={({ value }) => setCountry(value)}
         placeholder="Select a country"
-        size="lg"
+        value={country}
       >
         {[
           { label: 'Algeria', value: 'algeria' },

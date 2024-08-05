@@ -8,16 +8,20 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import controlled from '../../examples/selectlist/controlled';
 import customLabel from '../../examples/selectlist/customLabel';
+import disabled from '../../examples/selectlist/disabled';
 import dontFeatures from '../../examples/selectlist/dontFeatures';
 import dontFourItems from '../../examples/selectlist/dontFourItems';
 import dontMix from '../../examples/selectlist/dontMix';
 import doOrder from '../../examples/selectlist/doOrder';
 import doSelection from '../../examples/selectlist/doSelection';
 import doSimple from '../../examples/selectlist/doSimple';
+import enabled from '../../examples/selectlist/enabled';
 import error from '../../examples/selectlist/error';
 import grouping from '../../examples/selectlist/grouping';
 import helperText from '../../examples/selectlist/helperText';
-import labels from '../../examples/selectlist/labels';
+import labelHidden from '../../examples/selectlist/labelHidden';
+import labelled from '../../examples/selectlist/labelled';
+import labelVisible from '../../examples/selectlist/labelVisible';
 import main from '../../examples/selectlist/main';
 import size from '../../examples/selectlist/size';
 
@@ -172,10 +176,7 @@ export default function DocsPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={labels}
-                name="Labels with Built-in Features Example"
-              />
+              <SandpackExample code={labelVisible} name="Labels with Built-in Features Example" />
             }
           />
         </MainSection.Subsection>
@@ -206,20 +207,97 @@ export default function DocsPage({
       </MainSection>
 
       <MainSection name="Variants">
-        <MainSection.Subsection columns={2} title="Size">
+        <MainSection.Subsection
+          description="SelectList must be used as a controlled component when the `placeholder` or `value` props are needed. When used in this manner, `onChange` and `value` are required, while `placeholder` is optional."
+          title="Controlled component"
+        >
           <MainSection.Card
-            cardSize="md"
-            description={`
-              Use \`lg\` as the recommended size within Pinterest products.
-              Use \`md\` on denser surfaces, such as business products or internal tools.`}
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={size}
-                layout="column"
-                name="Size example"
-              />
+              <SandpackExample code={controlled} name="Controlled example" />
             }
-            title="Medium"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection columns={2} description={`
+              Use \`lg\` as the recommended size within Pinterest products.
+              Use \`md\` on denser surfaces, such as business products or internal tools.`}   title="Size">
+          <MainSection.Card
+
+            sandpackExample={<SandpackExample code={size} layout='row' name="Size example" />}
+          />
+        </MainSection.Subsection>
+
+         <MainSection.Subsection
+          columns={2}
+          description={`
+1. Enabled
+The enabled state of Textfield that represents it can be interacted with.
+
+2. Disabled
+TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+
+3. Error
+TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest. Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.x
+`}
+          title="State"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={enabled} layout="column" name="Enabled example" />
+            }
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={error} layout="column" name="Error message example" />
+            }
+            title="Error"
+          />
+        </MainSection.Subsection>
+
+  <MainSection.Subsection
+          columns={2}
+          description={`'label' is an optional prop; however, TextField should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/textfield#Labels).
+
+1. Built-in label. Preferred. Consistent Textfield design and tested accessibility.
+
+In some cases, the label for a TextField is represented in a different way visually, as demonstrated below. We can take 2 approaches in this case.
+
+2. Labelled Textfield (Label + Textfield). This is the best approach when a custom label is needed. The label focuses the Textfield when pressed.
+
+3. Hidden built-in label (Label + Textfield). This is the best approach when there's significant visual distance between the label and the input. You can set \`labelDisplay="hidden"\` to ensure TextField is properly labeled for screen readers while using a different element to represent the label visually. The 'visual' label doesn't focus the Textfield when pressed.`}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelVisible} layout="column" name="Built-in label example" />
+            }
+            title="Built-in label"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelled} layout="column" name="Labelled example" />
+            }
+            title="Label + Textfield"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelHidden} layout="column" name="Hidden label example" />
+            }
+            title="Hidden label"
           />
         </MainSection.Subsection>
 
@@ -230,10 +308,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={customLabel}
-                name="CustomLabel Visibility Example"
-              />
+              <SandpackExample code={customLabel} name="CustomLabel Visibility Example" />
             }
           />
         </MainSection.Subsection>
@@ -244,36 +319,7 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={helperText} name="Helper Text Example" />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description="SelectList must be used as a controlled component when the `placeholder` or `value` props are needed. When used in this manner, `onChange` and `value` are required, while `placeholder` is optional."
-          title="Controlled component"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={controlled}
-                name="Controlled Component Example"
-              />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description="`errorMessage` should be used to denote an error state in SelectList and to provide a message for how the user can fix it."
-          title="Error message"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={error} name="Error Message Example" />
-            }
+            sandpackExample={<SandpackExample code={helperText} name="Helper Text Example" />}
           />
         </MainSection.Subsection>
 
@@ -284,10 +330,7 @@ export default function DocsPage({
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={grouping}
-                name="Grouping Related Options Example"
-              />
+              <SandpackExample code={grouping} name="Grouping Related Options Example" />
             }
           />
         </MainSection.Subsection>

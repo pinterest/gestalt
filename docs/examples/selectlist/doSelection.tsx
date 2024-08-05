@@ -4,7 +4,7 @@ export default function Example() {
   return (
     <Box padding={8} width="100%">
       <Flex gap={{ column: 0, row: 2 }}>
-        <SelectList id="selectlistexample6" label="Metric" onChange={() => {}} size="lg" value="v1">
+        <SelectList id="selectlist-do-selection" label="Metric" onChange={() => {}} value="v1">
           {[
             { label: 'Revenue', value: 'v1' },
             { label: 'Checkouts', value: 'v2' },
@@ -17,13 +17,7 @@ export default function Example() {
           ))}
         </SelectList>
 
-        <SelectList
-          id="selectlistexample7"
-          label="Date range"
-          onChange={() => {}}
-          size="lg"
-          value="v1"
-        >
+        <SelectList id="selectlistexample7" label="Date range" onChange={() => {}} value="v1">
           {[
             { label: 'Last 7 days', value: 'v1' },
             { label: 'Last 14 days', value: 'v2' },
