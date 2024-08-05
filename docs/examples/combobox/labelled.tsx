@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, ComboBox, Flex,Label, Text } from 'gestalt';
+import { Box, ComboBox, Flex, Label, Text } from 'gestalt';
 
 export default function Example() {
   const CATEGORIES = [

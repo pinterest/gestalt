@@ -208,7 +208,8 @@ export default function Example() {
           onSelect={handleOnSelect}
           options={suggestedOptions}
           placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
-          size="sm" tags={renderedTags}
+          size="sm"
+          tags={renderedTags}
         />
       </Flex>
     </Box>

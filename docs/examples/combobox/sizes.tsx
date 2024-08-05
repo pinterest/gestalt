@@ -1,7 +1,6 @@
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example() {
-
   const options = Array(20)
     .fill(0)
     .map((item, index) => ({

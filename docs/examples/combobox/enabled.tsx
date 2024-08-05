@@ -1,12 +1,11 @@
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example() {
-
   const options = Array(20)
     .fill(0)
     .map((item, index) => ({
       label: `Label-${index + 1}`,
-      value: `Value-${index + 1}`,
+      value: `Va Plue-${index + 1}`,
       subtext: `Subtext-${index + 1}`,
     }));
 

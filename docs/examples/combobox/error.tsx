@@ -1,8 +1,7 @@
 import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example() {
-
-    const options = Array(20)
+  const options = Array(20)
     .fill(0)
     .map((item, index) => ({
       label: `Label-${index + 1}`,
@@ -20,7 +19,6 @@ export default function Example() {
           label="Category"
           noResultText="No results for your selection"
           options={options}
-
           size="sm"
         />
         <ComboBox
