@@ -1,5 +1,3 @@
-const { transforms: tokenStudioBaseTransforms } = require('@tokens-studio/sd-transforms');
-
 // eslint-disable-next-line no-unused-vars -- Importing for type definitions
 const StyleDictionary = require('style-dictionary');
 
