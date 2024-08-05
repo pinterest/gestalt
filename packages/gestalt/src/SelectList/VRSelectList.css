@@ -54,6 +54,7 @@
 }
 
 .inputParent {
+  border-radius: var(--sema-rounding-md);
   isolation: isolate;
   position: relative;
 }

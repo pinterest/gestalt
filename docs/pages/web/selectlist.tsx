@@ -213,22 +213,23 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={controlled} name="Controlled example" />
-            }
+            sandpackExample={<SandpackExample code={controlled} name="Controlled example" />}
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection columns={2} description={`
+        <MainSection.Subsection
+          columns={2}
+          description={`
               Use \`lg\` as the recommended size within Pinterest products.
-              Use \`md\` on denser surfaces, such as business products or internal tools.`}   title="Size">
+              Use \`md\` on denser surfaces, such as business products or internal tools.`}
+          title="Size"
+        >
           <MainSection.Card
-
-            sandpackExample={<SandpackExample code={size} layout='row' name="Size example" />}
+            sandpackExample={<SandpackExample code={size} layout="row" name="Size example" />}
           />
         </MainSection.Subsection>
 
-         <MainSection.Subsection
+        <MainSection.Subsection
           columns={2}
           description={`
 1. Enabled
@@ -265,7 +266,7 @@ TextField can display an error message. Simply pass in an \`errorMessage\` when 
           />
         </MainSection.Subsection>
 
-  <MainSection.Subsection
+        <MainSection.Subsection
           columns={2}
           description={`'label' is an optional prop; however, TextField should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/textfield#Labels).
 
@@ -302,18 +303,6 @@ In some cases, the label for a TextField is represented in a different way visua
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`In some cases, the label for a SelectList is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure SelectList is properly labeled for screen readers while using a different element to represent the label visually.`}
-          title="Label visibility"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={customLabel} name="CustomLabel Visibility Example" />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
           description="Helper text should be used when additional description may be required to understand the SelectList. Common examples include text that is legally required to be displayed, or instructions to fill out a form (e.g. proper formatting). If the text is optional, [Tooltip](/web/tooltip) could be used instead."
           title="Helper text"
         >
@@ -325,7 +314,7 @@ In some cases, the label for a TextField is represented in a different way visua
 
         <MainSection.Subsection
           description="SelectList.Group can be used to group related options. Note that disabling a group disables all of its options."
-          title="Groups"
+          title="Grouping"
         >
           <MainSection.Card
             cardSize="lg"
