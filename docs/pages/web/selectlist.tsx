@@ -7,7 +7,6 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import controlled from '../../examples/selectlist/controlled';
-import customLabel from '../../examples/selectlist/customLabel';
 import disabled from '../../examples/selectlist/disabled';
 import dontFeatures from '../../examples/selectlist/dontFeatures';
 import dontFourItems from '../../examples/selectlist/dontFourItems';
