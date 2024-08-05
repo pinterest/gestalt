@@ -31,7 +31,8 @@
     "build": "rm -rf dist && node build.js",
     "build:prod": "NODE_ENV=production node build.js",
     "watch": "nodemon build.js",
-    "test": "rm -rf dist && yarn build && jest --testPathPattern=tests"
+    "test": "rm -rf dist && yarn build && jest --testPathPattern=tests",
+    "update-tests":"jest --testPathPattern=tests --updateSnapshot && cd .. && jest --update-snapshot -- \"ColorScheme\""
   },
   "browserslist": [
     "last 2 versions",
