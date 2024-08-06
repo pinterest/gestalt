@@ -15,10 +15,8 @@ import FormHelperText from './FormHelperText';
 import styles from './VRDateInput.css';
 
 type Props = {
-  // REQUIRED
   id: string;
   onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
-  // OPTIONAL
   accessibilityControls?: string;
   dataTestId?: string;
   disabled?: boolean;
