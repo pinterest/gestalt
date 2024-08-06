@@ -17,6 +17,7 @@ type InjectedProps = {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  readOnly?: boolean;
   value?: string;
   errorMessage?: string;
   helperText?: string;
@@ -26,37 +27,38 @@ type Props = {
   id: string;
 } & InjectedProps;
 
-const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(
-  function DateInput(
-    {
-      disabled,
-      id,
-      label,
-      name,
-      onChange,
-      onClick,
-      onBlur,
-      onFocus,
-      onKeyDown,
-      placeholder,
-      value,
-      errorMessage,
-      helperText,
-    }: Props,
-    ref,
-  ) {
-    const innerRef = useRef<null | HTMLInputElement>(null);
+const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function DateInput(
+  {
+    disabled,
+    id,
+    label,
+    name,
+    onChange,
+    onClick,
+    onBlur,
+    onFocus,
+    onKeyDown,
+    placeholder,
+    readOnly,
+    value,
+    errorMessage,
+    helperText,
+  }: Props,
+  ref,
+) {
+  const innerRef = useRef<null | HTMLInputElement>(null);
 
-    // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
-    useImperativeHandle(ref, () => innerRef.current);
+  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+  useImperativeHandle(ref, () => innerRef.current);
 
-    const isInVRExperiment = useDangerouslyInGestaltExperiment({
-      webExperimentName: 'web_gestalt_visualRefresh',
-      mwebExperimentName: 'web_gestalt_visualRefresh',
-    });
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
-    if (isInVRExperiment) {
-      return <VRInternalTextField
+  if (isInVRExperiment) {
+    return (
+      <VRInternalTextField
         ref={innerRef}
         disabled={disabled}
         errorMessage={errorMessage}
@@ -72,63 +74,61 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(
         }}
         onKeyDown={(data) => onKeyDown?.(data.event)}
         placeholder={placeholder}
+        readOnly={readOnly}
         value={value}
-      />;
-    }
-
-    return (
-      <Box
-        alignItems={!helperText && !errorMessage ? 'center' : undefined}
-        column={12}
-        display="flex"
-        flex="grow"
-        position="relative"
-      >
-        <Box column={12} flex="grow">
-          <TextField
-            ref={innerRef}
-            autoComplete="off"
-            disabled={disabled}
-            errorMessage={errorMessage}
-            helperText={helperText}
-            id={id}
-            mobileInputMode="none"
-            name={name}
-            onBlur={(data) => onBlur?.(data.event)}
-            onChange={(data) => onChange?.(data.event)}
-            onFocus={(data) => {
-              onFocus?.(data.event);
-              onClick?.();
-            }}
-            onKeyDown={(data) => onKeyDown?.(data.event)}
-            placeholder={placeholder}
-            size="lg"
-            value={value}
-          />
-        </Box>
-        <div className={styles.calendarIcon}>
-          <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
-            <TapArea
-              fullHeight={false}
-              fullWidth={false}
-              mouseCursor="default"
-              onTap={() => {
-                innerRef.current?.focus();
-              }}
-              rounding="circle"
-            >
-              <Icon
-                accessibilityLabel=""
-                color={disabled ? 'disabled' : 'default'}
-                icon="calendar"
-              />
-            </TapArea>
-          </Box>
-        </div>
-      </Box>
+      />
     );
-  },
-);
+  }
+
+  return (
+    <Box
+      alignItems={!helperText && !errorMessage ? 'center' : undefined}
+      column={12}
+      display="flex"
+      flex="grow"
+      position="relative"
+    >
+      <Box column={12} flex="grow">
+        <TextField
+          ref={innerRef}
+          autoComplete="off"
+          disabled={disabled}
+          errorMessage={errorMessage}
+          helperText={helperText}
+          id={id}
+          mobileInputMode="none"
+          name={name}
+          onBlur={(data) => onBlur?.(data.event)}
+          onChange={(data) => onChange?.(data.event)}
+          onFocus={(data) => {
+            onFocus?.(data.event);
+            onClick?.();
+          }}
+          onKeyDown={(data) => onKeyDown?.(data.event)}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          size="lg"
+          value={value}
+        />
+      </Box>
+      <div className={styles.calendarIcon}>
+        <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
+          <TapArea
+            fullHeight={false}
+            fullWidth={false}
+            mouseCursor="default"
+            onTap={() => {
+              innerRef.current?.focus();
+            }}
+            rounding="circle"
+          >
+            <Icon accessibilityLabel="" color={disabled ? 'disabled' : 'default'} icon="calendar" />
+          </TapArea>
+        </Box>
+      </div>
+    </Box>
+  );
+});
 
 DateInputWithForwardRef.displayName = 'DatePickerTextField';
 
