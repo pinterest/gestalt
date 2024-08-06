@@ -1,6 +1,6 @@
-import { forwardRef } from 'react';
-import { Box, Icon, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
-import styles from '../DatePicker.css';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
+import VRInternalTextField from './VRInternalTextField';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
 // Datepicker takes this props and then funnels them to DatePickerTextField.
@@ -49,57 +49,47 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
       mwebExperimentName: 'web_gestalt_visualRefresh',
     });
 
+    const innerRef = useRef<null | HTMLInputElement>(null);
+
+    // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+    useImperativeHandle(ref, () => innerRef.current);
+
     if (isInVRExperiment) {
-      <Box
-        alignItems={!helperText && !errorMessage ? 'center' : undefined}
-        column={12}
-        display="flex"
-        flex="grow"
-        position="relative"
-      >
-        <Box column={12} flex="grow">
-          <TextField
-            ref={ref}
-            autoComplete="off"
-            disabled={disabled}
-            errorMessage={errorMessage}
-            helperText={helperText}
-            id={id}
-            mobileInputMode="none"
-            name={name}
-            onBlur={(data) => onBlur?.(data.event)}
-            onChange={(data) => onChange?.(data.event)}
-            onFocus={(data) => {
-              onFocus?.(data.event);
-              onClick?.();
-            }}
-            onKeyDown={(data) => onKeyDown?.(data.event)}
-            placeholder={placeholder}
-            size="lg"
-            value={value}
-          />
-        </Box>
-        <div className={isInVRExperiment || isInVRExperiment}>
-          <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
-            <div className={disabled ? styles.disabled : undefined}>
-              <Icon accessibilityLabel="" color="default" icon="calendar" />
-            </div>
-          </Box>
-        </div>
-      </Box>;
+      <VRInternalTextField
+        ref={innerRef}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        name={name}
+        onBlur={(data) => onBlur?.(data.event)}
+        onChange={(data) => onChange?.(data.event)}
+        onFocus={(data) => {
+          onFocus?.(data.event);
+          onClick?.();
+        }}
+        onKeyDown={(data) => onKeyDown?.(data.event)}
+        placeholder={placeholder}
+        value={value}
+      />;
     }
+
+    const handleOnIconTap = () => {
+      innerRef.current?.focus();
+    };
 
     return (
       <Box
         alignItems={!helperText && !errorMessage ? 'center' : undefined}
-        column={12}
         display="flex"
         flex="grow"
         position="relative"
+        width="100%"
       >
-        <Box column={12} flex="grow">
+        <Box flex="grow" width="100%">
           <TextField
-            ref={ref}
+            ref={innerRef}
             autoComplete="off"
             disabled={disabled}
             errorMessage={errorMessage}
@@ -120,9 +110,11 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
           />
         </Box>
         <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
-          <div className={disabled ? styles.disabled : undefined}>
-            <Icon accessibilityLabel="" color="default" icon="calendar" />
-          </div>
+          <TapArea fullHeight={false} fullWidth={false} mouseCursor='default' onTap={handleOnIconTap} rounding="circle"><Icon
+            accessibilityLabel=""
+            color={isInVRExperiment ? 'disabled' : 'default'}
+            icon="calendar"
+          /></TapArea>
         </Box>
       </Box>
     );
