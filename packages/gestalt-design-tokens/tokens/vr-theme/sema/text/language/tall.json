@@ -1,0 +1,92 @@
+{
+  "sema": {
+    "font": {
+      "lineheight": {
+        "XL": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.170}"
+        },
+        "LG": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.170}"
+        },
+        "MD": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.160}"
+        },
+        "SM": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.140}"
+        },
+        "XS": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.130}"
+        },
+        "heading": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "46"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "36"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "28"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "27"
+          },
+          "XXS": {
+            "type": "lineHeights",
+            "value": "24"
+          }
+        },
+        "UI": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "28"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "22"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "20"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "20"
+          }
+        },
+        "body": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "34"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "27"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "22"
+          }
+        },
+        "compact": {
+          "XS": {
+            "type": "lineHeights",
+            "value": "17"
+          }
+        }
+      }
+    }
+  }
+}

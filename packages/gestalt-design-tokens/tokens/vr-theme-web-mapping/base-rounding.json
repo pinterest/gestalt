@@ -1,15 +1,15 @@
 {
   "rounding": {
-    "0appenda": { "value": "{base.rounding.0.value}" },
-    "100": { "value": "{base.rounding.4.value}" },
-    "200": { "value": "{base.rounding.8.value}" },
-    "300": { "value": "{base.rounding.12.value}" },
-    "400": { "value": "{base.rounding.16.value}" },
-    "500": { "value": "{base.rounding.20.value}" },
-    "600": { "value": "{base.rounding.24.value}" },
-    "700": { "value": "{base.rounding.28.value}" },
-    "800": { "value": "{base.rounding.32.value}" },
-    "pill": { "value": "{base.rounding.999.value}" },
-    "circleappendb": { "value": "{base.rounding.circle.value}" }
+    "0appenda": { "value": "{sema.rounding.0.value}" },
+    "100": { "value": "{sema.rounding.100.value}" },
+    "200": { "value": "{sema.rounding.200.value}" },
+    "300": { "value": "{sema.rounding.300.value}" },
+    "400": { "value": "{sema.rounding.400.value}" },
+    "500": { "value": "{sema.rounding.500.value}" },
+    "600": { "value": "{sema.rounding.600.value}" },
+    "700": { "value": "{sema.rounding.700.value}" },
+    "800": { "value": "{sema.rounding.800.value}" },
+    "pill": { "value": "{sema.rounding.pill.value}" },
+    "circleappendb": { "value": "{sema.rounding.circle.value}" }
   }
 }

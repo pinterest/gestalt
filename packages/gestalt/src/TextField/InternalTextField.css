@@ -91,17 +91,17 @@ html[dir="rtl"] .actionButton {
 }
 
 .vr_sm_actionButtonContainer {
-  bottom: var(--sema-space-gap-vertical-sm);
+  bottom: var(--sema-space-100);
   position: absolute;
 }
 
 .vr_md_actionButtonContainer {
-  bottom: var(--sema-space-gap-vertical-lg);
+  bottom: var(--sema-space-200);
   position: absolute;
 }
 
 .vr_lg_actionButtonContainer {
-  bottom: var(--sema-space-gap-vertical-xl);
+  bottom: var(--sema-space-300);
   position: absolute;
 }
 

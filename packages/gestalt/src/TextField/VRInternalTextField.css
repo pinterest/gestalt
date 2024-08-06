@@ -1,8 +1,8 @@
 .input {
-  border-radius: var(--sema-rounding-md);
+  border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
-  font-weight: var(--sema-font-weight-body);
+  font-weight: var(--base-font-weight-400);
   line-height: 16px;
   position: relative;
   width: 100%;
@@ -61,8 +61,8 @@
 
 .label {
   font-size: var(--sema-font-size-ui-xs);
-  font-weight: var(--sema-font-weight-ui);
-  line-height: var(--sema-font-lineheight-UI-XS);
+  font-weight: var(--base-font-weight-500);
+  line-height: var(sema-font- lineheight-UI-XS);
   padding: 0;
   position: absolute;
   z-index: 1;
@@ -73,41 +73,41 @@
 .sm_input {
   font-size: var(--sema-font-size-ui-sm);
   min-height: 28px;
-  padding-bottom: var(--sema-space-gap-vertical-sm);
+  padding-bottom: var(--sema-space-100);
 }
 
 .sm_visibleLabel {
   padding-top: calc(
-    var(--sema-space-gap-vertical-sm) + (var(--sema-font-size-ui-sm) * 1.1)
+    var(--sema-space-100) + (var(--sema-font-size-ui-sm) * 1.1)
   );
 }
 
 .sm_noLabel {
-  padding-top: var(--sema-space-gap-vertical-sm);
+  padding-top: var(--sema-space-100);
 }
 
 html[dir="rtl"] .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-sm);
-  padding-right: var(--sema-space-padding-horizontal-lg);
+  padding-left: var(--sema-space-100);
+  padding-right: var(--sema-space-200);
 }
 
 html:not([dir="rtl"]) .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-lg);
-  padding-right: var(--sema-space-padding-horizontal-sm);
+  padding-left: var(--sema-space-200);
+  padding-right: var(--sema-space-100);
 }
 
 html[dir="rtl"] .sm_label {
-  left: calc(var(--sema-space-padding-horizontal-lg));
-  right: calc(var(--sema-space-padding-horizontal-lg) + 1px);
+  left: calc(var(--sema-space-200));
+  right: calc(var(--sema-space-200) + 1px);
 }
 
 html:not([dir="rtl"]) .sm_label {
-  left: calc(var(--sema-space-padding-horizontal-lg) + 1px);
-  right: calc(var(--sema-space-padding-horizontal-lg));
+  left: calc(var(--sema-space-200) + 1px);
+  right: calc(var(--sema-space-200));
 }
 
 .sm_labelPos {
-  top: var(--sema-space-gap-vertical-sm);
+  top: var(--sema-space-100);
 }
 
 html:not([dir="rtl"]) .sm_actionButton {
@@ -119,7 +119,7 @@ html[dir="rtl"] .sm_actionButton {
 }
 
 .sm_actionButtonPaddingBottom {
-  padding-bottom: var(--sema-space-gap-vertical-sm);
+  padding-bottom: var(--sema-space-100);
 }
 
 /* md */
@@ -127,42 +127,41 @@ html[dir="rtl"] .sm_actionButton {
 .md_input {
   font-size: var(--sema-font-size-ui-md);
   min-height: 36px;
-  padding-bottom: var(--sema-space-gap-vertical-lg);
+  padding-bottom: var(--sema-space-200);
 }
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-padding-horizontal-xl) +
-      (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
   );
 }
 
 .md_noLabel {
-  padding-top: var(--sema-space-gap-vertical-lg);
+  padding-top: var(--sema-space-200);
 }
 
 html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-lg);
-  padding-right: var(--sema-space-padding-horizontal-xl);
+  padding-left: var(--sema-space-200);
+  padding-right: var(--sema-space-300);
 }
 
 html:not([dir="rtl"]) .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xl);
-  padding-right: var(--sema-space-padding-horizontal-lg);
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-200);
 }
 
 html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-padding-horizontal-xl));
-  right: calc(var(--sema-space-padding-horizontal-xl) + 1px);
+  left: calc(var(--sema-space-300));
+  right: calc(var(--sema-space-300) + 1px);
 }
 
 html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-padding-horizontal-xl) + 1px);
-  right: calc(var(--sema-space-padding-horizontal-xl));
+  left: calc(var(--sema-space-300) + 1px);
+  right: calc(var(--sema-space-300));
 }
 
 .md_labelPos {
-  top: var(--sema-space-gap-vertical-lg);
+  top: var(--sema-space-200);
 }
 
 html:not([dir="rtl"]) .md_actionButton {
@@ -178,41 +177,41 @@ html[dir="rtl"] .md_actionButton {
 .lg_input {
   font-size: var(--sema-font-size-ui-md);
   min-height: 48px;
-  padding-bottom: var(--sema-space-gap-vertical-xl);
+  padding-bottom: var(--sema-space-300);
 }
 
 .lg_visibleLabel {
   padding-top: calc(
-    var(--sema-space-gap-vertical-xxl) + (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-400) + (var(--sema-font-size-ui-md) * 1.1)
   );
 }
 
 .lg_noLabel {
-  padding-top: var(--sema-space-gap-vertical-xl);
+  padding-top: var(--sema-space-300);
 }
 
 html[dir="rtl"] .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xl);
-  padding-right: var(--sema-space-padding-horizontal-xxl);
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-400);
 }
 
 html:not([dir="rtl"]) .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xxl);
-  padding-right: var(--sema-space-padding-horizontal-xl);
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-300);
 }
 
 html[dir="rtl"] .lg_label {
-  left: calc(var(--sema-space-padding-horizontal-xxl));
-  right: calc(var(--sema-space-padding-horizontal-xxl) + 1px);
+  left: calc(var(--sema-space-400));
+  right: calc(var(--sema-space-400) + 1px);
 }
 
 html:not([dir="rtl"]) .lg_label {
-  left: calc(var(--sema-space-padding-horizontal-xxl) + 1px);
-  right: calc(var(--sema-space-padding-horizontal-xxl));
+  left: calc(var(--sema-space-400) + 1px);
+  right: calc(var(--sema-space-400));
 }
 
 .lg_labelPos {
-  top: var(--sema-space-gap-vertical-xl);
+  top: var(--sema-space-300);
 }
 
 html:not([dir="rtl"]) .lg_actionButton {

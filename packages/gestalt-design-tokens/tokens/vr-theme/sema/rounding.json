@@ -1,54 +1,49 @@
 {
   "sema": {
     "rounding": {
-      "date": {
-        "container": {
-          "type": "other",
-          "value": "{base.rounding.16}"
-        },
-        "range": {
-          "middle": {
-            "type": "other",
-            "value": "{base.rounding.0}"
-          }
-        },
-        "start": {
-          "type": "other",
-          "value": "{base.rounding.circle} {base.rounding.0} {base.rounding.0} {base.rounding.circle}"
-        },
-        "end": {
-          "type": "other",
-          "value": "{base.rounding.0} {base.rounding.circle} {base.rounding.circle} {base.rounding.0}"
-        }
+      "0": {
+        "value": "0px",
+        "type": "borderRadius"
       },
-      "XL": {
-        "type": "other",
-        "value": "{base.rounding.20}"
+      "100": {
+        "value": "4px",
+        "type": "borderRadius"
       },
-      "LG": {
-        "type": "other",
-        "value": "{base.rounding.16}"
+      "200": {
+        "value": "8px",
+        "type": "borderRadius"
       },
-      "MD": {
-        "type": "other",
-        "value": "{base.rounding.12}"
+      "300": {
+        "value": "12px",
+        "type": "borderRadius"
       },
-      "SM": {
-        "type": "other",
-        "value": "{base.rounding.8}"
+      "400": {
+        "value": "16px",
+        "type": "borderRadius"
       },
-      "XS": {
-        "type": "other",
-        "value": "{base.rounding.4}"
+      "500": {
+        "value": "20px",
+        "type": "borderRadius"
       },
-      "circleappenda": {
-        "$extensions": {
-          "studio.tokens": {
-            "modify": {}
-          }
-        },
-        "type": "other",
-        "value": "{base.rounding.circle}"
+      "600": {
+        "value": "24px",
+        "type": "borderRadius"
+      },
+      "700": {
+        "value": "28px",
+        "type": "borderRadius"
+      },
+      "800": {
+        "value": "32px",
+        "type": "borderRadius"
+      },
+      "pill": {
+        "value": "999px",
+        "type": "borderRadius"
+      },
+      "circle": {
+        "value": "50%",
+        "type": "borderRadius"
       }
     }
   }
