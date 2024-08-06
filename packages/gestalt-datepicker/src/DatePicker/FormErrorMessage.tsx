@@ -1,8 +1,7 @@
 import { ReactNode } from 'react';
 import classnames from 'classnames';
 import { Box, Flex, Icon, Text } from 'gestalt';
-import styles from './FormErrorMessage.css';
-import helperTextStyles from './FormHelperText.css';
+import styles from './FormHelperText.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
@@ -26,16 +25,16 @@ export default function FormErrorMessage({
     <div
       className={classnames({
         // none
-        [helperTextStyles.noStartPadding]: noStartPadding,
+        [styles.noStartPadding]: noStartPadding,
         // sm
-        [helperTextStyles.vr_sm_startPadding]: size === 'sm' && !noStartPadding,
-        [helperTextStyles.vr_sm_topPadding]: size === 'sm',
+        [styles.vr_sm_startPadding]: size === 'sm' && !noStartPadding,
+        [styles.vr_sm_topPadding]: size === 'sm',
         // md
-        [helperTextStyles.vr_md_startPadding]: size === 'md' && !noStartPadding,
-        [helperTextStyles.vr_md_topPadding]: size === 'md',
+        [styles.vr_md_startPadding]: size === 'md' && !noStartPadding,
+        [styles.vr_md_topPadding]: size === 'md',
         // lg
-        [helperTextStyles.vr_lg_startPadding]: size === 'lg' && !noStartPadding,
-        [helperTextStyles.vr_lg_topPadding]: size === 'lg',
+        [styles.vr_lg_startPadding]: size === 'lg' && !noStartPadding,
+        [styles.vr_lg_topPadding]: size === 'lg',
       })}
       id={id}
     >
