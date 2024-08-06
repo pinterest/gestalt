@@ -12,7 +12,7 @@ import classnames from 'classnames';
 import { Box, Icon, TapArea } from 'gestalt';
 import FormErrorMessage from './FormErrorMessage';
 import FormHelperText from './FormHelperText';
-import styles from './VRInternalTextField.css';
+import styles from './VRDateInput.css';
 
 type Props = {
   // REQUIRED
