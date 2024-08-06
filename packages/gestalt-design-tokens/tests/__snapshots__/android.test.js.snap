@@ -960,6 +960,20 @@ Object {
   <dimen name=\\"base_font_size_20\\">20sp</dimen>
   <dimen name=\\"base_font_size_28\\">28sp</dimen>
   <dimen name=\\"base_font_size_36\\">36sp</dimen>
+  <dimen name=\\"sema_font_size_heading_xxs\\">@dimen/base_font_size_14</dimen>
+  <dimen name=\\"sema_font_size_heading_xs\\">@dimen/base_font_size_16</dimen>
+  <dimen name=\\"sema_font_size_heading_sm\\">@dimen/base_font_size_20</dimen>
+  <dimen name=\\"sema_font_size_heading_md\\">@dimen/base_font_size_28</dimen>
+  <dimen name=\\"sema_font_size_heading_lg\\">@dimen/base_font_size_36</dimen>
+  <dimen name=\\"sema_font_size_ui_xs\\">@dimen/base_font_size_12</dimen>
+  <dimen name=\\"sema_font_size_ui_sm\\">@dimen/base_font_size_14</dimen>
+  <dimen name=\\"sema_font_size_ui_md\\">@dimen/base_font_size_16</dimen>
+  <dimen name=\\"sema_font_size_ui_lg\\">@dimen/base_font_size_20</dimen>
+  <dimen name=\\"sema_font_size_body_xs\\">@dimen/base_font_size_12</dimen>
+  <dimen name=\\"sema_font_size_body_sm\\">@dimen/base_font_size_14</dimen>
+  <dimen name=\\"sema_font_size_body_md\\">@dimen/base_font_size_16</dimen>
+  <dimen name=\\"sema_font_size_body_lg\\">@dimen/base_font_size_20</dimen>
+  <dimen name=\\"sema_font_size_compact_xs\\">@dimen/base_font_size_12</dimen>
 
   </resources>
 ",
@@ -969,6 +983,26 @@ Object {
   <dimen name=\\"base_font_weight_400\\">400</dimen>
   <dimen name=\\"base_font_weight_500\\">500</dimen>
   <dimen name=\\"base_font_weight_700\\">700</dimen>
+  <dimen name=\\"sema_font_weight_heading_lg\\">@dimen/base_font_weight_700</dimen>
+  <dimen name=\\"sema_font_weight_heading_md\\">@dimen/base_font_weight_700</dimen>
+  <dimen name=\\"sema_font_weight_heading_sm\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_heading_xs\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_heading_xxs\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_ui_lg\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_ui_md\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_ui_sm\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_ui_xs\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_ui_xxs\\">@dimen/base_font_weight_500</dimen>
+  <dimen name=\\"sema_font_weight_body_lg_default\\">@dimen/base_font_weight_400</dimen>
+  <dimen name=\\"sema_font_weight_body_lg_emphasis\\">@dimen/base_font_weight_700</dimen>
+  <dimen name=\\"sema_font_weight_body_md_default\\">@dimen/base_font_weight_400</dimen>
+  <dimen name=\\"sema_font_weight_body_md_emphasis\\">@dimen/base_font_weight_700</dimen>
+  <dimen name=\\"sema_font_weight_body_sm_default\\">@dimen/base_font_weight_400</dimen>
+  <dimen name=\\"sema_font_weight_body_sm_emphasis\\">@dimen/base_font_weight_700</dimen>
+  <dimen name=\\"sema_font_weight_body_xs_default\\">@dimen/base_font_weight_400</dimen>
+  <dimen name=\\"sema_font_weight_body_xs_emphasis\\">@dimen/base_font_weight_700</dimen>
+  <dimen name=\\"sema_font_weight_compact_xs_default\\">@dimen/base_font_weight_400</dimen>
+  <dimen name=\\"sema_font_weight_compact_xs_emphasis\\">@dimen/base_font_weight_700</dimen>
 
   </resources>
 ",
