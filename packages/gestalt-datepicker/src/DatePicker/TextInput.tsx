@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
-import { Box, Icon, TextField } from 'gestalt';
-import useInExperiment from './useInExperiment';
+import { Box, Icon, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
 import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
@@ -9,6 +8,7 @@ import styles from '../DatePicker.css';
 type InjectedProps = {
   disabled?: boolean;
   id: string;
+  label?: string;
   name?: string;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -31,6 +31,7 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
       disabled,
       id,
       name,
+      label,
       onChange,
       onClick,
       onBlur,
@@ -43,12 +44,12 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
     }: Props,
     ref,
   ) {
-    const isInVRExperiment = useInExperiment({
+    const isInVRExperiment = useDangerouslyInGestaltExperiment({
       webExperimentName: 'web_gestalt_visualRefresh',
       mwebExperimentName: 'web_gestalt_visualRefresh',
     });
 
-    return (
+    if (isInVRExperiment) {
       <Box
         alignItems={!helperText && !errorMessage ? 'center' : undefined}
         column={12}
@@ -85,6 +86,44 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
             </div>
           </Box>
         </div>
+      </Box>;
+    }
+
+    return (
+      <Box
+        alignItems={!helperText && !errorMessage ? 'center' : undefined}
+        column={12}
+        display="flex"
+        flex="grow"
+        position="relative"
+      >
+        <Box column={12} flex="grow">
+          <TextField
+            ref={ref}
+            autoComplete="off"
+            disabled={disabled}
+            errorMessage={errorMessage}
+            helperText={helperText}
+            id={id}
+            mobileInputMode="none"
+            name={name}
+            onBlur={(data) => onBlur?.(data.event)}
+            onChange={(data) => onChange?.(data.event)}
+            onFocus={(data) => {
+              onFocus?.(data.event);
+              onClick?.();
+            }}
+            onKeyDown={(data) => onKeyDown?.(data.event)}
+            placeholder={placeholder}
+            size="lg"
+            value={value}
+          />
+        </Box>
+        <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
+          <div className={disabled ? styles.disabled : undefined}>
+            <Icon accessibilityLabel="" color="default" icon="calendar" />
+          </div>
+        </Box>
       </Box>
     );
   },
