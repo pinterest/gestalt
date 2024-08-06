@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  Fragment,
   ReactNode,
   useCallback,
   useEffect,
@@ -9,6 +10,8 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { Box, Icon, TapArea } from 'gestalt';
+import FormErrorMessage from './FormErrorMessage';
+import FormHelperText from './FormHelperText';
 import styles from './VRInternalTextField.css';
 
 type Props = {
@@ -104,104 +107,111 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     };
   }, [label, checkEllipsisActive]);
 
-
   return (
-    <div className={classnames(styles.inputParent)}>
-      {label && (
-        <label
-          ref={labelRef}
+    <Fragment>
+      <div className={classnames(styles.inputParent)}>
+        {label && (
+          <label
+            ref={labelRef}
+            className={classnames(
+              styles.label,
+              styles.truncate,
+              styles.lg_label,
+              styles.lg_labelPos,
+              {
+                [styles.enabledText]: !disabled,
+                [styles.disabledText]: disabled,
+                [styles.visuallyHidden]: !isLabelVisible,
+              },
+            )}
+            htmlFor={id}
+            title={ellipsisActive ? label : ''}
+          >
+            {label}
+          </label>
+        )}
+        <input
+          ref={innerRef}
+          aria-controls={accessibilityControls}
+          aria-describedby={focused ? ariaDescribedby : undefined}
+          aria-invalid={hasErrorMessage ? 'true' : 'false'}
+          autoComplete="off"
           className={classnames(
-            styles.label,
-            styles.truncate,
-            styles.lg_label,
-            styles.lg_labelPos,
+            styles.input,
+            styles.lg_input,
+            styles.lg_inputHorizontalPadding,
+            styles.lg_actionButton,
             {
+              [styles.enabled]: !disabled,
               [styles.enabledText]: !disabled,
+              [styles.enabledBorder]: !disabled && !hasErrorMessage,
+              [styles.errorBorder]: !disabled && hasErrorMessage,
+              [styles.disabled]: disabled,
               [styles.disabledText]: disabled,
-              [styles.visuallyHidden]: !isLabelVisible,
+              [styles.disabledBorder]: disabled,
+              [styles.lg_visibleLabel]: label && isLabelVisible,
+              [styles.lg_noLabel]: !label || (label && !isLabelVisible),
             },
           )}
-          htmlFor={id}
-          title={ellipsisActive ? label : ''}
-        >
-          {label}
-        </label>
-      )}
-      <input
-        ref={innerRef}
-        aria-controls={accessibilityControls}
-        aria-describedby={focused ? ariaDescribedby : undefined}
-        aria-invalid={hasErrorMessage ? 'true' : 'false'}
-        autoComplete="off"
-        className={classnames(
-          styles.input,
-          styles.lg_input,
-          styles.lg_inputHorizontalPadding,
-          styles.lg_actionButton,
-          {
-            [styles.enabled]: !disabled,
-            [styles.enabledText]: !disabled,
-            [styles.enabledBorder]: !disabled && !hasErrorMessage,
-            [styles.errorBorder]: !disabled && hasErrorMessage,
-            [styles.disabled]: disabled,
-            [styles.disabledText]: disabled,
-            [styles.disabledBorder]: disabled,
-            [styles.lg_visibleLabel]: label && isLabelVisible,
-            [styles.lg_noLabel]: !label || (label && !isLabelVisible),
-          },
-        )}
-        data-test-id={dataTestId}
-        disabled={disabled}
-        id={id}
-        inputMode="none"
-        name={name}
-        onBlur={(event) => {
-          setFocused(false);
-          onBlur?.({ event, value: event.currentTarget.value });
-        }}
-        onChange={(event) => {
-          onChange({ event, value: event.currentTarget.value });
-        }}
-        onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
-        onFocus={(event) => {
-          setFocused(true);
-          onFocus?.({ event, value: event.currentTarget.value });
-        }}
-        onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        value={value}
-      />
+          data-test-id={dataTestId}
+          disabled={disabled}
+          id={id}
+          inputMode="none"
+          name={name}
+          onBlur={(event) => {
+            setFocused(false);
+            onBlur?.({ event, value: event.currentTarget.value });
+          }}
+          onChange={(event) => {
+            onChange({ event, value: event.currentTarget.value });
+          }}
+          onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
+          onFocus={(event) => {
+            setFocused(true);
+            onFocus?.({ event, value: event.currentTarget.value });
+          }}
+          onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          value={value}
+        />
 
-      {!disabled && (
-        <div className={classnames(styles.vr_lg_actionButtonContainer)}>
-          <Box
-            alignItems="end"
-            aria-hidden
-            display="flex"
-            height="100%"
-            marginEnd={2}
-            rounding="circle"
-          >
-            <TapArea
-              fullHeight={false}
-              fullWidth={false}
-              mouseCursor="default"
-              onTap={() => {
-                innerRef.current?.focus();
-              }}
+        {!disabled && (
+          <div className={classnames(styles.vr_lg_actionButtonContainer)}>
+            <Box
+              alignItems="end"
+              aria-hidden
+              display="flex"
+              height="100%"
+              marginEnd={2}
               rounding="circle"
             >
-              <Icon
-                accessibilityLabel=""
-                color={disabled ? 'disabled' : 'default'}
-                icon="calendar"
-              />
-            </TapArea>
-          </Box>
-        </div>
-      )}
-    </div>
+              <TapArea
+                fullHeight={false}
+                fullWidth={false}
+                mouseCursor="default"
+                onTap={() => {
+                  innerRef.current?.focus();
+                }}
+                rounding="circle"
+              >
+                <Icon
+                  accessibilityLabel=""
+                  color={disabled ? 'disabled' : 'default'}
+                  icon="calendar"
+                />
+              </TapArea>
+            </Box>
+          </div>
+        )}
+      </div>
+      {helperText && !hasErrorMessage ? (
+        <FormHelperText disabled={disabled} id={`${id}-helperText`} size="lg" text={helperText} />
+      ) : null}
+      {!disabled && hasErrorMessage ? (
+        <FormErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
+      ) : null}
+    </Fragment>
   );
 });
 
