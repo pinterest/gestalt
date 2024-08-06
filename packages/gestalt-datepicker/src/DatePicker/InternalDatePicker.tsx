@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import { Box, Icon, Label, Text } from 'gestalt';
-import DatePickerTextField from './TextInput';
+import { Box, Icon, Label, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+import TextInput from './TextInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
@@ -35,6 +35,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
     // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
     useImperativeHandle(ref, () => innerInputRef.current);
 
+    const isInVRExperiment = useDangerouslyInGestaltExperiment({
+      webExperimentName: 'web_gestalt_visualRefresh',
+      mwebExperimentName: 'web_gestalt_visualRefresh',
+    });
     // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
     const [uncontrolledValue, setUncontrolledValue] = useState<Date | null | undefined>(null);
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -84,7 +88,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
 
     return (
       <div className="_gestalt">
-        {label && (
+        {label && !isInVRExperiment && (
           <Label htmlFor={id}>
             <Box marginBottom={2}>
               <Text size="100">{label}</Text>
@@ -105,10 +109,11 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           }}
           calendarClassName={styles['react-datepicker']}
           customInput={
-            <DatePickerTextField
+            <TextInput
               errorMessage={errorMessage}
               helperText={helperText}
               id={id}
+              label={label}
               name={name}
             />
           }
