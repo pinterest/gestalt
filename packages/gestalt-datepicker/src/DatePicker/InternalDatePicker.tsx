@@ -32,9 +32,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
     }: Props,
     ref,
   ): ReactElement {
-    const innerInputRef = useRef<null | HTMLInputElement>(null);
-    // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
-    useImperativeHandle(ref, () => innerInputRef.current);
+  const innerRef = useRef<null | HTMLInputElement>(null);
+
+  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+  useImperativeHandle(ref, () => innerRef.current);
 
     const isInVRExperiment = useDangerouslyInGestaltExperiment({
       webExperimentName: 'web_gestalt_visualRefresh',
@@ -76,17 +77,6 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       left: 'left',
     } as const;
 
-    const updateNextRef = (submitted: boolean) => {
-      if (
-        (rangeSelector === 'start' && !rangeEndDate) ||
-        (rangeSelector === 'end' && !rangeStartDate)
-      ) {
-        if (nextRef && submitted) {
-          nextRef.current?.focus();
-        }
-      }
-    };
-
     return (
       <div className="_gestalt">
         {label && !isInVRExperiment && (
@@ -98,19 +88,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
         )}
         {/* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
         <ReactDatePicker
-          ref={(refElement) => {
-            if (!innerInputRef || !refElement) {
-              return null;
-            }
-
-            // @ts-expect-error - TS2339 - Property 'input' does not exist on type 'ReactDatePicker<undefined, undefined>'.
-            innerInputRef.current = refElement.input;
-
-            return null;
-          }}
           calendarClassName={styles['react-datepicker']}
           customInput={
             <DateInput
+              ref={innerRef}
               errorMessage={errorMessage}
               helperText={helperText}
               id={id}
@@ -137,9 +118,15 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           onChange={(value: Date, event: React.ChangeEvent<HTMLInputElement>) => {
             if (controlledValue === undefined) setUncontrolledValue(value);
             onChange({ event, value });
-            updateNextRef(event.type === 'click');
+            if (event.type === 'click') {
+              nextRef?.current?.focus();
+            }
           }}
-          onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              nextRef?.current?.focus();
+            }
+          }}
           onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
           placeholderText={placeholder ?? format?.toUpperCase()}
           popperClassName={styles['react-datepicker-popper']}

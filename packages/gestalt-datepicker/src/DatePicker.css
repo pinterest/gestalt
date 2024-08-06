@@ -423,11 +423,9 @@ html:not([dir="rtl"]) .calendarIcon {
   white-space: nowrap;
 }
 
-
 .lineClamp {
   -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
   display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
   max-width: 100%;
   overflow: hidden;
 }
-
