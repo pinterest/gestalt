@@ -1,3 +1,9 @@
+## 156.10.0 (Aug 6, 2024)
+
+### Minor
+
+- Tokens: July VR Release ([#3714](https://github.com/pinterest/gestalt/pull/3714)) - [Preview link](https://deploy-preview-3714--gestalt.netlify.app?devexample=true)
+
 ## 156.9.1 (Aug 6, 2024)
 
 ### Patch
