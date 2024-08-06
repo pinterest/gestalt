@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * Used to find and replace text across the repo. Similar to VSC's find and replace.
  */
