@@ -19,6 +19,9 @@ const replaceMap = {
   '--sema-font-lineheight-UI-XS': '--sema-font-lineheight-ui-xs',
 };
 
+const pathsToInclude = ['packages/gestalt', '*.css'];
+const pathsToExclude = ['gestalt.css', 'node_modules', 'dist'];
+
 // check if replace command exists
 if (!execSync('which replace')) {
   console.error('Please install replace. Run `npm install -g replace`');
@@ -31,7 +34,9 @@ for (const termToFind of Object.keys(replaceMap)) {
   console.log(' ');
   console.log('Replacing all instances of', termToFind, 'with', termToReplace);
   console.log(' ');
-  const command = `replace \\"${termToFind}\\" \\"${termToReplace}\\"  .. -r --exclude="gestalt.css,node_modules,dist" --include="packages/gestalt,*.css"`;
+  const command = `replace \\"${termToFind}\\" \\"${termToReplace}\\"  .. -r --exclude="${pathsToExclude.join(
+    ',',
+  )}" --include="${pathsToInclude.join(',')}"`;
   const resp = execSync(command);
   console.log(resp.toString());
   console.log('-----------------------------------');
