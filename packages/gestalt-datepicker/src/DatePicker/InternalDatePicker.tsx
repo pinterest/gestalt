@@ -26,6 +26,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       rangeEndDate,
       rangeSelector,
       rangeStartDate,
+      readOnly,
       selectLists,
       value: controlledValue,
     }: Props,
@@ -115,6 +116,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
               id={id}
               label={label}
               name={name}
+              readOnly={readOnly}
             />
           }
           dateFormat={format}
@@ -145,6 +147,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           previousMonthButtonLabel={
             <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
           }
+          readOnly={readOnly}
           selected={controlledValue ?? uncontrolledValue}
           selectsEnd={rangeSelector === 'end'}
           selectsStart={rangeSelector === 'start'}
