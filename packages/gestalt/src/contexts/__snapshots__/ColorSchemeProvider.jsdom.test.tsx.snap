@@ -2628,7 +2628,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --sema-font-lineheight-ui-lg: 24;
   --sema-font-lineheight-ui-md: 19;
   --sema-font-lineheight-ui-sm: 17;
-  --sema-font-lineheight-ui-xs: 16;
+  sema-font-
+            lineheight-UI-XS: 16;
   --sema-font-lineheight-body-lg: 28;
   --sema-font-lineheight-body-md: 22;
   --sema-font-lineheight-body-sm: 20;
@@ -3408,7 +3409,8 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-font-lineheight-ui-lg: 24;
   --sema-font-lineheight-ui-md: 19;
   --sema-font-lineheight-ui-sm: 17;
-  --sema-font-lineheight-ui-xs: 16;
+  sema-font-
+            lineheight-UI-XS: 16;
   --sema-font-lineheight-body-lg: 28;
   --sema-font-lineheight-body-md: 22;
   --sema-font-lineheight-body-sm: 20;

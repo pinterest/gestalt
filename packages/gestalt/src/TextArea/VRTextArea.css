@@ -5,7 +5,7 @@
   color: inherit;
   display: block;
   font-size: var(--sema-font-size-UI-MD);
-  font-weight: var(--sema-font-weight-body);
+  font-weight: var(--base-font-weight-400);
   line-height: 1.5;
   outline: 0;
   padding: 0;
@@ -14,7 +14,7 @@
 }
 
 .inputParent {
-  border-radius: var(--sema-rounding-md);
+  border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
   isolation: isolate;
@@ -68,8 +68,8 @@
 .label {
   color: inherit;
   font-size: var(--sema-font-size-ui-xs);
-  font-weight: var(--sema-font-weight-ui);
-  line-height: var(--sema-font-lineheight-UI-XS);
+  font-weight: var(--base-font-weight-500);
+  line-height: var(sema-font- lineheight-UI-XS);
   padding: 0;
   position: absolute;
   z-index: 1;
@@ -78,40 +78,39 @@
 .md_input {
   font-size: var(--sema-font-size-ui-md);
   min-height: 36px;
-  padding-bottom: var(--sema-space-gap-vertical-lg);
+  padding-bottom: var(--sema-space-200);
 }
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-padding-horizontal-xl) +
-      (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
   );
 }
 
 .md_noLabel {
-  padding-top: var(--sema-space-gap-vertical-lg);
+  padding-top: var(--sema-space-200);
 }
 
 html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-lg);
-  padding-right: var(--sema-space-padding-horizontal-xl);
+  padding-left: var(--sema-space-200);
+  padding-right: var(--sema-space-300);
 }
 
 html:not([dir="rtl"]) .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-padding-horizontal-xl);
-  padding-right: var(--sema-space-padding-horizontal-lg);
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-200);
 }
 
 html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-padding-horizontal-xl));
-  right: calc(var(--sema-space-padding-horizontal-xl) + 1px);
+  left: calc(var(--sema-space-300));
+  right: calc(var(--sema-space-300) + 1px);
 }
 
 html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-padding-horizontal-xl) + 1px);
-  right: calc(var(--sema-space-padding-horizontal-xl));
+  left: calc(var(--sema-space-300) + 1px);
+  right: calc(var(--sema-space-300));
 }
 
 .md_labelPos {
-  top: var(--sema-space-gap-vertical-lg);
+  top: var(--sema-space-200);
 }
