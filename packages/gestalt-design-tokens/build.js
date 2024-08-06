@@ -353,6 +353,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/base/motion.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
     `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
+    'tokens/vr-theme/sema/text/font.json',
     ...(platform === 'web'
       ? [
           'tokens/vr-theme/base/color/pressed.json',
