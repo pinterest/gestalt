@@ -229,13 +229,13 @@
           }
         }
       },
-       "datepicker": {
+      "datepicker": {
         "container": {
           "value": "{base.color.grayscale.0.value}"
         },
         "button": {
           "default": {
-            "value":"{base.color.grayscale.500.value}"
+            "value": "{base.color.grayscale.500.value}"
           },
           "hover": {
             "value": "rgba(0, 0, 0, 0.06)"

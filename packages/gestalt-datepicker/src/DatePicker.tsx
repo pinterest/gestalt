@@ -133,6 +133,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerInputRef.current);
+
   // Consume GlobalEventsHandlerProvider
   const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
