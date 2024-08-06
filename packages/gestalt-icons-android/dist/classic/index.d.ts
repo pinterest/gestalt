@@ -1,7 +1,7 @@
 declare const icons: Readonly<{
+    '360': any;
     '3d': any;
     '3d-move': any;
-    '360': any;
     accessibility: any;
     ad: any;
     'ad-group': any;
@@ -29,6 +29,7 @@ declare const icons: Readonly<{
     api: any;
     apple: any;
     apps: any;
+    'ar-try-on': any;
     'arrow-back': any;
     'arrow-circle-back': any;
     'arrow-circle-down': any;
@@ -53,12 +54,14 @@ declare const icons: Readonly<{
     'audio-playing': any;
     bell: any;
     'bell-fill': any;
+    'birthday-cake': any;
     board: any;
     'board-sticker-large': any;
     'board-sticker-small': any;
     border: any;
     'border-shadow': any;
     briefcase: any;
+    'building-business': any;
     'business-hierarchy': any;
     calendar: any;
     'calendar-check': any;
@@ -71,10 +74,12 @@ declare const icons: Readonly<{
     'captions-outline': any;
     check: any;
     'check-circle': any;
+    'check-circle-fill': any;
     'chevron-up-circle': any;
     circle: any;
     'circle-ellipsis': any;
     'circle-information-fill': any;
+    'circle-initializing': any;
     clear: any;
     clips: any;
     clock: any;
@@ -113,8 +118,8 @@ declare const icons: Readonly<{
     edit: any;
     ellipsis: any;
     envelope: any;
-    'erase-auto': any;
     erase: any;
+    'erase-auto': any;
     etsy: any;
     expand: any;
     eye: any;
@@ -179,6 +184,7 @@ declare const icons: Readonly<{
     lightbulb: any;
     'lightning-bolt-circle': any;
     link: any;
+    'link-broken': any;
     lips: any;
     location: any;
     lock: any;
@@ -229,10 +235,10 @@ declare const icons: Readonly<{
     protect: any;
     'question-mark': any;
     'record-limit': any;
-    'record-limit-5': any;
-    'record-limit-15': any;
     'record-limit-10': any;
+    'record-limit-15': any;
     'record-limit-30': any;
+    'record-limit-5': any;
     'record-limit-60': any;
     redo: any;
     refresh: any;
@@ -241,6 +247,7 @@ declare const icons: Readonly<{
     replace: any;
     report: any;
     rewind: any;
+    rocketship: any;
     rotate: any;
     saturation: any;
     'save-outline': any;
@@ -312,8 +319,8 @@ declare const icons: Readonly<{
     'thumbs-down': any;
     'thumbs-up': any;
     timer: any;
-    'timer-3': any;
     'timer-10': any;
+    'timer-3': any;
     'trash-can': any;
     trending: any;
     undo: any;
@@ -325,7 +332,7 @@ declare const icons: Readonly<{
     'view-type-default': any;
     'view-type-dense': any;
     'view-type-list': any;
-    'view-type-space': any;
+    'view-type-sparse': any;
     visit: any;
     warmth: any;
     wave: any;
@@ -340,7 +347,7 @@ declare const icons: Readonly<{
     'workflow-status-queued': any;
     'workflow-status-unstarted': any;
     'workflow-status-warning': any;
-    x: any;
+    'x-social': any;
     yahoo: any;
     youtube: any;
 }>;
