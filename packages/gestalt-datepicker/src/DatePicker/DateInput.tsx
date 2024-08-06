@@ -1,5 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { Box, Icon, TapArea, TextField } from 'gestalt';
+import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
+import VRInternalTextField from './VRInternalTextField';
 import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
@@ -25,11 +26,12 @@ type Props = {
   id: string;
 } & InjectedProps;
 
-const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
-  function DatePickerTextField(
+const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(
+  function DateInput(
     {
       disabled,
       id,
+      label,
       name,
       onChange,
       onClick,
@@ -47,6 +49,32 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
 
     // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
     useImperativeHandle(ref, () => innerRef.current);
+
+    const isInVRExperiment = useDangerouslyInGestaltExperiment({
+      webExperimentName: 'web_gestalt_visualRefresh',
+      mwebExperimentName: 'web_gestalt_visualRefresh',
+    });
+
+    if (isInVRExperiment) {
+      return <VRInternalTextField
+        ref={innerRef}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        name={name}
+        onBlur={(data) => onBlur?.(data.event)}
+        onChange={(data) => onChange?.(data.event)}
+        onFocus={(data) => {
+          onFocus?.(data.event);
+          onClick?.();
+        }}
+        onKeyDown={(data) => onKeyDown?.(data.event)}
+        placeholder={placeholder}
+        value={value}
+      />;
+    }
 
     return (
       <Box
@@ -102,6 +130,6 @@ const DatePickerTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(
   },
 );
 
-DatePickerTextFieldWithForwardRef.displayName = 'DatePickerTextField';
+DateInputWithForwardRef.displayName = 'DatePickerTextField';
 
-export default DatePickerTextFieldWithForwardRef;
+export default DateInputWithForwardRef;

@@ -415,3 +415,19 @@ html[dir="rtl"] .calendarIcon {
 html:not([dir="rtl"]) .calendarIcon {
   right: var(--space-0);
 }
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.lineClamp {
+  -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+  display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+  max-width: 100%;
+  overflow: hidden;
+}
+

@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Box, Icon, Label, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
-import TextInput from './TextInput';
+import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
@@ -109,7 +109,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           }}
           calendarClassName={styles['react-datepicker']}
           customInput={
-            <TextInput
+            <DateInput
               errorMessage={errorMessage}
               helperText={helperText}
               id={id}
