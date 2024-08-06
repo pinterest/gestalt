@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
-import VRInternalTextField from './VRInternalTextField';
+import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
@@ -58,7 +58,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
 
   if (isInVRExperiment) {
     return (
-      <VRInternalTextField
+      <VRDateInput
         ref={innerRef}
         disabled={disabled}
         errorMessage={errorMessage}
