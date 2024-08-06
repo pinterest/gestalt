@@ -1,3 +1,9 @@
+## 156.9.1 (Aug 6, 2024)
+
+### Patch
+
+- Internal: run yarn tsc to fix formatting in declaration files ([#3716](https://github.com/pinterest/gestalt/pull/3716)) - [Preview link](https://deploy-preview-3716--gestalt.netlify.app?devexample=true)
+
 ## 156.9.0 (Aug 1, 2024)
 
 ### Minor
