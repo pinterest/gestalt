@@ -1,3 +1,4 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-console */
 /**
  * Used to find and replace text across the repo. Similar to VSC's find and replace.
