@@ -1,3 +1,9 @@
+## 157.1.0 (Aug 7, 2024)
+
+### Minor
+
+- Tokens: Line Height Fixes for Language Tokens ([#3719](https://github.com/pinterest/gestalt/pull/3719)) - [Preview link](https://deploy-preview-3719--gestalt.netlify.app?devexample=true)
+
 ## 157.0.0 (Aug 7, 2024)
 
 ### Major
