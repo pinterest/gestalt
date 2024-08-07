@@ -25,65 +25,65 @@
         "heading": {
           "LG": {
             "type": "lineHeights",
-            "value": "40"
+            "value": "40px"
           },
           "MD": {
             "type": "lineHeights",
-            "value": "31"
+            "value": "31px"
           },
           "SM": {
             "type": "lineHeights",
-            "value": "24"
+            "value": "24px"
           },
           "XS": {
             "type": "lineHeights",
-            "value": "22"
+            "value": "22px"
           },
           "XXS": {
             "type": "lineHeights",
-            "value": "20"
+            "value": "20px"
           }
         },
         "UI": {
           "LG": {
             "type": "lineHeights",
-            "value": "24"
+            "value": "24px"
           },
           "MD": {
             "type": "lineHeights",
-            "value": "19"
+            "value": "19px"
           },
           "SM": {
             "type": "lineHeights",
-            "value": "17"
+            "value": "17px"
           },
           "XS": {
             "type": "lineHeights",
-            "value": "16"
+            "value": "16px"
           }
         },
         "body": {
           "LG": {
             "type": "lineHeights",
-            "value": "28"
+            "value": "28px"
           },
           "MD": {
             "type": "lineHeights",
-            "value": "22"
+            "value": "22px"
           },
           "SM": {
             "type": "lineHeights",
-            "value": "20"
+            "value": "20px"
           },
           "XS": {
             "type": "lineHeights",
-            "value": "17"
+            "value": "17px"
           }
         },
         "compact": {
           "XS": {
             "type": "lineHeights",
-            "value": "14"
+            "value": "14px"
           }
         }
       }
