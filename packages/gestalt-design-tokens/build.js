@@ -502,6 +502,23 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'line-height/px',
+  type: 'value',
+  matcher: (prop) =>
+    prop.attributes.category === 'font' &&
+    prop.attributes.type === 'lineheight' &&
+    prop.attributes.prefix === 'sema',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
+  },
+});
+
 StyleDictionary.registerFormat({
   name: `constantLibrary-javascript/es6/vr-theme`,
   formatter({ dictionary }) {
