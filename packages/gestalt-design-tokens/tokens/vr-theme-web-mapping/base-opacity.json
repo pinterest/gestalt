@@ -1,10 +1,10 @@
 {
   "opacity": {
-    "0appenda": { "value": "{base.opacity.0.value}" },
-    "100": { "value": "{base.opacity.4.value}" },
-    "200": { "value": "{base.opacity.20.value}" },
-    "300": { "value": "{base.opacity.40.value}" },
-    "400": { "value": "{base.opacity.80.value}" },
-    "500": { "value": "{base.opacity.90.value}" }
+    "0appenda": { "value": "{sema.opacity.0.value}" },
+    "100": { "value": "{sema.opacity.4.value}" },
+    "200": { "value": "{sema.opacity.20.value}" },
+    "300": { "value": "{sema.opacity.40.value}" },
+    "400": { "value": "{sema.opacity.80.value}" },
+    "500": { "value": "{sema.opacity.90.value}" }
   }
 }

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Box, Tag, TextField } from 'gestalt';
+import { Box, Flex, Tag, TextField } from 'gestalt';
 
 type ChangeTagHandler = (arg1: {
   event: React.ChangeEvent<HTMLInputElement>;
@@ -64,17 +64,89 @@ export default function Example() {
 
   return (
     <Box padding={8} width="100%">
-      <TextField
-        // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
-        ref={ref}
-        autoComplete="off"
-        id="variants-tags"
-        label="Emails"
-        onChange={onChangeTagManagement}
-        onKeyDown={onKeyDownTagManagement}
-        tags={renderedTags}
-        value={value}
-      />
+      <Flex direction="column" gap={4}>
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          helperText="Select your target locations"
+          id="variants-tags-md"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="md"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          helperText="Select your target locations"
+          id="variants-tags-lg"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="lg"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          disabled
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          readOnly
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+        <TextField
+          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+          ref={ref}
+          autoComplete="off"
+          errorMessage="Select minimum of five"
+          helperText="Select your target locations"
+          id="variants-tag-sm"
+          label="Emails"
+          onChange={onChangeTagManagement}
+          onKeyDown={onKeyDownTagManagement}
+          size="sm"
+          tags={renderedTags}
+          value={value}
+        />
+      </Flex>
     </Box>
   );
 }

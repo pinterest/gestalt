@@ -6,7 +6,10 @@ import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
+import TagArea from './TagArea/TagArea';
 import styles from './TextArea.css';
+import VRTextArea from './TextArea/VRTextArea';
+import useInExperiment from './useInExperiment';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
@@ -132,6 +135,11 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCurrentLength(event.currentTarget.value?.length ?? 0);
     onChange({ event, value: event.currentTarget.value });
@@ -214,6 +222,62 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     minHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
     maxHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
   } as const;
+
+  if (isInVRExperiment && !tags)
+    return (
+      <VRTextArea
+        ref={ref}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        hasError={hasError}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        maxLength={maxLength}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        rows={rows}
+        value={value}
+      />
+    );
+
+  if (isInVRExperiment && tags)
+    return (
+      <TagArea
+        ref={ref}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        hasError={hasError}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        maxLength={maxLength}
+        name={name}
+        // @ts-expect-error - TS2322
+        onBlur={onBlur}
+        // @ts-expect-error - TS2322
+        onChange={onChange}
+        // @ts-expect-error - TS2322
+        onFocus={onFocus}
+        // @ts-expect-error - TS2322
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        rows={rows}
+        size="md"
+        tags={tags}
+        value={value}
+      />
+    );
 
   return (
     <span>

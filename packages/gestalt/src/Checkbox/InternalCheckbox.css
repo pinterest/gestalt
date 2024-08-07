@@ -106,11 +106,11 @@
 }
 
 .vrBorderRadiusSm {
-  border-radius: var(--sema-rounding-xs);
+  border-radius: var(--sema-rounding-100);
 }
 
 .vrBorderRadiusMd {
-  border-radius: var(--sema-rounding-sm);
+  border-radius: var(--sema-rounding-200);
 }
 
 .check {

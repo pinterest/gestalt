@@ -7,25 +7,27 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import defaultVariant from '../../examples/textarea/defaultVariant';
-import disabledVariant from '../../examples/textarea/disabledVariant';
-import dontSetRowPropToLessThan2 from '../../examples/textarea/dontSetRowPropToLessThan2';
-import dontUsePlaceholderAsReplacementForLabel from '../../examples/textarea/dontUsePlaceholderAsReplacementForLabel';
-import dontUsePlaceholderToProvideAny from '../../examples/textarea/dontUsePlaceholderToProvideAny';
-import dontUseWhenTextInputIsASingle from '../../examples/textarea/dontUseWhenTextInputIsASingle';
-import errorMessageVariant from '../../examples/textarea/errorMessageVariant';
-import helperTextVariant from '../../examples/textarea/helperTextVariant';
-import labelVisibilityVariant from '../../examples/textarea/labelVisibilityVariant';
+import disabled from '../../examples/textarea/disabled';
+import doAsAffordance from '../../examples/textarea/doAsAffordance';
+import doHelper from '../../examples/textarea/doHelper';
+import doLabel from '../../examples/textarea/doLabel';
+import dontPlaceholder from '../../examples/textarea/dontPlaceholder';
+import dontPlaceholderLabel from '../../examples/textarea/dontPlaceholderLabel';
+import dontRows from '../../examples/textarea/dontRows';
+import dontSingleText from '../../examples/textarea/dontSingleText';
+import doRows from '../../examples/textarea/doRows';
+import enabled from '../../examples/textarea/enabled';
+import error from '../../examples/textarea/error';
+import helperText from '../../examples/textarea/helperText';
+import hiddenLabel from '../../examples/textarea/hiddenLabel';
+import label from '../../examples/textarea/label';
+import labelled from '../../examples/textarea/labelled';
 import main from '../../examples/textarea/main';
-import maximumLengthExample1 from '../../examples/textarea/maximumLengthExample1';
-import maximumLengthExample2 from '../../examples/textarea/maximumLengthExample2';
-import readOnlyVariant from '../../examples/textarea/readOnlyVariant';
-import setHeightOfUsingRowTo from '../../examples/textarea/setHeightOfUsingRowTo';
-import useAsAffordanceToInputLongerText from '../../examples/textarea/useAsAffordanceToInputLongerText';
-import useHelperTextToProvideAdditional from '../../examples/textarea/useHelperTextToProvideAdditional';
-import useLabelToClearlyDenoteWhat from '../../examples/textarea/useLabelToClearlyDenoteWhat';
-import withRowsExample from '../../examples/textarea/withRowsExample';
-import withTagsExample from '../../examples/textarea/withTagsExample';
+import maximumLengthEnabled from '../../examples/textarea/maximumLengthEnabled';
+import maximumLengthError from '../../examples/textarea/maximumLengthError';
+import readOnly from '../../examples/textarea/readOnly';
+import rows from '../../examples/textarea/rows';
+import tags from '../../examples/textarea/tags';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
@@ -70,7 +72,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use TextArea as an affordance to input longer-form text content — typically anything longer than a brief sentence."
             sandpackExample={
               <SandpackExample
-                code={useAsAffordanceToInputLongerText}
+                code={doAsAffordance}
                 hideEditor
                 layout="column"
                 name="Use As Affordance To Input Longer Text"
@@ -83,7 +85,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use TextArea when the text input is a single, non-sentence response — even in cases with long content. Use [TextField](/web/textfield) instead."
             sandpackExample={
               <SandpackExample
-                code={dontUseWhenTextInputIsASingle}
+                code={dontSingleText}
                 hideControls
                 hideEditor
                 layout="column"
@@ -100,7 +102,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use `label` to clearly denote what information the user should input. Use `placeholder` sparingly as [they can erode usability of form fields](https://www.nngroup.com/articles/form-design-placeholders/)."
             sandpackExample={
               <SandpackExample
-                code={useLabelToClearlyDenoteWhat}
+                code={doLabel}
                 hideEditor
                 layout="column"
                 name="Use Label To Clearly Denote What"
@@ -113,7 +115,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use `placeholder` as a replacement for `label`, as this creates accessibility and usability issues."
             sandpackExample={
               <SandpackExample
-                code={dontUsePlaceholderAsReplacementForLabel}
+                code={dontPlaceholderLabel}
                 hideControls
                 hideEditor
                 layout="column"
@@ -130,7 +132,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use `helperText` to provide additional context that will aid the user in most effectively inputing information."
             sandpackExample={
               <SandpackExample
-                code={useHelperTextToProvideAdditional}
+                code={doHelper}
                 hideEditor
                 layout="column"
                 name="Use Helper Text To Provide Additional"
@@ -143,7 +145,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Use `placeholder` to provide any information necessary to filling out the form field. Placeholder text disappears after the user begins entering data and should not contain crucial information."
             sandpackExample={
               <SandpackExample
-                code={dontUsePlaceholderToProvideAny}
+                code={dontPlaceholder}
                 hideControls
                 hideEditor
                 layout="column"
@@ -160,7 +162,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Set the height of TextArea using `row` to ensure that the typical amount of text entered will be visible without needing to scroll."
             sandpackExample={
               <SandpackExample
-                code={setHeightOfUsingRowTo}
+                code={doRows}
                 hideEditor
                 layout="column"
                 name="Set The Height Of Using Row To"
@@ -173,7 +175,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             description="Set the `row` prop to less than 2. Use TextField when expecting only a single line of text."
             sandpackExample={
               <SandpackExample
-                code={dontSetRowPropToLessThan2}
+                code={dontRows}
                 hideControls
                 hideEditor
                 layout="column"
@@ -230,13 +232,49 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
           description={`
-      \`TextArea\` will expand to fill the width of the parent container by default.
-    `}
-          title="Default"
+1. Enabled
+The enabled state of TextArea that represents it can be interacted with.
+
+2. Error
+TextArea can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextArea will handle the rest. Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.
+
+3. Read-only
+Read-only TextAreas are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+
+4. Disabled
+TextAreas cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+`}
+          title="State"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={defaultVariant} name="Default Example 1" />}
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={enabled} layout="column" name="Enabled example" />
+            }
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={error} layout="column" name="Error message example" />
+            }
+            title="Error"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={readOnly} layout="column" name="Read-only example" />
+            }
+            title="Read-only"
           />
         </MainSection.Subsection>
 
@@ -245,56 +283,54 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           title="Helper text"
         >
           <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={helperTextVariant} name="Helper Text Example" />
-            }
+            sandpackExample={<SandpackExample code={helperText} name="Helper Text Example" />}
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
-          description={`In some cases, the label for a TextArea is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure TextArea is properly labeled for screen readers while using a different element to represent the label visually.`}
-          title="Label visibility"
+          columns={2}
+          description={`'label' is an optional prop; however, TextArea should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/textarea#Labels).
+
+1. Built-in label. Preferred. Consistent TextArea design and tested accessibility.
+
+In some cases, the label for a TextArea is represented in a different way visually, as demonstrated below. We can take 2 approaches in this case.
+
+2. Labelled TextArea (Label + TextArea). This is the best approach when a custom label is needed. The label focuses the TextArea when pressed.
+
+3. Hidden built-in label (Label + TextArea). This is the best approach when there's significant visual distance between the label and the input. You can set \`labelDisplay="hidden"\` to ensure TextArea is properly labeled for screen readers while using a different element to represent the label visually. The 'visual' label doesn't focus the TextArea when pressed.`}
+          title="Label"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={labelVisibilityVariant} name="Label Visibility Example" />
+              <SandpackExample code={label} layout="column" name="Built-in label example" />
             }
+            title="Built-in label"
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-      \`TextArea\` can be in read-only mode in order to present information to the user without allowing them to edit the content. Typically this variation is used to show content or information that the user does not have permission or access to edit.
-    `}
-          title="Read-only"
-        >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={readOnlyVariant} name="Read-Only Example" />}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-      \`TextArea\` can be disabled to indicate the user is unable to interact with it, either by mouse or keyboard. Disabled fields do not need to pass contrast requirements, so do not use a \`disabled\` TextArea to present information to the user (use \`readOnly\` instead).
-    `}
-          title="Disabled"
-        >
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={disabledVariant} name="Disabled Example" />}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-TextArea can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextArea will handle the rest.
-
-Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textarea#Maximum-length) for more details.`}
-          title="Error message"
-        >
-          <MainSection.Card
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={errorMessageVariant} name="Error Message Example" />
+              <SandpackExample code={labelled} layout="column" name="Labelled example" />
             }
+            title="Label + Textfield"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={hiddenLabel} layout="column" name="Hidden label example" />
+            }
+            title="Hidden label"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
+          description="The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit."
+          title="Rows"
+        >
+          <MainSection.Card sandpackExample={<SandpackExample code={rows} name="Rows Example" />} />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          columns={2}
           description={`TextArea supports the native [maxlength](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/maxlength) input attribute. \`maxLength\` sets the maximum number of characters allowed to be entered by the user in TextArea. \`maxLength\` must be an integer value 0 or higher.
 
 The user cannot exceed the maximum number of characters interacting with the component. Whenever possible, avoid setting initial values from the parent component's state that already exceed the \`maxLength\`.
@@ -305,20 +341,22 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
           title="Maximum length"
         >
           <MainSection.Card
-            cardSize="sm"
+            cardSize="lg"
             sandpackExample={
-              <SandpackExample code={maximumLengthExample1} name="Maximum Length Example 1" />
+              <SandpackExample code={maximumLengthEnabled} name="Maximum Length Example 1" />
             }
+            title="Max length counter"
           />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={maximumLengthExample2}
+                code={maximumLengthError}
                 name="Maximum Length Example 2"
                 previewHeight={440}
               />
             }
+            title="Max length counter warning and error"
           />
         </MainSection.Subsection>
 
@@ -329,20 +367,12 @@ The first example shows an empty TextArea with \`maxLength\` set to 200 characte
     Note that the \`TextArea\` component does not internally manage tags. That should be handled in the application state through the component's event callbacks. We recommend creating new tags on enter key presses, and removing them on backspaces when the cursor is in the beginning of the field. We also recommend filtering out empty tags.
 
     This example showcases the recommended behavior.`}
-          title="With tags"
+          title="Tags"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={withTagsExample} name="With Tags Example" />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description={`
-          The rows prop sets the number of rows shown in TextArea. The input will show a scrollbar if the content exceeds the rows limit.`}
-          title="With rows"
-        >
-          <MainSection.Card
-            sandpackExample={<SandpackExample code={withRowsExample} name="With Rows Example" />}
+            sandpackExample={
+              <SandpackExample code={tags} name="Tags Example" previewHeight={600} />
+            }
           />
         </MainSection.Subsection>
       </MainSection>

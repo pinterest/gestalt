@@ -1,3 +1,45 @@
+## 156.10.0 (Aug 6, 2024)
+
+### Minor
+
+- Tokens: July VR Release ([#3714](https://github.com/pinterest/gestalt/pull/3714)) - [Preview link](https://deploy-preview-3714--gestalt.netlify.app?devexample=true)
+
+## 156.9.1 (Aug 6, 2024)
+
+### Patch
+
+- Internal: run yarn tsc to fix formatting in declaration files ([#3716](https://github.com/pinterest/gestalt/pull/3716)) - [Preview link](https://deploy-preview-3716--gestalt.netlify.app?devexample=true)
+
+## 156.9.0 (Aug 1, 2024)
+
+### Minor
+
+- TextArea, TextField: Add support for Tags with internal TagArea #3710 ([#3711](https://github.com/pinterest/gestalt/pull/3711)) - [Preview link](https://deploy-preview-3711--gestalt.netlify.app?devexample=true)
+
+## 156.8.1 (Jul 31, 2024)
+
+### Patch
+
+- Masonry: Initial proposal for dynamic heights on masonry ([#3679](https://github.com/pinterest/gestalt/pull/3679)) - [Preview link](https://deploy-preview-3679--gestalt.netlify.app?devexample=true)
+
+## 156.8.0 (Jul 31, 2024)
+
+### Minor
+
+- Toast: VR implementation changes ([#3709](https://github.com/pinterest/gestalt/pull/3709)) - [Preview link](https://deploy-preview-3709--gestalt.netlify.app?devexample=true)
+
+## 156.7.1 (Jul 31, 2024)
+
+### Patch
+
+- TextArea: VR Implementation ([#3703](https://github.com/pinterest/gestalt/pull/3703)) - [Preview link](https://deploy-preview-3703--gestalt.netlify.app?devexample=true)
+
+## 156.7.0 (Jul 31, 2024)
+
+### Minor
+
+- Masonry: Support flexible and uniformRow layouts for rendering loading state items ([#3708](https://github.com/pinterest/gestalt/pull/3708)) - [Preview link](https://deploy-preview-3708--gestalt.netlify.app?devexample=true)
+
 ## 156.6.0 (Jul 30, 2024)
 
 ### Minor

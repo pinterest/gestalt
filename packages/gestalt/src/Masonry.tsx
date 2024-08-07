@@ -4,7 +4,9 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
+import recalcHeights from './Masonry/dynamicHeightsUtils';
 import fullWidthLayout from './Masonry/fullWidthLayout';
+import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
@@ -139,6 +141,10 @@ type Props<T> = {
     readonly data: LoadingStateItem;
     readonly itemIdx: number;
   }) => ReactNode;
+  /**
+   * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
+   */
+  _dynamicHeights?: boolean;
 };
 
 type State<T> = {
@@ -199,6 +205,35 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
 
+    this.resizeObserver =
+      /* eslint-disable-next-line no-underscore-dangle */
+      props._dynamicHeights && typeof window !== 'undefined' && this.positionStore
+        ? new ResizeObserver((entries) => {
+            let triggerUpdate = false;
+            for (let i = 0; i < entries.length; i += 1) {
+              const { target, contentRect } = entries[i];
+              const idx = Number(target.getAttribute('data-grid-item-idx'));
+
+              if (typeof idx === 'number') {
+                const changedItem: T = this.state.items[idx];
+                const newHeight = contentRect.height;
+
+                triggerUpdate =
+                  recalcHeights({
+                    items: this.state.items,
+                    changedItem,
+                    newHeight,
+                    positionStore: this.positionStore,
+                    measurementStore: this.state.measurementStore,
+                  }) || triggerUpdate;
+              }
+            }
+            if (triggerUpdate) {
+              this.forceUpdate();
+            }
+          })
+        : undefined;
+
     this.state = {
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
       isFetching: false,
@@ -208,6 +243,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       width: undefined,
     };
   }
+
+  resizeObserver: ResizeObserver | undefined;
 
   containerHeight: number;
 
@@ -488,7 +525,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           height: layoutNumberToCssDimension(height),
         }}
       >
-        {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        <ItemResizeObserverWrapper idx={idx} resizeObserver={this.resizeObserver}>
+          {renderItem({ data: itemData, itemIdx: idx, isMeasuring: false })}
+        </ItemResizeObserverWrapper>
       </div>
     );
 
@@ -550,7 +589,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
     );
 
-    let getPositions;
+    let getPositions: (
+      itemsToGetPosition: readonly T[] | readonly LoadingStateItem[],
+    ) => ReadonlyArray<Position>;
 
     if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
       getPositions = fullWidthLayout({
@@ -562,6 +603,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         width,
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
+        renderLoadingState,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -570,6 +612,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         gutter,
         minCols,
         width,
+        renderLoadingState,
       });
     } else {
       getPositions = defaultLayout({
@@ -580,10 +623,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         gutter,
         layout,
         minCols,
-        rawItemCount: items.length,
+        rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
         width,
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
+        renderLoadingState,
       });
     }
 
@@ -652,20 +696,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // div to collect the width for layout
       gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
     } else if (renderLoadingState) {
-      getPositions = defaultLayout({
-        align,
-        measurementCache: measurementStore,
-        positionCache: positionStore,
-        columnWidth,
-        gutter,
-        layout,
-        minCols,
-        rawItemCount: _loadingStateItems.length,
-        width,
-        logWhitespace: _logTwoColWhitespace,
-        _getColumnSpanConfig,
-        renderLoadingState,
-      });
       const positions = getPositions(_loadingStateItems);
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height))

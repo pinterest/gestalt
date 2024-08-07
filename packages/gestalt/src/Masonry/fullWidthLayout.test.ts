@@ -78,3 +78,69 @@ describe.each([undefined, getColumnSpanConfig])(
     });
   },
 );
+
+describe('loadingStateItems', () => {
+  test("uses the loadingStateItem's height", () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const loadingStateItems: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+
+    const layout = fullWidthLayout({
+      measurementCache: measurementStore,
+      positionCache,
+      gutter: 10,
+      idealColumnWidth: 240,
+      minCols: 2,
+      width: 1000,
+      _getColumnSpanConfig: getColumnSpanConfig,
+      renderLoadingState: true,
+    });
+
+    expect(layout(loadingStateItems)).toEqual([
+      { top: 0, height: 100, left: 5, width: 240 },
+      { top: 0, height: 120, left: 255, width: 240 },
+      { top: 0, height: 80, left: 505, width: 240 },
+      { top: 0, height: 100, left: 755, width: 240 },
+    ]);
+  });
+
+  test('uses the measurementCache height when not a loadingStateitem', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item: any) => {
+      /**
+       * Forcing the height to be different here since we always want to get the height from the measurement cache
+       * We only want to use the item's height if we are rendering loading state items
+       */
+      measurementStore.set(item, item.height + 1);
+    });
+
+    const layout = fullWidthLayout({
+      measurementCache: measurementStore,
+      positionCache,
+      gutter: 10,
+      idealColumnWidth: 240,
+      minCols: 2,
+      width: 1000,
+      _getColumnSpanConfig: getColumnSpanConfig,
+    });
+
+    expect(layout(items)).toEqual([
+      { top: 0, height: 101, left: 5, width: 240 },
+      { top: 0, height: 121, left: 255, width: 240 },
+      { top: 0, height: 81, left: 505, width: 240 },
+      { top: 0, height: 101, left: 755, width: 240 },
+    ]);
+  });
+});
