@@ -1,17 +1,41 @@
 .pog {
-  composes: circle from "./Borders.css";
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
+  border-radius: var(--rounding-circle);
 
   /* This fixes a mobile Safari bug (device only) that makes the icon disappear when rotated for RTL support
   https://stackoverflow.com/a/28617071/5253702 */
   perspective: 1px;
 }
 
+.xs {
+  border-radius: var(--sema-space-100);
+}
+
+.sm {
+  border-radius: var(--sema-space-200);
+}
+
+.md {
+  border-radius: var(--sema-space-300);
+}
+
+.lg {
+  border-radius: var(--sema-space-400);
+}
+
+.xl {
+  border-radius: var(--sema-space-500);
+}
+
 /* TOKENIZED */
 
 /* STATES */
+
+.disabledSelected {
+  background-color: var(--color-background-button-selected-disabled);
+}
 
 .selected {
   background-color: var(--color-background-button-selected-default);
@@ -19,6 +43,31 @@
 
 .focused {
   composes: accessibilityOutlineFocus from "./Focus.css";
+}
+
+.vrFocused {
+  border: 2px solid;
+  border-color: var(--sema-color-border-focus-inner-default);
+  box-sizing: border-box;
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+  padding: var(--space-0) var(--space-0);
+}
+
+.vrFocused.lightOuterFocus {
+  outline: 2px solid var(--sema-color-border-focus-outer-light);
+}
+
+.vrFocused.inverseOuterFocus {
+  outline: 2px solid var(--sema-color-border-focus-outer-inverse);
+}
+
+.vrFocused.transparentInnerFocus {
+  border-color: transparent;
+}
+
+.vrFocused.darkInnerFocus {
+  border: 2px solid var(--sema-color-border-focus-inner-dark);
 }
 
 /* COLORS */
@@ -36,6 +85,10 @@
   background-color: var(--color-background-button-primary-active);
 }
 
+.red.disabled {
+  background-color: var(--color-background-button-primary-disabled);
+}
+
 .lightGray {
   background-color: var(--color-background-button-secondary-default);
 }
@@ -47,6 +100,10 @@
 
 .lightGray.active {
   background-color: var(--color-background-button-secondary-active);
+}
+
+.lightGray.disabled {
+  background-color: var(--color-background-button-secondary-disabled);
 }
 
 .transparent {
@@ -62,6 +119,10 @@
   background-color: var(--color-background-button-tertiary-active);
 }
 
+.transparent.disabled {
+  background-color: var(--color-background-button-tertiary-disabled);
+}
+
 .washLight {
   background-color: var(--color-background-button-semitransparentwhite-default);
 }
@@ -69,6 +130,16 @@
 .washLight.hovered,
 .washLight.focused {
   background-color: var(--color-background-button-semitransparentwhite-hover);
+}
+
+.washLight.active {
+  background-color: var(--color-background-button-semitransparentwhite-active);
+}
+
+.washLight.disabled {
+  background-color: var(
+    --color-background-button-semitransparentwhite-disabled
+  );
 }
 
 .white {
@@ -84,6 +155,10 @@
   background-color: var(--color-background-button-white-active);
 }
 
+.white.disabled {
+  background-color: var(--color-background-button-white-disabled);
+}
+
 .transparentDarkGray {
   background-color: var(--color-background-button-semitransparentdark-default);
 }
@@ -97,6 +172,10 @@
   background-color: var(--color-background-button-semitransparentdark-active);
 }
 
+.transparentDarkGray.disabled {
+  background-color: var(--color-background-button-semitransparentdark-disabled);
+}
+
 .gray {
   background-color: var(--color-background-button-gray-default);
 }
@@ -108,4 +187,8 @@
 
 .gray.active {
   background-color: var(--color-background-button-gray-active);
+}
+
+.gray.disabled {
+  background-color: var(--color-background-button-gray-disabled);
 }

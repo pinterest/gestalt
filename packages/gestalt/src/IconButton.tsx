@@ -4,8 +4,10 @@ import styles from './IconButton.css';
 import icons from './icons/index';
 import Pog from './Pog';
 import touchableStyles from './TapArea.css';
+import Text from './Text';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
 import { Indexable } from './zIndex';
 
@@ -64,6 +66,10 @@ type Props = {
    */
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
   /**
+   * Visible label for the IconButton. Only visible in XL size IconButtons. See the [label](https://gestalt.pinterest.systems/web/iconbutton#Label) variant to learn more.
+   */
+  label?: string;
+  /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
   name?: string;
@@ -121,25 +127,26 @@ type Props = {
 
 const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
-    accessibilityLabel,
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
+    accessibilityLabel,
     accessibilityPopupRole,
-    name,
-    selected,
-    type,
     bgColor,
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
     icon,
     iconColor,
+    label,
+    name,
     onClick,
     padding,
+    selected,
+    size = 'lg',
     tabIndex = 0,
     tooltip,
-    size = 'lg',
+    type,
   }: Props,
   ref,
 ) {
@@ -163,12 +170,37 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const [isActive, setActive] = useState(false);
   const [isFocused, setFocused] = useState(false);
   const [isHovered, setHovered] = useState(false);
 
   const { isFocusVisible } = useFocusVisible();
+
+  const getLabelColor = () => {
+    if (disabled) {
+      return 'disabled';
+    }
+    if (bgColor === 'transparent' && iconColor === 'white') {
+      return 'inverse';
+    }
+    return 'default';
+  };
+
+  const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+  });
+
+  const vrStyles = classnames({
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+  });
 
   const buttonComponent = (
     <button
@@ -212,12 +244,11 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       type={type === 'submit' ? 'submit' : 'button'}
     >
       <div
-        className={classnames(styles.button, touchableStyles.tapTransition, {
-          [styles.disabled]: disabled,
-          [styles.enabled]: !disabled,
-          [touchableStyles.tapCompress]: !disabled && isTapping,
-        })}
-        style={compressStyle || undefined}
+        className={isInVRExperiment ? vrStyles : divStyles}
+        style={{
+          ...(!isInVRExperiment && compressStyle),
+          ...{ paddingBottom: label ? '8px' : '0px' },
+        }}
       >
         <Pog
           active={!disabled && isActive}
@@ -232,6 +263,11 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
           size={size}
         />
       </div>
+      {size === 'xl' && (
+        <Text align="center" color={getLabelColor()} weight="bold">
+          {label}
+        </Text>
+      )}
     </button>
   );
 

@@ -7,7 +7,7 @@ export default function Example() {
         <Flex direction="column" gap={4}>
           <Text>bgColor=red</Text>
           <Flex alignItems="center" gap={2}>
-            <Pog bgColor="red" icon="saved" />
+            <Pog bgColor="red" icon="saved" /> <Text size="100">default</Text>
           </Flex>
           <Flex alignItems="center" gap={2}>
             <Pog bgColor="red" hovered icon="saved" /> <Text size="100">hovered</Text>
@@ -21,11 +21,14 @@ export default function Example() {
           <Flex alignItems="center" gap={2}>
             <Pog bgColor="red" icon="saved" selected /> <Text size="100">selected</Text>
           </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="red" disabled icon="saved" /> <Text size="100">disabled</Text>
+          </Flex>
         </Flex>
         <Flex direction="column" gap={4}>
           <Text>bgColor=lightGray</Text>
           <Flex alignItems="center" gap={2}>
-            <Pog bgColor="lightGray" icon="visit" />
+            <Pog bgColor="lightGray" icon="visit" /> <Text size="100">default</Text>
           </Flex>
           <Flex alignItems="center" gap={2}>
             <Pog bgColor="lightGray" hovered icon="visit" /> <Text size="100">hovered</Text>
@@ -39,11 +42,14 @@ export default function Example() {
           <Flex alignItems="center" gap={2}>
             <Pog bgColor="lightGray" icon="visit" selected /> <Text size="100">selected</Text>
           </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="lightGray" disabled icon="saved" /> <Text size="100">disabled</Text>
+          </Flex>
         </Flex>
         <Flex direction="column" gap={4}>
           <Text>bgColor=gray</Text>
           <Flex alignItems="center" gap={2}>
-            <Pog bgColor="gray" icon="saved" />
+            <Pog bgColor="gray" icon="saved" /> <Text size="100">default</Text>
           </Flex>
           <Flex alignItems="center" gap={2}>
             <Pog bgColor="gray" hovered icon="saved" /> <Text size="100">hovered</Text>
@@ -56,6 +62,9 @@ export default function Example() {
           </Flex>
           <Flex alignItems="center" gap={2}>
             <Pog bgColor="gray" icon="saved" selected /> <Text size="100">selected</Text>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="gray" disabled icon="saved" /> <Text size="100">disabled</Text>
           </Flex>
         </Flex>
       </Flex>

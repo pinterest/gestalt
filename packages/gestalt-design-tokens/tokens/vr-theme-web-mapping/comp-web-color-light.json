@@ -67,6 +67,129 @@
           }
         }
       },
+      "button": {
+        "primary": {
+          "default": {
+            "value": "{sema.color.background.primary.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.primary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.primary.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "secondary": {
+          "default": {
+            "value": "{sema.color.background.secondary.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.secondary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.secondary.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "tertiary": {
+          "default": {
+            "value": "transparent"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.wash.default.value}"
+          },
+          "disabled": {
+            "default": {
+              "value": "transparent"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
+          }
+        },
+        "gray": {
+          "default": {
+            "value": "{sema.color.background.tertiary.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.tertiary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.tertiary.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "semitransparentwhite": {
+          "default": {
+            "value": "{sema.color.background.wash.light.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          },
+          "disabled": {
+            "default": {
+              "value": "{sema.color.background.wash.default.value}"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
+          }
+        },
+        "semitransparentdark": {
+          "default": {
+            "value": "{sema.color.background.wash.dark.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.dark.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.wash.dark.value}"
+          },
+          "disabled": {
+            "default": {
+              "value": "#00000064"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
+          }
+        },
+        "white": {
+          "default": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "selected": {
+          "default": {
+            "value": "{sema.color.background.selected.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        }
+      },
       "checkbox": {
         "checked": {
           "default": {
