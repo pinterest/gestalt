@@ -1,0 +1,113 @@
+{
+  "sema": {
+    "elevation": {
+      "surface": {
+        "type": "boxShadow",
+        "value": [
+          {
+            "x": "0px",
+            "y": "1px",
+            "blur": "2px",
+            "spread": "0px",
+            "color": "rgba(0,0,0,0.3)",
+            "type": "dropShadow"
+          },
+          {
+            "x": "0px",
+            "y": "0px",
+            "blur": "1px",
+            "spread": "0px",
+            "color": "rgba(0,0,0,0.28)",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "floating": {
+        "type": "boxShadow",
+        "value": [
+          {
+            "x": "0px",
+            "y": "4px",
+            "blur": "16px",
+            "spread": "0px",
+            "color": "rgba(0,0,0,0.2)",
+            "type": "dropShadow"
+          },
+          {
+            "x": "0px",
+            "y": "1px",
+            "blur": "4px",
+            "spread": "0px",
+            "color": "rgba(0,0,0,0.2)",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "raised": {
+        "default": {
+          "type": "boxShadow",
+          "value": [
+            {
+              "x": "0px",
+              "y": "1px",
+              "blur": "6px",
+              "spread": "0.5px",
+              "color": "rgba(0,0,0,0.3)",
+              "type": "dropShadow"
+            },
+            {
+              "x": "0px",
+              "y": "1px",
+              "blur": "2px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.3)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "top": {
+          "type": "boxShadow",
+          "value": [
+            {
+              "x": "0px",
+              "y": "2px",
+              "blur": "8px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.3)",
+              "type": "dropShadow"
+            },
+            {
+              "x": "0px",
+              "y": "1px",
+              "blur": "2px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.3)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "bottom": {
+          "type": "boxShadow",
+          "value": [
+            {
+              "x": "0px",
+              "y": "-2px",
+              "blur": "8px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.3)",
+              "type": "dropShadow"
+            },
+            {
+              "x": "0px",
+              "y": "-1px",
+              "blur": "2px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.3)",
+              "type": "dropShadow"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "sema": {
+    "font": {
+      "lineheight": {
+        "XL": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.180}"
+        },
+        "LG": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.180}"
+        },
+        "MD": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.170}"
+        },
+        "SM": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.150}"
+        },
+        "XS": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.130}"
+        },
+        "heading": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "47"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "36"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "30"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "29"
+          },
+          "XXS": {
+            "type": "lineHeights",
+            "value": "25"
+          }
+        },
+        "UI": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "30"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "24"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "21"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "20"
+          }
+        },
+        "body": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "36"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "29"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "25"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "22"
+          }
+        },
+        "compact": {
+          "XS": {
+            "type": "lineHeights",
+            "value": "18"
+          }
+        }
+      }
+    }
+  }
+}
