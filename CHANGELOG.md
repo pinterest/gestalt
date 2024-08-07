@@ -1,3 +1,9 @@
+## 157.0.0 (Aug 7, 2024)
+
+### Major
+
+- Tokens: July VR Tokens Fixes ([#3718](https://github.com/pinterest/gestalt/pull/3718)) - [Preview link](https://deploy-preview-3718--gestalt.netlify.app?devexample=true)
+
 ## 156.10.0 (Aug 6, 2024)
 
 ### Minor
