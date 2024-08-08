@@ -112,39 +112,30 @@ export default function Example() {
   };
 
   return (
-    <Box height="100%" padding={2} width="100%">
-      <Flex
-        alignItems="center"
-        direction="column"
-        gap={2}
-        height="100%"
-        justifyContent="center"
-        width="100%"
-      >
-        <Box width={320}>
-          <ComboBox
-            accessibilityClearButtonLabel="Clear the current value"
-            id="controlled"
-            inputValue={inputValue}
-            label="State"
-            noResultText="No results for your selection"
-            onBlur={() => {
-              if (!selected) setInputValue('');
-              setSuggestedOptions(usStatesOptions);
-            }}
-            onChange={handleOnChange}
-            onClear={() => {
-              setInputValue('');
-              // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
-              setSelected();
-              setSuggestedOptions(usStatesOptions);
-            }}
-            onSelect={handleSelect}
-            options={suggestedOptions}
-            placeholder="Select a US state"
-            selectedOption={selected}
-          />
-        </Box>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={4}>
+        <ComboBox
+          accessibilityClearButtonLabel="Clear the current value"
+          id="controlled"
+          inputValue={inputValue}
+          label="State"
+          noResultText="No results for your selection"
+          onBlur={() => {
+            if (!selected) setInputValue('');
+            setSuggestedOptions(usStatesOptions);
+          }}
+          onChange={handleOnChange}
+          onClear={() => {
+            setInputValue('');
+            // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
+            setSelected();
+            setSuggestedOptions(usStatesOptions);
+          }}
+          onSelect={handleSelect}
+          options={suggestedOptions}
+          placeholder="Select a US state"
+          selectedOption={selected}
+        />
         {selected && selected.label ? (
           <Box width={320}>
             <Text>

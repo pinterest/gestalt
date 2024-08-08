@@ -14,29 +14,32 @@ export default function Example() {
       <Flex direction="column" gap={4}>
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
-          errorMessage="Please select a valid category"
-          id="error"
-          label="Category"
+          disabled
+          id="sm"
+          label="Choose a value"
           noResultText="No results for your selection"
           options={options}
+          placeholder="Select a value"
           size="sm"
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
-          errorMessage="Please select a valid category"
-          id="error"
-          label="Category"
+          disabled
+          id="md"
+          label="Choose a value"
           noResultText="No results for your selection"
           options={options}
+          placeholder="Select a value"
           size="md"
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
-          errorMessage="Please select a valid category"
-          id="error"
-          label="Category"
+          disabled
+          id="lg"
+          label="Choose a value"
           noResultText="No results for your selection"
           options={options}
+          placeholder="Select a value"
           size="lg"
         />
       </Flex>

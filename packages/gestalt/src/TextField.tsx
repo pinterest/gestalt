@@ -1,8 +1,8 @@
 import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import TagArea from './TagArea/TagArea';
+import PasswordIconButton from './TextField/IconButtonEnd';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
-import PasswordIconButton from './TextField/PasswordIconButton';
 import VRInternalTextField from './TextField/VRInternalTextField';
 import useInExperiment from './useInExperiment';
 
