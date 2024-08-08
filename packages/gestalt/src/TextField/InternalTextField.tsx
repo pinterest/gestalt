@@ -254,6 +254,15 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       onClick={handleClick}
       onFocus={handleFocus}
       onKeyDown={handleKeyDown}
+      onWheel={(e) =>
+        e.target.addEventListener(
+          'wheel',
+          (event) => {
+            event.preventDefault();
+          },
+          { passive: false },
+        )
+      }
       // type='number' doesn't work on ios safari without a pattern
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
       pattern={type === 'number' ? '\\d*' : undefined}
