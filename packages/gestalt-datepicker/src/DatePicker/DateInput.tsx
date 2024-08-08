@@ -1,5 +1,6 @@
-import { ElementRef, forwardRef } from 'react';
-import { Box, Icon, TextField } from 'gestalt';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
+import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
@@ -9,12 +10,14 @@ type InjectedProps = {
   disabled?: boolean;
   id: string;
   name?: string;
+  label?: string;
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: () => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  readOnly?: boolean;
   value?: string;
   errorMessage?: string;
   helperText?: string;
@@ -22,14 +25,13 @@ type InjectedProps = {
 
 type Props = {
   id: string;
-  forwardedRef?: ElementRef<any>;
 } & InjectedProps;
 
-function DatePickerTextField(props: Props) {
-  const {
+const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function DateInput(
+  {
     disabled,
-    forwardedRef,
     id,
+    label,
     name,
     onChange,
     onClick,
@@ -37,10 +39,46 @@ function DatePickerTextField(props: Props) {
     onFocus,
     onKeyDown,
     placeholder,
+    readOnly,
     value,
     errorMessage,
     helperText,
-  } = props;
+  }: Props,
+  ref,
+) {
+  const innerRef = useRef<null | HTMLInputElement>(null);
+
+  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+  useImperativeHandle(ref, () => innerRef.current);
+
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  if (isInVRExperiment) {
+    return (
+      <VRDateInput
+        ref={innerRef}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        name={name}
+        onBlur={(data) => onBlur?.(data.event)}
+        onChange={(data) => onChange?.(data.event)}
+        onFocus={(data) => {
+          onFocus?.(data.event);
+          onClick?.();
+        }}
+        onKeyDown={(data) => onKeyDown?.(data.event)}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        value={value}
+      />
+    );
+  }
 
   return (
     <Box
@@ -52,8 +90,7 @@ function DatePickerTextField(props: Props) {
     >
       <Box column={12} flex="grow">
         <TextField
-          // @ts-expect-error - TS2571 - Object is of type 'unknown'.
-          ref={(input) => forwardedRef && forwardedRef(input || null)}
+          ref={innerRef}
           autoComplete="off"
           disabled={disabled}
           errorMessage={errorMessage}
@@ -69,33 +106,30 @@ function DatePickerTextField(props: Props) {
           }}
           onKeyDown={(data) => onKeyDown?.(data.event)}
           placeholder={placeholder}
+          readOnly={readOnly}
           size="lg"
           value={value}
         />
       </Box>
       <div className={styles.calendarIcon}>
         <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
-          <div className={disabled ? styles.disabled : undefined}>
-            <Icon accessibilityLabel="" color="default" icon="calendar" />
-          </div>
+          <TapArea
+            fullHeight={false}
+            fullWidth={false}
+            mouseCursor="default"
+            onTap={() => {
+              innerRef.current?.focus();
+            }}
+            rounding="circle"
+          >
+            <Icon accessibilityLabel="" color={disabled ? 'disabled' : 'default'} icon="calendar" />
+          </TapArea>
         </Box>
       </div>
     </Box>
   );
-}
+});
 
-function textFieldForwardRef(
-  props: Props,
-  ref:
-    | ((arg1: null | HTMLInputElement) => unknown)
-    | {
-        current: null | HTMLInputElement;
-      },
-) {
-  return <DatePickerTextField {...props} forwardedRef={ref} />;
-}
+DateInputWithForwardRef.displayName = 'DatePickerTextField';
 
-textFieldForwardRef.displayName = 'DatePickerTextFieldForwardRef';
-
-// @ts-expect-error - TS2345 - Argument of type 'typeof textFieldForwardRef' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, Props>'.
-export default forwardRef<HTMLInputElement, Props>(textFieldForwardRef);
+export default DateInputWithForwardRef;
