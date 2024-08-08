@@ -28,15 +28,15 @@ html:not([dir="rtl"]) .sm_startPadding {
 }
 
 .vr_sm_topPadding {
-  padding-top: var(--sema-space-gap-vertical-sm);
+  padding-top: var(--sema-space-100);
 }
 
 html[dir="rtl"] .vr_sm_startPadding {
-  padding-right: var(--sema-space-padding-horizontal-lg);
+  padding-right: var(--sema-space-200);
 }
 
 html:not([dir="rtl"]) .vr_sm_startPadding {
-  padding-left: var(--sema-space-padding-horizontal-lg);
+  padding-left: var(--sema-space-200);
 }
 
 /* md */
@@ -54,15 +54,15 @@ html:not([dir="rtl"]) .md_startPadding {
 }
 
 .vr_md_topPadding {
-  padding-top: var(--sema-space-gap-vertical-sm);
+  padding-top: var(--sema-space-100);
 }
 
 html[dir="rtl"] .vr_md_startPadding {
-  padding-right: var(--sema-space-padding-horizontal-xl);
+  padding-right: var(--sema-space-300);
 }
 
 html:not([dir="rtl"]) .vr_md_startPadding {
-  padding-left: var(--sema-space-padding-horizontal-xl);
+  padding-left: var(--sema-space-300);
 }
 
 /* lg */
@@ -80,13 +80,13 @@ html:not([dir="rtl"]) .lg_startPadding {
 }
 
 .vr_lg_topPadding {
-  padding-top: var(--sema-space-gap-vertical-lg);
+  padding-top: var(--sema-space-200);
 }
 
 html[dir="rtl"] .vr_lg_startPadding {
-  padding-right: var(--sema-space-padding-horizontal-xxl);
+  padding-right: var(--sema-space-400);
 }
 
 html:not([dir="rtl"]) .vr_lg_startPadding {
-  padding-left: var(--sema-space-padding-horizontal-xxl);
+  padding-left: var(--sema-space-400);
 }
