@@ -1,6 +1,7 @@
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
+const { registerTokenTransformGroups } = require('./transform');
 
 // #region CONFIG
 
@@ -250,6 +251,8 @@ function buildShadowValue(values, platform) {
   // x, y, blur, spread, color, alpha;
   // convert hex code to rgba string
 
+  // print the last value
+
   return Object.values(values)
     .map((value) => {
       //  Note: we have two formats for elevation tokens.
@@ -260,7 +263,8 @@ function buildShadowValue(values, platform) {
       const opacity = tinycolor(rgbString).getAlpha();
 
       // older format has an explicit opacity value
-      if ('opacity' in value) {
+
+      if (typeof value === 'object' && 'opacity' in value) {
         const shadowColor = tinycolor(rgbString);
         shadowColor.setAlpha(value.opacity);
         rgbString = shadowColor.toRgbString();
@@ -341,14 +345,15 @@ function getSources({ theme, modeTheme, platform, language }) {
 
   return [
     'tokens/vr-theme/base/color/default.json',
-    `tokens/vr-theme/base/elevation/${modeTheme}.json`,
-    'tokens/vr-theme/base/font.json',
+    'tokens/vr-theme/base/text/font.json',
     'tokens/vr-theme/base/opacity.json',
     'tokens/vr-theme/base/rounding.json',
     'tokens/vr-theme/base/space.json',
     'tokens/vr-theme/base/lineheight.json',
     'tokens/vr-theme/base/motion.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
+    `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
+    'tokens/vr-theme/sema/text/font.json',
     ...(platform === 'web'
       ? [
           'tokens/vr-theme/base/color/pressed.json',
@@ -358,11 +363,10 @@ function getSources({ theme, modeTheme, platform, language }) {
         ]
       : []),
     'tokens/vr-theme/sema/elevation.json',
-    'tokens/vr-theme/sema/font.json',
     'tokens/vr-theme/sema/opacity.json',
     'tokens/vr-theme/sema/rounding.json',
     'tokens/vr-theme/sema/space.json',
-    `tokens/vr-theme/sema/lineheight/${language}.json`,
+    `tokens/vr-theme/sema/text/language/${language}.json`,
     'tokens/vr-theme/sema/motion.json',
     ...(theme === 'vr-theme-web-mapping'
       ? [
@@ -491,6 +495,23 @@ StyleDictionary.registerTransform({
   name: 'font-size/px',
   type: 'value',
   matcher: (prop) => prop.attributes.category === 'font' && prop.attributes.type === 'size',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
+  },
+});
+
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'line-height/px',
+  type: 'value',
+  matcher: (prop) =>
+    prop.attributes.category === 'font' &&
+    prop.attributes.type === 'lineheight' &&
+    prop.attributes.prefix === 'sema',
   transformer(prop) {
     const val = parseFloat(prop.value);
     if (Number.isNaN(val)) return val;
@@ -630,7 +651,6 @@ StyleDictionary.registerTransform({
   },
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
-
     return buildShadowValue(prop.value, 'css');
   },
 });
@@ -670,35 +690,6 @@ StyleDictionary.registerTransform({
     const { x1, y1, x2, y2 } = prop.value;
     return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
   },
-});
-
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'webCssTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/kebab',
-    'name/conflictFixing',
-    'value/elevation/css',
-    'font-size/px',
-    'value/duration/css',
-    'value/easing/css',
-    'color/css',
-  ],
-});
-
-StyleDictionary.registerTransformGroup({
-  name: 'webJsTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/pascal',
-    'name/conflictFixing',
-    'value/elevation/css',
-    'font-size/px',
-    'value/duration/css',
-    'value/easing/css',
-    'color/hex',
-  ],
 });
 
 // REGISTER FILTERS
@@ -882,20 +873,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'androidTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/snake',
-    'name/conflictFixing',
-    'color/hex8android',
-    'font-size/px',
-    'size/pxToDpOrSp',
-    'value/easing/android',
-  ],
-});
-
 function getAndroidConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
@@ -1008,7 +985,6 @@ StyleDictionary.registerTransform({
   },
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
-
     return buildShadowValue(prop.value, 'ios');
   },
 });
@@ -1046,42 +1022,6 @@ StyleDictionary.registerTransform({
     const { x1, y1, x2, y2 } = prop.value;
     return `CAMediaTimingFunction(controlPoints: ${x1}, ${y1}, ${x2}, ${y2})`;
   },
-});
-
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'iOSTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/pascal',
-    'name/conflictFixing',
-    'value/elevation/ios',
-    'color/UIColor',
-    'content/objC/literal',
-    'asset/objC/literal',
-    'font-size/px',
-    'size/remToPt',
-    'font/objC/literal',
-    'value/easing/ios',
-  ],
-});
-
-StyleDictionary.registerTransformGroup({
-  name: 'iOSSwiftEnumTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/custom-ti/camel',
-    'name/conflictFixing',
-    'value/elevation/ios',
-    'color/UIColorSwift',
-    'content/swift/literal',
-    'asset/swift/literal',
-    'size/swift/remToCGFloat',
-    'font-size/px',
-    'font/swift/literal',
-    'value/duration/ios',
-    'value/easing/ios-swift',
-  ],
 });
 
 function getIOSConfiguration({ theme, mode, language }) {
@@ -1249,6 +1189,8 @@ const platformFileMap = {
   android: ['android'],
   ios: ['ios', 'ios-swift'],
 };
+
+registerTokenTransformGroups(StyleDictionary);
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
