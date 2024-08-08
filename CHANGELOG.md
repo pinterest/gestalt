@@ -1,3 +1,9 @@
+## 157.2.0 (Aug 8, 2024)
+
+### Minor
+
+- ComboBox: VR implementation changes ([#3712](https://github.com/pinterest/gestalt/pull/3712)) - [Preview link](https://deploy-preview-3712--gestalt.netlify.app?devexample=true)
+
 ## 157.1.0 (Aug 7, 2024)
 
 ### Minor
