@@ -159,7 +159,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [touchableStyles[mouseCursor]]: !disabled,
         }
       : {},
-    isIconButton
+    isIconButton && !isInVRExperiment
       ? {
           [iconButtonStyles.button]: true,
           [iconButtonStyles.disabled]: disabled,
@@ -192,7 +192,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
-      className={isInVRExperiment ? undefined : className}
+      className={className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
       id={id}
