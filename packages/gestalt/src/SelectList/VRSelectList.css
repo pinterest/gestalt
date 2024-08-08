@@ -132,8 +132,7 @@ html[dir="rtl"] .sm_actionButton {
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-300) +
-      (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
   );
 }
 
@@ -229,15 +228,11 @@ html[dir="rtl"] .lg_actionButton {
 }
 
 html:not([dir="rtl"]) .actionButtonContainer,
-html:not([dir="rtl"]) .vr_sm_actionButtonContainer,
-html:not([dir="rtl"]) .vr_md_actionButtonContainer,
-html:not([dir="rtl"]) .vr_lg_actionButtonContainer {
+html:not([dir="rtl"]) .vr_actionButtonContainer {
   right: var(--space-0);
 }
 
 html[dir="rtl"] .actionButtonContainer,
-html[dir="rtl"] .vr_sm_actionButtonContainer,
-html[dir="rtl"] .vr_md_actionButtonContainer,
-html[dir="rtl"] .vr_lg_actionButtonContainer {
+html[dir="rtl"] .vr_actionButtonContainer {
   left: var(--space-0);
 }
