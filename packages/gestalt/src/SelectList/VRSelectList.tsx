@@ -32,7 +32,6 @@ type Props = {
   onChange: (arg1: { event: React.ChangeEvent<HTMLSelectElement>; value: string }) => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLSelectElement>; value: string }) => void;
   placeholder?: string;
-  readOnly?: boolean;
   size?: SizeType;
   value?: string | null | undefined;
 };
@@ -52,7 +51,6 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
     onChange,
     onFocus,
     placeholder,
-    readOnly,
     size = 'md',
     value,
   }: Props,
