@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import classnames from 'classnames';
 import { Box, Flex, Icon, Text } from 'gestalt';
-import styles from './FormHelperText.css';
+import styles from './HelperText.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 

@@ -10,8 +10,8 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { Box, Icon, TapArea } from 'gestalt';
-import FormErrorMessage from './FormErrorMessage';
-import FormHelperText from './FormHelperText';
+import ErrorMessage from './ErrorMessage';
+import HelperText from './HelperText';
 import styles from './VRDateInput.css';
 
 type Props = {
@@ -204,10 +204,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         )}
       </div>
       {helperText && !hasErrorMessage ? (
-        <FormHelperText disabled={disabled} id={`${id}-helperText`} size="lg" text={helperText} />
+        <HelperText disabled={disabled} id={`${id}-helperText`} size="lg" text={helperText} />
       ) : null}
       {!disabled && hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
+        <ErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
       ) : null}
     </Fragment>
   );
