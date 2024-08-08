@@ -5,7 +5,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButton
         accessibilityLabel="Share"
-        bgColor="transparent"
+        bgColor="lightGray"
         icon="share"
         iconColor="darkGray"
         label="Share"
