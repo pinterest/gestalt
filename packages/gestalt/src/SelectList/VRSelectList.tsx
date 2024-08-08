@@ -189,7 +189,6 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             setFocused(true);
           }}
           placeholder={placeholder}
-          readOnly={readOnly}
           // @ts-expect-error - TS2322 - Type 'string | null | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
           value={showPlaceholder ? placeholder : value}
         >
