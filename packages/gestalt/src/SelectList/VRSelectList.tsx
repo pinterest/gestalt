@@ -144,7 +144,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             {label}
           </label>
         )}
-        {!disabled && <IconEnd disabled={disabled} size={size} />}
+        {!disabled && <IconEnd disabled={disabled} />}
         <select
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage ? 'true' : 'false'}

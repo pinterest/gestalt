@@ -223,17 +223,7 @@ html[dir="rtl"] .lg_actionButton {
   padding-left: var(--space-800);
 }
 
-.vr_sm_actionButtonContainer {
-  bottom: var(--sema-space-100);
-  position: absolute;
-}
-
-.vr_md_actionButtonContainer {
-  bottom: var(--sema-space-200);
-  position: absolute;
-}
-
-.vr_lg_actionButtonContainer {
+.vr_actionButtonContainer {
   bottom: var(--sema-space-300);
   position: absolute;
 }

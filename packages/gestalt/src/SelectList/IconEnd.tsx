@@ -7,10 +7,9 @@ import useInExperiment from '../useInExperiment';
 type Props = {
   accessibilityHidden?: boolean;
   disabled?: boolean;
-  size?: 'sm' | 'md' | 'lg';
 };
 
-export default function PasswordIconButton({ accessibilityHidden, size, disabled }: Props) {
+export default function PasswordIconButton({ accessibilityHidden, disabled }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -20,9 +19,7 @@ export default function PasswordIconButton({ accessibilityHidden, size, disabled
     <div
       className={classnames({
         [styles.actionButtonContainer]: !isInVRExperiment,
-        [styles.vr_sm_actionButtonContainer]: isInVRExperiment && size === 'sm',
-        [styles.vr_md_actionButtonContainer]: isInVRExperiment && size === 'md',
-        [styles.vr_lg_actionButtonContainer]: isInVRExperiment && size === 'lg',
+        [styles.vr_actionButtonContainer]: isInVRExperiment,
       })}
     >
       <Box
