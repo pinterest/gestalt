@@ -192,9 +192,11 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
                   innerRef.current?.focus();
                 }}
                 rounding="circle"
+                tabIndex={-1}
+                tapStyle="none"
               >
                 <Icon
-                  accessibilityLabel=""
+                  accessibilityLabel="calendar"
                   color={disabled ? 'disabled' : 'default'}
                   icon="calendar"
                 />

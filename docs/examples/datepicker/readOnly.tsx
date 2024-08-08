@@ -9,7 +9,7 @@ export default function Example() {
     <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
       <Box padding={2}>
         <DatePicker
-          id="example-disabled"
+          id="example-readonly"
           label="User Activation Date"
           onChange={({ value }) => setDateValue(value)}
           readOnly
