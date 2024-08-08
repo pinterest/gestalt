@@ -195,6 +195,8 @@ public enum GestaltTokensColor {
     public static let textDark = blackCosmicore900
     public static let textInverse = whiteMochimalist0
     public static let textWarning = yellowCaramellow500
+    public static let textPressed = blackCosmicore900
+    public static let textHover = blackCosmicore900
     public static let textError = redPushpin500
     public static let textDisabled = grayRoboflow400
     public static let textSuccess = greenMatchacado600
@@ -565,6 +567,9 @@ public enum GestaltTokensColorVR {
     public static let semaBackgroundGradientDarkenTopWeak = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let semaBackgroundGradientDarkenBottomStrong = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let semaBackgroundGradientDarkenBottomWeak = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let semaBackgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9019607843137255)
+    public static let semaBackgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8)
+    public static let semaBackgroundWashDefault = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8)
     public static let semaBackgroundTransparent = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0)
     public static let baseOrange500 = UIColor(red: 0.608, green: 0.294, blue: 0.110, alpha: 1)
     public static let baseOrange400 = UIColor(red: 0.941, green: 0.427, blue: 0.133, alpha: 1)
@@ -650,9 +655,6 @@ public enum GestaltTokensColorVR {
     public static let semaBackgroundWashScrimsOpaque = rgba(baseGrayscale350, 0.8)
     public static let semaBackgroundWashScrimsDefault = rgba(baseGrayscale250, 0.4)
     public static let semaBackgroundWashImageTint = rgba(baseGrayscale500, 0.04)
-    public static let semaBackgroundWashLight = rgba(baseGrayscale0, 0.9)
-    public static let semaBackgroundWashDark = rgba(baseGrayscale500, 0.8)
-    public static let semaBackgroundWashDefault = rgba(baseGrayscale500, 0.8)
     public static let semaBackgroundErrorWeak = baseRed500
     public static let semaBackgroundErrorDefault = baseRed200
     public static let semaBackgroundWarningWeak = baseOrange500
@@ -702,6 +704,9 @@ public enum GestaltTokensColorVR {
     public static let semaBackgroundGradientDarkenTopWeak = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let semaBackgroundGradientDarkenBottomStrong = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
     public static let semaBackgroundGradientDarkenBottomWeak = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0)
+    public static let semaBackgroundWashLight = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9019607843137255)
+    public static let semaBackgroundWashDark = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 0.8)
+    public static let semaBackgroundWashDefault = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.9019607843137255)
     public static let semaBackgroundTransparent = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0)
     public static let baseOrange500 = UIColor(red: 0.608, green: 0.294, blue: 0.110, alpha: 1)
     public static let baseOrange400 = UIColor(red: 0.941, green: 0.427, blue: 0.133, alpha: 1)
@@ -787,9 +792,6 @@ public enum GestaltTokensColorVR {
     public static let semaBackgroundWashScrimsOpaque = rgba(baseGrayscale50, 0.8)
     public static let semaBackgroundWashScrimsDefault = rgba(baseGrayscale250, 0.4)
     public static let semaBackgroundWashImageTint = rgba(baseGrayscale500, 0.04)
-    public static let semaBackgroundWashLight = rgba(baseGrayscale0, 0.9)
-    public static let semaBackgroundWashDark = rgba(baseGrayscale500, 0.8)
-    public static let semaBackgroundWashDefault = rgba(baseGrayscale0, 0.9)
     public static let semaBackgroundErrorWeak = baseRed100
     public static let semaBackgroundErrorDefault = baseRed400
     public static let semaBackgroundWarningWeak = baseOrange100

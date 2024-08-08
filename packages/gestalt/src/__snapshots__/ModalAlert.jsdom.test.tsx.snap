@@ -58,6 +58,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                       >
                         <div
                           class="button tapTransition enabled"
+                          style="padding-bottom: 0px;"
                         >
                           <div
                             class="pog white"
@@ -417,6 +418,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                       >
                         <div
                           class="button tapTransition enabled"
+                          style="padding-bottom: 0px;"
                         >
                           <div
                             class="pog white"

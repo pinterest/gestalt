@@ -264,6 +264,11 @@ exports[`Accordion renders an icon button correctly 1`] = `
           >
             <div
               className="button tapTransition enabled"
+              style={
+                Object {
+                  "paddingBottom": "0px",
+                }
+              }
             >
               <div
                 className="pog lightGray"
