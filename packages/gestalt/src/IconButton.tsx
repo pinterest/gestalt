@@ -1,10 +1,16 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
+import {
+  TOKEN_COLOR_TEXT_DEFAULT,
+  TOKEN_COLOR_TEXT_DISABLED,
+  TOKEN_COLOR_TEXT_HOVER,
+  TOKEN_COLOR_TEXT_INVERSE,
+  TOKEN_COLOR_TEXT_PRESSED,
+} from 'gestalt-design-tokens';
 import styles from './IconButton.css';
 import icons from './icons/index';
 import Pog from './Pog';
 import touchableStyles from './TapArea.css';
-import Text from './Text';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
@@ -183,12 +189,18 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
 
   const getLabelColor = () => {
     if (disabled) {
-      return 'disabled';
+      return TOKEN_COLOR_TEXT_DISABLED;
     }
     if (bgColor === 'transparent' && iconColor === 'white') {
-      return 'inverse';
+      return TOKEN_COLOR_TEXT_INVERSE;
     }
-    return 'default';
+    if (isActive) {
+      return TOKEN_COLOR_TEXT_PRESSED;
+    }
+    if (isHovered) {
+      return TOKEN_COLOR_TEXT_HOVER;
+    }
+    return TOKEN_COLOR_TEXT_DEFAULT;
   };
 
   const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
@@ -264,9 +276,9 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
         />
       </div>
       {size === 'xl' && (
-        <Text align="center" color={getLabelColor()} weight="bold">
+        <span className={styles.label} style={{ color: getLabelColor() }}>
           {label}
-        </Text>
+        </span>
       )}
     </button>
   );

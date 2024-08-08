@@ -13,6 +13,16 @@
   background-color: var(--color-transparent);
 }
 
+.label {
+  font-family: var(--sema-font-family-UI-XS, "Pin Sans");
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: var(--sema-font-letterspacing-UI-XS, 0);
+  line-height: var(--sema-font-lineheight-UI-XS, 16px);
+  text-align: center;
+}
+
 .parentButton:focus {
   outline: 0;
 }
