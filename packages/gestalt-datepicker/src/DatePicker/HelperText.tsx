@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import { Flex, Text } from 'gestalt';
-import styles from './FormHelperText.css';
+import styles from './HelperText.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
