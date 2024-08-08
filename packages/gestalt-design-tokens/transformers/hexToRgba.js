@@ -1,6 +1,9 @@
 const tinycolor = require('tinycolor2');
 
 /**
+ * FROM:
+ * https://github.com/tokens-studio/sd-transforms/blob/ae759783c7f92be6572c29f4f3270459ce7d93d0/src/css/transformHEXRGBa.ts#L9
+ *
  * Helper: Transforms hex rgba colors used in figma tokens:
  * rgba(#ffffff, 0.5) =? rgba(255, 255, 255, 0.5).
  * This is kind of like an alpha() function.
