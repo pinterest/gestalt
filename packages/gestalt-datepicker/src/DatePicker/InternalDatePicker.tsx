@@ -32,10 +32,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
     }: Props,
     ref,
   ): ReactElement {
-  const innerRef = useRef<null | HTMLInputElement>(null);
+    const innerRef = useRef<null | HTMLInputElement>(null);
 
-  // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
-  useImperativeHandle(ref, () => innerRef.current);
+    // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+    useImperativeHandle(ref, () => innerRef.current);
 
     const isInVRExperiment = useDangerouslyInGestaltExperiment({
       webExperimentName: 'web_gestalt_visualRefresh',
