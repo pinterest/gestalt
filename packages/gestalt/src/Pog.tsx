@@ -56,7 +56,7 @@ type Props = {
   /**
    * Color applied to the [Icon](https://gestalt.pinterest.systems/web/icon). See [Background Colors](https://gestalt.pinterest.systems/web/pog#Background-colors-on-white-backgrounds) for more details.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   /**
    * Padding in boints. If omitted, padding is derived from the \`size\` prop. See [padding combinations](https://gestalt.pinterest.systems/web/pog#paddingCombinations) for more details.
    */
@@ -125,20 +125,22 @@ export default function Pog({
   } as const;
 
   const OLD_TO_NEW_COLOR_MAP = {
-    white: 'inverse',
-    gray: 'subtle',
-    darkGray: 'default',
-    red: 'error',
     brandPrimary: 'brandPrimary',
+    dark: 'dark',
+    darkGray: 'default',
+    gray: 'subtle',
+    light: 'light',
+    red: 'error',
+    white: 'inverse',
   } as const;
 
   const defaultIconButtonIconColors = {
     gray: 'white',
     lightGray: 'darkGray',
-    transparent: 'darkGray',
     red: 'white',
-    transparentDarkGray: isInVRExperiment ? 'gray' : 'white',
-    washLight: isInVRExperiment ? 'gray' : 'darkGray',
+    transparent: 'darkGray',
+    transparentDarkGray: isInVRExperiment ? 'light' : 'white',
+    washLight: isInVRExperiment ? 'dark' : 'darkGray',
     white: 'darkGray',
   } as const;
 
