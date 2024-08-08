@@ -18,7 +18,7 @@ export default function Example() {
         <SelectList
           id="selectlist-hidden-label"
           label="Date range"
-          labelDisplay='hidden'
+          labelDisplay="hidden"
           onChange={({ value }) => setRange(value)}
           placeholder="Select a country"
           value={range}
