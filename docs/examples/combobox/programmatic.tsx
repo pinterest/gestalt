@@ -110,23 +110,21 @@ export default function Example() {
             }}
             text={`Change options to ${currentCategory === 'BEAUTY' ? 'DIY' : 'BEAUTY'} category`}
           />
-          <Box width={320}>
-            <ComboBox
-              accessibilityClearButtonLabel="Clear the current value"
-              id="programaticallySet"
-              inputValue={inputValue}
-              label="Pin category"
-              noResultText="No results for your selection"
-              onBlur={handleOnBlur}
-              onChange={handleOnChange}
-              onClear={handleOnClear}
-              onSelect={handleSelect}
-              options={suggestedOptions}
-              placeholder="Select a category"
-              selectedOption={selectedOption}
-              size="lg"
-            />
-          </Box>
+          <ComboBox
+            accessibilityClearButtonLabel="Clear the current value"
+            id="programaticallySet"
+            inputValue={inputValue}
+            label="Pin category"
+            noResultText="No results for your selection"
+            onBlur={handleOnBlur}
+            onChange={handleOnChange}
+            onClear={handleOnClear}
+            onSelect={handleSelect}
+            options={suggestedOptions}
+            placeholder="Select a category"
+            selectedOption={selectedOption}
+            size="lg"
+          />
         </Flex>
       </Flex>
     </Box>

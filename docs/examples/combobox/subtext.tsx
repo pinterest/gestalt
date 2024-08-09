@@ -1,4 +1,4 @@
-import { Box, ComboBox, Flex } from 'gestalt';
+import { Box, ComboBox } from 'gestalt';
 
 export default function Example() {
   const options = Array(20)
@@ -10,19 +10,15 @@ export default function Example() {
     }));
 
   return (
-    <Box height="100%" padding={2} width="100%">
-      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-        <Box width={320}>
-          <ComboBox
-            accessibilityClearButtonLabel="Clear the current value"
-            id="subtext"
-            label="Choose a value"
-            noResultText="No results for your selection"
-            options={options}
-            placeholder="Select a value"
-          />
-        </Box>
-      </Flex>
+    <Box padding={8} width="100%">
+      <ComboBox
+        accessibilityClearButtonLabel="Clear the current value"
+        id="subtext"
+        label="Choose a value"
+        noResultText="No results for your selection"
+        options={options}
+        placeholder="Select a value"
+      />
     </Box>
   );
 }

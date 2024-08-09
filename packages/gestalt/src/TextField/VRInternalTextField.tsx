@@ -48,6 +48,7 @@ type Props = {
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
   readOnly?: boolean;
+  readOnlyNoIconButton?: boolean;
   size?: SizeType;
   step?: number;
   tags?: ReadonlyArray<ReactElement>;
@@ -82,6 +83,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     onKeyDown,
     placeholder,
     readOnly,
+    readOnlyNoIconButton,
     size = 'md',
     step,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -238,7 +240,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           value={value}
         />
 
-        {!disabled && iconButton}
+        {!disabled && !readOnlyNoIconButton && iconButton}
       </div>
 
       {(helperText || maxLength) && !hasErrorMessage ? (
