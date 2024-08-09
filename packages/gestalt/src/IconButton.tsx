@@ -13,7 +13,6 @@ import Pog from './Pog';
 import touchableStyles from './TapArea.css';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
 import { Indexable } from './zIndex';
 
@@ -176,10 +175,6 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
 
   const [isActive, setActive] = useState(false);
   const [isFocused, setFocused] = useState(false);
@@ -198,15 +193,10 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     labelColor = TOKEN_COLOR_TEXT_HOVER;
   }
 
-  const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
+  const divStyles = classnames(styles.button, touchableStyles.tapTransition, compressStyle, {
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
-  });
-
-  const vrStyles = classnames({
-    [styles.disabled]: disabled,
-    [styles.enabled]: !disabled,
   });
 
   const buttonComponent = (
@@ -250,12 +240,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       // react/button-has-type is very particular about this verbose syntax
       type={type === 'submit' ? 'submit' : 'button'}
     >
-      <div
-        className={isInVRExperiment ? vrStyles : divStyles}
-        style={{
-          ...(!isInVRExperiment && compressStyle),
-        }}
-      >
+      <div className={divStyles} style={compressStyle || undefined}>
         <Pog
           active={!disabled && isActive}
           bgColor={bgColor}

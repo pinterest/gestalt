@@ -159,7 +159,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [touchableStyles[mouseCursor]]: !disabled,
         }
       : {},
-    isIconButton && !isInVRExperiment
+    isIconButton
       ? {
           [iconButtonStyles.button]: true,
           [iconButtonStyles.disabled]: disabled,
