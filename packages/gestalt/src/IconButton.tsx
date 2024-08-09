@@ -33,6 +33,11 @@ type Props = {
    */
   accessibilityPopupRole?: 'menu' | 'dialog';
   /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  backgroundContext?: 'light' | 'dark';
+  /**
    * Primary colors to apply to the IconButton background.
    */
   bgColor?:
@@ -133,6 +138,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     accessibilityLabel,
     accessibilityPopupRole,
     bgColor,
+    backgroundContext = 'light',
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
@@ -239,6 +245,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       <div className={divStyles} style={compressStyle || undefined}>
         <Pog
           active={!disabled && isActive}
+          backgroundContext={backgroundContext}
           bgColor={bgColor}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
           focused={!disabled && isFocusVisible && isFocused}
