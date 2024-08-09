@@ -187,21 +187,16 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
 
   const { isFocusVisible } = useFocusVisible();
 
-  const getLabelColor = () => {
-    if (disabled) {
-      return TOKEN_COLOR_TEXT_DISABLED;
-    }
-    if (bgColor === 'transparent' && iconColor === 'white') {
-      return TOKEN_COLOR_TEXT_INVERSE;
-    }
-    if (isActive) {
-      return TOKEN_COLOR_TEXT_PRESSED;
-    }
-    if (isHovered) {
-      return TOKEN_COLOR_TEXT_HOVER;
-    }
-    return TOKEN_COLOR_TEXT_DEFAULT;
-  };
+  let labelColor = TOKEN_COLOR_TEXT_DEFAULT;
+  if (disabled) {
+    labelColor = TOKEN_COLOR_TEXT_DISABLED;
+  } else if (bgColor === 'transparent' && iconColor === 'white') {
+    labelColor = TOKEN_COLOR_TEXT_INVERSE;
+  } else if (isActive) {
+    labelColor = TOKEN_COLOR_TEXT_PRESSED;
+  } else if (isHovered) {
+    labelColor = TOKEN_COLOR_TEXT_HOVER;
+  }
 
   const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
     [styles.disabled]: disabled,
@@ -275,7 +270,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
         />
       </div>
       {size === 'xl' && (
-        <span className={styles.label} style={{ color: getLabelColor() }}>
+        <span className={styles.label} style={{ color: labelColor }}>
           {label}
         </span>
       )}
