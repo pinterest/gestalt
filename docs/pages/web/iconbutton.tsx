@@ -190,7 +190,9 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Visible label for the IconButton. Only visible in XL size IconButtons."
+          description={`You can add a label for the IconButton. It is only visible in XL size IconButtons.
+
+It is recommended to use short labels for IconButtons, but the label will wrap up to two lines if needed.`}
           title="Label"
         >
           <MainSection.Card
@@ -208,12 +210,16 @@ Follow these guidelines for \`iconColor\`
 3. Gray ("gray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 4. White ("white"). Used in a dark mode scheme or over a dark-colored background creating better visibility.
 5. Brand primary ("brandPrimary"). Used to represent the Pinterest brand.
+6. Light ("light"). Used over a dark-colored background that does not change in  dark mode, like transparentDarkGray, creating better visibility.
+7. Dark ("dark"). Used over a light-colored background that does not change in light mode, like washLight, creating better visibility.
 
 `}
           title="Icon color"
         >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
+          <CombinationNew
+            // @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary', 'light', 'dark']}
+          >
             {({ iconColor }) => (
               <IconButton
                 accessibilityLabel={`Example icon color ${iconColor}`}
