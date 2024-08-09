@@ -10,7 +10,7 @@ export default function Example() {
         iconColor="darkGray"
         label="Share"
         size="xl"
-        tooltip={{ text: 'Send pin to others' }}
+        tooltip={{ text: 'Send pin to others', idealDirection: 'up' }}
       />
     </Flex>
   );

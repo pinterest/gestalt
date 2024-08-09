@@ -1,16 +1,11 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
-import {
-  TOKEN_COLOR_TEXT_DEFAULT,
-  TOKEN_COLOR_TEXT_DISABLED,
-  TOKEN_COLOR_TEXT_HOVER,
-  TOKEN_COLOR_TEXT_INVERSE,
-  TOKEN_COLOR_TEXT_PRESSED,
-} from 'gestalt-design-tokens';
+import Flex from './Flex';
 import styles from './IconButton.css';
 import icons from './icons/index';
 import Pog from './Pog';
 import touchableStyles from './TapArea.css';
+import Text from './Text';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useTapFeedback from './useTapFeedback';
@@ -182,16 +177,17 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
 
   const { isFocusVisible } = useFocusVisible();
 
-  let labelColor = TOKEN_COLOR_TEXT_DEFAULT;
+  let labelColor: 'default' | 'disabled' | 'inverse' = 'default';
   if (disabled) {
-    labelColor = TOKEN_COLOR_TEXT_DISABLED;
+    labelColor = 'disabled';
   } else if (bgColor === 'transparent' && iconColor === 'white') {
-    labelColor = TOKEN_COLOR_TEXT_INVERSE;
-  } else if (isActive) {
-    labelColor = TOKEN_COLOR_TEXT_PRESSED;
-  } else if (isHovered) {
-    labelColor = TOKEN_COLOR_TEXT_HOVER;
+    labelColor = 'inverse';
   }
+
+  const labelStyle = classnames(styles.label, {
+    [styles.activeText]: isActive && !isHovered,
+    [styles.hoverText]: isHovered && !isActive,
+  });
 
   const divStyles = classnames(styles.button, touchableStyles.tapTransition, compressStyle, {
     [styles.disabled]: disabled,
@@ -254,26 +250,34 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
           size={size}
         />
       </div>
-      {size === 'xl' && (
-        <span className={styles.label} style={{ color: labelColor }}>
-          {label}
-        </span>
-      )}
     </button>
   );
 
-  return tooltip?.text ? (
-    <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
-      idealDirection={tooltip.idealDirection}
-      inline={tooltip.inline}
-      text={tooltip.text}
-      zIndex={tooltip.zIndex}
-    >
-      {buttonComponent}
-    </Tooltip>
-  ) : (
-    buttonComponent
+  const labelComponent = (
+    <div className={labelStyle}>
+      <Text align="center" color={labelColor} lineClamp={2} size="100" weight="bold">
+        {label}
+      </Text>
+    </div>
+  );
+
+  return (
+    <Flex alignItems="center" direction="column">
+      {tooltip?.text ? (
+        <Tooltip
+          accessibilityLabel={tooltip.accessibilityLabel}
+          idealDirection={tooltip.idealDirection}
+          inline={tooltip.inline}
+          text={tooltip.text}
+          zIndex={tooltip.zIndex}
+        >
+          {buttonComponent}
+        </Tooltip>
+      ) : (
+        buttonComponent
+      )}
+      {label && size === 'xl' && labelComponent}
+    </Flex>
   );
 });
 

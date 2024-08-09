@@ -14,15 +14,8 @@
 }
 
 .label {
-  display: inline-block;
-  font-family: var(--sema-font-family-ui-xs);
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: var(--sema-font-letterspacing-ui-xs);
-  line-height: var(--sema-font-lineheight-ui-xs);
+  max-width: 16ch;
   padding-top: var(--space-200);
-  text-align: center;
 }
 
 .parentButton:focus {
@@ -33,7 +26,14 @@
   composes: pointer from "./Cursor.css";
 }
 
-.disabled {
-  cursor: default;
-  opacity: 0.5;
+.activeText div {
+  /* Ensure the disabled color is used */
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-pressed) !important;
+}
+
+.hoverText div {
+  /* Ensure the disabled color is used */
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-hover) !important;
 }
