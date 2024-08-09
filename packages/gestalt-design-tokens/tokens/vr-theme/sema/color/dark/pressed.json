@@ -110,11 +110,11 @@
           "wash": {
             "default": {
               "type": "color",
-              "value": "#000000e6"
+              "value": "rgba({base.color.pressed.grayscale.500}, 0.9)"
             },
             "dark": {
               "type": "color",
-              "value": "#000000e6"
+              "value": "rgba({base.color.pressed.grayscale.500}, 0.9)"
             },
             "light": {
               "type": "color",

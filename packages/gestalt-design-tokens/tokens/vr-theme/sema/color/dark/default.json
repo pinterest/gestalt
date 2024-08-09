@@ -117,15 +117,15 @@
         "wash": {
           "default": {
             "type": "color",
-            "value": "#000c"
+            "value": "rgba({base.color.grayscale.500}, 0.8)"
           },
           "dark": {
             "type": "color",
-            "value": "#000c"
+            "value": "rgba({base.color.grayscale.500}, 0.8)"
           },
           "light": {
             "type": "color",
-            "value": "#ffffffe6"
+            "value": "rgba({base.color.grayscale.0}, 0.9)"
           },
           "image": {
             "tint": {
