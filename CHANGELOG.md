@@ -1,3 +1,9 @@
+## 157.2.1 (Aug 9, 2024)
+
+### Patch
+
+- ComboBox: undoing breaking change in `id` set in #3712 ([#3722](https://github.com/pinterest/gestalt/pull/3722)) - [Preview link](https://deploy-preview-3722--gestalt.netlify.app?devexample=true)
+
 ## 157.2.0 (Aug 8, 2024)
 
 ### Minor
