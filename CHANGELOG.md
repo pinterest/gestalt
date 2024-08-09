@@ -1,3 +1,9 @@
+## 157.2.2 (Aug 9, 2024)
+
+### Patch
+
+- Tokens: Hover token RGBA fixes ([#3721](https://github.com/pinterest/gestalt/pull/3721)) - [Preview link](https://deploy-preview-3721--gestalt.netlify.app?devexample=true)
+
 ## 157.2.1 (Aug 9, 2024)
 
 ### Patch
