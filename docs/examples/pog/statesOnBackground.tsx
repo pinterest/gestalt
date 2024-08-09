@@ -196,7 +196,6 @@ export default function Example() {
               <Text size="100">disabled selected</Text>
             </Box>
           </Flex>
-          <Box color="transparent" padding={8} />
         </Flex>
       </Flex>
     </Box>
