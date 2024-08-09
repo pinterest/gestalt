@@ -20,6 +20,7 @@ function transformHEXRGBaForCSS(token) {
         const { r, g, b } = tinycolor(hex).toRgb();
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
       } catch (e) {
+        // eslint-disable-next-line no-console
         console.warn(`Tried parsing "${hex}" as a hex value, but failed.`);
         return match;
       }
