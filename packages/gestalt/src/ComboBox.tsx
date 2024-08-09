@@ -590,7 +590,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                 />
               )
             }
-            id={id}
+            id={`combobox-${id}`}
             label={label}
             labelDisplay={labelDisplay}
             onBlur={handleOnBlur}
