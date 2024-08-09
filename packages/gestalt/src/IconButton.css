@@ -26,6 +26,11 @@
   composes: pointer from "./Cursor.css";
 }
 
+.disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
 .activeText div {
   /* Ensure the disabled color is used */
   /* stylelint-disable-next-line declaration-no-important */
