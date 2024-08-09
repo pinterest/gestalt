@@ -2,148 +2,160 @@
 
 exports[`IconButton renders with disabled state 1`] = `
 <div>
-  <button
-    aria-label="Pinterest"
-    class="parentButton"
-    disabled=""
-    type="button"
+  <div
+    class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
   >
-    <div
-      class="button tapTransition disabled"
-      style="padding-bottom: 0px;"
+    <button
+      aria-label="Pinterest"
+      class="parentButton"
+      disabled=""
+      type="button"
     >
       <div
-        class="pog transparent"
-        style="height: 48px; width: 48px;"
+        class="button tapTransition disabled"
       >
-        <svg
-          aria-hidden="true"
-          aria-label=""
-          class="default icon iconBlock"
-          height="20"
-          role="img"
-          viewBox="0 0 24 24"
-          width="20"
+        <div
+          class="pog transparent"
+          style="height: 48px; width: 48px;"
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            aria-label=""
+            class="default icon iconBlock"
+            height="20"
+            role="img"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
-    </div>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`IconButton renders with icon 1`] = `
 <div>
-  <button
-    aria-label="Pinterest"
-    class="parentButton"
-    tabindex="0"
-    type="button"
+  <div
+    class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
   >
-    <div
-      class="button tapTransition enabled"
-      style="padding-bottom: 0px;"
+    <button
+      aria-label="Pinterest"
+      class="parentButton"
+      tabindex="0"
+      type="button"
     >
       <div
-        class="pog transparent"
-        style="height: 48px; width: 48px;"
+        class="button tapTransition enabled"
       >
-        <svg
-          aria-hidden="true"
-          aria-label=""
-          class="default icon iconBlock"
-          height="20"
-          role="img"
-          viewBox="0 0 24 24"
-          width="20"
+        <div
+          class="pog transparent"
+          style="height: 48px; width: 48px;"
         >
-          <path
-            d="test-file-stub"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            aria-label=""
+            class="default icon iconBlock"
+            height="20"
+            role="img"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
       </div>
-    </div>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`IconButton renders with svg 1`] = `
 <div>
-  <button
-    aria-label="Pinterest"
-    class="parentButton"
-    tabindex="0"
-    type="button"
+  <div
+    class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
   >
-    <div
-      class="button tapTransition enabled"
-      style="padding-bottom: 0px;"
+    <button
+      aria-label="Pinterest"
+      class="parentButton"
+      tabindex="0"
+      type="button"
     >
       <div
-        class="pog transparent"
-        style="height: 48px; width: 48px;"
+        class="button tapTransition enabled"
       >
-        <svg
-          aria-hidden="true"
-          aria-label=""
-          class="default icon iconBlock"
-          height="20"
-          role="img"
-          viewBox="0 0 24 24"
-          width="20"
+        <div
+          class="pog transparent"
+          style="height: 48px; width: 48px;"
         >
-          <path
-            d="M13.00,20.00"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            aria-label=""
+            class="default icon iconBlock"
+            height="20"
+            role="img"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M13.00,20.00"
+            />
+          </svg>
+        </div>
       </div>
-    </div>
-  </button>
+    </button>
+  </div>
 </div>
 `;
 
 exports[`IconButton renders with tooltip 1`] = `
 <div>
   <div
-    class="box xsDisplayBlock"
+    class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
   >
     <div
-      aria-label="This Pin is private unless you share it with others."
-      class="box"
+      class="box xsDisplayBlock"
     >
-      <button
-        aria-label="Share"
-        class="parentButton"
-        tabindex="0"
-        type="button"
+      <div
+        aria-label="This Pin is private unless you share it with others."
+        class="box"
       >
-        <div
-          class="button tapTransition enabled"
-          style="padding-bottom: 0px;"
+        <button
+          aria-label="Share"
+          class="parentButton"
+          tabindex="0"
+          type="button"
         >
           <div
-            class="pog transparent"
-            style="height: 48px; width: 48px;"
+            class="button tapTransition enabled"
           >
-            <svg
-              aria-hidden="true"
-              aria-label=""
-              class="default icon iconBlock"
-              height="20"
-              role="img"
-              viewBox="0 0 24 24"
-              width="20"
+            <div
+              class="pog transparent"
+              style="height: 48px; width: 48px;"
             >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                aria-label=""
+                class="default icon iconBlock"
+                height="20"
+                role="img"
+                viewBox="0 0 24 24"
+                width="20"
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -152,42 +164,45 @@ exports[`IconButton renders with tooltip 1`] = `
 exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
 <div>
   <div
-    class="box xsDisplayBlock"
+    class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
   >
     <div
-      aria-label=""
-      class="box"
+      class="box xsDisplayBlock"
     >
-      <button
-        aria-label="Share"
-        class="parentButton"
-        tabindex="0"
-        type="button"
+      <div
+        aria-label=""
+        class="box"
       >
-        <div
-          class="button tapTransition enabled"
-          style="padding-bottom: 0px;"
+        <button
+          aria-label="Share"
+          class="parentButton"
+          tabindex="0"
+          type="button"
         >
           <div
-            class="pog transparent"
-            style="height: 48px; width: 48px;"
+            class="button tapTransition enabled"
           >
-            <svg
-              aria-hidden="true"
-              aria-label=""
-              class="default icon iconBlock"
-              height="20"
-              role="img"
-              viewBox="0 0 24 24"
-              width="20"
+            <div
+              class="pog transparent"
+              style="height: 48px; width: 48px;"
             >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                aria-label=""
+                class="default icon iconBlock"
+                height="20"
+                role="img"
+                viewBox="0 0 24 24"
+                width="20"
+              >
+                <path
+                  d="test-file-stub"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </div>
