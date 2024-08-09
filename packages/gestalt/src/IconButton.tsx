@@ -259,7 +259,6 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
         className={isInVRExperiment ? vrStyles : divStyles}
         style={{
           ...(!isInVRExperiment && compressStyle),
-          ...{ paddingBottom: label ? '8px' : '0px' },
         }}
       >
         <Pog
