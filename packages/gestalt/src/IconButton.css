@@ -15,12 +15,12 @@
 
 .label {
   display: inline-block;
-  font-family: var(--sema-font-family-UI-XS, "Pin Sans");
+  font-family: var(--sema-font-family-ui-xs);
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  letter-spacing: var(--sema-font-letterspacing-UI-XS, 0);
-  line-height: var(--sema-font-lineheight-UI-XS, 16px);
+  letter-spacing: var(--sema-font-letterspacing-ui-xs);
+  line-height: var(--sema-font-lineheight-ui-xs);
   padding-top: var(--space-200);
   text-align: center;
 }
