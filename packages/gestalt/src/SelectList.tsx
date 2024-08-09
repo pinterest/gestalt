@@ -7,10 +7,12 @@ import layout from './Layout.css';
 import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup';
 import SelectListOption from './SelectList/SelectListOption';
+import VRSelectList from './SelectList/VRSelectList';
 import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
+import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -102,6 +104,11 @@ function SelectList({
 }: Props) {
   const [focused, setFocused] = useState(false);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const handleOnChange: (event: React.ChangeEvent<HTMLSelectElement>) => void = (event) => {
     if (value !== event.target.value) {
       onChange({ event, value: event.target.value });
@@ -145,6 +152,29 @@ function SelectList({
 
   if (label && helperText) {
     ariaDescribedby = `${id}-helperText`;
+  }
+
+  if (isInVRExperiment) {
+    return (
+      <VRSelectList
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        placeholder={placeholder}
+        size={size}
+        value={value}
+      >
+        {children}
+      </VRSelectList>
+    );
   }
 
   return (

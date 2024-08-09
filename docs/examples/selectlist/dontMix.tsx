@@ -24,9 +24,9 @@ export default function SubtextIconButtonFlyoutExample() {
   };
 
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box padding={8} width="100%">
       <Flex alignItems="end" gap={2}>
-        <SelectList id="selectlistexample8" label="Metric" onChange={() => {}} size="lg">
+        <SelectList id="selectlist-dont-mix" label="Metric" onChange={() => {}}>
           {[
             { label: 'Revenue', value: 'v1' },
             { label: 'Checkouts', value: 'v2' },
@@ -49,7 +49,6 @@ export default function SubtextIconButtonFlyoutExample() {
             iconEnd="arrow-down"
             onClick={() => setOpen((prevVal) => !prevVal)}
             selected={open}
-            size="lg"
             text="Date range"
           />
 

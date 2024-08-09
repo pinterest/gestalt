@@ -2,15 +2,8 @@ import { Box, SelectList } from 'gestalt';
 
 export default function Example() {
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <SelectList
-        errorMessage="You must select a country"
-        id="selectlistexample14"
-        label="Country"
-        onChange={() => {}}
-        placeholder="Select a country"
-        size="lg"
-      >
+    <Box padding={8} width="100%">
+      <SelectList id="selectlist-do-simple" label="Country" onChange={() => {}}>
         {[
           { label: 'Algeria', value: 'algeria' },
           { label: 'Belgium', value: 'belgium' },

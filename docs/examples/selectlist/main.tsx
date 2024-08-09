@@ -1,9 +1,9 @@
-import { Flex, SelectList } from 'gestalt';
+import { Box, SelectList } from 'gestalt';
 
 export default function Example() {
   return (
-    <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-      <SelectList id="selectlistexample1" label="Country" onChange={() => {}} size="lg">
+    <Box padding={8} width="100%">
+      <SelectList id="selectlistMain" label="Country" onChange={() => {}}>
         {[
           { label: 'Algeria', value: 'algeria' },
           { label: 'Belgium', value: 'belgium' },
@@ -15,6 +15,6 @@ export default function Example() {
           <SelectList.Option key={label} label={label} value={value} />
         ))}
       </SelectList>
-    </Flex>
+    </Box>
   );
 }
