@@ -316,6 +316,8 @@ Object {
   <color name=\\"color_text_success\\">@color/color_green_matchacado_600</color>
   <color name=\\"color_text_disabled\\">@color/color_gray_roboflow_400</color>
   <color name=\\"color_text_error\\">@color/color_red_pushpin_500</color>
+  <color name=\\"color_text_hover\\">@color/color_black_cosmicore_900</color>
+  <color name=\\"color_text_pressed\\">@color/color_black_cosmicore_900</color>
   <color name=\\"color_text_warning\\">@color/color_yellow_caramellow_500</color>
   <color name=\\"color_text_inverse\\">@color/color_white_mochimalist_0</color>
   <color name=\\"color_text_dark\\">@color/color_black_cosmicore_900</color>
@@ -551,9 +553,9 @@ Object {
   <color name=\\"sema_color_background_warning_weak\\">@color/base_color_orange_500</color>
   <color name=\\"sema_color_background_error_default\\">@color/base_color_red_200</color>
   <color name=\\"sema_color_background_error_weak\\">@color/base_color_red_500</color>
-  <color name=\\"sema_color_background_wash_default\\">@color/base_color_grayscale_500</color>
-  <color name=\\"sema_color_background_wash_dark\\">@color/base_color_grayscale_500</color>
-  <color name=\\"sema_color_background_wash_light\\">@color/base_color_grayscale_0</color>
+  <color name=\\"sema_color_background_wash_default\\">#cc000000</color>
+  <color name=\\"sema_color_background_wash_dark\\">#cc000000</color>
+  <color name=\\"sema_color_background_wash_light\\">#e6ffffff</color>
   <color name=\\"sema_color_background_wash_image_tint\\">@color/base_color_grayscale_500</color>
   <color name=\\"sema_color_background_wash_scrims_default\\">@color/base_color_grayscale_250</color>
   <color name=\\"sema_color_background_wash_scrims_opaque\\">@color/base_color_grayscale_350</color>
@@ -685,9 +687,9 @@ Object {
   <color name=\\"sema_color_background_warning_weak\\">@color/base_color_orange_100</color>
   <color name=\\"sema_color_background_error_default\\">@color/base_color_red_400</color>
   <color name=\\"sema_color_background_error_weak\\">@color/base_color_red_100</color>
-  <color name=\\"sema_color_background_wash_default\\">@color/base_color_grayscale_0</color>
-  <color name=\\"sema_color_background_wash_dark\\">@color/base_color_grayscale_500</color>
-  <color name=\\"sema_color_background_wash_light\\">@color/base_color_grayscale_0</color>
+  <color name=\\"sema_color_background_wash_default\\">#e6ffffff</color>
+  <color name=\\"sema_color_background_wash_dark\\">#cc000000</color>
+  <color name=\\"sema_color_background_wash_light\\">#e6ffffff</color>
   <color name=\\"sema_color_background_wash_image_tint\\">@color/base_color_grayscale_500</color>
   <color name=\\"sema_color_background_wash_scrims_default\\">@color/base_color_grayscale_250</color>
   <color name=\\"sema_color_background_wash_scrims_opaque\\">@color/base_color_grayscale_50</color>

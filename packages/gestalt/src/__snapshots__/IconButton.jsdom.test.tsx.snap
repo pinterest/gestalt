@@ -10,6 +10,7 @@ exports[`IconButton renders with disabled state 1`] = `
   >
     <div
       class="button tapTransition disabled"
+      style="padding-bottom: 0px;"
     >
       <div
         class="pog transparent"
@@ -44,6 +45,7 @@ exports[`IconButton renders with icon 1`] = `
   >
     <div
       class="button tapTransition enabled"
+      style="padding-bottom: 0px;"
     >
       <div
         class="pog transparent"
@@ -78,6 +80,7 @@ exports[`IconButton renders with svg 1`] = `
   >
     <div
       class="button tapTransition enabled"
+      style="padding-bottom: 0px;"
     >
       <div
         class="pog transparent"
@@ -119,6 +122,7 @@ exports[`IconButton renders with tooltip 1`] = `
       >
         <div
           class="button tapTransition enabled"
+          style="padding-bottom: 0px;"
         >
           <div
             class="pog transparent"
@@ -162,6 +166,7 @@ exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
       >
         <div
           class="button tapTransition enabled"
+          style="padding-bottom: 0px;"
         >
           <div
             class="pog transparent"

@@ -1,5 +1,12 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
+import {
+  TOKEN_COLOR_TEXT_DEFAULT,
+  TOKEN_COLOR_TEXT_DISABLED,
+  TOKEN_COLOR_TEXT_HOVER,
+  TOKEN_COLOR_TEXT_INVERSE,
+  TOKEN_COLOR_TEXT_PRESSED,
+} from 'gestalt-design-tokens';
 import styles from './IconButton.css';
 import icons from './icons/index';
 import Pog from './Pog';
@@ -62,7 +69,11 @@ type Props = {
   /**
    * Primary color to apply to the [Icon](/web/icon). See [icon color](https://gestalt.pinterest.systems/web/iconbutton#Icon-color) variant to learn more.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
+  /**
+   * Visible label for the IconButton. Only visible in XL size IconButtons. See the [label](https://gestalt.pinterest.systems/web/iconbutton#Label) variant to learn more.
+   */
+  label?: string;
   /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
@@ -121,25 +132,26 @@ type Props = {
 
 const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
-    accessibilityLabel,
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
+    accessibilityLabel,
     accessibilityPopupRole,
-    name,
-    selected,
-    type,
     bgColor,
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
     icon,
     iconColor,
+    label,
+    name,
     onClick,
     padding,
+    selected,
+    size = 'lg',
     tabIndex = 0,
     tooltip,
-    size = 'lg',
+    type,
   }: Props,
   ref,
 ) {
@@ -169,6 +181,23 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
   const [isHovered, setHovered] = useState(false);
 
   const { isFocusVisible } = useFocusVisible();
+
+  let labelColor = TOKEN_COLOR_TEXT_DEFAULT;
+  if (disabled) {
+    labelColor = TOKEN_COLOR_TEXT_DISABLED;
+  } else if (bgColor === 'transparent' && iconColor === 'white') {
+    labelColor = TOKEN_COLOR_TEXT_INVERSE;
+  } else if (isActive) {
+    labelColor = TOKEN_COLOR_TEXT_PRESSED;
+  } else if (isHovered) {
+    labelColor = TOKEN_COLOR_TEXT_HOVER;
+  }
+
+  const divStyles = classnames(styles.button, touchableStyles.tapTransition, compressStyle, {
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+  });
 
   const buttonComponent = (
     <button
@@ -211,14 +240,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       // react/button-has-type is very particular about this verbose syntax
       type={type === 'submit' ? 'submit' : 'button'}
     >
-      <div
-        className={classnames(styles.button, touchableStyles.tapTransition, {
-          [styles.disabled]: disabled,
-          [styles.enabled]: !disabled,
-          [touchableStyles.tapCompress]: !disabled && isTapping,
-        })}
-        style={compressStyle || undefined}
-      >
+      <div className={divStyles} style={compressStyle || undefined}>
         <Pog
           active={!disabled && isActive}
           bgColor={bgColor}
@@ -232,6 +254,11 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
           size={size}
         />
       </div>
+      {size === 'xl' && (
+        <span className={styles.label} style={{ color: labelColor }}>
+          {label}
+        </span>
+      )}
     </button>
   );
 

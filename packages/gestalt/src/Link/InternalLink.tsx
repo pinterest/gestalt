@@ -10,6 +10,7 @@ import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';
 import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
 
 type Props = {
@@ -104,6 +105,10 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const { isFocusVisible } = useFocusVisible();
   const isTapArea = wrappedComponent === 'tapArea';
@@ -119,7 +124,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
     isButton
       ? {

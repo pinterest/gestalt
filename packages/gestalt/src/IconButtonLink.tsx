@@ -6,6 +6,7 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
+import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
@@ -113,6 +114,10 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -129,6 +134,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
     handleOnMouseUp,
     isHovered,
     isActive,
+    isFocused,
   } = useInteractiveStates();
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
@@ -165,6 +171,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         active={!disabled && isActive}
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
+        focused={isInVRExperiment && isFocused}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

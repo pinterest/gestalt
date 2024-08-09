@@ -373,6 +373,11 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
     >
       <div
         className="button tapTransition enabled"
+        style={
+          Object {
+            "paddingBottom": "0px",
+          }
+        }
       >
         <div
           className="pog transparent"

@@ -219,6 +219,11 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
     >
       <div
         className="button tapTransition enabled"
+        style={
+          Object {
+            "paddingBottom": "0px",
+          }
+        }
       >
         <div
           className="pog transparent"
@@ -389,6 +394,11 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
     >
       <div
         className="button tapTransition enabled"
+        style={
+          Object {
+            "paddingBottom": "0px",
+          }
+        }
       >
         <div
           className="pog transparent"
@@ -527,6 +537,11 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
     >
       <div
         className="button tapTransition enabled"
+        style={
+          Object {
+            "paddingBottom": "0px",
+          }
+        }
       >
         <div
           className="pog transparent"

@@ -456,6 +456,11 @@ exports[`PageHeader renders primary action 1`] = `
                 >
                   <div
                     className="button tapTransition enabled"
+                    style={
+                      Object {
+                        "paddingBottom": "0px",
+                      }
+                    }
                   >
                     <div
                       className="pog transparent"
@@ -709,6 +714,11 @@ exports[`PageHeader renders secondary action 1`] = `
                 >
                   <div
                     className="button tapTransition enabled"
+                    style={
+                      Object {
+                        "paddingBottom": "0px",
+                      }
+                    }
                   >
                     <div
                       className="pog transparent"

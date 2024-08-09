@@ -17,6 +17,7 @@ import grouping from '../../examples/iconbutton/grouping';
 import highActions from '../../examples/iconbutton/highActions';
 import image from '../../examples/iconbutton/image';
 import keyboard from '../../examples/iconbutton/keyboard';
+import label from '../../examples/iconbutton/label';
 import lowActions from '../../examples/iconbutton/lowActions';
 import main from '../../examples/iconbutton/main';
 import noGrouping from '../../examples/iconbutton/noGrouping';
@@ -187,6 +188,15 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
               />
             )}
           </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Visible label for the IconButton. Only visible in XL size IconButtons."
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={label} name="Label example" />}
+          />
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
