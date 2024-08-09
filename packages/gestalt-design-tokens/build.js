@@ -1,3 +1,4 @@
+const transformHEXRGBaForCSS = require('./transformers/hexToRgba');
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
@@ -485,6 +486,31 @@ StyleDictionary.registerTransform({
     }
 
     return Object.assign(generatedAttrs, originalAttrs);
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'color/css/hexrgba',
+  type: 'value',
+  transitive: true,
+  matcher: (token) => {
+    const type = token.$type ?? token.type;
+    return typeof type === 'string' && ['color', 'shadow', 'border'].includes(type);
+  },
+  transformer: (token) => transformHEXRGBaForCSS(token),
+});
+
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'font-size/px',
+  type: 'value',
+  matcher: (prop) => prop.attributes.category === 'font' && prop.attributes.type === 'size',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
   },
 });
 

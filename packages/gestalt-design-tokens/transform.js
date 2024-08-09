@@ -13,6 +13,7 @@ const webCssTransformGroup = [
   'value/duration/css',
   'value/easing/css',
   'color/css',
+  'color/css/hexrgba',
 ];
 
 const webJsTransformGroup = [
