@@ -19,7 +19,10 @@ import recalcHeights from './Masonry/dynamicHeightsUtils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { type ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  type ColumnSpanConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+} from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Align, type Layout, type Position } from './Masonry/types';
 import throttle from './throttle';

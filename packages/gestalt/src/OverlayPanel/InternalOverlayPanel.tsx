@@ -1,4 +1,12 @@
-import { type ReactNode, useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import ConfirmationPopover from './ConfirmationPopover';
 import animation from '../animation/animation.css';

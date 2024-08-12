@@ -8,7 +8,10 @@ import recalcHeights from './Masonry/dynamicHeightsUtils';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { type ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  type ColumnSpanConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+} from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { type Align, type Layout, type LoadingStateItem, type Position } from './Masonry/types';

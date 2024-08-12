@@ -24,7 +24,10 @@ import IconButtonEnd from './TextField/IconButtonEnd';
 import InternalTextField from './TextField/InternalTextField';
 import VRInternalTextField from './TextField/VRInternalTextField';
 import useInExperiment from './useInExperiment';
-import handleContainerScrolling, { type DirectionOptionType, KEYS } from './utils/keyboardNavigation';
+import handleContainerScrolling, {
+  type DirectionOptionType,
+  KEYS,
+} from './utils/keyboardNavigation';
 import { type Indexable } from './zIndex';
 
 type Size = 'sm' | 'md' | 'lg';

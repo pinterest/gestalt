@@ -1,4 +1,11 @@
-import { type ComponentProps, type ReactNode, useCallback, useEffect, useId, useLayoutEffect } from 'react';
+import {
+  type ComponentProps,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+} from 'react';
 import classnames from 'classnames';
 import ContentContainer from './ContentContainer';
 import Header from './Header';

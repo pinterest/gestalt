@@ -1,4 +1,11 @@
-import { type ReactElement, type ReactNode, type ReactPortal, useEffect, useRef, useState } from 'react';
+import {
+  type ReactElement,
+  type ReactNode,
+  type ReactPortal,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import styles from './Layer.css';

@@ -1,4 +1,11 @@
-import { Fragment, type ReactElement, type ReactNode, useCallback, useEffect, useState } from 'react';
+import {
+  Fragment,
+  type ReactElement,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionExpandableItem from './Accordion/ExpandableItem';
 import Box from './Box';
