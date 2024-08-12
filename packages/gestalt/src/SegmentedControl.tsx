@@ -1,4 +1,4 @@
-import { cloneElement, ReactNode } from 'react';
+import { cloneElement, type ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';

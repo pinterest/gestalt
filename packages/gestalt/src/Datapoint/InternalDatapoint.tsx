@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import DatapointTrend from './Trend';
 import AccessibilityPause from '../accessibility/AccessibilityPause';
 import Badge from '../Badge';
@@ -8,7 +8,7 @@ import Icon from '../Icon';
 import TapArea from '../TapArea';
 import Text from '../Text';
 import Tooltip from '../Tooltip';
-import { Indexable } from '../zIndex';
+import { type Indexable } from '../zIndex';
 
 type BadgeObject = {
   text: string;

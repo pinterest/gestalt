@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { TOKEN_COLOR_WHITE_MOCHIMALIST_0 } from 'gestalt-design-tokens';
-import { DataVisualizationColors } from './types';
+import { type DataVisualizationColors } from './types';
 import { useHexColor } from './usePatterns';
 
 type Props = {

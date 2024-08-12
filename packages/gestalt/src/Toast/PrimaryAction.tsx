@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 import useInExperiment from '../useInExperiment';

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import Box from '../Box';
 
 export default function VisuallyHidden({ children }: { children: ReactNode }) {

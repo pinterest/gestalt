@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, useState } from 'react';
+import { type ComponentProps, type ReactNode, useState } from 'react';
 import { act, render, screen } from '@testing-library/react';
 import { Flex, HelpButton, TileData } from 'gestalt';
 import ChartGraph from './ChartGraph';

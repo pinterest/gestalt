@@ -1,11 +1,11 @@
-import { Children, ComponentProps, isValidElement, ReactElement, ReactNode } from 'react';
+import { Children, type ComponentProps, isValidElement, type ReactElement, type ReactNode } from 'react';
 import { TOKEN_ROUNDING_300, TOKEN_ROUNDING_400 } from 'gestalt-design-tokens';
 import Box from './Box';
-import Button from './Button';
-import ButtonLink from './ButtonLink';
+import type Button from './Button';
+import type ButtonLink from './ButtonLink';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
-import Link from './Link';
+import type Link from './Link';
 import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import OverridingSpan from './sharedSubcomponents/OverridingSpan';
 import {

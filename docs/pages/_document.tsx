@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, { type DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 import Cookies from 'universal-cookie';
 
 class GestaltDocument extends Document {

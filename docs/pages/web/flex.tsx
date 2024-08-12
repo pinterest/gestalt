@@ -1,7 +1,7 @@
 import { Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import MainSection from '../../docs-components/MainSection';

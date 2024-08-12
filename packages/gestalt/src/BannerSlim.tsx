@@ -1,4 +1,4 @@
-import { Children, ComponentProps, Fragment, ReactElement } from 'react';
+import { Children, type ComponentProps, Fragment, type ReactElement } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';

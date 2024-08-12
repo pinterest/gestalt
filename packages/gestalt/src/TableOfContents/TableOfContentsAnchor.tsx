@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import classNames from 'classnames';
 import styles from './TableOfContentsAnchor.css';
 import Box from '../Box';

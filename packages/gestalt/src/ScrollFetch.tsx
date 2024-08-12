@@ -1,8 +1,8 @@
-import { PureComponent, ReactNode } from 'react';
+import { PureComponent, type ReactNode } from 'react';
 import FetchItems from './FetchItems';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getScrollHeight, getScrollPos } from './Masonry/scrollUtils';
-import throttle, { ThrottleReturn } from './throttle';
+import throttle, { type ThrottleReturn } from './throttle';
 
 type Props = {
   /**

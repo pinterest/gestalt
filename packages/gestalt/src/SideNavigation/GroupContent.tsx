@@ -1,11 +1,11 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import GroupExpandIconButton from './GroupExpandIconButton';
 import ItemContent from './ItemContent';
 import Box from '../Box';
 import { useDeviceType } from '../contexts/DeviceTypeProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Flex from '../Flex';
-import TapArea from '../TapArea';
+import type TapArea from '../TapArea';
 
 type Display = 'expandable' | 'static';
 type Props = Omit<ComponentProps<typeof ItemContent>, 'children' | 'hasBorder' | 'isGroup'> & {

@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
 
 export default async function clickButton(page: Page, selector: string): Promise<any> {
   await page.evaluate((elementSelector) => {

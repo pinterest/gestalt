@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import classnames from 'classnames';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
-import Icon from '../Icon';
+import type Icon from '../Icon';
 import styles from '../Icon.css';
 import icons from '../icons/index';
 import vrIcons from '../icons-vr-theme/index';

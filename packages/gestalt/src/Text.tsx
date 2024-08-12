@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode } from 'react';
+import { forwardRef, type ReactElement, type ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Text.css';
 import { semanticColors } from './textTypes';

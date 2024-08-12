@@ -8,7 +8,7 @@ import Divider from '../Divider';
 import Flex from '../Flex';
 import Heading from '../Heading';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
-import { Props as SideNavigationProps } from '../SideNavigation';
+import { type Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
 
 type Props = SideNavigationProps & {

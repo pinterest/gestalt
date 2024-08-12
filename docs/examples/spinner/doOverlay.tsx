@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import { Box, Flex, Spinner, Table, Text } from 'gestalt';
 
 function DataTable() {

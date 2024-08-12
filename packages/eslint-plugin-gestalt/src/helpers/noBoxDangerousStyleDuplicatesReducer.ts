@@ -1,8 +1,8 @@
 import {
-  BuildReducerType,
-  GenerateDefaultMessageType,
-  GenericType,
-  ReducerType,
+  type BuildReducerType,
+  type GenerateDefaultMessageType,
+  type GenericType,
+  type ReducerType,
 } from './reducerTypes';
 import {
   dimensionFormatting,

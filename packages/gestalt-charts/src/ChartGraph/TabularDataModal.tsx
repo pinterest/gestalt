@@ -4,10 +4,10 @@ import TabularDataModalFooter from './TabularDataModalFooter';
 import TabularDataModalHeading from './TabularDataModalHeading';
 import TabularDataModalTable from './TabularDataModalTable';
 import useTabularData, {
-  FilterIdType,
-  FilterOrderType,
-  SortChangeType,
-  TransformedTabularDataType,
+  type FilterIdType,
+  type FilterOrderType,
+  type SortChangeType,
+  type TransformedTabularDataType,
 } from './useTabularData';
 
 interface Indexable {

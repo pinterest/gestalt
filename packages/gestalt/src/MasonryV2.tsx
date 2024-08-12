@@ -1,7 +1,7 @@
 import {
   forwardRef,
   memo,
-  ReactNode,
+  type ReactNode,
   startTransition,
   useCallback,
   useEffect,
@@ -14,14 +14,14 @@ import {
 } from 'react';
 import debounce from './debounce';
 import styles from './Masonry.css';
-import { Cache } from './Masonry/Cache';
+import { type Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import { type ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, Position } from './Masonry/types';
+import { type Align, type Layout, type Position } from './Masonry/types';
 import throttle from './throttle';
 
 const RESIZE_DEBOUNCE = 300;

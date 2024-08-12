@@ -1,9 +1,9 @@
 import {
-  ComponentProps,
+  type ComponentProps,
   forwardRef,
-  ReactElement,
-  ReactNode,
-  Ref,
+  type ReactElement,
+  type ReactNode,
+  type Ref,
   useImperativeHandle,
   useRef,
 } from 'react';
@@ -17,7 +17,7 @@ import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName';
 import layoutStyles from './Layout.css';
 import touchableStyles from './TapArea.css';
-import Text from './Text';
+import type Text from './Text';
 import styles from './Text.css';
 import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';

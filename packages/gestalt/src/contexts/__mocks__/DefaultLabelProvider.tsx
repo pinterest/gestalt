@@ -1,5 +1,5 @@
-import { Context, createContext, ReactNode, useContext } from 'react';
-import { DefaultLabelContextType, fallbackLabels } from '../DefaultLabelProvider';
+import { type Context, createContext, type ReactNode, useContext } from 'react';
+import { type DefaultLabelContextType, fallbackLabels } from '../DefaultLabelProvider';
 
 const MockContext: Context<DefaultLabelContextType | null | undefined> = createContext<
   DefaultLabelContextType | null | undefined

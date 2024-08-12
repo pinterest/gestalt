@@ -2,9 +2,9 @@ import {
   cloneElement,
   forwardRef,
   Fragment,
-  ReactElement,
-  ReactNode,
-  Ref,
+  type ReactElement,
+  type ReactNode,
+  type Ref,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -13,7 +13,7 @@ import {
   useState,
 } from 'react';
 import Box from './Box';
-import ComboBoxItem, { ComboBoxItemType } from './ComboBox/Item';
+import ComboBoxItem, { type ComboBoxItemType } from './ComboBox/Item';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
@@ -24,8 +24,8 @@ import IconButtonEnd from './TextField/IconButtonEnd';
 import InternalTextField from './TextField/InternalTextField';
 import VRInternalTextField from './TextField/VRInternalTextField';
 import useInExperiment from './useInExperiment';
-import handleContainerScrolling, { DirectionOptionType, KEYS } from './utils/keyboardNavigation';
-import { Indexable } from './zIndex';
+import handleContainerScrolling, { type DirectionOptionType, KEYS } from './utils/keyboardNavigation';
+import { type Indexable } from './zIndex';
 
 type Size = 'sm' | 'md' | 'lg';
 

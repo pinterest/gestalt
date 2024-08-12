@@ -1,4 +1,4 @@
-import { BaseStackType } from './constants';
+import { type BaseStackType } from './constants';
 import HoverOverlay from './HoverOverlay';
 import PositioningWrapper from './PositioningWrapper';
 import Avatar from '../Avatar';

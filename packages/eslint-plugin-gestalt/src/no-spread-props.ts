@@ -10,7 +10,7 @@ import {
   getVariableNodeInScopeFromName,
   hasImport,
 } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const rule: ESLintRule = {
   meta: {

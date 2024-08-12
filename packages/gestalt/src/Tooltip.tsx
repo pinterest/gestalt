@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import InternalTooltip from './Tooltip/InternalTooltip';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

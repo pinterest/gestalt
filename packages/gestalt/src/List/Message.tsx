@@ -1,4 +1,4 @@
-import { Children, cloneElement, ReactElement } from 'react';
+import { Children, cloneElement, type ReactElement } from 'react';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../List.css';
 import Text from '../Text';

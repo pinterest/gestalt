@@ -1,4 +1,4 @@
-import { Context, createContext, ReactNode, useCallback, useContext, useState } from 'react';
+import { type Context, createContext, type ReactNode, useCallback, useContext, useState } from 'react';
 
 type ScrollBoundaryContainerContextType = {
   scrollBoundaryContainerRef: HTMLElement | null | undefined;

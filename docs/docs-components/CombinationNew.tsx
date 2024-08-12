@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Box, Flex } from 'gestalt';
 import { useAppContext } from './appContext';
 import Checkerboard from './Checkerboard';

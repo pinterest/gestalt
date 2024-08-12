@@ -1,10 +1,10 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import Badge from '../Badge';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
-import icons from '../icons/index';
+import type icons from '../icons/index';
 import Text from '../Text';
 
 export type BadgeType = {

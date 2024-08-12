@@ -2,12 +2,12 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import icons from './icons/index';
+import type icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
 import useInteractiveStates from './utils/useInteractiveStates';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

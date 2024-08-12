@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode, useState } from 'react';
+import { forwardRef, type ReactElement, type ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import focusStyles from './Focus.css';

@@ -1,4 +1,4 @@
-import { ElementRef, forwardRef } from 'react';
+import { type ElementRef, forwardRef } from 'react';
 import { Box, Icon, TextField } from 'gestalt';
 import styles from '../DatePicker.css';
 

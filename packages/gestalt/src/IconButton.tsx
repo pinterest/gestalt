@@ -1,13 +1,13 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './IconButton.css';
-import icons from './icons/index';
+import type icons from './icons/index';
 import Pog from './Pog';
 import touchableStyles from './TapArea.css';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useTapFeedback from './useTapFeedback';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

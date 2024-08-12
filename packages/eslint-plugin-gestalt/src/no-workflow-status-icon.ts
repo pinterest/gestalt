@@ -4,7 +4,7 @@
  */
 
 import { hasAttributes, hasImport, isGestaltComponent } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const disallowedMatch = [
   { icon: 'workflow-status-in-progress', color: 'success' },

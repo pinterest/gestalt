@@ -1,4 +1,4 @@
-import { Children, cloneElement, Fragment, isValidElement, ReactNode } from 'react';
+import { Children, cloneElement, Fragment, isValidElement, type ReactNode } from 'react';
 
 export type ReactChildArray = ReturnType<typeof Children.toArray>;
 

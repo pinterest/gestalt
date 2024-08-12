@@ -1,6 +1,6 @@
-import { Cache } from './Cache';
+import { type Cache } from './Cache';
 import { isLoadingStateItem } from './loadingStateUtils';
-import { LoadingStateItem, Position } from './types';
+import { type LoadingStateItem, type Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,

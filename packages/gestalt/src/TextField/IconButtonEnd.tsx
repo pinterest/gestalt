@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, useState } from 'react';
+import { type ComponentProps, type ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
 import Box from '../Box';

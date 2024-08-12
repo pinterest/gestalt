@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Badge, Box, Flex, IconButton, Link, Text, Tooltip } from 'gestalt';
 import { useAppContext } from './appContext';
 import trackButtonClick from './buttons/trackButtonClick';

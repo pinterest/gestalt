@@ -1,7 +1,7 @@
 import { Pog } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import docGen, { DocGen } from '../../docs-components/docgen';
+import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';

@@ -1,4 +1,4 @@
-import { ReactNode, useRef, useState } from 'react';
+import { type ReactNode, useRef, useState } from 'react';
 import { Box, Dropdown, Flex, IconButtonFloating, Image, Mask } from 'gestalt';
 
 const pins = [

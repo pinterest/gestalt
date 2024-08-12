@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import logGAEvent from './gAnalytics';
-import siteIndex, { siteIndexType } from '../docs-components/siteIndex';
+import siteIndex, { type siteIndexType } from '../docs-components/siteIndex';
 
 export async function getDocByRoute(route: string): Promise<{
   content?: string;

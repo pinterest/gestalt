@@ -1,4 +1,4 @@
-import { Children, forwardRef, ForwardRefExoticComponent, ReactNode } from 'react';
+import { Children, forwardRef, type ForwardRefExoticComponent, type ReactNode } from 'react';
 import { buildStyles } from './boxTransforms';
 import styles from './Flex.css';
 import FlexItem from './FlexItem';

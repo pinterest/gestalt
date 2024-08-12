@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BORDER_AVATAR, TOKEN_COLOR_TEXT_DEFAULT } from 'gestalt-design-tokens';
 import avatarStyles from '../AvatarGroup.css';

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Box, Flex, Heading } from 'gestalt';
 import IllustrationContainer from './IllustrationContainer';
 

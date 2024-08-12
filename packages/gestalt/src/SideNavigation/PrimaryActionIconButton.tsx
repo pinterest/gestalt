@@ -1,8 +1,8 @@
 import {
   cloneElement,
-  ComponentProps,
+  type ComponentProps,
   forwardRef,
-  ReactElement,
+  type ReactElement,
   useEffect,
   useId,
   useRef,
@@ -13,7 +13,7 @@ import Pog from '../Pog';
 import MaybeTooltip from '../sharedSubcomponents/MaybeTooltip';
 import TapArea from '../TapArea';
 import useInteractiveStates from '../utils/useInteractiveStates';
-import { CompositeZIndex, FixedZIndex, Indexable } from '../zIndex';
+import { CompositeZIndex, FixedZIndex, type Indexable } from '../zIndex';
 
 type Props = {
   icon?: 'ellipsis' | 'edit' | 'trash-can';

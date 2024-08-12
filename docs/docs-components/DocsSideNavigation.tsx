@@ -4,7 +4,7 @@ import { Flex, SelectList, SideNavigation } from 'gestalt';
 import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher';
 import { useDocsConfig } from './contexts/DocsConfigProvider';
 import { useNavigationContext } from './navigationContext';
-import newSidebarIndex, { siteIndexType } from './siteIndex';
+import newSidebarIndex, { type siteIndexType } from './siteIndex';
 import useGetSideNavItems from './useGetSideNavItems';
 
 export const MIN_NAV_WIDTH_PX = 280;

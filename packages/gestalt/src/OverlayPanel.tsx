@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import AnimationProvider from './animation/AnimationContext';
 import DismissingElement from './animation/DismissingElement';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';

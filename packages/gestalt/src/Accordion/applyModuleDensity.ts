@@ -1,5 +1,5 @@
-import { ComponentProps } from 'react';
-import Box from '../Box';
+import { type ComponentProps } from 'react';
+import type Box from '../Box';
 
 type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 

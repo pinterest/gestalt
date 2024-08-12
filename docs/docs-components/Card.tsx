@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading, Tooltip } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton';

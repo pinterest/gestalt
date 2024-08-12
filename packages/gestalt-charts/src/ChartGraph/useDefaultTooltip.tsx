@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react';
+import { type ReactNode, useCallback } from 'react';
 import { Box, Flex, Text } from 'gestalt';
 import LegendIcon from './LegendIcon';
 

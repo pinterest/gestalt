@@ -1,5 +1,5 @@
-import { Children, ReactElement, useEffect, useId } from 'react';
-import { Locale } from 'date-fns/locale';
+import { Children, type ReactElement, useEffect, useId } from 'react';
+import { type Locale } from 'date-fns/locale';
 import {
   Box,
   Button,

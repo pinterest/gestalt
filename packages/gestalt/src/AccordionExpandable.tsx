@@ -1,11 +1,11 @@
-import { Fragment, ReactElement, ReactNode, useCallback, useEffect, useState } from 'react';
+import { Fragment, type ReactElement, type ReactNode, useCallback, useEffect, useState } from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionExpandableItem from './Accordion/ExpandableItem';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Divider from './Divider';
-import icons from './icons/index';
+import type icons from './icons/index';
 
 export type BadgeType = {
   text: string;

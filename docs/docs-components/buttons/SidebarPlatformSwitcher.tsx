@@ -4,7 +4,7 @@ import { SegmentedControl } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
 import AppleLogo from '../../graphics/home-page/apple-logo.svg';
-import { ComponentPlatformFilteredBy } from '../navigationContext';
+import { type ComponentPlatformFilteredBy } from '../navigationContext';
 
 type Props = {
   onClick: (platform: 'web' | 'android' | 'ios') => void;

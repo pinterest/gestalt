@@ -1,19 +1,19 @@
-import { Component as ReactComponent, ReactNode } from 'react';
-import debounce, { DebounceReturn } from './debounce';
+import { Component as ReactComponent, type ReactNode } from 'react';
+import debounce, { type DebounceReturn } from './debounce';
 import FetchItems from './FetchItems';
 import styles from './Masonry.css';
-import { Cache } from './Masonry/Cache';
+import { type Cache } from './Masonry/Cache';
 import defaultLayout from './Masonry/defaultLayout';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
 import fullWidthLayout from './Masonry/fullWidthLayout';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import { type ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
+import { type Align, type Layout, type LoadingStateItem, type Position } from './Masonry/types';
 import uniformRowLayout from './Masonry/uniformRowLayout';
-import throttle, { ThrottleReturn } from './throttle';
+import throttle, { type ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
 

@@ -1,4 +1,4 @@
-import { Children, ReactElement, ReactNode } from 'react';
+import { Children, type ReactElement, type ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -7,7 +7,7 @@ import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
 import Text from './Text';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
 type IdealDirection = 'up' | 'right' | 'down' | 'left';

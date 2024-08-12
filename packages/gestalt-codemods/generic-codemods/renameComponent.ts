@@ -13,7 +13,7 @@ yarn codemod renameComponent ~/path/to/your/code \
  * --nextComponentName: new component name to replace with
  */
 
-import { API, FileInfo } from 'jscodeshift/src/core';
+import { type API, type FileInfo } from 'jscodeshift/src/core';
 import {
   buildReplaceWithRenamedComponent,
   buildReplaceWithRenamedImport,

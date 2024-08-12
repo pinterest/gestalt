@@ -1,11 +1,11 @@
-import { ComponentProps, useCallback, useMemo, useRef, useState } from 'react';
+import { type ComponentProps, useCallback, useMemo, useRef, useState } from 'react';
 import {
   Button,
   Divider,
   Dropdown,
   Flex,
   GlobalEventsHandlerProvider,
-  Link,
+  type Link,
   RadioGroup,
 } from 'gestalt';
 

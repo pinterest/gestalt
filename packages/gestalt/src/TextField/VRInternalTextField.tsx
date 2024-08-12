@@ -1,8 +1,8 @@
 import {
   forwardRef,
   Fragment,
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -10,12 +10,12 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { autoCompleteType } from './InternalTextField';
+import { type autoCompleteType } from './InternalTextField';
 import styles from './VRInternalTextField.css';
 import boxStyles from '../Box.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
-import { MaxLength } from '../TextField';
+import { type MaxLength } from '../TextField';
 import typographyStyle from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';

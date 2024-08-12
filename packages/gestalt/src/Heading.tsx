@@ -1,4 +1,4 @@
-import { createElement, ReactNode } from 'react';
+import { createElement, type ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Heading.css';
 import colors from './Text.css';

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { DropdownContextConsumer } from './Dropdown/Context';
 import OptionItem from './Dropdown/OptionItem';
 

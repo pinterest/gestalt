@@ -41,7 +41,7 @@
  * REMOVE E.g. yarn codemod modifyPropValue ~/code/pinboard/webapp --component=Box --previousProp=color --previousValue=red
  */
 
-import { API, FileInfo } from 'jscodeshift/src/core';
+import { type API, type FileInfo } from 'jscodeshift/src/core';
 import {
   buildAttributeFromValue,
   buildReplaceWithModifiedAttributes,

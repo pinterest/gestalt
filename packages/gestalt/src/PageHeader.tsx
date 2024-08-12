@@ -1,6 +1,6 @@
-import { ReactElement, ReactNode } from 'react';
+import { type ReactElement, type ReactNode } from 'react';
 import Box from './Box';
-import { Dimension } from './boxTypes';
+import { type Dimension } from './boxTypes';
 import Flex from './Flex';
 import styles from './PageHeader.css';
 import {
@@ -12,7 +12,7 @@ import {
   PageHeaderThumbnail,
   PageHeaderTitle,
 } from './PageHeader/components';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 export type ActionType = ReactElement;
 

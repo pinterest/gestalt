@@ -4,7 +4,7 @@
 
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import { buildProps, getHtmlTag, hasImport } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 export const SUPPORTED_HTML_TAGS = [
   'article',

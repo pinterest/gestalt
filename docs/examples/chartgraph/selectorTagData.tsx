@@ -1,4 +1,4 @@
-import { ComponentProps, useEffect, useState } from 'react';
+import { type ComponentProps, useEffect, useState } from 'react';
 import { TagData } from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 

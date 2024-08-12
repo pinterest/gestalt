@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode } from 'react';
+import { forwardRef, type ReactElement, type ReactNode } from 'react';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
 
 type Props = {

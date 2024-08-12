@@ -10,7 +10,7 @@ import Heading from '../Heading';
 import IconButton from '../IconButton';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import styles from '../SideNavigation.css';
-import { Props } from '../SideNavigationGroup';
+import { type Props } from '../SideNavigationGroup';
 import TapArea from '../TapArea';
 
 type SideNavigationGroupMobileProps = Props & {

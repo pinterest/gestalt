@@ -2,7 +2,7 @@
  * @fileoverview Error on useless props on `Box`
  */
 
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 export const errorMessages = {
   fit: '`fit` sets `maxWidth`, so `maxWidth` should not be specified when `fit` is used',

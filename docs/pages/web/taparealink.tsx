@@ -1,6 +1,6 @@
 import { Box, TapAreaLink } from 'gestalt';
 import CombinationNew from '../../docs-components/CombinationNew';
-import docGen, { DocGen, DocType } from '../../docs-components/docgen';
+import docGen, { type DocGen, type DocType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import LocalizationSection from '../../docs-components/LocalizationSection';

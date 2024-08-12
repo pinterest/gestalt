@@ -1,4 +1,4 @@
-import { Fragment, ReactNode, useEffect, useState } from 'react';
+import { Fragment, type ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
 import {

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import Collection from './Collage/Collection';
 
 type Column = 2 | 3 | 4;

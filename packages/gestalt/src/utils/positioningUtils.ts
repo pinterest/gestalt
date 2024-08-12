@@ -1,14 +1,14 @@
 import {
-  CaretDir,
-  CaretOffset,
-  ClientRect,
-  Coordinates,
-  Dimensions,
-  EdgeShift,
-  MainDirections,
-  Offset,
-  PopoverDir,
-  Window,
+  type CaretDir,
+  type CaretOffset,
+  type ClientRect,
+  type Coordinates,
+  type Dimensions,
+  type EdgeShift,
+  type MainDirections,
+  type Offset,
+  type PopoverDir,
+  type Window,
 } from './positioningTypes';
 
 // CONSTANTS

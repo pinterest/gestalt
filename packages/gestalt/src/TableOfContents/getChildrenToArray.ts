@@ -1,4 +1,4 @@
-import { Children, cloneElement, Fragment, ReactNode } from 'react';
+import { Children, cloneElement, Fragment, type ReactNode } from 'react';
 
 const ALLOWED_CHILDREN = ['TableOfContents.Item'];
 

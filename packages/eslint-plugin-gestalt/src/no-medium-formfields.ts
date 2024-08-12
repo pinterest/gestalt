@@ -4,7 +4,7 @@
  * In order to have consistent form fields in pinboard, we update all of their sizes to large and disallow medium
  */
 
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const rule: ESLintRule = {
   meta: {

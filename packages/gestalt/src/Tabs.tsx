@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, type ReactNode, useState } from 'react';
 import {
   TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
   TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,

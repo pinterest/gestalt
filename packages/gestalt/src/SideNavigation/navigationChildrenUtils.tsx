@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import classnames from 'classnames';
-import ItemsEllipsis, { Props as EllipsisProps } from './ItemsEllipsis';
+import ItemsEllipsis, { type Props as EllipsisProps } from './ItemsEllipsis';
 import styles from '../SideNavigation.css';
-import flattenChildren, { ReactChildArray } from '../utils/flattenChildren';
+import flattenChildren, { type ReactChildArray } from '../utils/flattenChildren';
 
 export const ALLOWED_CHILDREN_MAP = {
   main: ['SideNavigation.Section', 'SideNavigation.TopItem', 'SideNavigation.Group'],

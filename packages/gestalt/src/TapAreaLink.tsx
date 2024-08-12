@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type ReactNode, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';

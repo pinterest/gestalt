@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode } from 'react';
-import { Overflow } from './boxTypes';
+import { type ReactElement, type ReactNode } from 'react';
+import { type Overflow } from './boxTypes';
 import InternalPopover from './Popover/InternalPopover';
 
 type Color = 'deprecatedBlue' | 'white' | 'darkGray';

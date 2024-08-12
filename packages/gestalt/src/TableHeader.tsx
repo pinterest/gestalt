@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import cx from 'classnames';
 import boxStyles from './Box.css';
 import styles from './Table.css';

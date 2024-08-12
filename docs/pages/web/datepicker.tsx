@@ -41,7 +41,7 @@ import { Flex, SelectList } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import docGen, { DocGen } from '../../docs-components/docgen';
+import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import LocalizationSection from '../../docs-components/LocalizationSection';

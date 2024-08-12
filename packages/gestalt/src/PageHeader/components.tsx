@@ -1,13 +1,13 @@
 import {
   cloneElement,
-  ComponentProps,
+  type ComponentProps,
   Fragment,
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   useRef,
   useState,
 } from 'react';
-import Badge, { TypeOptions } from '../Badge';
+import Badge, { type TypeOptions } from '../Badge';
 import Box from '../Box';
 import Dropdown from '../Dropdown';
 import Flex from '../Flex';
@@ -15,7 +15,7 @@ import Heading from '../Heading';
 import IconButton from '../IconButton';
 import Link from '../Link';
 import Mask from '../Mask';
-import { ActionType } from '../PageHeader';
+import { type ActionType } from '../PageHeader';
 import Text from '../Text';
 
 export function PageHeaderTitle({

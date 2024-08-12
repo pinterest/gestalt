@@ -3,7 +3,7 @@ import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import Text from '../Text';
-import { MaxLength } from '../TextField';
+import { type MaxLength } from '../TextField';
 import useInExperiment from '../useInExperiment';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import cx from 'classnames';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import styles from '../Text.css';

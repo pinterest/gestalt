@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, useCallback, useEffect, useId, useLayoutEffect } from 'react';
+import { type ComponentProps, type ReactNode, useCallback, useEffect, useId, useLayoutEffect } from 'react';
 import classnames from 'classnames';
 import ContentContainer from './ContentContainer';
 import Header from './Header';
@@ -8,14 +8,14 @@ import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameCont
 import Backdrop from '../Backdrop';
 import StopScrollBehavior from '../behaviors/StopScrollBehavior';
 import TrapFocusBehavior from '../behaviors/TrapFocusBehavior';
-import Button from '../Button';
+import type Button from '../Button';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
 import { ESCAPE } from '../keyCodes';
-import Link from '../Link';
+import type Link from '../Link';
 import sheetMobileStyles from '../SheetMobile.css';
-import { Indexable } from '../zIndex';
+import { type Indexable } from '../zIndex';
 
 type OnClickType = (arg1: {
   event:

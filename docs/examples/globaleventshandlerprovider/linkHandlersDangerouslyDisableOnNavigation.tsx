@@ -1,5 +1,5 @@
-import { ComponentProps, useCallback, useMemo, useRef, useState } from 'react';
-import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, Link, Text } from 'gestalt';
+import { type ComponentProps, useCallback, useMemo, useRef, useState } from 'react';
+import { Button, Dropdown, Flex, GlobalEventsHandlerProvider, type Link, Text } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);

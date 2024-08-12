@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Locale } from 'date-fns/locale';
+import { type Locale } from 'date-fns/locale';
 import { useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField';
 

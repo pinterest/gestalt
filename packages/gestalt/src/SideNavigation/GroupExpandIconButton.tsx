@@ -1,9 +1,9 @@
-import { ComponentProps } from 'react';
-import ItemContent from './ItemContent';
+import { type ComponentProps } from 'react';
+import type ItemContent from './ItemContent';
 import { ItemIconButton } from './PrimaryActionIconButton';
 import Box from '../Box';
 import Icon from '../Icon';
-import TapArea from '../TapArea';
+import type TapArea from '../TapArea';
 
 type Props = {
   active?: ComponentProps<typeof ItemContent>['active'];

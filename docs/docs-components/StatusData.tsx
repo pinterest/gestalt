@@ -1,6 +1,6 @@
 import { Flex, Icon, Link, Status, Text } from 'gestalt';
 import { STATUS_DESCRIPTION, STATUS_EQUIVALENCY_MAP } from './data/componentStatusMessaging';
-import { StatusType } from './data/types';
+import { type StatusType } from './data/types';
 
 type Props = {
   status: StatusType | 'deprecated';

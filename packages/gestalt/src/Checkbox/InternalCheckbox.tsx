@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type ReactElement, type ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';

@@ -1,7 +1,7 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
-import Link from '../Link';
+import type Link from '../Link';
 
 type Props =
   | {

@@ -1,8 +1,8 @@
-import { Cache } from './Cache';
+import { type Cache } from './Cache';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
-import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
-import { LoadingStateItem, Position } from './types';
+import multiColumnLayout, { type ColumnSpanConfig } from './multiColumnLayout';
+import { type LoadingStateItem, type Position } from './types';
 
 const fullWidthLayout = <T>({
   width,

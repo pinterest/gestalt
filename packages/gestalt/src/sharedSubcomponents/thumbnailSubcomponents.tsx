@@ -1,8 +1,8 @@
 import {
   cloneElement,
-  ComponentProps,
+  type ComponentProps,
   Fragment,
-  ReactElement,
+  type ReactElement,
   useCallback,
   useEffect,
   useRef,
@@ -11,7 +11,7 @@ import {
 import Box from '../Box';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
-import Icon, { IconColor } from '../Icon';
+import Icon, { type IconColor } from '../Icon';
 import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';

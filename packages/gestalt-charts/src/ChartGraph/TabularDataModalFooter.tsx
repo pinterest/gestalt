@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, Flex, useDefaultLabel } from 'gestalt';
-import { TransformedTabularDataType, useBuildCsvData } from './useTabularData';
+import { type TransformedTabularDataType, useBuildCsvData } from './useTabularData';
 
 type Props = {
   title: string;

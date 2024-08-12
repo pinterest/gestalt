@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { BannerSlim, Box, Divider, Flex, Text } from 'gestalt';
 import componentData from './data/components';
 import { COMPONENT_STATUS_MESSAGING, STATUS_DESCRIPTION } from './data/componentStatusMessaging';
-import { StatusType } from './data/types';
+import { type StatusType } from './data/types';
 import getByPlatform from './data/utils/getByPlatform';
 import StatusData from './StatusData';
 

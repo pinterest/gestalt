@@ -1,5 +1,5 @@
 import { getTextNodeFromSourceCode } from './eslintASTHelpers';
-import { BuildReducerType, ReducerType } from './reducerTypes';
+import { type BuildReducerType, type ReducerType } from './reducerTypes';
 
 const buildPreferLinkReducer: BuildReducerType = ({ context }) => {
   // This function is returned at the end with context in scope

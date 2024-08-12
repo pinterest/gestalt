@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Backdrop from './Backdrop';
 import StopScrollBehavior from './behaviors/StopScrollBehavior';

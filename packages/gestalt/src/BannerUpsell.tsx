@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ReactElement, ReactNode } from 'react';
+import { Children, type ComponentProps, type ReactElement, type ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './BannerUpsell.css';
 import BannerUpsellForm from './BannerUpsellForm';

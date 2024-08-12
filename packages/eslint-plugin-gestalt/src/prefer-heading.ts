@@ -15,7 +15,7 @@ import {
   hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 export const MESSAGES = {
   fixMessageHeading: `Use Heading from Gestalt with accessibilityLevel (default autofix):\n

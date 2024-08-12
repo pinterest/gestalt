@@ -1,4 +1,4 @@
-import { Context, createContext, useContext } from 'react';
+import { type Context, createContext, useContext } from 'react';
 
 type Experiment = {
   anyEnabled: boolean;

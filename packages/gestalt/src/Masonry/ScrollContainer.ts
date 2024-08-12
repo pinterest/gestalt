@@ -12,7 +12,7 @@
  * or the API at all, so it could easily be adapted to other event types.
  */
 
-import { Children, Component, ReactNode } from 'react';
+import { Children, Component, type ReactNode } from 'react';
 
 type Props = {
   children?: ReactNode;

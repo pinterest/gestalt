@@ -1,24 +1,24 @@
 import borders from './Borders.css';
 import styles from './Box.css';
 import {
-  AlignContent,
-  AlignItems,
-  AlignSelf,
-  BorderStyle,
-  Color,
-  Column,
-  DangerouslySetInlineStyle,
-  Dimension,
-  Direction,
-  Display,
-  Flex,
-  JustifyContent,
-  Margin,
-  Opacity,
-  Overflow,
-  Padding,
-  Position,
-  UserSelect,
+  type AlignContent,
+  type AlignItems,
+  type AlignSelf,
+  type BorderStyle,
+  type Color,
+  type Column,
+  type DangerouslySetInlineStyle,
+  type Dimension,
+  type Direction,
+  type Display,
+  type Flex,
+  type JustifyContent,
+  type Margin,
+  type Opacity,
+  type Overflow,
+  type Padding,
+  type Position,
+  type UserSelect,
 } from './boxTypes';
 import whitespace from './boxWhitespace.css';
 import { getRoundingStyle } from './getRoundingClassName';
@@ -30,11 +30,11 @@ import {
   identity,
   mapClassName,
   toProps,
-  ToPropsOutput,
+  type ToPropsOutput,
 } from './style';
-import { bind, Functor, mapping, range, rangeWithZero, toggle, union } from './transforms';
+import { bind, type Functor, mapping, range, rangeWithZero, toggle, union } from './transforms';
 import omit from './utils/omit';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 /*
 

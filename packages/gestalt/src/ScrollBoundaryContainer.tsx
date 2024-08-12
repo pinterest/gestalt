@@ -10,7 +10,7 @@
  * ScrollBoundaryContainerProviders so that each context only has one ScrollBoundaryContainer.
  */
 
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { ScrollBoundaryContainerProvider } from './contexts/ScrollBoundaryContainerProvider';
 import ScrollBoundaryContainerWithForwardRef from './ScrollBoundaryContainer/InternalScrollBoundaryContainerWithForwardRef';
 

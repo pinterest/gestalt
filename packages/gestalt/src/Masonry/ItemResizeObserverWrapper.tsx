@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { type ReactNode, useRef } from 'react';
 import useIsomorphicLayoutEffect from '../useIsomorphicLayoutEffect';
 
 function ItemResizeObserverWrapper({

@@ -1,4 +1,4 @@
-import { PureComponent, ReactNode } from 'react';
+import { PureComponent, type ReactNode } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './Video.css';

@@ -1,7 +1,7 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useRouter } from 'next/router';
-import createHydra, { Hydra } from './createHydra';
+import createHydra, { type Hydra } from './createHydra';
 
 const colorSchemeKey = 'gestalt-color-scheme';
 const propTableVariantKey = 'gestalt-propTable-variant';

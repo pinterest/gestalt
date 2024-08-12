@@ -5,7 +5,7 @@ import {
 } from 'gestalt-design-tokens';
 import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-dark.json';
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
-import { DataVisualizationColors } from './types';
+import { type DataVisualizationColors } from './types';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {
   const { colorSchemeName } = useColorScheme();

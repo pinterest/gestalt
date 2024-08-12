@@ -1,6 +1,6 @@
-import { ComponentProps, useState } from 'react';
+import { type ComponentProps, useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { id, Locale } from 'date-fns/locale';
+import { id, type Locale } from 'date-fns/locale';
 import DateRange from './DateRange';
 
 function DateRangeWrap({

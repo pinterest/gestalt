@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Rectangle, ReferenceArea as RechartsReferenceArea } from 'recharts';
 
 export default function renderReferenceAreas({

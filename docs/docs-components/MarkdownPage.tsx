@@ -1,5 +1,5 @@
 import 'highlight.js/styles/a11y-light.css';
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { Box, ButtonLink, Datapoint, Flex, Icon, Link, List, Text } from 'gestalt';

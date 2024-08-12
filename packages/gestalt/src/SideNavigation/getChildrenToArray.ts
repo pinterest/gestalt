@@ -1,6 +1,6 @@
-import { Children, Fragment, ReactNode } from 'react';
+import { Children, Fragment, type ReactNode } from 'react';
 import { ALLOWED_CHILDREN_MAP } from './navigationChildrenUtils';
-import { ReactChildArray } from '../utils/flattenChildren';
+import { type ReactChildArray } from '../utils/flattenChildren';
 
 /** @deprecated */
 const getChildrenToArray = ({

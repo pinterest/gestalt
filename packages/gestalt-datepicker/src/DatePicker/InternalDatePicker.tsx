@@ -1,8 +1,8 @@
-import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, type ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Box, Icon, Label, Text } from 'gestalt';
 import DatePickerTextField from './TextInput';
-import { Props } from '../DatePicker';
+import { type Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
 const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(

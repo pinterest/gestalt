@@ -15,7 +15,7 @@ import {
   hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 import preferLinkReducer from './helpers/preferLinkReducer';
 
 export const MESSAGES = {

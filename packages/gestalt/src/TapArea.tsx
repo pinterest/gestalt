@@ -1,7 +1,7 @@
-import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
-import getRoundingClassName, { Rounding } from './getRoundingClassName';
+import getRoundingClassName, { type Rounding } from './getRoundingClassName';
 import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';

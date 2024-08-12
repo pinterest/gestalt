@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, ReactNode } from 'react';
+import { forwardRef, type ReactElement, type ReactNode } from 'react';
 import InternalTextField from './TextField/InternalTextField';
 
 // <input> deals with strings, but we only want numbers for this component.

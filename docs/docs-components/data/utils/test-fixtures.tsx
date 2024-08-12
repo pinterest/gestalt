@@ -1,4 +1,4 @@
-import { ComponentData } from '../types';
+import { type ComponentData } from '../types';
 
 const mockComponentList: ReadonlyArray<ComponentData> = [
   {

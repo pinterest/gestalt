@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import { Box, Checkbox, Flex, Label, Status, Table, Text } from 'gestalt';
 
 function HeaderRow({ id }: { id: string }) {

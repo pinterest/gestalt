@@ -19,7 +19,7 @@ import {
   hasUnsupportedAttributes,
   isTag,
 } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 import { allowedBaseProps } from './no-box-disallowed-props';
 
 const rule: ESLintRule = {

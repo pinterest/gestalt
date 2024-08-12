@@ -1,12 +1,12 @@
-import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, Fragment, type ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import styles from './Button.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Icon, { IconColor } from './Icon';
-import icons from './icons/index';
+import Icon, { type IconColor } from './Icon';
+import type icons from './icons/index';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';

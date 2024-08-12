@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 import Box from './Box';
 import IconButton from './IconButton';
-import icons from './icons/index';
-import { Indexable } from './zIndex';
+import type icons from './icons/index';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

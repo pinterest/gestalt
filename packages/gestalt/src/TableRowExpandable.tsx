@@ -1,4 +1,4 @@
-import { Children, cloneElement, Fragment, ReactNode, useEffect, useRef, useState } from 'react';
+import { Children, cloneElement, Fragment, type ReactNode, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useTableContext } from './contexts/TableContext';
