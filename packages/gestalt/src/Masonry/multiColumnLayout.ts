@@ -57,7 +57,8 @@ function calculateActualColumnSpan<T>(props: {
   const { columnCount, item, _getColumnSpanConfig } = props;
   const columnSpanConfig = _getColumnSpanConfig(item);
   const gridSize = columnCountToGridSize(columnCount);
-  const columnSpan = typeof columnSpanConfig === 'number' ? columnSpanConfig : (columnSpanConfig[gridSize] ?? 1);
+  const columnSpan =
+    typeof columnSpanConfig === 'number' ? columnSpanConfig : columnSpanConfig[gridSize] ?? 1;
   // a multi column item can never span more columns than there are in the grid
   return Math.min(columnSpan, columnCount);
 }
@@ -506,7 +507,11 @@ function getPositionsWithMultiColumnItem<T>({
   // items already positioned from previous batches
   const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-  const multiColumnItemColumnSpan = calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig });
+  const multiColumnItemColumnSpan = calculateActualColumnSpan({
+    columnCount,
+    item: multiColumnItem,
+    _getColumnSpanConfig,
+  });
 
   // Skip the graph logic if the two column item can be displayed on the first row,
   // this means graphBatch is empty and multi column item is positioned on its
