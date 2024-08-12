@@ -1,5 +1,10 @@
 import getByPlatform from './getByPlatform';
-import { type ComponentCategory, type ComponentData, type Platform, type PlatformData } from '../types';
+import {
+  type ComponentCategory,
+  type ComponentData,
+  type Platform,
+  type PlatformData,
+} from '../types';
 
 /**
  * Gets all components for a given platform and category, returning an array of just the data for that platform.
