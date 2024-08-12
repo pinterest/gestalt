@@ -56,11 +56,10 @@ function calculateActualColumnSpan<T>(props: {
 }): number {
   const { columnCount, item, _getColumnSpanConfig } = props;
   const columnSpanConfig = _getColumnSpanConfig(item);
-  if (typeof columnSpanConfig === 'number') {
-    return columnSpanConfig;
-  }
   const gridSize = columnCountToGridSize(columnCount);
-  return columnSpanConfig[gridSize] ?? 1;
+  const columnSpan = typeof columnSpanConfig === 'number' ? columnSpanConfig : (columnSpanConfig[gridSize] ?? 1);
+  // a multi column item can never span more columns than there are in the grid
+  return Math.min(columnSpan, columnCount);
 }
 
 function getAdjacentColumnHeightDeltas(
@@ -507,10 +506,7 @@ function getPositionsWithMultiColumnItem<T>({
   // items already positioned from previous batches
   const emptyColumns = heights.reduce((acc, height) => (height === 0 ? acc + 1 : acc), 0);
 
-  const multiColumnItemColumnSpan = Math.min(
-    calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig }),
-    columnCount,
-  );
+  const multiColumnItemColumnSpan = calculateActualColumnSpan({ columnCount, item: multiColumnItem, _getColumnSpanConfig });
 
   // Skip the graph logic if the two column item can be displayed on the first row,
   // this means graphBatch is empty and multi column item is positioned on its
