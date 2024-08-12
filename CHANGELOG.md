@@ -1,3 +1,9 @@
+## 157.2.4 (Aug 12, 2024)
+
+### Patch
+
+- Masonry: Fix full-width module support ([#3724](https://github.com/pinterest/gestalt/pull/3724)) - [Preview link](https://deploy-preview-3724--gestalt.netlify.app?devexample=true)
+
 ## 157.2.3 (Aug 10, 2024)
 
 ### Patch
