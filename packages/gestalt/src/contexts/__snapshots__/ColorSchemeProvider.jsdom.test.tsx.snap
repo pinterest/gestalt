@@ -2997,8 +2997,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-button-gray-active: #969292;
   --color-background-button-gray-disabled: #2e2e2d;
   --color-background-button-semitransparentwhite-default: rgba(255, 255, 255, 0.9);
-  --color-background-button-semitransparentwhite-hover: #242423;
-  --color-background-button-semitransparentwhite-active: #393937;
+  --color-background-button-semitransparentwhite-hover: rgba(248, 247, 242, 0.95);
+  --color-background-button-semitransparentwhite-active: #ebebe5;
   --color-background-button-semitransparentwhite-disabled-default: rgba(0, 0, 0, 0.8);
   --color-background-button-semitransparentwhite-disabled-selected: #2e2e2d;
   --color-background-button-semitransparentdark-default: rgba(0, 0, 0, 0.8);
