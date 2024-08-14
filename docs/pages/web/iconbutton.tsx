@@ -1,4 +1,4 @@
-import { IconButton } from 'gestalt';
+import { IconButton, Pog } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -221,7 +221,7 @@ Follow these guidelines for \`iconColor\`
             iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary', 'light', 'dark']}
           >
             {({ iconColor }) => (
-              <IconButton
+              <Pog
                 accessibilityLabel={`Example icon color ${iconColor}`}
                 icon="add"
                 iconColor={iconColor}
