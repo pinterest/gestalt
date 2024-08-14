@@ -3,7 +3,7 @@ import { Box, ComboBox, Flex, Tag } from 'gestalt';
 
 export default function Example() {
   const ref = useRef<null | HTMLInputElement>(null);
-  const [selected, setSelected] = useState<ReadonlyArray<string>>([]);
+  const [selected, setSelected] = useState<ReadonlyArray<string>>(['he / him']);
   const [searchTerm, setSearchTerm] = useState('');
 
   const PRONOUNS = [
@@ -98,27 +98,119 @@ export default function Example() {
   ));
 
   return (
-    <Box height="100%" padding={2} width="100%">
-      <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-        <Box width={320}>
-          <ComboBox
-            ref={ref}
-            accessibilityClearButtonLabel="Clear the current value"
-            helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-            id="tags"
-            inputValue={searchTerm}
-            label="Pronouns"
-            noResultText="No results for your selection"
-            onBlur={handleOnBlur}
-            onChange={handleOnChange}
-            onClear={handleClear}
-            onKeyDown={handleOnKeyDown}
-            onSelect={handleOnSelect}
-            options={suggestedOptions}
-            placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
-            tags={renderedTags}
-          />
-        </Box>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={4}>
+        <ComboBox
+          ref={ref}
+          accessibilityClearButtonLabel="Clear the current value"
+          helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="tags"
+          inputValue={searchTerm}
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
+          onClear={handleClear}
+          onKeyDown={handleOnKeyDown}
+          onSelect={handleOnSelect}
+          options={suggestedOptions}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
+          size="sm"
+          tags={renderedTags}
+        />
+        <ComboBox
+          ref={ref}
+          accessibilityClearButtonLabel="Clear the current value"
+          helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="tags"
+          inputValue={searchTerm}
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
+          onClear={handleClear}
+          onKeyDown={handleOnKeyDown}
+          onSelect={handleOnSelect}
+          options={suggestedOptions}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
+          size="md"
+          tags={renderedTags}
+        />
+        <ComboBox
+          ref={ref}
+          accessibilityClearButtonLabel="Clear the current value"
+          helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="tags"
+          inputValue={searchTerm}
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
+          onClear={handleClear}
+          onKeyDown={handleOnKeyDown}
+          onSelect={handleOnSelect}
+          options={suggestedOptions}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
+          size="lg"
+          tags={renderedTags}
+        />
+        <ComboBox
+          ref={ref}
+          accessibilityClearButtonLabel="Clear the current value"
+          errorMessage="Select more than one option"
+          helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="tags-error"
+          inputValue={searchTerm}
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
+          onClear={handleClear}
+          onKeyDown={handleOnKeyDown}
+          onSelect={handleOnSelect}
+          options={suggestedOptions}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
+          size="sm"
+          tags={renderedTags}
+        />
+        <ComboBox
+          ref={ref}
+          accessibilityClearButtonLabel="Clear the current value"
+          helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="tags-readonly"
+          inputValue={searchTerm}
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
+          onClear={handleClear}
+          onKeyDown={handleOnKeyDown}
+          onSelect={handleOnSelect}
+          options={suggestedOptions}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
+          readOnly
+          size="sm"
+          tags={renderedTags}
+        />
+        <ComboBox
+          ref={ref}
+          accessibilityClearButtonLabel="Clear the current value"
+          disabled
+          helperText="Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
+          id="tags-disabled"
+          inputValue={searchTerm}
+          label="Pronouns"
+          noResultText="No results for your selection"
+          onBlur={handleOnBlur}
+          onChange={handleOnChange}
+          onClear={handleClear}
+          onKeyDown={handleOnKeyDown}
+          onSelect={handleOnSelect}
+          options={suggestedOptions}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
+          size="sm"
+          tags={renderedTags}
+        />
       </Flex>
     </Box>
   );

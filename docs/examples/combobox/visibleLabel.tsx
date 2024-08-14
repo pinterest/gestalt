@@ -2,20 +2,34 @@ import { useState } from 'react';
 import { Box, ComboBox } from 'gestalt';
 
 export default function Example() {
-  const PRONOUNS = [
-    'ey / em',
-    'he / him',
-    'ne / nem',
-    'she / her',
-    'they / them',
-    've / ver',
-    'xe / xem',
-    'xie / xem',
-    'zie / zem',
+  const CATEGORIES = [
+    'All Categories',
+    'Food and drinks',
+    'Beauty',
+    'Home decor',
+    'Fashion',
+    'Travel',
+    'Art',
+    'Quotes',
+    'Entertainment',
+    'Entertainment',
+    'DIY and crafts',
+    'Health',
+    'Wedding',
+    'Event planning',
+    'Gardening',
+    'Parenting',
+    'Vehicles',
+    'Design',
+    'Sport',
+    'Electronics',
+    'Animals',
+    'Finance',
+    'Architecture',
   ];
 
-  const options = PRONOUNS.map((pronoun, index) => ({
-    label: pronoun,
+  const options = CATEGORIES.map((category, index) => ({
+    label: category,
     value: `value${index}`,
   }));
 
@@ -27,7 +41,8 @@ export default function Example() {
     event: React.FocusEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>;
     value: string;
   }) => {
-    if (value !== '' && !PRONOUNS.includes(value)) setErrorMessage('Please, select a valid option');
+    if (value !== '' && !CATEGORIES.includes(value))
+      setErrorMessage('Please, select a valid option');
   };
 
   // @ts-expect-error - TS2554 - Expected 1 arguments, but got 0.
@@ -36,17 +51,16 @@ export default function Example() {
   return (
     <Box padding={8} width="100%">
       <ComboBox
-        accessibilityClearButtonLabel="Clear the current value"
+        accessibilityClearButtonLabel="Clear category value"
         errorMessage={errorMessage}
-        helperText="Choose your pronouns to appear on your profile so others know how to refer to you. You can edit or remove these any time."
-        id="header"
-        label="Pronouns"
+        id="visibleLabel"
+        label="Choose a category to display top search trends"
         noResultText="No results for your selection"
         onBlur={handleOnBlur}
         onChange={resetErrorMessage}
         onClear={resetErrorMessage}
         options={options}
-        placeholder="Add your pronouns"
+        placeholder="Select category"
       />
     </Box>
   );

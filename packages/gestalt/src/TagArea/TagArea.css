@@ -2,6 +2,7 @@
   border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
+  isolation: isolate;
   position: relative;
   width: 100%;
 }
@@ -106,6 +107,14 @@ html:not([dir="rtl"]) .sm_inputHorizontalPadding {
   padding-top: var(--sema-space-100);
 }
 
+html:not([dir="rtl"]) .sm_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .sm_actionButton {
+  padding-left: var(--space-800);
+}
+
 /* md */
 
 .md_input {
@@ -162,6 +171,14 @@ html:not([dir="rtl"]) .sm_label {
   top: var(--sema-space-100);
 }
 
+html:not([dir="rtl"]) .md_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .md_actionButton {
+  padding-left: var(--space-800);
+}
+
 /* lg */
 
 .lg_input {
@@ -202,4 +219,12 @@ html:not([dir="rtl"]) .lg_label {
 
 .lg_labelPos {
   top: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .lg_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .lg_actionButton {
+  padding-left: var(--space-800);
 }

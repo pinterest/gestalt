@@ -34,6 +34,7 @@ type Props = {
   errorMessage?: ReactNode;
   hasError?: boolean;
   helperText?: string;
+  iconButton?: ReactElement;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
   maxLength?: MaxLength | null | undefined;
@@ -44,6 +45,7 @@ type Props = {
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
   readOnly?: boolean;
+  readOnlyNoIconButton?: boolean;
   size: 'sm' | 'md' | 'lg';
   tags: ReadonlyArray<ReactElement>;
   value?: string;
@@ -58,6 +60,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     errorMessage,
     hasError = false,
     helperText,
+    iconButton,
     id,
     label,
     labelDisplay,
@@ -70,6 +73,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     onKeyDown,
     placeholder,
     readOnly,
+    readOnlyNoIconButton,
     size,
     tags,
     value,
@@ -158,39 +162,39 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               [styles.sm_inputHorizontalPadding]: isSM,
               [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
               [styles.sm_noLabel]: (isSM && !label) || (label && !isLabelVisible),
+              [styles.sm_actionButton]: isSM && iconButton,
+
               // md
               [styles.md_input]: isMD,
               [styles.md_inputHorizontalPadding]: isMD,
               [styles.md_visibleLabel]: isMD && label && isLabelVisible,
               [styles.md_noLabel]: (isMD && !label) || (label && !isLabelVisible),
+              [styles.md_actionButton]: isMD && iconButton,
+
               // lg
               [styles.lg_input]: isLG,
               [styles.lg_inputHorizontalPadding]: isLG,
               [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
               [styles.lg_noLabel]: (isLG && !label) || (label && !isLabelVisible),
+              [styles.lg_actionButton]: isLG && iconButton,
             },
           )}
         >
           {label && (
             <label
               ref={labelRef}
-              className={classnames(
-                styles.label,
-
-                typographyStyle.truncate,
-                {
-                  // sm
-                  [styles.sm_label]: isSM,
-                  [styles.sm_labelPos]: isSM,
-                  // md
-                  [styles.md_label]: isMD,
-                  [styles.md_labelPos]: isMD,
-                  // lg
-                  [styles.lg_label]: isLG,
-                  [styles.lg_labelPos]: isLG,
-                  [boxStyles.visuallyHidden]: !isLabelVisible,
-                },
-              )}
+              className={classnames(styles.label, typographyStyle.truncate, {
+                // sm
+                [styles.sm_label]: isSM,
+                [styles.sm_labelPos]: isSM,
+                // md
+                [styles.md_label]: isMD,
+                [styles.md_labelPos]: isMD,
+                // lg
+                [styles.lg_label]: isLG,
+                [styles.lg_labelPos]: isLG,
+                [boxStyles.visuallyHidden]: !isLabelVisible,
+              })}
               htmlFor={id}
               title={ellipsisActive ? label : ''}
             >
@@ -250,6 +254,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               </Flex.Item>
             </Flex>
           </Flex>
+          {!disabled && !readOnlyNoIconButton && iconButton}
         </div>
       </div>
       {(helperText || maxLength) && !hasErrorMessage ? (

@@ -5,7 +5,7 @@ export default function Example() {
     .fill(0)
     .map((item, index) => ({
       label: `Label-${index + 1}`,
-      value: `Value-${index + 1}`,
+      value: `Va Plue-${index + 1}`,
       subtext: `Subtext-${index + 1}`,
     }));
 
@@ -14,29 +14,29 @@ export default function Example() {
       <Flex direction="column" gap={4}>
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
-          errorMessage="Please select a valid category"
-          id="error"
-          label="Category"
+          id="sm"
+          label="Choose a value"
           noResultText="No results for your selection"
           options={options}
+          placeholder="Select a value"
           size="sm"
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
-          errorMessage="Please select a valid category"
-          id="error"
-          label="Category"
+          id="md"
+          label="Choose a value"
           noResultText="No results for your selection"
           options={options}
+          placeholder="Select a value"
           size="md"
         />
         <ComboBox
           accessibilityClearButtonLabel="Clear the current value"
-          errorMessage="Please select a valid category"
-          id="error"
-          label="Category"
+          id="lg"
+          label="Choose a value"
           noResultText="No results for your selection"
           options={options}
+          placeholder="Select a value"
           size="lg"
         />
       </Flex>

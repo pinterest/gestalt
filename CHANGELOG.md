@@ -1,3 +1,33 @@
+## 157.2.4 (Aug 12, 2024)
+
+### Patch
+
+- Masonry: Fix full-width module support ([#3724](https://github.com/pinterest/gestalt/pull/3724)) - [Preview link](https://deploy-preview-3724--gestalt.netlify.app?devexample=true)
+
+## 157.2.3 (Aug 10, 2024)
+
+### Patch
+
+- ComboBox: undoing breaking change in id set in #3712 in classic code ([#3723](https://github.com/pinterest/gestalt/pull/3723)) - [Preview link](https://deploy-preview-3723--gestalt.netlify.app?devexample=true)
+
+## 157.2.2 (Aug 9, 2024)
+
+### Patch
+
+- Tokens: Hover token RGBA fixes ([#3721](https://github.com/pinterest/gestalt/pull/3721)) - [Preview link](https://deploy-preview-3721--gestalt.netlify.app?devexample=true)
+
+## 157.2.1 (Aug 9, 2024)
+
+### Patch
+
+- ComboBox: undoing breaking change in `id` set in #3712 ([#3722](https://github.com/pinterest/gestalt/pull/3722)) - [Preview link](https://deploy-preview-3722--gestalt.netlify.app?devexample=true)
+
+## 157.2.0 (Aug 8, 2024)
+
+### Minor
+
+- ComboBox: VR implementation changes ([#3712](https://github.com/pinterest/gestalt/pull/3712)) - [Preview link](https://deploy-preview-3712--gestalt.netlify.app?devexample=true)
+
 ## 157.1.0 (Aug 7, 2024)
 
 ### Minor
