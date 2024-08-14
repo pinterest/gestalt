@@ -134,10 +134,10 @@
             "value": "{sema.color.background.wash.light.value}"
           },
           "hover": {
-            "value": "{sema.color.hover.background.default.value}"
+            "value": "{sema.color.hover.background.wash.light.value}"
           },
           "active": {
-            "value": "{sema.color.pressed.background.default.value}"
+            "value": "{sema.color.pressed.background.wash.light.value}"
           },
           "disabled": {
             "default": {
