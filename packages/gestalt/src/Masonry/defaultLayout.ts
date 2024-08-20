@@ -66,7 +66,7 @@ const defaultLayout =
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     whitespaceThreshold?: number;
-    logWhitespace?: (arg1: number) => void;
+    logWhitespace?: (arg1: ReadonlyArray<number>) => void;
     renderLoadingState?: boolean;
   }): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) =>
   (items): ReadonlyArray<Position> => {
