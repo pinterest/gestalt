@@ -71,6 +71,7 @@ import cancel from './ic_cancel_gestalt.svg';
 import canonicalPin from './ic_canonical-pin_gestalt.svg';
 import captions from './ic_captions_gestalt.svg';
 import captionsOutline from './ic_captions-outline_gestalt.svg';
+import cardStack from './ic_card-stack_gestalt.svg';
 import check from './ic_check_gestalt.svg';
 import checkCircle from './ic_check-circle_gestalt.svg';
 import checkCircleFill from './ic_check-circle-fill_gestalt.svg';
@@ -128,6 +129,7 @@ import faceNeutral from './ic_face-neutral_gestalt.svg';
 import faceSad from './ic_face-sad_gestalt.svg';
 import faceSmiley from './ic_face-smiley_gestalt.svg';
 import faceSmileyOutline from './ic_face-smiley-outline_gestalt.svg';
+import faceSmileyPlus from './ic_face-smiley-plus_gestalt.svg';
 import faceTryon from './ic_face-tryon_gestalt.svg';
 import facebook from './ic_facebook_gestalt.svg';
 import fade from './ic_fade_gestalt.svg';
@@ -246,6 +248,7 @@ import reorderImages from './ic_reorder-images_gestalt.svg';
 import replace from './ic_replace_gestalt.svg';
 import report from './ic_report_gestalt.svg';
 import rewind from './ic_rewind_gestalt.svg';
+import ribbon from './ic_ribbon_gestalt.svg';
 import rocketship from './ic_rocketship_gestalt.svg';
 import rotate from './ic_rotate_gestalt.svg';
 import saturation from './ic_saturation_gestalt.svg';
@@ -307,6 +310,7 @@ import textAlignLeft from './ic_text-align-left_gestalt.svg';
 import textAlignRight from './ic_text-align-right_gestalt.svg';
 import textAllCaps from './ic_text-all-caps_gestalt.svg';
 import textExtraSmall from './ic_text-extra-small_gestalt.svg';
+import textInvert from './ic_text-invert_gestalt.svg';
 import textLarge from './ic_text-large_gestalt.svg';
 import textLineHeight from './ic_text-line-height_gestalt.svg';
 import textMedium from './ic_text-medium_gestalt.svg';
@@ -424,6 +428,7 @@ const icons = Object.freeze({
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
+  'card-stack': cardStack,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
@@ -481,6 +486,7 @@ const icons = Object.freeze({
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'face-smiley-outline': faceSmileyOutline,
+  'face-smiley-plus': faceSmileyPlus,
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
@@ -599,6 +605,7 @@ const icons = Object.freeze({
   'replace': replace,
   'report': report,
   'rewind': rewind,
+  'ribbon': ribbon,
   'rocketship': rocketship,
   'rotate': rotate,
   'saturation': saturation,
@@ -660,6 +667,7 @@ const icons = Object.freeze({
   'text-align-right': textAlignRight,
   'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
+  'text-invert': textInvert,
   'text-large': textLarge,
   'text-line-height': textLineHeight,
   'text-medium': textMedium,
