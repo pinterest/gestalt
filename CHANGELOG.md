@@ -1,3 +1,9 @@
+## 157.3.0 (Aug 21, 2024)
+
+### Minor
+
+- Masonry: Change whitespace logging from one number to an array ([#3727](https://github.com/pinterest/gestalt/pull/3727)) - [Preview link](https://deploy-preview-3727--gestalt.netlify.app?devexample=true)
+
 ## 157.2.4 (Aug 12, 2024)
 
 ### Patch
