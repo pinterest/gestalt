@@ -28,7 +28,7 @@ export default function getLayoutAlgorithm<T>({
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-  _logTwoColWhitespace?: (arg1: number) => void;
+  _logTwoColWhitespace?: (arg1: ReadonlyArray<number>) => void;
 }): (forItems: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
