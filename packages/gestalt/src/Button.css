@@ -151,15 +151,19 @@
 /* COLORS ON BACKGROUND */
 
 .semiTransparentWhite {
-  background-color: var(--color-background-button-semitransparentwhite-default);
+  background-color: var(
+    --color-background-button-semitransparentdefault-default
+  );
 }
 
 .semiTransparentWhite:hover {
-  background-color: var(--color-background-button-semitransparentwhite-hover);
+  background-color: var(--color-background-button-semitransparentdefault-hover);
 }
 
 .semiTransparentWhite:active {
-  background-color: var(--color-background-button-semitransparentwhite-active);
+  background-color: var(
+    --color-background-button-semitransparentdefault-active
+  );
 }
 
 .white {

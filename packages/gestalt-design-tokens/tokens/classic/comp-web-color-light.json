@@ -240,6 +240,17 @@
             "value": "#828282"
           }
         },
+        "semitransparentdefault": {
+          "default": {
+            "value": "rgba(255, 255, 255, 0.8)"
+          },
+          "hover": {
+            "value": "#f0f0f0"
+          },
+          "active": {
+            "value": "#e0e0e0"
+          }
+        },
         "semitransparentwhite": {
           "default": {
             "value": "rgba(255, 255, 255, 0.8)"
