@@ -1,0 +1,27 @@
+.tapScaleDown {
+  animation: scaleDown calc(var(--base-motion-duration-150) / 2)
+    var(--base-motion-easing-linear) forwards;
+}
+
+.tapScaleUp {
+  animation: scaleUp calc(var(--base-motion-duration-150) / 2)
+    var(--base-motion-easing-linear) forwards;
+}
+
+@keyframes scaleDown {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
