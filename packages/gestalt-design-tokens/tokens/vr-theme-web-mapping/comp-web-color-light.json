@@ -107,12 +107,7 @@
             "value": "{sema.color.pressed.background.wash.default.value}"
           },
           "disabled": {
-            "default": {
-              "value": "transparent"
-            },
-            "selected": {
-              "value": "{sema.color.background.disabled.value}"
-            }
+            "value": "transparent"
           }
         },
         "gray": {
@@ -140,12 +135,7 @@
             "value": "{sema.color.pressed.background.default.value}"
           },
           "disabled": {
-            "default": {
-              "value": "{sema.color.background.wash.default.value}"
-            },
-            "selected": {
-              "value": "{sema.color.background.disabled.value}"
-            }
+            "value": "{sema.color.background.wash.default.value}"
           }
         },
         "semitransparentdark": {
@@ -159,12 +149,7 @@
             "value": "{sema.color.pressed.background.wash.dark.value}"
           },
           "disabled": {
-            "default": {
-              "value": "#00000064"
-            },
-            "selected": {
-              "value": "{sema.color.background.disabled.value}"
-            }
+            "value": "#00000064"
           }
         },
         "white": {
