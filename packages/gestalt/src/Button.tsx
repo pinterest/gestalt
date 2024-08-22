@@ -10,6 +10,7 @@ import icons from './icons/index';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
 
 const DEFAULT_TEXT_COLORS = {
@@ -47,6 +48,11 @@ type Props = {
    * Label for screen readers to announce Button. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/button#ARIA-attributes) for details on proper usage.
    */
   accessibilityLabel?: string;
+  /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  backgroundContext?: 'light' | 'dark';
   /**
    * The background color of Button.
    * See the [color on white backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-white-backgrounds) and the [color on color/image backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-colorimage-backgrounds)
@@ -166,26 +172,45 @@ function InternalButtonContent({
 
 const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Button(
   {
+    accessibilityControls,
+    accessibilityExpanded,
+    accessibilityHaspopup,
     accessibilityLabel,
+    backgroundContext = 'light',
     color = 'gray',
     dataTestId,
     disabled = false,
     fullWidth = false,
     iconEnd,
     iconStart,
+    name,
     onClick,
-    tabIndex = 0,
     selected = false,
     size = 'md',
+    tabIndex = 0,
     text,
     type,
-    name,
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  const textSizes: { [key: string]: '100' | '200' | '300' | '400' | '500' | '600' } =
+    isInVRExperiment
+      ? {
+          sm: '100',
+          md: '200',
+          lg: '300',
+        }
+      : {
+          sm: '200',
+          md: '300',
+          lg: '300',
+        };
+
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -217,25 +242,50 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   const { isFocusVisible } = useFocusVisible();
 
-  const sharedTypeClasses = classnames(styles.button, {
-    [styles.inline]: !fullWidth,
-    [styles.block]: fullWidth,
-    [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-  });
+  const sharedTypeClasses = isInVRExperiment
+    ? classnames(styles.buttonVr, {
+        [styles.inline]: !fullWidth,
+        [styles.block]: fullWidth,
+        [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+        [styles.vrFocused]: !disabled && isFocusVisible,
+        [styles.defaultFocus]: !disabled && isFocusVisible && backgroundContext === 'light',
+        [styles.inverseFocus]: !disabled && isFocusVisible && backgroundContext === 'dark',
+      })
+    : classnames(styles.button, {
+        [styles.inline]: !fullWidth,
+        [styles.block]: fullWidth,
+        [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+        [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+      });
 
-  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-    [styles.sm]: size === 'sm',
-    [styles.md]: size === 'md',
-    [styles.lg]: size === 'lg',
-    [styles[colorClass]]: !disabled && !selected,
-    [styles.selected]: !disabled && selected,
-    [styles.disabled]: disabled,
-    [styles.enabled]: !disabled,
-    [touchableStyles.tapCompress]: !disabled && isTapping,
-  });
+  const baseTypeClasses = isInVRExperiment
+    ? classnames(sharedTypeClasses, touchableStyles.tapTransition, {
+        [styles.smVr]: size === 'sm',
+        [styles.mdVr]: size === 'md',
+        [styles.lgVr]: size === 'lg',
+        [styles.selected]: !disabled && selected,
+        [styles.disabled]: disabled,
+        [styles.enabled]: !disabled,
+        [touchableStyles.tapCompress]: !disabled && isTapping,
+      })
+    : classnames(sharedTypeClasses, touchableStyles.tapTransition, {
+        [styles.sm]: size === 'sm',
+        [styles.md]: size === 'md',
+        [styles.lg]: size === 'lg',
+        [styles[colorClass]]: !disabled && !selected,
+        [styles.selected]: !disabled && selected,
+        [styles.disabled]: disabled,
+        [styles.enabled]: !disabled,
+        [touchableStyles.tapCompress]: !disabled && isTapping,
+      });
 
-  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton);
+  const parentButtonClasses = classnames(
+    sharedTypeClasses,
+    styles.parentButton,
+    isInVRExperiment && {
+      [styles[colorClass]]: !disabled && !selected,
+    },
+  );
 
   const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
@@ -243,16 +293,11 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     (disabled && 'disabled') ||
     (selected && 'inverse') ||
     (isDarkModeRed && 'default') ||
+    (isInVRExperiment && isDarkMode && color === 'blue' && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = (
-    <Text
-      align="center"
-      color={textColor}
-      overflow="normal"
-      size={size === 'sm' ? '200' : '300'}
-      weight="bold"
-    >
+    <Text align="center" color={textColor} overflow="normal" size={textSizes[size]} weight="bold">
       {text}
     </Text>
   );
