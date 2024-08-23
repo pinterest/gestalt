@@ -242,6 +242,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-button-gray-default: #cdcdcd;
   --color-background-button-gray-hover: #919191;
   --color-background-button-gray-active: #9b9b9b;
+  --color-background-button-semitransparentdefault-default: rgba(51, 51, 51, 0.8);
+  --color-background-button-semitransparentdefault-hover: #121212;
+  --color-background-button-semitransparentdefault-active: #1f1f1f;
   --color-background-button-semitransparentwhite-default: rgba(51, 51, 51, 0.8);
   --color-background-button-semitransparentwhite-hover: #121212;
   --color-background-button-semitransparentwhite-active: #1f1f1f;
@@ -667,6 +670,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-button-gray-default: #767676;
   --color-background-button-gray-hover: #878787;
   --color-background-button-gray-active: #828282;
+  --color-background-button-semitransparentdefault-default: rgba(255, 255, 255, 0.8);
+  --color-background-button-semitransparentdefault-hover: #f0f0f0;
+  --color-background-button-semitransparentdefault-active: #e0e0e0;
   --color-background-button-semitransparentwhite-default: rgba(255, 255, 255, 0.8);
   --color-background-button-semitransparentwhite-hover: #f0f0f0;
   --color-background-button-semitransparentwhite-active: #e0e0e0;
@@ -1109,6 +1115,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-button-gray-default: #767676;
   --color-background-button-gray-hover: #878787;
   --color-background-button-gray-active: #828282;
+  --color-background-button-semitransparentdefault-default: rgba(255, 255, 255, 0.8);
+  --color-background-button-semitransparentdefault-hover: #f0f0f0;
+  --color-background-button-semitransparentdefault-active: #e0e0e0;
   --color-background-button-semitransparentwhite-default: rgba(255, 255, 255, 0.8);
   --color-background-button-semitransparentwhite-hover: #f0f0f0;
   --color-background-button-semitransparentwhite-active: #e0e0e0;
@@ -1551,6 +1560,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-button-gray-default: #767676;
   --color-background-button-gray-hover: #878787;
   --color-background-button-gray-active: #828282;
+  --color-background-button-semitransparentdefault-default: rgba(255, 255, 255, 0.8);
+  --color-background-button-semitransparentdefault-hover: #f0f0f0;
+  --color-background-button-semitransparentdefault-active: #e0e0e0;
   --color-background-button-semitransparentwhite-default: rgba(255, 255, 255, 0.8);
   --color-background-button-semitransparentwhite-hover: #f0f0f0;
   --color-background-button-semitransparentwhite-active: #e0e0e0;
@@ -1994,6 +2006,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-button-gray-default: #cdcdcd;
   --color-background-button-gray-hover: #919191;
   --color-background-button-gray-active: #9b9b9b;
+  --color-background-button-semitransparentdefault-default: rgba(51, 51, 51, 0.8);
+  --color-background-button-semitransparentdefault-hover: #121212;
+  --color-background-button-semitransparentdefault-active: #1f1f1f;
   --color-background-button-semitransparentwhite-default: rgba(51, 51, 51, 0.8);
   --color-background-button-semitransparentwhite-hover: #121212;
   --color-background-button-semitransparentwhite-active: #1f1f1f;
@@ -2968,6 +2983,10 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-button-shopping-hover: #bd001c;
   --color-background-button-shopping-active: #9e0017;
   --color-background-button-shopping-disabled: #2e2e2d;
+  --color-background-button-semitransparentdefault-default: rgba(0, 0, 0, 0.8);
+  --color-background-button-semitransparentdefault-hover: rgba(36, 36, 35, 0.85);
+  --color-background-button-semitransparentdefault-active: rgba(57, 57, 55, 0.9);
+  --color-background-button-semitransparentdefault-disabled: #2e2e2d;
   --color-background-button-semitransparentwhite-default: rgba(255, 255, 255, 0.9);
   --color-background-button-semitransparentwhite-hover: rgba(248, 247, 242, 0.95);
   --color-background-button-semitransparentwhite-active: #ebebe5;
@@ -3871,6 +3890,10 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-button-shopping-hover: #bd001c;
   --color-background-button-shopping-active: #9e0017;
   --color-background-button-shopping-disabled: #e8e7e1;
+  --color-background-button-semitransparentdefault-default: rgba(255, 255, 255, 0.9);
+  --color-background-button-semitransparentdefault-hover: rgba(248, 247, 242, 0.95);
+  --color-background-button-semitransparentdefault-active: #ebebe5;
+  --color-background-button-semitransparentdefault-disabled: #e8e7e1;
   --color-background-button-semitransparentwhite-default: rgba(255, 255, 255, 0.9);
   --color-background-button-semitransparentwhite-hover: #f8f7f2;
   --color-background-button-semitransparentwhite-active: #ebebe5;

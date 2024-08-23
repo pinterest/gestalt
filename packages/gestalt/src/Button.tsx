@@ -244,6 +244,9 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   const sharedTypeClasses = isInVRExperiment
     ? classnames(styles.buttonVr, {
+        [styles.smVr]: size === 'sm',
+        [styles.mdVr]: size === 'md',
+        [styles.lgVr]: size === 'lg',
         [styles.inline]: !fullWidth,
         [styles.block]: fullWidth,
         [focusStyles.hideOutline]: !disabled && !isFocusVisible,
@@ -260,9 +263,6 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
 
   const baseTypeClasses = isInVRExperiment
     ? classnames(sharedTypeClasses, touchableStyles.tapTransition, {
-        [styles.smVr]: size === 'sm',
-        [styles.mdVr]: size === 'md',
-        [styles.lgVr]: size === 'lg',
         [styles.selected]: !disabled && selected,
         [styles.disabled]: disabled,
         [styles.enabled]: !disabled,
