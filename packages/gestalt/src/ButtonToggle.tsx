@@ -180,6 +180,16 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onFocus={(event) => {
           onFocus?.({ event });
         }}
+        onKeyDown={(e) => {
+          if (isInVRExperiment) {
+            buttonToggleAnimation.handleKeyDown(e);
+          }
+        }}
+        onKeyUp={(e) => {
+          if (isInVRExperiment) {
+            buttonToggleAnimation.handleKeyUp(e);
+          }
+        }}
         onMouseDown={() => {
           handleMouseDown();
           if (isInVRExperiment) buttonToggleAnimation.handleMouseDown();
@@ -290,6 +300,16 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       }}
       onFocus={(event) => {
         onFocus?.({ event });
+      }}
+      onKeyDown={(e) => {
+        if (isInVRExperiment) {
+          buttonToggleAnimation.handleKeyDown(e);
+        }
+      }}
+      onKeyUp={(e) => {
+        if (isInVRExperiment) {
+          buttonToggleAnimation.handleKeyUp(e);
+        }
       }}
       onMouseDown={() => {
         handleMouseDown();

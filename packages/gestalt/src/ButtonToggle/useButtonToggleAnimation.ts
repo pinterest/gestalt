@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './ButtonToggleAnimation.css';
 
+const shouldKeyPressTriggerTap = (event: React.KeyboardEvent): boolean =>
+  ['Space', 'Enter'].includes(event.code);
+
 export default function useButtonToggleAnimation() {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [animatingScaleDown, setAnimatingScaleDown] = useState(false);
@@ -9,6 +12,8 @@ export default function useButtonToggleAnimation() {
   const [isTapping, setTapping] = useState(false);
 
   const handleMouseDown = () => {
+    if (isTapping) return;
+
     setTapping(true);
     setAnimatingScaleDown(true);
     setAnimatingScaleUp(false);
@@ -18,6 +23,14 @@ export default function useButtonToggleAnimation() {
     setTapping(false);
 
     if (!animatingScaleDown) setAnimatingScaleUp(true);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (shouldKeyPressTriggerTap(event)) handleMouseDown();
+  };
+
+  const handleKeyUp = (event: React.KeyboardEvent) => {
+    if (shouldKeyPressTriggerTap(event)) handleMouseUp();
   };
 
   useEffect(() => {
@@ -45,5 +58,7 @@ export default function useButtonToggleAnimation() {
     classes,
     handleMouseDown,
     handleMouseUp,
+    handleKeyDown,
+    handleKeyUp,
   };
 }
