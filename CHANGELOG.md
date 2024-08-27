@@ -1,3 +1,9 @@
+## 157.5.0 (Aug 27, 2024)
+
+### Minor
+
+- SelectList: VR implementation changes ([#3713](https://github.com/pinterest/gestalt/pull/3713)) - [Preview link](https://deploy-preview-3713--gestalt.netlify.app?devexample=true)
+
 ## 157.4.0 (Aug 21, 2024)
 
 ### Minor
