@@ -85,19 +85,32 @@ html[dir="rtl"] .switch {
   width: var(--g-switch-height);
 }
 
-.sliderVrRight {
+.sliderVr {
+  composes: borderBox absolute from "./Layout.css";
+  composes: circle from "./Borders.css";
+  left: 0;
+  transition-property: transform width background-color;
+}
+
+.sliderVrOn {
   background-color: var(--sema-color-background-default);
-  border: 0;
   height: var(--g-slider-height-on);
   margin: 2px;
+  transform: translateX(16px);
+  transition-duration: var(--base-motion-duration-300),
+    var(--base-motion-duration-200), var(--base-motion-duration-200);
+  transition-timing-function: var(--base-motion-easing-bounce),
+    var(--base-motion-easing-linear), var(--base-motion-easing-linear);
   width: var(--g-slider-height-on);
 }
 
-.sliderVrLeft {
+.sliderVrOff {
   background-color: var(--sema-color-background-inverse);
-  border: 0;
   height: var(--g-slider-height-off);
   margin: 3px;
+  transition-duration: var(--base-motion-duration-200);
+  transition-timing-function: var(--base-motion-easing-lateral),
+    var(--base-motion-easing-linear), var(--base-motion-easing-linear);
   width: var(--g-slider-height-off);
 }
 
@@ -134,4 +147,10 @@ html[dir="rtl"] .switch {
 
 .checkboxEnabled {
   composes: pointer from "./Cursor.css";
+}
+
+@media (prefers-reduced-motion) {
+  .sliderVr {
+    transition: none;
+  }
 }
