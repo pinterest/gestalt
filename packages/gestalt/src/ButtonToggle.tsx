@@ -4,6 +4,7 @@ import borderStyles from './Borders.css';
 import styles from './ButtonToggle.css';
 import ColorPicker, { SkinColor } from './ButtonToggle/ColorPicker';
 import LabeledThumbnail from './ButtonToggle/LabeledThumbnail';
+import useButtonToggleAnimation from './ButtonToggle/useButtonToggleAnimation';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
@@ -13,6 +14,7 @@ import icons from './icons/index';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
 
 const DEFAULT_TEXT_COLORS = {
@@ -121,7 +123,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const {
     compressStyle,
-    isTapping,
     handleBlur,
     handleMouseDown,
     handleMouseUp,
@@ -139,6 +140,13 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
   const { isFocusVisible } = useFocusVisible();
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  const buttonToggleAnimation = useButtonToggleAnimation();
 
   const sharedTypeClasses = classnames(styles.button, {
     [focusStyles.hideOutline]: !disabled && !isFocusVisible,
@@ -172,8 +180,24 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onFocus={(event) => {
           onFocus?.({ event });
         }}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
+        onKeyDown={(e) => {
+          if (isInVRExperiment) {
+            buttonToggleAnimation.handleKeyDown(e);
+          }
+        }}
+        onKeyUp={(e) => {
+          if (isInVRExperiment) {
+            buttonToggleAnimation.handleKeyUp(e);
+          }
+        }}
+        onMouseDown={() => {
+          handleMouseDown();
+          if (isInVRExperiment) buttonToggleAnimation.handleMouseDown();
+        }}
+        onMouseUp={() => {
+          handleMouseUp();
+          if (isInVRExperiment) buttonToggleAnimation.handleMouseUp();
+        }}
         onTouchCancel={handleTouchCancel}
         onTouchEnd={handleTouchEnd}
         // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
@@ -182,12 +206,21 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onTouchStart={handleTouchStart}
         type="button"
       >
-        <ColorPicker colors={color} disabled={disabled} selected={selected} size={size} />
+        <div
+          ref={buttonToggleAnimation.elementRef}
+          className={classnames({
+            [buttonToggleAnimation.classes]: isInVRExperiment,
+          })}
+        >
+          <ColorPicker colors={color} disabled={disabled} selected={selected} size={size} />
+        </div>
       </button>
     );
   }
 
-  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, {
+  const baseTypeClasses = classnames(sharedTypeClasses, {
+    [buttonToggleAnimation.classes]: isInVRExperiment,
+    [touchableStyles.tapTransition]: !isInVRExperiment,
     [styles.disabled]: disabled && (color !== 'red' || selected),
     [styles.disabledRed]: disabled && color === 'red' && !selected,
     [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
@@ -204,7 +237,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[color]]: !disabled && !selected,
-    [touchableStyles.tapCompress]: !disabled && isTapping,
   });
 
   const borderClasses = {
@@ -225,34 +257,29 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
-  const renderContent = () =>
-    graphicSrc ? (
-      <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
-    ) : (
-      <Flex
-        alignItems="center"
-        gap={{ row: text === '' ? 0 : 2, column: 0 }}
-        justifyContent="center"
+  const content = graphicSrc ? (
+    <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
+  ) : (
+    <Flex alignItems="center" gap={{ row: text === '' ? 0 : 2, column: 0 }} justifyContent="center">
+      {iconStart && (
+        <Icon
+          accessibilityLabel=""
+          color={textColor as IconColor}
+          icon={iconStart}
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      )}
+      <Text
+        align="center"
+        color={textColor}
+        overflow="breakWord"
+        size={size === 'sm' ? '200' : '300'}
+        weight="bold"
       >
-        {iconStart && (
-          <Icon
-            accessibilityLabel=""
-            color={textColor as IconColor}
-            icon={iconStart}
-            size={SIZE_NAME_TO_PIXEL[size]}
-          />
-        )}
-        <Text
-          align="center"
-          color={textColor}
-          overflow="breakWord"
-          size={size === 'sm' ? '200' : '300'}
-          weight="bold"
-        >
-          {text}
-        </Text>
-      </Flex>
-    );
+        {text}
+      </Text>
+    </Flex>
+  );
 
   return (
     <button
@@ -274,8 +301,24 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       onFocus={(event) => {
         onFocus?.({ event });
       }}
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
+      onKeyDown={(e) => {
+        if (isInVRExperiment) {
+          buttonToggleAnimation.handleKeyDown(e);
+        }
+      }}
+      onKeyUp={(e) => {
+        if (isInVRExperiment) {
+          buttonToggleAnimation.handleKeyUp(e);
+        }
+      }}
+      onMouseDown={() => {
+        handleMouseDown();
+        if (isInVRExperiment) buttonToggleAnimation.handleMouseDown();
+      }}
+      onMouseUp={() => {
+        handleMouseUp();
+        if (isInVRExperiment) buttonToggleAnimation.handleMouseUp();
+      }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
@@ -284,8 +327,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       onTouchStart={handleTouchStart}
       type="button"
     >
-      <div className={childrenDivClasses} style={compressStyle || undefined}>
-        {renderContent()}
+      <div
+        ref={buttonToggleAnimation.elementRef}
+        className={childrenDivClasses}
+        style={(!isInVRExperiment && compressStyle) || undefined}
+      >
+        {content}
       </div>
     </button>
   );
