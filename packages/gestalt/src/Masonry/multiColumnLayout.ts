@@ -59,6 +59,16 @@ function calculateActualColumnSpan<T>(props: {
   return Math.min(columnSpan, columnCount);
 }
 
+function getAdjacentWhitespaceOnIndex(
+  heights: ReadonlyArray<number>,
+  columnSpan: number,
+  index: number,
+): ReadonlyArray<number> {
+  const subArray = heights.slice(index, index + columnSpan);
+  const maxHeight = Math.max(...subArray);
+  return subArray.map((h) => maxHeight - h);
+}
+
 function getAdjacentColumnHeightDeltas(
   heights: ReadonlyArray<number>,
   columnSpan: number,
@@ -302,15 +312,18 @@ function getMultiColItemPosition<T>({
   // Increase the heights of both adjacent columns
   const tallestColumnFinalHeight = heights[tallestColumn] + heightAndGutter;
 
+  const additionalWhitespace = getAdjacentWhitespaceOnIndex(
+    heights,
+    columnSpan,
+    lowestAdjacentColumnHeightDeltaIndex,
+  );
+
   for (let i = 0; i < columnSpan; i += 1) {
     heights[i + lowestAdjacentColumnHeightDeltaIndex] = tallestColumnFinalHeight;
   }
 
   return {
-    additionalWhitespace: adjacentColumnHeightDeltas.slice(
-      lowestAdjacentColumnHeightDeltaIndex,
-      lowestAdjacentColumnHeightDeltaIndex + columnSpan - 1,
-    ),
+    additionalWhitespace,
     heights,
     position: {
       top,
