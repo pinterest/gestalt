@@ -1,3 +1,9 @@
+## 157.5.1 (Aug 28, 2024)
+
+### Patch
+
+- ButtonToggle: Add bounce animation ([#3729](https://github.com/pinterest/gestalt/pull/3729)) - [Preview link](https://deploy-preview-3729--gestalt.netlify.app?devexample=true)
+
 ## 157.5.0 (Aug 27, 2024)
 
 ### Minor
