@@ -741,7 +741,11 @@ describe('multi column layout test cases', () => {
     [5, 4, [35, 40, 40, 0]],
   ])(
     'logging function returns whitespace deltas correctly',
-    (multiColumnModuleIndex: number, columnSpan: number, expectedWhitespace: ReadonlyArray<number>) => {
+    (
+      multiColumnModuleIndex: number,
+      columnSpan: number,
+      expectedWhitespace: ReadonlyArray<number>,
+    ) => {
       const measurementStore = new MeasurementStore<Record<any, any>, number>();
       const positionCache = new MeasurementStore<Record<any, any>, Position>();
       const items = [
