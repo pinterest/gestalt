@@ -1,3 +1,9 @@
+## 157.5.2 (Aug 28, 2024)
+
+### Patch
+
+- Switch: Add toggle motion ([#3730](https://github.com/pinterest/gestalt/pull/3730)) - [Preview link](https://deploy-preview-3730--gestalt.netlify.app?devexample=true)
+
 ## 157.5.1 (Aug 28, 2024)
 
 ### Patch
