@@ -731,6 +731,67 @@ describe('multi column layout test cases', () => {
       });
     },
   );
+
+  test.each([
+    // This will be on top row so we expect 0 whitespace
+    [1, 2, [0, 0]],
+    // This will be on second row first column
+    [5, 3, [0, 5, 5]],
+    // This will be on second row first column
+    [5, 4, [35, 40, 40, 0]],
+  ])(
+    'logging function returns whitespace deltas correctly',
+    (
+      multiColumnModuleIndex: number,
+      columnSpan: number,
+      expectedWhitespace: ReadonlyArray<number>,
+    ) => {
+      const measurementStore = new MeasurementStore<Record<any, any>, number>();
+      const positionCache = new MeasurementStore<Record<any, any>, Position>();
+      const items = [
+        { name: 'Pin 0', height: 105, color: '#E230BA' },
+        { name: 'Pin 1', height: 100, color: '#FAB032' },
+        { name: 'Pin 2', height: 100, color: '#EDF21D' },
+        { name: 'Pin 3', height: 140, color: '#CF4509' },
+        { name: 'Pin 4', height: 180, color: '#230BAF' },
+        { name: 'Pin 5', height: 100, color: '#67076F' },
+        { name: 'Pin 6', height: 100, color: '#AB032E' },
+        { name: 'Pin 7', height: 100, color: '#DF21DC' },
+        { name: 'Pin 8', height: 100, color: '#F45098' },
+        { name: 'Pin 9', height: 100, color: '#F67076' },
+      ];
+
+      const mockItems = [
+        ...items.slice(0, multiColumnModuleIndex),
+        { ...items[multiColumnModuleIndex], columnSpan },
+        ...items.slice(multiColumnModuleIndex + 1),
+      ];
+      mockItems.forEach((item: any) => {
+        measurementStore.set(item, item.height);
+      });
+
+      const logWhitespace = jest.fn();
+
+      const layout = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter: 0,
+          columnWidth: 240,
+          columnCount: 5,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          logWhitespace,
+        });
+
+      layout(mockItems);
+
+      expect(logWhitespace.mock.calls).toHaveLength(1);
+      expect(logWhitespace.mock.calls[0][0]).toHaveLength(columnSpan);
+      expect(logWhitespace.mock.calls[0][0]).toStrictEqual(expectedWhitespace);
+    },
+  );
 });
 
 describe('responsive module layout test cases', () => {
