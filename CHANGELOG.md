@@ -1,3 +1,9 @@
+## 157.5.3 (Aug 29, 2024)
+
+### Patch
+
+- Masonry: Fix incorrect values on whitespace logging ([#3731](https://github.com/pinterest/gestalt/pull/3731)) - [Preview link](https://deploy-preview-3731--gestalt.netlify.app?devexample=true)
+
 ## 157.5.2 (Aug 28, 2024)
 
 ### Patch
