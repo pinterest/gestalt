@@ -3,7 +3,7 @@ import styles from './FormHelperText.css';
 import FormHelperTextCounter from './FormHelperTextCounter';
 import Flex from '../Flex';
 import Text from '../Text';
-import { MaxLength } from '../TextField';
+import { type MaxLength } from '../TextField';
 import useInExperiment from '../useInExperiment';
 
 type SizeType = 'sm' | 'md' | 'lg';

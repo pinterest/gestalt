@@ -1,6 +1,6 @@
-import { forwardRef, ReactElement } from 'react';
+import { forwardRef, type ReactElement } from 'react';
 import SideNavigationTopItem from './SideNavigationTopItem';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

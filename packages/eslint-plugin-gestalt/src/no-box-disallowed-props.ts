@@ -2,7 +2,7 @@
  * @fileoverview Error on disallowed props on `Box`
  */
 
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 export const allowedBaseProps = [
   // React / DOM

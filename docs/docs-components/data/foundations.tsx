@@ -1,4 +1,4 @@
-import { DesignOverview } from './types';
+import { type DesignOverview } from './types';
 import Accessibility from '../../graphics/foundations/accessibility.svg';
 import Motion from '../../graphics/foundations/animation.svg';
 import BrandExpression from '../../graphics/foundations/brand_expression.svg';

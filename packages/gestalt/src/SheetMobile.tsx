@@ -1,12 +1,12 @@
-import { ComponentProps, ReactNode } from 'react';
+import { type ComponentProps, type ReactNode } from 'react';
 import AnimationProvider from './animation/AnimationContext';
 import DismissingElement from './animation/DismissingElement';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
-import Button from './Button';
-import Link from './Link';
+import type Button from './Button';
+import type Link from './Link';
 import FullPage from './SheetMobile/FullPage';
 import PartialPage from './SheetMobile/PartialPage';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Props = {
   /**

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import Flex from './Flex';

@@ -1,4 +1,4 @@
-import { ReactNode, useEffect } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
 import { AppContextConsumer, AppContextProvider } from './appContext';

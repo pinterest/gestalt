@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { FloatingPortal } from '@floating-ui/react';
-import Contents, { Role } from './Contents';
+import Contents, { type Role } from './Contents';
 import OutsideEventBehavior from '../behaviors/OutsideEventBehavior';
-import { Overflow } from '../boxTypes';
+import { type Overflow } from '../boxTypes';
 import { ESCAPE } from '../keyCodes';
 
 const SIZE_WIDTH_MAP = {

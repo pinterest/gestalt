@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { Size, SIZE_MAP } from './constants';
+import { type ReactNode } from 'react';
+import { type Size, SIZE_MAP } from './constants';
 import Box from '../Box';
 
 type Props = {

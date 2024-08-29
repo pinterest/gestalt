@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';

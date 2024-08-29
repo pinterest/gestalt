@@ -1,4 +1,4 @@
-import React, { Context, createContext, ReactNode, useContext } from 'react';
+import React, { type Context, createContext, type ReactNode, useContext } from 'react';
 
 export type NoopType = () => void;
 

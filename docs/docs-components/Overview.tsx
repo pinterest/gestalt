@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Box, Flex, SegmentedControl } from 'gestalt';
 import componentData from './data/components';
-import { ComponentCategory, Platform, PlatformData } from './data/types';
+import { type ComponentCategory, type Platform, type PlatformData } from './data/types';
 import getByCategory from './data/utils/getByCategory';
 import getByPlatform from './data/utils/getByPlatform';
 import prettyPrintPlatform from './data/utils/prettyPrintPlatform';

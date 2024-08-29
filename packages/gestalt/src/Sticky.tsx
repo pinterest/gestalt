@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import layout from './Layout.css';
-import { FixedZIndex, Indexable } from './zIndex';
+import { FixedZIndex, type Indexable } from './zIndex';
 
 type PositionType = number | string;
 

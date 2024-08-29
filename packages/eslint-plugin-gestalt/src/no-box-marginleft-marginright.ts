@@ -5,7 +5,7 @@
  * we update all of them to marginStart/marginEnd
  */
 
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const disallowedProps = [
   'marginLeft',

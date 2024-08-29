@@ -19,7 +19,7 @@ import {
   hasImport,
   isGestaltComponent,
 } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 import { buildNoBoxDangerousStyleDuplicatesReducer } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 
 const rule: ESLintRule = {

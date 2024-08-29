@@ -1,10 +1,10 @@
-import { ReactElement, ReactNode } from 'react';
+import { type ReactElement, type ReactNode } from 'react';
 import applyModuleDensityStyle from './applyModuleDensity';
 import ModuleTitle from './Title';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
-import icons from '../icons/index';
+import type icons from '../icons/index';
 import TapArea from '../TapArea';
 import Text from '../Text';
 

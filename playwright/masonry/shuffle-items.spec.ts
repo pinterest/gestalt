@@ -1,4 +1,4 @@
-import { expect, Page, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import getGridItems from './utils/getGridItems';
 import getServerURL from './utils/getServerURL';
 import selectors from './utils/selectors';

@@ -1,4 +1,4 @@
-import { Children, ReactNode } from 'react';
+import { Children, type ReactNode } from 'react';
 import slugify from 'slugify';
 import { Badge, Box, Flex, Heading } from 'gestalt';
 import CopyLinkButton from './buttons/CopyLinkButton';

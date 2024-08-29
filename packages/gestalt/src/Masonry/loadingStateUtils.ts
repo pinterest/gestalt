@@ -1,4 +1,4 @@
-import { LoadingStateItem } from './types';
+import { type LoadingStateItem } from './types';
 
 export function isLoadingStateItem<T>(
   item: T | LoadingStateItem,

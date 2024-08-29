@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import classnames from 'classnames';
 import boxStyles from './Box.css';
 import boxWhitespaceStyles from './boxWhitespace.css';

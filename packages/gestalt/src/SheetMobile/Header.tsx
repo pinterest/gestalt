@@ -1,13 +1,13 @@
-import { ComponentProps, Fragment, ReactNode, useEffect, useRef } from 'react';
+import { type ComponentProps, Fragment, type ReactNode, useEffect, useRef } from 'react';
 import PrimaryAction from './PrimaryAction';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
 import Box from '../Box';
-import Button from '../Button';
+import type Button from '../Button';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import Heading from '../Heading';
 import IconButton from '../IconButton';
-import Link from '../Link';
+import type Link from '../Link';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import TapArea from '../TapArea';
 import Text from '../Text';

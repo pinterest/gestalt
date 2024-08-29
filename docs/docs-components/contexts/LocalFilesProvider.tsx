@@ -1,4 +1,4 @@
-import { Context, createContext, ReactNode, useContext } from 'react';
+import { type Context, createContext, type ReactNode, useContext } from 'react';
 
 type LocalFilesContextType = {
   files:

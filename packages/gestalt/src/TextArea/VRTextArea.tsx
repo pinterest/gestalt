@@ -1,10 +1,10 @@
-import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, Fragment, type ReactNode, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './VRTextArea.css';
 import boxStyles from '../Box.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
-import { MaxLength } from '../TextField';
+import { type MaxLength } from '../TextField';
 import typographyStyle from '../Typography.css';
 import useInteractiveStates from '../utils/useInteractiveStates';
 

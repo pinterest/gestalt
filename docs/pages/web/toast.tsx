@@ -1,7 +1,7 @@
 import desktop from 'docs/examples/toast/desktop';
 import mobile from 'docs/examples/toast/mobile';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import docGen, { DocGen } from '../../docs-components/docgen';
+import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import LocalizationSection from '../../docs-components/LocalizationSection';

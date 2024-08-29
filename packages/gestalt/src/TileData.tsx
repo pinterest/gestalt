@@ -11,7 +11,7 @@ import styles from './TileData.css';
 import getCheckboxColors from './utils/datavizcolors/getCheckboxColor';
 import getDataVisualizationColor from './utils/datavizcolors/getDataVisualizationColor';
 import useInteractiveStates from './utils/useInteractiveStates';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type TooltipProps = {
   accessibilityLabel?: string;

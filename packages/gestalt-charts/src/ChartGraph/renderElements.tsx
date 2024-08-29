@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Bar as RechartsBar, Line as RechartsLine, Rectangle } from 'recharts';
 import renderGraphPoint from './renderGraphPoint';
-import { DataVisualizationColors } from './types';
+import { type DataVisualizationColors } from './types';
 
 const colorMap = {
   '0': '01',

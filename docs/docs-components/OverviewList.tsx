@@ -4,7 +4,7 @@ import {
   TOKEN_COLOR_GREEN_MATCHACADO_50,
   TOKEN_COLOR_TEAL_SPABATTICAL_700,
 } from 'gestalt-design-tokens';
-import { ComponentCategory, Platform, PlatformData } from './data/types';
+import { type ComponentCategory, type Platform, type PlatformData } from './data/types';
 import IllustrationCard from './IllustrationCard';
 import IllustrationSection from './IllustrationSection';
 

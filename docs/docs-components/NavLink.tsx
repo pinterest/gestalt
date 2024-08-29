@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Link, Text } from 'gestalt';
 import { useNavigationContext } from './navigationContext';

@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import cx from 'classnames';
 import styles from './Badge.css';
 import Box from './Box';
@@ -10,7 +10,7 @@ import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type Position = 'middle' | 'top';
 

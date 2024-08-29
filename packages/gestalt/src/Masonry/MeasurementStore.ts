@@ -1,4 +1,4 @@
-import { Cache } from './Cache';
+import { type Cache } from './Cache';
 
 export default class MeasurementStore<T extends Record<any, any> | ReadonlyArray<unknown>, V>
   implements Cache<T, V>

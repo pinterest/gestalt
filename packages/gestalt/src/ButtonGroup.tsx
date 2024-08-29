@@ -1,4 +1,4 @@
-import { Children, ReactNode } from 'react';
+import { Children, type ReactNode } from 'react';
 import Box from './Box';
 
 type Props = {

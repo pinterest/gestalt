@@ -6,14 +6,14 @@ import {
   hide,
   limitShift,
   offset,
-  Placement,
+  type Placement,
   shift,
-  Side,
-  Strategy,
+  type Side,
+  type Strategy,
   useFloating,
-  UseFloatingReturn,
+  type UseFloatingReturn,
 } from '@floating-ui/react';
-import { MainDirections } from '../utils/positioningTypes';
+import { type MainDirections } from '../utils/positioningTypes';
 
 export const DIRECTIONS_MAP: Record<MainDirections, Side | 'forceDown'> = {
   down: 'bottom',

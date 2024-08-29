@@ -1,8 +1,8 @@
-import { Cache } from './Cache';
+import { type Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
-import { ColumnSpanConfig } from './multiColumnLayout';
-import { Align, Layout, Position } from './types';
+import { type ColumnSpanConfig } from './multiColumnLayout';
+import { type Align, type Layout, type Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
 export default function getLayoutAlgorithm<T>({

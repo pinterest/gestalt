@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { SideNavigation } from 'gestalt';
 import { useNavigationContext } from './navigationContext';
-import { siteIndexType } from './siteIndex';
+import { type siteIndexType } from './siteIndex';
 
 function convertNamesForURL(name: string) {
   return name.replace(/ - /g, '/').replace(/ /g, '_').replace(/'/g, '').toLowerCase();

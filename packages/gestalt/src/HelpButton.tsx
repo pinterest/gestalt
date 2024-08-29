@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement, Ref, useId, useRef, useState } from 'react';
+import { type ComponentProps, type ReactElement, type Ref, useId, useRef, useState } from 'react';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -12,7 +12,7 @@ import InternalPopover from './Popover/InternalPopover';
 import TapArea from './TapArea';
 import Text from './Text';
 import Tooltip from './Tooltip';
-import { CompositeZIndex, FixedZIndex, Indexable } from './zIndex';
+import { CompositeZIndex, FixedZIndex, type Indexable } from './zIndex';
 
 type LinkType = {
   accessibilityLabel?: string;

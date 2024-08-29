@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import Icon from './Icon';
-import icons from './icons/index';
+import type icons from './icons/index';
 import styles from './Pog.css';
 
 const SIZE_NAME_TO_PADDING_PIXEL = {

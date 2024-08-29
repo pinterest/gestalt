@@ -2,7 +2,7 @@ import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Icon from '../Icon';
-import { Props as TopItemProps } from '../SideNavigationTopItem';
+import { type Props as TopItemProps } from '../SideNavigationTopItem';
 import TapArea from '../TapArea';
 
 export type Props = Pick<TopItemProps, 'active' | 'notificationAccessibilityLabel'> & {

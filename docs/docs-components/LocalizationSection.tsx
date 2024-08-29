@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { BannerSlim } from 'gestalt';
 import MainSection from './MainSection';
 import SandpackExample from './SandpackExample';

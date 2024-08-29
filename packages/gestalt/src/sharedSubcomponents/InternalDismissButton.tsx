@@ -4,7 +4,7 @@ InternalDismissIconButton aims to replace "dismiss" IconButtons in components th
 
 */
 
-import { ComponentProps, forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { type ComponentProps, forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from '../IconButton.css';
 import Pog from '../Pog';

@@ -1,16 +1,16 @@
-import { ReactElement, ReactNode, useId, useState } from 'react';
+import { type ReactElement, type ReactNode, useId, useState } from 'react';
 import classnames from 'classnames';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { NestingProvider } from './contexts/NestingProvider';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
-import icons from './icons/index';
+import type icons from './icons/index';
 import styles from './SideNavigation.css';
 import SideNavigationGroupContent from './SideNavigation/GroupContent';
 import SideNavigationGroupItemTapControl from './SideNavigation/GroupItemTapControl';
 import SideNavigationGroupMobile from './SideNavigation/GroupMobile';
 import { getChildrenActiveProp, validateChildren } from './SideNavigation/navigationChildrenUtils';
 import { flattenChildrenWithKeys } from './utils/flattenChildren';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type IconType = keyof typeof icons | { __path: string };
 type Display = 'expandable' | 'static';

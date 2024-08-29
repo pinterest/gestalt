@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import cx from 'classnames';
 import Box from './Box';
 import { TableContextProvider } from './contexts/TableContext';

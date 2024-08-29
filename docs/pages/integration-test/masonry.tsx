@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry, MasonryV2 } from 'gestalt';
@@ -6,7 +6,7 @@ import generateExampleItems from '../../integration-test-helpers/masonry/items-u
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
 import getRandomNumberGenerator from '../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator';
 import pinHeights, {
-  PinHeight,
+  type PinHeight,
 } from '../../integration-test-helpers/masonry/items-utils/pinHeights';
 import MasonryContainer from '../../integration-test-helpers/masonry/MasonryContainer';
 

@@ -2,8 +2,8 @@ import {
   cloneElement,
   forwardRef,
   Fragment,
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -18,7 +18,7 @@ import boxStyles from '../Box.css';
 import Flex from '../Flex';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
-import { MaxLength } from '../TextField';
+import { type MaxLength } from '../TextField';
 import typographyStyle from '../Typography.css';
 import useInteractiveStates from '../utils/useInteractiveStates';
 

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Box } from 'gestalt';
 import AccessibilityChecklist from './AccessibilityChecklist';
 import Card from './Card';

@@ -28,7 +28,7 @@ Related articles:
 https://americanexpress.io/hydra/
 https://kentcdodds.com/blog/how-to-use-react-context-effectively */
 
-import { Context, createContext, ReactElement, useContext } from 'react';
+import { type Context, createContext, type ReactElement, useContext } from 'react';
 
 export type Hydra<ContextType> = {
   Provider: Context<ContextType | undefined>['Provider'];

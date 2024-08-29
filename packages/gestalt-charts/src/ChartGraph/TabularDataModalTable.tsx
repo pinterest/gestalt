@@ -1,9 +1,9 @@
 import { Table, Text, useDefaultLabel } from 'gestalt';
 import {
-  FilterIdType,
-  FilterOrderType,
-  SortChangeType,
-  TransformedTabularDataType,
+  type FilterIdType,
+  type FilterOrderType,
+  type SortChangeType,
+  type TransformedTabularDataType,
 } from './useTabularData';
 
 type Props = {

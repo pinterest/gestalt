@@ -1,10 +1,10 @@
-import { forwardRef, ReactNode, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import { AriaCurrent } from '../ariaTypes';
+import { type AriaCurrent } from '../ariaTypes';
 import buttonStyles from '../Button.css';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
-import getRoundingClassName, { Rounding } from '../getRoundingClassName';
+import getRoundingClassName, { type Rounding } from '../getRoundingClassName';
 import iconButtonStyles from '../IconButton.css';
 import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';

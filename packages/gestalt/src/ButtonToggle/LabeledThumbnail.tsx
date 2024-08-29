@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import Image from '../Image';

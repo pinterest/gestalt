@@ -1,5 +1,5 @@
 import InternalDatapoint from './Datapoint/InternalDatapoint';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 type BadgeObject = {
   text: string;

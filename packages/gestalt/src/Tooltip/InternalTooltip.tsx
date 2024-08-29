@@ -1,10 +1,10 @@
-import { Fragment, ReactNode, useEffect, useReducer, useRef } from 'react';
+import { Fragment, type ReactNode, useEffect, useReducer, useRef } from 'react';
 import Box from '../Box';
 import Layer from '../Layer';
 import Controller from '../Popover/Controller';
 import Text from '../Text';
 import useDebouncedCallback from '../useDebouncedCallback';
-import { Indexable } from '../zIndex';
+import { type Indexable } from '../zIndex';
 
 const noop = () => {};
 const TIMEOUT = 100;

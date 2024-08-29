@@ -1,11 +1,11 @@
-import { ReactElement, ReactNode } from 'react';
+import { type ReactElement, type ReactNode } from 'react';
 import applyModuleDensityStyle from './Accordion/applyModuleDensity';
 import AccordionTitle from './Accordion/Title';
 import AccordionExpandable from './AccordionExpandable';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
-import icons from './icons/index';
+import type icons from './icons/index';
 
 type BadgeType = {
   text: string;

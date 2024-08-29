@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Button, Text } from 'gestalt';
 
 class ErrorBoundary extends React.Component<

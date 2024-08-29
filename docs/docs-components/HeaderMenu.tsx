@@ -1,4 +1,4 @@
-import { Box, CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
+import { Box, type CompositeZIndex, Link as GestaltLink, Text, Tooltip } from 'gestalt';
 import trackButtonClick from './buttons/trackButtonClick';
 
 export default function HeaderMenu({

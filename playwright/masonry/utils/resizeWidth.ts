@@ -2,7 +2,7 @@
 // page because the page may have CSS breakpoints causing the grid to be fixed
 // widths at certain page sizes.
 
-import { Page } from '@playwright/test';
+import { type Page } from '@playwright/test';
 
 export default async function resizeWidth(page: Page, newWidth: number) {
   await page.evaluate((_newWidth) => {

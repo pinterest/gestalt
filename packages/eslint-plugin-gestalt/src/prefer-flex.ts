@@ -8,7 +8,7 @@
 
 import { renameTagWithPropsFixer, updateGestaltImportFixer } from './helpers/eslintASTFixers';
 import { buildProps } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const sharedProps = [
   'alignContent',

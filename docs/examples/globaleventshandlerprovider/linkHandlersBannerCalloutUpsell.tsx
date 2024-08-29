@@ -1,4 +1,4 @@
-import { ComponentProps, useCallback, useMemo, useState } from 'react';
+import { type ComponentProps, useCallback, useMemo, useState } from 'react';
 import {
   ActivationCard,
   BannerCallout,
@@ -7,7 +7,7 @@ import {
   Flex,
   GlobalEventsHandlerProvider,
   Icon,
-  Link,
+  type Link,
   RadioGroup,
 } from 'gestalt';
 

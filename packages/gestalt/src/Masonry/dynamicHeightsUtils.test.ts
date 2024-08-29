@@ -1,7 +1,7 @@
 import defaultLayout from './defaultLayout';
 import recalcHeights from './dynamicHeightsUtils';
 import MeasurementStore from './MeasurementStore';
-import { Position } from './types';
+import { type Position } from './types';
 
 type Item = {
   name: string;

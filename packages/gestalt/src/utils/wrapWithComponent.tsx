@@ -1,4 +1,4 @@
-import { ComponentType, isValidElement, ReactNode } from 'react';
+import { type ComponentType, isValidElement, type ReactNode } from 'react';
 
 type UnknownComponent = ComponentType<any>;
 

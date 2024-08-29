@@ -1,4 +1,4 @@
-import { Children, ReactElement } from 'react';
+import { Children, type ReactElement } from 'react';
 
 // If `text` is a Text / Link component, we need to override any text colors within to ensure they all match
 const isComponentNode = ({

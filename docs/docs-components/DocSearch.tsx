@@ -1,4 +1,4 @@
-import { Fragment, Ref, useCallback, useEffect, useState } from 'react';
+import { Fragment, type Ref, useCallback, useEffect, useState } from 'react';
 import { Box, FixedZIndex, Icon, IconButton, Tooltip } from 'gestalt';
 
 const INPUT_ID = 'algolia-doc-search';

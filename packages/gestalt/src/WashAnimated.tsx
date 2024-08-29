@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './WashAnimated.css';

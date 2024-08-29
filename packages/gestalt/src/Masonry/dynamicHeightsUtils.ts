@@ -1,8 +1,8 @@
 /**
  * Util functions used to update positions when an item changes the height dynamically
  */
-import { Cache } from './Cache';
-import { Position } from './types';
+import { type Cache } from './Cache';
+import { type Position } from './types';
 
 function isBelowArea(area: { left: number; right: number }, position: Position) {
   return position.left < area.right && position.left + position.width > area.left;

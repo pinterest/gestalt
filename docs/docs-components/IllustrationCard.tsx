@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { Badge, Box, Flex, Heading, TapAreaLink, Text, WashAnimated } from 'gestalt';
 import { MIN_SVG_ILLUSTRATION_WIDTH } from './IllustrationSection';
-import illustrations, { Illustrations } from '../graphics/index';
+import illustrations, { type Illustrations } from '../graphics/index';
 
 export type Props = {
   backgroundColor: string;

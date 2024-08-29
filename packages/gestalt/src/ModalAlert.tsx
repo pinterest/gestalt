@@ -1,6 +1,6 @@
-import { ComponentProps, ReactNode } from 'react';
-import Button from './Button';
-import ButtonLink from './ButtonLink';
+import { type ComponentProps, type ReactNode } from 'react';
+import type Button from './Button';
+import type ButtonLink from './ButtonLink';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import DeviceTypeProvider from './contexts/DeviceTypeProvider';
 import Flex from './Flex';

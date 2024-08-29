@@ -1,4 +1,4 @@
-import { DocGen } from './docgen';
+import { type DocGen } from './docgen';
 import PropTable from './PropTable';
 
 // Note if the prop has responsive versions (e.g. margin, smMargin, mdMargin, lgMargin)

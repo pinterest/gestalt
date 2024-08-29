@@ -1,11 +1,11 @@
-import { forwardRef, ReactElement, useId, useState } from 'react';
+import { forwardRef, type ReactElement, useId, useState } from 'react';
 import classnames from 'classnames';
 import { useSideNavigation } from './contexts/SideNavigationProvider';
-import icons from './icons/index';
+import type icons from './icons/index';
 import styles from './SideNavigation.css';
 import ItemContent from './SideNavigation/ItemContent';
 import TapAreaLink from './TapAreaLink';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 export type Props = {
   /**

@@ -1,4 +1,4 @@
-import { ReactNode, useId } from 'react';
+import { type ReactNode, useId } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import { SideNavigationProvider } from './contexts/SideNavigationProvider';

@@ -1,5 +1,5 @@
-import { Component, ComponentProps, createRef, ReactElement } from 'react';
-import { Masonry, MasonryV2 } from 'gestalt';
+import { Component, type ComponentProps, createRef, type ReactElement } from 'react';
+import { type Masonry, type MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
 import getClassicGridServerStyles from './getClassicGridServerStyles';
 import getFlexibleGridServerStyles from './getFlexibleGridServerStyles';

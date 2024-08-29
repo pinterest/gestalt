@@ -1,7 +1,7 @@
-import { Cache } from './Cache';
+import { type Cache } from './Cache';
 import Graph from './Graph';
 import mindex from './mindex';
-import { NodeData, Position } from './types';
+import { type NodeData, type Position } from './types';
 
 // When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts

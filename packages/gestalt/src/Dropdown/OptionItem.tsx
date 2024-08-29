@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactNode } from 'react';
+import { forwardRef, Fragment, type ReactNode } from 'react';
 import classnames from 'classnames';
 import AccessibilityOpenNewTab from '../accessibility/AccessibilityOpenNewTab';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
@@ -12,7 +12,7 @@ import Icon from '../Icon';
 import Link from '../Link';
 import styles from '../TapArea.css';
 import Text from '../Text';
-import { FontWeight } from '../textTypes';
+import { type FontWeight } from '../textTypes';
 import useFocusVisible from '../useFocusVisible';
 
 export type OptionItemType = {

@@ -1,6 +1,6 @@
 import MeasurementStore from './MeasurementStore';
 import multiColumnLayout, { initializeHeightsArray } from './multiColumnLayout';
-import { Position } from './types';
+import { type Position } from './types';
 
 type Item = {
   name: string;

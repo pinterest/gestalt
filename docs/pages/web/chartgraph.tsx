@@ -15,7 +15,7 @@ import {
 } from 'gestalt-design-tokens';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { type DocGen, multipleDocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';

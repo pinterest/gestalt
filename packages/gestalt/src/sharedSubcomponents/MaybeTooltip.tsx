@@ -1,6 +1,6 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 import InternalTooltip from '../Tooltip/InternalTooltip';
-import { Indexable } from '../zIndex';
+import { type Indexable } from '../zIndex';
 
 type TooltipProps = {
   accessibilityLabel?: string;

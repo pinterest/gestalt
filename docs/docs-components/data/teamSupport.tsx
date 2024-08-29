@@ -1,4 +1,4 @@
-import { DesignOverview } from './types';
+import { type DesignOverview } from './types';
 import DesignContributionsTile from '../../graphics/team_support/design-contributions.svg';
 import DesignFileHygiene from '../../graphics/team_support/design-file-hygiene.svg';
 import GetHelpTile from '../../graphics/team_support/get-help.svg';

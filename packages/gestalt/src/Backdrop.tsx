@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import classnames from 'classnames';
 import { ANIMATION_STATE, useAnimation } from './animation/AnimationContext';
 import styles from './Backdrop.css';

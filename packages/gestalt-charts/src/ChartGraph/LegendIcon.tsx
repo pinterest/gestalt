@@ -3,7 +3,7 @@ import darkColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/varia
 import lightColorDesignTokens from 'gestalt-design-tokens/dist/json/classic/variables-light.json';
 import { useChartContext } from './ChartGraphContext';
 import { GraphPoint } from './renderGraphPoint';
-import { DataVisualizationColors } from './types';
+import { type DataVisualizationColors } from './types';
 
 type Props = {
   /**

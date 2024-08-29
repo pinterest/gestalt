@@ -1,4 +1,4 @@
-import { ComponentProps, Fragment, useRef, useState } from 'react';
+import { type ComponentProps, Fragment, useRef, useState } from 'react';
 import { Box, Button, CompositeZIndex, Dropdown, FixedZIndex, Flex, Link, Text } from 'gestalt';
 
 export default function CustomIconButtonPopoverExample() {

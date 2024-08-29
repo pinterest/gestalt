@@ -4,7 +4,7 @@ import {
   COMPONENT_A11Y_STATUS_MESSAGING,
   STATUS_DESCRIPTION,
 } from './data/componentStatusMessaging';
-import { ComponentAccessibility } from './data/types';
+import { type ComponentAccessibility } from './data/types';
 import getByPlatform from './data/utils/getByPlatform';
 import StatusData from './StatusData';
 

@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useEffect, useState } from 'react';
+import { type ReactElement, type ReactNode, useEffect, useState } from 'react';
 import {
   TOKEN_COLOR_BACKGROUND_SELECTED_BASE,
   TOKEN_SPACE_400,
@@ -12,9 +12,9 @@ import { useNesting } from '../contexts/NestingProvider';
 import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Flex from '../Flex';
 import Icon from '../Icon';
-import icons from '../icons/index';
+import type icons from '../icons/index';
 import Text from '../Text';
-import { Indexable } from '../zIndex';
+import { type Indexable } from '../zIndex';
 
 export const NESTING_MARGIN_START_MAP = {
   '0': TOKEN_SPACE_400,

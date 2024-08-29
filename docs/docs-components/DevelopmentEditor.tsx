@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { LiveError, LivePreview, LiveProvider } from 'react-live';
 import { Box, Flex, HelpButton, Link, Text } from 'gestalt';
 import * as gestalt from 'gestalt'; // eslint-disable-line import/no-namespace

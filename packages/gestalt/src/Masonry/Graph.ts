@@ -1,5 +1,5 @@
-import GraphNode, { GraphNodeInterface } from './GraphNode';
-import { NodeData } from './types';
+import GraphNode, { type GraphNodeInterface } from './GraphNode';
+import { type NodeData } from './types';
 
 type NodesList<T> = Map<NodeData<T>, GraphNode<T>>;
 

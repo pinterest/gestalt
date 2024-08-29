@@ -20,7 +20,7 @@ yarn codemod detectManualReplacement ~/path/to/your/code \
  *
  */
 
-import { API, FileInfo } from 'jscodeshift/src/core';
+import { type API, type FileInfo } from 'jscodeshift/src/core';
 import {
   filterJSXByAttribute,
   filterJSXByTargetLocalName,

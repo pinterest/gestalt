@@ -1,4 +1,4 @@
-import { Children, cloneElement, Fragment, ReactNode, useState } from 'react';
+import { Children, cloneElement, Fragment, type ReactNode, useState } from 'react';
 import AnimationProvider from './animation/AnimationContext';
 import RequestAnimationFrameProvider from './animation/RequestAnimationFrameContext';
 import Box from './Box';
@@ -11,8 +11,8 @@ import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';
 import PartialPage from './SheetMobile/PartialPage';
-import { DirectionOptionType } from './utils/keyboardNavigation';
-import { Indexable } from './zIndex';
+import { type DirectionOptionType } from './utils/keyboardNavigation';
+import { type Indexable } from './zIndex';
 
 const KEYS = {
   UP: -1,

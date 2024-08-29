@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import docGen, { DocGen } from '../../docs-components/docgen';
+import docGen, { type DocGen } from '../../docs-components/docgen';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';

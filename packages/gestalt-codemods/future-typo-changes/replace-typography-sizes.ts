@@ -12,7 +12,7 @@
  * for Heading elements
  */
 // yarn codemod --parser=tsx -t=packages/gestalt-codemods/future-typo-changes/replace-typography-sizes.ts relative/path/to/your/code
-import { API, FileInfo } from 'jscodeshift/src/core';
+import { type API, type FileInfo } from 'jscodeshift/src/core';
 
 export default function transformer(file: FileInfo, api: API) {
   const j = api.jscodeshift;

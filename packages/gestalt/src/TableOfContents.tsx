@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Heading from './Heading';

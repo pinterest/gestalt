@@ -1,4 +1,4 @@
-import { ComponentProps, createRef } from 'react';
+import { type ComponentProps, createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextField from './TextField';

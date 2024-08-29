@@ -1,8 +1,8 @@
-import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
+import { forwardRef, type ReactElement, type ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import TagArea from './TagArea/TagArea';
 import PasswordIconButton from './TextField/IconButtonEnd';
-import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
+import InternalTextField, { type autoCompleteType } from './TextField/InternalTextField';
 import VRInternalTextField from './TextField/VRInternalTextField';
 import useInExperiment from './useInExperiment';
 

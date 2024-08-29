@@ -1,13 +1,13 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { type ReactNode, useEffect, useRef } from 'react';
 import { FloatingFocusManager } from '@floating-ui/react';
 import classnames from 'classnames';
 import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover';
 import borderStyles from '../Borders.css';
-import { Overflow } from '../boxTypes';
+import { type Overflow } from '../boxTypes';
 import Caret from '../Caret';
 import styles from '../Contents.css';
 import layoutStyles from '../Layout.css';
-import { MainDirections } from '../utils/positioningTypes';
+import { type MainDirections } from '../utils/positioningTypes';
 import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils';
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';

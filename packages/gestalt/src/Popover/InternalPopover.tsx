@@ -1,7 +1,7 @@
-import { ReactNode, useRef } from 'react';
+import { type ReactNode, useRef } from 'react';
 import Controller from './Controller';
 import Box from '../Box';
-import { Overflow } from '../boxTypes';
+import { type Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';

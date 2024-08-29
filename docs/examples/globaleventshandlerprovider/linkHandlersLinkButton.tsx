@@ -1,4 +1,4 @@
-import { ComponentProps, useCallback, useMemo, useState } from 'react';
+import { type ComponentProps, useCallback, useMemo, useState } from 'react';
 import {
   Box,
   ButtonLink,

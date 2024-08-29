@@ -13,7 +13,7 @@ import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Divider from '../Divider';
 import Flex from '../Flex';
 import layoutStyles from '../Layout.css';
-import { Props as SideNavigationProps } from '../SideNavigation';
+import { type Props as SideNavigationProps } from '../SideNavigation';
 import styles from '../SideNavigation.css';
 import { flattenChildrenWithKeys } from '../utils/flattenChildren';
 import { FixedZIndex } from '../zIndex';

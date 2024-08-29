@@ -124,6 +124,7 @@ module.exports = {
       extends: [...baseExtends, 'plugin:@typescript-eslint/recommended'],
       rules: {
         ...baseRules,
+        '@typescript-eslint/consistent-type-imports': [ERROR, { fixStyle: 'inline-type-imports' }],
         '@typescript-eslint/prefer-as-const': 'off',
         '@typescript-eslint/no-this-alias': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
@@ -133,6 +134,7 @@ module.exports = {
           'error',
           { 'args': 'after-used', 'argsIgnorePattern': '^_' },
         ],
+        'import/consistent-type-specifier-style': [ERROR, 'prefer-inline'],
       },
     },
     {

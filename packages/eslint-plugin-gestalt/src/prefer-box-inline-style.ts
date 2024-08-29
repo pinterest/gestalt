@@ -6,7 +6,7 @@
  * that is available as Box props.
  */
 
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 import { generateDefaultMessage } from './helpers/noBoxDangerousStyleDuplicatesReducer';
 import {
   validateBackgroundColor,

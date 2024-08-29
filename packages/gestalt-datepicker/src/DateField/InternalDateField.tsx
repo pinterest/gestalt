@@ -1,6 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
-import { forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, type ReactNode, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
@@ -9,7 +9,7 @@ import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
 import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
-import { Locale } from 'date-fns/locale';
+import { type Locale } from 'date-fns/locale';
 import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
 import styles from '../DateField.css';
 

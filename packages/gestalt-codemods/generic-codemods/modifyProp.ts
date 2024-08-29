@@ -29,7 +29,7 @@
  * REMOVE E.g. yarn codemod modifyProp ~/code/pinboard/webapp --component=Box --previousProp=size
  */
 
-import { API, FileInfo } from 'jscodeshift/src/core';
+import { type API, type FileInfo } from 'jscodeshift/src/core';
 import {
   buildReplaceWithModifiedAttributes,
   filterJSXByAttribute,

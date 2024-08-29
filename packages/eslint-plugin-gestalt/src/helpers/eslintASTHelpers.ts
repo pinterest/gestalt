@@ -1,4 +1,9 @@
-import { GenericNode, GenericType, ReducerAccType, ReducerType } from './reducerTypes';
+import {
+  type GenericNode,
+  type GenericType,
+  type ReducerAccType,
+  type ReducerType,
+} from './reducerTypes';
 
 /** =================  HELPERS =================
  */

@@ -1,5 +1,5 @@
 import 'highlight.js/styles/a11y-light.css';
-import { ReactElement, useEffect, useRef } from 'react';
+import { type ReactElement, useEffect, useRef } from 'react';
 import highlightjs from 'highlight.js';
 
 type Props = {

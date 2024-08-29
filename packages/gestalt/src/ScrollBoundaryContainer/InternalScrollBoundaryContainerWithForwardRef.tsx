@@ -1,6 +1,6 @@
-import { forwardRef, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, type ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import Box from '../Box';
-import { Dimension, Padding } from '../boxTypes';
+import { type Dimension, type Padding } from '../boxTypes';
 import { useScrollBoundaryContainer } from '../contexts/ScrollBoundaryContainerProvider';
 
 type ScrollBoundaryContainerOverflow = 'scroll' | 'scrollX' | 'scrollY' | 'auto' | 'visible';

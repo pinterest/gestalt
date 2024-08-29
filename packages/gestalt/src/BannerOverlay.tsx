@@ -1,10 +1,10 @@
-import { Children, ComponentProps, Fragment, ReactElement } from 'react';
+import { Children, type ComponentProps, Fragment, type ReactElement } from 'react';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';
 import Box from './Box';
-import Button from './Button';
+import type Button from './Button';
 import ButtonGroup from './ButtonGroup';
-import ButtonLink from './ButtonLink';
+import type ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
@@ -17,7 +17,7 @@ import {
   Message,
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import Text from './Text';
-import { Indexable } from './zIndex';
+import { type Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
   lightModeBackground: 'default',

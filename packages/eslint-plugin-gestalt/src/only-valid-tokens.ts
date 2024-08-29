@@ -5,7 +5,7 @@
 // @ts-expect-error - TS7016
 import tokens from 'gestalt-design-tokens/dist/js/classic/constants';
 import { getTextNodeFromSourceCode } from './helpers/eslintASTHelpers';
-import { ESLintRule } from './helpers/eslintFlowTypes';
+import { type ESLintRule } from './helpers/eslintFlowTypes';
 
 const tokensValues = Object.entries(tokens);
 

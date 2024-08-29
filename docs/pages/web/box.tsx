@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react';
 import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import docGen, { DocGen } from '../../docs-components/docgen';
+import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import LocalizationSection from '../../docs-components/LocalizationSection';

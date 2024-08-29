@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { type ReactNode, useState } from 'react';
 import Box from './Box';
 import Icon from './Icon';
 import TableHeaderCell from './TableHeaderCell';

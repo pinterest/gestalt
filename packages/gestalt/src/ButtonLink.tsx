@@ -5,7 +5,7 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
 import Icon from './Icon';
-import icons from './icons/index';
+import type icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Text from './Text';
 

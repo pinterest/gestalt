@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import classnames from 'classnames';
-import { Size, SIZE_MAP } from './constants';
+import { type Size, SIZE_MAP } from './constants';
 import styles from '../AvatarGroup.css';
 import Box from '../Box';
 import { FixedZIndex } from '../zIndex';

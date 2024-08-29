@@ -1,8 +1,8 @@
 import {
   cloneElement,
   forwardRef,
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   useImperativeHandle,
   useRef,
   useState,
@@ -17,7 +17,7 @@ import formElement from '../sharedSubcomponents/FormElement.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import FormLabel from '../sharedSubcomponents/FormLabel';
-import { MaxLength } from '../TextField';
+import { type MaxLength } from '../TextField';
 import typographyStyle from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
