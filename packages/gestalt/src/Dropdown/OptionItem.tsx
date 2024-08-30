@@ -1,6 +1,6 @@
 import { forwardRef, Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
-import AccessibilityOpenNewTab from '../accessibility/AccessibilityOpenNewTab';
+import AccessibilityLinkActionIcon from '../accessibility/AccessibilityLinkActionIcon';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
 import Badge from '../Badge';
 import Box from '../Box';
@@ -34,6 +34,8 @@ type BadgeType = {
     | 'lightWash';
 };
 
+type IconEndType = 'visit' | 'directional-arrow-right' | 'download';
+
 type Props = {
   badge?: BadgeType;
   children?: ReactNode;
@@ -43,7 +45,7 @@ type Props = {
   href?: string;
   id: string;
   index: number;
-  isExternal?: boolean;
+  iconEnd?: IconEndType;
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
     dangerouslyDisableOnNavigation: () => void;
@@ -68,7 +70,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       href,
       id,
       index,
-      isExternal,
+      iconEnd,
       onClick,
       option,
       selected,
@@ -145,16 +147,16 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
         <Box
           alignItems="center"
           color="transparent"
-          display={!isExternal ? 'flex' : 'none'}
+          display={!iconEnd ? 'flex' : 'none'}
           justifyContent="center"
         >
-          {isSelectedItem && !isExternal ? (
+          {isSelectedItem && !iconEnd ? (
             <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
           ) : (
             <Box width={12} />
           )}
         </Box>
-        {isExternal && (
+        {iconEnd && (
           <Box
             alignItems="center"
             color="transparent"
@@ -163,7 +165,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
             marginStart={2}
           >
-            <AccessibilityOpenNewTab color={textColor} size={12} />
+            <AccessibilityLinkActionIcon color={textColor} size={12} icon={iconEnd} />
           </Box>
         )}
       </Flex>
@@ -216,7 +218,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
                   mobileOnDismissStart: isMobile ? onExternalDismiss : () => {},
                 })
               }
-              target={isExternal ? 'blank' : 'self'}
+              target={iconEnd === 'visit' ? 'blank' : 'self'}
               underline="none"
             >
               {optionItemContent}

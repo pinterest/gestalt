@@ -8,7 +8,7 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import AccessibilityOpenNewTab from './accessibility/AccessibilityOpenNewTab';
+import AccessibilityLinkActionIcon from './accessibility/AccessibilityLinkActionIcon';
 import getAriaLabel from './accessibility/getAriaLabel';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -23,6 +23,7 @@ import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
+import { icon } from './Icon.css';
 
 const externalLinkIconMap = {
   '100': 12,
@@ -291,12 +292,13 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       {children}
       {externalLinkIcon === 'none' ? null : (
         <Box display="inlineBlock" marginStart={1}>
-          <AccessibilityOpenNewTab
+          <AccessibilityLinkActionIcon
             size={
               externalLinkIcon === 'default'
                 ? externalLinkIconMap['300']
                 : externalLinkIconMap[externalLinkIcon?.size ?? '300']
             }
+            icon="visit"
           />
         </Box>
       )}

@@ -21,6 +21,8 @@ type OptionItemType = {
   value: string;
 };
 
+type IconEndType = 'visit' | 'directional-arrow-right' | 'download';
+
 type Props = {
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/dropdown#Badges) variant to learn more.
@@ -43,9 +45,9 @@ type Props = {
    */
   href: string;
   /**
-   * When true, adds an arrow icon to the end of the item to signal this item takes users to an external source and opens the link in a new tab. Do not add if the item navigates users within the app. See the [Best practices](https://gestalt.pinterest.systems/web/dropdown#Best-practices) for more info.
+   * An icon displayed after the text to help clarify the usage of the Dropdown Link. See the [icon variant](https://gestalt.pinterest.systems/web/button#Icons) to learn more.
    */
-  isExternal?: boolean;
+  iconEnd?: IconEndType;
   /**
    * Callback fired when clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation. To learn more about `mobileOnDismissStart`, see the [animation variant in SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile#Animation). `mobileOnDismissStart` is the equivalent of `onDismissStart` in SheetMobile.
    */
@@ -74,7 +76,7 @@ export default function DropdownLink({
   disabled,
   href,
   _index = 0,
-  isExternal,
+  iconEnd,
   onClick,
   option,
 }: Props) {
@@ -91,7 +93,7 @@ export default function DropdownLink({
           href={href}
           id={id}
           index={_index}
-          isExternal={isExternal}
+          iconEnd={iconEnd}
           onClick={onClick}
           option={option}
           setHoveredItemIndex={setHoveredItemIndex}
