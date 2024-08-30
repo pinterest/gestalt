@@ -9,6 +9,7 @@ import addCircle from './ic_add-circle_gestalt.svg';
 import addLayout from './ic_add-layout_gestalt.svg';
 import addPin from './ic_add-pin_gestalt.svg';
 import addSection from './ic_add-section_gestalt.svg';
+import addSmall from './ic_add-small_gestalt.svg';
 import adsOverview from './ic_ads-overview_gestalt.svg';
 import adsStats from './ic_ads-stats_gestalt.svg';
 import alert from './ic_alert_gestalt.svg';
@@ -42,6 +43,7 @@ import arrowEnd from './ic_arrow-end_gestalt.svg';
 import arrowForward from './ic_arrow-forward_gestalt.svg';
 import arrowLeftCurved from './ic_arrow-left-curved_gestalt.svg';
 import arrowNested from './ic_arrow-nested_gestalt.svg';
+import arrowSmallUpRight from './ic_arrow-small-up-right_gestalt.svg';
 import arrowStart from './ic_arrow-start_gestalt.svg';
 import arrowUp from './ic_arrow-up_gestalt.svg';
 import arrowUpLeft from './ic_arrow-up-left_gestalt.svg';
@@ -68,6 +70,7 @@ import camera from './ic_camera_gestalt.svg';
 import cameraFlip from './ic_camera-flip_gestalt.svg';
 import cameraRoll from './ic_camera-roll_gestalt.svg';
 import cancel from './ic_cancel_gestalt.svg';
+import cancelSmall from './ic_cancel-small_gestalt.svg';
 import canonicalPin from './ic_canonical-pin_gestalt.svg';
 import captions from './ic_captions_gestalt.svg';
 import captionsOutline from './ic_captions-outline_gestalt.svg';
@@ -75,6 +78,14 @@ import cardStack from './ic_card-stack_gestalt.svg';
 import check from './ic_check_gestalt.svg';
 import checkCircle from './ic_check-circle_gestalt.svg';
 import checkCircleFill from './ic_check-circle-fill_gestalt.svg';
+import checkSmall from './ic_check-small_gestalt.svg';
+import chevronDownCircle from './ic_chevron-down-circle_gestalt.svg';
+import chevronLeftCircle from './ic_chevron-left-circle_gestalt.svg';
+import chevronRightCircle from './ic_chevron-right-circle_gestalt.svg';
+import chevronSmallDown from './ic_chevron-small-down_gestalt.svg';
+import chevronSmallLeft from './ic_chevron-small-left_gestalt.svg';
+import chevronSmallRight from './ic_chevron-small-right_gestalt.svg';
+import chevronSmallUp from './ic_chevron-small-up_gestalt.svg';
 import chevronUpCircle from './ic_chevron-up-circle_gestalt.svg';
 import circle from './ic_circle_gestalt.svg';
 import circleEllipsis from './ic_circle-ellipsis_gestalt.svg';
@@ -104,6 +115,7 @@ import creditCard from './ic_credit-card_gestalt.svg';
 import crop from './ic_crop_gestalt.svg';
 import cutout from './ic_cutout_gestalt.svg';
 import dash from './ic_dash_gestalt.svg';
+import dashSmall from './ic_dash-small_gestalt.svg';
 import dataSource from './ic_data-source_gestalt.svg';
 import design from './ic_design_gestalt.svg';
 import desktop from './ic_desktop_gestalt.svg';
@@ -301,6 +313,7 @@ import swap from './ic_swap_gestalt.svg';
 import switchAccount from './ic_switch-account_gestalt.svg';
 import table from './ic_table_gestalt.svg';
 import tag from './ic_tag_gestalt.svg';
+import tagStar from './ic_tag-star_gestalt.svg';
 import target from './ic_target_gestalt.svg';
 import template from './ic_template_gestalt.svg';
 import terms from './ic_terms_gestalt.svg';
@@ -366,6 +379,7 @@ const icons = Object.freeze({
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
+  'add-small': addSmall,
   'ads-overview': adsOverview,
   'ads-stats': adsStats,
   'alert': alert,
@@ -399,6 +413,7 @@ const icons = Object.freeze({
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
   'arrow-nested': arrowNested,
+  'arrow-small-up-right': arrowSmallUpRight,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
@@ -425,6 +440,7 @@ const icons = Object.freeze({
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
   'cancel': cancel,
+  'cancel-small': cancelSmall,
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
@@ -432,6 +448,14 @@ const icons = Object.freeze({
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
+  'check-small': checkSmall,
+  'chevron-down-circle': chevronDownCircle,
+  'chevron-left-circle': chevronLeftCircle,
+  'chevron-right-circle': chevronRightCircle,
+  'chevron-small-down': chevronSmallDown,
+  'chevron-small-left': chevronSmallLeft,
+  'chevron-small-right': chevronSmallRight,
+  'chevron-small-up': chevronSmallUp,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
@@ -461,6 +485,7 @@ const icons = Object.freeze({
   'crop': crop,
   'cutout': cutout,
   'dash': dash,
+  'dash-small': dashSmall,
   'data-source': dataSource,
   'design': design,
   'desktop': desktop,
@@ -658,6 +683,7 @@ const icons = Object.freeze({
   'switch-account': switchAccount,
   'table': table,
   'tag': tag,
+  'tag-star': tagStar,
   'target': target,
   'template': template,
   'terms': terms,
