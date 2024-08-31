@@ -20,3 +20,14 @@ it('should render with a wash', () => {
 
   expect(className).toContain('lightWash');
 });
+
+it('validate data test id for badge', () => {
+  const component = create(
+    <Badge dataTestId='test-badge' text='New' type='info' />
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'span')
+      .filter((node) => node.props['data-test-id'] === 'test-badge-text'),
+  ).toHaveLength(1);
+});

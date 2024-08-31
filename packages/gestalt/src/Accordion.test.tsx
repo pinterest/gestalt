@@ -87,4 +87,49 @@ describe('Accordion', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('validate data test id for icon', () => {
+    const component = renderer.create(
+      <Accordion
+        dataTestId="test-accordion"
+        icon="lock"
+        iconAccessibilityLabel="there is an error"
+        id="accordion-test"
+        title="Testing"
+        type="error"
+      >
+        <Text>Testing</Text>
+      </Accordion>,
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'svg')
+        .filter((node) => node.props['data-test-id'] === 'test-accordion-icon'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-accordion-text'),
+    ).toHaveLength(1);
+  });
+
+  test('validate data test id for badge', () => {
+    const component = renderer.create(
+      <Accordion
+        badge={{text: 'New', type: 'info'}}
+        dataTestId="test-accordion"
+        id="accordion-test"
+        title="Testing"
+        type="error"
+      >
+        <Text>Testing</Text>
+      </Accordion>,
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'span')
+        .filter((node) => node.props['data-test-id'] === 'test-accordion-badge-text'),
+    ).toHaveLength(1);
+  });
+
 });

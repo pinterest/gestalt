@@ -43,6 +43,10 @@ type InteractiveTypeOptions =
 
 type Props = {
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
    */
   position?: Position;
@@ -67,11 +71,14 @@ type Props = {
  * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.ts-snapshots/Badge-dark-chromium-darwin.png)
  *
  */
-export default function Badge({ position = 'middle', text, type = 'info', tooltip }: Props) {
+export default function Badge({ dataTestId, position = 'middle', text, type = 'info', tooltip }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+  const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
+  const dataTestIdText = dataTestId && `${dataTestId}-text`;
+
   const { isFocusVisible } = useFocusVisible();
 
   const shouldUseTooltip = tooltip?.text;
@@ -144,6 +151,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
           <Icon
             accessibilityLabel=""
             color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+            dataTestId={dataTestIdIcon}
             icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
             inline
             size={isInVRExperiment ? '12' : '14'}
@@ -153,6 +161,7 @@ export default function Badge({ position = 'middle', text, type = 'info', toolti
       <Box alignContent="center" display="flex">
         <Text
           color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+          dataTestId={dataTestIdText}
           inline
           size="200"
           weight={isInVRExperiment ? 'normal' : 'bold'}

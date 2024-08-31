@@ -22,6 +22,7 @@ export type BadgeType = {
 
 export default function AccordionTitle(props: {
   badge?: BadgeType;
+  dataTestId?: string;
   icon?: keyof typeof icons;
   iconAccessibilityLabel?: string;
   iconButton?: ReactElement;
@@ -29,6 +30,10 @@ export default function AccordionTitle(props: {
   type?: 'error' | 'info';
   size?: 'sm' | 'md' | 'lg';
 }) {
+  const { dataTestId } = props;
+  const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
+  const dataTestIdText = dataTestId && `${dataTestId}-text`;
+  const dataTestIdBadge = dataTestId && `${dataTestId}-badge`;
   const { iconAccessibilityLabel = '', title, type = 'info', size = 'lg' } = props;
 
   // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ badge?: BadgeType | undefined; icon?: "replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | ... 321 more ... | undefined; ... 4 more ...; size?: "sm" | ... 2 more ... | undefined; }'.
@@ -46,6 +51,7 @@ export default function AccordionTitle(props: {
           <Icon
             accessibilityLabel={iconAccessibilityLabel}
             color={textAndIconColor}
+            dataTestId={dataTestIdIcon}
             icon={hasError ? 'workflow-status-problem' : props.icon}
           />
         </Flex.Item>
@@ -53,7 +59,7 @@ export default function AccordionTitle(props: {
 
       {title && (
         <Flex.Item minWidth={0}>
-          <Text color={textAndIconColor} lineClamp={1} weight="bold">
+          <Text color={textAndIconColor} dataTestId={dataTestIdText} lineClamp={1} weight="bold">
             {title}
           </Text>
         </Flex.Item>
@@ -62,7 +68,7 @@ export default function AccordionTitle(props: {
       {decoration === 'badge' && props.badge && (
         <Flex.Item minWidth={0}>
           <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
-            <Badge text={props.badge.text} type={props.badge.type || 'info'} />
+            <Badge dataTestId={dataTestIdBadge} text={props.badge.text} type={props.badge.type || 'info'} />
           </Box>
         </Flex.Item>
       )}
