@@ -78,6 +78,7 @@ export default function Badge({ dataTestId, position = 'middle', text, type = 'i
   });
   const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
   const dataTestIdText = dataTestId && `${dataTestId}-text`;
+  const dataTestIdTooltip = dataTestId && `${dataTestId}-tooltip`;
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -175,6 +176,7 @@ export default function Badge({ dataTestId, position = 'middle', text, type = 'i
   return shouldUseTooltip ? (
     <Tooltip
       accessibilityLabel=""
+      dataTestId={dataTestIdTooltip}
       idealDirection={tooltip.idealDirection}
       inline
       text={tooltip.text}

@@ -56,6 +56,7 @@ const reducer = (
 type Props = {
   accessibilityLabel?: string;
   children?: ReactNode;
+  dataTestId?: string;
   /**
    * Whether to show the tooltip or not
    */
@@ -70,6 +71,7 @@ type Props = {
 export default function InternalTooltip({
   accessibilityLabel,
   children,
+  dataTestId,
   disabled,
   link,
   idealDirection,
@@ -166,7 +168,7 @@ export default function InternalTooltip({
               padding={2}
               tabIndex={0}
             >
-              <Text color="inverse" size="100">
+              <Text color="inverse" dataTestId={dataTestId} size="100">
                 {getTooltipText()}
               </Text>
 

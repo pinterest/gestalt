@@ -12,6 +12,10 @@ type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Specifies the preferred position of Tooltip relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/tooltip#Ideal-direction) variant to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left';
@@ -44,6 +48,7 @@ type Props = {
 export default function Tooltip({
   accessibilityLabel,
   children,
+  dataTestId,
   link,
   idealDirection = 'down',
   inline,
@@ -53,6 +58,7 @@ export default function Tooltip({
   return (
     <InternalTooltip
       accessibilityLabel={accessibilityLabel}
+      dataTestId={dataTestId}
       idealDirection={idealDirection}
       inline={inline}
       link={link}
