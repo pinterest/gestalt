@@ -137,6 +137,7 @@ export default function InternalTooltip({
         aria-label={
           accessibilityLabel != null && !disabled ? accessibilityLabel : accessibilityLabelFallback
         }
+        data-test-id={dataTestId}
         onBlur={handleIconMouseLeave}
         onFocus={handleIconMouseEnter}
         onMouseEnter={handleIconMouseEnter}
