@@ -21,6 +21,7 @@ import dontSelectList from '../../examples/dropdown/dontSelectList';
 import dontTooltips from '../../examples/dropdown/dontTooltips';
 import doOrder from '../../examples/dropdown/doOrder';
 import link from '../../examples/dropdown/link';
+import localizationLabels from '../../examples/dropdown/localizationLabels';
 import main from '../../examples/dropdown/main';
 import mobile from '../../examples/dropdown/mobile';
 import sections from '../../examples/dropdown/sections';
@@ -100,6 +101,11 @@ export default function ComponentPage({
             type="don't"
           />
         </MainSection.Subsection>
+
+        <LocalizationSection
+          code={localizationLabels}
+          name={generatedDocGen.Dropdown?.displayName}
+        />
 
         <MainSection.Subsection columns={2}>
           <MainSection.Card

@@ -1,5 +1,13 @@
 import { useRef, useState } from 'react';
-import { Box, CompositeZIndex, DefaultLabelProvider,Dropdown, FixedZIndex, Flex, IconButton } from 'gestalt';
+import {
+  Box,
+  CompositeZIndex,
+  DefaultLabelProvider,
+  Dropdown,
+  FixedZIndex,
+  Flex,
+  IconButton,
+} from 'gestalt';
 
 export default function CustomIconButtonPopoverExample() {
   const PAGE_HEADER_ZINDEX = new FixedZIndex(10);
@@ -25,7 +33,7 @@ export default function CustomIconButtonPopoverExample() {
             accessibilityControls="link-dropdown-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
-            accessibilityLabel="More Options"
+            accessibilityLabel="Weitere Optionen"
             icon="arrow-down"
             iconColor="darkGray"
             onClick={() => setOpen((prevVal) => !prevVal)}
@@ -44,20 +52,15 @@ export default function CustomIconButtonPopoverExample() {
         >
           <Dropdown.Link
             href="https://pinterest.com"
+            iconEnd="download"
             onClick={({ event }) => event.preventDefault()}
-            option={{ value: 'Create new board', label: 'Create new board' }}
+            option={{ value: 'Download CVS template', label: 'Laden Sie die CVS-Vorlage herunter' }}
           />
           <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
             iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
-            option={{ value: 'Get help', label: 'Get help' }}
-          />
-          <Dropdown.Link
-            href="https://policy.pinterest.com/en/privacy-policy"
-            iconEnd="visit"
-            onClick={({ event }) => event.preventDefault()}
-            option={{ value: 'See terms and privacy', label: 'See terms and privacy' }}
+            option={{ value: 'Open Google Sheets template', label: 'Öffnen Sie die Google Sheets-Vorlage' }}
           />
         </Dropdown>
       )}
