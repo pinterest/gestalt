@@ -68,7 +68,11 @@ export default function AccordionTitle(props: {
       {decoration === 'badge' && props.badge && (
         <Flex.Item minWidth={0}>
           <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
-            <Badge dataTestId={dataTestIdBadge} text={props.badge.text} type={props.badge.type || 'info'} />
+            <Badge
+              dataTestId={dataTestIdBadge}
+              text={props.badge.text}
+              type={props.badge.type || 'info'}
+            />
           </Box>
         </Flex.Item>
       )}

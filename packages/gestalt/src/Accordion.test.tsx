@@ -116,7 +116,7 @@ describe('Accordion', () => {
   test('validate data test id for badge', () => {
     const component = renderer.create(
       <Accordion
-        badge={{text: 'New', type: 'info'}}
+        badge={{ text: 'New', type: 'info' }}
         dataTestId="test-accordion"
         id="accordion-test"
         title="Testing"
@@ -131,5 +131,4 @@ describe('Accordion', () => {
         .filter((node) => node.props['data-test-id'] === 'test-accordion-badge-text'),
     ).toHaveLength(1);
   });
-
 });

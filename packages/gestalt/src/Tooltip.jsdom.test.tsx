@@ -104,7 +104,7 @@ test('Tooltip renders with zIndex', () => {
 
 test('validate data test id for icon', () => {
   const component = create(
-    <Tooltip dataTestId='test-tooltip' text="This is a tooltip">
+    <Tooltip dataTestId="test-tooltip" text="This is a tooltip">
       <div>Hi</div>
     </Tooltip>,
   ).root;

@@ -25,7 +25,7 @@ test('Icon flipped if its in the flip on rtl list', () => {
 
 test('validate data test id for text', () => {
   const component = create(
-      <Icon accessibilityLabel="send" dataTestId='test-icon' icon="send" />,
+    <Icon accessibilityLabel="send" dataTestId="test-icon" icon="send" />,
   ).root;
   expect(
     component

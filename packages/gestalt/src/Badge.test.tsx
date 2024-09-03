@@ -22,9 +22,7 @@ it('should render with a wash', () => {
 });
 
 it('validate data test id for badge', () => {
-  const component = create(
-    <Badge dataTestId='test-badge' text='New' type='info' />
-  ).root;
+  const component = create(<Badge dataTestId="test-badge" text="New" type="info" />).root;
   expect(
     component
       .findAll((element) => element.type === 'span')
