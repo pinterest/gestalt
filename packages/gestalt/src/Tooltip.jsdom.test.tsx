@@ -101,3 +101,16 @@ test('Tooltip renders with zIndex', () => {
   expect(layer && getComputedStyle(layer).zIndex).toEqual('100');
   expect(body && body.contains(screen.getByText('This is a tooltip'))).toBe(true);
 });
+
+test('validate data test id for icon', () => {
+  const component = create(
+    <Tooltip dataTestId="test-tooltip" text="This is a tooltip">
+      <div>Hi</div>
+    </Tooltip>,
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test-tooltip'),
+  ).toHaveLength(1);
+});

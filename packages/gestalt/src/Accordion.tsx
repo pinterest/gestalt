@@ -34,6 +34,10 @@ type Props = {
    */
   children?: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Name of icon to display in front of title. Will not be displayed if `title` is not provided. Not to be used with `badge` or `iconButton`. For a full list of icons, see [Iconography and SVGs](https://gestalt.pinterest.systems/foundations/iconography/library#Search-icon-library). See the [icon variant](https://gestalt.pinterest.systems/web/accordion#Static-Icon) for more details.
    */
   icon?: keyof typeof icons;
@@ -74,6 +78,7 @@ export default function Accordion({
   badge,
   borderStyle = 'shadow',
   children,
+  dataTestId,
   icon,
   iconAccessibilityLabel,
   iconButton,
@@ -99,6 +104,7 @@ export default function Accordion({
         {title && (
           <AccordionTitle
             badge={badge}
+            dataTestId={dataTestId}
             icon={icon}
             iconAccessibilityLabel={iconAccessibilityLabel}
             iconButton={iconButton}
