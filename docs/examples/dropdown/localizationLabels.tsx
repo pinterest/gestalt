@@ -60,7 +60,10 @@ export default function CustomIconButtonPopoverExample() {
             href="https://help.pinterest.com/en?source=gear_menu_web"
             iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
-            option={{ value: 'Open Google Sheets template', label: 'Öffnen Sie die Google Sheets-Vorlage' }}
+            option={{
+              value: 'Open Google Sheets template',
+              label: 'Öffnen Sie die Google Sheets-Vorlage',
+            }}
           />
         </Dropdown>
       )}
