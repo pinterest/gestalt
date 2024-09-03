@@ -51,13 +51,13 @@ export default function CustomIconButtonPopoverExample() {
           />
           <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
-            iconEnd='visit'
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{ value: 'Hilfe anfordern', label: 'Hilfe anfordern' }}
           />
           <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
-            iconEnd='visit'
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',

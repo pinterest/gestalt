@@ -55,6 +55,7 @@ describe('useDefaultLabelContext', () => {
           },
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
+            accessibilityDownloadLabel: 'Downloads a file',
           },
           Modal: {
             accessibilityDismissButtonLabel: 'Dismiss modal',

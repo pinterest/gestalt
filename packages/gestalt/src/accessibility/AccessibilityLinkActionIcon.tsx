@@ -13,8 +13,8 @@ type Props = {
   icon?: 'visit' | 'directional-arrow-right' | 'download';
 };
 
-export default function AccessibilityLinkActionIcon({ size, color, icon }: Props) {
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+export default function AccessibilityLinkActionIcon({ size, color, icon = 'visit' }: Props) {
+  const { accessibilityNewTabLabel, accessibilityDownloadLabel } = useDefaultLabelContext('Link');
 
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -27,9 +27,19 @@ export default function AccessibilityLinkActionIcon({ size, color, icon }: Props
     styles.icon,
   );
 
+  let titleLabel = "";
+
+  if (icon === 'visit') {
+    titleLabel = accessibilityNewTabLabel;
+  }
+
+  if (icon === 'download') {
+    titleLabel = accessibilityDownloadLabel;
+  }
+
   return (
     <svg className={classNames} height={size} role="img" viewBox="0 0 24 24" width={size}>
-      <title>, {accessibilityNewTabLabel}</title>
+      <title>, {titleLabel}</title>
       <path d={(isInExperiment ? vrIcons : icons)[icon ?? 'visit']} />
     </svg>
   );
