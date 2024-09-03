@@ -91,9 +91,9 @@ export default function DropdownLink({
           disabled={disabled}
           hoveredItemIndex={hoveredItemIndex}
           href={href}
+          iconEnd={iconEnd}
           id={id}
           index={_index}
-          iconEnd={iconEnd}
           onClick={onClick}
           option={option}
           setHoveredItemIndex={setHoveredItemIndex}

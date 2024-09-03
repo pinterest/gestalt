@@ -23,7 +23,6 @@ import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
-import { icon } from './Icon.css';
 
 const externalLinkIconMap = {
   '100': 12,
@@ -293,12 +292,12 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       {externalLinkIcon === 'none' ? null : (
         <Box display="inlineBlock" marginStart={1}>
           <AccessibilityLinkActionIcon
+            icon="visit"
             size={
               externalLinkIcon === 'default'
                 ? externalLinkIconMap['300']
                 : externalLinkIconMap[externalLinkIcon?.size ?? '300']
             }
-            icon="visit"
           />
         </Box>
       )}

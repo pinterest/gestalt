@@ -165,7 +165,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
             marginStart={2}
           >
-            <AccessibilityLinkActionIcon color={textColor} size={12} icon={iconEnd} />
+            <AccessibilityLinkActionIcon color={textColor} icon={iconEnd} size={12} />
           </Box>
         )}
       </Flex>
