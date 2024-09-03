@@ -129,6 +129,7 @@ export default function InternalTooltip({
   };
 
   const accessibilityLabelFallback = typeof text === 'string' ? text : text.join('');
+  const dataTestIdText = dataTestId && `${dataTestId}-text`;
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
@@ -169,7 +170,7 @@ export default function InternalTooltip({
               padding={2}
               tabIndex={0}
             >
-              <Text color="inverse" dataTestId={dataTestId} size="100">
+              <Text color="inverse" dataTestId={dataTestIdText} size="100">
                 {getTooltipText()}
               </Text>
 
