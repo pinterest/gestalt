@@ -33,13 +33,13 @@ export default function Snapshot() {
               />
               <Dropdown.Link
                 href="https://help.pinterest.com/"
-                isExternal
+                iconEnd="visit"
                 onClick={() => {}}
                 option={{ value: 'Get help', label: 'Get help' }}
               />
               <Dropdown.Link
                 href="https://policy.pinterest.com"
-                isExternal
+                iconEnd="visit"
                 option={{ value: 'See terms and privacy', label: 'See terms and privacy' }}
               />
             </Dropdown>
