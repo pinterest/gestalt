@@ -1,3 +1,9 @@
+## 157.6.0 (Sep 3, 2024)
+
+### Minor
+
+- Accordion, Badge, Icon, Text, Tooltip: Adding data test id ([#3733](https://github.com/pinterest/gestalt/pull/3733)) - [Preview link](https://deploy-preview-3733--gestalt.netlify.app?devexample=true)
+
 ## 157.5.3 (Aug 29, 2024)
 
 ### Patch
