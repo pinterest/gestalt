@@ -27,7 +27,7 @@ export default function AccessibilityLinkActionIcon({ size, color, icon = 'visit
     styles.icon,
   );
 
-  let titleLabel = "";
+  let titleLabel = '';
 
   if (icon === 'visit') {
     titleLabel = accessibilityNewTabLabel;
