@@ -30,7 +30,7 @@ export default function CustomIconButtonPopoverExample() {
           <IconButton
             // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLAnchorElement | HTMLButtonElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
             ref={anchorRef}
-            accessibilityControls="link-dropdown-example"
+            accessibilityControls="localization-example"
             accessibilityExpanded={open}
             accessibilityHaspopup
             accessibilityLabel="Weitere Optionen"
@@ -46,7 +46,7 @@ export default function CustomIconButtonPopoverExample() {
       {open && (
         <Dropdown
           anchor={anchorRef.current}
-          id="link-dropdown-example"
+          id="localization-example"
           onDismiss={() => setOpen(false)}
           zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >
