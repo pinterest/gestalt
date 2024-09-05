@@ -1,3 +1,9 @@
+## 158.1.0 (Sep 5, 2024)
+
+### Minor
+
+- Button: VR Implementation ([#3728](https://github.com/pinterest/gestalt/pull/3728)) - [Preview link](https://deploy-preview-3728--gestalt.netlify.app?devexample=true)
+
 ## 158.0.0 (Sep 5, 2024)
 
 ### Major
