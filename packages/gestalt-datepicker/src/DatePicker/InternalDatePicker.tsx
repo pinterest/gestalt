@@ -1,6 +1,13 @@
 import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import { Box, Icon, Label, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+import {
+  Box,
+  Icon,
+  Label,
+  Text,
+  useDangerouslyInGestaltExperiment,
+  useDefaultLabel,
+} from 'gestalt';
 import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
@@ -36,6 +43,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
 
     // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
     useImperativeHandle(ref, () => innerRef.current);
+
+    const { nextMonth, previousMonth } = useDefaultLabel('DatePicker');
 
     const isInVRExperiment = useDangerouslyInGestaltExperiment({
       webExperimentName: 'web_gestalt_visualRefresh',
@@ -113,7 +122,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
           minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
           nextMonthButtonLabel={
-            <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
+            <Icon accessibilityLabel={nextMonth} color="default" icon="arrow-forward" size={16} />
           }
           onChange={(value: Date, event: React.ChangeEvent<HTMLInputElement>) => {
             if (controlledValue === undefined) setUncontrolledValue(value);
@@ -132,7 +141,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           popperClassName={styles['react-datepicker-popper']}
           popperPlacement={popperPlacement[idealDirection]}
           previousMonthButtonLabel={
-            <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
+            <Icon accessibilityLabel={previousMonth} color="default" icon="arrow-back" size={16} />
           }
           readOnly={readOnly}
           selected={controlledValue ?? uncontrolledValue}

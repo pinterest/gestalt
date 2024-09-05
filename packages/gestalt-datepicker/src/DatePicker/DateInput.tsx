@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment } from 'gestalt';
-import VRDateInput from './VRDateInput';
+import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment, useDefaultLabel} from 'gestalt';
+]import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
@@ -50,6 +50,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
 
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
+  const { openCalendar } = useDefaultLabel('DatePicker');
 
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -123,7 +124,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
             rounding="circle"
             tabIndex={-1}
           >
-            <Icon accessibilityLabel="" color={disabled ? 'disabled' : 'default'} icon="calendar" />
+            <Icon accessibilityLabel={openCalendar} color={disabled ? 'disabled' : 'default'} icon="calendar" />
           </TapArea>
         </Box>
       </div>
