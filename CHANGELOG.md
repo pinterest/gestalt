@@ -1,3 +1,9 @@
+## 157.6.1 (Sep 5, 2024)
+
+### Patch
+
+- Docs: Add promotion to accessibility training and update Pinternal resources ([#3735](https://github.com/pinterest/gestalt/pull/3735)) - [Preview link](https://deploy-preview-3735--gestalt.netlify.app?devexample=true)
+
 ## 157.6.0 (Sep 3, 2024)
 
 ### Minor
