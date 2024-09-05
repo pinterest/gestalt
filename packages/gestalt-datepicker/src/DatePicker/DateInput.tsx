@@ -1,5 +1,12 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { Box, Icon, TapArea, TextField, useDangerouslyInGestaltExperiment, useDefaultLabel} from 'gestalt';
+import {
+  Box,
+  Icon,
+  TapArea,
+  TextField,
+  useDangerouslyInGestaltExperiment,
+  useDefaultLabel,
+} from 'gestalt';
 import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
 
@@ -124,7 +131,11 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
             rounding="circle"
             tabIndex={-1}
           >
-            <Icon accessibilityLabel={openCalendar} color={disabled ? 'disabled' : 'default'} icon="calendar" />
+            <Icon
+              accessibilityLabel={openCalendar}
+              color={disabled ? 'disabled' : 'default'}
+              icon="calendar"
+            />
           </TapArea>
         </Box>
       </div>

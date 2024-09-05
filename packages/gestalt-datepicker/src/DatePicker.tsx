@@ -1,6 +1,6 @@
 import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef } from 'react';
 import { Locale } from 'date-fns/locale';
-import { useGlobalEventsHandler} from 'gestalt';
+import { useGlobalEventsHandler } from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
 
 export type Props = {
