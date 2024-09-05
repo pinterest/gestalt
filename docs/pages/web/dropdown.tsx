@@ -26,7 +26,6 @@ import main from '../../examples/dropdown/main';
 import mobile from '../../examples/dropdown/mobile';
 import sections from '../../examples/dropdown/sections';
 import subtext from '../../examples/dropdown/subtext';
-import truncation from '../../examples/dropdown/truncation';
 
 export default function ComponentPage({
   generatedDocGen,
