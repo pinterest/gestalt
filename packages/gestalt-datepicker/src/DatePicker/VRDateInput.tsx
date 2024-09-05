@@ -9,7 +9,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { Box, Icon, TapArea } from 'gestalt';
+import { Box, Icon, TapArea, useDefaultLabel } from 'gestalt';
 import ErrorMessage from './ErrorMessage';
 import HelperText from './HelperText';
 import styles from './VRDateInput.css';
@@ -61,6 +61,8 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
+
+  const { openCalendar } = useDefaultLabel('DatePicker');
 
   const hasErrorMessage = Boolean(errorMessage);
 
@@ -196,7 +198,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
                 tapStyle="none"
               >
                 <Icon
-                  accessibilityLabel="calendar"
+                  accessibilityLabel={openCalendar}
                   color={disabled ? 'disabled' : 'default'}
                   icon="calendar"
                 />
