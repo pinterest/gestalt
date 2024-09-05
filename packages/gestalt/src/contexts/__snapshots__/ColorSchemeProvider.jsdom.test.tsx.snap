@@ -3041,6 +3041,10 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-checkbox-disabled: #2e2e2d;
   --color-background-checkbox-unchecked-default: #000000;
   --color-background-checkbox-unchecked-error: #000000;
+  --color-background-datepicker-container: #212121;
+  --color-background-datepicker-button-default: #212121;
+  --color-background-datepicker-button-hover: rgba(250, 250, 250, 0.5);
+  --color-background-datepicker-button-selected: #efefef;
   --color-background-switch-default-unselected: #000000;
   --color-background-switch-default-selected: #e8e7e1;
   --color-background-switch-disabled-unselected: #000000;
@@ -3948,6 +3952,10 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
+  --color-background-datepicker-container: #ffffff;
+  --color-background-datepicker-button-default: #000000;
+  --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-button-selected: #000000;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;

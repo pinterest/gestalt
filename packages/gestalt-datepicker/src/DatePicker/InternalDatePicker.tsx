@@ -1,7 +1,14 @@
 import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
-import { Box, Icon, Label, Text } from 'gestalt';
-import DatePickerTextField from './TextInput';
+import {
+  Box,
+  Icon,
+  Label,
+  Text,
+  useDangerouslyInGestaltExperiment,
+  useDefaultLabel,
+} from 'gestalt';
+import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
@@ -26,15 +33,23 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       rangeEndDate,
       rangeSelector,
       rangeStartDate,
+      readOnly,
       selectLists,
       value: controlledValue,
     }: Props,
     ref,
   ): ReactElement {
-    const innerInputRef = useRef<null | HTMLInputElement>(null);
-    // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
-    useImperativeHandle(ref, () => innerInputRef.current);
+    const innerRef = useRef<null | HTMLInputElement>(null);
 
+    // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
+    useImperativeHandle(ref, () => innerRef.current);
+
+    const { nextMonth, previousMonth } = useDefaultLabel('DatePicker');
+
+    const isInVRExperiment = useDangerouslyInGestaltExperiment({
+      webExperimentName: 'web_gestalt_visualRefresh',
+      mwebExperimentName: 'web_gestalt_visualRefresh',
+    });
     // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
     const [uncontrolledValue, setUncontrolledValue] = useState<Date | null | undefined>(null);
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -71,20 +86,9 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       left: 'left',
     } as const;
 
-    const updateNextRef = (submitted: boolean) => {
-      if (
-        (rangeSelector === 'start' && !rangeEndDate) ||
-        (rangeSelector === 'end' && !rangeStartDate)
-      ) {
-        if (nextRef && submitted) {
-          nextRef.current?.focus();
-        }
-      }
-    };
-
     return (
       <div className="_gestalt">
-        {label && (
+        {label && !isInVRExperiment && (
           <Label htmlFor={id}>
             <Box marginBottom={2}>
               <Text size="100">{label}</Text>
@@ -93,23 +97,16 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
         )}
         {/* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
         <ReactDatePicker
-          ref={(refElement) => {
-            if (!innerInputRef || !refElement) {
-              return null;
-            }
-
-            // @ts-expect-error - TS2339 - Property 'input' does not exist on type 'ReactDatePicker<undefined, undefined>'.
-            innerInputRef.current = refElement.input;
-
-            return null;
-          }}
           calendarClassName={styles['react-datepicker']}
           customInput={
-            <DatePickerTextField
+            <DateInput
+              ref={innerRef}
               errorMessage={errorMessage}
               helperText={helperText}
               id={id}
+              label={label}
               name={name}
+              readOnly={readOnly}
             />
           }
           dateFormat={format}
@@ -125,21 +122,28 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
           minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
           nextMonthButtonLabel={
-            <Icon accessibilityLabel="" color="default" icon="arrow-forward" size={16} />
+            <Icon accessibilityLabel={nextMonth} color="default" icon="arrow-forward" size={16} />
           }
           onChange={(value: Date, event: React.ChangeEvent<HTMLInputElement>) => {
             if (controlledValue === undefined) setUncontrolledValue(value);
             onChange({ event, value });
-            updateNextRef(event.type === 'click');
+            if (event.type === 'click') {
+              nextRef?.current?.focus();
+            }
           }}
-          onKeyDown={(event) => updateNextRef(event.key === 'Enter')}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              nextRef?.current?.focus();
+            }
+          }}
           onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
           placeholderText={placeholder ?? format?.toUpperCase()}
           popperClassName={styles['react-datepicker-popper']}
           popperPlacement={popperPlacement[idealDirection]}
           previousMonthButtonLabel={
-            <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
+            <Icon accessibilityLabel={previousMonth} color="default" icon="arrow-back" size={16} />
           }
+          readOnly={readOnly}
           selected={controlledValue ?? uncontrolledValue}
           selectsEnd={rangeSelector === 'end'}
           selectsStart={rangeSelector === 'start'}

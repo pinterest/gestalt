@@ -1,3 +1,9 @@
+## 159.0.0 (Sep 5, 2024)
+
+### Major
+
+- DatePicker: VR implementation changes ([#3717](https://github.com/pinterest/gestalt/pull/3717)) - [Preview link](https://deploy-preview-3717--gestalt.netlify.app?devexample=true)
+
 ## 158.1.0 (Sep 5, 2024)
 
 ### Minor
