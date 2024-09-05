@@ -4,6 +4,12 @@
   border-radius: var(--rounding-600);
 }
 
+.buttonVr {
+  border-color: transparent;
+  box-sizing: border-box;
+  text-wrap: balance;
+}
+
 .parentButton {
   composes: paddingX0 from "./boxWhitespace.css";
   composes: paddingY0 from "./boxWhitespace.css";
@@ -35,6 +41,24 @@
   composes: paddingY3 from "./boxWhitespace.css";
 }
 
+.smVr {
+  border-radius: var(--rounding-200);
+  min-height: 28px;
+  padding: var(--sema-space-100) var(--sema-space-200);
+}
+
+.mdVr {
+  border-radius: var(--rounding-300);
+  min-height: 36px;
+  padding: var(--sema-space-150) var(--sema-space-300);
+}
+
+.lgVr {
+  border-radius: var(--rounding-400);
+  min-height: 48px;
+  padding: var(--sema-space-200) var(--sema-space-400);
+}
+
 .block {
   composes: xsCol12 from "./Column.css";
   composes: block from "./Layout.css";
@@ -58,6 +82,22 @@
 
 .selected {
   background-color: var(--color-background-button-selected-default);
+}
+
+.vrFocused:focus {
+  border: 2px solid;
+  outline: 2px solid;
+  outline-offset: 0;
+}
+
+.defaultFocus:focus {
+  border-color: var(--sema-color-border-focus-inner-default);
+  outline-color: var(--sema-color-border-focus-outer-default);
+}
+
+.inverseFocus:focus {
+  border-color: var(--sema-color-border-focus-inner-inverse);
+  outline-color: var(--sema-color-border-focus-outer-inverse);
 }
 
 /* COLORS */
@@ -113,15 +153,19 @@
 /* COLORS ON BACKGROUND */
 
 .semiTransparentWhite {
-  background-color: var(--color-background-button-semitransparentwhite-default);
+  background-color: var(
+    --color-background-button-semitransparentdefault-default
+  );
 }
 
 .semiTransparentWhite:hover {
-  background-color: var(--color-background-button-semitransparentwhite-hover);
+  background-color: var(--color-background-button-semitransparentdefault-hover);
 }
 
 .semiTransparentWhite:active {
-  background-color: var(--color-background-button-semitransparentwhite-active);
+  background-color: var(
+    --color-background-button-semitransparentdefault-active
+  );
 }
 
 .white {

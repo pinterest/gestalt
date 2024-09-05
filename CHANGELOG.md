@@ -1,3 +1,63 @@
+## 158.1.0 (Sep 5, 2024)
+
+### Minor
+
+- Button: VR Implementation ([#3728](https://github.com/pinterest/gestalt/pull/3728)) - [Preview link](https://deploy-preview-3728--gestalt.netlify.app?devexample=true)
+
+## 158.0.0 (Sep 5, 2024)
+
+### Major
+
+- Dropdown: replacing isExternal with iconEnd ([#3734](https://github.com/pinterest/gestalt/pull/3734)) - [Preview link](https://deploy-preview-3734--gestalt.netlify.app?devexample=true)
+
+## 157.6.1 (Sep 5, 2024)
+
+### Patch
+
+- Docs: Add promotion to accessibility training and update Pinternal resources ([#3735](https://github.com/pinterest/gestalt/pull/3735)) - [Preview link](https://deploy-preview-3735--gestalt.netlify.app?devexample=true)
+
+## 157.6.0 (Sep 3, 2024)
+
+### Minor
+
+- Accordion, Badge, Icon, Text, Tooltip: Adding data test id ([#3733](https://github.com/pinterest/gestalt/pull/3733)) - [Preview link](https://deploy-preview-3733--gestalt.netlify.app?devexample=true)
+
+## 157.5.3 (Aug 29, 2024)
+
+### Patch
+
+- Masonry: Fix incorrect values on whitespace logging ([#3731](https://github.com/pinterest/gestalt/pull/3731)) - [Preview link](https://deploy-preview-3731--gestalt.netlify.app?devexample=true)
+
+## 157.5.2 (Aug 28, 2024)
+
+### Patch
+
+- Switch: Add toggle motion ([#3730](https://github.com/pinterest/gestalt/pull/3730)) - [Preview link](https://deploy-preview-3730--gestalt.netlify.app?devexample=true)
+
+## 157.5.1 (Aug 28, 2024)
+
+### Patch
+
+- ButtonToggle: Add bounce animation ([#3729](https://github.com/pinterest/gestalt/pull/3729)) - [Preview link](https://deploy-preview-3729--gestalt.netlify.app?devexample=true)
+
+## 157.5.0 (Aug 27, 2024)
+
+### Minor
+
+- SelectList: VR implementation changes ([#3713](https://github.com/pinterest/gestalt/pull/3713)) - [Preview link](https://deploy-preview-3713--gestalt.netlify.app?devexample=true)
+
+## 157.4.0 (Aug 21, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8341] ([#3726](https://github.com/pinterest/gestalt/pull/3726)) - [Preview link](https://deploy-preview-3726--gestalt.netlify.app?devexample=true)
+
+## 157.3.0 (Aug 21, 2024)
+
+### Minor
+
+- Masonry: Change whitespace logging from one number to an array ([#3727](https://github.com/pinterest/gestalt/pull/3727)) - [Preview link](https://deploy-preview-3727--gestalt.netlify.app?devexample=true)
+
 ## 157.2.4 (Aug 12, 2024)
 
 ### Patch

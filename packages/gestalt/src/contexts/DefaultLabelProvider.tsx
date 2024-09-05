@@ -53,6 +53,7 @@ export type DefaultLabelContextType = {
   };
   Link: {
     accessibilityNewTabLabel: string;
+    accessibilityDownloadLabel: string;
   };
   Modal: {
     accessibilityDismissButtonLabel: string;
@@ -172,6 +173,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
+    accessibilityDownloadLabel: 'Downloads a file',
   },
   Modal: {
     accessibilityDismissButtonLabel: 'Dismiss modal',

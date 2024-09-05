@@ -1,9 +1,19 @@
+import { useState } from 'react';
 import { Box, SelectList } from 'gestalt';
 
 export default function Example() {
+  const [country, setCountry] = useState('');
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <SelectList id="selectlistexample11" label="Country" onChange={() => {}} size="md">
+    <Box padding={8} width="100%">
+      <SelectList
+        disabled
+        id="selectlist-disabled"
+        label="Country"
+        name="country"
+        onChange={({ value }) => setCountry(value)}
+        placeholder="Select a country"
+        value={country}
+      >
         {[
           { label: 'Algeria', value: 'algeria' },
           { label: 'Belgium', value: 'belgium' },

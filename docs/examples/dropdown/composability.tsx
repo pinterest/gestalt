@@ -59,13 +59,13 @@ export default function CustomIconButtonPopoverExample() {
             <Fragment>
               <Dropdown.Link
                 href="#"
-                isExternal
+                iconEnd="visit"
                 onClick={({ event }) => event.preventDefault()}
                 option={{ value: 'item 1', label: 'Custom link 1' }}
               />
               <Dropdown.Link
                 href="#"
-                isExternal
+                iconEnd="visit"
                 onClick={({ event }) => event.preventDefault()}
                 option={{ value: 'item 2', label: 'Another custom link' }}
               />

@@ -38,6 +38,10 @@ type Props = {
     | 'light'
     | 'dark';
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates how the text should flow with the surrounding content. See the [block vs inline variant](https://gestalt.pinterest.systems/web/text#Block-vs.-inline) for more details.
    */
   inline?: boolean;
@@ -86,6 +90,7 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     align = 'start',
     children,
     color = 'default',
+    dataTestId,
     inline = false,
     italic = false,
     lineClamp,
@@ -137,6 +142,7 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   return (
     <Tag
       className={cs}
+      data-test-id={dataTestId}
       title={
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }

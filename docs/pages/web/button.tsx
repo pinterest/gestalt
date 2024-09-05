@@ -1,4 +1,4 @@
-import { BannerSlim, Button } from 'gestalt';
+import { BannerSlim, Button, useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
@@ -30,6 +30,11 @@ import washColors from '../../examples/button/washColors';
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
+  const isInExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -235,9 +240,9 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
           description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
-2. \`md\` (40px)
+2. \`md\` (${isInExperiment ? '36' : '40'}px)
     Medium is used on more dense UI such as business surfaces or internal tools.
-3. \`sm\` (32px)
+3. \`sm\` (${isInExperiment ? '28' : '32'}px)
     Small should be used sparingly and only in places where the UI is very dense.`}
           title="Size"
         >
@@ -262,13 +267,13 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
           title="Width"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ fullwidth }: { [key: string]: any; }) => Element; fullwidth: boolean[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew fullwidth={[false, true]}>
-            {({ fullwidth }) => (
+          <CombinationNew fullwidth={[false, true]} size={['sm', 'md', 'lg']}>
+            {({ fullwidth, size }) => (
               <Button
                 accessibilityLabel={`Example width ${fullwidth}`}
                 color="red"
                 fullWidth={fullwidth}
-                size="lg"
+                size={size}
                 text="Save"
               />
             )}
@@ -279,7 +284,11 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 1. Red (Primary)
     High emphasis, used for primary actions.
 2. Blue (Primary in shopping context)
-    The blue Button is only intended for the shopping experience and is used for primary shopping actions.
+${
+  isInExperiment
+    ? `In Visual Refresh, the primary shopping "blue" Button is <b>red</b>, same as the standard primary color. It is only intended for the shopping experience.`
+    : `The blue Button is only intended for the shopping experience and is used for primary shopping actions.`
+}
 3. Gray (Secondary)
     Medium emphasis, used for secondary actions.
 4. Transparent (Tertiary)

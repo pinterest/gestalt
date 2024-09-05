@@ -29,10 +29,6 @@ export function columnCountToGridSize(columnCount: number): GridSize {
   return 'xl';
 }
 
-function isNil(value: unknown): boolean {
-  return value === null || value === undefined;
-}
-
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,
   left: -9999,
@@ -61,6 +57,16 @@ function calculateActualColumnSpan<T>(props: {
     typeof columnSpanConfig === 'number' ? columnSpanConfig : columnSpanConfig[gridSize] ?? 1;
   // a multi column item can never span more columns than there are in the grid
   return Math.min(columnSpan, columnCount);
+}
+
+function getAdjacentWhitespaceOnIndex(
+  heights: ReadonlyArray<number>,
+  columnSpan: number,
+  index: number,
+): ReadonlyArray<number> {
+  const subArray = heights.slice(index, index + columnSpan);
+  const maxHeight = Math.max(...subArray);
+  return subArray.map((h) => maxHeight - h);
 }
 
 function getAdjacentColumnHeightDeltas(
@@ -196,8 +202,12 @@ function getOneColumnItemPositions<T>({
   heights: ReadonlyArray<number>;
 } {
   const heights = [...heightsArg];
-  const positions = items.reduce<Array<any>>(
-    // @ts-expect-error - TS2345 - Argument of type '(positionsSoFar: readonly { item: T; position: Position; }[], item: T) => readonly { item: T; position: Position; }[] | { item: T; position: { top: number; left: number; width: number; height: number | ... 1 more ... | undefined; }; }[]' is not assignable to parameter of type '(previousValue: any[], currentValue: T, currentIndex: number, array: readonly T[]) => any[]'.
+  const positions = items.reduce<
+    ReadonlyArray<{
+      item: T;
+      position: Position;
+    }>
+  >(
     (
       positionsSoFar: ReadonlyArray<{
         item: T;
@@ -212,8 +222,7 @@ function getOneColumnItemPositions<T>({
         return [...positionsSoFar, { item, position: cachedPosition }];
       }
 
-      if (!isNil(height)) {
-        // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
+      if (height != null) {
         const heightAndGutter = height + gutter;
         const col = mindex(heights);
         const top = heights[col];
@@ -239,7 +248,6 @@ function getOneColumnItemPositions<T>({
     [],
   );
 
-  // @ts-expect-error - TS2322 - Type 'T' is not assignable to type 'readonly { item: T; position: Position; }[]'.
   return { positions, heights };
 }
 
@@ -265,14 +273,14 @@ function getMultiColItemPosition<T>({
   positionCache?: Cache<T, Position>;
   fitsFirstRow: boolean;
 }): {
-  additionalWhitespace: number | null;
+  additionalWhitespace: ReadonlyArray<number> | null;
   heights: ReadonlyArray<number>;
   position: Position;
 } {
   const heights = [...heightsArg];
   const height = measurementCache.get(item);
 
-  if (isNil(height)) {
+  if (height == null) {
     return {
       additionalWhitespace: null,
       heights,
@@ -280,7 +288,6 @@ function getMultiColItemPosition<T>({
     };
   }
 
-  // @ts-expect-error - TS2533 - Object is possibly 'null' or 'undefined'.
   const heightAndGutter = height + gutter;
 
   // Find height deltas for each column as compared to the next column
@@ -305,18 +312,23 @@ function getMultiColItemPosition<T>({
   // Increase the heights of both adjacent columns
   const tallestColumnFinalHeight = heights[tallestColumn] + heightAndGutter;
 
+  const additionalWhitespace = getAdjacentWhitespaceOnIndex(
+    heights,
+    columnSpan,
+    lowestAdjacentColumnHeightDeltaIndex,
+  );
+
   for (let i = 0; i < columnSpan; i += 1) {
     heights[i + lowestAdjacentColumnHeightDeltaIndex] = tallestColumnFinalHeight;
   }
 
   return {
-    additionalWhitespace: adjacentColumnHeightDeltas[lowestAdjacentColumnHeightDeltaIndex],
+    additionalWhitespace,
     heights,
     position: {
       top,
       left,
       width: calculateMultiColumnModuleWidth(columnWidth, gutter, columnSpan),
-      // @ts-expect-error - TS2322 - Type 'number | null | undefined' is not assignable to type 'number'.
       height,
     },
   };
@@ -344,14 +356,10 @@ function getGraphPositions<T>({
   gutter: number;
   measurementCache: Cache<T, number>;
   positionCache?: Cache<T, Position>;
-}): {
-  winningNode: NodeData<T>;
-  additionalWhitespace: number;
-} {
+}): NodeData<T> {
   // When whitespace threshold is set this variables store the score and node if found
   let bailoutScore;
-  // @ts-expect-error - TS7034 - Variable 'bailoutNode' implicitly has type 'any' in some locations where its type cannot be determined.
-  let bailoutNode;
+  let bailoutNode: NodeData<T> | undefined;
 
   // Initialize the graph
   const graph = new Graph<T>();
@@ -382,7 +390,6 @@ function getGraphPositions<T>({
     heightsArr: ReadonlyArray<number>;
     itemsSoFar?: ReadonlyArray<T>;
   }) {
-    // @ts-expect-error - TS7005 - Variable 'bailoutNode' implicitly has an 'any' type.
     if (bailoutNode) {
       return;
     }
@@ -453,11 +460,12 @@ function getGraphPositions<T>({
         lowestScore: bailoutScore ?? 0,
       }
     : graph.findLowestScore(startNodeData);
+  // const { lowestScoreNode, lowestScore } = graph.findLowestScore(startNodeData);
 
   // The best solution may be "no solution", i.e. laying out the multi column item first
   return lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
-    ? { winningNode: lowestScoreNode, additionalWhitespace: lowestScore ?? 0 }
-    : { winningNode: startNodeData, additionalWhitespace: startingLowestAdjacentColumnHeightDelta };
+    ? lowestScoreNode
+    : startNodeData;
 }
 
 function getPositionsWithMultiColumnItem<T>({
@@ -479,7 +487,7 @@ function getPositionsWithMultiColumnItem<T>({
     position: Position;
   }>;
   whitespaceThreshold?: number;
-  logWhitespace?: (arg1: number) => void;
+  logWhitespace?: (arg1: ReadonlyArray<number>) => void;
   columnCount: number;
   centerOffset: number;
   columnWidth: number;
@@ -551,7 +559,7 @@ function getPositionsWithMultiColumnItem<T>({
   });
 
   // Get a node with the required whitespace
-  const { winningNode, additionalWhitespace } = getGraphPositions({
+  const winningNode = getGraphPositions({
     items: graphBatch,
     positions: paintedItemPositions,
     heights: paintedItemHeights,
@@ -561,7 +569,11 @@ function getPositionsWithMultiColumnItem<T>({
   });
 
   // Insert multi column item(s)
-  const { heights: updatedHeights, position: multiColItemPosition } = getMultiColItemPosition<T>({
+  const {
+    heights: updatedHeights,
+    position: multiColItemPosition,
+    additionalWhitespace,
+  } = getMultiColItemPosition<T>({
     item: multiColumnItem,
     heights: winningNode.heights,
     columnSpan: multiColumnItemColumnSpan,
@@ -590,7 +602,9 @@ function getPositionsWithMultiColumnItem<T>({
 
   // Log additional whitespace shown above the multi column module
   // This may need to be tweaked or removed if pin leveling is implemented
-  logWhitespace?.(additionalWhitespace);
+  if (additionalWhitespace) {
+    logWhitespace?.(additionalWhitespace);
+  }
 
   finalPositions.forEach(({ item, position }) => {
     positionCache.set(item, position);
@@ -621,7 +635,7 @@ const multiColumnLayout = <T>({
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
   whitespaceThreshold?: number;
-  logWhitespace?: (arg1: number) => void;
+  logWhitespace?: (arg1: ReadonlyArray<number>) => void;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<Position> => {
   if (!items.every((item) => measurementCache.has(item))) {

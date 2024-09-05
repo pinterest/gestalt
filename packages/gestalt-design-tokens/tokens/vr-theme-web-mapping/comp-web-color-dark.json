@@ -107,7 +107,12 @@
             "value": "{sema.color.pressed.background.wash.default.value}"
           },
           "disabled": {
-            "value": "transparent"
+            "default": {
+              "value": "transparent"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
           }
         },
         "gray": {
@@ -124,6 +129,34 @@
             "value": "{sema.color.background.disabled.value}"
           }
         },
+        "shopping": {
+          "default": {
+            "value": "{sema.color.background.primary.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.primary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.primary.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "semitransparentdefault": {
+          "default": {
+            "value": "{sema.color.background.wash.default.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.wash.default.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
         "semitransparentwhite": {
           "default": {
             "value": "{sema.color.background.wash.light.value}"
@@ -135,7 +168,12 @@
             "value": "{sema.color.pressed.background.wash.light.value}"
           },
           "disabled": {
-            "value": "{sema.color.background.wash.default.value}"
+            "default": {
+              "value": "{sema.color.background.wash.default.value}"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
           }
         },
         "semitransparentdark": {
@@ -149,7 +187,12 @@
             "value": "{sema.color.pressed.background.wash.dark.value}"
           },
           "disabled": {
-            "value": "#00000064"
+            "default": {
+              "value": "#00000064"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
           }
         },
         "white": {
@@ -171,6 +214,11 @@
             "value": "{sema.color.background.selected.value}"
           },
           "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "disabled": {
+          "default": {
             "value": "{sema.color.background.disabled.value}"
           }
         }

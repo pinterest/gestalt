@@ -365,6 +365,12 @@
       "keywords": ["subtitles", "video"]
     },
     {
+      "name": "card-stack",
+      "categories": ["Utility and tools"],
+      "description": "Indicates a collection of cards",
+      "keywords": ["group"]
+    },
+    {
       "name": "check",
       "categories": ["Platform specific"],
       "description": "Instead of a radio button on iOS, use the check icon",
@@ -643,6 +649,12 @@
       "categories": ["Reactions and ratings"],
       "description": "Indicates a mild happy feeling or opinion",
       "keywords": ["happy"]
+    },
+    {
+      "name": "face-smiley-add",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates the ability to add a reaction",
+      "keywords": ["reaction", "smile", "emoji", "add"]
     },
     {
       "name": "facebook",
@@ -1226,6 +1238,19 @@
       "keywords": ["backwards", "beginning"]
     },
     {
+      "name": "ribbon",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates an award or achievement",
+      "keywords": [
+        "medal",
+        "award",
+        "winning",
+        "achievement",
+        "victory",
+        "competition"
+      ]
+    },
+    {
       "name": "rocketship",
       "categories": ["Technology"],
       "description": "Indicates launch",
@@ -1513,6 +1538,12 @@
       "categories": ["Text"],
       "description": "Indicates an extra-small text size",
       "keywords": ["font size", "typography"]
+    },
+    {
+      "name": "text-invert",
+      "categories": ["Text"],
+      "description": "Indicates ability to invert text color",
+      "keywords": ["type", "flip", "opposite", "change", "inverse"]
     },
     {
       "name": "text-large",

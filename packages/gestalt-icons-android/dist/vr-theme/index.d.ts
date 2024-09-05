@@ -72,6 +72,7 @@ declare const icons: Readonly<{
     'canonical-pin': any;
     captions: any;
     'captions-outline': any;
+    'card-stack': any;
     check: any;
     'check-circle': any;
     'check-circle-fill': any;
@@ -129,6 +130,7 @@ declare const icons: Readonly<{
     'face-sad': any;
     'face-smiley': any;
     'face-smiley-outline': any;
+    'face-smiley-plus': any;
     'face-tryon': any;
     facebook: any;
     fade: any;
@@ -247,6 +249,7 @@ declare const icons: Readonly<{
     replace: any;
     report: any;
     rewind: any;
+    ribbon: any;
     rocketship: any;
     rotate: any;
     saturation: any;
@@ -308,6 +311,7 @@ declare const icons: Readonly<{
     'text-align-right': any;
     'text-all-caps': any;
     'text-extra-small': any;
+    'text-invert': any;
     'text-large': any;
     'text-line-height': any;
     'text-medium': any;

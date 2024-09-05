@@ -124,6 +124,34 @@
             "value": "{sema.color.background.disabled.value}"
           }
         },
+        "shopping": {
+          "default": {
+            "value": "{sema.color.background.primary.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.primary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.primary.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "semitransparentdefault": {
+          "default": {
+            "value": "{sema.color.background.wash.default.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.wash.default.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
         "semitransparentwhite": {
           "default": {
             "value": "{sema.color.background.wash.light.value}"
@@ -171,6 +199,11 @@
             "value": "{sema.color.background.selected.value}"
           },
           "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "disabled": {
+          "default": {
             "value": "{sema.color.background.disabled.value}"
           }
         }

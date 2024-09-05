@@ -52,7 +52,7 @@ export default function CustomIconButtonPopoverExample() {
           />
           <Dropdown.Link
             href="https://help.pinterest.com/en?source=gear_menu_web"
-            isExternal
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{ value: 'Get help', label: 'Get help' }}
           >
@@ -61,7 +61,7 @@ export default function CustomIconButtonPopoverExample() {
           </Dropdown.Link>
           <Dropdown.Link
             href="https://policy.pinterest.com/en/privacy-policy"
-            isExternal
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'See terms and privacy',

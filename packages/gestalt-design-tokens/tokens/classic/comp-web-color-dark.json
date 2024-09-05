@@ -248,6 +248,17 @@
             "value": "#9b9b9b"
           }
         },
+        "semitransparentdefault": {
+          "default": {
+            "value": "rgba(51, 51, 51, 0.8)"
+          },
+          "hover": {
+            "value": "#121212"
+          },
+          "active": {
+            "value": "#1f1f1f"
+          }
+        },
         "semitransparentwhite": {
           "default": {
             "value": "rgba(51, 51, 51, 0.8)"

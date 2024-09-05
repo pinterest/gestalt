@@ -2,13 +2,12 @@ import { Box, SelectList } from 'gestalt';
 
 export default function Example() {
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box padding={8} width="100%">
       <SelectList
         helperText="Product prices in your data source without an ISO currency code will default to this currency"
-        id="selectlistexample12"
+        id="selectlistHelperText"
         label="Default currency"
         onChange={() => {}}
-        size="lg"
       >
         {[
           { label: 'ARS - Argentine peso', value: 'ars' },

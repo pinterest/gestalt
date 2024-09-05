@@ -21,7 +21,7 @@
         "ignoreProperties": ["composes"]
       }
     ],
-    "custom-property-pattern": "g|color|font|elevation|space|opacity|font-.+",
+    "custom-property-pattern": "g|color|font|elevation|space|opacity|motion|font-.+",
     "value-keyword-case": [
       "lower",
       {

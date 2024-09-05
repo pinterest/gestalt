@@ -57,7 +57,7 @@ export default function CustomIconButtonPopoverExample() {
           />
           <Dropdown.Link
             href="#"
-            isExternal
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'item 2',

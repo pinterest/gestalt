@@ -39,7 +39,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -53,7 +53,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           badge={{ text: 'New' }}
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
@@ -61,7 +61,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{ value: 'item 6', label: 'Item 6' }}
         />
       </Dropdown>,
@@ -150,7 +150,7 @@ describe('Dropdown', () => {
         <Dropdown.Section label="Section 2">
           <Dropdown.Link
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             option={{
               value: 'item 3',
               label: 'External Item 3 with a really long, detailed, complex name',
@@ -164,7 +164,7 @@ describe('Dropdown', () => {
           <Dropdown.Link
             badge={{ text: 'New' }}
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             option={{
               value: 'item 5',
               label: 'Item 5 with a really long, detailed name',
@@ -172,7 +172,7 @@ describe('Dropdown', () => {
           />
           <Dropdown.Link
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             option={{ value: 'item 6', label: 'Item 6' }}
           />
         </Dropdown.Section>
@@ -222,7 +222,7 @@ describe('Dropdown', () => {
         <Dropdown.Section label="Section 2">
           <Dropdown.Link
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             option={{
               value: 'item 3',
               label: 'External Item 3 with a really long, detailed, complex name',
@@ -236,7 +236,7 @@ describe('Dropdown', () => {
           <Dropdown.Link
             badge={{ text: 'New' }}
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             option={{
               value: 'item 5',
               label: 'Item 5 with a really long, detailed name',
@@ -244,7 +244,7 @@ describe('Dropdown', () => {
           />
           <Dropdown.Link
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             option={{ value: 'item 6', label: 'Item 6' }}
           />
         </Dropdown.Section>
@@ -285,7 +285,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -299,7 +299,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           badge={{ text: 'New' }}
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
@@ -307,7 +307,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{ value: 'item 6', label: 'Item 6' }}
         />
       </Dropdown>,
@@ -350,7 +350,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -364,7 +364,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           badge={{ text: 'New' }}
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
@@ -372,7 +372,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{ value: 'item 6', label: 'Item 6' }}
         />
       </Dropdown>,
@@ -421,7 +421,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           dataTestId="item-3"
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -435,7 +435,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           badge={{ text: 'New' }}
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
@@ -443,7 +443,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{ value: 'item 6', label: 'Item 6' }}
         />
       </Dropdown>,
@@ -508,7 +508,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 3',
             label: 'External Item 3 with a really long, detailed, complex name',
@@ -522,7 +522,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           badge={{ text: 'New' }}
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
@@ -530,7 +530,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{ value: 'item 6', label: 'Item 6' }}
         />
       </Dropdown>,
@@ -590,7 +590,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com/today"
-          isExternal
+          iconEnd="visit"
           onClick={onClickMock}
           option={{
             value: 'item 3',
@@ -612,7 +612,7 @@ describe('Dropdown', () => {
         <Dropdown.Link
           badge={{ text: 'New' }}
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{
             value: 'item 5',
             label: 'Item 5 with a really long, detailed name',
@@ -620,7 +620,7 @@ describe('Dropdown', () => {
         />
         <Dropdown.Link
           href="https://pinterest.com"
-          isExternal
+          iconEnd="visit"
           option={{ value: 'item 6', label: 'Item 6' }}
         />
       </Dropdown>,

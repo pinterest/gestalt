@@ -44,6 +44,7 @@ const labels = {
   },
   Link: {
     accessibilityNewTabLabel: myI18nTranslator('Opens a new tab'),
+    accessibilityDownloadLabel: myI18nTranslator('Downloads a file'),
   },
   Modal: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss modal'),

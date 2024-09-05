@@ -71,6 +71,7 @@ import cancel from './cancel.svg';
 import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
+import cardStack from './card-stack.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
@@ -128,6 +129,7 @@ import faceNeutral from './face-neutral.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
 import faceSmileyOutline from './face-smiley-outline.svg';
+import faceSmileyPlus from './face-smiley-plus.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
 import fade from './fade.svg';
@@ -246,6 +248,7 @@ import reorderImages from './reorder-images.svg';
 import replace from './replace.svg';
 import report from './report.svg';
 import rewind from './rewind.svg';
+import ribbon from './ribbon.svg';
 import rocketship from './rocketship.svg';
 import rotate from './rotate.svg';
 import saturation from './saturation.svg';
@@ -307,6 +310,7 @@ import textAlignLeft from './text-align-left.svg';
 import textAlignRight from './text-align-right.svg';
 import textAllCaps from './text-all-caps.svg';
 import textExtraSmall from './text-extra-small.svg';
+import textInvert from './text-invert.svg';
 import textLarge from './text-large.svg';
 import textLineHeight from './text-line-height.svg';
 import textMedium from './text-medium.svg';
@@ -424,6 +428,7 @@ const icons = Object.freeze({
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
+  'card-stack': cardStack,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
@@ -481,6 +486,7 @@ const icons = Object.freeze({
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'face-smiley-outline': faceSmileyOutline,
+  'face-smiley-plus': faceSmileyPlus,
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
@@ -599,6 +605,7 @@ const icons = Object.freeze({
   'replace': replace,
   'report': report,
   'rewind': rewind,
+  'ribbon': ribbon,
   'rocketship': rocketship,
   'rotate': rotate,
   'saturation': saturation,
@@ -660,6 +667,7 @@ const icons = Object.freeze({
   'text-align-right': textAlignRight,
   'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
+  'text-invert': textInvert,
   'text-large': textLarge,
   'text-line-height': textLineHeight,
   'text-medium': textMedium,
