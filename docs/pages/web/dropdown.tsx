@@ -102,11 +102,6 @@ export default function ComponentPage({
           />
         </MainSection.Subsection>
 
-        <LocalizationSection
-          code={localizationLabels}
-          name={generatedDocGen.Dropdown?.displayName}
-        />
-
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
@@ -185,7 +180,7 @@ export default function ComponentPage({
       </AccessibilitySection>
 
       <LocalizationSection
-        code={truncation}
+        code={localizationLabels}
         name={generatedDocGen?.DropdownItem?.displayName}
         notes={`
 When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.`}

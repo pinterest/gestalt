@@ -21,7 +21,7 @@ export default function CustomIconButtonPopoverExample() {
       labels={{
         Link: {
           accessibilityNewTabLabel: 'Öffnet eine neue Browser-Registerkarte.',
-          accessibilityDownloadLabel: 'Es lädt eine Datei herunter.',
+          p: 'Es lädt eine Datei herunter.',
         },
       }}
     >
@@ -50,6 +50,21 @@ export default function CustomIconButtonPopoverExample() {
           onDismiss={() => setOpen(false)}
           zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >
+          <Dropdown.Link
+            href="https://help.pinterest.com/en?source=gear_menu_web"
+            iconEnd="directional-arrow-right"
+            onClick={({ event }) => event.preventDefault()}
+            option={{ value: 'Hilfe anfordern', label: 'Hilfe anfordern' }}
+          />
+          <Dropdown.Link
+            href="https://policy.pinterest.com/en/privacy-policy"
+            iconEnd="directional-arrow-right"
+            onClick={({ event }) => event.preventDefault()}
+            option={{
+              value: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',
+              label: 'Nutzungsbedingungen und Datenschutzrichtlinien anzeigen',
+            }}
+          />
           <Dropdown.Link
             href="https://pinterest.com"
             iconEnd="download"
