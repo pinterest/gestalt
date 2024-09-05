@@ -37,7 +37,7 @@ export default function Snapshot() {
             <Dropdown.Link
               key="items-secondaryAction-secondaryAction"
               href="https://pinterest.com"
-              isExternal
+              iconEnd="visit"
               option={{ value: 'View analytics', label: 'View analytics' }}
             />,
           ],

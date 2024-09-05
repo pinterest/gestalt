@@ -52,7 +52,7 @@ export default function CustomDisabledDropdown() {
           <Dropdown.Link
             disabled
             href="https://pinterest.com"
-            isExternal
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'Report Pin',
