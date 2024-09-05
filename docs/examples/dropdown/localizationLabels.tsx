@@ -21,7 +21,7 @@ export default function CustomIconButtonPopoverExample() {
       labels={{
         Link: {
           accessibilityNewTabLabel: 'Öffnet eine neue Browser-Registerkarte.',
-          p: 'Es lädt eine Datei herunter.',
+          accessibilityDownloadLabel: 'Es lädt eine Datei herunter.',
         },
       }}
     >
