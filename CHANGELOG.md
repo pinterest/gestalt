@@ -1,3 +1,9 @@
+## 158.0.0 (Sep 5, 2024)
+
+### Major
+
+- Dropdown: replacing isExternal with iconEnd ([#3734](https://github.com/pinterest/gestalt/pull/3734)) - [Preview link](https://deploy-preview-3734--gestalt.netlify.app?devexample=true)
+
 ## 157.6.1 (Sep 5, 2024)
 
 ### Patch
