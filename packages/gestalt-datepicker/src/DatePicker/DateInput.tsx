@@ -121,6 +121,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
               innerRef.current?.focus();
             }}
             rounding="circle"
+            tabIndex={-1}
           >
             <Icon accessibilityLabel="" color={disabled ? 'disabled' : 'default'} icon="calendar" />
           </TapArea>
