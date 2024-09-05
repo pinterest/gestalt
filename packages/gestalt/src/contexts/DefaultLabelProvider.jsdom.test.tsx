@@ -49,6 +49,11 @@ describe('useDefaultLabelContext', () => {
             noResultText: 'No results',
             accessibilityClearButtonLabel: 'Clear input',
           },
+          DatePicker: {
+            openCalendar: 'Open calendar',
+            previousMonth: 'Navigate to previou month',
+            nextMonth: 'Navigate to next month',
+          },
           DateRange: {
             cancelText: 'Cancel',
             applyText: 'Apply',

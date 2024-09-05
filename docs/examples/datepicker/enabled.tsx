@@ -6,15 +6,15 @@ export default function Example() {
   const [dateValue, setDateValue] = useState<Date | null>(new Date(1985, 6, 4));
 
   return (
-    <Box padding={8} width="100%">
-      <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
+    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
+      <Box padding={2}>
         <DatePicker
-          id="main"
-          label="Select a date"
+          id="example-enabled"
+          label="User Activation Date"
           onChange={({ value }) => setDateValue(value)}
           value={dateValue}
         />
-      </Flex>{' '}
-    </Box>
+      </Box>
+    </Flex>
   );
 }
