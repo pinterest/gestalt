@@ -10,6 +10,7 @@ declare const icons: Readonly<{
     'add-layout': any;
     'add-pin': any;
     'add-section': any;
+    'add-small': any;
     'ads-overview': any;
     'ads-stats': any;
     alert: any;
@@ -43,6 +44,7 @@ declare const icons: Readonly<{
     'arrow-forward': any;
     'arrow-left-curved': any;
     'arrow-nested': any;
+    'arrow-small-up-right': any;
     'arrow-start': any;
     'arrow-up': any;
     'arrow-up-left': any;
@@ -69,6 +71,7 @@ declare const icons: Readonly<{
     'camera-flip': any;
     'camera-roll': any;
     cancel: any;
+    'cancel-small': any;
     'canonical-pin': any;
     captions: any;
     'captions-outline': any;
@@ -76,6 +79,14 @@ declare const icons: Readonly<{
     check: any;
     'check-circle': any;
     'check-circle-fill': any;
+    'check-small': any;
+    'chevron-down-circle': any;
+    'chevron-left-circle': any;
+    'chevron-right-circle': any;
+    'chevron-small-down': any;
+    'chevron-small-left': any;
+    'chevron-small-right': any;
+    'chevron-small-up': any;
     'chevron-up-circle': any;
     circle: any;
     'circle-ellipsis': any;
@@ -105,6 +116,7 @@ declare const icons: Readonly<{
     crop: any;
     cutout: any;
     dash: any;
+    'dash-small': any;
     'data-source': any;
     design: any;
     desktop: any;
@@ -302,6 +314,7 @@ declare const icons: Readonly<{
     'switch-account': any;
     table: any;
     tag: any;
+    'tag-star': any;
     target: any;
     template: any;
     terms: any;
