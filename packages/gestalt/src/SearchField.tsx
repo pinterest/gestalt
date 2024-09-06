@@ -165,10 +165,10 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     errorMessage ? formElement.errored : formElement.normal,
   );
 
-  const dataTestIdSearch = dataTestId && `${dataTestId}-search`;
+  const dataTestIdSearch = dataTestId && `${dataTestId}-search-icon`;
   const dataTestIdInput = dataTestId && `${dataTestId}-input`;
   const dataTestIdError = dataTestId && `${dataTestId}-error`;
-  const dataTestIdCancel = dataTestId && `${dataTestId}-cancel`;
+  const dataTestIdCancel = dataTestId && `${dataTestId}-cancel-icon`;
 
   return (
     <span>
