@@ -325,7 +325,7 @@ to prevent conflict with another CSS module */
   background: var(--color-background-datepicker-button-hover);
 }
 
-:global ._gestalt .react-datepicker__navigation:active  {
+:global ._gestalt .react-datepicker__navigation:active {
   background: var(--color-background-datepicker-button-active);
 }
 
