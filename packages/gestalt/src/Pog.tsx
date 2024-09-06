@@ -18,7 +18,7 @@ type Props = {
    * Indicates whether this component is hosted in a light or dark container.
    * Used for improving focus ring color contrast.
    */
-  backgroundContext?: 'light' | 'dark';
+  focusColor?: 'lightBackground' | 'darkBackground';
   /**
    * The background color. See [color combinations](https://gestalt.pinterest.systems/web/pog#backgroundColorCombinations) for more details.
    */
@@ -84,7 +84,7 @@ export default function Pog({
   accessibilityLabel = '',
   active = false,
   bgColor = 'transparent',
-  backgroundContext = 'light',
+  focusColor = 'lightBackground',
   dangerouslySetSvgPath,
   disabled,
   focused = false,
@@ -172,9 +172,11 @@ export default function Pog({
     [styles.active]: active,
     [styles.vrFocused]: focused,
     [styles.transparentInnerFocus]: focused && bgColor === 'transparent',
-    [styles.lightOuterFocus]: focused && (bgColor === 'washLight' || backgroundContext === 'dark'),
+    [styles.lightOuterFocus]:
+      focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.inverseOuterFocus]: focused && iconColor === 'white' && bgColor === 'transparent',
-    [styles.darkInnerFocus]: focused && (bgColor === 'washLight' || backgroundContext === 'dark'),
+    [styles.darkInnerFocus]:
+      focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.hovered]: hovered && !active,
   });
 

@@ -8,6 +8,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import focusOnDarkBackground from '../../examples/pog/focusOnDarkBackground';
 import main from '../../examples/pog/main';
 import states from '../../examples/pog/states';
 import statesOnBackground from '../../examples/pog/statesOnBackground';
@@ -81,6 +82,17 @@ Follow these guidelines for \`bgColor\`
               <SandpackExample
                 code={statesOnBackground}
                 name="States states on image/color background"
+              />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection title="Focus ring on dark backgrounds">
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={focusOnDarkBackground}
+                name="Usage of focus ring on dark backgrounds"
               />
             }
           />

@@ -1,3 +1,6 @@
+import defaultStateExample from 'docs/examples/iconbutton/defaultStateExample';
+import disabledStateExample from 'docs/examples/iconbutton/disabledStateExample';
+import selectedStateExample from 'docs/examples/iconbutton/selectedStateExample';
 import { IconButton, Pog } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
@@ -188,6 +191,22 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
               />
             )}
           </CombinationNew>
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`IconButton's appearance can be modified by the following states:
+
+1. \`default\`
+    The default, enabled and unselected state.
+2. \`selected\`
+    Selected state, used to indicate that the button and associated elements are selected, open, and/or active.
+3. \`disabled\`
+    Disabled state, used to indicate that the button is not currently available for interaction.
+`}
+          title="States"
+        >
+          <SandpackExample code={defaultStateExample} name="Default state example" />
+          <SandpackExample code={disabledStateExample} name="Disabled state example" />
+          <SandpackExample code={selectedStateExample} name="Selected state example" />
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`You can add a label for the IconButton. It is only visible in XL size IconButtons.
