@@ -68,7 +68,7 @@
     },
     {
       "name": "add-small",
-      "category": " navigation",
+      "categories": ["add"],
       "description": "Indicates the ability to create or add content.",
       "keywords": ["plus", "create", "new"]
     },
@@ -243,7 +243,7 @@
     },
     {
       "name": "arrow-small-up-right ",
-      "category": "arrows",
+      "categories": ["Arrows"],
       "description": "Indicates going to a different content/page when inside of a dropdown list.",
       "keywords": ["angled"]
     },
@@ -351,7 +351,7 @@
     },
     {
       "name": "cancel-small",
-      "category": " navigation",
+      "categories": ["Utility and tools"],
       "description": "Indicates closing or dismissing a message.",
       "keywords": ["close", "dismiss", "back", "x"]
     },
@@ -413,49 +413,49 @@
     },
     {
       "name": "check-small",
-      "category": "status",
+      "categories": ["Status"],
       "description": "Instead of a radio button on iOS, use the check icon. ",
       "keywords": ["done", "completed", "success", "selected"]
     },
     {
       "name": "chevron-down-circle",
-      "category": " navigation",
+      "categories": ["arrows"],
       "description": "Indicates ability to expand selection or navigate down.",
       "keywords": ["expand"]
     },
     {
       "name": "chevron-left-circle",
-      "category": " navigation",
+      "categories": ["arrows"],
       "description": "Navigate backwards or left, or to collapse something to the left.",
       "keywords": ["back", "close", "collapse"]
     },
     {
       "name": "chevron-right-circle",
-      "category": " navigation",
+      "categories": ["arrows"],
       "description": "Indicates the ability to open something to the right.",
       "keywords": ["expand"]
     },
     {
       "name": "chevron-small-down",
-      "category": "arrows",
+      "categories": ["Arrows"],
       "description": "Indicates ability to expand selection or navigate down.",
       "keywords": ["expand"]
     },
     {
       "name": "chevron-small-left",
-      "category": "arrows",
+      "categories": ["Arrows"],
       "description": "Navigate backwards or left, or to collapse something to the left.",
       "keywords": ["back", "close", "collapse"]
     },
     {
       "name": "chevron-small-right",
-      "category": "arrows",
+      "categories": ["Arrows"],
       "description": "Indicates the ability to open something to the right.",
       "keywords": ["expand"]
     },
     {
       "name": "chevron-small-up",
-      "category": "arrows",
+      "categories": ["Arrows"],
       "description": "Indicates an expanded content is being displayed.",
       "keywords": ["collapse"]
     },
@@ -582,7 +582,7 @@
     },
     {
       "name": "dash-small",
-      "category": " navigation",
+      "categories": ["Utility and tools"],
       "description": "Indicates there isn't data/numbers to show.",
       "keywords": ["minus", "empty", "remove"]
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "name": "tag-star",
-      "category": "commerce",
+      "categories": ["Utility and tools"],
       "description": "Indicates the ability to view products which have a deal associated with them.",
       "keywords": ["label", "shopping", "deal", "indicator"]
     },
