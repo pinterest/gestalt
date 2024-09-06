@@ -105,7 +105,7 @@ export default function SecondaryActionsExample() {
           <Dropdown.Link
             key="visit-help-center"
             href=""
-            isExternal
+            iconEnd="visit"
             option={{ value: 'Visit help center', label: 'Visit help center' }}
           />,
           <Dropdown.Item

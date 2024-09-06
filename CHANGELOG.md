@@ -1,3 +1,33 @@
+## 159.0.0 (Sep 5, 2024)
+
+### Major
+
+- DatePicker: VR implementation changes ([#3717](https://github.com/pinterest/gestalt/pull/3717)) - [Preview link](https://deploy-preview-3717--gestalt.netlify.app?devexample=true)
+
+## 158.1.0 (Sep 5, 2024)
+
+### Minor
+
+- Button: VR Implementation ([#3728](https://github.com/pinterest/gestalt/pull/3728)) - [Preview link](https://deploy-preview-3728--gestalt.netlify.app?devexample=true)
+
+## 158.0.0 (Sep 5, 2024)
+
+### Major
+
+- Dropdown: replacing isExternal with iconEnd ([#3734](https://github.com/pinterest/gestalt/pull/3734)) - [Preview link](https://deploy-preview-3734--gestalt.netlify.app?devexample=true)
+
+## 157.6.1 (Sep 5, 2024)
+
+### Patch
+
+- Docs: Add promotion to accessibility training and update Pinternal resources ([#3735](https://github.com/pinterest/gestalt/pull/3735)) - [Preview link](https://deploy-preview-3735--gestalt.netlify.app?devexample=true)
+
+## 157.6.0 (Sep 3, 2024)
+
+### Minor
+
+- Accordion, Badge, Icon, Text, Tooltip: Adding data test id ([#3733](https://github.com/pinterest/gestalt/pull/3733)) - [Preview link](https://deploy-preview-3733--gestalt.netlify.app?devexample=true)
+
 ## 157.5.3 (Aug 29, 2024)
 
 ### Patch

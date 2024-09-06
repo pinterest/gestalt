@@ -70,7 +70,7 @@ export default function Example() {
             />
             <Dropdown.Link
               href="https://pinterest.com"
-              isExternal
+              iconEnd="visit"
               option={{ value: 'Report Pin', label: 'Report Pin' }}
             />
             <Dropdown.Item

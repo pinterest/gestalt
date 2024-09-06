@@ -7,6 +7,7 @@ export default function Example() {
       labels={{
         Link: {
           accessibilityNewTabLabel: 'Öffnet eine neue Browser-Registerkarte.',
+          accessibilityDownloadLabel: 'Es lädt eine Datei herunter.',
         },
       }}
     >

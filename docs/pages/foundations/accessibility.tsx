@@ -1,3 +1,4 @@
+import { BannerCallout } from 'gestalt';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
@@ -12,6 +13,25 @@ export default function AccessibilityGuidelinesPage() {
         description="At Pinterest we strive to create an inclusive product that brings inspiration to everyone. A large part of that requires creating accessible designs and components that contribute to an accessible product."
         name="Accessibility (A11Y)"
         type="guidelines"
+      />
+      <BannerCallout
+        message="Elevate your understanding of the needs of people with disabilities through our new courses on Fable. This program includes videos of instructors with disabilities, with the aim to empower you with the knowledge and skills needed to create a more inclusive experience for all Pinners."
+        primaryAction={{
+          href: 'http://pinch.pinadmin.com/fable-source-gestalt',
+          label: 'Start training on Fable',
+          accessibilityLabel: 'Start training on Fable',
+          target: 'blank',
+          role: 'link',
+        }}
+        secondaryAction={{
+          href: 'https://w.pinadmin.com/display/EPD/Accessibility',
+          label: 'Learn more',
+          accessibilityLabel: 'Learn more about training',
+          target: 'blank',
+          role: 'link',
+        }}
+        title="New accessibility training program"
+        type="recommendation"
       />
       <MainSection
         description={`
@@ -145,17 +165,20 @@ export default function AccessibilityGuidelinesPage() {
       <MainSection name="Further learning">
         <MainSection.Subsection
           description={`
-        **[Accessible Design](https://docs.google.com/presentation/d/1b-L0tuzaMTIf1xX7j86g46QfDW3_C0Ep_Ca4TEmXPz8/edit#slide=id.gcf38b911e3_0_750)**
-        Checkout our Accessible Design deck for examples and recommendations regarding accessibility at the design phase.
+        **[Introduction to Digital Accessibility course](https://w.pinadmin.com/display/EPD/Introduction+to+Digital+Accessibility)**
+        Learn about accessibility by understanding disability and assistive technology.
 
-        **[Accessibility 101 Basecamp Session](https://w.pinadmin.com/display/EPD/Accessibility+101)**
-        Reference video recordings and materials from our Accessibility 101 session for new hires.
+        **[Creating Accessible Mobile Apps course](https://w.pinadmin.com/display/EPD/Accessible+Mobile+Apps)**
+        Learn how to design, develop, and test mobile apps that work well for all users, including people who use assistive technology.
 
-        **[Accessibility for Designers Training](https://pinterest.docebosaas.com/learn/courses/1155/gestalt-accessibility-training-for-designers/lessons)**
+        **[Gestalt Accessibility Training for Designers course](https://pinterest.docebosaas.com/learn/courses/1155/gestalt-accessibility-training-for-designers/lessons)**
         Watch our virtual training and get resources from our Accessibility training for designers.
 
-        **[Accessibility Handoff](https://shorturl.at/dgGNQ)**
-        Design checklist and annotation assets to support design handoff.
+       **[Accessibility Checklist](https://www.figma.com/design/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?node-id=5015-3469&t=D7TQJn6iWgAa8P8P-4)**
+        A checklist created to help you with the design foundations of accessibility. Keep in mind it is a not a complete guide to creating accessible content.
+
+        **[Accessibility Annotations](https://www.figma.com/design/50RRYnFcgPTQzy1AIjQoWB/Gestalt-Handoff-Kit?node-id=2817-4396)**
+        A framework for Designers to consider and communicate decisions as part of the product design stage.
       `}
           title="Pinternal"
         />
