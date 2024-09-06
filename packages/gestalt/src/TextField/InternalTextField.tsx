@@ -230,6 +230,9 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     ariaDescribedby = `${id}-helperText`;
   }
 
+  const dataTestIdError = dataTestId && `${dataTestId}-error`;
+  const dataTestIdHelperText = dataTestId && `${dataTestId}-helper-text`;
+
   const inputElement = (
     <input
       aria-activedescendant={accessibilityActiveDescendant}
@@ -311,6 +314,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       {(helperText || maxLength) && !errorMessage ? (
         <FormHelperText
           currentLength={currentLength}
+          dataTestId={dataTestIdHelperText}
           id={`${id}-helperText`}
           maxLength={maxLength}
           size={size}
@@ -319,7 +323,12 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       ) : null}
 
       {hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+        <FormErrorMessage
+          dataTestId={dataTestIdError}
+          id={`${id}-error`}
+          size={size}
+          text={errorMessage}
+        />
       ) : null}
     </span>
   );

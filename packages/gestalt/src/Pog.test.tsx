@@ -40,3 +40,12 @@ test('Pog hovered renders', () => {
   const tree = create(<Pog hovered icon="heart" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id for pog', () => {
+  const component = create(<Pog dataTestId="test-pog" hovered icon="heart" />).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'svg')
+      .filter((node) => node.props['data-test-id'] === 'test-pog'),
+  ).toHaveLength(1);
+});

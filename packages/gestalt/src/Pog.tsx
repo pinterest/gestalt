@@ -65,6 +65,10 @@ type Props = {
     __path: string;
   };
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicate if Pog is in a focused state. See [state combinations](https://gestalt.pinterest.systems/web/pog#stateCombinations) for more details.
    */
   focused?: boolean;
@@ -108,6 +112,7 @@ export default function Pog({
   active = false,
   bgColor = 'transparent',
   dangerouslySetSvgPath,
+  dataTestId,
   focused = false,
   hovered = false,
   icon,
@@ -142,6 +147,7 @@ export default function Pog({
         accessibilityLabel={accessibilityLabel || ''}
         color={OLD_TO_NEW_COLOR_MAP[color]}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
+        dataTestId={dataTestId}
         icon={icon}
         size={iconSizeInPx}
       />

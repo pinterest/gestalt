@@ -28,6 +28,7 @@ type Props = {
   accessibilityChecked?: boolean;
   accessibilityHidden?: boolean;
   accessibilityLabel?: string;
+  dataTestId?: string;
   hoverStyle?: 'default' | 'none';
   icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide';
   onClick: () => void;
@@ -42,6 +43,7 @@ export default function IconButtonEnd({
   accessibilityChecked,
   accessibilityHidden,
   accessibilityLabel,
+  dataTestId,
   hoverStyle = 'default',
   icon,
   onClick,
@@ -95,6 +97,7 @@ export default function IconButtonEnd({
             <Pog
               accessibilityLabel=""
               bgColor={focused && hoverStyle === 'default' ? 'lightGray' : 'transparent'}
+              dataTestId={dataTestId}
               icon={icon}
               iconColor="darkGray"
               padding={pogPadding}

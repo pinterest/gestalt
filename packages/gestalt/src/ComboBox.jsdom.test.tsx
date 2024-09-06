@@ -420,4 +420,36 @@ describe('ComboBox', () => {
       expect(screen.getByLabelText(CLEAR)).toBeVisible();
     });
   });
+
+  it('validate data test id for checkbox using helper text', () => {
+    render(
+      <ComboBox
+        dataTestId="test-combobox"
+        helperText="test checkbox"
+        id="id"
+        label="Name"
+        options={[{ label: 'one', subtext: 'One', value: '1' }]}
+        size="sm"
+      />,
+    );
+    expect(screen.getAllByTestId('test-combobox').length).toBe(1);
+    expect(screen.getAllByTestId('test-combobox-arrow-down').length).toBe(1);
+    expect(screen.getAllByTestId('test-combobox-helper-text').length).toBe(1);
+  });
+
+  it('validate data test id for checkbox using error text', () => {
+    render(
+      <ComboBox
+        dataTestId="test-combobox"
+        errorMessage="error checkbox"
+        id="id"
+        label="Name"
+        options={[{ label: 'one', subtext: 'One', value: '1' }]}
+        size="sm"
+      />,
+    );
+    expect(screen.getAllByTestId('test-combobox').length).toBe(1);
+    expect(screen.getAllByTestId('test-combobox-arrow-down').length).toBe(1);
+    expect(screen.getAllByTestId('test-combobox-error-icon').length).toBe(1);
+  });
 });

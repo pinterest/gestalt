@@ -80,4 +80,22 @@ describe('<SearchField />', () => {
       );
       fireEvent.keyDown(screen.getByRole('searchbox'), { key: 'a' });
     }));
+
+  it('validate data test id for search field', () => {
+    render(
+      <SearchField
+        accessibilityLabel="Demo Search Field"
+        dataTestId="test-searchfield"
+        errorMessage="test error"
+        id="searchField"
+        onChange={() => {}}
+        placeholder="Search and explore"
+        size="lg"
+        value="Search"
+      />,
+    );
+    expect(screen.getAllByTestId('test-searchfield-input').length).toBe(1);
+    expect(screen.getAllByTestId('test-searchfield-cancel').length).toBe(1);
+    expect(screen.getAllByTestId('test-searchfield-error-icon').length).toBe(1);
+  });
 });

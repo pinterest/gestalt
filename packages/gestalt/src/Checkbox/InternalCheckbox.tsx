@@ -14,6 +14,7 @@ import useInteractiveStates from '../utils/useInteractiveStates';
 
 type Props = {
   checked?: boolean;
+  dataTestId?: string;
   disabled?: boolean;
   errorMessage?: string;
   helperText?: string;
@@ -40,6 +41,7 @@ type Props = {
 const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Checkbox(
   {
     checked = false,
+    dataTestId,
     disabled = false,
     errorMessage,
     helperText,
@@ -180,6 +182,12 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     [styles.readOnly]: readOnly,
   });
 
+  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
+  const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
+  const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
+  const dataTestIdHelper = dataTestId && `${dataTestId}-helper-text`;
+  const dataTestIdError = dataTestId && `${dataTestId}-error`;
+
   return (
     <Box>
       <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
@@ -192,6 +200,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             aria-invalid={errorMessage ? 'true' : 'false'}
             checked={checked}
             className={inputStyles}
+            data-test-id={dataTestIdInput}
             disabled={readOnly || disabled}
             id={id}
             name={name}
@@ -211,6 +220,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               <Icon
                 accessibilityLabel=""
                 color={isInVRExperiment ? vrIconColor : 'inverse'}
+                dataTestId={dataTestIdIcon}
                 icon={indeterminate ? 'dash' : 'check'}
                 size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
               />
@@ -230,6 +240,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               <Box paddingX={1}>
                 <Text
                   color={isInVRExperiment ? vrTextColor : textColor}
+                  dataTestId={dataTestIdLabel}
                   size={size === 'sm' ? '200' : '300'}
                 >
                   {label}
@@ -239,6 +250,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             <Box paddingX={1}>
               {helperText ? (
                 <FormHelperText
+                  dataTestId={dataTestIdHelper}
                   disabled={disabled}
                   id={`${id}-helperText`}
                   noPadding
@@ -247,7 +259,13 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
                 />
               ) : null}
               {errorMessage ? (
-                <FormErrorMessage id={`${id}-error`} noPadding size={size} text={errorMessage} />
+                <FormErrorMessage
+                  dataTestId={dataTestIdError}
+                  id={`${id}-error`}
+                  noPadding
+                  size={size}
+                  text={errorMessage}
+                />
               ) : null}
             </Box>
           </Box>

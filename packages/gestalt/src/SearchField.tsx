@@ -25,6 +25,10 @@ type Props = {
    */
   autoComplete?: 'on' | 'off' | 'username' | 'name';
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Error text displayed below the input field.
    */
   errorMessage?: string;
@@ -90,6 +94,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     accessibilityLabel,
     accessibilityClearButtonLabel,
     autoComplete,
+    dataTestId,
     id,
     label,
     labelDisplay = 'visible',
@@ -160,6 +165,11 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     errorMessage ? formElement.errored : formElement.normal,
   );
 
+  const dataTestIdSearch = dataTestId && `${dataTestId}-search`;
+  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
+  const dataTestIdError = dataTestId && `${dataTestId}-error`;
+  const dataTestIdCancel = dataTestId && `${dataTestId}-cancel`;
+
   return (
     <span>
       {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} />}
@@ -188,7 +198,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
             position="absolute"
             right
           >
-            <Icon accessibilityLabel="" icon="search" />
+            <Icon accessibilityLabel="" dataTestId={dataTestIdSearch} icon="search" />
           </Box>
         )}
         {/* @ts-expect-error - TS2322 - Type '{ ref: MutableRefObject<HTMLInputElement | null>; "aria-describedby": string | null; "aria-invalid": "true" | "false"; "aria-label": string; autoComplete: "name" | ... 3 more ... | undefined; ... 7 more ...; value: string | undefined; }' is not assignable to type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'. */}
@@ -199,6 +209,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
           aria-label={accessibilityLabel}
           autoComplete={autoComplete}
           className={className}
+          data-test-id={dataTestIdInput}
           id={id}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
@@ -213,6 +224,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
             <IconButton
               accessibilityLabel={accessibilityClearButtonLabel || ''}
               bgColor="transparent"
+              dataTestId={dataTestIdCancel}
               icon="cancel"
               onClick={({ event }) => {
                 inputRef?.current?.focus();
@@ -225,7 +237,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
           </div>
         )}
       </Box>
-      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
+      {errorMessage && (
+        <FormErrorMessage dataTestId={dataTestIdError} id={`${id}-error`} text={errorMessage} />
+      )}
     </span>
   );
 });

@@ -15,6 +15,10 @@ type Props = {
    */
   children: ReactNode;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * A unique identifier for this Fieldset. `id` must be specified when an errorMessage is added.
    */
   id?: string;
@@ -40,6 +44,7 @@ type Props = {
  *
  */
 export default function Fieldset({
+  dataTestId,
   id = '',
   errorMessage,
   legend,
@@ -51,10 +56,14 @@ export default function Fieldset({
     console.error('Please provide an id property to <Fieldset />');
   }
 
+  const dataTestIdLegend = dataTestId && `${dataTestId}-legend`;
+  const dataTestIdError = dataTestId && `${dataTestId}-error`;
+
   return (
     <fieldset
       aria-describedby={errorMessage ? `${id}-error` : undefined}
       className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
+      data-test-id={dataTestId}
     >
       <legend
         className={classnames(
@@ -65,11 +74,14 @@ export default function Fieldset({
             [boxStyles.visuallyHidden]: legendDisplay === 'hidden',
           },
         )}
+        data-test-id={dataTestIdLegend}
       >
         <Text size="100">{legend}</Text>
       </legend>
       {children}
-      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
+      {errorMessage && (
+        <FormErrorMessage dataTestId={dataTestIdError} id={`${id}-error`} text={errorMessage} />
+      )}
     </fieldset>
   );
 }

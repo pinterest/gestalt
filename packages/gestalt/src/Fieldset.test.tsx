@@ -37,4 +37,33 @@ describe('Fieldset', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('validate data test id for fieldset', () => {
+    const component = create(
+      <Fieldset
+        dataTestId="test-fieldset"
+        errorMessage="At least 1 item must be selected"
+        id="fieldset-with-error"
+        legend="What is your favorite dog?"
+      >
+        <Checkbox dataTestId="schnauzer" id="Schnauzer" label="Schnauzer" onChange={() => {}} />
+        <Checkbox dataTestId="aussie" id="Aussie" label="Aussie" onChange={() => {}} />
+      </Fieldset>,
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'fieldset')
+        .filter((node) => node.props['data-test-id'] === 'test-fieldset'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'legend')
+        .filter((node) => node.props['data-test-id'] === 'test-fieldset-legend'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'svg')
+        .filter((node) => node.props['data-test-id'] === 'test-fieldset-error-icon'),
+    ).toHaveLength(1);
+  });
 });

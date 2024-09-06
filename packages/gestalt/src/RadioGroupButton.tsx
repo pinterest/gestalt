@@ -35,6 +35,10 @@ type Props = {
    */
   checked?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates if the input is disabled. See the [state example](https://gestalt.pinterest.systems/web/radiogroup#States) for more details.
    */
   disabled?: boolean;
@@ -87,6 +91,7 @@ type Props = {
 const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function RadioButton(
   {
     checked = false,
+    dataTestId,
     disabled = false,
     id,
     image,
@@ -143,6 +148,10 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     );
   }
 
+  const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
+  const dataTestIdBadge = dataTestId && `${dataTestId}-badge`;
+  const dataTestIdHelperText = dataTestId && `${dataTestId}-helper-text`;
+
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
       <Box paddingX={1}>
@@ -159,6 +168,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             className={classnames(controlStyles.input, styleSize, {
               [styles.InputEnabled]: !disabled,
             })}
+            data-test-id={dataTestId}
             disabled={disabled}
             id={id}
             name={name}
@@ -184,7 +194,11 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
                 }}
                 paddingX={1}
               >
-                <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+                <Text
+                  color={disabled ? 'subtle' : undefined}
+                  dataTestId={dataTestIdLabel}
+                  size={size === 'sm' ? '200' : '300'}
+                >
                   {label}
                 </Text>
               </Box>
@@ -193,14 +207,18 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           {badge && (
             <Flex.Item alignSelf="end" minWidth={0}>
               <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
-                <Badge text={badge.text} type={badge.type || 'info'} />
+                <Badge dataTestId={dataTestIdBadge} text={badge.text} type={badge.type || 'info'} />
               </Box>
             </Flex.Item>
           )}
         </Flex>
         {label && helperText ? (
           <Box paddingX={1}>
-            <FormHelperText id={`${id}-helperText`} text={helperText} />
+            <FormHelperText
+              dataTestId={dataTestIdHelperText}
+              id={`${id}-helperText`}
+              text={helperText}
+            />
           </Box>
         ) : null}
       </Flex>

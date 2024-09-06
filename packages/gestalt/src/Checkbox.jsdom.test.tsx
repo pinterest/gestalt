@@ -58,4 +58,30 @@ describe('Checkbox', () => {
     const input = container.querySelector('input');
     expect(input?.indeterminate).toBe(true);
   });
+
+  it('validate data test id for checkbox', () => {
+    const ref = createRef<HTMLInputElement>();
+    render(
+      <Checkbox
+        ref={ref}
+        dataTestId="test-checkbox"
+        errorMessage="test error"
+        helperText="test checkbox"
+        id="id"
+        label="Name"
+        onChange={mockOnChange}
+        onClick={mockOnClick}
+        size="sm"
+      />,
+    );
+    expect(screen.getAllByTestId('test-checkbox-input').length).toBe(1);
+    expect(screen.getAllByTestId('test-checkbox-label').length).toBe(1);
+    expect(screen.getAllByTestId('test-checkbox-helper-text').length).toBe(1);
+    expect(screen.getAllByTestId('test-checkbox-error-icon').length).toBe(1);
+    expect(screen.getAllByTestId('test-checkbox-label').length).toBe(1);
+    screen.getByTestId('test-checkbox-input').click();
+    expect(mockOnClick).toHaveBeenCalled();
+    expect(mockOnChange).toHaveBeenCalled();
+    expect(screen.getAllByTestId('test-checkbox-error-icon').length).toBe(1);
+  });
 });

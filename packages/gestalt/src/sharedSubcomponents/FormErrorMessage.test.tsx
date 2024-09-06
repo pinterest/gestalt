@@ -11,4 +11,15 @@ describe('FormErrorMessage', () => {
     const tree = create(<FormErrorMessage id="test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('validate data test id', () => {
+    const component = create(
+      <FormErrorMessage dataTestId="test-error" id="test" text="some error message" />,
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'svg')
+        .filter((node) => node.props['data-test-id'] === 'test-error-icon'),
+    ).toHaveLength(1);
+  });
 });

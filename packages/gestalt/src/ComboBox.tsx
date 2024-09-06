@@ -41,6 +41,10 @@ type Props = {
    */
   accessibilityClearButtonLabel?: string;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * When disabled, ComboBox looks inactive and cannot be interacted with. If tags are passed, they will appear disabled as well and cannot be removed. See [tags](https://gestalt.pinterest.systems/web/combobox#Tags) variant to learn more.
    */
   disabled?: boolean;
@@ -158,6 +162,7 @@ type Props = {
 const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function ComboBox(
   {
     accessibilityClearButtonLabel,
+    dataTestId,
     disabled = false,
     errorMessage,
     helperText,
@@ -412,11 +417,13 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
     () =>
       suggestedOptions.map(({ label: comboBoxItemlabel, subtext, value }, index) => {
         const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
+        const dataTestIdListItem = dataTestId && `${dataTestId}-option-${index}`;
         return (
           <ComboBoxItem
             // eslint-disable-next-line react/no-array-index-key
             key={`${id}${index}`}
             ref={optionRef}
+            dataTestId={dataTestIdListItem}
             id={id}
             index={index}
             isHovered={index === hoveredItemIndex}
@@ -430,6 +437,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         );
       }),
     [
+      dataTestId,
       suggestedOptions,
       handleSelectItem,
       hoveredItemIndex,
@@ -438,6 +446,10 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
       selectedOption?.value,
     ],
   );
+
+  const dataTestIdCancel = dataTestId && `${dataTestId}-cancel`;
+  const dataTestIdArrowDown = dataTestId && `${dataTestId}-arrow-down`;
+  const dataTestIdOption = dataTestId && `${dataTestId}-option`;
 
   return (
     <Fragment>
@@ -459,6 +471,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             }
             accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
             autoComplete="off"
+            dataTestId={dataTestId}
             disabled={disabled}
             errorMessage={errorMessage}
             hasError={!!errorMessage}
@@ -469,6 +482,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                   accessibilityLabel={
                     accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
                   }
+                  dataTestId={dataTestIdCancel}
                   icon="cancel"
                   onClick={handleOnClickIconButtonClear}
                   paddingSize={size}
@@ -476,6 +490,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
               ) : (
                 <IconButtonEnd
                   accessibilityHidden
+                  dataTestId={dataTestIdArrowDown}
                   icon="arrow-down"
                   onClick={handleSetShowOptionsList}
                   paddingSize={size}
@@ -511,6 +526,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             }
             accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
             autoComplete="off"
+            dataTestId={dataTestId}
             disabled={disabled}
             errorMessage={errorMessage}
             hasError={!!errorMessage}
@@ -521,6 +537,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                   accessibilityLabel={
                     accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
                   }
+                  dataTestId={dataTestIdCancel}
                   icon="cancel"
                   onClick={handleOnClickIconButtonClear}
                   paddingSize={size}
@@ -528,6 +545,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
               ) : (
                 <IconButtonEnd
                   accessibilityHidden
+                  dataTestId={dataTestIdArrowDown}
                   icon="arrow-down"
                   onClick={handleSetShowOptionsList}
                   paddingSize={size}
@@ -563,6 +581,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             }
             accessibilityControls={showOptionsList && innerRef.current ? id : undefined}
             autoComplete="off"
+            dataTestId={dataTestId}
             disabled={disabled}
             errorMessage={errorMessage}
             hasError={!!errorMessage}
@@ -573,6 +592,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                   accessibilityLabel={
                     accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
                   }
+                  dataTestId={dataTestIdCancel}
                   hoverStyle="default"
                   icon="cancel"
                   onClick={handleOnClickIconButtonClear}
@@ -582,6 +602,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
               ) : (
                 <IconButtonEnd
                   accessibilityHidden
+                  dataTestId={dataTestIdArrowDown}
                   hoverStyle="none"
                   icon="arrow-down"
                   onClick={handleSetShowOptionsList}
@@ -639,7 +660,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                 comboBoxItemList
               ) : (
                 <Box paddingX={2} paddingY={4} width="100%">
-                  <Text color="subtle" lineClamp={1}>
+                  <Text color="subtle" dataTestId={dataTestIdOption} lineClamp={1}>
                     {noResultText ?? noResultTextDefault}
                   </Text>
                 </Box>

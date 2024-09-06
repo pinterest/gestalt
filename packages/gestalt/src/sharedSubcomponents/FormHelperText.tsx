@@ -9,6 +9,7 @@ import useInExperiment from '../useInExperiment';
 type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
+  dataTestId?: string;
   id?: string;
   text: string | null | undefined;
   maxLength?: MaxLength | null | undefined;
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export default function FormHelperText({
+  dataTestId,
   disabled,
   id,
   currentLength,
@@ -60,7 +62,7 @@ export default function FormHelperText({
       <Flex gap={4}>
         <Flex.Item flex="grow">
           {text ? (
-            <Text color={disabled ? 'disabled' : 'subtle'} size="100">
+            <Text color={disabled ? 'disabled' : 'subtle'} dataTestId={dataTestId} size="100">
               {text}
             </Text>
           ) : null}

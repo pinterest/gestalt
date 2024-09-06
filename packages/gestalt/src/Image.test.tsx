@@ -79,3 +79,21 @@ test('Image with decoding specified matches snapshot', () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id for image', () => {
+  const component = renderer.create(
+    <Image
+      alt="foo"
+      dataTestId="test-image"
+      decoding="sync"
+      naturalHeight={50}
+      naturalWidth={50}
+      src="foo.png"
+    />,
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'img')
+      .filter((node) => node.props['data-test-id'] === 'test-image'),
+  ).toHaveLength(1);
+});

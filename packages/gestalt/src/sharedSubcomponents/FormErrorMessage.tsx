@@ -11,6 +11,7 @@ import useInExperiment from '../useInExperiment';
 type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
+  dataTestId?: string;
   id: string;
   text?: ReactNode;
   size?: SizeType;
@@ -21,6 +22,7 @@ const icon = 'workflow-status-problem';
 const color = 'error';
 
 export default function FormErrorMessage({
+  dataTestId,
   id,
   size,
   text = '',
@@ -30,6 +32,8 @@ export default function FormErrorMessage({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+  const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
 
   return (
     <div
@@ -72,6 +76,7 @@ export default function FormErrorMessage({
                 <Icon
                   accessibilityLabel=""
                   color={color}
+                  dataTestId={dataTestIdIcon}
                   icon={icon}
                   size={isInVRExperiment || size === 'sm' ? 12 : 16}
                 />

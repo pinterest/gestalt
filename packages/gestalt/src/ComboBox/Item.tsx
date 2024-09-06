@@ -17,6 +17,7 @@ export type ComboBoxItemType = {
 };
 
 type Props = {
+  dataTestId?: string;
   id: string;
   index: number;
   isHovered: boolean;
@@ -31,6 +32,7 @@ type Props = {
 const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Props>(
   function OptionItem(
     {
+      dataTestId,
       isHovered,
       id,
       index,
@@ -50,6 +52,9 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
       onSelect?.({ event, item: { label, value, subtext } });
 
     const handleOnMouseEnter = () => setHoveredItemIndex(index);
+
+    const dataTestIdSubtitle = dataTestId && `${dataTestId}-subtitle`;
+    const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
 
     return (
       <div
@@ -87,11 +92,11 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
           <div
             className={classnames(layoutStyles.flexGrow, flexStyles.Flex, layoutStyles.flexColumn)}
           >
-            <Text color="default" inline lineClamp={1}>
+            <Text color="default" dataTestId={dataTestId} inline lineClamp={1}>
               {label}
             </Text>
             {subtext && (
-              <Text color="subtle" inline lineClamp={2} size="200">
+              <Text color="subtle" dataTestId={dataTestIdSubtitle} inline lineClamp={2} size="200">
                 {subtext}
               </Text>
             )}
@@ -104,7 +109,13 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
             )}
           >
             {isSelected ? (
-              <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
+              <Icon
+                accessibilityLabel="Selected item"
+                color="default"
+                dataTestId={dataTestIdIcon}
+                icon="check"
+                size={12}
+              />
             ) : (
               <div style={{ width: '12px' }} />
             )}

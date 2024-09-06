@@ -25,6 +25,10 @@ type Props = {
    */
   crossOrigin?: 'anonymous' | 'use-credentials';
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Sends a hint to the browser specifying whether or not it is allowed to try to parallelize loading your image. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding) for more details.
    */
   decoding?: 'sync' | 'async' | 'auto';
@@ -94,6 +98,7 @@ type Props = {
 export default class Image extends PureComponent<Props> {
   static defaultProps: {
     color: string;
+    dataTestId?: string;
     fetchPriority?: 'high' | 'low' | 'auto';
     fit?: 'contain' | 'cover' | 'none';
     loading?: 'eager' | 'lazy' | 'auto';
@@ -171,6 +176,7 @@ export default class Image extends PureComponent<Props> {
       color,
       children,
       crossOrigin,
+      dataTestId,
       decoding,
       elementTiming,
       fetchPriority,
@@ -218,6 +224,7 @@ export default class Image extends PureComponent<Props> {
           alt={alt}
           className={imageStyles}
           crossOrigin={crossOrigin}
+          data-test-id={dataTestId}
           decoding={decoding}
           fetchpriority={fetchPriority}
           // @ts-expect-error - TS2322 - Type '"auto" | "lazy" | "eager" | undefined' is not assignable to type '"lazy" | "eager" | undefined'.

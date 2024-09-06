@@ -68,3 +68,27 @@ test('RadioButton with image', () => {
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id for radiogroup', () => {
+  const component = create(
+    <RadioButton
+      dataTestId="test-radiobutton"
+      disabled
+      id="id"
+      label="Outside of group"
+      onChange={() => {}}
+      size="sm"
+      value=""
+    />,
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'input')
+      .filter((node) => node.props['data-test-id'] === 'test-radiobutton-input'),
+  ).toHaveLength(1);
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test-radiobutton-label'),
+  ).toHaveLength(1);
+});

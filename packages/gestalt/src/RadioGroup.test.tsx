@@ -37,4 +37,68 @@ describe('RadioGroup', () => {
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('validate data test id for radiogroup', () => {
+    const component = create(
+      <RadioGroup
+        dataTestId="test-radio-group"
+        errorMessage="please pick one"
+        id="testingErrorEx"
+        legend="testing"
+      >
+        <RadioGroup.RadioButton
+          dataTestId="test-radio-button-0"
+          helperText="Helper"
+          id="choice-1"
+          label="Choice 1"
+          name="choice"
+          onChange={() => {}}
+          value="choice-1"
+        />
+        <RadioGroup.RadioButton
+          dataTestId="test-radio-button-1"
+          id="choice-1"
+          label="Choice 2"
+          name="choice"
+          onChange={() => {}}
+          value="choice-2"
+        />
+      </RadioGroup>,
+    ).root;
+    expect(
+      component
+        .findAll((element) => element.type === 'legend')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-group-fieldset-legend'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'input')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-0'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-0-label'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-0-helper-text'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'input')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-1'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-1-label'),
+    ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'svg')
+        .filter((node) => node.props['data-test-id'] === 'test-radio-group-fieldset-error-icon'),
+    ).toHaveLength(1);
+  });
 });

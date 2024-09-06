@@ -14,6 +14,10 @@ type Props = {
    */
   checked?: boolean;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * Indicates if the input is disabled. See the [combinations example](https://gestalt.pinterest.systems/web/radiobutton#radio-state-combos) for more details.
    */
   disabled?: boolean;
@@ -62,6 +66,7 @@ type Props = {
 const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function RadioButton(
   {
     checked = false,
+    dataTestId,
     disabled = false,
     id,
     image,
@@ -110,6 +115,10 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
 
   const { isFocusVisible } = useFocusVisible();
 
+  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
+  const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
+  const dataTestIdSubtext = dataTestId && `${dataTestId}-subtext`;
+
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
       <Label htmlFor={id}>
@@ -134,6 +143,7 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
               className={classnames(controlStyles.input, styleSize, {
                 [styles.InputEnabled]: !disabled,
               })}
+              data-test-id={dataTestIdInput}
               disabled={disabled}
               id={id}
               name={name}
@@ -159,7 +169,11 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
               }}
               paddingX={1}
             >
-              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
+              <Text
+                color={disabled ? 'subtle' : undefined}
+                dataTestId={dataTestIdLabel}
+                size={size === 'sm' ? '200' : '300'}
+              >
                 {label}
               </Text>
             </Box>
@@ -167,7 +181,11 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
         )}
         {label && subtext && (
           <Box padding={1}>
-            <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
+            <Text
+              color="subtle"
+              dataTestId={dataTestIdSubtext}
+              size={size === 'sm' ? '200' : '300'}
+            >
               {subtext}
             </Text>
           </Box>
