@@ -115,7 +115,7 @@ to prevent conflict with another CSS module */
   .react-datepicker__day--in-range:not(
     .react-datepicker__day--selected
   ):hover::before {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-range-default);
   border-radius: var(--rounding-0);
   content: "";
   display: block;
@@ -150,7 +150,7 @@ to prevent conflict with another CSS module */
   .react-datepicker__day--range-start:not(:last-child):not(
     .react-datepicker__day--range-end
   )::before {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-range-default);
   border-radius: var(--rounding-datepicker-range-start);
   content: "";
   display: block;
@@ -196,7 +196,7 @@ to prevent conflict with another CSS module */
   .react-datepicker__day--range-end:not(:first-child):not(
     .react-datepicker__day--range-start
   )::before {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-range-default);
   border-radius: var(--rounding-datepicker-range-end);
   content: "";
   display: block;
@@ -325,8 +325,12 @@ to prevent conflict with another CSS module */
   background: var(--color-background-datepicker-button-hover);
 }
 
+:global ._gestalt .react-datepicker__navigation:active  {
+  background: var(--color-background-datepicker-button-active);
+}
+
 :global ._gestalt .react-datepicker__navigation:active::before {
-  background: var(--color-background-datepicker-button-hover);
+  background: red;
   border-radius: var(--rounding-datepicker-days);
   content: "";
   display: block;
