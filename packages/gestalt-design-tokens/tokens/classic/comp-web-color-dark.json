@@ -307,6 +307,17 @@
         "container": {
           "value": "#212121"
         },
+        "range": {
+          "default": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          }
+        },
         "button": {
           "default": {
             "value": "#212121"

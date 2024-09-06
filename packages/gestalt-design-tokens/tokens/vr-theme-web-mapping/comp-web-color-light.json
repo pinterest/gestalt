@@ -233,15 +233,29 @@
         "container": {
           "value": "{base.color.grayscale.0.value}"
         },
-        "button": {
+        "range": {
           "default": {
-            "value": "{base.color.grayscale.500.value}"
+            "value": "{sema.color.background.secondary.value}"
           },
           "hover": {
-            "value": "rgba(0, 0, 0, 0.06)"
+            "value": "{sema.color.hover.background.secondary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.secondary.value}"
+          }
+        },
+        "button": {
+          "default": {
+            "value": "{sema.color.background.elevation.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
           },
           "selected": {
-            "value": "{base.color.grayscale.500.value}"
+            "value": "{sema.color.background.selected.value}"
           }
         }
       },
@@ -316,7 +330,6 @@
           }
         }
       },
-
       "switch": {
         "default": {
           "unselected": {

@@ -4,6 +4,9 @@
       "container": {
         "value": "{rounding.400.value}"
       },
+      "days": {
+        "value": "{rounding.circle.value}"
+      },
       "range": {
         "start": {
           "value": "{rounding.circle.value} {rounding.0.value} {rounding.0.value} {rounding.circle.value}"
