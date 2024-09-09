@@ -182,7 +182,6 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     [styles.readOnly]: readOnly,
   });
 
-  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
   const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
   const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
   const dataTestIdHelper = dataTestId && `${dataTestId}-helper-text`;
@@ -200,7 +199,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             aria-invalid={errorMessage ? 'true' : 'false'}
             checked={checked}
             className={inputStyles}
-            data-test-id={dataTestIdInput}
+            data-test-id={dataTestId}
             disabled={readOnly || disabled}
             id={id}
             name={name}

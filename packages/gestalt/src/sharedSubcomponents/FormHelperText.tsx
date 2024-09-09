@@ -34,6 +34,8 @@ export default function FormHelperText({
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
+  const dataTestIdMaxLength = dataTestId && `${dataTestId}-max-length`;
+
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
 
@@ -70,6 +72,7 @@ export default function FormHelperText({
         {maxLength ? (
           <FormHelperTextCounter
             currentLength={currentLength}
+            dataTestId={dataTestIdMaxLength}
             disabled={disabled}
             maxLength={maxLength}
           />

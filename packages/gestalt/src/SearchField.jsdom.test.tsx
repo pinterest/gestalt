@@ -94,7 +94,7 @@ describe('<SearchField />', () => {
         value="Search"
       />,
     );
-    expect(screen.getAllByTestId('test-searchfield-input').length).toBe(1);
+    expect(screen.getAllByTestId('test-searchfield').length).toBe(1);
     expect(screen.getAllByTestId('test-searchfield-cancel-icon').length).toBe(1);
     expect(screen.getAllByTestId('test-searchfield-error-icon').length).toBe(1);
   });

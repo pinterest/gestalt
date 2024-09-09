@@ -74,12 +74,12 @@ describe('Checkbox', () => {
         size="sm"
       />,
     );
-    expect(screen.getAllByTestId('test-checkbox-input').length).toBe(1);
+    expect(screen.getAllByTestId('test-checkbox').length).toBe(1);
     expect(screen.getAllByTestId('test-checkbox-label').length).toBe(1);
     expect(screen.getAllByTestId('test-checkbox-helper-text').length).toBe(1);
     expect(screen.getAllByTestId('test-checkbox-error-icon').length).toBe(1);
     expect(screen.getAllByTestId('test-checkbox-label').length).toBe(1);
-    screen.getByTestId('test-checkbox-input').click();
+    screen.getByTestId('test-checkbox').click();
     expect(mockOnClick).toHaveBeenCalled();
     expect(mockOnChange).toHaveBeenCalled();
     expect(screen.getAllByTestId('test-checkbox-error-icon').length).toBe(1);

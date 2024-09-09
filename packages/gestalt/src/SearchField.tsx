@@ -166,7 +166,6 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
   );
 
   const dataTestIdSearch = dataTestId && `${dataTestId}-search-icon`;
-  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
   const dataTestIdError = dataTestId && `${dataTestId}-error`;
   const dataTestIdCancel = dataTestId && `${dataTestId}-cancel-icon`;
 
@@ -209,7 +208,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
           aria-label={accessibilityLabel}
           autoComplete={autoComplete}
           className={className}
-          data-test-id={dataTestIdInput}
+          data-test-id={dataTestId}
           id={id}
           onChange={handleChange}
           onKeyDown={handleKeyDown}

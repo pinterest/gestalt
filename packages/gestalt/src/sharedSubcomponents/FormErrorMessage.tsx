@@ -72,6 +72,7 @@ export default function FormErrorMessage({
                 dangerouslySetInlineStyle={{
                   __style: isInVRExperiment ? { marginTop: '2px' } : {},
                 }}
+                data-test-id={dataTestId}
               >
                 <Icon
                   accessibilityLabel=""

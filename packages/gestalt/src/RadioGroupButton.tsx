@@ -148,7 +148,6 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     );
   }
 
-  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
   const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
   const dataTestIdBadge = dataTestId && `${dataTestId}-badge`;
   const dataTestIdHelperText = dataTestId && `${dataTestId}-helper-text`;
@@ -169,7 +168,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             className={classnames(controlStyles.input, styleSize, {
               [styles.InputEnabled]: !disabled,
             })}
-            data-test-id={dataTestIdInput}
+            data-test-id={dataTestId}
             disabled={disabled}
             id={id}
             name={name}

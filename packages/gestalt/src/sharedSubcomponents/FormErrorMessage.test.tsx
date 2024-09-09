@@ -21,5 +21,10 @@ describe('FormErrorMessage', () => {
         .findAll((element) => element.type === 'svg')
         .filter((node) => node.props['data-test-id'] === 'test-error-icon'),
     ).toHaveLength(1);
+    expect(
+      component
+        .findAll((element) => element.type === 'div')
+        .filter((node) => node.props['data-test-id'] === 'test-error'),
+    ).toHaveLength(1);
   });
 });

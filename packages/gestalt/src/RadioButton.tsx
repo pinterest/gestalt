@@ -115,7 +115,6 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
 
   const { isFocusVisible } = useFocusVisible();
 
-  const dataTestIdInput = dataTestId && `${dataTestId}-input`;
   const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
   const dataTestIdSubtext = dataTestId && `${dataTestId}-subtext`;
 
@@ -143,7 +142,7 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
               className={classnames(controlStyles.input, styleSize, {
                 [styles.InputEnabled]: !disabled,
               })}
-              data-test-id={dataTestIdInput}
+              data-test-id={dataTestId}
               disabled={disabled}
               id={id}
               name={name}

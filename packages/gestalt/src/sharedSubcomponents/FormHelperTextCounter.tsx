@@ -9,10 +9,16 @@ import useInExperiment from '../useInExperiment';
 type Props = {
   maxLength: MaxLength;
   currentLength?: number;
+  dataTestId?: string;
   disabled?: boolean;
 };
 
-export default function FormHelperTextCounter({ disabled, currentLength, maxLength }: Props) {
+export default function FormHelperTextCounter({
+  dataTestId,
+  disabled,
+  currentLength,
+  maxLength,
+}: Props) {
   const ref = useRef<null | HTMLElement>(null);
 
   const [width, setWidth] = useState<undefined | number>(undefined);
@@ -47,6 +53,8 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
     textColor = 'disabled';
   }
 
+  const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
+
   return (
     <Fragment>
       {/* This hidden container is used to calculate the width of the character tracker and prevent spacing changes on each input value changes */}
@@ -70,6 +78,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
               <Icon
                 accessibilityLabel=""
                 color={textColor}
+                dataTestId={dataTestIdIcon}
                 icon={icon}
                 size={isInVRExperiment ? 12 : 16}
               />
@@ -79,7 +88,12 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
           <Box width={isInVRExperiment ? 12 : 16} />
         )}
         <Flex justifyContent="end" width={width}>
-          <Text align="end" color={maxLengthReached || disabled ? textColor : 'subtle'} size="100">
+          <Text
+            align="end"
+            color={maxLengthReached || disabled ? textColor : 'subtle'}
+            dataTestId={dataTestId}
+            size="100"
+          >
             <Box display="visuallyHidden">,</Box>
             {`${currentLength?.toString() ?? ''}/${maxLengthChars}`}
           </Text>

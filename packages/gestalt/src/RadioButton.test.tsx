@@ -84,7 +84,7 @@ test('validate data test id for radiogroup', () => {
   expect(
     component
       .findAll((element) => element.type === 'input')
-      .filter((node) => node.props['data-test-id'] === 'test-radiobutton-input'),
+      .filter((node) => node.props['data-test-id'] === 'test-radiobutton'),
   ).toHaveLength(1);
   expect(
     component

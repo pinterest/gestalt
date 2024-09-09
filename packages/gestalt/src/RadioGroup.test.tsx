@@ -73,7 +73,7 @@ describe('RadioGroup', () => {
     expect(
       component
         .findAll((element) => element.type === 'input')
-        .filter((node) => node.props['data-test-id'] === 'test-radio-button-0-input'),
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-0'),
     ).toHaveLength(1);
     expect(
       component
@@ -88,7 +88,7 @@ describe('RadioGroup', () => {
     expect(
       component
         .findAll((element) => element.type === 'input')
-        .filter((node) => node.props['data-test-id'] === 'test-radio-button-1-input'),
+        .filter((node) => node.props['data-test-id'] === 'test-radio-button-1'),
     ).toHaveLength(1);
     expect(
       component
