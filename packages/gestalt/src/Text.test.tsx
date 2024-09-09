@@ -37,3 +37,12 @@ test('Text lineClamp should not add a title when the children are objects', () =
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id for text', () => {
+  const component = create(<Text dataTestId="test-text">Testing</Text>).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'div')
+      .filter((node) => node.props['data-test-id'] === 'test-text'),
+  ).toHaveLength(1);
+});

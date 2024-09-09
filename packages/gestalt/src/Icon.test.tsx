@@ -22,3 +22,14 @@ test('Icon flipped if its in the flip on rtl list', () => {
   const tree = create(<Icon accessibilityLabel="send" icon="send" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test('validate data test id for text', () => {
+  const component = create(
+    <Icon accessibilityLabel="send" dataTestId="test-icon" icon="send" />,
+  ).root;
+  expect(
+    component
+      .findAll((element) => element.type === 'svg')
+      .filter((node) => node.props['data-test-id'] === 'test-icon'),
+  ).toHaveLength(1);
+});

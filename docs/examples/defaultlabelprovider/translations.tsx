@@ -22,6 +22,11 @@ const labels = {
     iconAccessibilityLabelWarning: myI18nTranslator('Warning'),
     iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
   },
+  DatePicker: {
+    openCalendar: myI18nTranslator('Open calendar'),
+    previousMonth: myI18nTranslator('Navigate to previou month'),
+    nextMonth: myI18nTranslator('Navigate to next month'),
+  },
   DateRange: {
     cancelText: myI18nTranslator('Cancel'),
     applyText: myI18nTranslator('Apply'),
@@ -44,6 +49,7 @@ const labels = {
   },
   Link: {
     accessibilityNewTabLabel: myI18nTranslator('Opens a new tab'),
+    accessibilityDownloadLabel: myI18nTranslator('Downloads a file'),
   },
   Modal: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss modal'),

@@ -33,6 +33,10 @@ type Props = {
    */
   color?: IconColor;
   /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
+  /**
    * SVG icon from the Gestalt icon library to use within Icon.
    *
    * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
@@ -71,6 +75,10 @@ const flipOnRtlIconNames = [
   'arrow-start',
   'arrow-up-right',
   'compose',
+  'chevron-small-left',
+  'chevron-small-right',
+  'chevron-left-circle',
+  'chevron-right-circle',
   'directional-arrow-left',
   'directional-arrow-right',
   'flipVertical',
@@ -101,6 +109,7 @@ function Icon({
   accessibilityLabel,
   color = 'subtle',
   dangerouslySetSvgPath,
+  dataTestId,
   icon,
   inline = false,
   size = 16,
@@ -130,6 +139,7 @@ function Icon({
       aria-hidden={ariaHidden}
       aria-label={accessibilityLabel}
       className={cs}
+      data-test-id={dataTestId}
       height={size}
       role="img"
       viewBox="0 0 24 24"

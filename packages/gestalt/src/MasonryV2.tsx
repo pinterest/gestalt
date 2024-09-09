@@ -122,7 +122,7 @@ type Props<T> = {
    *
    * This is an experimental prop and may be removed in the future.
    */
-  _logTwoColWhitespace?: (arg1: number) => void;
+  _logTwoColWhitespace?: (arg1: ReadonlyArray<number>) => void;
   /**
    * Experimental prop to measure all items in one batch
    */
@@ -362,7 +362,7 @@ function useLayout<T>({
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
   heightUpdateTrigger: number;
-  _logTwoColWhitespace?: (arg1: number) => void;
+  _logTwoColWhitespace?: (arg1: ReadonlyArray<number>) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;

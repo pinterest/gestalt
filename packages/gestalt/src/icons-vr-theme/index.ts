@@ -9,6 +9,7 @@ import addCircle from './add-circle.svg';
 import addLayout from './add-layout.svg';
 import addPin from './add-pin.svg';
 import addSection from './add-section.svg';
+import addSmall from './add-small.svg';
 import adsOverview from './ads-overview.svg';
 import adsStats from './ads-stats.svg';
 import alert from './alert.svg';
@@ -42,6 +43,7 @@ import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowLeftCurved from './arrow-left-curved.svg';
 import arrowNested from './arrow-nested.svg';
+import arrowSmallUpRight from './arrow-small-up-right.svg';
 import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpLeft from './arrow-up-left.svg';
@@ -68,12 +70,22 @@ import camera from './camera.svg';
 import cameraFlip from './camera-flip.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
+import cancelSmall from './cancel-small.svg';
 import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
+import cardStack from './card-stack.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
+import checkSmall from './check-small.svg';
+import chevronDownCircle from './chevron-down-circle.svg';
+import chevronLeftCircle from './chevron-left-circle.svg';
+import chevronRightCircle from './chevron-right-circle.svg';
+import chevronSmallDown from './chevron-small-down.svg';
+import chevronSmallLeft from './chevron-small-left.svg';
+import chevronSmallRight from './chevron-small-right.svg';
+import chevronSmallUp from './chevron-small-up.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
 import circle from './circle.svg';
 import circleEllipsis from './circle-ellipsis.svg';
@@ -103,6 +115,7 @@ import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import cutout from './cutout.svg';
 import dash from './dash.svg';
+import dashSmall from './dash-small.svg';
 import dataSource from './data-source.svg';
 import design from './design.svg';
 import desktop from './desktop.svg';
@@ -128,6 +141,7 @@ import faceNeutral from './face-neutral.svg';
 import faceSad from './face-sad.svg';
 import faceSmiley from './face-smiley.svg';
 import faceSmileyOutline from './face-smiley-outline.svg';
+import faceSmileyPlus from './face-smiley-plus.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
 import fade from './fade.svg';
@@ -246,6 +260,7 @@ import reorderImages from './reorder-images.svg';
 import replace from './replace.svg';
 import report from './report.svg';
 import rewind from './rewind.svg';
+import ribbon from './ribbon.svg';
 import rocketship from './rocketship.svg';
 import rotate from './rotate.svg';
 import saturation from './saturation.svg';
@@ -298,6 +313,7 @@ import swap from './swap.svg';
 import switchAccount from './switch-account.svg';
 import table from './table.svg';
 import tag from './tag.svg';
+import tagStar from './tag-star.svg';
 import target from './target.svg';
 import template from './template.svg';
 import terms from './terms.svg';
@@ -307,6 +323,7 @@ import textAlignLeft from './text-align-left.svg';
 import textAlignRight from './text-align-right.svg';
 import textAllCaps from './text-all-caps.svg';
 import textExtraSmall from './text-extra-small.svg';
+import textInvert from './text-invert.svg';
 import textLarge from './text-large.svg';
 import textLineHeight from './text-line-height.svg';
 import textMedium from './text-medium.svg';
@@ -362,6 +379,7 @@ const icons = Object.freeze({
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
+  'add-small': addSmall,
   'ads-overview': adsOverview,
   'ads-stats': adsStats,
   'alert': alert,
@@ -395,6 +413,7 @@ const icons = Object.freeze({
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
   'arrow-nested': arrowNested,
+  'arrow-small-up-right': arrowSmallUpRight,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
@@ -421,12 +440,22 @@ const icons = Object.freeze({
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
   'cancel': cancel,
+  'cancel-small': cancelSmall,
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
+  'card-stack': cardStack,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
+  'check-small': checkSmall,
+  'chevron-down-circle': chevronDownCircle,
+  'chevron-left-circle': chevronLeftCircle,
+  'chevron-right-circle': chevronRightCircle,
+  'chevron-small-down': chevronSmallDown,
+  'chevron-small-left': chevronSmallLeft,
+  'chevron-small-right': chevronSmallRight,
+  'chevron-small-up': chevronSmallUp,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
@@ -456,6 +485,7 @@ const icons = Object.freeze({
   'crop': crop,
   'cutout': cutout,
   'dash': dash,
+  'dash-small': dashSmall,
   'data-source': dataSource,
   'design': design,
   'desktop': desktop,
@@ -481,6 +511,7 @@ const icons = Object.freeze({
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'face-smiley-outline': faceSmileyOutline,
+  'face-smiley-plus': faceSmileyPlus,
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
@@ -599,6 +630,7 @@ const icons = Object.freeze({
   'replace': replace,
   'report': report,
   'rewind': rewind,
+  'ribbon': ribbon,
   'rocketship': rocketship,
   'rotate': rotate,
   'saturation': saturation,
@@ -651,6 +683,7 @@ const icons = Object.freeze({
   'switch-account': switchAccount,
   'table': table,
   'tag': tag,
+  'tag-star': tagStar,
   'target': target,
   'template': template,
   'terms': terms,
@@ -660,6 +693,7 @@ const icons = Object.freeze({
   'text-align-right': textAlignRight,
   'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
+  'text-invert': textInvert,
   'text-large': textLarge,
   'text-line-height': textLineHeight,
   'text-medium': textMedium,

@@ -56,6 +56,7 @@ const reducer = (
 type Props = {
   accessibilityLabel?: string;
   children?: ReactNode;
+  dataTestId?: string;
   /**
    * Whether to show the tooltip or not
    */
@@ -70,6 +71,7 @@ type Props = {
 export default function InternalTooltip({
   accessibilityLabel,
   children,
+  dataTestId,
   disabled,
   link,
   idealDirection,
@@ -127,6 +129,7 @@ export default function InternalTooltip({
   };
 
   const accessibilityLabelFallback = typeof text === 'string' ? text : text.join('');
+  const dataTestIdText = dataTestId && `${dataTestId}-text`;
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
@@ -135,6 +138,7 @@ export default function InternalTooltip({
         aria-label={
           accessibilityLabel != null && !disabled ? accessibilityLabel : accessibilityLabelFallback
         }
+        data-test-id={dataTestId}
         onBlur={handleIconMouseLeave}
         onFocus={handleIconMouseEnter}
         onMouseEnter={handleIconMouseEnter}
@@ -166,7 +170,7 @@ export default function InternalTooltip({
               padding={2}
               tabIndex={0}
             >
-              <Text color="inverse" size="100">
+              <Text color="inverse" dataTestId={dataTestIdText} size="100">
                 {getTooltipText()}
               </Text>
 

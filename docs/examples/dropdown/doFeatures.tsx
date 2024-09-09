@@ -53,7 +53,7 @@ export default function CustomIconButtonPopoverExample() {
           />
           <Dropdown.Link
             href="#"
-            isExternal
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'item 3',
@@ -69,7 +69,7 @@ export default function CustomIconButtonPopoverExample() {
           <Dropdown.Link
             badge={{ text: 'New' }}
             href="#"
-            isExternal
+            iconEnd="visit"
             onClick={({ event }) => event.preventDefault()}
             option={{
               value: 'item 5',

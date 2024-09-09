@@ -6,21 +6,23 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import controlledComponentExample from '../../examples/selectlist/controlledComponentExample';
-import customLabelVisibilityExample from '../../examples/selectlist/customLabelVisibilityExample';
-import dontMixDropdownAndItemListInGroup from '../../examples/selectlist/dontMixDropdownAndItemListInGroup';
-import dontUseIfAdditionalFeaturesNeeded from '../../examples/selectlist/dontUseIfAdditionalFeaturesNeeded';
-import dontUseIfLessThanFourItems from '../../examples/selectlist/dontUseIfLessThanFourItems';
-import errorMessageExample from '../../examples/selectlist/errorMessageExample';
-import groupingRelatedOptionsExample from '../../examples/selectlist/groupingRelatedOptionsExample';
-import helperTextExample from '../../examples/selectlist/helperTextExample';
-import labelsWithBuiltInFeaturesExample from '../../examples/selectlist/labelsWithBuiltInFeaturesExample';
-import largeSizeExample from '../../examples/selectlist/largeSizeExample';
+import controlled from '../../examples/selectlist/controlled';
+import disabled from '../../examples/selectlist/disabled';
+import dontFeatures from '../../examples/selectlist/dontFeatures';
+import dontFourItems from '../../examples/selectlist/dontFourItems';
+import dontMix from '../../examples/selectlist/dontMix';
+import doOrder from '../../examples/selectlist/doOrder';
+import doSelection from '../../examples/selectlist/doSelection';
+import doSimple from '../../examples/selectlist/doSimple';
+import enabled from '../../examples/selectlist/enabled';
+import error from '../../examples/selectlist/error';
+import grouping from '../../examples/selectlist/grouping';
+import helperText from '../../examples/selectlist/helperText';
+import labelHidden from '../../examples/selectlist/labelHidden';
+import labelled from '../../examples/selectlist/labelled';
+import labelVisible from '../../examples/selectlist/labelVisible';
 import main from '../../examples/selectlist/main';
-import maintainSelectionTypeForGroup from '../../examples/selectlist/maintainSelectionTypeForGroup';
-import mediumSizeExample from '../../examples/selectlist/mediumSizeExample';
-import orderItemsByAlphabetOrUsage from '../../examples/selectlist/orderItemsByAlphabetOrUsage';
-import useForSimpleItemList from '../../examples/selectlist/useForSimpleItemList';
+import size from '../../examples/selectlist/size';
 
 export default function DocsPage({
   generatedDocGen,
@@ -76,7 +78,7 @@ export default function DocsPage({
             description="Use SelectList when the user needs to select from a simple list of items."
             sandpackExample={
               <SandpackExample
-                code={useForSimpleItemList}
+                code={doSimple}
                 hideEditor
                 layout="column"
                 name="Use For Simple Item List"
@@ -90,7 +92,7 @@ export default function DocsPage({
             description="Use SelectList when additional functionality such as subtext or images are needed. Use [Dropdown](/web/dropdown) instead."
             sandpackExample={
               <SandpackExample
-                code={dontUseIfAdditionalFeaturesNeeded}
+                code={dontFeatures}
                 hideControls
                 hideEditor
                 layout="column"
@@ -107,7 +109,7 @@ export default function DocsPage({
             description="Order the list items in SelectList either alphabetically or by usage."
             sandpackExample={
               <SandpackExample
-                code={orderItemsByAlphabetOrUsage}
+                code={doOrder}
                 hideEditor
                 layout="column"
                 name="Order Items By Alphabet or Usage"
@@ -121,7 +123,7 @@ export default function DocsPage({
             description="Use SelectList if there are fewer than 4 items in the list and there is space to display all options. Use [RadioGroup](/web/radiogroup) instead."
             sandpackExample={
               <SandpackExample
-                code={dontUseIfLessThanFourItems}
+                code={dontFourItems}
                 hideControls
                 hideEditor
                 layout="column"
@@ -138,7 +140,7 @@ export default function DocsPage({
             description="Keep the same type of selection for a group of items. An example of this might be a filter bar. If some items could use SelectList and some items need to use [Dropdown](/web/dropdown), use Dropdown for all the items in the group."
             sandpackExample={
               <SandpackExample
-                code={maintainSelectionTypeForGroup}
+                code={doSelection}
                 hideEditor
                 layout="column"
                 name="Maintain Selection Type For Group"
@@ -152,7 +154,7 @@ export default function DocsPage({
             description="Mix [Dropdown](/web/dropdown) and SelectList in a group of items."
             sandpackExample={
               <SandpackExample
-                code={dontMixDropdownAndItemListInGroup}
+                code={dontMix}
                 hideControls
                 hideEditor
                 layout="column"
@@ -173,10 +175,7 @@ export default function DocsPage({
         >
           <MainSection.Card
             sandpackExample={
-              <SandpackExample
-                code={labelsWithBuiltInFeaturesExample}
-                name="Labels with Built-in Features Example"
-              />
+              <SandpackExample code={labelVisible} name="Labels with Built-in Features Example" />
             }
           />
         </MainSection.Subsection>
@@ -207,42 +206,98 @@ export default function DocsPage({
       </MainSection>
 
       <MainSection name="Variants">
-        <MainSection.Subsection columns={2} title="Size">
+        <MainSection.Subsection
+          description="SelectList must be used as a controlled component when the `placeholder` or `value` props are needed. When used in this manner, `onChange` and `value` are required, while `placeholder` is optional."
+          title="Controlled component"
+        >
           <MainSection.Card
-            cardSize="md"
-            description={`Use \`lg\` as the recommended size within Pinterest products.`}
-            sandpackExample={
-              <SandpackExample code={largeSizeExample} layout="column" name="Large Size Example" />
-            }
-            title="Large"
-          />
-
-          <MainSection.Card
-            cardSize="md"
-            description={`Use \`md\` on denser surfaces, such as business products or internal tools.`}
-            sandpackExample={
-              <SandpackExample
-                code={mediumSizeExample}
-                layout="column"
-                name="Medium Size Example"
-              />
-            }
-            title="Medium"
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={controlled} name="Controlled example" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`In some cases, the label for a SelectList is represented in a different way visually, as demonstrated below. In these instances, you can set \`labelDisplay="hidden"\` to ensure SelectList is properly labeled for screen readers while using a different element to represent the label visually.`}
-          title="Label visibility"
+          columns={2}
+          description={`
+              Use \`lg\` as the recommended size within Pinterest products.
+              Use \`md\` on denser surfaces, such as business products or internal tools.`}
+          title="Size"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={size} layout="row" name="Size example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`
+1. Enabled
+The enabled state of Textfield that represents it can be interacted with.
+
+2. Disabled
+TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+
+3. Error
+TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest. Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.x
+`}
+          title="State"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={customLabelVisibilityExample}
-                name="CustomLabel Visibility Example"
-              />
+              <SandpackExample code={enabled} layout="column" name="Enabled example" />
             }
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={error} layout="column" name="Error message example" />
+            }
+            title="Error"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`'label' is an optional prop; however, TextField should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/textfield#Labels).
+
+1. Built-in label. Preferred. Consistent Textfield design and tested accessibility.
+
+In some cases, the label for a TextField is represented in a different way visually, as demonstrated below. We can take 2 approaches in this case.
+
+2. Labelled Textfield (Label + Textfield). This is the best approach when a custom label is needed. The label focuses the Textfield when pressed.
+
+3. Hidden built-in label (Label + Textfield). This is the best approach when there's significant visual distance between the label and the input. You can set \`labelDisplay="hidden"\` to ensure TextField is properly labeled for screen readers while using a different element to represent the label visually. The 'visual' label doesn't focus the Textfield when pressed.`}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelVisible} layout="column" name="Built-in label example" />
+            }
+            title="Built-in label"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelled} layout="column" name="Labelled example" />
+            }
+            title="Label + Textfield"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelHidden} layout="column" name="Hidden label example" />
+            }
+            title="Hidden label"
           />
         </MainSection.Subsection>
 
@@ -252,50 +307,18 @@ export default function DocsPage({
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={helperTextExample} name="Helper Text Example" />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description="SelectList must be used as a controlled component when the `placeholder` or `value` props are needed. When used in this manner, `onChange` and `value` are required, while `placeholder` is optional."
-          title="Controlled component"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={controlledComponentExample}
-                name="Controlled Component Example"
-              />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description="`errorMessage` should be used to denote an error state in SelectList and to provide a message for how the user can fix it."
-          title="Error message"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={errorMessageExample} name="Error Message Example" />
-            }
+            sandpackExample={<SandpackExample code={helperText} name="Helper Text Example" />}
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
           description="SelectList.Group can be used to group related options. Note that disabling a group disables all of its options."
-          title="Groups"
+          title="Grouping"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={groupingRelatedOptionsExample}
-                name="Grouping Related Options Example"
-              />
+              <SandpackExample code={grouping} name="Grouping Related Options Example" />
             }
           />
         </MainSection.Subsection>

@@ -6,7 +6,55 @@ import Markdown from '../../../../docs-components/Markdown';
 import Page from '../../../../docs-components/Page';
 import PageHeader from '../../../../docs-components/PageHeader';
 
+type IconName = React.ComponentProps<typeof Icon>['icon'];
 export default function FormsLayoutOverview() {
+  const RTLIcons: IconName[] = [
+    'arrow-back',
+    'arrow-forward',
+    'arrow-circle-back',
+    'arrow-circle-forward',
+    'arrow-start',
+    'arrow-end',
+    'arrow-left-curved',
+    'chevron-down-circle',
+    'chevron-left-circle',
+    'chevron-small-left',
+    'chevron-small-right',
+    'directional-arrow-left',
+    'directional-arrow-right',
+    'move-pin',
+    'reorder-images',
+    'send',
+    'visit',
+  ];
+
+  const generateIconRow = (iconName: IconName) => {
+    if (!iconName) return null;
+    return (
+      <Table.Row>
+        <Table.Cell>
+          <Text size="200">{iconName}</Text>
+        </Table.Cell>
+        <Table.Cell>
+          <Icon
+            accessibilityLabel={`${iconName.split('-').join(' ')}`}
+            color="default"
+            icon={iconName}
+          />
+        </Table.Cell>
+        <Table.Cell>
+          <div className="rotateIcon">
+            <Icon
+              accessibilityLabel={`${iconName.split('-').join(' ')} mirrored`}
+              color="default"
+              icon={iconName}
+            />
+          </div>
+        </Table.Cell>
+      </Table.Row>
+    );
+  };
+
   return (
     <Page title="Iconography">
       <PageHeader
@@ -67,245 +115,7 @@ Back and forward buttons and arrows are mirrored:
                   ))}
                 </Table.Row>
               </Table.Header>
-              <Table.Body>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-back</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="arrow back" color="default" icon="arrow-back" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow back mirrored"
-                        color="default"
-                        icon="arrow-back"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-forward</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="arrow forward" color="default" icon="arrow-forward" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow forward mirrored"
-                        color="default"
-                        icon="arrow-forward"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-circle-back</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon
-                      accessibilityLabel="arrow circle back"
-                      color="default"
-                      icon="arrow-circle-back"
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow circle back mirrored"
-                        color="default"
-                        icon="arrow-circle-back"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-circle-forward</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon
-                      accessibilityLabel="arrow circle forward"
-                      color="default"
-                      icon="arrow-circle-forward"
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow circle forward mirrored"
-                        color="default"
-                        icon="arrow-circle-forward"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-start</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="arrow start" color="default" icon="arrow-start" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow start mirrored"
-                        color="default"
-                        icon="arrow-start"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-end</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="arrow end" color="default" icon="arrow-end" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow end mirrored"
-                        color="default"
-                        icon="arrow-end"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">arrow-left-curved</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon
-                      accessibilityLabel="arrow left curved"
-                      color="default"
-                      icon="arrow-left-curved"
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="arrow left curved mirrored"
-                        color="default"
-                        icon="arrow-left-curved"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">directional-arrow-left</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon
-                      accessibilityLabel="directional arrow left"
-                      color="default"
-                      icon="directional-arrow-left"
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="directional arrow left mirrored"
-                        color="default"
-                        icon="directional-arrow-left"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">directional-arrow-right</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon
-                      accessibilityLabel="directional arrow right"
-                      color="default"
-                      icon="directional-arrow-right"
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="directional arrow right mirrored"
-                        color="default"
-                        icon="directional-arrow-right"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">move-pin</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="move pin" color="default" icon="move-pin" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="move pin mirrored"
-                        color="default"
-                        icon="move-pin"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">reorder-images</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon
-                      accessibilityLabel="reorder images"
-                      color="default"
-                      icon="reorder-images"
-                    />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon
-                        accessibilityLabel="reorder images mirrored"
-                        color="default"
-                        icon="reorder-images"
-                      />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">send</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="send" color="default" icon="send" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon accessibilityLabel="send mirrored" color="default" icon="send" />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-                <Table.Row>
-                  <Table.Cell>
-                    <Text size="200">visit</Text>
-                  </Table.Cell>
-                  <Table.Cell>
-                    <Icon accessibilityLabel="visit" color="default" icon="visit" />
-                  </Table.Cell>
-                  <Table.Cell>
-                    <div className="rotateIcon">
-                      <Icon accessibilityLabel="visit mirrored" color="default" icon="visit" />
-                    </div>
-                  </Table.Cell>
-                </Table.Row>
-              </Table.Body>
+              <Table.Body>{RTLIcons.map((iconName) => generateIconRow(iconName))}</Table.Body>
             </Table>
           </Box>
         </Box>
