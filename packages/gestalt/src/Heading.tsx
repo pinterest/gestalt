@@ -139,7 +139,7 @@ export default function Heading({
   const headingLevel =
     accessibilityLevel ||
     (!isInVRExperiment ? defaultHeadingLevels[size] : defaultHeadingLevelsVR[size]);
-    
+
   let newProps = { className: cs };
   if (id) {
     // @ts-expect-error - TS2322 - Type '{ id: string; className: string; }' is not assignable to type '{ className: string; }'.
