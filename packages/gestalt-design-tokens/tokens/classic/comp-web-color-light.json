@@ -337,6 +337,9 @@
           "hover": {
             "value": "rgba(0, 0, 0, 0.06)"
           },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
           "selected": {
             "value": "#111"
           }
