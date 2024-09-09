@@ -71,8 +71,8 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="TextCompact is available in ´default´ and ´emphasis´ weight."
-          title="Weight"
+          description="TextCompact is available in ´default´ and ´emphasis´ weight as well as in italic."
+          title="Style"
         >
           <SandpackExample code={variantStyles} name="Variants - Styles" previewHeight={200} />
         </MainSection.Subsection>
