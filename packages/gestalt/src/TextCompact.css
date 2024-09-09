@@ -1,0 +1,16 @@
+.textCompact {
+  composes: antialiased from "./Typography.css";
+  font-family: var(--sema-font-family-compact-xs);
+  font-size: var(--sema-font-size-compact-xs);
+  letter-spacing: var(--sema-font-letterspacing-compact-xs);
+  line-height: var(--sema-font-lineheight-compact-xs);
+  text-decoration: var(--sema-font-textdecoration-compact-xs-default);
+}
+
+.default {
+  font-weight: var(--sema-font-weight-compact-xs-default);
+}
+
+.emphasis {
+  font-weight: var(--sema-font-weight-compact-xs-emphasis);
+}
