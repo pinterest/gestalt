@@ -235,7 +235,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <SandpackExample
             code={variantSizes}
             layout="column"
-            name="Variants - Overflow & Truncation"
+            name="Variants - Sizes"
           />
         </MainSection.Subsection>
 

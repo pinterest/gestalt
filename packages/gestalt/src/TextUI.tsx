@@ -71,10 +71,6 @@ type Props = {
    * This populates the `title` attribute of the element, which is visible on hover in most browsers. This is useful when truncating the text with `lineClamp` when `children` is a `React.Node`. See the [Title variant](https://gestalt.pinterest.systems/web/text#Title) for more details.
    */
   title?: string;
-  /**
-   * Indicates if the text content should be underlined. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
-   */
-  underline?: boolean;
 };
 
 /**
@@ -133,11 +129,11 @@ const TextUIWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     isNotNullish(lineClamp) && typographyStyle.lineClamp,
     {
       [stylesText.Text]: !isInVRExperiment,
-      [typographyStyle.fontWeightNormal]: !isInVRExperiment,
-      [typographyStyle.fontSize100]: !isInVRExperiment && size === 'lg',
-      [typographyStyle.fontSize200]: !isInVRExperiment && size === 'md',
-      [typographyStyle.fontSize300]: !isInVRExperiment && size === 'sm',
-      [typographyStyle.fontSize400]: !isInVRExperiment && size === 'xs',
+      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment,
+      [typographyStyle.fontSize400]: !isInVRExperiment && size === 'lg',
+      [typographyStyle.fontSize300]: !isInVRExperiment && size === 'md',
+      [typographyStyle.fontSize200]: !isInVRExperiment && size === 'sm',
+      [typographyStyle.fontSize100]: !isInVRExperiment && size === 'xs',
       [styles.textUI]: isInVRExperiment,
       [styles.lg]: isInVRExperiment && size === 'lg',
       [styles.md]: isInVRExperiment && size === 'md',

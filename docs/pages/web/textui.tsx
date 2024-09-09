@@ -11,6 +11,7 @@ import variantBoxInline from '../../examples/textui/variantBoxInline';
 import variantColors from '../../examples/textui/variantColors';
 import variantOverflowTruncation from '../../examples/textui/variantOverflowTruncation';
 import variantRefs from '../../examples/textui/variantRefs';
+import variantSizes from '../../examples/textui/variantSizes';
 import variantStyles from '../../examples/textui/variantStyles';
 import variantTitle from '../../examples/textui/variantTitle';
 
@@ -18,12 +19,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
-        <SandpackExample
-          code={main}
-          hideEditor
-          name="Main TextUI example"
-          previewHeight={150}
-        />
+        <SandpackExample code={main} hideEditor name="Main TextUI example" previewHeight={150} />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -60,6 +56,15 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          description={`
+          You can apply \`size\` options to define the size of the text. These font sizes follow those available through our [Design Tokens](/foundations/design_tokens/overview#Font-size).
+        `}
+          title="Sizes"
+        >
+          <SandpackExample code={variantSizes} layout="column" name="Variants - Sizes" />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description="Gestalt provides utility options to deal with text overflow."
           title="Overflow & truncation"
         >
@@ -70,10 +75,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection
-          description="TextUI is available in ´default´ and ´emphasis´ weight."
-          title="Weight"
-        >
+        <MainSection.Subsection description="TextUI is available in italic style." title="Styles">
           <SandpackExample code={variantStyles} name="Variants - Styles" previewHeight={200} />
         </MainSection.Subsection>
 
