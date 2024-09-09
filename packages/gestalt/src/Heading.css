@@ -3,3 +3,54 @@
   margin-bottom: 0;
   margin-top: 0;
 }
+
+.HeadingVR {
+  composes: antialiased from "./Typography.css";
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.lg {
+  font-family: var(--sema-font-family-heading-lg);
+  font-size: var(--sema-font-size-heading-lg);
+  font-weight: var(--sema-font-weight-heading-lg);
+  letter-spacing: var(--sema-font-letterspacing-heading-lg);
+  line-height: var(--sema-font-lineheight-heading-lg);
+  text-decoration: var(--sema-font-textdecoration-heading-lg);
+}
+
+.md {
+  font-family: var(--sema-font-family-heading-md);
+  font-size: var(--sema-font-size-heading-md);
+  font-weight: var(--sema-font-weight-heading-md);
+  letter-spacing: var(--sema-font-letterspacing-heading-md);
+  line-height: var(--sema-font-lineheight-heading-md);
+  text-decoration: var(--sema-font-textdecoration-heading-md);
+}
+
+.sm {
+  font-family: var(--sema-font-family-heading-sm);
+  font-size: var(--sema-font-size-heading-sm);
+  font-weight: var(--sema-font-weight-heading-sm);
+  letter-spacing: var(--sema-font-letterspacing-heading-sm);
+  line-height: var(--sema-font-lineheight-heading-sm);
+  text-decoration: var(--sema-font-textdecoration-heading-sm);
+}
+
+.xs {
+  font-family: var(--sema-font-family-heading-xs);
+  font-size: var(--sema-font-size-heading-xs);
+  font-weight: var(--sema-font-weight-heading-xs);
+  letter-spacing: var(--sema-font-letterspacing-heading-xs);
+  line-height: var(--sema-font-lineheight-heading-xs);
+  text-decoration: var(--sema-font-textdecoration-heading-xs);
+}
+
+.xxs {
+  font-family: var(--sema-font-family-heading-xxs);
+  font-size: var(--sema-font-size-heading-xxs);
+  font-weight: var(--sema-font-weight-heading-xxs);
+  letter-spacing: var(--sema-font-letterspacing-heading-xxs);
+  line-height: var(--sema-font-lineheight-heading-xxs);
+  text-decoration: var(--sema-font-textdecoration-heading-xxs);
+}

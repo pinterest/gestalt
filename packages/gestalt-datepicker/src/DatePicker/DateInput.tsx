@@ -120,7 +120,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
         />
       </Box>
       <div className={styles.calendarIcon}>
-        <Box alignItems="center" display="flex" marginEnd={4} minHeight={48} position="relative">
+        <Box alignItems="center" display="flex" marginEnd={5} minHeight={48} position="relative">
           <TapArea
             fullHeight={false}
             fullWidth={false}

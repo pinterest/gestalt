@@ -339,6 +339,7 @@ function getSources({ theme, modeTheme, platform, language }) {
             `tokens/classic/comp-web-color-${modeTheme}.json`,
             `tokens/classic/comp-web-elevation-${modeTheme}.json`,
             `tokens/classic/comp-web-rounding.json`,
+            `tokens/classic/comp-web-font.json`,
           ]
         : []),
     ];
@@ -381,6 +382,8 @@ function getSources({ theme, modeTheme, platform, language }) {
           `tokens/vr-theme-web-mapping/sema-color-dataviz-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/sema-color.json',
           `tokens/vr-theme-web-mapping/comp-web-color-${modeTheme}.json`,
+          `tokens/vr-theme-web-mapping/comp-web-rounding.json`,
+          `tokens/vr-theme-web-mapping/comp-web-font.json`,
         ]
       : []),
   ];

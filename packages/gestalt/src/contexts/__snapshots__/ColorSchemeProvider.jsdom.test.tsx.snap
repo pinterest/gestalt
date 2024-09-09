@@ -256,8 +256,12 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #404040;
   --color-background-datepicker-container: #212121;
+  --color-background-datepicker-range-default: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-default: #212121;
   --color-background-datepicker-button-hover: rgba(250, 250, 250, 0.5);
+  --color-background-datepicker-button-active: rgba(250, 250, 250, 0.5);
   --color-background-datepicker-button-selected: #efefef;
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
@@ -363,6 +367,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-datepicker-container-date: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
@@ -384,6 +389,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --rounding-pill: 999px;
   --rounding-circle: 50%;
   --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 50%;
   --rounding-datepicker-range-start: 50% 0px 0px 50%;
   --rounding-datepicker-range-middle: 0px;
   --rounding-datepicker-range-end: 0px 50% 50% 0px;
@@ -699,8 +705,12 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
   --color-background-datepicker-container: #ffffff;
+  --color-background-datepicker-range-default: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-button-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-selected: #111111;
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
@@ -818,6 +828,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-datepicker-container-date: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
@@ -839,6 +850,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --rounding-pill: 999px;
   --rounding-circle: 50%;
   --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 50%;
   --rounding-datepicker-range-start: 50% 0px 0px 50%;
   --rounding-datepicker-range-middle: 0px;
   --rounding-datepicker-range-end: 0px 50% 50% 0px;
@@ -1154,8 +1166,12 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
   --color-background-datepicker-container: #ffffff;
+  --color-background-datepicker-range-default: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-button-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-selected: #111111;
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
@@ -1273,6 +1289,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-datepicker-container-date: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
@@ -1294,6 +1311,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --rounding-pill: 999px;
   --rounding-circle: 50%;
   --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 50%;
   --rounding-datepicker-range-start: 50% 0px 0px 50%;
   --rounding-datepicker-range-middle: 0px;
   --rounding-datepicker-range-end: 0px 50% 50% 0px;
@@ -1609,8 +1627,12 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
   --color-background-datepicker-container: #ffffff;
+  --color-background-datepicker-range-default: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-default: #ffffff;
   --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-button-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-selected: #111111;
   --color-background-formfield-primary: #ffffff;
   --color-background-formfield-disabled: #efefef;
@@ -1728,6 +1750,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-datepicker-container-date: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
@@ -1749,6 +1772,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --rounding-pill: 999px;
   --rounding-circle: 50%;
   --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 50%;
   --rounding-datepicker-range-start: 50% 0px 0px 50%;
   --rounding-datepicker-range-middle: 0px;
   --rounding-datepicker-range-end: 0px 50% 50% 0px;
@@ -2050,8 +2074,12 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-combobox-item-default: rgba(0, 0, 0, 0);
   --color-background-combobox-item-hover: #404040;
   --color-background-datepicker-container: #212121;
+  --color-background-datepicker-range-default: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-active: rgba(0, 0, 0, 0.06);
   --color-background-datepicker-button-default: #212121;
   --color-background-datepicker-button-hover: rgba(250, 250, 250, 0.5);
+  --color-background-datepicker-button-active: rgba(250, 250, 250, 0.5);
   --color-background-datepicker-button-selected: #efefef;
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
@@ -2157,6 +2185,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-datepicker-container-date: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: SFMono-Medium, 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
@@ -2178,6 +2207,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --rounding-pill: 999px;
   --rounding-circle: 50%;
   --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 50%;
   --rounding-datepicker-range-start: 50% 0px 0px 50%;
   --rounding-datepicker-range-middle: 0px;
   --rounding-datepicker-range-end: 0px 50% 50% 0px;
@@ -3042,8 +3072,12 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-checkbox-unchecked-default: #000000;
   --color-background-checkbox-unchecked-error: #000000;
   --color-background-datepicker-container: #212121;
+  --color-background-datepicker-range-default: #757570;
+  --color-background-datepicker-range-hover: #626260;
+  --color-background-datepicker-range-active: #585856;
   --color-background-datepicker-button-default: #212121;
-  --color-background-datepicker-button-hover: rgba(250, 250, 250, 0.5);
+  --color-background-datepicker-button-hover: #242423;
+  --color-background-datepicker-button-active: #393937;
   --color-background-datepicker-button-selected: #efefef;
   --color-background-switch-default-unselected: #000000;
   --color-background-switch-default-selected: #e8e7e1;
@@ -3083,6 +3117,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --font-family-default-latin: 'Pin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
+  --font-weight-datepicker-container-date: 500;
   --opacity-100: 0.04;
   --opacity-200: 0.2;
   --opacity-300: 0.4;
@@ -3100,6 +3135,11 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --rounding-0: 0px;
   --rounding-pill: 999px;
   --rounding-circle: 50%;
+  --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 16px;
+  --rounding-datepicker-range-start: 16px 0px 0px 16px;
+  --rounding-datepicker-range-middle: 0px;
+  --rounding-datepicker-range-end: 0px 16px 16px 0px;
   --space-100: 4px;
   --space-200: 8px;
   --space-300: 12px;
@@ -3953,8 +3993,12 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
   --color-background-datepicker-container: #ffffff;
-  --color-background-datepicker-button-default: #000000;
-  --color-background-datepicker-button-hover: rgba(0, 0, 0, 0.06);
+  --color-background-datepicker-range-default: #e8e7e1;
+  --color-background-datepicker-range-hover: #d6d4cd;
+  --color-background-datepicker-range-active: #c2c1bc;
+  --color-background-datepicker-button-default: #ffffff;
+  --color-background-datepicker-button-hover: #f8f7f2;
+  --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
@@ -3995,6 +4039,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --font-family-default-latin: 'Pin Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-code: 'SF Mono', 'Segoe UI Mono', 'Roboto Mono', 'Ubuntu Mono', Menlo, Consolas, Courier, monospace;
+  --font-weight-datepicker-container-date: 500;
   --opacity-100: 0.04;
   --opacity-200: 0.2;
   --opacity-300: 0.4;
@@ -4012,6 +4057,11 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --rounding-0: 0px;
   --rounding-pill: 999px;
   --rounding-circle: 50%;
+  --rounding-datepicker-container: 16px;
+  --rounding-datepicker-days: 16px;
+  --rounding-datepicker-range-start: 16px 0px 0px 16px;
+  --rounding-datepicker-range-middle: 0px;
+  --rounding-datepicker-range-end: 0px 16px 16px 0px;
   --space-100: 4px;
   --space-200: 8px;
   --space-300: 12px;
