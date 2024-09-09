@@ -78,6 +78,7 @@ import Text from './Text';
 import TextArea from './TextArea';
 import TextCompact from './TextCompact';
 import TextField from './TextField';
+import TextUI from './TextUI';
 import TileData from './TileData';
 import Toast from './Toast';
 import Tooltip from './Tooltip';
@@ -168,6 +169,7 @@ export {
   TextArea,
   TextCompact,
   TextField,
+  TextUI,
   TileData,
   Toast,
   Tooltip,

@@ -1,9 +1,9 @@
-import { Flex, TextCompact } from 'gestalt';
+import { Flex, TextUI } from 'gestalt';
 
 export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <TextCompact>This simple description uses the TextCompact component.</TextCompact>
+      <TextUI>This simple description uses the TextCompact component.</TextUI>
     </Flex>
   );
 }

@@ -1,26 +1,26 @@
-import { Box, Flex, TextCompact } from 'gestalt';
+import { Box, Flex, TextUI } from 'gestalt';
 
 export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Flex alignItems="start" direction="column" gap={{ column: 3, row: 0 }}>
-        <TextCompact color="default">Default</TextCompact>
-        <TextCompact color="subtle">Subtle</TextCompact>
+        <TextUI color="default">Default</TextUI>
+        <TextUI color="subtle">Subtle</TextUI>
         <Box color="inverse" padding={1}>
-          <TextCompact color="inverse">Inverse</TextCompact>
+          <TextUI color="inverse">Inverse</TextUI>
         </Box>
-        <TextCompact color="disabled">Disabled</TextCompact>
-        <TextCompact color="error">Error</TextCompact>
-        <TextCompact color="success">Success</TextCompact>
-        <TextCompact color="warning">Warning</TextCompact>
-        <TextCompact color="recommendation">Recommendation</TextCompact>
-        <TextCompact color="link">Link</TextCompact>
-        <TextCompact color="shopping">Shopping</TextCompact>
+        <TextUI color="disabled">Disabled</TextUI>
+        <TextUI color="error">Error</TextUI>
+        <TextUI color="success">Success</TextUI>
+        <TextUI color="warning">Warning</TextUI>
+        <TextUI color="recommendation">Recommendation</TextUI>
+        <TextUI color="link">Link</TextUI>
+        <TextUI color="shopping">Shopping</TextUI>
         <Box color="primary" padding={1}>
-          <TextCompact color="light">Light</TextCompact>
+          <TextUI color="light">Light</TextUI>
         </Box>
         <Box color="infoWeak" padding={1}>
-          <TextCompact color="dark">Dark</TextCompact>
+          <TextUI color="dark">Dark</TextUI>
         </Box>
       </Flex>
     </Flex>

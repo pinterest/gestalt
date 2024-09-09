@@ -1,7 +1,8 @@
 import { forwardRef, ReactElement, ReactNode } from 'react';
 import cx from 'classnames';
-import styles from './Text.css';
+import stylesText from './Text.css';
 import { semanticColors } from './textTypes';
+import styles from './TextUI.css';
 import typographyStyle from './Typography.css';
 import useInExperiment from './useInExperiment';
 
@@ -74,19 +75,15 @@ type Props = {
    * Indicates if the text content should be underlined. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
    */
   underline?: boolean;
-  /**
-   * Indicates the font weight for the text content. See the [styles variant](https://gestalt.pinterest.systems/web/text#Styles) for more details.
-   */
-  weight?: 'default' | 'emphasis';
 };
 
 /**
- * [Text](https://gestalt.pinterest.systems/web/text) component is used for all non-heading text on all surfaces, whether inside of UI components or in long-form paragraph text.
+ * [TextUI](https://gestalt.pinterest.systems/web/textui) component is used inside of UI components.
  *
- * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.ts-snapshots/Text-chromium-darwin.png)
- * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.ts-snapshots/Text-dark-chromium-darwin.png)
+ * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextUI.spec.ts-snapshots/TextUI-chromium-darwin.png)
+ * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextUI-dark.spec.ts-snapshots/TextUI-dark-chromium-darwin.png)
  */
-const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
+const TextUIWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   {
     align = 'start',
     children,
@@ -98,18 +95,15 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     overflow = 'breakWord',
     size = 'md',
     title,
-    underline = false,
-    weight = 'default',
   }: Props,
   ref,
 ): ReactElement {
-  const colorClass = semanticColors.includes(color) && styles[color];
+  const colorClass = semanticColors.includes(color) && stylesText[color];
 
-    const isInVRExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
-
 
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
@@ -125,8 +119,6 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   };
 
   const cs = cx(
-    styles.Text,
-    typographyStyle[`fontSize${size}`],
     color && colorClass,
     align === 'center' && typographyStyle.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
@@ -138,19 +130,19 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     getWordBreakStyle(),
     overflow === 'noWrap' && typographyStyle.noWrap,
     italic && typographyStyle.fontStyleItalic,
-    underline && styles.underline,
-    weight === 'bold' && typographyStyle.fontWeightSemiBold,
-    weight === 'normal' && typographyStyle.fontWeightNormal,
     isNotNullish(lineClamp) && typographyStyle.lineClamp,
-
-     {
+    {
       [stylesText.Text]: !isInVRExperiment,
-      [typographyStyle.fontSize100]: !isInVRExperiment,
-      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment && weight === 'emphasis',
-      [typographyStyle.fontWeightNormal]: !isInVRExperiment && weight === 'default',
-      [styles.textCompact]: isInVRExperiment,
-      [styles.default]: isInVRExperiment && weight === 'default',
-      [styles.emphasis]: isInVRExperiment && weight === 'emphasis',
+      [typographyStyle.fontWeightNormal]: !isInVRExperiment,
+      [typographyStyle.fontSize100]: !isInVRExperiment && size === 'lg',
+      [typographyStyle.fontSize200]: !isInVRExperiment && size === 'md',
+      [typographyStyle.fontSize300]: !isInVRExperiment && size === 'sm',
+      [typographyStyle.fontSize400]: !isInVRExperiment && size === 'xs',
+      [styles.textUI]: isInVRExperiment,
+      [styles.lg]: isInVRExperiment && size === 'lg',
+      [styles.md]: isInVRExperiment && size === 'md',
+      [styles.sm]: isInVRExperiment && size === 'sm',
+      [styles.xs]: isInVRExperiment && size === 'xs',
     },
   );
 
@@ -171,6 +163,6 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   );
 });
 
-TextWithForwardRef.displayName = 'Text';
+TextUIWithForwardRef.displayName = 'TextUI';
 
-export default TextWithForwardRef;
+export default TextUIWithForwardRef;

@@ -1,18 +1,18 @@
-import { Divider, Flex, TextCompact } from 'gestalt';
+import { Divider, Flex, TextUI } from 'gestalt';
 
 export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Flex direction="column" gap={{ column: 4, row: 0 }} width={200}>
-        <TextCompact align="start">Start (default)</TextCompact>
+        <TextUI align="start">Start (default)</TextUI>
         <Divider />
-        <TextCompact align="end">End</TextCompact>
+        <TextUI align="end">End</TextUI>
         <Divider />
-        <TextCompact align="center">Center</TextCompact>
+        <TextUI align="center">Center</TextUI>
         <Divider />
-        <TextCompact align="forceLeft">Force left</TextCompact>
+        <TextUI align="forceLeft">Force left</TextUI>
         <Divider />
-        <TextCompact align="forceRight">Force right</TextCompact>
+        <TextUI align="forceRight">Force right</TextUI>
       </Flex>
     </Flex>
   );

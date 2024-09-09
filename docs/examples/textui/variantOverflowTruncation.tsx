@@ -1,39 +1,39 @@
-import { Box, Flex, TextCompact } from 'gestalt';
+import { Box, Flex, TextUI } from 'gestalt';
 
 export default function Example() {
   return (
     <Flex height="100%" justifyContent="center" width="100%">
       <Flex direction="column" gap={{ column: 2, row: 0 }} width={200}>
-        <TextCompact>breakWord (default):</TextCompact>
+        <TextUI>breakWord (default):</TextUI>
         <Box color="secondary" padding={2} rounding={2}>
-          <TextCompact>
+          <TextUI>
             This is a long and Supercalifragilisticexpialidocious sentence.
             次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </TextCompact>
+          </TextUI>
         </Box>
 
-        <TextCompact>normal:</TextCompact>
+        <TextUI>normal:</TextUI>
         <Box color="secondary" padding={2} rounding={2}>
-          <TextCompact overflow="normal">
+          <TextUI overflow="normal">
             This is a long and Supercalifragilisticexpialidocious sentence.
             次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </TextCompact>
+          </TextUI>
         </Box>
 
-        <TextCompact>breakAll:</TextCompact>
+        <TextUI>breakAll:</TextUI>
         <Box color="secondary" padding={2} rounding={2}>
-          <TextCompact overflow="breakAll">
+          <TextUI overflow="breakAll">
             This is a long and Supercalifragilisticexpialidocious sentence.
             次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </TextCompact>
+          </TextUI>
         </Box>
 
-        <TextCompact>lineClamp:</TextCompact>
+        <TextUI>lineClamp:</TextUI>
         <Box color="secondary" padding={2} rounding={2}>
-          <TextCompact lineClamp={2}>
+          <TextUI lineClamp={2}>
             This is a long and Supercalifragilisticexpialidocious sentence.
             次の単語グレートブリテンおよび北アイルランド連合王国で本当に大きな言葉
-          </TextCompact>
+          </TextUI>
         </Box>
       </Flex>
     </Flex>

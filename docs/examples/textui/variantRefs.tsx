@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Flex, Label, Link, Switch, TextCompact } from 'gestalt';
+import { Box, Flex, Label, Link, Switch, TextUI } from 'gestalt';
 
 export default function Example() {
   const [showLongText, setShowLongText] = useState(false);
@@ -40,7 +40,7 @@ export default function Example() {
           <Box alignItems="center" display="flex">
             <Box paddingX={2}>
               <Label htmlFor="longText">
-                <TextCompact>Show long text</TextCompact>
+                <TextUI>Show long text</TextUI>
               </Label>
             </Box>
             <Switch
@@ -52,7 +52,7 @@ export default function Example() {
           <Box alignItems="center" display="flex">
             <Box paddingX={2}>
               <Label htmlFor="truncation">
-                <TextCompact>Apply truncation detection</TextCompact>
+                <TextUI>Apply truncation detection</TextUI>
               </Label>
             </Box>
             <Switch
@@ -63,7 +63,7 @@ export default function Example() {
           </Box>
         </Flex>
         <Flex direction="column">
-          <TextCompact
+          <TextUI
             ref={textRef}
             align="start"
             inline
@@ -71,18 +71,18 @@ export default function Example() {
             title={ellipsisActive && typeof veryLongText === 'string' ? veryLongText : undefined}
           >
             {showLongText ? veryLongText : text}{' '}
-            <TextCompact inline>
+            <TextUI inline>
               <Link accessibilityLabel="Visit our Help Site" display="inline" href="#">
                 Visit our Help Site
               </Link>
-            </TextCompact>
-          </TextCompact>
+            </TextUI>
+          </TextUI>
           {ellipsisActive && applyTruncationDetection ? (
-            <TextCompact>
+            <TextUI>
               <Link accessibilityLabel="Visit our Help Site" display="inline" href="#">
                 Visit our Help Site
               </Link>
-            </TextCompact>
+            </TextUI>
           ) : null}
         </Flex>
       </Flex>
