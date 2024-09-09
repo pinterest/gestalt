@@ -3,8 +3,8 @@ import { ButtonGroup, ButtonToggle, Flex } from 'gestalt';
 
 export default function Example() {
   const [saved, setSaved] = useState(false);
-  const [shared, setShared] = useState(false);
-  const [bookmarked, setBookmarked] = useState(true);
+  const [shared, setShared] = useState(true);
+  const [bookmarked, setBookmarked] = useState(false);
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">

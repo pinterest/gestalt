@@ -3,8 +3,18 @@
   composes: borderBox minWidth60 from "./Layout.css";
 }
 
+.buttonVr {
+  border: 1px solid var(--sema-color-border-interactive);
+  box-sizing: border-box;
+  min-width: 60px;
+}
+
 .rounding600 {
   border-radius: var(--rounding-600);
+}
+
+.rounding400 {
+  border-radius: var(--rounding-400);
 }
 
 .rounding300 {
@@ -28,7 +38,6 @@
 .colorPickerButton {
   composes: noBorder from "./Borders.css";
   background-color: var(--color-transparent);
-  border-radius: var(--rounding-pill);
   cursor: pointer;
   padding: 0;
 }
@@ -66,6 +75,21 @@
 .lg {
   composes: large from "./Layout.css";
   composes: paddingX4 paddingY3 from "./boxWhitespace.css";
+}
+
+.smVr {
+  min-height: 28px;
+  padding: var(--sema-space-100) var(--sema-space-200);
+}
+
+.mdVr {
+  min-height: var(--sema-space-900);
+  padding: var(--sema-space-200) var(--sema-space-300);
+}
+
+.lgVr {
+  min-height: var(--sema-space-1200);
+  padding: var(--sema-space-300) var(--sema-space-400);
 }
 
 .thumbnailSm {
