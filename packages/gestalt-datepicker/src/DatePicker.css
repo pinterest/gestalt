@@ -330,7 +330,7 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__navigation:active::before {
-  background: var(--color-background-datepicker-button-hover);
+  background: transparent;
   border-radius: var(--rounding-datepicker-days);
   content: "";
   display: block;
