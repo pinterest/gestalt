@@ -36,7 +36,7 @@ type Props = {
    */
   message: string | ReactElement;
   /**
-   * Distance (in pixels) from the viewport edge (top will be used, if desktop, bottom will be used, if mobile).
+   * Distance (in pixels) from the viewport edge (top will be used, if desktop, bottom will be used, if mobile). See the [Responsive section](https://gestalt.pinterest.systems/web/banneroverlay#Responsive) to learn more.
    */
   offset?: {
     bottom: number;
