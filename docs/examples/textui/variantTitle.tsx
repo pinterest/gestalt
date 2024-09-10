@@ -5,9 +5,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Flex alignItems="start" direction="column" gap={2}>
         <Flex alignItems="center" direction="column" gap={2}>
-          <TextUI>
-            Hover over the examples below for a few seconds to see the title text:
-          </TextUI>
+          <TextUI>Hover over the examples below for a few seconds to see the title text:</TextUI>
 
           <Box borderStyle="sm" maxWidth={400} padding={1}>
             <Flex direction="column" gap={3}>
