@@ -1,3 +1,9 @@
+## 159.4.1 (Sep 10, 2024)
+
+### Patch
+
+- Masonry: Ensure zero height items dont have a gutter ([#3742](https://github.com/pinterest/gestalt/pull/3742)) - [Preview link](https://deploy-preview-3742--gestalt.netlify.app?devexample=true)
+
 ## 159.4.0 (Sep 10, 2024)
 
 ### Minor
