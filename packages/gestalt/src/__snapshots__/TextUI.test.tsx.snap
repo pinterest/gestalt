@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextUI error adds the error color class 1`] = `
+<div
+  className="error alignStart breakWord Text fontWeightSemiBold fontSize300"
+/>
+`;
+
+exports[`TextUI lineClamp should add a title when the children are text only 1`] = `
+<div
+  className="default alignStart breakWord lineClamp Text fontWeightSemiBold fontSize300"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
+  title="Shall I compare thee to a summer's day - William Shakespeare"
+>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
+exports[`TextUI lineClamp should not add a title when the children are objects 1`] = `
+<div
+  className="default alignStart breakWord lineClamp Text fontWeightSemiBold fontSize300"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
+>
+  <div>
+    Summer reading:
+  </div>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
+exports[`TextUI renders 1`] = `
+<div
+  className="default alignStart breakWord Text fontWeightSemiBold fontSize300"
+/>
+`;
+
+exports[`TextUI size 100 adds the smallest size class 1`] = `
+<div
+  className="default alignStart breakWord Text fontWeightSemiBold fontSize100"
+/>
+`;
+
+exports[`TextUI warning adds the warning color class 1`] = `
+<div
+  className="warning alignStart breakWord Text fontWeightSemiBold fontSize300"
+/>
+`;
