@@ -46,7 +46,7 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
         }
       >
         <span
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           test
         </span>
@@ -80,12 +80,12 @@ exports[`BannerSlim renders complex message 1`] = `
         className="box"
       >
         <span
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           The campaign
            
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Back to School
           </span>
@@ -141,7 +141,7 @@ exports[`BannerSlim renders neutral type with message 1`] = `
         className="box"
       >
         <span
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           test
         </span>
@@ -197,7 +197,7 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
         }
       >
         <span
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           test
         </span>
@@ -231,7 +231,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
         className="box"
       >
         <span
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           test
         </span>
@@ -268,7 +268,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
                 className="button block accessibilityOutline tapTransition sm white enabled childrenDiv"
               >
                 <div
-                  className="Text fontSize200 default alignCenter fontWeightSemiBold"
+                  className="default alignCenter Text fontSize200 fontWeightSemiBold"
                 >
                   test
                 </div>
@@ -350,7 +350,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
         className="button block accessibilityOutline tapTransition sm white enabled childrenDiv"
       >
         <div
-          className="Text fontSize200 default alignCenter fontWeightSemiBold"
+          className="default alignCenter Text fontSize200 fontWeightSemiBold"
         >
           test
         </div>
@@ -384,12 +384,12 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
         className="box"
       >
         <span
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           test
            
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             <a
               aria-label="Learn more Pinterest.com"
