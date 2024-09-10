@@ -15,8 +15,9 @@ import {
 } from '@floating-ui/react';
 import { MainDirections } from '../utils/positioningTypes';
 
-export const DIRECTIONS_MAP: Record<MainDirections, Side | 'forceDown'> = {
+export const DIRECTIONS_MAP: Record<MainDirections, Side | 'forceDown' | 'forceRight'> = {
   down: 'bottom',
+  forceRight: 'forceRight',
   forceDown: 'forceDown',
   left: 'left',
   right: 'right',
@@ -53,7 +54,7 @@ interface Props {
   /**
    * Specifies the preferred position of Popover relative to its anchor element.
    */
-  direction?: Placement | 'forceDown';
+  direction?: Placement | 'forceDown' | 'forceRight';
   /**
    * Type of CSS position property to use.
    * Deafult is `absolute`
@@ -80,7 +81,17 @@ export default function usePopover({
   onPositioned,
 }: Props): UseFloatingReturn {
   const isForceDown = direction === 'forceDown';
-  const placement = isForceDown ? 'bottom' : direction;
+  const isForceRight = direction === 'forceRight';
+
+  let placement: Placement = 'bottom';
+
+  if (isForceDown) {
+    placement = 'bottom';
+  } else if (isForceRight) {
+    placement = 'right';
+  } else {
+    placement = direction ?? 'bottom'
+  }
 
   // #region Middlewares
 

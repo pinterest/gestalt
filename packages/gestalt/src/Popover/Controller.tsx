@@ -22,7 +22,7 @@ type Props = {
   children?: ReactNode;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
   id?: string;
-  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown' | 'forceRight';
   onDismiss: () => void;
   role?: Role;
   rounding?: 2 | 4;

@@ -1,4 +1,4 @@
-export type MainDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown';
+export type MainDirections = 'up' | 'right' | 'down' | 'left' | 'forceDown' | 'forceRight';
 
 export type PopoverDir = MainDirections | null | undefined;
 

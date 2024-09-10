@@ -18,7 +18,7 @@ type Props = {
   color?: Color;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
   id?: string;
-  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown' | 'forceRight';
   onDismiss: () => void;
   role?: Role;
   shouldFocus?: boolean;

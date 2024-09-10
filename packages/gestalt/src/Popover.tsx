@@ -38,7 +38,7 @@ type Props = {
   /**
    * Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/popover#Ideal-direction) variant to learn more.
    */
-  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown' | 'forceRight';
   /**
    * Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.
    */

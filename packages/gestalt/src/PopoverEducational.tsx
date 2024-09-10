@@ -10,7 +10,6 @@ import Text from './Text';
 import { Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
-type IdealDirection = 'up' | 'right' | 'down' | 'left';
 type Role = 'dialog' | 'tooltip';
 type PrimaryActionType =
   | {
@@ -80,7 +79,7 @@ type Props = {
   /**
    * Specifies the preferred position of PopoverEducational relative to its anchor element.
    */
-  idealDirection?: IdealDirection;
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown' | 'forceRight';
   /**
    * Callback fired when PopoverEducational is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/popovereducational#Visibility-on-page-load) to learn more.
    */

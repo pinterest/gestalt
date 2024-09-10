@@ -179,6 +179,10 @@ export function getPopoverDir({
     return 'down';
   }
 
+  if (idealDirection && idealDirection === 'forceRight') {
+    return 'right';
+  }
+
   if (
     idealDirection &&
     // @ts-expect-error - TS2367 - This condition will always return 'true' since the types '"left" | "right" | "down" | "up"' and '"forceDown"' have no overlap.

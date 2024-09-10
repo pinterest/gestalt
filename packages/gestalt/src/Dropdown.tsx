@@ -124,7 +124,7 @@ type Props = {
   /**
    * Preferred direction for the Dropdown to open.
    */
-  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown' | 'forceRight';
   /**
    *  Define a controlled size to dropdown's Popover.
    */
