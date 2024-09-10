@@ -41,6 +41,7 @@ type Props = {
   offset?: {
     bottom: number;
     top: number;
+    reverseOffset?: boolean;
   };
   /**
    * Adds an optional primary button for user interaction.
@@ -115,7 +116,7 @@ export default function BannerOverlay({
   onDismiss,
   primaryAction,
   secondaryAction,
-  offset = { top: 0, bottom: 0 },
+  offset = { top: 0, bottom: 0, reverseOffset: false },
   thumbnail,
   zIndex,
 }: Props) {
@@ -161,6 +162,14 @@ export default function BannerOverlay({
     />
   );
 
+  const getPosition: () => { bottom: number | 'unset'; top: number | 'unset' } = () => {
+    if (!offset.reverseOffset && isMobileDevice) return { bottom: offset.bottom, top: 'unset' };
+    if (!offset.reverseOffset && !isMobileDevice) return { bottom: 'unset', top: offset.top };
+    if (offset.reverseOffset && !isMobileDevice) return { bottom: offset.bottom, top: 'unset' };
+    if (offset.reverseOffset && isMobileDevice) return { bottom: 'unset', top: offset.top };
+    return { bottom: 0, top: 0 };
+  };
+
   const isMessageTextNode = checkTextNode();
   return (
     <Fragment>
@@ -172,8 +181,8 @@ export default function BannerOverlay({
           dangerouslySetInlineStyle={{
             __style: {
               position: 'fixed',
-              bottom: isMobileDevice ? offset.bottom : 'unset',
-              top: !isMobileDevice ? offset.top : 'unset',
+              bottom: getPosition().bottom,
+              top: getPosition().top,
               left: '50%',
               transform: 'translateX(-50%)',
             },
@@ -309,8 +318,8 @@ export default function BannerOverlay({
           dangerouslySetInlineStyle={{
             __style: {
               position: 'fixed',
-              bottom: isMobileDevice ? offset.bottom : 'unset',
-              top: !isMobileDevice ? offset.top : 'unset',
+              bottom: getPosition().bottom,
+              top: getPosition().top,
               left: '50%',
               transform: 'translateX(-50%)',
             },

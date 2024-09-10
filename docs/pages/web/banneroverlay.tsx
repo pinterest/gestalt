@@ -96,8 +96,14 @@ Please consider localization. "
           <MainSection.Card
             description={`Place BannerOverlay out of the way so a user can still navigate and complete tasks.
 
-<b>Please note</b>: On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
-On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
+<b>Please note</b>: On desktop devices, the BannerOverlay should appear at the top of the screen. The BannerOverlay shouldn't block navigation; therefore, it shuld be positioned below the navigation bar.
+
+On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.
+
+If both top an bottom offset are set, only the bottom offset will be used when mobile device is detected and the only top offset will be used on desktop devices.
+
+In case we need to break this design positioning rule, and place BannerOverlay at the top in mobile devices and at the bottom in desktop devices, you can set the prop 'reverseOffset' to true and invert the logic. If you want to only apply the revert on mobile, you can only prop 'reverseOffset' to true when mobile devices are detected. With this, BannerOverlay will always be positioned at the top.
+`}
             sandpackExample={<SandpackExample code={doNavigate} hideEditor name="Do - Navigate" />}
             type="do"
           />
