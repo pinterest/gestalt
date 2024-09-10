@@ -16,12 +16,6 @@
       "error": {
         "value": "{sema.color.text.error.value}"
       },
-      "hover": {
-        "value": "{sema.color.hover.text.default.value}"
-      },
-      "pressed": {
-        "value": "{sema.color.pressed.text.default.value}"
-      },
       "warning": {
         "value": "{sema.color.text.warning.value}"
       },
