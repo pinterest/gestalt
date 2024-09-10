@@ -248,6 +248,17 @@
             "value": "#9b9b9b"
           }
         },
+        "semitransparentdefault": {
+          "default": {
+            "value": "rgba(51, 51, 51, 0.8)"
+          },
+          "hover": {
+            "value": "#121212"
+          },
+          "active": {
+            "value": "#1f1f1f"
+          }
+        },
         "semitransparentwhite": {
           "default": {
             "value": "rgba(51, 51, 51, 0.8)"
@@ -296,11 +307,25 @@
         "container": {
           "value": "#212121"
         },
+        "range": {
+          "default": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          }
+        },
         "button": {
           "default": {
             "value": "#212121"
           },
           "hover": {
+            "value": "rgba(250, 250, 250, 0.5)"
+          },
+          "active": {
             "value": "rgba(250, 250, 250, 0.5)"
           },
           "selected": {

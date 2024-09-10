@@ -1,0 +1,148 @@
+.inputParent {
+  isolation: isolate;
+  position: relative;
+}
+
+.input {
+  border-radius: var(--sema-rounding-300);
+  box-sizing: border-box;
+  display: block;
+  font-weight: var(--base-font-weight-400);
+  line-height: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.visuallyHidden {
+  border: 0;
+
+  /* clip is deprecated https: //developer.mozilla.org/en-US/docs/Web/CSS/clip */
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+
+  /* clip is replaced with clip-path */
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.enabled {
+  background: var(--sema-color-background-default);
+}
+
+.disabled {
+  background-color: var(--sema-color-background-disabled);
+}
+
+.enabledText {
+  color: var(--sema-color-text-default);
+}
+
+.disabledText {
+  color: var(--sema-color-text-disabled);
+}
+
+.enabledBorder {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.errorBorder {
+  border: 1.5px solid var(--sema-color-border-error);
+}
+
+.enabledBorder:focus,
+.errorBorder:focus {
+  border: 1px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.enabledBorder:not(:focus):hover {
+  border: 1px solid var(--sema-color-hover-border-interactive);
+}
+
+.errorBorder:not(:focus):hover {
+  border: 1.5px solid var(--sema-color-hover-border-error);
+}
+
+.disabledBorder {
+  border: 1px solid var(--sema-color-border-disabled);
+}
+
+.label {
+  font-size: var(--sema-font-size-ui-xs);
+  font-weight: var(--base-font-weight-500);
+  line-height: var(--sema-font-lineheight-ui-xs);
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+/* lg */
+
+.lg_input {
+  font-size: var(--sema-font-size-ui-md);
+  min-height: 48px;
+  padding-bottom: var(--sema-space-300);
+}
+
+.lg_visibleLabel {
+  padding-top: calc(
+    var(--sema-space-400) + (var(--sema-font-size-ui-md) * 1.1)
+  );
+}
+
+.lg_noLabel {
+  padding-top: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_inputHorizontalPadding {
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .lg_inputHorizontalPadding {
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_label {
+  left: calc(var(--sema-space-400));
+  right: calc(var(--sema-space-400) + 1px);
+}
+
+html:not([dir="rtl"]) .lg_label {
+  left: calc(var(--sema-space-400) + 1px);
+  right: calc(var(--sema-space-400));
+}
+
+.lg_labelPos {
+  top: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .lg_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .lg_actionButton {
+  padding-left: var(--space-800);
+}
+
+.vr_lg_actionButtonContainer {
+  bottom: var(--sema-space-400);
+  position: absolute;
+}
+
+html:not([dir="rtl"]) .actionButtonContainer,
+html:not([dir="rtl"]) .vr_lg_actionButtonContainer {
+  right: var(--space-0);
+}
+
+html[dir="rtl"] .actionButtonContainer,
+html[dir="rtl"] .vr_lg_actionButtonContainer {
+  left: var(--space-0);
+}

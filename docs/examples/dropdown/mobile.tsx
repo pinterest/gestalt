@@ -98,7 +98,7 @@ export default function Example() {
             />
             <Dropdown.Link
               href="#"
-              isExternal
+              iconEnd="visit"
               onClick={({ event, mobileOnDismissStart }) => {
                 event.preventDefault();
                 mobileOnDismissStart();

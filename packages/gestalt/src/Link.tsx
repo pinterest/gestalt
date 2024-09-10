@@ -8,7 +8,7 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import AccessibilityOpenNewTab from './accessibility/AccessibilityOpenNewTab';
+import AccessibilityLinkActionIcon from './accessibility/AccessibilityLinkActionIcon';
 import getAriaLabel from './accessibility/getAriaLabel';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -291,7 +291,8 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       {children}
       {externalLinkIcon === 'none' ? null : (
         <Box display="inlineBlock" marginStart={1}>
-          <AccessibilityOpenNewTab
+          <AccessibilityLinkActionIcon
+            icon="visit"
             size={
               externalLinkIcon === 'default'
                 ? externalLinkIconMap['300']

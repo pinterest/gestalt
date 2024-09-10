@@ -1,3 +1,45 @@
+## 159.2.1 (Sep 9, 2024)
+
+### Patch
+
+- DatePicker: VR implementation changes ([#3737](https://github.com/pinterest/gestalt/pull/3737)) - [Preview link](https://deploy-preview-3737--gestalt.netlify.app?devexample=true)
+
+## 159.2.0 (Sep 9, 2024)
+
+### Minor
+
+- Heading: VR Implementation ([#3739](https://github.com/pinterest/gestalt/pull/3739)) - [Preview link](https://deploy-preview-3739--gestalt.netlify.app?devexample=true)
+
+## 159.1.0 (Sep 6, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8366] ([#3732](https://github.com/pinterest/gestalt/pull/3732)) - [Preview link](https://deploy-preview-3732--gestalt.netlify.app?devexample=true)
+
+## 159.0.0 (Sep 5, 2024)
+
+### Major
+
+- DatePicker: VR implementation changes ([#3717](https://github.com/pinterest/gestalt/pull/3717)) - [Preview link](https://deploy-preview-3717--gestalt.netlify.app?devexample=true)
+
+## 158.1.0 (Sep 5, 2024)
+
+### Minor
+
+- Button: VR Implementation ([#3728](https://github.com/pinterest/gestalt/pull/3728)) - [Preview link](https://deploy-preview-3728--gestalt.netlify.app?devexample=true)
+
+## 158.0.0 (Sep 5, 2024)
+
+### Major
+
+- Dropdown: replacing isExternal with iconEnd ([#3734](https://github.com/pinterest/gestalt/pull/3734)) - [Preview link](https://deploy-preview-3734--gestalt.netlify.app?devexample=true)
+
+## 157.6.1 (Sep 5, 2024)
+
+### Patch
+
+- Docs: Add promotion to accessibility training and update Pinternal resources ([#3735](https://github.com/pinterest/gestalt/pull/3735)) - [Preview link](https://deploy-preview-3735--gestalt.netlify.app?devexample=true)
+
 ## 157.6.0 (Sep 3, 2024)
 
 ### Minor

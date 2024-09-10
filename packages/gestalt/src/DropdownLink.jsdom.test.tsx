@@ -48,7 +48,7 @@ describe('Dropdown.Link', () => {
       <Dropdown.Link
         badge={{ text: 'Beta Badge' }}
         href="http://www.pinterest.com"
-        isExternal
+        iconEnd="visit"
         onClick={onClickMock}
         option={{ value: 'item 4', label: 'Item 4' }}
       />,

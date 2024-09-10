@@ -54,11 +54,13 @@ import controlled from '../../examples/datepicker/controlled';
 import disable from '../../examples/datepicker/disable';
 import disabled from '../../examples/datepicker/disabled';
 import disableSelected from '../../examples/datepicker/disableSelected';
+import enabled from '../../examples/datepicker/enabled';
 import error from '../../examples/datepicker/error';
 import helperText from '../../examples/datepicker/helperText';
 import main from '../../examples/datepicker/main';
 import preselected from '../../examples/datepicker/preselected';
 import range from '../../examples/datepicker/range';
+import readOnly from '../../examples/datepicker/readOnly';
 import selectLists from '../../examples/datepicker/selectLists';
 
 const localeMap = {
@@ -242,11 +244,33 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
         <MainSection.Subsection
           columns={2}
           description={`
-1. Disabled
-2. Error. Display an error message. Error message overrides the helper text.
+1. Enabled
+The enabled state of Textfield that represents it can be interacted with.
+
+2. Disabled
+TextFields cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+
+3. Error
+TextField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and TextField will handle the rest.
+
+4. Read-only
+Read-only TextFields are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+
         `}
           title="States"
         >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={enabled}
+                layout="column"
+                name="enabled variant"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="Enabled"
+          />
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -270,6 +294,18 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
               />
             }
             title="Error"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={readOnly}
+                layout="column"
+                name="readmonly variant"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="Read-only"
           />
         </MainSection.Subsection>
         <MainSection.Subsection title="Helper text">

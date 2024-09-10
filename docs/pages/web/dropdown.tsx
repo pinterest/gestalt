@@ -21,11 +21,11 @@ import dontSelectList from '../../examples/dropdown/dontSelectList';
 import dontTooltips from '../../examples/dropdown/dontTooltips';
 import doOrder from '../../examples/dropdown/doOrder';
 import link from '../../examples/dropdown/link';
+import localizationLabels from '../../examples/dropdown/localizationLabels';
 import main from '../../examples/dropdown/main';
 import mobile from '../../examples/dropdown/mobile';
 import sections from '../../examples/dropdown/sections';
 import subtext from '../../examples/dropdown/subtext';
-import truncation from '../../examples/dropdown/truncation';
 
 export default function ComponentPage({
   generatedDocGen,
@@ -179,7 +179,7 @@ export default function ComponentPage({
       </AccessibilitySection>
 
       <LocalizationSection
-        code={truncation}
+        code={localizationLabels}
         name={generatedDocGen?.DropdownItem?.displayName}
         notes={`
 When the text of the Dropdown.Item becomes longer than the width of the menu, either intentionally or through localization, the text will truncate at one line. Subtext will wrap as needed to display the full text.`}

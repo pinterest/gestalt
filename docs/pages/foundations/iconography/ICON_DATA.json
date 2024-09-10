@@ -31,12 +31,6 @@
       "keywords": ["promotion", "campaign"]
     },
     {
-      "name": "ar-try-on",
-      "categories": ["Utility and tools", "Time"],
-      "description": "Indicates the ability to try on an item in augmented reality.",
-      "keywords": ["augmented", "reality", "test", "fashion", "makeup"]
-    },
-    {
       "name": "ad-group",
       "categories": ["Ads and measurement"],
       "description": "Indicates a group of ads accounts",
@@ -55,12 +49,6 @@
       "keywords": ["plus circle", "create", "new"]
     },
     {
-      "name": "add-section",
-      "categories": ["Add"],
-      "description": "Indicates the ability to add or create a section of a board",
-      "keywords": ["plus", "create", "new", "section", "board"]
-    },
-    {
       "name": "add-layout",
       "categories": ["Add"],
       "description": "Indicates the ability to choose a new file and create a layout",
@@ -71,6 +59,18 @@
       "categories": ["Add"],
       "description": "Indicates the ability to send a Pin",
       "keywords": ["plus pin", "create", "new"]
+    },
+    {
+      "name": "add-section",
+      "categories": ["Add"],
+      "description": "Indicates the ability to add or create a section of a board",
+      "keywords": ["plus", "create", "new", "section", "board"]
+    },
+    {
+      "name": "add-small",
+      "categories": ["add"],
+      "description": "Indicates the ability to create or add content.",
+      "keywords": ["plus", "create", "new"]
     },
     {
       "name": "ads-overview",
@@ -181,21 +181,19 @@
       "keywords": ["list", "waffle", "grid"]
     },
     {
+      "name": "ar-try-on",
+      "categories": ["Utility and tools", "Time"],
+      "description": "Indicates the ability to try on an item in augmented reality.",
+      "keywords": ["augmented", "reality", "test", "fashion", "makeup"]
+    },
+    {
       "name": "arrow-back",
       "categories": ["Arrows", "Platform specific"],
       "description": "On iOS, indicates backward movement",
       "keywords": ["previous", "left", "chevron"]
     },
-    {
-      "name": "arrow-circle-back",
-      "categories": ["Arrows"],
-      "keywords": []
-    },
-    {
-      "name": "arrow-circle-down",
-      "categories": ["Arrows"],
-      "keywords": []
-    },
+    { "name": "arrow-circle-back", "categories": ["Arrows"], "keywords": [] },
+    { "name": "arrow-circle-down", "categories": ["Arrows"], "keywords": [] },
     {
       "name": "arrow-circle-forward",
       "categories": ["Arrows"],
@@ -244,10 +242,10 @@
       "keywords": ["back", "left", "previous", "angle"]
     },
     {
-      "name": "arrows-vertical",
+      "name": "arrow-small-up-right ",
       "categories": ["Arrows"],
-      "description": "Description pending",
-      "keywords": []
+      "description": "Indicates going to a different content/page when inside of a dropdown list.",
+      "keywords": ["angled"]
     },
     {
       "name": "arrow-start",
@@ -255,7 +253,6 @@
       "description": "Indicates the beginning of a sequence in a list of items or pages",
       "keywords": ["first", "start", "beginning", "rewind", "back", "skip"]
     },
-
     {
       "name": "arrow-up",
       "categories": ["Arrows"],
@@ -275,10 +272,10 @@
       "keywords": ["angled"]
     },
     {
-      "name": "board",
-      "categories": ["Utility and tools"],
-      "description": "Indicates a board",
-      "keywords": ["layout", "grid"]
+      "name": "arrows-vertical",
+      "categories": ["Arrows"],
+      "description": "Description pending",
+      "keywords": []
     },
     {
       "name": "bell",
@@ -291,6 +288,12 @@
       "categories": ["Utility and tools"],
       "description": "Used to suggest a birthday date",
       "keywords": ["birthdate", "celebrate", "year"]
+    },
+    {
+      "name": "board",
+      "categories": ["Utility and tools"],
+      "description": "Indicates a board",
+      "keywords": ["layout", "grid"]
     },
     {
       "name": "briefcase",
@@ -344,6 +347,12 @@
       "name": "cancel",
       "categories": ["Utility and tools"],
       "description": "Indicates closing or dismissing a message",
+      "keywords": ["close", "dismiss", "back", "x"]
+    },
+    {
+      "name": "cancel-small",
+      "categories": ["Utility and tools"],
+      "description": "Indicates closing or dismissing a message.",
       "keywords": ["close", "dismiss", "back", "x"]
     },
     {
@@ -402,19 +411,61 @@
         "user"
       ]
     },
-
+    {
+      "name": "check-small",
+      "categories": ["Status"],
+      "description": "Instead of a radio button on iOS, use the check icon. ",
+      "keywords": ["done", "completed", "success", "selected"]
+    },
+    {
+      "name": "chevron-down-circle",
+      "categories": ["arrows"],
+      "description": "Indicates ability to expand selection or navigate down.",
+      "keywords": ["expand"]
+    },
+    {
+      "name": "chevron-left-circle",
+      "categories": ["arrows"],
+      "description": "Navigate backwards or left, or to collapse something to the left.",
+      "keywords": ["back", "close", "collapse"]
+    },
+    {
+      "name": "chevron-right-circle",
+      "categories": ["arrows"],
+      "description": "Indicates the ability to open something to the right.",
+      "keywords": ["expand"]
+    },
+    {
+      "name": "chevron-small-down",
+      "categories": ["Arrows"],
+      "description": "Indicates ability to expand selection or navigate down.",
+      "keywords": ["expand"]
+    },
+    {
+      "name": "chevron-small-left",
+      "categories": ["Arrows"],
+      "description": "Navigate backwards or left, or to collapse something to the left.",
+      "keywords": ["back", "close", "collapse"]
+    },
+    {
+      "name": "chevron-small-right",
+      "categories": ["Arrows"],
+      "description": "Indicates the ability to open something to the right.",
+      "keywords": ["expand"]
+    },
+    {
+      "name": "chevron-small-up",
+      "categories": ["Arrows"],
+      "description": "Indicates an expanded content is being displayed.",
+      "keywords": ["collapse"]
+    },
     {
       "name": "chevron-up-circle",
       "categories": ["Arrows"],
       "description": "Indicates an expanded content is being displayed. Background is needed to emphasize visibility",
       "keywords": ["arrow"]
     },
-    {
-      "name": "circle",
-      "categories": [],
-      "description": "",
-      "keywords": []
-    },
+    { "name": "circle", "categories": [], "description": "", "keywords": [] },
     {
       "name": "circle-initializing",
       "categories": ["Status"],
@@ -530,6 +581,12 @@
       "keywords": ["minus", "empty", "remove"]
     },
     {
+      "name": "dash-small",
+      "categories": ["Utility and tools"],
+      "description": "Indicates there isn't data/numbers to show.",
+      "keywords": ["minus", "empty", "remove"]
+    },
+    {
       "name": "data-source",
       "categories": ["Ads and measurement", "Utility and tools"],
       "description": "Indicates a data source for API conversion insights or a general database icon",
@@ -609,6 +666,12 @@
       "keywords": ["mail", "send"]
     },
     {
+      "name": "expand",
+      "categories": [],
+      "description": "Description pending",
+      "keywords": []
+    },
+    {
       "name": "eye",
       "categories": ["Toggle"],
       "description": "Indicates the ability to view data, or convey a number of views",
@@ -619,12 +682,6 @@
       "categories": ["Toggle"],
       "description": "Indicates the ability to hide items, such as passwords or confidential information",
       "keywords": ["hide", "view", "privacy"]
-    },
-    {
-      "name": "expand",
-      "categories": [],
-      "description": "Description pending",
-      "keywords": []
     },
     {
       "name": "face-happy",
@@ -657,16 +714,16 @@
       "keywords": ["reaction", "smile", "emoji", "add"]
     },
     {
-      "name": "facebook",
-      "categories": ["Social"],
-      "description": "Indicates a Facebook service",
-      "keywords": ["logo", "social media"]
-    },
-    {
       "name": "face-tryon",
       "categories": ["Utility and tools"],
       "description": "Description pending",
       "keywords": []
+    },
+    {
+      "name": "facebook",
+      "categories": ["Social"],
+      "description": "Indicates a Facebook service",
+      "keywords": ["logo", "social media"]
     },
     {
       "name": "fade",
@@ -1437,12 +1494,6 @@
       "keywords": []
     },
     {
-      "name": "star-outline",
-      "categories": ["Reactions and ratings"],
-      "description": "Indicates the ability to add to favorites",
-      "keywords": ["favorite", "rating"]
-    },
-    {
       "name": "star",
       "categories": ["Reactions and ratings"],
       "description": "Indicates that something has been added as a favorite, or to represent a review rating",
@@ -1453,6 +1504,12 @@
       "categories": ["Reactions and ratings"],
       "description": "Indicates a half-star review rating",
       "keywords": ["rating", "review"]
+    },
+    {
+      "name": "star-outline",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates the ability to add to favorites",
+      "keywords": ["favorite", "rating"]
     },
     {
       "name": "sticker",
@@ -1489,6 +1546,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to view products and shop",
       "keywords": ["label", "shopping"]
+    },
+    {
+      "name": "tag-star",
+      "categories": ["Utility and tools"],
+      "description": "Indicates the ability to view products which have a deal associated with them.",
+      "keywords": ["label", "shopping", "deal", "indicator"]
     },
     {
       "name": "target",

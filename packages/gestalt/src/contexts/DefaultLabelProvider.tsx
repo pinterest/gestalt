@@ -47,12 +47,18 @@ export type DefaultLabelContextType = {
     noResultText: string;
     accessibilityClearButtonLabel: string;
   };
+  DatePicker: {
+    openCalendar: string;
+    previousMonth: string;
+    nextMonth: string;
+  };
   DateRange: {
     cancelText: string;
     applyText: string;
   };
   Link: {
     accessibilityNewTabLabel: string;
+    accessibilityDownloadLabel: string;
   };
   Modal: {
     accessibilityDismissButtonLabel: string;
@@ -166,12 +172,18 @@ export const fallbackLabels: DefaultLabelContextType = {
     noResultText: 'No results',
     accessibilityClearButtonLabel: 'Clear input',
   },
+  DatePicker: {
+    openCalendar: 'Open calendar',
+    previousMonth: 'Navigate to previou month',
+    nextMonth: 'Navigate to next month',
+  },
   DateRange: {
     cancelText: 'Cancel',
     applyText: 'Apply',
   },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
+    accessibilityDownloadLabel: 'Downloads a file',
   },
   Modal: {
     accessibilityDismissButtonLabel: 'Dismiss modal',
