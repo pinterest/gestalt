@@ -34,6 +34,11 @@ type Props = {
    */
   disabled?: boolean;
   /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
+  /**
    * Specifies a link URL.
    */
   href: string;
@@ -104,6 +109,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
+    focusColor,
     icon,
     iconColor,
     onClick,
@@ -171,6 +177,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         active={!disabled && isActive}
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
+        focusColor={focusColor}
         focused={isInVRExperiment && isFocused}
         hovered={!disabled && isHovered}
         icon={icon}
