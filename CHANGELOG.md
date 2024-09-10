@@ -1,3 +1,9 @@
+## 159.4.0 (Sep 10, 2024)
+
+### Minor
+
+- Text: VR implementation ([#3741](https://github.com/pinterest/gestalt/pull/3741)) - [Preview link](https://deploy-preview-3741--gestalt.netlify.app?devexample=true)
+
 ## 159.3.0 (Sep 10, 2024)
 
 ### Minor
