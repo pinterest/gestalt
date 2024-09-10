@@ -1,4 +1,4 @@
-import { Pog } from 'gestalt';
+import { Pog, useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -14,6 +14,11 @@ import states from '../../examples/pog/states';
 import statesOnBackground from '../../examples/pog/statesOnBackground';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  const isInExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title="Pog">
       <PageHeader description={generatedDocGen?.description} name="Pog">
@@ -86,17 +91,20 @@ Follow these guidelines for \`bgColor\`
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Focus ring on dark backgrounds">
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={focusOnDarkBackground}
-                name="Usage of focus ring on dark backgrounds"
-              />
-            }
-          />
-        </MainSection.Subsection>
+        {isInExperiment && (
+          <MainSection.Subsection title="Focus ring on dark backgrounds">
+            <MainSection.Card
+              cardSize="lg"
+              description="IconButtonLink can be used on dark backgrounds. The focus ring is visible on dark backgrounds to ensure accessibility."
+              sandpackExample={
+                <SandpackExample
+                  code={focusOnDarkBackground}
+                  name="Usage of focus ring on dark backgrounds"
+                />
+              }
+            />
+          </MainSection.Subsection>
+        )}
         <MainSection.Subsection title="Sizes with default padding">
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; hasCheckerboard: false; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew hasCheckerboard={false} size={['xs', 'sm', 'md', 'lg', 'xl']}>

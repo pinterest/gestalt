@@ -1,7 +1,8 @@
 import defaultStateExample from 'docs/examples/iconbutton/defaultStateExample';
 import disabledStateExample from 'docs/examples/iconbutton/disabledStateExample';
+import focusOnDarkBackground from 'docs/examples/iconbutton/focusOnDarkBackground';
 import selectedStateExample from 'docs/examples/iconbutton/selectedStateExample';
-import { IconButton, Pog } from 'gestalt';
+import { IconButton, Pog, useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -29,6 +30,11 @@ import tooltip from '../../examples/iconbutton/tooltip';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  const isInExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -219,6 +225,20 @@ It is recommended to use short labels for IconButtons, but the label will wrap u
             sandpackExample={<SandpackExample code={label} name="Label example" />}
           />
         </MainSection.Subsection>
+        {isInExperiment && (
+          <MainSection.Subsection title="Focus ring on dark backgrounds">
+            <MainSection.Card
+              cardSize="lg"
+              description="IconButtonLink can be used on dark backgrounds. The focus ring is visible on dark backgrounds to ensure accessibility."
+              sandpackExample={
+                <SandpackExample
+                  code={focusOnDarkBackground}
+                  name="Usage of focus ring on dark backgrounds"
+                />
+              }
+            />
+          </MainSection.Subsection>
+        )}
         <MainSection.Subsection
           description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
