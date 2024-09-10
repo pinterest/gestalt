@@ -1,11 +1,12 @@
 import { create } from 'react-test-renderer';
 import BannerOverlay from './BannerOverlay';
+import DeviceTypeProvider from './contexts/DeviceTypeProvider';
 import Image from './Image';
 import Link from './Link';
 import Text from './Text';
 
-describe('<BannerOverlay />', () => {
-  test('Text Only', () => {
+describe('BannerOverlay', () => {
+  test('renders Text only', () => {
     const tree = create(
       <BannerOverlay
         message="Same great profile, slightly new look. Learn more?"
@@ -15,7 +16,46 @@ describe('<BannerOverlay />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('Text + Image', () => {
+  test('renders in desktop device', () => {
+    const tree = create(
+      <DeviceTypeProvider deviceType="desktop">
+        <BannerOverlay
+          message="A description"
+          offset={{ bottom: 10, top: 15 }}
+          title="Text and Image"
+        />
+      </DeviceTypeProvider>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('renders in mobile device', () => {
+    const tree = create(
+      <DeviceTypeProvider deviceType="mobile">
+        <BannerOverlay
+          message="A description"
+          offset={{ bottom: 10, top: 15 }}
+          title="Text and Image"
+        />
+      </DeviceTypeProvider>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('renders in mobile device with reversed offset', () => {
+    const tree = create(
+      <DeviceTypeProvider deviceType="mobile">
+        <BannerOverlay
+          message="A description"
+          offset={{ bottom: 10, top: 15, reverseOffset: true }}
+          title="Text and Image"
+        />
+      </DeviceTypeProvider>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test('renders Text + Image', () => {
     const tree = create(
       <BannerOverlay
         message={
@@ -46,7 +86,7 @@ describe('<BannerOverlay />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('Text + Image + Button', () => {
+  test('renders Text + Image + Button', () => {
     const tree = create(
       <BannerOverlay
         message={
