@@ -3,7 +3,7 @@
     "badge": {
       "color": {
         "background": {
-          "info": {
+          "test": {
             "value": "{base.color.red.300}",
             "type": "color"
           }

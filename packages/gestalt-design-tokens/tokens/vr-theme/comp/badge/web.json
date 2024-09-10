@@ -77,7 +77,7 @@
           }
         },
         "background": {
-          "info": {
+          "test": {
             "value": "{base.color.orange.300}",
             "type": "color"
           }

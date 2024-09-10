@@ -68,6 +68,10 @@
               "value": "{sema.color.background.wash.light}",
               "type": "color"
             }
+          },
+          "test": {
+            "value": "{base.color.grayscale.500}",
+            "type": "color"
           }
         },
         "text": {
