@@ -1,6 +1,6 @@
 import { Cache } from './Cache';
 import Graph from './Graph';
-import { getHeightAndGutter,offscreen } from './layoutHelpers';
+import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import mindex from './mindex';
 import { NodeData, Position } from './types';
 
