@@ -24,7 +24,7 @@ export default function Caret(props: Props) {
   } else if (direction === 'forceRight') {
     path = 'right';
   } else {
-    path = PATHS[direction]
+    path = PATHS[direction];
   }
 
   return (

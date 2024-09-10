@@ -90,7 +90,7 @@ export default function usePopover({
   } else if (isForceRight) {
     placement = 'right';
   } else {
-    placement = direction ?? 'bottom'
+    placement = direction ?? 'bottom';
   }
 
   // #region Middlewares
