@@ -140,6 +140,20 @@
   margin: calc(var(--g-border-width-lg) / 2 * -1);
 }
 
+.accessibilityOutlineVr {
+  border-color: var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 2px;
+}
+
+.interactiveBorder:hover {
+  border-color: var(--color-border-button-hover);
+}
+
+.interactiveBorder:active {
+  border-color: var(--color-border-button-pressed);
+}
+
 /* COLORS */
 
 .red {
@@ -159,9 +173,9 @@
 }
 
 .transparent:hover {
-  background-color: var(--color-background-button-tertiary-hover);
+  background-color: var(--color-background-button-tertiary-default);
 }
 
 .transparent:active {
-  background-color: var(--color-background-button-tertiary-active);
+  background-color: var(--color-background-button-tertiary-default);
 }

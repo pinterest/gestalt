@@ -5,7 +5,14 @@ export default function Example() {
   const [selected, setSelected] = useState(false);
 
   return (
-    <Flex alignItems="center" direction="column" height="100%" justifyContent="center" width="100%">
+    <Flex
+      alignItems="center"
+      direction="column"
+      gap={2}
+      height="100%"
+      justifyContent="center"
+      width="100%"
+    >
       <ButtonToggle
         color={['skinTone1', 'skinTone2', 'skinTone3', 'skinTone4']}
         onClick={() => setSelected((value) => !value)}

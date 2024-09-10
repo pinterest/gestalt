@@ -35,6 +35,10 @@ type Props = {
    */
   accessibilityControls?: string;
   /**
+   * Indicates that ButtonToggle hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
+   */
+  accessibilityExpanded?: boolean;
+  /**
    * Label for screen readers to announce ButtonToggle. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
    */
   accessibilityLabel?: string;
@@ -52,6 +56,10 @@ type Props = {
    * Indicates if ButtonToggle is disabled. Disabled ButtonToggles are inactive and cannot be interacted with. See the [state variant](https://gestalt.pinterest.systems/web/buttontoggle#State) for details on proper usage.
    */
   disabled?: boolean;
+  /**
+   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
+   */
+  hasDropdown?: boolean;
   /**
    * An icon displayed above the text to illustrate the meaning of the option selected by the ButtonToggle.
    */
@@ -100,9 +108,11 @@ type Props = {
 const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonToggle(
   {
     accessibilityLabel,
+    accessibilityExpanded,
     color = 'transparent',
     dataTestId,
     disabled = false,
+    hasDropdown,
     graphicSrc,
     iconStart,
     onBlur,
@@ -158,10 +168,28 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const buttonToggleAnimation = useButtonToggleAnimation();
 
-  const sharedTypeClasses = classnames(isInVRExperiment ? styles.buttonVr : styles.button, {
-    [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-  });
+  const borderClasses = isInVRExperiment
+    ? {
+        [styles.rounding200]: size === 'sm',
+        [styles.rounding300]: size === 'md',
+        [styles.rounding400]: size === 'lg',
+      }
+    : {
+        [styles.rounding600]: !graphicSrc,
+        [styles.rounding300]: graphicSrc && size === 'lg',
+        [styles.rounding200]: graphicSrc && size === 'md',
+        [styles.rounding100]: graphicSrc && size === 'sm',
+      };
+
+  const sharedTypeClasses = classnames(
+    isInVRExperiment ? styles.buttonVr : styles.button,
+    borderClasses,
+    {
+      [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
+      [styles.accessibilityOutlineVr]: !disabled && isFocused && isFocusVisible && isInVRExperiment,
+    },
+  );
 
   // Consume GlobalEventsHandlerProvider
   const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
@@ -182,19 +210,6 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         },
   );
 
-  const borderClasses = isInVRExperiment
-    ? {
-        [styles.rounding200]: size === 'sm',
-        [styles.rounding300]: size === 'md',
-        [styles.rounding400]: size === 'lg',
-      }
-    : {
-        [styles.rounding600]: !graphicSrc,
-        [styles.rounding300]: graphicSrc && size === 'lg',
-        [styles.rounding200]: graphicSrc && size === 'md',
-        [styles.rounding100]: graphicSrc && size === 'sm',
-      };
-
   const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
 
   if (color instanceof Array) {
@@ -202,9 +217,11 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       <button
         ref={innerRef}
         aria-controls={accessibilityControls}
+        aria-expanded={accessibilityExpanded}
+        aria-haspopup={hasDropdown}
         aria-label={accessibilityLabel || text}
         aria-pressed={selected}
-        className={classnames(sharedTypeClasses, borderClasses, styles.colorPickerButton, {
+        className={classnames(borderClasses, styles.colorPickerButton, focusStyles.hideOutline, {
           [styles.colorPickerButtonDisabled]: disabled,
         })}
         data-test-id={dataTestId}
@@ -282,8 +299,9 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[color]]: !disabled && !selected,
+    [styles.interactiveBorder]: !disabled && !selected && !isFocused && color === 'transparent',
   });
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, borderClasses);
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
 
   const textColor =
     (disabled && 'disabled') ||
@@ -313,6 +331,14 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       >
         {text}
       </Text>
+      {hasDropdown && (
+        <Icon
+          accessibilityLabel="dropdown"
+          color={textColor as IconColor}
+          icon="arrow-down"
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      )}
     </Flex>
   );
 
@@ -320,6 +346,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     <button
       ref={innerRef}
       aria-controls={accessibilityControls}
+      aria-expanded={accessibilityExpanded}
+      aria-haspopup={hasDropdown}
       aria-label={accessibilityLabel || text}
       aria-pressed={selected}
       className={parentButtonClasses}
@@ -327,6 +355,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       disabled={disabled}
       onBlur={(event) => {
         handleBlur();
+        handleOnBlur();
         onBlur?.({ event });
       }}
       onClick={(event) => {
@@ -334,6 +363,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onClick?.({ event });
       }}
       onFocus={(event) => {
+        handleOnFocus();
         onFocus?.({ event });
       }}
       onKeyDown={(e) => {

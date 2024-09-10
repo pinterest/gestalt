@@ -306,6 +306,14 @@
           "value": "{sema.color.border.focus.inner.dark.value}"
         }
       },
+      "button": {
+        "hover": {
+          "value": "{sema.color.hover.border.interactive.value}"
+        },
+        "pressed": {
+          "value": "{sema.color.pressed.border.interactive.value}"
+        }
+      },
       "checkbox": {
         "checked": {
           "default": {

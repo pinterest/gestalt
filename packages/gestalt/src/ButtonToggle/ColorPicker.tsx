@@ -1,6 +1,7 @@
 import {
   TOKEN_COLOR_BACKGROUND_BUTTON_SELECTED_DEFAULT,
   TOKEN_COLOR_BORDER_DEFAULT,
+  TOKEN_COLOR_BORDER_FOCUS,
 } from 'gestalt-design-tokens';
 import styles from './ColorPicker.css';
 import Box from '../Box';
@@ -55,6 +56,9 @@ function getOutlineColor(hovered: boolean, selected: boolean, focused: boolean) 
   if (hovered && !focused) {
     return TOKEN_COLOR_BORDER_DEFAULT;
   }
+  if (focused) {
+    return TOKEN_COLOR_BORDER_FOCUS;
+  }
   return 'transparent';
 }
 
@@ -73,14 +77,12 @@ export default function ColorPicker({ colors, selected, isHovered, isFocused, si
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
   const vrFocus = isFocused && isInVRExperiment;
-  const hasBorder = isHovered || selected || vrFocus;
-  const filtersContainerHeightPx = heights[size] + (hasBorder ? outlineWidth * -2 : 0);
-  const filtersContainerWidthPx = widths[size] + (hasBorder ? outlineWidth * -2 : 0);
-  const outlineStyle = `${outlineWidth + (vrFocus ? 2 : 0)}px solid ${getOutlineColor(
-    isHovered,
-    selected,
-    isFocused,
-  )}`;
+  const hasBorder = isHovered || selected || vrFocus || isFocused;
+  const filtersContainerHeightPx = heights[size] - (hasBorder ? outlineWidth : 0);
+  const filtersContainerWidthPx = widths[size] - (hasBorder ? outlineWidth : 0);
+  const outlineStyle = `${
+    outlineWidth + ((selected && isFocused) || (!isInVRExperiment && isFocused) ? 2 : 0)
+  }px solid ${getOutlineColor(isHovered, selected, isFocused)}`;
 
   return (
     <Box
@@ -91,8 +93,8 @@ export default function ColorPicker({ colors, selected, isHovered, isFocused, si
           ? {
               __style: {
                 outline: outlineStyle,
-                outlineOffset: outlineWidth,
-                margin: outlineWidth,
+                outlineOffset: isInVRExperiment || !isFocused ? outlineWidth : 0,
+                margin: outlineWidth / 2,
               },
             }
           : undefined

@@ -17,6 +17,7 @@ import confirmationDo from '../../examples/buttontoggle/confirmationDo';
 import consistencyDo from '../../examples/buttontoggle/consistencyDo';
 import defaultState from '../../examples/buttontoggle/default';
 import disabled from '../../examples/buttontoggle/disabled';
+import dropdown from '../../examples/buttontoggle/dropdown';
 import icon from '../../examples/buttontoggle/icon';
 import localization from '../../examples/buttontoggle/localization';
 import locationDo from '../../examples/buttontoggle/locationDo';
@@ -184,6 +185,23 @@ This variant also changes the shape of the ButtonToggle.
               <SandpackExample
                 code={thumbnail}
                 name="Thumbnail buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+The ButtonToggle can be used as a dropdown trigger by setting the \`hasDropdown\` prop to \`true\`.
+`}
+          title="Dropdown"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={dropdown}
+                name="Dropdown buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
