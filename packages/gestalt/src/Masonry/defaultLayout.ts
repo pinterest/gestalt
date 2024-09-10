@@ -1,5 +1,5 @@
 import { Cache } from './Cache';
-import { getHeightAndGutter,offscreen } from './layoutHelpers';
+import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
