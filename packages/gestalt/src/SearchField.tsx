@@ -165,13 +165,22 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     errorMessage ? formElement.errored : formElement.normal,
   );
 
+  const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
   const dataTestIdSearch = dataTestId && `${dataTestId}-search-icon`;
   const dataTestIdError = dataTestId && `${dataTestId}-error`;
   const dataTestIdCancel = dataTestId && `${dataTestId}-cancel-icon`;
 
   return (
     <span>
-      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} />}
+      {label && (
+        <FormLabel
+          dataTestId={dataTestIdLabel}
+          id={id}
+          label={label}
+          labelDisplay={labelDisplay}
+          size={size}
+        />
+      )}
       <Box
         alignItems="center"
         display="flex"

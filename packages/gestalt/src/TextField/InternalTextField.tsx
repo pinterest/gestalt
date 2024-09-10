@@ -230,6 +230,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     ariaDescribedby = `${id}-helperText`;
   }
 
+  const dataTestIdLabel = dataTestId && `${dataTestId}-label`;
   const dataTestIdError = dataTestId && `${dataTestId}-error`;
   const dataTestIdHelperText = dataTestId && `${dataTestId}-helper-text`;
 
@@ -276,7 +277,15 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   return (
     <span>
-      {label && <FormLabel id={id} label={label} labelDisplay={labelDisplay} size={size} />}
+      {label && (
+        <FormLabel
+          dataTestId={dataTestIdLabel}
+          id={id}
+          label={label}
+          labelDisplay={labelDisplay}
+          size={size}
+        />
+      )}
 
       <Box position="relative">
         {tags ? (

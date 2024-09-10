@@ -5,6 +5,7 @@ import Text from '../Text';
 type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
+  dataTestId?: string;
   id: string;
   label: string;
   labelDisplay?: 'visible' | 'hidden';
@@ -14,13 +15,15 @@ type Props = {
 const applyDensityStyle = (size?: SizeType) =>
   size === 'lg' ? styles.formLabelLarge : styles.formLabel;
 
-export default function FormLabel({ id, label, labelDisplay, size }: Props) {
+export default function FormLabel({ dataTestId, id, label, labelDisplay, size }: Props) {
   const cs = applyDensityStyle(size);
 
   return (
     <InternalLabel _labelDisplay={labelDisplay} htmlFor={id}>
       <div className={cs}>
-        <Text size="100">{label}</Text>
+        <Text dataTestId={dataTestId} size="100">
+          {label}
+        </Text>
       </div>
     </InternalLabel>
   );
