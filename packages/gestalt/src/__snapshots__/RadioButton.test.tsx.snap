@@ -46,7 +46,7 @@ exports[`RadioButton 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           Name
         </div>
@@ -138,7 +138,7 @@ exports[`RadioButton disabled 1`] = `
         }
       >
         <div
-          className="Text fontSize300 subtle alignStart breakWord fontWeightNormal"
+          className="subtle alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           Name
         </div>
@@ -194,7 +194,7 @@ exports[`RadioButton disabled small 1`] = `
         }
       >
         <div
-          className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
+          className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Name
         </div>
@@ -250,7 +250,7 @@ exports[`RadioButton small 1`] = `
         }
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Name
         </div>
@@ -333,7 +333,7 @@ exports[`RadioButton with image 1`] = `
         }
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Name
         </div>
@@ -389,7 +389,7 @@ exports[`RadioButton with subtext 1`] = `
         }
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Name
         </div>
@@ -399,7 +399,7 @@ exports[`RadioButton with subtext 1`] = `
       className="box paddingX1 paddingY1"
     >
       <div
-        className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
+        className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
       >
         More Info
       </div>

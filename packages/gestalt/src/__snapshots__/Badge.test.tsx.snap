@@ -14,7 +14,7 @@ exports[`Badge renders 1`] = `
         className="box contentCenter xsDisplayFlex"
       >
         <span
-          className="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
+          className="inverse alignStart breakWord Text fontSize200 fontWeightSemiBold"
         >
           Badge
         </span>

@@ -2,6 +2,78 @@
   composes: antialiased sansSerif from "./Typography.css";
 }
 
+.TextBody {
+  composes: antialiased from "./Typography.css";
+}
+
+.lg {
+  font-family: var(--sema-font-family-body-lg);
+  font-size: var(--sema-font-size-body-lg);
+  letter-spacing: var(--sema-font-letterspacing-body-lg);
+  line-height: var(--sema-font-lineheight-body-lg);
+}
+
+.lgDefault {
+  font-weight: var(--sema-font-weight-body-lg-default);
+  text-decoration: var(--sema-font-textdecoration-body-lg-default);
+}
+
+.lgEmphasis {
+  font-weight: var(--sema-font-weight-body-lg-emphasis);
+  text-decoration: var(--sema-font-textdecoration-body-lg-emphasis);
+}
+
+.md {
+  font-family: var(--sema-font-family-body-md);
+  font-size: var(--sema-font-size-body-md);
+  letter-spacing: var(--sema-font-letterspacing-body-md);
+  line-height: var(--sema-font-lineheight-body-md);
+}
+
+.mdDefault {
+  font-weight: var(--sema-font-weight-body-md-default);
+  text-decoration: var(--sema-font-textdecoration-body-md-default);
+}
+
+.mdEmphasis {
+  font-weight: var(--sema-font-weight-body-md-emphasis);
+  text-decoration: var(--sema-font-textdecoration-body-md-emphasis);
+}
+
+.sm {
+  font-family: var(--sema-font-family-body-sm);
+  font-size: var(--sema-font-size-body-sm);
+  letter-spacing: var(--sema-font-letterspacing-body-sm);
+  line-height: var(--sema-font-lineheight-body-sm);
+}
+
+.smDefault {
+  font-weight: var(--sema-font-weight-body-sm-default);
+  text-decoration: var(--sema-font-textdecoration-body-sm-default);
+}
+
+.smEmphasis {
+  font-weight: var(--sema-font-weight-body-sm-emphasis);
+  text-decoration: var(--sema-font-textdecoration-body-sm-emphasis);
+}
+
+.xs {
+  font-family: var(--sema-font-family-body-xs);
+  font-size: var(--sema-font-size-body-xs);
+  letter-spacing: var(--sema-font-letterspacing-body-xs);
+  line-height: var(--sema-font-lineheight-body-xs);
+}
+
+.xsDefault {
+  font-weight: var(--sema-font-weight-body-xs-default);
+  text-decoration: var(--sema-font-textdecoration-body-xs-default);
+}
+
+.xsEmphasis {
+  font-weight: var(--sema-font-weight-body-xs-emphasis);
+  text-decoration: var(--sema-font-textdecoration-body-xs-emphasis);
+}
+
 /* Link management */
 
 .noOutline {

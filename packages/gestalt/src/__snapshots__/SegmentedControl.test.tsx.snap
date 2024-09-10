@@ -18,7 +18,7 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize300 default alignCenter breakWord fontWeightSemiBold"
+      className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
     >
       News
     </div>
@@ -36,7 +36,7 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize300 default alignCenter breakWord fontWeightSemiBold"
+      className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
     >
       You
     </div>
@@ -54,7 +54,7 @@ exports[`SegmentedControl renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize300 default alignCenter breakWord fontWeightSemiBold"
+      className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
     >
       Messages
     </div>
@@ -98,7 +98,7 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize300 default alignCenter breakWord fontWeightSemiBold"
+      className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
     >
       Short
     </div>
@@ -116,7 +116,7 @@ exports[`SegmentedControl with responsive widths renders 1`] = `
     type="button"
   >
     <div
-      className="Text fontSize300 default alignCenter breakWord fontWeightSemiBold"
+      className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
     >
       Really really really long title
     </div>

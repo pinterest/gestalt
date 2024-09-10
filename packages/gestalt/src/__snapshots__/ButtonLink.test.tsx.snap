@@ -28,7 +28,7 @@ exports[`ButtonLink renders 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignCenter fontWeightSemiBold"
+        className="default alignCenter Text fontSize300 fontWeightSemiBold"
       >
         Visit Pinterest
       </div>
@@ -77,7 +77,7 @@ exports[`ButtonLink renders disabled 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 disabled alignCenter fontWeightSemiBold"
+        className="disabled alignCenter Text fontSize300 fontWeightSemiBold"
       >
         Visit Pinterest
       </div>
@@ -128,7 +128,7 @@ exports[`ButtonLink renders with icon on the right 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignCenter fontWeightSemiBold"
+        className="default alignCenter Text fontSize300 fontWeightSemiBold"
       >
         Visit Pinterest
       </div>

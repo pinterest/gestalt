@@ -44,7 +44,7 @@ exports[`<BannerCallout /> Error BannerCallout 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever error bannercallout message here
           </div>
@@ -99,7 +99,7 @@ exports[`<BannerCallout /> Info BannerCallout 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever info bannercallout message here
           </div>
@@ -154,7 +154,7 @@ exports[`<BannerCallout /> Warning BannerCallout 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever warning bannercallout message here
           </div>
@@ -212,18 +212,18 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               You've sent an invite
             </div>
           </div>
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             You have invited
              
             <span
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Leaf Media Agency
             </span>
@@ -258,7 +258,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
             className="button block accessibilityOutline tapTransition lg transparent enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 default alignCenter fontWeightSemiBold"
+              className="default alignCenter Text fontSize300 fontWeightSemiBold"
             >
               Cancel invite
             </div>
@@ -287,7 +287,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
             className="button block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 default alignCenter fontWeightSemiBold"
+              className="default alignCenter Text fontSize300 fontWeightSemiBold"
             >
               Resend invite
             </div>
@@ -395,13 +395,13 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever info bannercallout message here
           </div>
@@ -441,7 +441,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 default alignCenter fontWeightSemiBold"
+                className="default alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -550,13 +550,13 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever info bannercallout message here
           </div>
@@ -596,7 +596,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 default alignCenter fontWeightSemiBold"
+                className="default alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Learn more
               </div>
@@ -634,7 +634,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 default alignCenter fontWeightSemiBold"
+                className="default alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -694,13 +694,13 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever info bannercallout message here
           </div>
@@ -740,7 +740,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 default alignCenter fontWeightSemiBold"
+                className="default alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -800,13 +800,13 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever info bannercallout message here
           </div>
@@ -838,7 +838,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
             className="button block accessibilityOutline tapTransition lg white enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 default alignCenter fontWeightSemiBold"
+              className="default alignCenter Text fontSize300 fontWeightSemiBold"
             >
               Visit Pinterest
             </div>
@@ -897,13 +897,13 @@ exports[`<BannerCallout /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever info bannercallout message here
           </div>
