@@ -618,13 +618,13 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
           </div>
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
             style={
               Object {
                 "WebkitLineClamp": 2,
@@ -675,7 +675,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
@@ -684,7 +684,7 @@ Array [
             className="box marginBottom2"
           >
             <span
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+              className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 2,
@@ -741,13 +741,13 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
           </div>
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
             style={
               Object {
                 "WebkitLineClamp": 2,
@@ -798,7 +798,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
@@ -807,7 +807,7 @@ Array [
             className="box marginBottom2"
           >
             <span
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+              className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 2,
@@ -864,13 +864,13 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
           </div>
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
             style={
               Object {
                 "WebkitLineClamp": 2,
@@ -921,7 +921,7 @@ Array [
             className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
@@ -930,7 +930,7 @@ Array [
             className="box marginBottom2"
           >
             <span
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+              className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 2,
