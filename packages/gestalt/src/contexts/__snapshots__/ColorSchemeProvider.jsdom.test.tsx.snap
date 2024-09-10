@@ -552,8 +552,6 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-success: #005f3e;
   --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
-  --color-text-hover: #111111;
-  --color-text-pressed: #111111;
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-dark: #111111;
@@ -1013,8 +1011,6 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-success: #005f3e;
   --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
-  --color-text-hover: #111111;
-  --color-text-pressed: #111111;
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-dark: #111111;
@@ -1474,8 +1470,6 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-success: #005f3e;
   --color-text-disabled: #a5a5a5;
   --color-text-error: #cc0000;
-  --color-text-hover: #111111;
-  --color-text-pressed: #111111;
   --color-text-warning: #bd5b00;
   --color-text-inverse: #ffffff;
   --color-text-dark: #111111;

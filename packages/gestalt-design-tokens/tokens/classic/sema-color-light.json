@@ -16,12 +16,6 @@
       "error": {
         "value": "{color.red.pushpin.500.value}"
       },
-      "hover": {
-        "value": "{color.black.cosmicore.900.value}"
-      },
-      "pressed": {
-        "value": "{color.black.cosmicore.900.value}"
-      },
       "warning": {
         "value": "{color.yellow.caramellow.500.value}"
       },

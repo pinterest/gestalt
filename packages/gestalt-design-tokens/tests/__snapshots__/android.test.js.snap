@@ -316,8 +316,6 @@ Object {
   <color name=\\"color_text_success\\">@color/color_green_matchacado_600</color>
   <color name=\\"color_text_disabled\\">@color/color_gray_roboflow_400</color>
   <color name=\\"color_text_error\\">@color/color_red_pushpin_500</color>
-  <color name=\\"color_text_hover\\">@color/color_black_cosmicore_900</color>
-  <color name=\\"color_text_pressed\\">@color/color_black_cosmicore_900</color>
   <color name=\\"color_text_warning\\">@color/color_yellow_caramellow_500</color>
   <color name=\\"color_text_inverse\\">@color/color_white_mochimalist_0</color>
   <color name=\\"color_text_dark\\">@color/color_black_cosmicore_900</color>

@@ -195,8 +195,6 @@ public enum GestaltTokensColor {
     public static let textDark = blackCosmicore900
     public static let textInverse = whiteMochimalist0
     public static let textWarning = yellowCaramellow500
-    public static let textPressed = blackCosmicore900
-    public static let textHover = blackCosmicore900
     public static let textError = redPushpin500
     public static let textDisabled = grayRoboflow400
     public static let textSuccess = greenMatchacado600

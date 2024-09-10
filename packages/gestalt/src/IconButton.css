@@ -34,11 +34,11 @@
 .activeText div {
   /* Ensure the disabled color is used */
   /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-text-pressed) !important;
+  color: var(--sema-color-pressed-text-default) !important;
 }
 
 .hoverText div {
   /* Ensure the disabled color is used */
   /* stylelint-disable-next-line declaration-no-important */
-  color: var(--color-text-hover) !important;
+  color: var(--sema-color-hover-text-default) !important;
 }
