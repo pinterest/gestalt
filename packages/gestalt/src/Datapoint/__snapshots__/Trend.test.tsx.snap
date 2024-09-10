@@ -25,7 +25,7 @@ exports[`DatapointTrend renders 1`] = `
     className="FlexItem"
   >
     <div
-      className="Text fontSize200 success alignStart breakWord fontWeightSemiBold"
+      className="success alignStart breakWord Text fontSize200 fontWeightSemiBold"
     >
       30%
     </div>
@@ -58,7 +58,7 @@ exports[`DatapointTrend renders an accessibility label 1`] = `
     className="FlexItem"
   >
     <div
-      className="Text fontSize200 success alignStart breakWord fontWeightSemiBold"
+      className="success alignStart breakWord Text fontSize200 fontWeightSemiBold"
     >
       30%
     </div>

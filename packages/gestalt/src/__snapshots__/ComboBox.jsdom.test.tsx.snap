@@ -20,7 +20,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
             class="formLabel"
           >
             <div
-              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
+              class="default alignStart breakWord Text fontSize100 fontWeightNormal"
             >
               label
             </div>
@@ -100,7 +100,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
+              class="default alignStart breakWord Text fontSize100 fontWeightNormal"
             >
               label
             </div>
@@ -126,7 +126,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="ey / em"
                   >
                     ey / em
@@ -174,7 +174,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="he / him"
                   >
                     he / him
@@ -222,7 +222,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="ne / nem"
                   >
                     ne / nem
@@ -270,7 +270,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="she / her"
                   >
                     she / her
@@ -318,7 +318,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="they / them"
                   >
                     they / them
@@ -366,7 +366,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="ve / ver"
                   >
                     ve / ver
@@ -414,7 +414,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="xe / xem"
                   >
                     xe / xem
@@ -462,7 +462,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="xie / xem"
                   >
                     xie / xem
@@ -510,7 +510,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
                   style="height: 100%;"
                 >
                   <span
-                    class="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+                    class="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
                     title="zie / zem"
                   >
                     zie / zem
@@ -625,7 +625,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
+              class="default alignStart breakWord Text fontSize100 fontWeightNormal"
             >
               label
             </div>
@@ -705,7 +705,7 @@ exports[`ComboBox Uncontrolled ComboBox renders disabled state 1`] = `
             class="formLabel"
           >
             <div
-              class="Text fontSize100 default alignStart breakWord fontWeightNormal"
+              class="default alignStart breakWord Text fontSize100 fontWeightNormal"
             >
               label
             </div>

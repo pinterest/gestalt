@@ -1,3 +1,21 @@
+## 159.4.1 (Sep 10, 2024)
+
+### Patch
+
+- Masonry: Ensure zero height items dont have a gutter ([#3742](https://github.com/pinterest/gestalt/pull/3742)) - [Preview link](https://deploy-preview-3742--gestalt.netlify.app?devexample=true)
+
+## 159.4.0 (Sep 10, 2024)
+
+### Minor
+
+- Text: VR implementation ([#3741](https://github.com/pinterest/gestalt/pull/3741)) - [Preview link](https://deploy-preview-3741--gestalt.netlify.app?devexample=true)
+
+## 159.3.0 (Sep 10, 2024)
+
+### Minor
+
+- TextUI, TextCompact: new components in classic & Visual Refresh ([#3740](https://github.com/pinterest/gestalt/pull/3740)) - [Preview link](https://deploy-preview-3740--gestalt.netlify.app?devexample=true)
+
 ## 159.2.1 (Sep 9, 2024)
 
 ### Patch

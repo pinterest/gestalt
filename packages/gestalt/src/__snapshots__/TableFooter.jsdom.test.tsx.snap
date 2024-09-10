@@ -27,7 +27,7 @@ exports[`Table.Footer renders correctly 1`] = `
               class="td"
             >
               <div
-                class="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+                class="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
               >
                 Total
               </div>
@@ -67,7 +67,7 @@ exports[`Table.Footer sticky footer renders correctly 1`] = `
               class="td"
             >
               <div
-                class="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+                class="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
               >
                 Total
               </div>

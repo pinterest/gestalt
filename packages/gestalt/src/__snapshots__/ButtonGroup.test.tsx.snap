@@ -25,7 +25,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
         className="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
       >
         <div
-          className="Text fontSize300 default alignCenter fontWeightSemiBold"
+          className="default alignCenter Text fontSize300 fontWeightSemiBold"
         >
           Button 1
         </div>
@@ -53,7 +53,7 @@ exports[`ButtonGroup Renders container with children when multiple children are 
         className="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
       >
         <div
-          className="Text fontSize300 default alignCenter fontWeightSemiBold"
+          className="default alignCenter Text fontSize300 fontWeightSemiBold"
         >
           Button 2
         </div>
@@ -90,7 +90,7 @@ exports[`ButtonGroup Renders the child without container when 1 child is passed 
         className="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
       >
         <div
-          className="Text fontSize300 default alignCenter fontWeightSemiBold"
+          className="default alignCenter Text fontSize300 fontWeightSemiBold"
         >
           Button 1
         </div>
