@@ -1,3 +1,9 @@
+## 159.3.0 (Sep 10, 2024)
+
+### Minor
+
+- TextUI, TextCompact: new components in classic & Visual Refresh ([#3740](https://github.com/pinterest/gestalt/pull/3740)) - [Preview link](https://deploy-preview-3740--gestalt.netlify.app?devexample=true)
+
 ## 159.2.1 (Sep 9, 2024)
 
 ### Patch
