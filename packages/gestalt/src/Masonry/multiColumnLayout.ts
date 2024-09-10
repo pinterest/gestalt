@@ -1,5 +1,6 @@
 import { Cache } from './Cache';
 import Graph from './Graph';
+import { getHeightAndGutter,offscreen } from './layoutHelpers';
 import mindex from './mindex';
 import { NodeData, Position } from './types';
 
@@ -28,13 +29,6 @@ export function columnCountToGridSize(columnCount: number): GridSize {
   }
   return 'xl';
 }
-
-const offscreen = (width: number, height: number = Infinity) => ({
-  top: -9999,
-  left: -9999,
-  width,
-  height,
-});
 
 function getPositionsOnly<T>(
   positions: ReadonlyArray<{
@@ -223,7 +217,7 @@ function getOneColumnItemPositions<T>({
       }
 
       if (height != null) {
-        const heightAndGutter = height + gutter;
+        const heightAndGutter = getHeightAndGutter(height, gutter);
         const col = mindex(heights);
         const top = heights[col];
         const left = col * columnWidthAndGutter + centerOffset;
@@ -288,7 +282,7 @@ function getMultiColItemPosition<T>({
     };
   }
 
-  const heightAndGutter = height + gutter;
+  const heightAndGutter = getHeightAndGutter(height, gutter);
 
   // Find height deltas for each column as compared to the next column
   const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights, columnSpan);
