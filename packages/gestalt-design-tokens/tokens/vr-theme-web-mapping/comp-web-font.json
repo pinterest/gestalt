@@ -1,0 +1,13 @@
+{
+  "font": {
+    "weight": {
+      "datepicker": {
+        "container": {
+          "date": {
+            "value": "{sema.font.weight.heading.SM.value}"
+          }
+        }
+      }
+    }
+  }
+}

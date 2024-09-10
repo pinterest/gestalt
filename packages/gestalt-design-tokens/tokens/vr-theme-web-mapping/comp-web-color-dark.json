@@ -248,12 +248,26 @@
         "container": {
           "value": "#212121"
         },
+        "range": {
+          "default": {
+            "value": "{sema.color.background.secondary.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.secondary.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.secondary.value}"
+          }
+        },
         "button": {
           "default": {
             "value": "#212121"
           },
           "hover": {
-            "value": "rgba(250, 250, 250, 0.5)"
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
           },
           "selected": {
             "value": "#efefef"

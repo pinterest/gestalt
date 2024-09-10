@@ -1,3 +1,15 @@
+## 159.2.1 (Sep 9, 2024)
+
+### Patch
+
+- DatePicker: VR implementation changes ([#3737](https://github.com/pinterest/gestalt/pull/3737)) - [Preview link](https://deploy-preview-3737--gestalt.netlify.app?devexample=true)
+
+## 159.2.0 (Sep 9, 2024)
+
+### Minor
+
+- Heading: VR Implementation ([#3739](https://github.com/pinterest/gestalt/pull/3739)) - [Preview link](https://deploy-preview-3739--gestalt.netlify.app?devexample=true)
+
 ## 159.1.0 (Sep 6, 2024)
 
 ### Minor
