@@ -51,17 +51,19 @@ export default function ToolingPage() {
       <PageHeader name="Web tooling" type="guidelines" />
       <MainSection name="Core design system">
         <List label="The core Gestalt Design System consists of:">
-          {[
-            ['Gestalt Design Libraries', 'http://go/gestaltFigma'],
-            ['Reusable component library in Github', 'https://github.com/pinterest/gestalt'],
-            ['Gestalt component extensions in Pinboard', 'http://go/gestaltExtensions'],
-
-            ['Gestalt Flow types library in Pinboard', 'http://go/gestaltExtensionsTypes'],
+          {(
             [
-              'Documentation site in gestalt.pinterest.systems',
-              'https://gestalt.pinterest.systems/',
-            ],
-          ].map((item) => (
+              ['Gestalt Design Libraries', 'http://go/gestaltFigma'],
+              ['Reusable component library in Github', 'https://github.com/pinterest/gestalt'],
+              ['Gestalt component extensions in Pinboard', 'http://go/gestaltExtensions'],
+
+              ['Gestalt Flow types library in Pinboard', 'http://go/gestaltExtensionsTypes'],
+              [
+                'Documentation site in gestalt.pinterest.systems',
+                'https://gestalt.pinterest.systems/',
+              ],
+            ] as const
+          ).map((item) => (
             <List.Item
               key={item[0]}
               text={
@@ -338,88 +340,90 @@ The following table lists the currently available metrics to track Gestalt adopt
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {[
+              {(
                 [
-                  '% Gestalt components over HTML ',
-                  '# total Gestalt components / (# native DOM elements + # total Gestalt component); % per site',
-                  'https://statsboard.pinadmin.com/share/jh3g8',
-                ],
-                [
-                  '% HTML coverage',
-                  '# total Gestalt components with HTML equivalent/ (# native DOM elements with Gestalt equivalent + # total Gestalt components with HTML equivalent);',
-                  'https://statsboard.pinadmin.com/share/j68ut',
-                ],
-                [
-                  '% HTML coverage',
-                  '# total Gestalt components with HTML equivalent/ (# native DOM elements with Gestalt equivalent + # total Gestalt components with HTML equivalent); per HTML tag',
-                  'https://statsboard.pinadmin.com/share/cbaju',
-                ],
-                [
-                  'HTML detailed coverage',
-                  '# total Gestalt components with HTML equivalent, # total HTML components with Gestalt equivalent',
-                  'https://statsboard.pinadmin.com/share/mt37a',
-                ],
-                [
-                  'Gestalt Components: component level',
-                  '# total Gestalt components; # per component',
-                  'https://statsboard.pinadmin.com/share/9z982',
-                ],
-                [
-                  'Gestalt Components: prop level',
-                  '# total Gestalt components; # per prop & component',
-                  'https://statsboard.pinadmin.com/share/nfjae',
-                ],
-                [
-                  'Gestalt Components: prop value level',
-                  '# total Gestalt components; # per prop value & prop & component',
-                  'https://statsboard.pinadmin.com/share/4w3rk',
-                ],
-                [
-                  'Native DOM Elements: tag level',
-                  '# total native DOM elements; # per tag',
-                  'https://statsboard.pinadmin.com/share/g8jn6',
-                ],
-                [
-                  'Native DOM Elements: attribute level',
-                  '# total native DOM elements; # per attribute & tag',
-                  'https://statsboard.pinadmin.com/share/zxkz4',
-                ],
-                [
-                  'Native DOM Elements: attribute value level',
-                  '# total native DOM elements; # per attribute value & attribute & tag',
-                  'https://statsboard.pinadmin.com/share/87dua',
-                ],
-                [
-                  'Boxes with dangerouslySetInlineStyle',
-                  '# Gestalt Box with dangerouslySetInlineStyle prop / (# total Gestalt Box); % per site',
-                  'https://statsboard.pinadmin.com/share/6t565',
-                ],
-                [
-                  'Top dangerouslySetInlineStyle style attribute keys',
-                  '# most used CSS attributes passed to dangerouslySetInlineStyle; # per site',
-                  'https://statsboard.pinadmin.com/d/gestalt/dangerouslyInlineStyle/Top%20dangerous%20style%20keys',
-                ],
-                [
-                  'Usage by import source (direct import, subcomponent, Pinboard extension)',
-                  '# total Gestalt components; # per source',
-                  'https://statsboard.pinadmin.com/share/rb87s',
-                ],
-                [
-                  'Usage by component category (Html equivalent, industry standard, Pinterest specific)',
-                  '# total Gestalt components; # per category',
-                  'https://statsboard.pinadmin.com/share/ns8f9',
-                ],
-                [
-                  'Usage by component type (utility, building block, UI)',
-                  '# total Gestalt components; # per type',
-                  'https://statsboard.pinadmin.com/share/44jwh',
-                ],
-                [
-                  'Component impressions',
-                  '# component impressions; # per component',
-                  'https://statsboard.pinadmin.com/share/j3a4z',
-                ],
-              ].map((item) => (
+                  [
+                    '% Gestalt components over HTML ',
+                    '# total Gestalt components / (# native DOM elements + # total Gestalt component); % per site',
+                    'https://statsboard.pinadmin.com/share/jh3g8',
+                  ],
+                  [
+                    '% HTML coverage',
+                    '# total Gestalt components with HTML equivalent/ (# native DOM elements with Gestalt equivalent + # total Gestalt components with HTML equivalent);',
+                    'https://statsboard.pinadmin.com/share/j68ut',
+                  ],
+                  [
+                    '% HTML coverage',
+                    '# total Gestalt components with HTML equivalent/ (# native DOM elements with Gestalt equivalent + # total Gestalt components with HTML equivalent); per HTML tag',
+                    'https://statsboard.pinadmin.com/share/cbaju',
+                  ],
+                  [
+                    'HTML detailed coverage',
+                    '# total Gestalt components with HTML equivalent, # total HTML components with Gestalt equivalent',
+                    'https://statsboard.pinadmin.com/share/mt37a',
+                  ],
+                  [
+                    'Gestalt Components: component level',
+                    '# total Gestalt components; # per component',
+                    'https://statsboard.pinadmin.com/share/9z982',
+                  ],
+                  [
+                    'Gestalt Components: prop level',
+                    '# total Gestalt components; # per prop & component',
+                    'https://statsboard.pinadmin.com/share/nfjae',
+                  ],
+                  [
+                    'Gestalt Components: prop value level',
+                    '# total Gestalt components; # per prop value & prop & component',
+                    'https://statsboard.pinadmin.com/share/4w3rk',
+                  ],
+                  [
+                    'Native DOM Elements: tag level',
+                    '# total native DOM elements; # per tag',
+                    'https://statsboard.pinadmin.com/share/g8jn6',
+                  ],
+                  [
+                    'Native DOM Elements: attribute level',
+                    '# total native DOM elements; # per attribute & tag',
+                    'https://statsboard.pinadmin.com/share/zxkz4',
+                  ],
+                  [
+                    'Native DOM Elements: attribute value level',
+                    '# total native DOM elements; # per attribute value & attribute & tag',
+                    'https://statsboard.pinadmin.com/share/87dua',
+                  ],
+                  [
+                    'Boxes with dangerouslySetInlineStyle',
+                    '# Gestalt Box with dangerouslySetInlineStyle prop / (# total Gestalt Box); % per site',
+                    'https://statsboard.pinadmin.com/share/6t565',
+                  ],
+                  [
+                    'Top dangerouslySetInlineStyle style attribute keys',
+                    '# most used CSS attributes passed to dangerouslySetInlineStyle; # per site',
+                    'https://statsboard.pinadmin.com/d/gestalt/dangerouslyInlineStyle/Top%20dangerous%20style%20keys',
+                  ],
+                  [
+                    'Usage by import source (direct import, subcomponent, Pinboard extension)',
+                    '# total Gestalt components; # per source',
+                    'https://statsboard.pinadmin.com/share/rb87s',
+                  ],
+                  [
+                    'Usage by component category (Html equivalent, industry standard, Pinterest specific)',
+                    '# total Gestalt components; # per category',
+                    'https://statsboard.pinadmin.com/share/ns8f9',
+                  ],
+                  [
+                    'Usage by component type (utility, building block, UI)',
+                    '# total Gestalt components; # per type',
+                    'https://statsboard.pinadmin.com/share/44jwh',
+                  ],
+                  [
+                    'Component impressions',
+                    '# component impressions; # per component',
+                    'https://statsboard.pinadmin.com/share/j3a4z',
+                  ],
+                ] as const
+              ).map((item) => (
                 <TableEntry
                   key={`table_entry: ${item[0]}`}
                   description={item[1]}
