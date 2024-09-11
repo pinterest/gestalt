@@ -1,11 +1,11 @@
-import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef,Fragment, ReactNode, useCallback,  useEffect, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './VRTextArea.css';
 import boxStyles from '../Box.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import { MaxLength } from '../TextField';
-import typographyStyle from '../Typography.css';
+import TextUI from '../TextUI';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type Props = {
@@ -57,7 +57,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   ref,
 ) {
   const innerRef = useRef<null | HTMLTextAreaElement>(null);
-  const labelRef = useRef<null | HTMLLabelElement>(null);
+  const labelRef = useRef<null | HTMLDivElement>(null);
 
   const {
     handleOnBlur,
@@ -77,6 +77,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
 
   // ==== STATE ====
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
+  const [ellipsisActive, setEllipsisActive] = useState(false);
 
   // ==== A11Y ====
 
@@ -89,6 +90,29 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   if (helperText || maxLength) {
     ariaDescribedby = `${id}-helperText`;
   }
+
+    const isEllipsisActive = (element: HTMLElement) =>
+    element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
+
+  const checkEllipsisActive = useCallback(() => {
+    if (labelRef.current && !ellipsisActive && isEllipsisActive(labelRef?.current)) {
+      setEllipsisActive(true);
+    } else if (labelRef.current && ellipsisActive && !isEllipsisActive(labelRef?.current)) {
+      setEllipsisActive(false);
+    }
+  }, [ellipsisActive]);
+
+  useEffect(() => {
+    if (!label) return () => {};
+
+    checkEllipsisActive();
+
+    if (typeof window !== 'undefined') window.addEventListener('resize', checkEllipsisActive);
+
+    return () => {
+      if (typeof window !== 'undefined') window?.removeEventListener('resize', checkEllipsisActive);
+    };
+  }, [label, checkEllipsisActive]);
 
   return (
     <Fragment>
@@ -117,19 +141,19 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         >
           {label && (
             <label
-              ref={labelRef}
               className={classnames(
                 styles.label,
                 styles.md_label,
                 styles.md_labelPos,
-                typographyStyle.truncate,
                 {
                   [boxStyles.visuallyHidden]: !isLabelVisible,
                 },
               )}
               htmlFor={id}
             >
-              {label}
+              <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
+                {label}
+              </TextUI>
             </label>
           )}
           <textarea
