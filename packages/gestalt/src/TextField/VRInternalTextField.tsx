@@ -19,7 +19,6 @@ import { MaxLength } from '../TextField';
 import TextUI from '../TextUI';
 import typographyStyle from '../Typography.css';
 
-
 type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {
@@ -154,8 +153,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       <div className={classnames(styles.inputParent)}>
         {label && (
           <label
-
-            className={classnames(styles.label, typographyStyle.truncate, {
+            className={classnames(styles.label, {
               [styles.enabledText]: !disabled,
               [styles.disabledText]: disabled,
               // sm
@@ -171,9 +169,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
               [boxStyles.visuallyHidden]: !isLabelVisible,
             })}
             htmlFor={id}
-            title={ellipsisActive ? label : ''}
           >
-            <TextUI ref={labelRef} lineClamp={1} size="xs">{label}</TextUI>
+            <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
+              {label}
+            </TextUI>
           </label>
         )}
         <input
