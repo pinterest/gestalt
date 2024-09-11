@@ -88,21 +88,27 @@ describe('AccordionExpandable', () => {
       name: /Expand section/i,
     });
 
-    fireEvent.click(expandButtons[0]);
+    if (expandButtons[0]) {
+      fireEvent.click(expandButtons[0]);
+    }
     expect(screen.getByText(/Children1/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children2/i)).toBeNull();
     expect(screen.queryByText(/Children3/i)).toBeNull();
     expect(screen.queryByText(/Children4/i)).toBeNull();
     expect(screen.queryByText(/Children5/i)).toBeNull();
 
-    fireEvent.click(expandButtons[1]);
+    if (expandButtons[1]) {
+      fireEvent.click(expandButtons[1]);
+    }
     expect(screen.queryByText(/Children1/i)).toBeNull();
     expect(screen.getByText(/Children2/i)).toBeInTheDocument();
     expect(screen.queryByText(/Children3/i)).toBeNull();
     expect(screen.queryByText(/Children4/i)).toBeNull();
     expect(screen.queryByText(/Children5/i)).toBeNull();
 
-    fireEvent.click(expandButtons[2]);
+    if (expandButtons[2]) {
+      fireEvent.click(expandButtons[2]);
+    }
     expect(screen.queryByText(/Children1/i)).toBeNull();
     expect(screen.queryByText(/Children2/i)).toBeNull();
     expect(screen.getByText(/Children3/i)).toBeInTheDocument();
@@ -138,7 +144,9 @@ describe('AccordionExpandable', () => {
       name: /Expand section/i,
     });
     expect(expandButtons).toHaveLength(5);
-    fireEvent.click(expandButtons[1]);
+    if (expandButtons[1]) {
+      fireEvent.click(expandButtons[1]);
+    }
     expect(newProps.onExpandedChange).toHaveBeenCalledWith(1);
   });
 });

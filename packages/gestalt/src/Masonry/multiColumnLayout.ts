@@ -69,7 +69,7 @@ function getAdjacentColumnHeightDeltas(
 ): ReadonlyArray<number> {
   const adjacentHeightDeltas = [];
   for (let i = 0; i < heights.length - 1; i += 1) {
-    adjacentHeightDeltas.push(Math.abs(heights[i] - heights[i + 1]));
+    adjacentHeightDeltas.push(Math.abs(heights[i]! - heights[i + 1]!));
   }
 
   if (columnSpan === 2) {
@@ -161,7 +161,7 @@ export function initializeHeightsArray<T>({
         // for each column the module spans -
         // if we've already set a taller height, we don't want to override it
         // otherwise, override the height of the column
-        if (absoluteHeight > heights[i]) {
+        if (absoluteHeight > heights[i]!) {
           heights[i] = absoluteHeight;
         }
       }
@@ -219,9 +219,9 @@ function getOneColumnItemPositions<T>({
       if (height != null) {
         const heightAndGutter = getHeightAndGutter(height, gutter);
         const col = mindex(heights);
-        const top = heights[col];
+        const top = heights[col]!;
         const left = col * columnWidthAndGutter + centerOffset;
-        heights[col] += heightAndGutter;
+        heights[col] = heights[col]! + heightAndGutter;
 
         return [
           ...positionsSoFar,
@@ -300,11 +300,11 @@ function getMultiColItemPosition<T>({
     lowestAdjacentColumnHeightDeltaIndex +
     lowestAdjacentColumnHeights.indexOf(Math.max(...lowestAdjacentColumnHeights));
 
-  const top = heights[tallestColumn];
+  const top = heights[tallestColumn]!;
   const left = lowestAdjacentColumnHeightDeltaIndex * columnWidthAndGutter + centerOffset;
 
   // Increase the heights of both adjacent columns
-  const tallestColumnFinalHeight = heights[tallestColumn] + heightAndGutter;
+  const tallestColumnFinalHeight = heights[tallestColumn]! + heightAndGutter;
 
   const additionalWhitespace = getAdjacentWhitespaceOnIndex(
     heights,
@@ -676,11 +676,11 @@ const multiColumnLayout = <T>({
     const batchSize = multiColumnItems.length;
     const batches = Array.from({ length: batchSize }, (): ReadonlyArray<T> => []).map(
       (batch, i) => {
-        const startIndex = i === 0 ? 0 : itemsWithoutPositions.indexOf(multiColumnItems[i]);
+        const startIndex = i === 0 ? 0 : itemsWithoutPositions.indexOf(multiColumnItems[i]!);
         const endIndex =
           i + 1 === multiColumnItems.length
             ? itemsWithoutPositions.length
-            : itemsWithoutPositions.indexOf(multiColumnItems[i + 1]);
+            : itemsWithoutPositions.indexOf(multiColumnItems[i + 1]!);
         return itemsWithoutPositions.slice(startIndex, endIndex);
       },
     );
@@ -702,7 +702,7 @@ const multiColumnLayout = <T>({
     } = batches.reduce(
       (acc, itemsToPosition, i) =>
         getPositionsWithMultiColumnItem({
-          multiColumnItem: multiColumnItems[i],
+          multiColumnItem: multiColumnItems[i]!,
           itemsToPosition,
           heights: acc.heights,
           prevPositions: acc.positions,

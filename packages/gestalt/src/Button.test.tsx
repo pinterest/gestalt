@@ -31,16 +31,16 @@ describe('<Button />', () => {
 
   test('Custom white text color on transparent background', () => {
     const instance = create(<Button color="transparentWhiteText" text="Hello World" />).root;
-    expect(instance.findAll((element: any) => element.type === 'div')[1].props.className).toContain(
-      'inverse',
-    );
+    expect(
+      instance.findAll((element: any) => element.type === 'div')[1]?.props.className,
+    ).toContain('inverse');
   });
 
   test('Default darkGray text color on transparent background', () => {
     const instance = create(<Button color="transparent" text="Hello World" />).root;
-    expect(instance.findAll((element: any) => element.type === 'div')[1].props.className).toContain(
-      'default',
-    );
+    expect(
+      instance.findAll((element: any) => element.type === 'div')[1]?.props.className,
+    ).toContain('default');
   });
 
   test('accessibilityControls', () => {

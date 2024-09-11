@@ -31,7 +31,7 @@ const handleContainerScrolling = ({ direction, containerRef, currentHoveredOptio
   // If one of these nodes is missing, exit early
   if (!container || !nextSelectedOption) return;
 
-  const containerHeight = container.getClientRects()[0].height;
+  const containerHeight = container.getClientRects()[0]?.height ?? 0;
   const overScroll =
     nextSelectedOption instanceof HTMLElement && nextSelectedOption?.offsetHeight
       ? nextSelectedOption.offsetHeight / 3

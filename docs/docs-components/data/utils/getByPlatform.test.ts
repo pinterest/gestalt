@@ -5,7 +5,7 @@ describe('getByPlatform', () => {
   it('filters for figma components', () => {
     const result = getByPlatform(mockComponentList, { platform: 'figma' });
     expect(result).toHaveLength(1);
-    expect(result[0].name).toEqual('BoardRep');
+    expect(result[0]?.name).toEqual('BoardRep');
   });
 
   it('filters for web components', () => {

@@ -55,7 +55,7 @@ export const concat = (styles: ReadonlyArray<Style>): Style =>
 export const mapClassName =
   (fn: (x: string) => string): ((arg1: Style) => Style) =>
   ({ className, inlineStyle }: Style): Style => ({
-    className: new Set(Array.from(className).map(fn)),
+    className: new Set(Array.from(className).map((n) => fn(n))),
     inlineStyle,
   });
 

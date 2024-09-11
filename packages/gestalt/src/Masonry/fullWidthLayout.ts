@@ -78,7 +78,7 @@ const fullWidthLayout = <T>({
             const top = heights[col];
             const left = col * columnWidthAndGutter + centerOffset;
 
-            heights[col] += heightAndGutter;
+            heights[col] = (heights[col] ?? 0) + heightAndGutter;
             position = {
               top,
               left,

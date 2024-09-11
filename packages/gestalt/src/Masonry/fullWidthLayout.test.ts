@@ -108,10 +108,10 @@ describe.each([undefined, getColumnSpanConfig])(
       const pin2Position = positions[2];
       const pin3Position = positions[3];
 
-      expect(pin2Position.height).toBe(0);
-      expect(pin2Position.top).toBe(0);
-      expect(pin3Position.top).toBe(0);
-      expect(pin2Position.left).toBe(pin3Position.left);
+      expect(pin2Position?.height).toBe(0);
+      expect(pin2Position?.top).toBe(0);
+      expect(pin3Position?.top).toBe(0);
+      expect(pin2Position?.left).toBe(pin3Position?.left);
     });
   },
 );

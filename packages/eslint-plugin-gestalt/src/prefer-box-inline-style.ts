@@ -114,7 +114,7 @@ const rule: ESLintRule = {
           const matched = attr.name && attr.name.name === 'style';
           if (matched) {
             // If we have style properties here, this is an object declared inline
-            let styleProperties: null | ReadonlyArray<Record<any, any>>;
+            let styleProperties: null | undefined | ReadonlyArray<Record<any, any>>;
             styleProperties = getInlineDefinedStyles(attr);
 
             // Not declared inline? Check to see if there's a variable matching the name defined

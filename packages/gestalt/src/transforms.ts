@@ -22,7 +22,9 @@ export const toggle =
 export const mapping =
   (map: { [key: string]: string }): ((val: string) => Style) =>
   (val) =>
-    Object.prototype.hasOwnProperty.call(map, val) ? fromClassName(map[val]) : identity();
+    Object.prototype.hasOwnProperty.call(map, val) && typeof map[val] === 'string'
+      ? fromClassName(map[val])
+      : identity();
 
 // Maps a range of integers to a range of classnames
 //     <Box padding={1} />
@@ -45,7 +47,7 @@ export function bind<T>(
     readonly [key: string]: string;
   },
 ): (val: T) => Style {
-  const map = mapClassName((name) => scope[name]);
+  const map = mapClassName((name) => scope[name]!);
   return (val: T): Style => map(fn(val));
 }
 

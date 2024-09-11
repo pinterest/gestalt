@@ -5,7 +5,7 @@ describe('getByCategory', () => {
   it('filters for Avatars on web', () => {
     const result = getByCategory(mockComponentList, { category: 'Avatars', platform: 'web' });
     expect(result).toHaveLength(1);
-    expect(result[0].name).toEqual('Avatar');
+    expect(result[0]?.name).toEqual('Avatar');
   });
 
   it('filters for Indicators on Android', () => {
@@ -14,7 +14,7 @@ describe('getByCategory', () => {
       platform: 'android',
     });
     expect(result).toHaveLength(1);
-    expect(result[0].name).toEqual('Badge');
+    expect(result[0]?.name).toEqual('Badge');
   });
 
   it('filters for Indicators on web', () => {

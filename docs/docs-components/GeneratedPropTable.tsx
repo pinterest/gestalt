@@ -68,11 +68,8 @@ export default function GeneratedPropTable({
   id,
   name,
 }: Props) {
-  // Using Object.keys because of https://github.com/facebook/flow/issues/2174
-  const props = Object.keys(generatedDocGen.props)
-    .map((key: string) => {
-      const { tsType, description, required, defaultValue } = generatedDocGen.props[key];
-
+  const props = Object.entries(generatedDocGen.props)
+    .map(([key, { tsType, description, required, defaultValue }]) => {
       // Filter out "_fooInternalProp" internal props that we don't want to document
       if (key.startsWith('_')) {
         return null;

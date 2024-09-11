@@ -34,7 +34,7 @@ export default function SubheadingExample() {
   }) => {
     event.preventDefault();
     setActiveTabIndex(activeTabIndexLocal);
-    refs[activeTabIndexLocal].current?.scrollIntoView({
+    refs[activeTabIndexLocal]?.current?.scrollIntoView({
       behavior: 'smooth',
     });
   };

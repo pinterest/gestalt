@@ -81,7 +81,7 @@ describe('HelpButton', () => {
     ).root;
 
     expect(
-      instance.findAll((element: any) => element.type === 'div')[3].props['aria-controls'],
+      instance.findAll((element: any) => element.type === 'div')[3]?.props['aria-controls'],
     ).toBeTruthy();
   });
 
@@ -94,7 +94,7 @@ describe('HelpButton', () => {
       />,
     ).root;
     expect(
-      instance.findAll((element: any) => element.type === 'div')[3].props['aria-expanded'],
+      instance.findAll((element: any) => element.type === 'div')[3]?.props['aria-expanded'],
     ).toBe(false);
   });
 
@@ -107,7 +107,7 @@ describe('HelpButton', () => {
       />,
     ).root;
     expect(
-      instance.findAll((element: any) => element.type === 'div')[3].props['aria-label'],
+      instance.findAll((element: any) => element.type === 'div')[3]?.props['aria-label'],
     ).toContain('Click to learn more');
   });
 });
