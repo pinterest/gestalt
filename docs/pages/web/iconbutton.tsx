@@ -1,4 +1,8 @@
-import { IconButton } from 'gestalt';
+import defaultStateExample from 'docs/examples/iconbutton/defaultStateExample';
+import disabledStateExample from 'docs/examples/iconbutton/disabledStateExample';
+import focusOnDarkBackground from 'docs/examples/iconbutton/focusOnDarkBackground';
+import selectedStateExample from 'docs/examples/iconbutton/selectedStateExample';
+import { IconButton, Pog, useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -17,6 +21,7 @@ import grouping from '../../examples/iconbutton/grouping';
 import highActions from '../../examples/iconbutton/highActions';
 import image from '../../examples/iconbutton/image';
 import keyboard from '../../examples/iconbutton/keyboard';
+import label from '../../examples/iconbutton/label';
 import lowActions from '../../examples/iconbutton/lowActions';
 import main from '../../examples/iconbutton/main';
 import noGrouping from '../../examples/iconbutton/noGrouping';
@@ -25,6 +30,11 @@ import tooltip from '../../examples/iconbutton/tooltip';
 import tooltipVariant from '../../examples/iconbutton/tooltipVariant';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  const isInExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -189,6 +199,47 @@ Use padding sparingly. The padding options are 1-5, which represents the padding
           </CombinationNew>
         </MainSection.Subsection>
         <MainSection.Subsection
+          description={`IconButton's appearance can be modified by the following states:
+
+1. \`default\`
+    The default, enabled and unselected state.
+2. \`selected\`
+    Selected state, used to indicate that the button and associated elements are selected, open, and/or active.
+3. \`disabled\`
+    Disabled state, used to indicate that the button is not currently available for interaction.
+`}
+          title="States"
+        >
+          <SandpackExample code={defaultStateExample} name="Default state example" />
+          <SandpackExample code={disabledStateExample} name="Disabled state example" />
+          <SandpackExample code={selectedStateExample} name="Selected state example" />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`You can add a label for the IconButton. It is only visible in XL size IconButtons.
+
+It is recommended to use short labels for IconButtons, but the label will wrap up to two lines if needed.`}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={label} name="Label example" />}
+          />
+        </MainSection.Subsection>
+        {isInExperiment && (
+          <MainSection.Subsection title="Focus ring on dark backgrounds">
+            <MainSection.Card
+              cardSize="lg"
+              description="IconButtonLink can be used on dark backgrounds. The focus ring is visible on dark backgrounds to ensure accessibility."
+              sandpackExample={
+                <SandpackExample
+                  code={focusOnDarkBackground}
+                  name="Usage of focus ring on dark backgrounds"
+                />
+              }
+            />
+          </MainSection.Subsection>
+        )}
+        <MainSection.Subsection
           description={`IconButton can be presented in combinations of icon and background colors. In the absence of combinations, for each \`iconColor\` or \`bgColor\` value, a default paired value is assigned.
 
 Follow these guidelines for \`iconColor\`
@@ -198,14 +249,18 @@ Follow these guidelines for \`iconColor\`
 3. Gray ("gray"). Low emphasis when placed on white backgrounds, used for tertiary actions. Medium emphasis when placed on dark backgrounds, used for secondary actions.
 4. White ("white"). Used in a dark mode scheme or over a dark-colored background creating better visibility.
 5. Brand primary ("brandPrimary"). Used to represent the Pinterest brand.
+6. Light ("light"). Used over a dark-colored background that does not change in  dark mode, like transparentDarkGray, creating better visibility.
+7. Dark ("dark"). Used over a light-colored background that does not change in light mode, like washLight, creating better visibility.
 
 `}
           title="Icon color"
         >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary']}>
+          <CombinationNew
+            // @ts-expect-error - TS2322 - Type '{ children: ({ iconColor }: { [key: string]: any; }) => Element; iconColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'.
+            iconColor={['red', 'darkGray', 'gray', 'white', 'brandPrimary', 'light', 'dark']}
+          >
             {({ iconColor }) => (
-              <IconButton
+              <Pog
                 accessibilityLabel={`Example icon color ${iconColor}`}
                 icon="add"
                 iconColor={iconColor}

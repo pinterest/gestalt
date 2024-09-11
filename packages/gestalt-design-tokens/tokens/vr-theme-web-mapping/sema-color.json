@@ -49,7 +49,7 @@
         "value": "{sema.color.icon.disabled.value}"
       },
       "error": {
-        "value": "{sema.color.icon.error.value}"
+        "value": "{sema.color.icon.primary.value}"
       },
       "warning": {
         "value": "{sema.color.icon.warning.value}"

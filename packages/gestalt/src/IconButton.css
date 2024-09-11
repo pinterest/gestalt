@@ -13,6 +13,11 @@
   background-color: var(--color-transparent);
 }
 
+.label {
+  max-width: 16ch;
+  padding-top: var(--space-200);
+}
+
 .parentButton:focus {
   outline: 0;
 }
@@ -24,4 +29,16 @@
 .disabled {
   cursor: default;
   opacity: 0.5;
+}
+
+.activeText div {
+  /* Ensure the disabled color is used */
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--sema-color-pressed-text-default) !important;
+}
+
+.hoverText div {
+  /* Ensure the disabled color is used */
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--sema-color-hover-text-default) !important;
 }

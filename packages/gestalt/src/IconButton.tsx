@@ -1,9 +1,11 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
+import Flex from './Flex';
 import styles from './IconButton.css';
 import icons from './icons/index';
 import Pog from './Pog';
 import touchableStyles from './TapArea.css';
+import TextUI from './TextUI';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useTapFeedback from './useTapFeedback';
@@ -30,6 +32,11 @@ type Props = {
    * Indicates whether this component displays a menu, such as Dropdown, or a dialog, like Popover, Modal or ModalAlert. See the [Accessibility](https://gestalt.pinterest.systems/web/iconbutton#ARIA-attributes) guidelines for details on proper usage.
    */
   accessibilityPopupRole?: 'menu' | 'dialog';
+  /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
   /**
    * Primary colors to apply to the IconButton background.
    */
@@ -62,7 +69,11 @@ type Props = {
   /**
    * Primary color to apply to the [Icon](/web/icon). See [icon color](https://gestalt.pinterest.systems/web/iconbutton#Icon-color) variant to learn more.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
+  /**
+   * Visible label for the IconButton. Only visible in XL size IconButtons. See the [label](https://gestalt.pinterest.systems/web/iconbutton#Label) variant to learn more.
+   */
+  label?: string;
   /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
@@ -121,25 +132,27 @@ type Props = {
 
 const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
-    accessibilityLabel,
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
+    accessibilityLabel,
     accessibilityPopupRole,
-    name,
-    selected,
-    type,
     bgColor,
+    focusColor = 'lightBackground',
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
     icon,
     iconColor,
+    label,
+    name,
     onClick,
     padding,
+    selected,
+    size = 'lg',
     tabIndex = 0,
     tooltip,
-    size = 'lg',
+    type,
   }: Props,
   ref,
 ) {
@@ -169,6 +182,24 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
   const [isHovered, setHovered] = useState(false);
 
   const { isFocusVisible } = useFocusVisible();
+
+  let labelColor: 'default' | 'disabled' | 'inverse' = 'default';
+  if (disabled) {
+    labelColor = 'disabled';
+  } else if (bgColor === 'transparent' && iconColor === 'white') {
+    labelColor = 'inverse';
+  }
+
+  const labelStyle = classnames(styles.label, {
+    [styles.activeText]: isActive && !isHovered,
+    [styles.hoverText]: isHovered && !isActive,
+  });
+
+  const divStyles = classnames(styles.button, touchableStyles.tapTransition, compressStyle, {
+    [styles.disabled]: disabled,
+    [styles.enabled]: !disabled,
+    [touchableStyles.tapCompress]: !disabled && isTapping,
+  });
 
   const buttonComponent = (
     <button
@@ -211,18 +242,12 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
       // react/button-has-type is very particular about this verbose syntax
       type={type === 'submit' ? 'submit' : 'button'}
     >
-      <div
-        className={classnames(styles.button, touchableStyles.tapTransition, {
-          [styles.disabled]: disabled,
-          [styles.enabled]: !disabled,
-          [touchableStyles.tapCompress]: !disabled && isTapping,
-        })}
-        style={compressStyle || undefined}
-      >
+      <div className={divStyles} style={compressStyle || undefined}>
         <Pog
           active={!disabled && isActive}
           bgColor={bgColor}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
+          focusColor={focusColor}
           focused={!disabled && isFocusVisible && isFocused}
           hovered={!disabled && isHovered}
           icon={icon}
@@ -235,18 +260,31 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     </button>
   );
 
-  return tooltip?.text ? (
-    <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
-      idealDirection={tooltip.idealDirection}
-      inline={tooltip.inline}
-      text={tooltip.text}
-      zIndex={tooltip.zIndex}
-    >
-      {buttonComponent}
-    </Tooltip>
-  ) : (
-    buttonComponent
+  const labelComponent = (
+    <div className={labelStyle}>
+      <TextUI align="center" color={labelColor} lineClamp={2} size="xs">
+        {label}
+      </TextUI>
+    </div>
+  );
+
+  return (
+    <Flex alignItems="center" direction="column">
+      {tooltip?.text ? (
+        <Tooltip
+          accessibilityLabel={tooltip.accessibilityLabel}
+          idealDirection={tooltip.idealDirection}
+          inline={tooltip.inline}
+          text={tooltip.text}
+          zIndex={tooltip.zIndex}
+        >
+          {buttonComponent}
+        </Tooltip>
+      ) : (
+        buttonComponent
+      )}
+      {label && size === 'xl' && labelComponent}
+    </Flex>
   );
 });
 
