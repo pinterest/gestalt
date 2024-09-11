@@ -62,7 +62,7 @@ type Props = {
   /**
    * Ref that is forwarded to the underlying element. See the [ref variant](https://gestalt.pinterest.systems/web/text#Refs) for more details.
    */
-  ref?: HTMLDivElement | HTMLSpanElement;
+  ref?: HTMLDivElement;
   /**
    * The sizes are based on our [font-size design tokens](https://gestalt.pinterest.systems/foundations/design_tokens/overview#Font-size). See the [sizes variant](https://gestalt.pinterest.systems/web/text#Sizes) for more details.
    */
