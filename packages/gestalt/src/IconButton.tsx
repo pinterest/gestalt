@@ -262,7 +262,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
 
   const labelComponent = (
     <div className={labelStyle}>
-      <TextUI align="center" color={labelColor} lineClamp={2} size="100" weight="bold">
+      <TextUI align="center" color={labelColor} lineClamp={2} size="xs">
         {label}
       </TextUI>
     </div>
