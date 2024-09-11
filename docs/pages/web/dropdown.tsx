@@ -1,6 +1,6 @@
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -27,13 +27,10 @@ import mobile from '../../examples/dropdown/mobile';
 import sections from '../../examples/dropdown/sections';
 import subtext from '../../examples/dropdown/subtext';
 
-export default function ComponentPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['Dropdown', 'DropdownItem', 'DropdownLink', 'DropdownSection'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function ComponentPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen.Dropdown?.displayName}>
       <PageHeader
@@ -365,17 +362,10 @@ If users need the ability to choose an option by typing in an input and filterin
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
-  const docGen = await multipleDocGen([
-    'Dropdown',
-    'DropdownItem',
-    'DropdownLink',
-    'DropdownSection',
-  ]);
+  const docGen = await multipleDocGen(DOC_NAMES);
 
   docGen.Dropdown.props.children.tsType.raw = 'React.ChildrenArray<React.ReactElement>';
   docGen.DropdownSection.props.children.tsType.raw = 'React.ChildrenArray<React.ReactElement>';

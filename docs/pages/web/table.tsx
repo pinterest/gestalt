@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -32,13 +32,21 @@ import stickyHeaderFooterExample from '../../examples/table/stickyHeaderFooterEx
 import topCaptionExample from '../../examples/table/topCaptionExample';
 import uncontrolledExpandable from '../../examples/table/uncontrolledExpandable';
 
-export default function DocsPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = [
+  'Table',
+  'TableHeader',
+  'TableBody',
+  'TableFooter',
+  'TableCell',
+  'TableHeaderCell',
+  'TableSortableHeaderCell',
+  'TableRow',
+  'TableRowExpandable',
+  'TableRowDrawer',
+] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen.Table?.displayName}>
       <PageHeader
@@ -576,23 +584,10 @@ Checkboxes are often used in tables to allow for selecting and editing of multip
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
-  const docGen = await multipleDocGen([
-    'Table',
-    'TableHeader',
-    'TableBody',
-    'TableFooter',
-    'TableCell',
-    'TableHeaderCell',
-    'TableSortableHeaderCell',
-    'TableRow',
-    'TableRowExpandable',
-    'TableRowDrawer',
-  ]);
+  const docGen = await multipleDocGen(DOC_NAMES);
 
   docGen.Table.props.children.tsType.raw = 'React.ChildrenArray<ReactElement>';
   docGen.TableHeader.props.children.tsType.raw = 'ReactElement';

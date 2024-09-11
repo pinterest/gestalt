@@ -1,6 +1,6 @@
 import { BannerSlim, Link, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -18,13 +18,10 @@ import quickEditsExample from '../../examples/overlaypanel/quickEditsExample';
 import sizesExample from '../../examples/overlaypanel/sizesExample';
 import subheadingExample from '../../examples/overlaypanel/subHeadingExample';
 
-export default function SheetPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['OverlayPanel', 'DismissingElement'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function SheetPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   const PREVIEW_HEIGHT = 800;
 
   return (
@@ -355,14 +352,12 @@ Toast provides feedback on an interaction. Toasts appear at the bottom of a desk
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {
     props: {
-      generatedDocGen: await multipleDocGen(['OverlayPanel', 'DismissingElement']),
+      generatedDocGen: await multipleDocGen(DOC_NAMES),
     },
   };
 }
