@@ -1,3 +1,15 @@
+## 159.5.1 (Sep 11, 2024)
+
+### Patch
+
+- Internal: Bump express from 4.19.2 to 4.20.0 ([#3746](https://github.com/pinterest/gestalt/pull/3746)) - [Preview link](https://deploy-preview-3746--gestalt.netlify.app?devexample=true)
+
+## 159.5.0 (Sep 10, 2024)
+
+### Minor
+
+- BannerOverlay: enabled `reverseOffset` in `offset` for custom positioining ([#3743](https://github.com/pinterest/gestalt/pull/3743)) - [Preview link](https://deploy-preview-3743--gestalt.netlify.app?devexample=true)
+
 ## 159.4.1 (Sep 10, 2024)
 
 ### Patch
