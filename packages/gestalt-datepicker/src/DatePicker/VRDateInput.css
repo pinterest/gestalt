@@ -39,14 +39,6 @@
   background-color: var(--sema-color-background-disabled);
 }
 
-.enabledText {
-  color: var(--sema-color-text-default);
-}
-
-.disabledText {
-  color: var(--sema-color-text-disabled);
-}
-
 .enabledBorder {
   border: 1px solid var(--sema-color-border-interactive);
 }
@@ -74,9 +66,6 @@
 }
 
 .label {
-  font-size: var(--sema-font-size-ui-xs);
-  font-weight: var(--base-font-weight-500);
-  line-height: var(--sema-font-lineheight-ui-xs);
   padding: 0;
   position: absolute;
   z-index: 1;

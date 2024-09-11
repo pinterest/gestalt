@@ -8,10 +8,10 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { Box, Icon, TapArea, useDefaultLabel } from 'gestalt';
+import { Box, Icon, TapArea, TextUI, useDefaultLabel } from 'gestalt';
+import ErrorMessage from './ErrorMessage';
+import HelperText from './HelperText';
 import styles from './VRDateInput.css';
-import ErrorMessage from '../subcomponents/ErrorMessage';
-import HelperText from '../subcomponents/HelperText';
 
 type Props = {
   id: string;
@@ -56,7 +56,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   ref,
 ) {
   const innerRef = useRef<null | HTMLInputElement>(null);
-  const labelRef = useRef<null | HTMLLabelElement>(null);
+  const labelRef = useRef<null | HTMLDivElement>(null);
 
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
@@ -111,22 +111,20 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       <div className={classnames(styles.inputParent)}>
         {label && (
           <label
-            ref={labelRef}
-            className={classnames(
-              styles.label,
-              styles.truncate,
-              styles.lg_label,
-              styles.lg_labelPos,
-              {
-                [styles.enabledText]: !disabled,
-                [styles.disabledText]: disabled,
-                [styles.visuallyHidden]: !isLabelVisible,
-              },
-            )}
+            className={classnames(styles.label, styles.lg_label, styles.lg_labelPos, {
+              [styles.visuallyHidden]: !isLabelVisible,
+            })}
             htmlFor={id}
-            title={ellipsisActive ? label : ''}
           >
-            {label}
+            <TextUI
+              ref={labelRef}
+              color={disabled ? 'disabled' : 'default'}
+              lineClamp={1}
+              size="xs"
+              title={ellipsisActive ? label : ''}
+            >
+              {label}
+            </TextUI>
           </label>
         )}
         <input
