@@ -19,7 +19,7 @@ import Flex from '../Flex';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import { MaxLength } from '../TextField';
-import typographyStyle from '../Typography.css';
+import TextUI from '../TextUI';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type Props = {
@@ -81,7 +81,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
   ref,
 ) {
   const innerRef = useRef<null | HTMLDivElement>(null);
-  const labelRef = useRef<null | HTMLLabelElement>(null);
+  const labelRef = useRef<null | HTMLDivElement>(null);
 
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLTextAreaElement | null' is not assignable to type 'HTMLTextAreaElement'.
   useImperativeHandle(ref, () => innerRef.current);
@@ -182,8 +182,7 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
         >
           {label && (
             <label
-              ref={labelRef}
-              className={classnames(styles.label, typographyStyle.truncate, {
+              className={classnames(styles.label, {
                 // sm
                 [styles.sm_label]: isSM,
                 [styles.sm_labelPos]: isSM,
@@ -198,7 +197,9 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               htmlFor={id}
               title={ellipsisActive ? label : ''}
             >
-              {label}
+              <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
+                {label}
+              </TextUI>
             </label>
           )}
           <Flex gap={1}>
