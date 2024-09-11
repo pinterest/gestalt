@@ -9,6 +9,7 @@ import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
+import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
@@ -198,19 +199,21 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-  const textSizes: { [key: string]: '100' | '200' | '300' | '400' | '500' | '600' } =
-    isInVRExperiment
-      ? {
-          sm: '100',
-          md: '200',
-          lg: '300',
-        }
-      : {
-          sm: '200',
-          md: '300',
-          lg: '300',
-        };
+  const textSizes: {
+    [key: string]: '100' | '200' | '300' | '400' | '500' | '600';
+  } = {
+    sm: '200',
+    md: '300',
+    lg: '300',
+  };
 
+  const textSizesVR: {
+    [key: string]: 'xs' | 'sm' | 'md';
+  } = {
+    sm: 'xs',
+    md: 'sm',
+    lg: 'md',
+  };
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -296,7 +299,11 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     (isInVRExperiment && isDarkMode && color === 'blue' && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
-  const buttonText = (
+  const buttonText = isInVRExperiment ? (
+    <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
+      {text}
+    </TextUI>
+  ) : (
     <Text align="center" color={textColor} overflow="normal" size={textSizes[size]} weight="bold">
       {text}
     </Text>
