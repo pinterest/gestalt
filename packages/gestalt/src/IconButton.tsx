@@ -5,7 +5,7 @@ import styles from './IconButton.css';
 import icons from './icons/index';
 import Pog from './Pog';
 import touchableStyles from './TapArea.css';
-import Text from './Text';
+import TextUI from './TextUI';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useTapFeedback from './useTapFeedback';
@@ -262,9 +262,9 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
 
   const labelComponent = (
     <div className={labelStyle}>
-      <Text align="center" color={labelColor} lineClamp={2} size="100" weight="bold">
+      <TextUI align="center" color={labelColor} lineClamp={2} size="100" weight="bold">
         {label}
-      </Text>
+      </TextUI>
     </div>
   );
 
