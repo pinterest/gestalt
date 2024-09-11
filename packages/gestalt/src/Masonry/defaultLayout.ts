@@ -1,15 +1,9 @@
 import { Cache } from './Cache';
+import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { Align, Layout, LoadingStateItem, Position } from './types';
-
-const offscreen = (width: number, height: number = Infinity) => ({
-  top: -9999,
-  left: -9999,
-  width,
-  height,
-});
 
 const calculateCenterOffset = ({
   align,
@@ -111,7 +105,7 @@ const defaultLayout =
           if (height == null) {
             position = offscreen(columnWidth);
           } else {
-            const heightAndGutter = height + gutter;
+            const heightAndGutter = getHeightAndGutter(height, gutter);
             const col = mindex(heights);
             const top = heights[col];
             const left = col * columnWidthAndGutter + centerOffset;

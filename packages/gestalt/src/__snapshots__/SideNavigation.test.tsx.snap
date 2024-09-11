@@ -139,7 +139,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             test
                           </span>
@@ -258,7 +258,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                     role="presentation"
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                      className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -341,7 +341,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 test
                                 <div
@@ -370,7 +370,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                           className="box contentCenter xsDisplayFlex"
                                         >
                                           <span
-                                            className="Text fontSize200 inverse alignStart breakWord fontWeightSemiBold"
+                                            className="inverse alignStart breakWord Text fontSize200 fontWeightSemiBold"
                                           >
                                             New
                                           </span>
@@ -395,7 +395,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                 className="box"
                               >
                                 <div
-                                  className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
+                                  className="subtle alignEnd breakWord Text fontSize300 fontWeightNormal"
                                 >
                                   20
                                 </div>
@@ -474,7 +474,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 test
                                 <div
@@ -517,7 +517,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                 className="box"
                               >
                                 <div
-                                  className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
+                                  className="subtle alignEnd breakWord Text fontSize300 fontWeightNormal"
                                 >
                                   20
                                 </div>
@@ -602,7 +602,7 @@ exports[`SideNavigation renders Sections 1`] = `
                     role="presentation"
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                      className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -663,7 +663,7 @@ exports[`SideNavigation renders Sections 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 test
                               </span>
@@ -786,7 +786,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             test
                           </span>
@@ -929,7 +929,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             Reporting
                           </span>
@@ -1007,7 +1007,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             Conversions
                           </span>
@@ -1024,7 +1024,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     role="presentation"
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                      className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -1107,7 +1107,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Thanksgiving
                               </span>
@@ -1187,7 +1187,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Christmas
                               </span>
@@ -1305,7 +1305,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Halloween
                               </span>
@@ -1490,7 +1490,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             Christmas
                           </span>
@@ -1587,7 +1587,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Luxury Christmas
                               </span>
@@ -1645,7 +1645,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Classic Christmas
                               </span>
@@ -1742,7 +1742,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     West Coast
                                   </span>
@@ -1798,7 +1798,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     East Coast
                                   </span>
@@ -1926,7 +1926,7 @@ exports[`SideNavigation renders static group 1`] = `
                         className="FlexItem flexGrow"
                       >
                         <span
-                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                         >
                           Christmas
                         </span>
@@ -1984,7 +1984,7 @@ exports[`SideNavigation renders static group 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Luxury Christmas
                               </span>
@@ -2021,7 +2021,7 @@ exports[`SideNavigation renders static group 1`] = `
                             className="FlexItem flexGrow"
                           >
                             <span
-                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                             >
                               Classic Christmas
                             </span>
@@ -2079,7 +2079,7 @@ exports[`SideNavigation renders static group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     West Coast
                                   </span>
@@ -2135,7 +2135,7 @@ exports[`SideNavigation renders static group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     East Coast
                                   </span>

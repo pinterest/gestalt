@@ -39,7 +39,7 @@ exports[`<Toast /> Error Toast 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="Text fontSize300 inverse alignStart breakWord fontWeightSemiBold lineClamp"
+          className="inverse alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
           style={
             Object {
               "WebkitLineClamp": 2,
@@ -79,7 +79,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
           className="fontSize300Override textColorOverrideLight"
         >
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Saved to
              
@@ -125,7 +125,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
             className="button inline accessibilityOutline tapTransition lg gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 default alignCenter fontWeightSemiBold"
+              className="default alignCenter Text fontSize300 fontWeightSemiBold"
             >
               Undo
             </div>
@@ -200,7 +200,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
           className="fontSize300Override textColorOverrideLight"
         >
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Saved to
              
@@ -246,7 +246,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="button inline accessibilityOutline tapTransition sm gray enabled childrenDiv"
           >
             <div
-              className="Text fontSize200 default alignCenter fontWeightSemiBold"
+              className="default alignCenter Text fontSize200 fontWeightSemiBold"
             >
               Undo
             </div>
@@ -321,7 +321,7 @@ exports[`<Toast /> Text + Image 1`] = `
           className="fontSize300Override textColorOverrideLight"
         >
           <span
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Saved to
              
@@ -372,7 +372,7 @@ exports[`<Toast /> Text Only 1`] = `
         className="FlexItem flexGrow"
       >
         <span
-          className="Text fontSize300 inverse alignStart breakWord fontWeightNormal lineClamp"
+          className="inverse alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
           style={
             Object {
               "WebkitLineClamp": 2,

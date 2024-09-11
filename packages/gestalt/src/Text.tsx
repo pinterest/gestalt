@@ -3,6 +3,7 @@ import cx from 'classnames';
 import styles from './Text.css';
 import { semanticColors } from './textTypes';
 import typographyStyle from './Typography.css';
+import useInExperiment from './useInExperiment';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -104,6 +105,11 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
 ): ReactElement {
   const colorClass = semanticColors.includes(color) && styles[color];
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
       return typographyStyle.breakAll;
@@ -118,8 +124,6 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   };
 
   const cs = cx(
-    styles.Text,
-    typographyStyle[`fontSize${size}`],
     color && colorClass,
     align === 'center' && typographyStyle.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
@@ -132,9 +136,32 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     overflow === 'noWrap' && typographyStyle.noWrap,
     italic && typographyStyle.fontStyleItalic,
     underline && styles.underline,
-    weight === 'bold' && typographyStyle.fontWeightSemiBold,
-    weight === 'normal' && typographyStyle.fontWeightNormal,
     isNotNullish(lineClamp) && typographyStyle.lineClamp,
+    {
+      [styles.Text]: !isInVRExperiment,
+      [typographyStyle[`fontSize${size}`]]: !isInVRExperiment,
+      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment && weight === 'bold',
+      [typographyStyle.fontWeightNormal]: !isInVRExperiment && weight === 'normal',
+      [styles.TextBody]: isInVRExperiment,
+      [styles.lg]: isInVRExperiment && (size === '400' || size === '500' || size === '600'),
+      [styles.md]: isInVRExperiment && size === '300',
+      [styles.sm]: isInVRExperiment && size === '200',
+      [styles.xs]: isInVRExperiment && size === '100',
+      [styles.lgDefault]:
+        isInVRExperiment &&
+        (size === '400' || size === '500' || size === '600') &&
+        weight === 'normal',
+      [styles.mdDefault]: isInVRExperiment && size === '300' && weight === 'normal',
+      [styles.smDefault]: isInVRExperiment && size === '200' && weight === 'normal',
+      [styles.xsDefault]: isInVRExperiment && size === '100' && weight === 'normal',
+      [styles.lgEmphasis]:
+        isInVRExperiment &&
+        (size === '400' || size === '500' || size === '600') &&
+        weight === 'bold',
+      [styles.mdEmphasis]: isInVRExperiment && size === '300' && weight === 'bold',
+      [styles.smEmphasis]: isInVRExperiment && size === '200' && weight === 'bold',
+      [styles.xsEmphasis]: isInVRExperiment && size === '100' && weight === 'bold',
+    },
   );
 
   const Tag: As = inline ? 'span' : 'div';

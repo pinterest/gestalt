@@ -9,13 +9,13 @@ exports[`List renders a bare unordered list 1`] = `
     id=":r0:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ul
       aria-labelledby=":r0:"
@@ -30,7 +30,7 @@ exports[`List renders a bare unordered list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -47,7 +47,7 @@ exports[`List renders a bare unordered list 1`] = `
             }
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               List item text
             </div>
@@ -64,7 +64,7 @@ exports[`List renders a bare unordered list 1`] = `
                 }
               >
                 <div
-                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                  className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   List item text
                 </div>
@@ -81,7 +81,7 @@ exports[`List renders a bare unordered list 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
                       List item text
                     </div>
@@ -98,7 +98,7 @@ exports[`List renders a bare unordered list 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                         >
                           List item text
                         </div>
@@ -115,7 +115,7 @@ exports[`List renders a bare unordered list 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                             >
                               List item text
                             </div>
@@ -144,13 +144,13 @@ exports[`List renders an condensed list 1`] = `
     id=":ro:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ol
       aria-labelledby=":ro:"
@@ -165,7 +165,7 @@ exports[`List renders an condensed list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -184,13 +184,13 @@ exports[`List renders an list item with custom text 1`] = `
     id=":rp:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ol
       aria-labelledby=":rp:"
@@ -208,7 +208,7 @@ exports[`List renders an list item with custom text 1`] = `
           className="textColorOverrideDark"
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             List item text
           </div>
@@ -231,14 +231,14 @@ exports[`List renders an list with a custom label 1`] = `
       className="textColorOverrideDark"
     >
       <div
-        className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+        className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
       >
         label test
       </div>
     </span>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ol
       aria-labelledby=":rm:"
@@ -253,7 +253,7 @@ exports[`List renders an list with a custom label 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -272,13 +272,13 @@ exports[`List renders an list with a hidden label 1`] = `
     id=":rn:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ol
       aria-labelledby=":rn:"
@@ -293,7 +293,7 @@ exports[`List renders an list with a hidden label 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -312,13 +312,13 @@ exports[`List renders an mixed list 1`] = `
     id=":ri:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ol
       aria-labelledby=":ri:"
@@ -333,7 +333,7 @@ exports[`List renders an mixed list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -347,7 +347,7 @@ exports[`List renders an mixed list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -364,7 +364,7 @@ exports[`List renders an mixed list 1`] = `
             }
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               List item text
             </div>
@@ -378,7 +378,7 @@ exports[`List renders an mixed list 1`] = `
             }
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               List item text
             </div>
@@ -395,7 +395,7 @@ exports[`List renders an mixed list 1`] = `
                 }
               >
                 <div
-                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                  className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   List item text
                 </div>
@@ -409,7 +409,7 @@ exports[`List renders an mixed list 1`] = `
                 }
               >
                 <div
-                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                  className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   List item text
                 </div>
@@ -426,7 +426,7 @@ exports[`List renders an mixed list 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
                       List item text
                     </div>
@@ -440,7 +440,7 @@ exports[`List renders an mixed list 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
                       List item text
                     </div>
@@ -458,7 +458,7 @@ exports[`List renders an mixed list 1`] = `
             }
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               List item text
             </div>
@@ -474,7 +474,7 @@ exports[`List renders an mixed list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -493,13 +493,13 @@ exports[`List renders an ordered list 1`] = `
     id=":rc:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ol
       aria-labelledby=":rc:"
@@ -514,7 +514,7 @@ exports[`List renders an ordered list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -531,7 +531,7 @@ exports[`List renders an ordered list 1`] = `
             }
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               List item text
             </div>
@@ -548,7 +548,7 @@ exports[`List renders an ordered list 1`] = `
                 }
               >
                 <div
-                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                  className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   List item text
                 </div>
@@ -565,7 +565,7 @@ exports[`List renders an ordered list 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
                       List item text
                     </div>
@@ -582,7 +582,7 @@ exports[`List renders an ordered list 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                         >
                           List item text
                         </div>
@@ -599,7 +599,7 @@ exports[`List renders an ordered list 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                             >
                               List item text
                             </div>
@@ -628,13 +628,13 @@ exports[`List renders an unordered list 1`] = `
     id=":r6:"
   >
     <div
-      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
     >
       label test
     </div>
   </div>
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     <ul
       aria-labelledby=":r6:"
@@ -649,7 +649,7 @@ exports[`List renders an unordered list 1`] = `
         }
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           List item text
         </div>
@@ -666,7 +666,7 @@ exports[`List renders an unordered list 1`] = `
             }
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               List item text
             </div>
@@ -683,7 +683,7 @@ exports[`List renders an unordered list 1`] = `
                 }
               >
                 <div
-                  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                  className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   List item text
                 </div>
@@ -700,7 +700,7 @@ exports[`List renders an unordered list 1`] = `
                     }
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
                       List item text
                     </div>
@@ -717,7 +717,7 @@ exports[`List renders an unordered list 1`] = `
                         }
                       >
                         <div
-                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                         >
                           List item text
                         </div>
@@ -734,7 +734,7 @@ exports[`List renders an unordered list 1`] = `
                             }
                           >
                             <div
-                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                             >
                               List item text
                             </div>
