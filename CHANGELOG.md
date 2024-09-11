@@ -1,3 +1,9 @@
+## 159.5.2 (Sep 11, 2024)
+
+### Patch
+
+- Internal: Upgrade TypeScript to 5.6 ([#3748](https://github.com/pinterest/gestalt/pull/3748)) - [Preview link](https://deploy-preview-3748--gestalt.netlify.app?devexample=true)
+
 ## 159.5.1 (Sep 11, 2024)
 
 ### Patch
