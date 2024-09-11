@@ -21,6 +21,7 @@ type Props = {
   children?: ReactNode;
   id: string | undefined;
   idealDirection?: MainDirections;
+  forceDirection?: boolean;
   onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
   role: Role | undefined;
   rounding?: 2 | 4;
@@ -42,6 +43,7 @@ export default function Contents({
   children,
   id,
   idealDirection,
+  forceDirection,
   role,
   rounding,
   width,
@@ -61,6 +63,7 @@ export default function Contents({
     caretElement: caretRef.current,
     caretPadding: rounding && rounding * 4,
     direction: idealPlacement,
+    forceDirection,
     scrollBoundary,
     hideWhenReferenceHidden,
     onPositioned,

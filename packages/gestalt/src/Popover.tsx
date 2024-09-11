@@ -39,6 +39,7 @@ type Props = {
    * Specifies the preferred position of Popover relative to its anchor element. See the [ideal direction](https://gestalt.pinterest.systems/web/popover#Ideal-direction) variant to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  forceDirection?: boolean;
   /**
    * Callback fired when Popover requests to be closed. Must be used to control Popover’s on/off display state.
    */
@@ -103,6 +104,7 @@ export default function Popover({
   onKeyDown,
   id,
   idealDirection,
+  forceDirection,
   onDismiss,
   positionRelativeToAnchor = true,
   disablePortal = true,
@@ -123,6 +125,7 @@ export default function Popover({
       anchor={anchor}
       color={color === 'deprecatedBlue' ? 'blue' : color}
       disablePortal={disablePortal ?? positionRelativeToAnchor}
+      forceDirection={forceDirection}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}
       idealDirection={idealDirection}

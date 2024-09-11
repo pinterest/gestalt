@@ -26,6 +26,7 @@ type Props = {
   showDismissButton?: boolean;
   size?: Size;
   disablePortal?: boolean;
+  forceDirection?: boolean;
   scrollBoundary?: HTMLElement;
   hideWhenReferenceHidden?: boolean;
   onPositioned?: () => void;
@@ -42,6 +43,7 @@ export default function InternalPopover({
   onKeyDown,
   id,
   idealDirection,
+  forceDirection,
   onDismiss,
   color = 'white',
   role,
@@ -72,6 +74,7 @@ export default function InternalPopover({
       border
       caret={showCaret}
       disablePortal={disablePortal}
+      forceDirection={forceDirection}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}
       idealDirection={idealDirection}

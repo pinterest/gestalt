@@ -55,6 +55,10 @@ interface Props {
    */
   direction?: Placement | 'forceDown';
   /**
+   * Disables auto-flipping behavior.
+   */
+  forceDirection?: boolean;
+  /**
    * Type of CSS position property to use.
    * Deafult is `absolute`
    */
@@ -74,6 +78,7 @@ export default function usePopover({
   caretElement,
   caretPadding,
   direction,
+  forceDirection,
   strategy,
   scrollBoundary,
   hideWhenReferenceHidden,
@@ -117,7 +122,7 @@ export default function usePopover({
     middleware: [
       popoverOffset,
       popoverShift,
-      isForceDown ? undefined : popoverFlip,
+      isForceDown || forceDirection ? undefined : popoverFlip,
       popoverArrow,
       popoverHide,
     ],

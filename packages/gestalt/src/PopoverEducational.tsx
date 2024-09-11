@@ -81,6 +81,7 @@ type Props = {
    * Specifies the preferred position of PopoverEducational relative to its anchor element.
    */
   idealDirection?: IdealDirection;
+  forceDirection?: boolean;
   /**
    * Callback fired when PopoverEducational is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/popovereducational#Visibility-on-page-load) to learn more.
    */
@@ -126,6 +127,7 @@ export default function PopoverEducational({
   children,
   id,
   idealDirection,
+  forceDirection,
   message,
   onDismiss,
   primaryAction,
@@ -169,6 +171,7 @@ export default function PopoverEducational({
         color="blue"
         disableFocusTrap
         disablePortal
+        forceDirection={forceDirection}
         hideWhenReferenceHidden
         id={id}
         idealDirection={idealDirection}
