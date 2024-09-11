@@ -1,3 +1,9 @@
+## 159.5.3 (Sep 11, 2024)
+
+### Patch
+
+- Sticky: Updating Types to avoid Prop Issues ([#3745](https://github.com/pinterest/gestalt/pull/3745)) - [Preview link](https://deploy-preview-3745--gestalt.netlify.app?devexample=true)
+
 ## 159.5.2 (Sep 11, 2024)
 
 ### Patch
