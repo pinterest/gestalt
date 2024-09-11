@@ -227,7 +227,7 @@ exports[`PageHeader renders badge with type 1`] = `
                                     className="box contentCenter xsDisplayFlex"
                                   >
                                     <span
-                                      className="inverse alignStart breakWord Text fontSize200 fontWeightSemiBold"
+                                      className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
                                     >
                                       Needs attention
                                     </span>
