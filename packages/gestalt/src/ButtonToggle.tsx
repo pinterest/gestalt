@@ -13,6 +13,7 @@ import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
+import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
@@ -257,6 +258,22 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     (isDarkModeRed && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
+  const textSizes: {
+    [key: string]: '100' | '200' | '300' | '400' | '500' | '600';
+  } = {
+    sm: '200',
+    md: '300',
+    lg: '300',
+  };
+
+  const textSizesVR: {
+    [key: string]: 'xs' | 'sm' | 'md';
+  } = {
+    sm: 'xs',
+    md: 'sm',
+    lg: 'md',
+  };
+
   const content = graphicSrc ? (
     <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
   ) : (
@@ -269,15 +286,21 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       )}
-      <Text
-        align="center"
-        color={textColor}
-        overflow="breakWord"
-        size={size === 'sm' ? '200' : '300'}
-        weight="bold"
-      >
-        {text}
-      </Text>
+      {isInVRExperiment ? (
+        <TextUI align="center" color={textColor} overflow="breakWord" size={textSizesVR[size]}>
+          {text}
+        </TextUI>
+      ) : (
+        <Text
+          align="center"
+          color={textColor}
+          overflow="breakWord"
+          size={textSizes[size]}
+          weight="bold"
+        >
+          {text}
+        </Text>
+      )}
     </Flex>
   );
 
