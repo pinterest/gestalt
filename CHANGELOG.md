@@ -1,3 +1,9 @@
+## 159.6.0 (Sep 11, 2024)
+
+### Minor
+
+- IconButton: VR Implementation + adopted TextUI ([#3720](https://github.com/pinterest/gestalt/pull/3720)) - [Preview link](https://deploy-preview-3720--gestalt.netlify.app?devexample=true)
+
 ## 159.5.3 (Sep 11, 2024)
 
 ### Patch
