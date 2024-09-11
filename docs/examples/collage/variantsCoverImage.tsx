@@ -34,14 +34,18 @@ export default function Example() {
             const image = index === 0 ? coverImage : nonCoverImages[index - 1];
             return (
               <Mask height={height} width={width}>
-                <Image
-                  alt="cover image"
-                  color={image.color}
-                  fit="cover"
-                  naturalHeight={image.naturalHeight}
-                  naturalWidth={image.naturalWidth}
-                  src={image.src}
-                />
+                {image ? (
+                  <Image
+                    alt="cover image"
+                    color={image.color}
+                    fit="cover"
+                    naturalHeight={image.naturalHeight}
+                    naturalWidth={image.naturalWidth}
+                    src={image.src}
+                  />
+                ) : (
+                  <Box color="secondary" height={height} width={width} />
+                )}
               </Mask>
             );
           }}
