@@ -1,4 +1,5 @@
-import { BannerSlim, Icon } from 'gestalt';
+import focusOnDarkBackground from 'docs/examples/iconbuttonlink/focusOnDarkBackground';
+import { BannerSlim, Icon, useDangerouslyInGestaltExperiment } from 'gestalt';
 import docGen, { DocGen, DocType, overrideTypes } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
@@ -12,6 +13,11 @@ import localizationLabels from '../../examples/iconbuttonlink/localizationLabels
 import main from '../../examples/iconbuttonlink/main';
 
 export default function DocsPage({ generatedDocGen }: DocType) {
+  const isInExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -57,6 +63,20 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
 `}
           title="External handlers"
         />
+        {isInExperiment && (
+          <MainSection.Subsection title="Focus ring on dark backgrounds">
+            <MainSection.Card
+              cardSize="lg"
+              description="IconButtonLink can be used on dark backgrounds. The focus ring is visible on dark backgrounds to ensure accessibility."
+              sandpackExample={
+                <SandpackExample
+                  code={focusOnDarkBackground}
+                  name="Usage of focus ring on dark backgrounds"
+                />
+              }
+            />
+          </MainSection.Subsection>
+        )}
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

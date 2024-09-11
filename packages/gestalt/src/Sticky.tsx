@@ -7,21 +7,37 @@ type PositionType = number | string;
 type Threshold =
   | {
       top: PositionType;
+      bottom?: never;
+      left?: never;
+      right?: never;
     }
   | {
+      top?: never;
       bottom: PositionType;
+      left?: never;
+      right?: never;
     }
   | {
+      top?: never;
+      bottom?: never;
       left: PositionType;
+      right?: never;
     }
   | {
+      top?: never;
+      bottom?: never;
+      left?: never;
       right: PositionType;
     }
   | {
       top: PositionType;
       bottom: PositionType;
+      left?: never;
+      right?: never;
     }
   | {
+      top?: never;
+      bottom?: never;
       left: PositionType;
       right: PositionType;
     }
@@ -55,19 +71,7 @@ const DEFAULT_ZINDEX = new FixedZIndex(1);
  * ![Sticky](https://raw.githubusercontent.com/pinterest/gestalt/master/docs/graphics/building-blocks/Sticky.svg)
  */
 
-export default function Sticky({
-  // @ts-expect-error - TS2339 - Property 'bottom' does not exist on type 'Props'.
-  bottom,
-  children,
-  height,
-  // @ts-expect-error - TS2339 - Property 'left' does not exist on type 'Props'.
-  left,
-  // @ts-expect-error - TS2339 - Property 'right' does not exist on type 'Props'.
-  right,
-  // @ts-expect-error - TS2339 - Property 'top' does not exist on type 'Props'.
-  top,
-  zIndex,
-}: Props) {
+export default function Sticky({ bottom, children, height, left, right, top, zIndex }: Props) {
   const style = {
     ...(height !== undefined ? { height } : {}),
     top: top != null ? top : undefined,
