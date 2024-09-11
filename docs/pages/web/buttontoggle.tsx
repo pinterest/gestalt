@@ -19,6 +19,7 @@ import defaultState from '../../examples/buttontoggle/default';
 import disabled from '../../examples/buttontoggle/disabled';
 import dropdown from '../../examples/buttontoggle/dropdown';
 import icon from '../../examples/buttontoggle/icon';
+import iconOnly from '../../examples/buttontoggle/iconOnly';
 import localization from '../../examples/buttontoggle/localization';
 import locationDo from '../../examples/buttontoggle/locationDo';
 import main from '../../examples/buttontoggle/main';
@@ -255,6 +256,8 @@ The skin tones currently supported are:
         <MainSection.Subsection
           description={`
 \`iconStart\` adds an icon before the ButtonToggle text.
+
+Text can be ommited when using an icon to have an icon-only ButtonToggle, but in that case, accessibilityLabel is required. ButtonToggle will fail to render if both \`text\` and \`accessibilityLabel\` are unset.
 `}
           title="Icons"
         >
@@ -262,6 +265,16 @@ The skin tones currently supported are:
             sandpackExample={
               <SandpackExample
                 code={icon}
+                name="Icon start of buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={iconOnly}
                 name="Icon start of buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />

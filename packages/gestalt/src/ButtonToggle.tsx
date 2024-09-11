@@ -12,7 +12,7 @@ import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
 import touchableStyles from './TapArea.css';
-import Text from './Text';
+import TextUI from './Text';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
@@ -125,6 +125,9 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   }: Props,
   ref,
 ) {
+  if (text.length === 0 && accessibilityLabel === undefined)
+    throw new Error('ButtonToggle: When text is empty, accessibilityLabel is required.');
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -210,7 +213,9 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         },
   );
 
-  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
+  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses, {
+    [styles.compact]: text.length === 0,
+  });
 
   if (color instanceof Array) {
     return (
@@ -299,9 +304,12 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[color]]: !disabled && !selected,
-    [styles.interactiveBorder]: !disabled && !selected && !isFocused && color === 'transparent',
+    [styles.interactiveBorder]:
+      !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
   });
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv);
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, {
+    [styles.compact]: text.length === 0,
+  });
 
   const textColor =
     (disabled && 'disabled') ||
@@ -313,7 +321,11 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const content = graphicSrc ? (
     <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
   ) : (
-    <Flex alignItems="center" gap={{ row: text === '' ? 0 : 2, column: 0 }} justifyContent="center">
+    <Flex
+      alignItems="center"
+      gap={{ row: text.length === 0 ? 1 : 2, column: 0 }}
+      justifyContent="center"
+    >
       {iconStart && (
         <Icon
           accessibilityLabel=""
@@ -322,7 +334,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       )}
-      <Text
+      <TextUI
         align="center"
         color={textColor}
         overflow="breakWord"
@@ -330,7 +342,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         weight="bold"
       >
         {text}
-      </Text>
+      </TextUI>
       {hasDropdown && (
         <Icon
           accessibilityLabel="dropdown"
@@ -395,7 +407,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       <div
         ref={buttonToggleAnimation.elementRef}
         className={childrenDivClasses}
-        style={(!isInVRExperiment && compressStyle) || undefined}
+        style={compressStyle || undefined}
       >
         {content}
       </div>

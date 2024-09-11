@@ -92,6 +92,10 @@
   padding: var(--sema-space-300) var(--sema-space-400);
 }
 
+.compact {
+  min-width: 0;
+}
+
 .thumbnailSm {
   composes: small from "./Layout.css";
   composes: paddingX1 from "./boxWhitespace.css";
@@ -147,11 +151,11 @@
 }
 
 .interactiveBorder:hover {
-  border-color: var(--color-border-button-hover);
+  border-color: var(--sema-color-hover-border-interactive);
 }
 
 .interactiveBorder:active {
-  border-color: var(--color-border-button-pressed);
+  border-color: var(--sema-color-pressed-border-interactive);
 }
 
 /* COLORS */
