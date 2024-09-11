@@ -1,4 +1,13 @@
-import { forwardRef,Fragment, ReactNode, useCallback,  useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  forwardRef,
+  Fragment,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import classnames from 'classnames';
 import styles from './VRTextArea.css';
 import boxStyles from '../Box.css';
@@ -91,7 +100,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     ariaDescribedby = `${id}-helperText`;
   }
 
-    const isEllipsisActive = (element: HTMLElement) =>
+  const isEllipsisActive = (element: HTMLElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
 
   const checkEllipsisActive = useCallback(() => {
@@ -141,14 +150,9 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         >
           {label && (
             <label
-              className={classnames(
-                styles.label,
-                styles.md_label,
-                styles.md_labelPos,
-                {
-                  [boxStyles.visuallyHidden]: !isLabelVisible,
-                },
-              )}
+              className={classnames(styles.label, styles.md_label, styles.md_labelPos, {
+                [boxStyles.visuallyHidden]: !isLabelVisible,
+              })}
               htmlFor={id}
             >
               <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
