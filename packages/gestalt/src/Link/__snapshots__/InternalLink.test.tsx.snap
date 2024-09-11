@@ -189,7 +189,7 @@ exports[`renders TapArea 1`] = `
   tabIndex={0}
 >
   <div
-    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
   >
     InternalLink
   </div>

@@ -232,11 +232,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         `}
           title="Sizes"
         >
-          <SandpackExample
-            code={variantSizes}
-            layout="column"
-            name="Variants - Overflow & Truncation"
-          />
+          <SandpackExample code={variantSizes} layout="column" name="Variants - Sizes" />
         </MainSection.Subsection>
 
         <MainSection.Subsection

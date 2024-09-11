@@ -55,7 +55,7 @@ exports[`TableOfContents renders 1`] = `
             className="item itemPadding nestingIndentation1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Item
             </div>
@@ -122,7 +122,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
             className="item itemPadding nestingIndentation1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Item
             </div>
@@ -180,7 +180,7 @@ exports[`TableOfContents renders nested items 1`] = `
             className="item itemPadding nestingIndentation1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Item 1
             </div>
@@ -227,7 +227,7 @@ exports[`TableOfContents renders nested items 1`] = `
                 className="item itemPadding nestingIndentation2"
               >
                 <div
-                  className="Text fontSize200 default alignStart breakWord fontWeightSemiBold"
+                  className="default alignStart breakWord Text fontSize200 fontWeightSemiBold"
                 >
                   Subitem 1
                 </div>
@@ -272,7 +272,7 @@ exports[`TableOfContents renders nested items 1`] = `
                 className="item itemPadding nestingIndentation2"
               >
                 <div
-                  className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+                  className="default alignStart breakWord Text fontSize200 fontWeightNormal"
                 >
                   Subitem 2
                 </div>
@@ -332,7 +332,7 @@ exports[`TableOfContents renders without title 1`] = `
             className="item itemPadding nestingIndentation1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Item 1
             </div>
@@ -377,7 +377,7 @@ exports[`TableOfContents renders without title 1`] = `
             className="item itemPadding nestingIndentation1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Item 2
             </div>

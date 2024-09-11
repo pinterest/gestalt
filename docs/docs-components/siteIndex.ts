@@ -185,6 +185,8 @@ const siteIndex: ReadonlyArray<siteIndexType> = [
       'TapArea',
       'TapAreaLink',
       'Text',
+      'TextCompact',
+      'TextUI',
       'TextArea',
       'TextField',
       'TileData',

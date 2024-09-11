@@ -115,7 +115,7 @@ exports[`TextField TextField with error 1`] = `
     id="test-error"
   >
     <div
-      className="Text fontSize100 error alignStart breakWord fontWeightNormal"
+      className="error alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -227,7 +227,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
           }
         >
           <div
-            className="Text fontSize100 subtle alignStart breakWord fontWeightNormal"
+            className="subtle alignStart breakWord Text fontSize100 fontWeightNormal"
           >
             20/20
           </div>
@@ -259,7 +259,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
               }
             >
               <div
-                className="Text fontSize100 subtle alignEnd breakWord fontWeightNormal"
+                className="subtle alignEnd breakWord Text fontSize100 fontWeightNormal"
               >
                 <div
                   className="box xsDisplayVisuallyHidden"
@@ -357,7 +357,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -430,7 +430,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -503,7 +503,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,

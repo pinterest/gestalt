@@ -2,13 +2,13 @@
 
 exports[`Text error adds the error color class 1`] = `
 <div
-  className="Text fontSize300 error alignStart breakWord fontWeightNormal"
+  className="error alignStart breakWord Text fontSize300 fontWeightNormal"
 />
 `;
 
 exports[`Text lineClamp should add a title when the children are text only 1`] = `
 <div
-  className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+  className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
   style={
     Object {
       "WebkitLineClamp": 1,
@@ -22,7 +22,7 @@ exports[`Text lineClamp should add a title when the children are text only 1`] =
 
 exports[`Text lineClamp should not add a title when the children are objects 1`] = `
 <div
-  className="Text fontSize300 default alignStart breakWord fontWeightNormal lineClamp"
+  className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
   style={
     Object {
       "WebkitLineClamp": 1,
@@ -38,18 +38,18 @@ exports[`Text lineClamp should not add a title when the children are objects 1`]
 
 exports[`Text renders 1`] = `
 <div
-  className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+  className="default alignStart breakWord Text fontSize300 fontWeightNormal"
 />
 `;
 
 exports[`Text size 100 adds the smallest size class 1`] = `
 <div
-  className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+  className="default alignStart breakWord Text fontSize100 fontWeightNormal"
 />
 `;
 
 exports[`Text warning adds the warning color class 1`] = `
 <div
-  className="Text fontSize300 warning alignStart breakWord fontWeightNormal"
+  className="warning alignStart breakWord Text fontSize300 fontWeightNormal"
 />
 `;

@@ -27,7 +27,7 @@ exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -100,13 +100,13 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -183,7 +183,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                        className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                       >
                         Submit
                       </div>
@@ -311,13 +311,13 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -357,7 +357,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -449,13 +449,13 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -495,7 +495,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -587,13 +587,13 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -633,7 +633,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 default alignCenter fontWeightSemiBold"
+                className="default alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Learn more
               </div>
@@ -671,7 +671,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -714,13 +714,13 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -760,7 +760,7 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
               className="FlexItem"
             >
               <div
-                className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
               >
                 Visit Pinterest
               </div>
@@ -803,13 +803,13 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>
@@ -841,7 +841,7 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
             className="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
           >
             <div
-              className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+              className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
             >
               Visit Pinterest
             </div>
@@ -883,13 +883,13 @@ exports[`<BannerUpsell /> message + title 1`] = `
             className="box marginBottom2"
           >
             <div
-              className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
             >
               A Title
             </div>
           </div>
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Insert a clever upsell message here
           </div>

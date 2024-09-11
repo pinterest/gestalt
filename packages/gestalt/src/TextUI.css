@@ -1,0 +1,39 @@
+.textUI {
+  composes: antialiased from "./Typography.css";
+}
+
+.lg {
+  font-family: var(--sema-font-family-ui-lg);
+  font-size: var(--sema-font-size-ui-lg);
+  font-weight: var(--sema-font-weight-ui-lg);
+  letter-spacing: var(--sema-font-letterspacing-ui-lg);
+  line-height: var(--sema-font-lineheight-ui-lg);
+  text-decoration: var(--sema-font-textdecoration-ui-lg);
+}
+
+.md {
+  font-family: var(--sema-font-family-ui-md);
+  font-size: var(--sema-font-size-ui-md);
+  font-weight: var(--sema-font-weight-ui-md);
+  letter-spacing: var(--sema-font-letterspacing-ui-md);
+  line-height: var(--sema-font-lineheight-ui-md);
+  text-decoration: var(--sema-font-textdecoration-ui-md);
+}
+
+.sm {
+  font-family: var(--sema-font-family-ui-sm);
+  font-size: var(--sema-font-size-ui-sm);
+  font-weight: var(--sema-font-weight-ui-sm);
+  letter-spacing: var(--sema-font-letterspacing-ui-sm);
+  line-height: var(--sema-font-lineheight-ui-sm);
+  text-decoration: var(--sema-font-textdecoration-ui-sm);
+}
+
+.xs {
+  font-family: var(--sema-font-family-ui-xs);
+  font-size: var(--sema-font-size-ui-xs);
+  font-weight: var(--sema-font-weight-ui-xs);
+  letter-spacing: var(--sema-font-letterspacing-ui-xs);
+  line-height: var(--sema-font-lineheight-ui-xs);
+  text-decoration: var(--sema-font-textdecoration-ui-xs);
+}

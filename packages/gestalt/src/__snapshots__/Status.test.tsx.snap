@@ -56,7 +56,7 @@ exports[`Status renders with basic title 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize200 fontWeightNormal"
       >
         Unstarted
       </div>
@@ -96,7 +96,7 @@ exports[`Status renders with rich title 1`] = `
         className="fontSize200Override textColorOverrideDark"
       >
         <div
-          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           <a
             aria-label="label"
@@ -151,7 +151,7 @@ exports[`Status renders with title and subtext 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize200 fontWeightNormal"
       >
         Unstarted
       </div>
@@ -161,7 +161,7 @@ exports[`Status renders with title and subtext 1`] = `
     className="box marginStart6"
   >
     <div
-      className="Text fontSize200 subtle alignStart breakWord fontWeightNormal"
+      className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
     >
       some subtext
     </div>

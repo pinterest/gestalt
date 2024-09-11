@@ -42,7 +42,7 @@ exports[`PopoverEducational renders 1`] = `
                 class="FlexItem"
               >
                 <div
-                  class="Text fontSize300 light alignStart breakWord fontWeightNormal"
+                  class="light alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   text
                 </div>
@@ -59,7 +59,7 @@ exports[`PopoverEducational renders 1`] = `
                     class="button inline accessibilityOutline tapTransition md white enabled childrenDiv"
                   >
                     <div
-                      class="Text fontSize300 default alignCenter fontWeightSemiBold"
+                      class="default alignCenter Text fontSize300 fontWeightSemiBold"
                     >
                       next
                     </div>

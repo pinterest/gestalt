@@ -113,7 +113,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -227,7 +227,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -341,7 +341,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -472,7 +472,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>

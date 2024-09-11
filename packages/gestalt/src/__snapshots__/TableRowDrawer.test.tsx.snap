@@ -43,7 +43,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             TestA
           </div>
@@ -59,7 +59,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             TestB
           </div>
@@ -75,7 +75,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             TestC
           </div>
@@ -91,7 +91,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             TestD
           </div>
@@ -115,7 +115,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row1A
           </div>
@@ -130,7 +130,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row1B
           </div>
@@ -145,7 +145,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row1C
           </div>
@@ -160,7 +160,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row1D
           </div>
@@ -221,7 +221,7 @@ exports[`renders correctly with drawer 1`] = `
                     }
                   >
                     <span
-                      className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
                       Test BannerSlim
                     </span>
@@ -245,7 +245,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row2A
           </div>
@@ -260,7 +260,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row2B
           </div>
@@ -275,7 +275,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row2C
           </div>
@@ -290,7 +290,7 @@ exports[`renders correctly with drawer 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
             Row2D
           </div>
