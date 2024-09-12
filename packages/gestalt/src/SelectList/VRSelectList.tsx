@@ -14,6 +14,7 @@ import styles from './VRSelectList.css';
 import boxStyles from '../Box.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
+import TextUI from '../TextUI';
 import typographyStyle from '../Typography.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
@@ -57,7 +58,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
   ref,
 ) {
   const innerRef = useRef<null | HTMLInputElement>(null);
-  const labelRef = useRef<null | HTMLLabelElement>(null);
+  const labelRef = useRef<null | HTMLDivElement>(null);
 
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
@@ -120,10 +121,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
       >
         {label && (
           <label
-            ref={labelRef}
-            className={classnames(styles.label, typographyStyle.truncate, {
-              [styles.enabledText]: !disabled,
-              [styles.disabledText]: disabled,
+            className={classnames(styles.label, {
               // sm
               [styles.sm_label]: isSM,
               [styles.sm_labelPos]: isSM,
@@ -139,7 +137,15 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             htmlFor={id}
             title={ellipsisActive ? label : ''}
           >
-            {label}
+            <TextUI
+              ref={labelRef}
+              color={disabled ? 'disabled' : 'default'}
+              lineClamp={1}
+              size="xs"
+              title={ellipsisActive ? label : ''}
+            >
+              {label}
+            </TextUI>
           </label>
         )}
         {!disabled && <IconEnd disabled={disabled} />}
