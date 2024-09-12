@@ -5,7 +5,7 @@ import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
 import TapArea from './TapArea';
-import Text from './Text';
+import TextUI from './TextUI';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
@@ -166,15 +166,14 @@ export default function Badge({
         </Box>
       ) : null}
       <Box alignContent="center" display="flex">
-        <Text
+        <TextUI
           color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
           dataTestId={dataTestIdText}
           inline
-          size="200"
-          weight={isInVRExperiment ? 'normal' : 'bold'}
+          size="sm"
         >
           {text}
-        </Text>
+        </TextUI>
       </Box>
     </Flex>
   );

@@ -606,6 +606,14 @@
           "value": "{color.black.cosmicore.900.value}"
         }
       },
+      "button": {
+        "hover": {
+          "value": "{color.border.container}"
+        },
+        "pressed": {
+          "value": "{color.border.container}"
+        }
+      },
       "checkbox": {
         "checked": {
           "default": {

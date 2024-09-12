@@ -1,3 +1,33 @@
+## 159.6.6 (Sep 12, 2024)
+
+### Patch
+
+- TextField, TextArea, ComboBox: adopted TextUI in TagArea ([#3754](https://github.com/pinterest/gestalt/pull/3754)) - [Preview link](https://deploy-preview-3754--gestalt.netlify.app?devexample=true)
+
+## 159.6.5 (Sep 12, 2024)
+
+### Patch
+
+- TextArea: adopted TextUI ([#3752](https://github.com/pinterest/gestalt/pull/3752)) - [Preview link](https://deploy-preview-3752--gestalt.netlify.app?devexample=true)
+
+## 159.6.4 (Sep 12, 2024)
+
+### Patch
+
+- TextField, ComboBox: adopted TextUI ([#3751](https://github.com/pinterest/gestalt/pull/3751)) - [Preview link](https://deploy-preview-3751--gestalt.netlify.app?devexample=true)
+
+## 159.6.3 (Sep 12, 2024)
+
+### Patch
+
+- SelectList: adopted TextUI ([#3757](https://github.com/pinterest/gestalt/pull/3757)) - [Preview link](https://deploy-preview-3757--gestalt.netlify.app?devexample=true)
+
+## 159.6.2 (Sep 12, 2024)
+
+### Patch
+
+- Badge: adopted TextUI ([#3749](https://github.com/pinterest/gestalt/pull/3749)) - [Preview link](https://deploy-preview-3749--gestalt.netlify.app?devexample=true)
+
 ## 159.6.1 (Sep 12, 2024)
 
 ### Patch

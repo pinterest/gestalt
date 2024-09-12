@@ -71,9 +71,6 @@
 
 .label {
   color: inherit;
-  font-size: var(--sema-font-size-ui-xs);
-  font-weight: var(--base-font-weight-500);
-  line-height: var(sema-font-lineheight-ui-xs);
   padding: 0;
   position: absolute;
   z-index: 1;
