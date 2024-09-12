@@ -790,7 +790,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                   class="box contentCenter xsDisplayFlex"
                                 >
                                   <span
-                                    class="inverse alignStart breakWord Text fontSize200 fontWeightSemiBold"
+                                    class="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
                                   >
                                     New
                                   </span>
@@ -869,7 +869,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                     class="box contentCenter xsDisplayFlex"
                                   >
                                     <span
-                                      class="inverse alignStart breakWord Text fontSize200 fontWeightSemiBold"
+                                      class="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
                                     >
                                       New
                                     </span>
