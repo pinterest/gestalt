@@ -155,7 +155,13 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
               })}
               htmlFor={id}
             >
-              <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
+              <TextUI
+                ref={labelRef}
+                color={disabled ? 'disabled' : 'default'}
+                lineClamp={1}
+                size="xs"
+                title={ellipsisActive ? label : ''}
+              >
                 {label}
               </TextUI>
             </label>
