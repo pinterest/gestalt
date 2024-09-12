@@ -1,3 +1,9 @@
+## 159.6.4 (Sep 12, 2024)
+
+### Patch
+
+- TextField, ComboBox: adopted TextUI ([#3751](https://github.com/pinterest/gestalt/pull/3751)) - [Preview link](https://deploy-preview-3751--gestalt.netlify.app?devexample=true)
+
 ## 159.6.3 (Sep 12, 2024)
 
 ### Patch
