@@ -1,3 +1,9 @@
+## 159.6.6 (Sep 12, 2024)
+
+### Patch
+
+- TextField, TextArea, ComboBox: adopted TextUI in TagArea ([#3754](https://github.com/pinterest/gestalt/pull/3754)) - [Preview link](https://deploy-preview-3754--gestalt.netlify.app?devexample=true)
+
 ## 159.6.5 (Sep 12, 2024)
 
 ### Patch
