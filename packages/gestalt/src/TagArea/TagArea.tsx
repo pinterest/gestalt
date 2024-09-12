@@ -195,9 +195,14 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
                 [boxStyles.visuallyHidden]: !isLabelVisible,
               })}
               htmlFor={id}
-              title={ellipsisActive ? label : ''}
             >
-              <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
+              <TextUI
+                ref={labelRef}
+                color={disabled ? 'disabled' : 'default'}
+                lineClamp={1}
+                size="xs"
+                title={ellipsisActive ? label : ''}
+              >
                 {label}
               </TextUI>
             </label>
