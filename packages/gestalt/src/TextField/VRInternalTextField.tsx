@@ -154,8 +154,6 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         {label && (
           <label
             className={classnames(styles.label, {
-              [styles.enabledText]: !disabled,
-              [styles.disabledText]: disabled,
               // sm
               [styles.sm_label]: isSM,
               [styles.sm_labelPos]: isSM,
@@ -170,7 +168,13 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
             })}
             htmlFor={id}
           >
-            <TextUI ref={labelRef} lineClamp={1} size="xs" title={ellipsisActive ? label : ''}>
+            <TextUI
+              ref={labelRef}
+              color={disabled ? 'disabled' : 'default'}
+              lineClamp={1}
+              size="xs"
+              title={ellipsisActive ? label : ''}
+            >
               {label}
             </TextUI>
           </label>
