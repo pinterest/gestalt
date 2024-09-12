@@ -330,7 +330,10 @@ describe('OverlayPanel', () => {
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
     if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
-    fireEvent.animationEnd(screen.getAllByRole('dialog')[0]);
+    const dialog = screen.getAllByRole('dialog')[0];
+    if (dialog) {
+      fireEvent.animationEnd(dialog);
+    }
 
     expect(mockOnDismiss).toHaveBeenCalledTimes(0);
   });
@@ -405,7 +408,10 @@ describe('OverlayPanel', () => {
     const backDrop = screen.getByRole('dialog').parentElement?.firstElementChild;
     if (backDrop instanceof HTMLElement) fireEvent.click(backDrop);
 
-    fireEvent.animationEnd(screen.getAllByRole('dialog')[0]);
+    const dialog = screen.getAllByRole('dialog')[0];
+    if (dialog) {
+      fireEvent.animationEnd(dialog);
+    }
 
     expect(container).toMatchSnapshot();
   });

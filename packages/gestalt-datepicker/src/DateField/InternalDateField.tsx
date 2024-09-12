@@ -201,7 +201,7 @@ const getTranslationsFromMUIJS: (arg1?: Locale | null | undefined) =>
     const split = localeData.code.split('-');
     if (split.length === 1) {
       // turns 'es' into 'enES'
-      split.push(split[0].toUpperCase());
+      split.push((split[0] ?? '').toUpperCase());
     }
     const code = split.join('');
 

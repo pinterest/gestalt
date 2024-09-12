@@ -89,17 +89,21 @@ function ExpandedContents() {
                           src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
                         },
                       ];
-                      const image = images[index] || {};
+                      const image = images[index];
                       return (
                         <Mask height={height} wash width={width}>
-                          <Image
-                            alt="collage image"
-                            color={image.color}
-                            fit="cover"
-                            naturalHeight={image.naturalHeight}
-                            naturalWidth={image.naturalWidth}
-                            src={image.src}
-                          />
+                          {image ? (
+                            <Image
+                              alt="collage image"
+                              color={image.color}
+                              fit="cover"
+                              naturalHeight={image.naturalHeight}
+                              naturalWidth={image.naturalWidth}
+                              src={image.src}
+                            />
+                          ) : (
+                            <Box color="secondary" height={height} width={width} />
+                          )}
                         </Mask>
                       );
                     }}

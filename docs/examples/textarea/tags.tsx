@@ -27,7 +27,7 @@ export default function Example() {
         ...tagInput.splice(0, tagInput.length - 1).filter((val) => val !== ''),
       ]);
     }
-    setValue(tagInput[tagInput.length - 1]);
+    setValue(tagInput[tagInput.length - 1]!);
   };
 
   const onKeyDownTagManagement: KeyDownHandler = ({

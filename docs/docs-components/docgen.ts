@@ -1,27 +1,30 @@
 import metadata from './metadata';
 
+type DocGenProp = {
+  defaultValue:
+    | {
+        value: string;
+        computed: boolean;
+      }
+    | null
+    | undefined;
+  required: boolean;
+  description: string;
+  tsType: {
+    raw?: string;
+    nullable?: boolean;
+    name: string;
+    value?: string;
+  };
+};
+
 export type DocGen = {
   description: string;
   displayName: string;
   methods: ReadonlyArray<string>;
   props: {
-    [key: string]: {
-      defaultValue:
-        | {
-            value: string;
-            computed: boolean;
-          }
-        | null
-        | undefined;
-      required: boolean;
-      description: string;
-      tsType: {
-        raw?: string;
-        nullable?: boolean;
-        name: string;
-        value?: string;
-      };
-    };
+    [key: string]: DocGenProp;
+    children: DocGenProp;
   };
 };
 
@@ -34,21 +37,18 @@ export default function docGen(componentName: string): DocGen {
   return metadata[componentName];
 }
 
-export function multipleDocGen(componentNames: ReadonlyArray<string>): {
-  [key: string]: DocGen;
-} {
-  return componentNames.reduce<Record<string, any>>(
-    (
-      prevValue: {
-        [key: string]: DocGen;
-      },
-      currentComponentName: string,
-    ) => ({
+export type MultipleDocGenType<Name extends string> = { [K in Name]: DocGen };
+
+export function multipleDocGen<Name extends string>(
+  componentNames: ReadonlyArray<Name>,
+): MultipleDocGenType<Name> {
+  return componentNames.reduce(
+    (prevValue, currentComponentName: string) => ({
       ...prevValue,
       [currentComponentName]: docGen(currentComponentName),
     }),
     {},
-  );
+  ) as MultipleDocGenType<Name>;
 }
 
 export function overrideTypes(

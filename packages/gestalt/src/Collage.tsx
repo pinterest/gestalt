@@ -65,8 +65,7 @@ const paddingAll = (
     height: height - gutter,
   }));
 
-const mindex = (arr: ReadonlyArray<number>) =>
-  arr.reduce((minIndex, item, i) => (item < arr[minIndex] ? i : minIndex), 0);
+const mindex = (arr: ReadonlyArray<number>) => (arr.length ? arr.indexOf(Math.min(...arr)) : 0);
 
 const columnsForCollageWithCover = (numOfColumns: Column) => (numOfColumns === 4 ? 2 : 1);
 
@@ -112,17 +111,17 @@ function getCollageLayout({
   for (let i = 0; i < 2 * gridCols; i += 1) {
     const col = mindex(colHeights);
     const colIdx = colCounts[col];
-    const itemHeight = layout[col][colIdx] * height;
+    const itemHeight = layout![col]![colIdx!]! * height;
 
     positions.push({
-      top: colHeights[col],
+      top: colHeights[col]!,
       left: col * (width / numCols),
       width: width / numCols,
       height: itemHeight,
     });
 
-    colHeights[col] += itemHeight;
-    colCounts[col] += 1;
+    colHeights[col] = colHeights[col]! + itemHeight;
+    colCounts[col] = colCounts[col]! + 1;
   }
 
   // If we have a cover image, figure out how big it is, then move all the
@@ -200,8 +199,8 @@ export default function Collage(props: Props) {
       renderItem={({ idx: index }) =>
         renderImage({
           index,
-          width: positions[index].width,
-          height: positions[index].height,
+          width: positions[index]!.width,
+          height: positions[index]!.height,
         })
       }
     />

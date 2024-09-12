@@ -1,7 +1,7 @@
 import { Box } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -16,15 +16,12 @@ import main from '../../examples/flex/main';
 import menu from '../../examples/flex/menu';
 import overflowing from '../../examples/flex/overflowing';
 
+const DOC_NAMES = ['Flex', 'FlexItem'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
 const ignoredProps = ['smAlignItems', 'mdAlignItems', 'lgAlignItems'];
 
-export default function DocsPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen?.Flex?.displayName}>
       <PageHeader
@@ -175,9 +172,7 @@ export default function DocsPage({
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {

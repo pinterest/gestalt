@@ -8,7 +8,7 @@ import { ComponentCategory, Platform, PlatformData } from './data/types';
 import IllustrationCard from './IllustrationCard';
 import IllustrationSection from './IllustrationSection';
 
-const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground?: boolean) => {
+const getIllustrationCardColor = (category?: ComponentCategory, hasDarkBackground?: boolean) => {
   const tealBackgrounds = ['Foundations'];
   const grayBackgrounds = ['Utilities', 'Building blocks'];
 
@@ -16,11 +16,11 @@ const getIllustrationCardColor = (category: ComponentCategory, hasDarkBackground
     return TOKEN_COLOR_GRAY_ROBOFLOW_600;
   }
 
-  if (tealBackgrounds.includes(category)) {
+  if (category && tealBackgrounds.includes(category)) {
     return TOKEN_COLOR_TEAL_SPABATTICAL_700;
   }
 
-  if (grayBackgrounds.includes(category)) {
+  if (category && grayBackgrounds.includes(category)) {
     return TOKEN_COLOR_GRAY_ROBOFLOW_100;
   }
 

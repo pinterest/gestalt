@@ -697,12 +697,11 @@ function Masonry<T>(
       _dynamicHeights && typeof window !== 'undefined' && positionStore
         ? new ResizeObserver((entries) => {
             let triggerUpdate = false;
-            for (let i = 0; i < entries.length; i += 1) {
-              const { target, contentRect } = entries[i];
+            entries.forEach(({ target, contentRect }) => {
               const idx = Number(target.getAttribute('data-grid-item-idx'));
 
               if (typeof idx === 'number') {
-                const changedItem: T = items[idx];
+                const changedItem: T = items[idx]!;
 
                 triggerUpdate =
                   recalcHeights({
@@ -713,7 +712,7 @@ function Masonry<T>(
                     measurementStore,
                   }) || triggerUpdate;
               }
-            }
+            });
             if (triggerUpdate) {
               setHeightUpdateTrigger((prev) => prev + 1);
             }

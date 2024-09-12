@@ -49,7 +49,7 @@ export const updateGestaltImportFixer: updateGestaltImportFixerType = ({
   }
 
   const filteredImportComponents = importsToRemove
-    ? importsComponentsArray.filter((component) => !importsToRemove.includes(component[0]))
+    ? importsComponentsArray.filter((component) => !importsToRemove.includes(component[0]!))
     : importsComponentsArray;
 
   const sortedImports = filteredImportComponents

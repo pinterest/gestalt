@@ -210,12 +210,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       props._dynamicHeights && typeof window !== 'undefined' && this.positionStore
         ? new ResizeObserver((entries) => {
             let triggerUpdate = false;
-            for (let i = 0; i < entries.length; i += 1) {
-              const { target, contentRect } = entries[i];
+            entries.forEach(({ target, contentRect }) => {
               const idx = Number(target.getAttribute('data-grid-item-idx'));
 
               if (typeof idx === 'number') {
-                const changedItem: T = this.state.items[idx];
+                const changedItem: T = this.state.items[idx]!;
                 const newHeight = contentRect.height;
 
                 triggerUpdate =
@@ -227,7 +226,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                     measurementStore: this.state.measurementStore,
                   }) || triggerUpdate;
               }
-            }
+            });
             if (triggerUpdate) {
               this.forceUpdate();
             }
@@ -708,7 +707,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
               this.renderLoadingStateComponent({
                 itemData,
                 idx,
-                position: positions[idx],
+                position: positions[idx]!,
               }),
             )}
           </div>
@@ -747,7 +746,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                 i,
                 // If we have items in the positionStore (newer way of tracking positions used for 2-col support), use that. Otherwise fall back to the classic way of tracking positions
                 // this is only required atm because the two column layout doesn't not return positions in their original item order
-                positionStore.get(item) ?? positions[i],
+                positionStore.get(item) ?? positions[i]!,
               ),
             )}
           </div>
@@ -757,7 +756,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
               // we normalize the index here relative to the item list as a whole so that itemIdx is correct
               // and so that React doesnt reuse the measurement nodes
               const measurementIndex = itemsToRender.length + i;
-              const position = measuringPositions[i];
+              const position = measuringPositions[i]!;
               return (
                 <div
                   key={`measuring-${measurementIndex}`}

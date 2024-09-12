@@ -24,7 +24,9 @@ export default function Example() {
           <SegmentedControl
             items={sizes}
             onChange={({ activeIndex }) => {
-              setSize(sizes[activeIndex]);
+              if (sizes[activeIndex]) {
+                setSize(sizes[activeIndex]);
+              }
             }}
             selectedItemIndex={sizes.indexOf(size)}
             size="sm"

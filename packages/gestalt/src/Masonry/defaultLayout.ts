@@ -94,28 +94,22 @@ const defaultLayout =
           _getColumnSpanConfig,
           ...otherProps,
         })
-      : items.reduce<Array<any>>((acc, item) => {
-          let position;
-
-          const positions = acc;
+      : items.map((item) => {
           const height = isLoadingStateItem(item, renderLoadingState)
             ? item.height
             : measurementCache.get(item);
 
           if (height == null) {
-            position = offscreen(columnWidth);
-          } else {
-            const heightAndGutter = getHeightAndGutter(height, gutter);
-            const col = mindex(heights);
-            const top = heights[col];
-            const left = col * columnWidthAndGutter + centerOffset;
-
-            heights[col] += heightAndGutter;
-            position = { top, left, width: columnWidth, height };
+            return offscreen(columnWidth);
           }
-          positions.push(position);
-          return positions;
-        }, []);
+          const heightAndGutter = getHeightAndGutter(height, gutter);
+          const col = mindex(heights);
+          const top = heights[col]!;
+          const left = col * columnWidthAndGutter + centerOffset;
+
+          heights[col] = heights[col]! + heightAndGutter;
+          return { top, left, width: columnWidth, height };
+        });
   };
 
 export default defaultLayout;

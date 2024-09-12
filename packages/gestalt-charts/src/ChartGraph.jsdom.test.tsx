@@ -336,7 +336,7 @@ describe('ChartGraph', () => {
     expect(screen.getByLabelText('Visual pattern view')).toBeVisible();
 
     act(() => {
-      screen.getAllByRole('button')[1].click();
+      screen.getAllByRole('button')[1]?.click();
     });
     expect(mockonVisualPatternChange).toHaveBeenCalled();
   });

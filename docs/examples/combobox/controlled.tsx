@@ -57,7 +57,7 @@ const US_STATES = [
   'WI - Wisconsin',
   'WV - West Virginia',
   'WY - Wyoming',
-];
+] as const;
 
 export default function Example() {
   const usStatesOptions = US_STATES.map((pronoun, index) => ({
@@ -66,7 +66,7 @@ export default function Example() {
   }));
 
   const [suggestedOptions, setSuggestedOptions] = useState(usStatesOptions);
-  const [inputValue, setInputValue] = useState(usStatesOptions[5].label);
+  const [inputValue, setInputValue] = useState<string>(usStatesOptions[5]?.label ?? '');
   const [selected, setSelected] = useState<
     | undefined
     | {

@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { DocGen, multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
@@ -24,13 +24,10 @@ import labelVisible from '../../examples/selectlist/labelVisible';
 import main from '../../examples/selectlist/main';
 import size from '../../examples/selectlist/size';
 
-export default function DocsPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['SelectList', 'SelectListOption', 'SelectListGroup'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen?.SelectList?.displayName}>
       <PageHeader
@@ -354,7 +351,7 @@ export async function getServerSideProps(): Promise<{
 }> {
   return {
     props: {
-      generatedDocGen: await multipleDocGen(['SelectList', 'SelectListOption', 'SelectListGroup']),
+      generatedDocGen: await multipleDocGen(DOC_NAMES),
     },
   };
 }

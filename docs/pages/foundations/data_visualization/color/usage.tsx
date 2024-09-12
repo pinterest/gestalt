@@ -56,7 +56,7 @@ const DO_NOT_PAIR_COLORS = [
   [7, 11],
   [4, 6],
   [6, 11],
-];
+] as const;
 
 const MAP = {
   '1': TOKEN_COLOR_DATA_VISUALIZATION_01,
