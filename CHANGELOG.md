@@ -1,3 +1,9 @@
+## 159.6.2 (Sep 12, 2024)
+
+### Patch
+
+- Badge: adopted TextUI ([#3749](https://github.com/pinterest/gestalt/pull/3749)) - [Preview link](https://deploy-preview-3749--gestalt.netlify.app?devexample=true)
+
 ## 159.6.1 (Sep 12, 2024)
 
 ### Patch
