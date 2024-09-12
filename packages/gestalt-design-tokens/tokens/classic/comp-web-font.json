@@ -2,10 +2,51 @@
   "font": {
     "weight": {
       "datepicker": {
-        "container": {
-          "date": {
-            "value": "{font.weight.bold.value}"
-          }
+        "date": {
+          "value": "{font.weight.bold.value}"
+        },
+        "heading": {
+          "value": "{font.weight.bold.value}"
+        }
+      }
+    },
+    "size": {
+      "datepicker": {
+        "date": {
+          "value": "{font.size.300.value}"
+        },
+        "heading": {
+          "value": "{font.size.400.value}"
+        }
+      }
+    },
+    "family": {
+      "datepicker": {
+        "date": {
+          "value": "{font.family.default.latin.value}"
+        },
+        "heading": {
+          "value": "{font.family.default.latin.value}"
+        }
+      }
+    },
+    "letterspacing": {
+      "datepicker": {
+        "date": {
+          "value": "normal"
+        },
+        "heading": {
+          "value": "normal"
+        }
+      }
+    },
+    "textdecoration": {
+      "datepicker": {
+        "date": {
+          "value": "none"
+        },
+        "heading": {
+          "value": "none"
         }
       }
     }

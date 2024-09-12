@@ -20,9 +20,12 @@
 
 :global ._gestalt .react-datepicker__current-month {
   color: var(--color-text-default);
-  font-size: var(--font-size-400);
-  font-weight: var(--font-weight-datepicker-container-date);
+  font-family: var(--font-family-datepicker-heading);
+  font-size: var(--font-size-datepicker-heading);
+  font-weight: var(--font-weight-datepicker-heading);
+  line-height: var(--font-lineheight-datepicker-heading);
   margin-bottom: var(--space-400);
+  text-decoration: var(--font-textdecoration-datepicker-heading);
 }
 
 /* It must be named different than .react-datepicker__day
@@ -251,10 +254,13 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__day-name {
   color: var(--color-text-subtle);
   display: inline-block;
-  font-size: var(--font-size-300);
-  line-height: var(--space-1000);
+  font-family: var(--font-family-datepicker-date);
+  font-size: var(--font-size-datepicker-date);
+  font-weight: var(--font-weight-datepicker-date);
+  line-height: var(--font-lineheight-datepicker-date);
   margin: var(--space-0);
   text-align: center;
+  text-decoration: var(--font-textdecoration-datepicker-date);
   width: var(--space-1000);
 }
 
@@ -294,8 +300,11 @@ to prevent conflict with another CSS module */
 
 :global ._gestalt .react-datepicker__month-container {
   float: left;
-  font-size: var(--font-size-300);
-  font-weight: var(--font-weight-normal);
+  font-family: var(--font-family-datepicker-date);
+  font-size: var(--font-size-datepicker-date);
+  font-weight: var(--font-weight-datepicker-date);
+  line-height: var(--font-lineheight-datepicker-date);
+  text-decoration: var(--font-textdecoration-datepicker-date);
 }
 
 :global
@@ -389,8 +398,11 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   border-width: 2px;
   color: var(--color-text-subtle);
   cursor: pointer;
-  font-family: var(--font-family-default-latin);
-  font-size: var(--font-size-200);
+  font-family: var(--font-family-datepicker-date);
+  font-size: var(--font-size-datepicker-date);
+  font-weight: var(--font-weight-datepicker-date);
+  line-height: var(--font-lineheight-datepicker-date);
+  text-decoration: var(--font-textdecoration-datepicker-date);
   height: var(--space-1000);
   margin-bottom: var(--space-200);
   margin-top: var(--space-200);
