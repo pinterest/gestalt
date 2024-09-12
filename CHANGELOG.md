@@ -1,3 +1,9 @@
+## 159.6.3 (Sep 12, 2024)
+
+### Patch
+
+- SelectList: adopted TextUI ([#3757](https://github.com/pinterest/gestalt/pull/3757)) - [Preview link](https://deploy-preview-3757--gestalt.netlify.app?devexample=true)
+
 ## 159.6.2 (Sep 12, 2024)
 
 ### Patch
