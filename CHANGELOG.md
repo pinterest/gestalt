@@ -1,3 +1,9 @@
+## 159.6.5 (Sep 12, 2024)
+
+### Patch
+
+- TextArea: adopted TextUI ([#3752](https://github.com/pinterest/gestalt/pull/3752)) - [Preview link](https://deploy-preview-3752--gestalt.netlify.app?devexample=true)
+
 ## 159.6.4 (Sep 12, 2024)
 
 ### Patch
