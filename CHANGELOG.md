@@ -1,3 +1,9 @@
+## 159.6.1 (Sep 12, 2024)
+
+### Patch
+
+- Internal: Improve index access type safety with `noUncheckedIndexedAccess` ([#3756](https://github.com/pinterest/gestalt/pull/3756)) - [Preview link](https://deploy-preview-3756--gestalt.netlify.app?devexample=true)
+
 ## 159.6.0 (Sep 11, 2024)
 
 ### Minor
