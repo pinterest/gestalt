@@ -1,12 +1,10 @@
 .input {
+  composes: md mdDefault from "../Text.css";
   appearance: none;
   background: none;
   border: none;
   color: inherit;
   display: block;
-  font-size: var(--sema-font-size-ui-md);
-  font-weight: var(--base-font-weight-400);
-  line-height: 1.5;
   outline: 0;
   padding: 0;
   resize: none;
@@ -73,7 +71,6 @@
 }
 
 .md_input {
-  font-size: var(--sema-font-size-ui-md);
   min-height: 36px;
   padding-bottom: var(--sema-space-200);
 }
