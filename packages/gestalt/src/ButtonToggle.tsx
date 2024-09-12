@@ -12,10 +12,11 @@ import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
 import touchableStyles from './TapArea.css';
-import Text from './Text';
+import TextUI from './Text';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
+import useInteractiveStates from './utils/useInteractiveStates';
 
 const DEFAULT_TEXT_COLORS = {
   red: 'inverse',
@@ -34,6 +35,10 @@ type Props = {
    */
   accessibilityControls?: string;
   /**
+   * Indicates that ButtonToggle hides or exposes collapsible components and expose whether they are currently expanded or collapsed. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
+   */
+  accessibilityExpanded?: boolean;
+  /**
    * Label for screen readers to announce ButtonToggle. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
    */
   accessibilityLabel?: string;
@@ -51,6 +56,10 @@ type Props = {
    * Indicates if ButtonToggle is disabled. Disabled ButtonToggles are inactive and cannot be interacted with. See the [state variant](https://gestalt.pinterest.systems/web/buttontoggle#State) for details on proper usage.
    */
   disabled?: boolean;
+  /**
+   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/buttontoggle#ARIA-attributes) for details on proper usage.
+   */
+  hasDropdown?: boolean;
   /**
    * An icon displayed above the text to illustrate the meaning of the option selected by the ButtonToggle.
    */
@@ -99,9 +108,11 @@ type Props = {
 const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonToggle(
   {
     accessibilityLabel,
+    accessibilityExpanded,
     color = 'transparent',
     dataTestId,
     disabled = false,
+    hasDropdown,
     graphicSrc,
     iconStart,
     onBlur,
@@ -114,6 +125,14 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   }: Props,
   ref,
 ) {
+  if (text.length === 0 && accessibilityLabel === undefined)
+    throw new Error('ButtonToggle: When text is empty, accessibilityLabel is required.');
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -135,42 +154,85 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     width: innerRef?.current?.clientWidth,
   });
 
+  const {
+    isHovered,
+    handleOnMouseEnter,
+    handleOnMouseLeave,
+    isFocused,
+    handleOnFocus,
+    handleOnBlur,
+  } = useInteractiveStates();
+
   const { colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
   const { isFocusVisible } = useFocusVisible();
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-
   const buttonToggleAnimation = useButtonToggleAnimation();
 
-  const sharedTypeClasses = classnames(styles.button, {
-    [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
-  });
+  const borderClasses = isInVRExperiment
+    ? {
+        [styles.rounding200]: size === 'sm',
+        [styles.rounding300]: size === 'md',
+        [styles.rounding400]: size === 'lg',
+      }
+    : {
+        [styles.rounding600]: !graphicSrc,
+        [styles.rounding300]: graphicSrc && size === 'lg',
+        [styles.rounding200]: graphicSrc && size === 'md',
+        [styles.rounding100]: graphicSrc && size === 'sm',
+      };
+
+  const sharedTypeClasses = classnames(
+    isInVRExperiment ? styles.buttonVr : styles.button,
+    borderClasses,
+    {
+      [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
+      [styles.accessibilityOutlineVr]: !disabled && isFocused && isFocusVisible && isInVRExperiment,
+    },
+  );
 
   // Consume GlobalEventsHandlerProvider
   const { buttonToggleHandlers } = useGlobalEventsHandlerContext() ?? {
     buttonToggleHandlers: undefined,
   };
 
+  const sizeStyles = classnames(
+    isInVRExperiment
+      ? {
+          [styles.lgVr]: size === 'lg' && !graphicSrc,
+          [styles.mdVr]: size === 'md' && !graphicSrc,
+          [styles.smVr]: size === 'sm' && !graphicSrc,
+        }
+      : {
+          [styles.lg]: size === 'lg' && !graphicSrc,
+          [styles.md]: size === 'md' && !graphicSrc,
+          [styles.sm]: size === 'sm' && !graphicSrc,
+        },
+  );
+
+  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses, {
+    [styles.compact]: text.length === 0,
+  });
+
   if (color instanceof Array) {
     return (
       <button
         ref={innerRef}
         aria-controls={accessibilityControls}
+        aria-expanded={accessibilityExpanded}
+        aria-haspopup={hasDropdown}
         aria-label={accessibilityLabel || text}
         aria-pressed={selected}
-        className={classnames(sharedTypeClasses, styles.colorPickerButton, {
+        className={classnames(borderClasses, styles.colorPickerButton, focusStyles.hideOutline, {
           [styles.colorPickerButtonDisabled]: disabled,
         })}
         data-test-id={dataTestId}
         disabled={disabled}
         onBlur={(event) => {
+          handleOnBlur();
           onBlur?.({ event });
         }}
         onClick={(event) => {
@@ -178,6 +240,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           onClick?.({ event });
         }}
         onFocus={(event) => {
+          handleOnFocus();
           onFocus?.({ event });
         }}
         onKeyDown={(e) => {
@@ -194,6 +257,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           handleMouseDown();
           if (isInVRExperiment) buttonToggleAnimation.handleMouseDown();
         }}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
         onMouseUp={() => {
           handleMouseUp();
           if (isInVRExperiment) buttonToggleAnimation.handleMouseUp();
@@ -212,43 +277,39 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
             [buttonToggleAnimation.classes]: isInVRExperiment,
           })}
         >
-          <ColorPicker colors={color} disabled={disabled} selected={selected} size={size} />
+          <ColorPicker
+            colors={color}
+            disabled={disabled}
+            isFocused={isFocused && isFocusVisible}
+            isHovered={isHovered}
+            selected={selected}
+            size={size}
+          />
         </div>
       </button>
     );
   }
 
-  const baseTypeClasses = classnames(sharedTypeClasses, {
-    [buttonToggleAnimation.classes]: isInVRExperiment,
-    [touchableStyles.tapTransition]: !isInVRExperiment,
+  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, sizeStyles, {
     [styles.disabled]: disabled && (color !== 'red' || selected),
     [styles.disabledRed]: disabled && color === 'red' && !selected,
     [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
     [styles.enabled]: !disabled,
-    [styles.lg]: size === 'lg' && !graphicSrc,
-    [styles.md]: size === 'md' && !graphicSrc,
     [borderStyles.noBorder]: color === 'red' && !selected,
     [styles.selected]: !disabled && selected,
     [styles.selectedDisabled]: disabled && selected,
-    [styles.sm]: size === 'sm' && !graphicSrc,
     [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
     [styles.thumbnailDisabled]: graphicSrc && disabled,
     [styles.thumbnailLg]: size === 'lg' && graphicSrc,
     [styles.thumbnailMd]: size === 'md' && graphicSrc,
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[color]]: !disabled && !selected,
+    [styles.interactiveBorder]:
+      !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
   });
-
-  const borderClasses = {
-    [styles.rounding600]: !graphicSrc,
-    [styles.rounding300]: graphicSrc && size === 'lg',
-    [styles.rounding200]: graphicSrc && size === 'md',
-    [styles.rounding100]: graphicSrc && size === 'sm',
-  };
-
-  const parentButtonClasses = classnames(sharedTypeClasses, styles.parentButton, borderClasses);
-
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, borderClasses);
+  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, {
+    [styles.compact]: text.length === 0,
+  });
 
   const textColor =
     (disabled && 'disabled') ||
@@ -260,7 +321,11 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const content = graphicSrc ? (
     <LabeledThumbnail graphicSrc={graphicSrc} text={text} textColor={textColor} />
   ) : (
-    <Flex alignItems="center" gap={{ row: text === '' ? 0 : 2, column: 0 }} justifyContent="center">
+    <Flex
+      alignItems="center"
+      gap={{ row: text.length === 0 ? 1 : 2, column: 0 }}
+      justifyContent="center"
+    >
       {iconStart && (
         <Icon
           accessibilityLabel=""
@@ -269,7 +334,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       )}
-      <Text
+      <TextUI
         align="center"
         color={textColor}
         overflow="breakWord"
@@ -277,7 +342,15 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         weight="bold"
       >
         {text}
-      </Text>
+      </TextUI>
+      {hasDropdown && (
+        <Icon
+          accessibilityLabel="dropdown"
+          color={textColor as IconColor}
+          icon="arrow-down"
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      )}
     </Flex>
   );
 
@@ -285,6 +358,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     <button
       ref={innerRef}
       aria-controls={accessibilityControls}
+      aria-expanded={accessibilityExpanded}
+      aria-haspopup={hasDropdown}
       aria-label={accessibilityLabel || text}
       aria-pressed={selected}
       className={parentButtonClasses}
@@ -292,6 +367,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       disabled={disabled}
       onBlur={(event) => {
         handleBlur();
+        handleOnBlur();
         onBlur?.({ event });
       }}
       onClick={(event) => {
@@ -299,6 +375,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onClick?.({ event });
       }}
       onFocus={(event) => {
+        handleOnFocus();
         onFocus?.({ event });
       }}
       onKeyDown={(e) => {
@@ -330,7 +407,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       <div
         ref={buttonToggleAnimation.elementRef}
         className={childrenDivClasses}
-        style={(!isInVRExperiment && compressStyle) || undefined}
+        style={compressStyle || undefined}
       >
         {content}
       </div>
