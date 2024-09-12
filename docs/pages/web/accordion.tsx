@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -21,13 +21,10 @@ import staticWithErrorType from '../../examples/accordion/staticWithErrorType';
 import staticWithIcon from '../../examples/accordion/staticWithIcon';
 import staticWithIconButton from '../../examples/accordion/staticWithIconButton';
 
-export default function DocsPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['Accordion', 'AccordionExpandable'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen.Accordion?.description}>
       <PageHeader
@@ -229,20 +226,20 @@ export default function DocsPage({
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
-  const docGen = await multipleDocGen(['Accordion', 'AccordionExpandable']);
+  const docGen = await multipleDocGen(DOC_NAMES);
 
-  docGen.Accordion.props.icon = {
-    ...docGen.Accordion.props.icon,
-    tsType: {
-      name: 'string',
-      raw: 'Icon[icon]',
-    },
-  };
+  if (docGen.Accordion.props.icon) {
+    docGen.Accordion.props.icon = {
+      ...docGen.Accordion.props.icon,
+      tsType: {
+        name: 'string',
+        raw: 'Icon[icon]',
+      },
+    };
+  }
 
   return {
     props: { generatedDocGen: docGen },

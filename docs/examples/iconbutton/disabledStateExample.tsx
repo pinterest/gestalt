@@ -1,0 +1,64 @@
+import { Flex, IconButton } from 'gestalt';
+
+export default function Example() {
+  return (
+    <Flex alignItems="center" gap={8} height="100%" justifyContent="center" width="100%" wrap>
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="gray"
+        disabled
+        icon="share"
+        label="gray"
+        size="xl"
+      />
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="lightGray"
+        disabled
+        icon="share"
+        label="lightGray"
+        size="xl"
+      />
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="red"
+        disabled
+        icon="share"
+        label="red"
+        size="xl"
+      />
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="transparent"
+        disabled
+        icon="share"
+        label="red"
+        size="xl"
+      />
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="transparentDarkGray"
+        disabled
+        icon="share"
+        label="transparentDarkGray"
+        size="xl"
+      />
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="washLight"
+        disabled
+        icon="share"
+        label="washLight"
+        size="xl"
+      />
+      <IconButton
+        accessibilityLabel="Share"
+        bgColor="white"
+        disabled
+        icon="share"
+        label="white"
+        size="xl"
+      />
+    </Flex>
+  );
+}

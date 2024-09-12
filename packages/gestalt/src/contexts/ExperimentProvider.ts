@@ -19,5 +19,10 @@ export default ExperimentProvider;
 
 export function useExperimentContext(experimentName: string): Experiment {
   const experiments = useContext(ExperimentContext) ?? {};
-  return experiments[experimentName] ?? {};
+  return (
+    experiments[experimentName] ?? {
+      anyEnabled: false,
+      group: '',
+    }
+  );
 }

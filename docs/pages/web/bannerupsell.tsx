@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -24,13 +24,10 @@ import singleTextField from '../../examples/bannerupsell/singleTextField';
 import textVariant from '../../examples/bannerupsell/textVariant';
 import useForMarketing from '../../examples/bannerupsell/useForMarketing';
 
-export default function DocsPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['BannerUpsell', 'BannerUpsellForm'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen?.BannerUpsell?.displayName}>
       <PageHeader
@@ -372,12 +369,10 @@ If the \`message\` text requires more complex style, such as bold text or inline
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {
-    props: { generatedDocGen: await multipleDocGen(['BannerUpsell', 'BannerUpsellForm']) },
+    props: { generatedDocGen: await multipleDocGen(DOC_NAMES) },
   };
 }

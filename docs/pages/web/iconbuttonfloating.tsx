@@ -224,13 +224,15 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('IconButtonFloating');
 
-  generatedDocGen.props.icon = {
-    ...generatedDocGen.props.icon,
-    tsType: {
-      name: 'string',
-      raw: 'Icon[icon]',
-    },
-  };
+  if (generatedDocGen.props.icon) {
+    generatedDocGen.props.icon = {
+      ...generatedDocGen.props.icon,
+      tsType: {
+        name: 'string',
+        raw: 'Icon[icon]',
+      },
+    };
+  }
 
   return {
     props: { generatedDocGen },

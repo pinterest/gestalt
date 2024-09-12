@@ -48,12 +48,12 @@ function formatDisplayName(
     : `${slicedDisplayName}Context`;
 
   if (subjectDisplayName) {
-    const hocDisplayName = `with${displayName[0].toUpperCase()}${slicedDisplayName}(${subjectDisplayName})`;
+    const hocDisplayName = `with${displayName[0]?.toUpperCase()}${slicedDisplayName}(${subjectDisplayName})`;
     return { hocDisplayName };
   }
 
-  const propsDisplayName = `${displayName[0].toLowerCase()}${slicedDisplayName}`;
-  const messageDisplayName = `${displayName[0].toUpperCase()}${slicedDisplayName}`;
+  const propsDisplayName = `${displayName[0]?.toLowerCase()}${slicedDisplayName}`;
+  const messageDisplayName = `${displayName[0]?.toUpperCase()}${slicedDisplayName}`;
 
   return { propsDisplayName, messageDisplayName };
 }

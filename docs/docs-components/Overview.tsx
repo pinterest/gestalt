@@ -32,6 +32,9 @@ const categoryOrder: ReadonlyArray<ComponentCategory> = [
   'Utilities',
 ];
 
+type CategoryOrderType = typeof categoryOrder[number];
+type ComponentsByCategory = { [K in CategoryOrderType]: ReadonlyArray<PlatformData> };
+
 const headerCopyByPlatform = {
   web: 'Gestalt provides an extensive set of React components for use in building larger web experiences and patterns. They include interactive UI components and developer utilities to help with implemention.',
   ios: 'Gestalt provides a growing set of interactive UI components for use in building larger iOS experiences and patterns.',
@@ -47,15 +50,13 @@ export default function Overview({ platform }: Props) {
   const [order, setOrder] = useState<'alphabetical' | 'categorical'>('alphabetical');
 
   const platformComponentData = getByPlatform(componentData, { platform });
-  const componentsByCategory = categoryOrder.reduce<{
-    [key: string]: ReadonlyArray<PlatformData>;
-  }>(
+  const componentsByCategory = categoryOrder.reduce(
     (acc, cur) => ({
       ...acc,
       [`${cur}`]: getByCategory(componentData, { platform, category: cur }),
     }),
     {},
-  );
+  ) as ComponentsByCategory;
 
   const prettyPlatform = prettyPrintPlatform(platform);
 

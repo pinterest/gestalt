@@ -290,7 +290,9 @@ export async function getServerSideProps(): Promise<{
   };
 }> {
   const generatedDocGen = await docGen('Popover');
-  generatedDocGen.props.color.tsType.raw = '"white" | "darkGray"';
+  if (generatedDocGen.props.color) {
+    generatedDocGen.props.color.tsType.raw = '"white" | "darkGray"';
+  }
 
   return {
     props: {

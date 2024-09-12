@@ -20,7 +20,7 @@ const getFileParameters = (
   const normalizedFiles = Object.keys(files).reduce<Record<string, any>>((prev, next) => {
     const fileName = next.replace('/', '');
     const value = {
-      content: files[next].code,
+      content: files[next]?.code,
       isBinary: false,
     } as const;
 

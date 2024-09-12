@@ -15,7 +15,7 @@ describe('ComboBox', () => {
     'xe / xem',
     'xie / xem',
     'zie / zem',
-  ];
+  ] as const;
 
   const defaultOptions = PRONOUNS.map((pronoun: any, index: any) => ({
     label: pronoun,
@@ -337,7 +337,7 @@ describe('ComboBox', () => {
     });
 
     it('shows selected option in textfield', () => {
-      const input1 = controlledOptions[0].label;
+      const input1 = controlledOptions[0]?.label;
 
       renderComboBox({
         inputValue: input1,
@@ -350,7 +350,7 @@ describe('ComboBox', () => {
     });
 
     it('shows selected option in dropdown', async () => {
-      const input1 = controlledOptions[0].label;
+      const input1 = controlledOptions[0]?.label;
 
       renderComboBox({
         inputValue: input1,

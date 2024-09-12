@@ -85,9 +85,10 @@ describe('DateRange', () => {
 
     const startSelectedDay = screen.getAllByText('13')[0];
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {
-      fireEvent.click(startSelectedDay);
+      if (startSelectedDay) {
+        fireEvent.click(startSelectedDay);
+      }
     });
 
     expect(screen.getByDisplayValue('12 / 13 / 1995')).toBeInTheDocument();
@@ -95,9 +96,10 @@ describe('DateRange', () => {
 
     const endSelectedDay = screen.getAllByText('13')[1];
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {
-      fireEvent.click(endSelectedDay);
+      if (endSelectedDay) {
+        fireEvent.click(endSelectedDay);
+      }
     });
 
     expect(screen.getByDisplayValue('12 / 13 / 1995')).toBeInTheDocument();
@@ -140,16 +142,18 @@ describe('DateRange', () => {
 
     const startSelectedDay = screen.getAllByText('13')[0];
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {
-      fireEvent.click(startSelectedDay);
+      if (startSelectedDay) {
+        fireEvent.click(startSelectedDay);
+      }
     });
 
     const endSelectedDay = screen.getAllByText('13')[1];
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {
-      fireEvent.click(endSelectedDay);
+      if (endSelectedDay) {
+        fireEvent.click(endSelectedDay);
+      }
     });
 
     expect(onStartDateChangeMock).toHaveBeenNthCalledWith(

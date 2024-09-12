@@ -16,7 +16,7 @@ describe('dynamic heights on masonry', () => {
   test('one column first item increase', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items = [
+    const items: readonly [Item, ...Item[]] = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
@@ -59,7 +59,7 @@ describe('dynamic heights on masonry', () => {
     });
 
     items.forEach((item, index) => {
-      const originalPos = positions[index];
+      const originalPos = positions[index]!;
       const newPos = positionCache.get(item);
 
       const expectedPos = {

@@ -6,6 +6,7 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
+import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
@@ -32,6 +33,11 @@ type Props = {
    * When disabled, IconButtonLink looks inactive and cannot be interacted with.
    */
   disabled?: boolean;
+  /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
   /**
    * Specifies a link URL.
    */
@@ -103,6 +109,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
+    focusColor,
     icon,
     iconColor,
     onClick,
@@ -113,6 +120,10 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
@@ -129,6 +140,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
     handleOnMouseUp,
     isHovered,
     isActive,
+    isFocused,
   } = useInteractiveStates();
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
@@ -165,6 +177,8 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         active={!disabled && isActive}
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
+        focusColor={focusColor}
+        focused={isInVRExperiment && isFocused}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

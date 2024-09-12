@@ -1,3 +1,27 @@
+## 159.6.1 (Sep 12, 2024)
+
+### Patch
+
+- Internal: Improve index access type safety with `noUncheckedIndexedAccess` ([#3756](https://github.com/pinterest/gestalt/pull/3756)) - [Preview link](https://deploy-preview-3756--gestalt.netlify.app?devexample=true)
+
+## 159.6.0 (Sep 11, 2024)
+
+### Minor
+
+- IconButton: VR Implementation + adopted TextUI ([#3720](https://github.com/pinterest/gestalt/pull/3720)) - [Preview link](https://deploy-preview-3720--gestalt.netlify.app?devexample=true)
+
+## 159.5.3 (Sep 11, 2024)
+
+### Patch
+
+- Sticky: Updating Types to avoid Prop Issues ([#3745](https://github.com/pinterest/gestalt/pull/3745)) - [Preview link](https://deploy-preview-3745--gestalt.netlify.app?devexample=true)
+
+## 159.5.2 (Sep 11, 2024)
+
+### Patch
+
+- Internal: Upgrade TypeScript to 5.6 ([#3748](https://github.com/pinterest/gestalt/pull/3748)) - [Preview link](https://deploy-preview-3748--gestalt.netlify.app?devexample=true)
+
 ## 159.5.1 (Sep 11, 2024)
 
 ### Patch

@@ -17,6 +17,7 @@
     "strictFunctionTypes": true,
     "skipLibCheck": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "plugins": [

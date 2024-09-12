@@ -36,7 +36,7 @@ export default function generateRealisticExampleItems({
   return Array.from({ length: numberOfItems }).map((_, i) => {
     const pin = {
       name: `${name} ${i + previousItemCount}`,
-      height: pinHeightsSample[baseIndex + i],
+      height: pinHeightsSample[baseIndex + i]!,
       color: getRandomColor(getRandomNumber),
     } as const;
     return Boolean(twoColItemIndex) && i === twoColItemIndex

@@ -46,7 +46,7 @@ export default function Snapshot() {
                 src: 'https://i.ibb.co/FY2MKr5/stock6.jpg',
               },
             ];
-            const image = images[index] || {};
+            const image = images[index];
             return (
               <Mask height={height} wash width={width}>
                 {image ? (

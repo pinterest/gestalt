@@ -48,23 +48,25 @@ function List({ title, onSelect }: { title: string; onSelect: (data: string) => 
       </Text>
 
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        {[
+        {(
           [
-            'https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp',
-            'Fashion',
-            'Thumbnail image: a white dress with red flowers',
-          ],
-          [
-            'https://i.ibb.co/swC1qpp/IMG-0494.jpg',
-            'Food',
-            'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice',
-          ],
-          [
-            'https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp',
-            'Home',
-            'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture',
-          ],
-        ].map((data) => (
+            [
+              'https://i.ibb.co/s3PRJ8v/photo-1496747611176-843222e1e57c.webp',
+              'Fashion',
+              'Thumbnail image: a white dress with red flowers',
+            ],
+            [
+              'https://i.ibb.co/swC1qpp/IMG-0494.jpg',
+              'Food',
+              'Thumbnail image: a paella with shrimp, green peas, red peppers and yellow rice',
+            ],
+            [
+              'https://i.ibb.co/PFVF3JH/photo-1583847268964-b28dc8f51f92.webp',
+              'Home',
+              'Thumbnail image: a living room with a white couch, two paints in the wall and wooden furniture',
+            ],
+          ] as const
+        ).map((data) => (
           <TapArea key={data[1]} onTap={() => onSelect(data[1])} rounding={2}>
             <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
               <Box height={50} overflow="hidden" rounding={2} width={50}>

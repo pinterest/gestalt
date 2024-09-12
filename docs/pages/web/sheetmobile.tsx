@@ -1,6 +1,6 @@
 import { BannerSlim } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
 import LocalizationSection from '../../docs-components/LocalizationSection';
@@ -24,13 +24,10 @@ import outsideClick from '../../examples/sheetmobile/outsideClick';
 import textOnlyHeader from '../../examples/sheetmobile/textOnlyHeader';
 import withPrimaryActionHeader from '../../examples/sheetmobile/withPrimaryActionHeader';
 
-export default function SheetMobilePage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['SheetMobile', 'DismissingElement'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function SheetMobilePage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen?.SheetMobile.displayName}>
       <PageHeader
@@ -398,14 +395,12 @@ OverlayPanels are surfaces that allow users to view optional information or comp
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {
     props: {
-      generatedDocGen: await multipleDocGen(['SheetMobile', 'DismissingElement']),
+      generatedDocGen: await multipleDocGen(DOC_NAMES),
     },
   };
 }
