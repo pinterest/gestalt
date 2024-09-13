@@ -327,6 +327,15 @@ NumberField cannot be interacted with using the mouse or keyboard. They also do 
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          columns={2}
+          description={`'label' is an optional prop; however, NumberField should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/numberfield#Labels).
+
+Check [TextField's Label variant section](/web/numberfield#Labels) for more examples and guidance.
+`}
+          title="Label"
+        />
+
+        <MainSection.Subsection
           description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
           title="Helper text"
         >
