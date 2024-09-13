@@ -151,7 +151,7 @@ const NumberFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function N
     helperText,
     id,
     label,
-    labelDisplay,
+    labelDisplay = 'visible',
     max,
     min,
     name,
