@@ -13,9 +13,6 @@
   border: none;
   color: inherit;
   display: block;
-  font-size: var(--sema-font-size-ui-md);
-  font-weight: var(--base-font-weight-400);
-  line-height: 1.5;
   outline: 0;
   padding: 0;
   width: 100%;
@@ -79,9 +76,12 @@
 /* sm */
 
 .sm_input {
-  font-size: var(--sema-font-size-ui-sm);
   min-height: 28px;
   padding-bottom: var(--sema-space-100);
+}
+
+.sm_input_text {
+  composes: sm smDefault from "../Text.css";
 }
 
 html[dir="rtl"] .sm_inputHorizontalPadding {
@@ -115,9 +115,12 @@ html[dir="rtl"] .sm_actionButton {
 /* md */
 
 .md_input {
-  font-size: var(--sema-font-size-ui-md);
   min-height: 36px;
   padding-bottom: var(--sema-space-200);
+}
+
+.md_input_text {
+  composes: md mdDefault from "../Text.css";
 }
 
 html[dir="rtl"] .md_inputHorizontalPadding {
@@ -179,9 +182,12 @@ html[dir="rtl"] .md_actionButton {
 /* lg */
 
 .lg_input {
-  font-size: var(--sema-font-size-ui-md);
   min-height: 48px;
   padding-bottom: var(--sema-space-300);
+}
+
+.lg_input_text {
+  composes: md mdDefault from "../Text.css";
 }
 
 html[dir="rtl"] .lg_inputHorizontalPadding {

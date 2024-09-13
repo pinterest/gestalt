@@ -1,3 +1,9 @@
+## 159.6.7 (Sep 13, 2024)
+
+### Patch
+
+- TextArea, TextField, SelectList: adopted TextBody ([#3758](https://github.com/pinterest/gestalt/pull/3758)) - [Preview link](https://deploy-preview-3758--gestalt.netlify.app?devexample=true)
+
 ## 159.6.6 (Sep 12, 2024)
 
 ### Patch
