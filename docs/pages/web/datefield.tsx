@@ -192,7 +192,10 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Size">
+        <MainSection.Subsection
+          description={`DateField is available in 'md' and 'lg' size.`}
+          title="Size"
+        >
           <MainSection.Card
             sandpackExample={<SandpackExample code={sizes} name="DateField Sizes" />}
           />
