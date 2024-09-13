@@ -12,6 +12,7 @@ import classnames from 'classnames';
 import styles from './VRSearchField.css';
 import Box from '../Box';
 import boxStyles from '../Box.css';
+import Icon from '../Icon';
 import Pog from '../Pog';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import TapArea from '../TapArea';
@@ -84,7 +85,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
   // ==== STATE ====
   const [focused, setFocused] = useState(false);
   const [ellipsisActive, setEllipsisActive] = useState(false);
-    const [iconFocused, setIconFocused] = useState(false);
+  const [iconFocused, setIconFocused] = useState(false);
 
   // ==== A11Y ====
 
@@ -141,6 +142,19 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             </TextUI>
           </label>
         )}
+        <div className={classnames(styles.searchIconWrapper)}>
+          <Box
+            alignItems="end"
+            aria-hidden
+            display="flex"
+            height="100%"
+            marginBottom={3}
+            marginStart={3}
+          >
+            <Icon accessibilityLabel="" icon="search" size={16} />
+          </Box>
+        </div>
+
         <input
           ref={innerRef}
           aria-describedby={focused ? ariaDescribedby : undefined}
@@ -192,7 +206,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
         />
         {isClearIconButtonVisible ? (
           <div className={classnames(styles.actionButtonWrapper)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
+            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding={1}>
               <TapArea
                 accessibilityLabel="Clear date"
                 onBlur={() => setIconFocused(false)}
