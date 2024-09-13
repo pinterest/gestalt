@@ -17,7 +17,6 @@ export default function Example() {
           label="Number of widgets"
           onChange={({ value }) => setInput1Text(value)}
           placeholder="Please enter the number of widgets"
-
           size="sm"
           value={input1text}
         />
@@ -29,7 +28,6 @@ export default function Example() {
           label="Number of widgets"
           onChange={({ value }) => setInput2Text(value)}
           placeholder="Please enter the number of widgets"
-
           size="md"
           value={input2text}
         />
@@ -41,7 +39,6 @@ export default function Example() {
           label="Number of widgets"
           onChange={({ value }) => setInput3Text(value)}
           placeholder="Please enter the number of widgets"
-
           size="lg"
           value={input3text}
         />
