@@ -10,29 +10,29 @@ export default function Example() {
     <Box padding={8} width="100%">
       <Flex direction="column" gap={6} width="100%">
         <NumberField
-          disabled
-          id="disabled-example-sm"
+          id="readOnly-example-sm"
           label="Number of widgets"
           onChange={({ value }) => setInput1Text(value)}
           placeholder="Please enter the number of widgets"
+          readOnly
           size="sm"
           value={input1text}
         />
         <NumberField
-          disabled
-          id="disabled-example-md"
+          id="readOnly-example-md"
           label="Number of widgets"
           onChange={({ value }) => setInput2Text(value)}
           placeholder="Please enter the number of widgets"
+          readOnly
           size="md"
           value={input2text}
         />
         <NumberField
-          disabled
-          id="disabled-example-lg"
+          id="readOnly-example-lg"
           label="Number of widgets"
           onChange={({ value }) => setInput3Text(value)}
           placeholder="Please enter the number of widgets"
+          readOnly
           size="lg"
           value={input3text}
         />

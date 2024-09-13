@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  Fragment,
   ReactNode,
   useCallback,
   useEffect,
@@ -112,7 +111,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
   }, [label, checkEllipsisActive]);
 
   return (
-    <Fragment>
+    <div>
       <div
         className={classnames(styles.inputParent, {
           [styles.enabled]: !disabled,
@@ -214,7 +213,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
       {!disabled && hasErrorMessage ? (
         <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
-    </Fragment>
+    </div>
   );
 });
 

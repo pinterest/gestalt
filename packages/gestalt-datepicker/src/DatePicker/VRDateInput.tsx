@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  Fragment,
   ReactNode,
   useCallback,
   useEffect,
@@ -108,7 +107,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   }, [label, checkEllipsisActive]);
 
   return (
-    <Fragment>
+    <div>
       <div className={classnames(styles.inputParent)}>
         {label && (
           <label
@@ -213,7 +212,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       {!disabled && hasErrorMessage ? (
         <ErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
       ) : null}
-    </Fragment>
+    </div>
   );
 });
 
