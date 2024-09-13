@@ -9,9 +9,9 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { Box, Icon, TapArea, useDefaultLabel } from 'gestalt';
-import ErrorMessage from './ErrorMessage';
-import HelperText from './HelperText';
 import styles from './VRDateInput.css';
+import ErrorMessage from '../subcomponents/ErrorMessage';
+import HelperText from '../subcomponents/HelperText';
 
 type Props = {
   id: string;

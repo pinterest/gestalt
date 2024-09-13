@@ -3,15 +3,15 @@ import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 
 export default function TextFieldSizes() {
-  const [input1Text, setInput1Text] = useState<Date | null>(new Date('1995-12-17T03:24:00'));
-  const [input2Text, setInput2Text] = useState<Date | null>(new Date('1995-12-17T03:24:00'));
+  const [input1Text, setInput1Text] = useState<Date | null>(null);
+  const [input2Text, setInput2Text] = useState<Date | null>(null);
 
   return (
     <Box padding={8} width="100%">
       <Flex direction="column" gap={6} width="100%">
         <DateField
-          disabled
-          id="disabled-datefield-md"
+          helperText="Enter your date of birth"
+          id="helperText-datefield-md"
           label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {
@@ -22,8 +22,8 @@ export default function TextFieldSizes() {
           value={input1Text}
         />
         <DateField
-          disabled
-          id="disabled-datefield-lg"
+          helperText="Enter your date of birth"
+          id="helperText-datefield-lg"
           label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {

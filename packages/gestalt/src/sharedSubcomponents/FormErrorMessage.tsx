@@ -17,9 +17,6 @@ type Props = {
   noPadding?: boolean;
 };
 
-const icon = 'workflow-status-problem';
-const color = 'error';
-
 export default function FormErrorMessage({
   id,
   size,
@@ -71,8 +68,8 @@ export default function FormErrorMessage({
               >
                 <Icon
                   accessibilityLabel=""
-                  color={color}
-                  icon={icon}
+                  color="error"
+                  icon="workflow-status-problem"
                   size={isInVRExperiment || size === 'sm' ? 12 : 16}
                 />
               </Box>
