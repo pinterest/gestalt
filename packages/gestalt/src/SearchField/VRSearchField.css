@@ -1,5 +1,5 @@
 .input {
-  border-radius: var(--sema-rounding-300);
+  border-radius: var(--sema-rounding-400);
   box-sizing: border-box;
   display: block;
   position: relative;
@@ -165,7 +165,6 @@ html[dir="rtl"] .lg_actionButton {
 .searchIconWrapper {
   bottom: var(--space-0);
   position: absolute;
-  top: var(--space-0);
   z-index: 1;
 }
 

@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  ReactElement,
   ReactNode,
   useCallback,
   useEffect,
@@ -35,7 +34,6 @@ type Props = {
   dataTestId?: string;
   errorMessage?: ReactNode;
   hasError?: boolean;
-  iconButton?: ReactElement;
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
   onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
@@ -54,7 +52,6 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
     errorMessage,
     hasError = false,
     id,
-    iconButton,
     label,
     labelDisplay,
     onBlur,
@@ -142,6 +139,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             </TextUI>
           </label>
         )}
+
         <div className={classnames(styles.searchIconWrapper)}>
           <Box
             alignItems="end"
