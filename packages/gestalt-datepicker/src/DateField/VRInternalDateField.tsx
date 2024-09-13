@@ -10,7 +10,7 @@ import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
 import { Locale } from 'date-fns/locale';
-import { Box,  Pog, TapArea, TextUI } from 'gestalt';
+import { Box, Pog, TapArea, TextUI } from 'gestalt';
 import stylesTextfield from './VRInternalDateField.css';
 import styles from '../DateField.css';
 import ErrorMessage from '../subcomponents/ErrorMessage';
