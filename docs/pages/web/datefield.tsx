@@ -48,9 +48,13 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
 import disabled from '../../examples/datefield/disabled';
+import disabledDates from '../../examples/datefield/disabledDates';
+import enabled from '../../examples/datefield/enabled';
 import error from '../../examples/datefield/error';
+import helperText from '../../examples/datefield/helperText';
 import main from '../../examples/datefield/main';
-import states from '../../examples/datefield/states';
+import readOnly from '../../examples/datefield/readOnly';
+import sizes from '../../examples/datefield/sizes';
 
 const localeMap = {
   af: { localeData: af, lang: 'Afrikaans' },
@@ -187,28 +191,85 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
             }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
-          description={`DateField can communicate input errors to the user. Use \`onError\` and \`errorMessage\` to implement it correctly.`}
-          title="Error messaging"
+          description={`DateField is available in 'md' and 'lg' size.`}
+          title="Size"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={sizes} name="DateField Sizes" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`
+1. Enabled
+The enabled state of DateField that represents it can be interacted with.
+
+2. Error
+DateField can display an error message. DateField can communicate input errors to the user. Use onError and errorMessage to implement it correctly. Check the [Disable past & future dates variant](/web/datefield#Disable-past-and-future-dates) for guidance on implementation.
+
+3. Read-only
+Read-only DateField are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+
+4. Disabled
+DateField cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+`}
+          title="State"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={error} layout="row" name="Controlled component example" />
+              <SandpackExample code={enabled} layout="column" name="Enabled example" />
             }
+            title="Enabled"
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`DateField supports \`disabled\` and \`readOnly\` states.`}
-          title="States"
-        >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={states} layout="row" name="Controlled component example" />
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={error} layout="column" name="Error message example" />
+            }
+            title="Error"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={readOnly} layout="column" name="Read-only example" />
+            }
+            title="Read-only"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`'label' is an optional prop; however, DateField should always be properly labelled.
+Check [TextField's Label variant section](/web/numberfield#Labels) for more examples and guidance.
+`}
+          title="Label"
+        />
+        <MainSection.Subsection
+          description={`
+          Whenever you want to provide more information about a form field, you should use \`helperText\`.
+          `}
+          title="Helper text"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={helperText}
+                name="Helper Text to Explain More about Optional Info"
+              />
             }
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
           description="DateField supports disabling future & past dates from being selected."
           title="Disable past & future dates"
@@ -216,7 +277,7 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={disabled} layout="row" name="disableRange example" />
+              <SandpackExample code={disabledDates} layout="row" name="disableRange example" />
             }
           />
         </MainSection.Subsection>

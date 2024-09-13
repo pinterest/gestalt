@@ -1,5 +1,7 @@
 import { forwardRef, ReactElement, ReactNode } from 'react';
 import InternalTextField from './TextField/InternalTextField';
+import VRInternalTextField from './TextField/VRInternalTextField';
+import useInExperiment from './useInExperiment';
 
 // <input> deals with strings, but we only want numbers for this component.
 // So we parse what we get from InternalTextField and we stringify what we give it.
@@ -110,6 +112,10 @@ type Props = {
    */
   placeholder?: string;
   /**
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textfield#Read-only) for more details.
+   */
+  readOnly?: boolean;
+  /**
    * Ref that is forwarded to the underlying input element.
    */
   ref?: ReactElement; // eslint-disable-line react/no-unused-prop-types,
@@ -145,7 +151,7 @@ const NumberFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function N
     helperText,
     id,
     label,
-    labelDisplay,
+    labelDisplay = 'visible',
     max,
     min,
     name,
@@ -154,12 +160,49 @@ const NumberFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function N
     onFocus,
     onKeyDown,
     placeholder,
+    readOnly = false,
     size = 'md',
     step,
     value,
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  if (isInVRExperiment) {
+    return (
+      <VRInternalTextField
+        ref={ref}
+        autoComplete={autoComplete}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        max={max}
+        min={min}
+        mobileEnterKeyHint={mobileEnterKeyHint}
+        name={name}
+        onBlur={parseHandlerValue(onBlur)}
+        onChange={parseHandlerValue(onChange)}
+        onFocus={parseHandlerValue(onFocus)}
+        onKeyDown={parseHandlerValue(onKeyDown)}
+        placeholder={placeholder}
+        readOnly={readOnly}
+        size={size}
+        step={step}
+        type="number"
+        // See comment above — we need to stringify what we give InternalTextField
+        value={value === undefined ? value : String(value)}
+      />
+    );
+  }
+
   return (
     <InternalTextField
       ref={ref}
@@ -180,6 +223,7 @@ const NumberFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function N
       onFocus={parseHandlerValue(onFocus)}
       onKeyDown={parseHandlerValue(onKeyDown)}
       placeholder={placeholder}
+      readOnly={readOnly}
       size={size}
       step={step}
       type="number"

@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  Fragment,
   ReactNode,
   useCallback,
   useEffect,
@@ -10,9 +9,9 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { Box, Icon, TapArea, useDefaultLabel } from 'gestalt';
-import ErrorMessage from './ErrorMessage';
-import HelperText from './HelperText';
 import styles from './VRDateInput.css';
+import ErrorMessage from '../subcomponents/ErrorMessage';
+import HelperText from '../subcomponents/HelperText';
 
 type Props = {
   id: string;
@@ -108,7 +107,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   }, [label, checkEllipsisActive]);
 
   return (
-    <Fragment>
+    <div>
       <div className={classnames(styles.inputParent)}>
         {label && (
           <label
@@ -213,7 +212,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       {!disabled && hasErrorMessage ? (
         <ErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
       ) : null}
-    </Fragment>
+    </div>
   );
 });
 

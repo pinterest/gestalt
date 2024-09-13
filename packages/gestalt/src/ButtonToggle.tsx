@@ -12,7 +12,8 @@ import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
 import touchableStyles from './TapArea.css';
-import TextUI from './Text';
+import Text from './Text';
+import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
@@ -28,6 +29,22 @@ const SIZE_NAME_TO_PIXEL = {
   md: 12,
   lg: 12,
 } as const;
+
+const textSizes: {
+  [key: string]: '100' | '200' | '300' | '400' | '500' | '600';
+} = {
+  sm: '200',
+  md: '300',
+  lg: '300',
+};
+
+const textSizesVR: {
+  [key: string]: 'xs' | 'sm' | 'md';
+} = {
+  sm: 'xs',
+  md: 'sm',
+  lg: 'md',
+};
 
 type Props = {
   /**
@@ -290,26 +307,30 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     );
   }
 
-  const baseTypeClasses = classnames(sharedTypeClasses, touchableStyles.tapTransition, sizeStyles, {
-    [styles.disabled]: disabled && (color !== 'red' || selected),
-    [styles.disabledRed]: disabled && color === 'red' && !selected,
-    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
-    [styles.enabled]: !disabled,
-    [borderStyles.noBorder]: color === 'red' && !selected,
-    [styles.selected]: !disabled && selected,
-    [styles.selectedDisabled]: disabled && selected,
-    [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
-    [styles.thumbnailDisabled]: graphicSrc && disabled,
-    [styles.thumbnailLg]: size === 'lg' && graphicSrc,
-    [styles.thumbnailMd]: size === 'md' && graphicSrc,
-    [styles.thumbnailSm]: size === 'sm' && graphicSrc,
-    [styles[color]]: !disabled && !selected,
-    [styles.interactiveBorder]:
-      !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
-  });
-  const childrenDivClasses = classnames(baseTypeClasses, styles.childrenDiv, {
-    [styles.compact]: text.length === 0,
-  });
+  const childrenDivClasses = classnames(
+    sharedTypeClasses,
+    touchableStyles.tapTransition,
+    sizeStyles,
+    styles.childrenDiv,
+    {
+      [styles.compact]: text.length === 0,
+      [styles.disabled]: disabled && (color !== 'red' || selected),
+      [styles.disabledRed]: disabled && color === 'red' && !selected,
+      [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
+      [styles.enabled]: !disabled,
+      [borderStyles.noBorder]: color === 'red' && !selected,
+      [styles.selected]: !disabled && selected,
+      [styles.selectedDisabled]: disabled && selected,
+      [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
+      [styles.thumbnailDisabled]: graphicSrc && disabled,
+      [styles.thumbnailLg]: size === 'lg' && graphicSrc,
+      [styles.thumbnailMd]: size === 'md' && graphicSrc,
+      [styles.thumbnailSm]: size === 'sm' && graphicSrc,
+      [styles[color]]: !disabled && !selected,
+      [styles.interactiveBorder]:
+        !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
+    },
+  );
 
   const textColor =
     (disabled && 'disabled') ||
@@ -334,15 +355,21 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       )}
-      <TextUI
-        align="center"
-        color={textColor}
-        overflow="breakWord"
-        size={size === 'sm' ? '200' : '300'}
-        weight="bold"
-      >
-        {text}
-      </TextUI>
+      {isInVRExperiment ? (
+        <TextUI align="center" color={textColor} overflow="breakWord" size={textSizesVR[size]}>
+          {text}
+        </TextUI>
+      ) : (
+        <Text
+          align="center"
+          color={textColor}
+          overflow="breakWord"
+          size={textSizes[size]}
+          weight="bold"
+        >
+          {text}
+        </Text>
+      )}
       {hasDropdown && (
         <Icon
           accessibilityLabel="dropdown"

@@ -1,0 +1,174 @@
+.input {
+  border-radius: var(--sema-rounding-300);
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.enabledText {
+  color: var(--sema-color-text-default);
+}
+
+.disabledText {
+  color: var(--sema-color-text-disabled);
+}
+
+.enabled {
+  background: var(--sema-color-background-default);
+}
+
+.disabled {
+  background-color: var(--sema-color-background-disabled);
+}
+
+.enabledBorder {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.errorBorder {
+  border: 1.5px solid var(--sema-color-border-error);
+}
+
+.enabledBorder:focus,
+.errorBorder:focus {
+  border: 1px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.enabledBorder:not(:focus):hover {
+  border: 1px solid var(--sema-color-hover-border-interactive);
+}
+
+.errorBorder:not(:focus):hover {
+  border: 1.5px solid var(--sema-color-hover-border-error);
+}
+
+.disabledBorder {
+  border: 1px solid var(--sema-color-border-disabled);
+}
+
+.inputParent {
+  isolation: isolate;
+  position: relative;
+}
+
+.visuallyHidden {
+  position: relative;
+}
+
+.label {
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+/* md */
+
+.md {
+  font-family: var(--sema-font-family-body-md);
+  font-size: var(--sema-font-size-body-md);
+  letter-spacing: var(--sema-font-letterspacing-body-md);
+  line-height: var(--sema-font-lineheight-body-md);
+}
+
+.mdDefault {
+  font-weight: var(--sema-font-weight-body-md-default);
+  text-decoration: var(--sema-font-textdecoration-body-md-default);
+}
+
+.md_input {
+  min-height: 36px;
+  padding-bottom: var(--sema-space-200);
+}
+
+.md_visibleLabel {
+  padding-top: calc(
+    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
+  );
+}
+
+.md_noLabel {
+  padding-top: var(--sema-space-200);
+}
+
+html[dir="rtl"] .md_inputHorizontalPadding {
+  padding-left: var(--sema-space-200);
+  padding-right: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .md_inputHorizontalPadding {
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-200);
+}
+
+html[dir="rtl"] .md_label {
+  left: calc(var(--sema-space-300));
+  right: calc(var(--sema-space-300) + 1px);
+}
+
+html:not([dir="rtl"]) .md_label {
+  left: calc(var(--sema-space-300) + 1px);
+  right: calc(var(--sema-space-300));
+}
+
+.md_labelPos {
+  top: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .md_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .md_actionButton {
+  padding-left: var(--space-800);
+}
+
+/* lg */
+
+.lg_input {
+  min-height: 48px;
+  padding-bottom: var(--sema-space-300);
+}
+
+.lg_visibleLabel {
+  padding-top: calc(
+    var(--sema-space-400) + (var(--sema-font-size-ui-md) * 1.1)
+  );
+}
+
+.lg_noLabel {
+  padding-top: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_inputHorizontalPadding {
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .lg_inputHorizontalPadding {
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_label {
+  left: calc(var(--sema-space-400));
+  right: calc(var(--sema-space-400) + 1px);
+}
+
+html:not([dir="rtl"]) .lg_label {
+  left: calc(var(--sema-space-400) + 1px);
+  right: calc(var(--sema-space-400));
+}
+
+.lg_labelPos {
+  top: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .lg_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .lg_actionButton {
+  padding-left: var(--space-800);
+}

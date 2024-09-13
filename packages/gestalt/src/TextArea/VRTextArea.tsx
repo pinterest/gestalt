@@ -1,6 +1,5 @@
 import {
   forwardRef,
-  Fragment,
   ReactNode,
   useCallback,
   useEffect,
@@ -124,7 +123,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   }, [label, checkEllipsisActive]);
 
   return (
-    <Fragment>
+    <div>
       <div onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
         <div
           className={classnames(
@@ -211,7 +210,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
       {!disabled && hasErrorMessage ? (
         <FormErrorMessage id={`${id}-error`} size="md" text={errorMessage} />
       ) : null}
-    </Fragment>
+    </div>
   );
 });
 

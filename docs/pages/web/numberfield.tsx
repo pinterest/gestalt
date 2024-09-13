@@ -19,11 +19,13 @@ import bestPracticesDontPlaceholder from '../../examples/numberfield/bestPractic
 import bestPracticesDontRelated from '../../examples/numberfield/bestPractices-dont-related';
 import bestPracticesDontRequired from '../../examples/numberfield/bestPractices-dont-required';
 import disabled from '../../examples/numberfield/disabled';
+import enabled from '../../examples/numberfield/enabled';
 import enterKeyHint from '../../examples/numberfield/enterKeyHint';
-import errorMessage from '../../examples/numberfield/errorMessage';
+import error from '../../examples/numberfield/error';
 import helperText from '../../examples/numberfield/helperText';
 import main from '../../examples/numberfield/main';
 import minMaxStep from '../../examples/numberfield/minMaxStep';
+import readOnly from '../../examples/numberfield/readOnly';
 import ref from '../../examples/numberfield/ref';
 import sizes from '../../examples/numberfield/sizes';
 
@@ -268,13 +270,70 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description="Disabled NumberFields cannot be interacted with using the mouse or keyboard."
-          title="Disabled"
+          description="NumberField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
+          title="Size"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={disabled} name="Variants - Disabled" />}
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={sizes} name="sizes" />}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`
+1. Enabled
+The enabled state of NumberField that represents it can be interacted with.
+
+2. Error
+NumberField can display an error message. Simply pass in an \`errorMessage\` when there is an error present and NumberField will handle the rest. Don't use \`errorMessage\` to provide feedback on character count errors. See the [maximum length variant](https://gestalt.pinterest.systems/web/textfield#Maximum-length) for more details.
+
+3. Read-only
+Read-only NumberField are used to present information to the user without allowing them to edit the content. Typically they are used to show content or information that the user does not have permission or access to edit.
+
+4. Disabled
+NumberField cannot be interacted with using the mouse or keyboard. They also do not need to meet contrast requirements, so do not use them to present info to the user (use "readOnly" instead).
+`}
+          title="State"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={enabled} layout="column" name="Enabled example" />
+            }
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} layout="column" name="Disabled example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={error} layout="column" name="Error message example" />
+            }
+            title="Error"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={readOnly} layout="column" name="Read-only example" />
+            }
+            title="Read-only"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          columns={2}
+          description={`'label' is an optional prop; however, NumberField should always be properly labelled. [Learn about accessibility best practices regarding labels](/web/numberfield#Labels).
+
+Check [TextField's Label variant section](/web/numberfield#Labels) for more examples and guidance.
+`}
+          title="Label"
+        />
 
         <MainSection.Subsection
           description={`Whenever you want to provide more information about a form field, you should use \`helperText\`.`}
@@ -282,19 +341,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={helperText} name="Variants - Helper Text" />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description={`
-    NumberField can display an error message.
-    Simply pass in an \`errorMessage\` when there is an error present and we will handle the rest.`}
-          title="Error message"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={errorMessage} name="Variants - Error Message" />
-            }
           />
         </MainSection.Subsection>
 
@@ -330,15 +376,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={
               <SandpackExample code={enterKeyHint} name="Variants - Enter Key Hint" />
             }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description="NumberField can have different sizes. The default size is `md` (40px). The `lg` size is 48px. For a dense variant, use the `sm` (32px) variant."
-          title="Size"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={<SandpackExample code={sizes} name="sizes" />}
           />
         </MainSection.Subsection>
 

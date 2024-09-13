@@ -1,3 +1,21 @@
+## 159.8.0 (Sep 13, 2024)
+
+### Minor
+
+- DateField: VR implementation changes ([#3761](https://github.com/pinterest/gestalt/pull/3761)) - [Preview link](https://deploy-preview-3761--gestalt.netlify.app?devexample=true)
+
+## 159.7.0 (Sep 13, 2024)
+
+### Minor
+
+- NumberField: VR implementation changes ([#3760](https://github.com/pinterest/gestalt/pull/3760)) - [Preview link](https://deploy-preview-3760--gestalt.netlify.app?devexample=true)
+
+## 159.6.8 (Sep 13, 2024)
+
+### Patch
+
+- ButtonToggle: adopted TextUI ([#3759](https://github.com/pinterest/gestalt/pull/3759)) - [Preview link](https://deploy-preview-3759--gestalt.netlify.app?devexample=true)
+
 ## 159.6.7 (Sep 13, 2024)
 
 ### Patch

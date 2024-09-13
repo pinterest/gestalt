@@ -10,26 +10,26 @@ export default function TextFieldSizes() {
     <Box padding={8} width="100%">
       <Flex direction="column" gap={6} width="100%">
         <DateField
-          disabled
-          id="disabled-datefield-md"
+          id="readonly-datefield-md"
           label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {
             setInput1Text(value);
           }}
           onClearInput={() => setInput1Text(null)}
+          readOnly
           size="md"
           value={input1Text}
         />
         <DateField
-          disabled
-          id="disabled-datefield-lg"
+          id="readonly-datefield-lg"
           label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {
             setInput2Text(value);
           }}
           onClearInput={() => setInput2Text(null)}
+          readOnly
           size="lg"
           value={input2Text}
         />
