@@ -128,35 +128,40 @@ const CustomTextField = forwardRef(
         <input
           ref={inputRef}
           autoComplete={ownerState?.passthroughProps?.autoComplete ?? 'off'}
-          className={classnames(stylesTextfield.input, {
-            [stylesTextfield.enabled]: !disabled,
-            [stylesTextfield.enabledText]: !disabled,
-            [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
-            [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
-            [stylesTextfield.disabled]: disabled,
-            [stylesTextfield.disabledText]: disabled,
-            [stylesTextfield.disabledBorder]: disabled,
-            // md
-            [stylesTextfield.md_input]: isMD,
-            [stylesTextfield.md_inputHorizontalPadding]: isMD,
-            [stylesTextfield.md_visibleLabel]:
-              isMD && ownerState?.passthroughProps?.label && isLabelVisible,
-            [stylesTextfield.md_noLabel]:
-              isMD &&
-              (!ownerState?.passthroughProps?.label ||
-                (ownerState?.passthroughProps?.label && !isLabelVisible)),
-            [stylesTextfield.md_actionButton]: isMD && ownerState?.passthroughProps?.onClearInput,
-            // lg
-            [stylesTextfield.lg_input]: isLG,
-            [stylesTextfield.lg_inputHorizontalPadding]: isLG,
-            [stylesTextfield.lg_visibleLabel]:
-              isLG && ownerState?.passthroughProps?.label && isLabelVisible,
-            [stylesTextfield.lg_noLabel]:
-              isLG &&
-              (!ownerState?.passthroughProps?.label ||
-                (ownerState?.passthroughProps?.label && !isLabelVisible)),
-            [stylesTextfield.lg_actionButton]: isLG && ownerState?.passthroughProps?.onClearInput,
-          })}
+          className={classnames(
+            stylesTextfield.input,
+            stylesTextfield.md,
+            stylesTextfield.mdDefault,
+            {
+              [stylesTextfield.enabled]: !disabled,
+              [stylesTextfield.enabledText]: !disabled,
+              [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
+              [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
+              [stylesTextfield.disabled]: disabled,
+              [stylesTextfield.disabledText]: disabled,
+              [stylesTextfield.disabledBorder]: disabled,
+              // md
+              [stylesTextfield.md_input]: isMD,
+              [stylesTextfield.md_inputHorizontalPadding]: isMD,
+              [stylesTextfield.md_visibleLabel]:
+                isMD && ownerState?.passthroughProps?.label && isLabelVisible,
+              [stylesTextfield.md_noLabel]:
+                isMD &&
+                (!ownerState?.passthroughProps?.label ||
+                  (ownerState?.passthroughProps?.label && !isLabelVisible)),
+              [stylesTextfield.md_actionButton]: isMD && ownerState?.passthroughProps?.onClearInput,
+              // lg
+              [stylesTextfield.lg_input]: isLG,
+              [stylesTextfield.lg_inputHorizontalPadding]: isLG,
+              [stylesTextfield.lg_visibleLabel]:
+                isLG && ownerState?.passthroughProps?.label && isLabelVisible,
+              [stylesTextfield.lg_noLabel]:
+                isLG &&
+                (!ownerState?.passthroughProps?.label ||
+                  (ownerState?.passthroughProps?.label && !isLabelVisible)),
+              [stylesTextfield.lg_actionButton]: isLG && ownerState?.passthroughProps?.onClearInput,
+            },
+          )}
           disabled={disabled}
           enterKeyHint={ownerState?.passthroughProps?.enterKeyHint}
           id={ownerState?.passthroughProps?.id}
