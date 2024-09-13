@@ -4,8 +4,6 @@
   border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
-  font-weight: var(--base-font-weight-400);
-  line-height: 16px;
   margin-right: 10px;
   position: relative;
   width: 100%;
@@ -72,7 +70,7 @@
 /* sm */
 
 .sm_input {
-  font-size: var(--sema-font-size-ui-sm);
+  composes: sm smDefault from "../Text.css";
   min-height: 28px;
   padding-bottom: var(--sema-space-100);
 }
@@ -122,7 +120,7 @@ html[dir="rtl"] .sm_actionButton {
 /* md */
 
 .md_input {
-  font-size: var(--sema-font-size-ui-md);
+  composes: md mdDefault from "../Text.css";
   min-height: 36px;
   padding-bottom: var(--sema-space-200);
 }
@@ -172,7 +170,7 @@ html[dir="rtl"] .md_actionButton {
 /* lg */
 
 .lg_input {
-  font-size: var(--sema-font-size-ui-md);
+  composes: md mdDefault from "../Text.css";
   min-height: 48px;
   padding-bottom: var(--sema-space-300);
 }
