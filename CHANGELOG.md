@@ -1,3 +1,9 @@
+## 159.8.0 (Sep 13, 2024)
+
+### Minor
+
+- DateField: VR implementation changes ([#3761](https://github.com/pinterest/gestalt/pull/3761)) - [Preview link](https://deploy-preview-3761--gestalt.netlify.app?devexample=true)
+
 ## 159.7.0 (Sep 13, 2024)
 
 ### Minor
