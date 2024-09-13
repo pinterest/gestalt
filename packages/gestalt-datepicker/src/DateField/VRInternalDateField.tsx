@@ -10,9 +10,11 @@ import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
 import { Locale } from 'date-fns/locale';
-import { Box, Flex, Pog, Status, TapArea, Text, TextUI } from 'gestalt';
+import { Box,  Pog, TapArea, TextUI } from 'gestalt';
 import stylesTextfield from './VRInternalDateField.css';
 import styles from '../DateField.css';
+import ErrorMessage from '../subcomponents/ErrorMessage';
+import HelperText from '../subcomponents/HelperText';
 
 const ENTER: number = 13;
 const SPACE: number = 32;
@@ -331,6 +333,8 @@ function InternalDateField({
   size,
   value,
 }: InternalDateFieldProps) {
+  const hasErrorMessage = Boolean(errorMessage);
+
   let translations = getTranslationsFromMUIJS(localeData);
 
   if (!translations) {
@@ -379,32 +383,11 @@ function InternalDateField({
               viewRenderers={null}
             />
           </Box>
-          {helperText && !errorMessage ? (
-            <Box id={`${id}-helperText`} marginTop={2}>
-              <Flex gap={4}>
-                <Flex.Item flex="grow">
-                  {helperText ? (
-                    <Text color="subtle" size="100">
-                      {helperText}
-                    </Text>
-                  ) : null}
-                </Flex.Item>
-              </Flex>
-            </Box>
+          {helperText && !hasErrorMessage ? (
+            <HelperText disabled={disabled} id={`${id}-helperText`} size="lg" text={helperText} />
           ) : null}
-          {errorMessage ? (
-            <Box marginTop={2}>
-              <Text color="error" size="100">
-                <span className={styles.formErrorMessage} id={`${id}-error`}>
-                  <Box role="alert">
-                    <Flex gap={2}>
-                      <Status type="problem" />
-                      {errorMessage}
-                    </Flex>
-                  </Box>
-                </span>
-              </Text>
-            </Box>
+          {!disabled && hasErrorMessage ? (
+            <ErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
           ) : null}
         </div>
       </LocalizationProvider>
