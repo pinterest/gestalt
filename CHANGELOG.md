@@ -1,3 +1,9 @@
+## 159.7.0 (Sep 13, 2024)
+
+### Minor
+
+- NumberField: VR implementation changes ([#3760](https://github.com/pinterest/gestalt/pull/3760)) - [Preview link](https://deploy-preview-3760--gestalt.netlify.app?devexample=true)
+
 ## 159.6.8 (Sep 13, 2024)
 
 ### Patch
