@@ -3,8 +3,8 @@ import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 
 export default function Example() {
-  const [dateValue1, ] = useState<Date | null>(null);
-  const [dateValue2, ] = useState<Date | null>(null);
+  const [dateValue1] = useState<Date | null>(null);
+  const [dateValue2] = useState<Date | null>(null);
 
   return (
     <Box padding={8} width="100%">
