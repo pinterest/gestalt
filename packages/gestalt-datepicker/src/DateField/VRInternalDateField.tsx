@@ -139,7 +139,8 @@ const CustomTextField = forwardRef(
             // md
             [stylesTextfield.md_input]: isMD,
             [stylesTextfield.md_inputHorizontalPadding]: isMD,
-            [stylesTextfield.md_visibleLabel]: isMD && ownerState?.passthroughProps?.label && isLabelVisible,
+            [stylesTextfield.md_visibleLabel]:
+              isMD && ownerState?.passthroughProps?.label && isLabelVisible,
             [stylesTextfield.md_noLabel]:
               isMD &&
               (!ownerState?.passthroughProps?.label ||
@@ -148,7 +149,8 @@ const CustomTextField = forwardRef(
             // lg
             [stylesTextfield.lg_input]: isLG,
             [stylesTextfield.lg_inputHorizontalPadding]: isLG,
-            [stylesTextfield.lg_visibleLabel]: isLG && ownerState?.passthroughProps?.label && isLabelVisible,
+            [stylesTextfield.lg_visibleLabel]:
+              isLG && ownerState?.passthroughProps?.label && isLabelVisible,
             [stylesTextfield.lg_noLabel]:
               isLG &&
               (!ownerState?.passthroughProps?.label ||

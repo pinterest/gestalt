@@ -137,29 +137,31 @@ function DateField({
   }, [dateFieldHandlers]);
 
   if (isInVRExperiment) {
-    <VRInternalDateField
-      autoComplete={autoComplete}
-      disabled={disabled}
-      disableRange={disableRange}
-      errorMessage={errorMessage}
-      helperText={helperText}
-      id={id}
-      label={label}
-      labelDisplay={labelDisplay}
-      localeData={localeData}
-      maxDate={maxDate}
-      minDate={minDate}
-      mobileEnterKeyHint={mobileEnterKeyHint}
-      name={name}
-      onBlur={onBlur}
-      onChange={onChange}
-      onClearInput={onClearInput}
-      onError={onError}
-      onFocus={onFocus}
-      readOnly={readOnly}
-      size={size}
-      value={value}
-    />;
+    return (
+      <VRInternalDateField
+        autoComplete={autoComplete}
+        disabled={disabled}
+        disableRange={disableRange}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        localeData={localeData}
+        maxDate={maxDate}
+        minDate={minDate}
+        mobileEnterKeyHint={mobileEnterKeyHint}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onClearInput={onClearInput}
+        onError={onError}
+        onFocus={onFocus}
+        readOnly={readOnly}
+        size={size}
+        value={value}
+      />
+    );
   }
 
   return (
