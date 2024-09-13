@@ -116,7 +116,7 @@ const CustomTextField = forwardRef(
               [stylesTextfield.lg_label]: isLG,
               [stylesTextfield.lg_labelPos]: isLG,
 
-              // [boxStyles.visuallyHidden]: !isLabelVisible,
+              [stylesTextfield.visuallyHidden]: !isLabelVisible,
             })}
             htmlFor={ownerState?.passthroughProps?.id}
           >

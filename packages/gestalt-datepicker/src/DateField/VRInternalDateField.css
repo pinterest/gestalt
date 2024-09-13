@@ -65,60 +65,6 @@
   z-index: 1;
 }
 
-/* sm */
-
-.sm_input {
-  font-size: var(--sema-font-size-ui-sm);
-  min-height: 28px;
-  padding-bottom: var(--sema-space-100);
-}
-
-.sm_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-100) + (var(--sema-font-size-ui-sm) * 1.1)
-  );
-}
-
-.sm_noLabel {
-  padding-top: var(--sema-space-100);
-}
-
-html[dir="rtl"] .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-100);
-  padding-right: var(--sema-space-200);
-}
-
-html:not([dir="rtl"]) .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-200);
-  padding-right: var(--sema-space-100);
-}
-
-html[dir="rtl"] .sm_label {
-  left: calc(var(--sema-space-200));
-  right: calc(var(--sema-space-200) + 1px);
-}
-
-html:not([dir="rtl"]) .sm_label {
-  left: calc(var(--sema-space-200) + 1px);
-  right: calc(var(--sema-space-200));
-}
-
-.sm_labelPos {
-  top: var(--sema-space-100);
-}
-
-html:not([dir="rtl"]) .sm_actionButton {
-  padding-right: var(--space-800);
-}
-
-html[dir="rtl"] .sm_actionButton {
-  padding-left: var(--space-800);
-}
-
-.sm_actionButtonPaddingBottom {
-  padding-bottom: var(--sema-space-100);
-}
-
 /* md */
 
 .md_input {
