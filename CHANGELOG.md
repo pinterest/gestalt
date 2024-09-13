@@ -1,3 +1,9 @@
+## 159.6.8 (Sep 13, 2024)
+
+### Patch
+
+- ButtonToggle: adopted TextUI ([#3759](https://github.com/pinterest/gestalt/pull/3759)) - [Preview link](https://deploy-preview-3759--gestalt.netlify.app?devexample=true)
+
 ## 159.6.7 (Sep 13, 2024)
 
 ### Patch
