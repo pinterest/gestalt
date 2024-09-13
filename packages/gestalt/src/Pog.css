@@ -10,23 +10,23 @@
 }
 
 .xs {
-  border-radius: var(--sema-space-100);
+  border-radius: var(--sema-rounding-100);
 }
 
 .sm {
-  border-radius: var(--sema-space-200);
+  border-radius: var(--sema-rounding-200);
 }
 
 .md {
-  border-radius: var(--sema-space-300);
+  border-radius: var(--sema-rounding-300);
 }
 
 .lg {
-  border-radius: var(--sema-space-400);
+  border-radius: var(--sema-rounding-400);
 }
 
 .xl {
-  border-radius: var(--sema-space-400);
+  border-radius: var(--sema-rounding-400);
 }
 
 /* TOKENIZED */

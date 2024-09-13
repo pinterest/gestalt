@@ -210,7 +210,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                   innerRef?.current?.focus();
                   onChange({ value: '', event });
                 }}
-                rounding="circle"
+                rounding={1}
                 tapStyle="compress"
               >
                 <Pog
