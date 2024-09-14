@@ -63,13 +63,13 @@ export default function FormErrorMessage({
           <Box role="alert">
             <Flex
               alignItems={isInVRExperiment ? 'start' : 'center'}
+              dataTestId={dataTestId}
               gap={size === 'sm' || isInVRExperiment ? 1 : 2}
             >
               <Box
                 dangerouslySetInlineStyle={{
                   __style: isInVRExperiment ? { marginTop: '2px' } : {},
                 }}
-                data-test-id={dataTestId}
               >
                 <Icon
                   accessibilityLabel=""
