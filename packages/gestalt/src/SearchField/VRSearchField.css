@@ -63,12 +63,32 @@
   z-index: 1;
 }
 
+html[dir="rtl"] .inputHorizontalPaddingNoLabel {
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-900);
+}
+
+html:not([dir="rtl"]) .inputHorizontalPaddingNoLabel {
+  padding-left: var(--sema-space-900);
+  padding-right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .inputHorizontalPaddingVisibleLabel {
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-1000);
+}
+
+html:not([dir="rtl"]) .inputHorizontalPaddingVisibleLabel {
+  padding-left: var(--sema-space-1000);
+  padding-right: var(--sema-space-400);
+}
+
 /* md */
 
 .md_input {
   composes: md mdDefault from "../Text.css";
-  min-height: 36px;
-  padding-bottom: var(--sema-space-200);
+  min-height: 40px;
+  padding-bottom: var(--sema-space-150);
 }
 
 .md_visibleLabel {
@@ -78,27 +98,17 @@
 }
 
 .md_noLabel {
-  padding-top: var(--sema-space-200);
-}
-
-html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-200);
-  padding-right: var(--sema-space-900);
-}
-
-html:not([dir="rtl"]) .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-900);
-  padding-right: var(--sema-space-200);
+  padding-top: var(--sema-space-150);
 }
 
 html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-300));
-  right: calc(var(--sema-space-300) + 1px);
+  left: calc(var(--sema-space-400));
+  right: calc(var(--sema-space-400));
 }
 
 html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-300) + 1px);
-  right: calc(var(--sema-space-300));
+  left: calc(var(--sema-space-400));
+  right: calc(var(--sema-space-400));
 }
 
 .md_labelPos {
@@ -130,23 +140,13 @@ html[dir="rtl"] .md_actionButton {
   padding-top: var(--sema-space-300);
 }
 
-html[dir="rtl"] .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-300);
-  padding-right: var(--sema-space-1000);
-}
-
-html:not([dir="rtl"]) .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-1000);
-  padding-right: var(--sema-space-300);
-}
-
 html[dir="rtl"] .lg_label {
   left: calc(var(--sema-space-400));
-  right: calc(var(--sema-space-400) + 1px);
+  right: calc(var(--sema-space-400));
 }
 
 html:not([dir="rtl"]) .lg_label {
-  left: calc(var(--sema-space-400) + 1px);
+  left: calc(var(--sema-space-400));
   right: calc(var(--sema-space-400));
 }
 
@@ -163,17 +163,32 @@ html[dir="rtl"] .lg_actionButton {
 }
 
 .searchIconWrapper {
-  bottom: var(--space-0);
   position: absolute;
   z-index: 1;
 }
 
-html:not([dir="rtl"]) .searchIconWrapper {
-  left: var(--space-0);
+.mdSearchIcon {
+  bottom: var(--sema-space-300);
 }
 
-html[dir="rtl"] .searchIconWrapper {
-  right: var(--space-0);
+.lgSearchIcon {
+  bottom: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .searchIconVisibleLabel {
+  left: var(--sema-space-400);
+}
+
+html[dir="rtl"] .searchIconVisibleLabel {
+  right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .searchIconNoLabel {
+  left: var(--sema-space-300);
+}
+
+html[dir="rtl"] .searchIconNoLabel {
+  right: var(--sema-space-300);
 }
 
 .actionButtonWrapper {
@@ -189,4 +204,3 @@ html:not([dir="rtl"]) .actionButtonWrapper {
 html[dir="rtl"] .actionButtonWrapper {
   left: var(--space-0);
 }
-

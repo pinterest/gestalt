@@ -140,17 +140,16 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           </label>
         )}
 
-        <div className={classnames(styles.searchIconWrapper)}>
-          <Box
-            alignItems="end"
-            aria-hidden
-            display="flex"
-            height="100%"
-            marginBottom={3}
-            marginStart={3}
-          >
-            <Icon accessibilityLabel="" icon="search" size={16} />
-          </Box>
+        <div
+          aria-hidden
+          className={classnames(styles.searchIconWrapper, {
+            [styles.mdSearchIcon]: isMD,
+            [styles.lgSearchIcon]: isLG,
+            [styles.searchIconVisibleLabel]: label && isLabelVisible,
+            [styles.searchIconNoLabel]: !label || (label && !isLabelVisible),
+          })}
+        >
+          <Icon accessibilityLabel="" icon="search" size={16} />
         </div>
 
         <input
@@ -167,16 +166,15 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             {
               [styles.enabledBorder]: !hasErrorMessage,
               [styles.errorBorder]: hasErrorMessage,
-
+              [styles.inputHorizontalPaddingNoLabel]: !label || (label && !isLabelVisible),
+              [styles.inputHorizontalPaddingVisibleLabel]: label && isLabelVisible,
               // md
               [styles.md_input]: isMD,
-              [styles.md_inputHorizontalPadding]: isMD,
               [styles.md_visibleLabel]: isMD && label && isLabelVisible,
               [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
               [styles.md_actionButton]: isMD && isClearIconButtonVisible,
               // lg
               [styles.lg_input]: isLG,
-              [styles.lg_inputHorizontalPadding]: isLG,
               [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
               [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
               [styles.lg_actionButton]: isLG && isClearIconButtonVisible,

@@ -10,8 +10,7 @@ export default function SearchFieldExample() {
         <SearchField
           accessibilityClearButtonLabel="Clear search field"
           accessibilityLabel=""
-          id="searchMessagesMedium"
-          label="Search Messages"
+          id="searchfield_size_md_label"
           onChange={({ value }) => setSearchValue(value)}
           placeholder="Search by name"
           value={searchValue}
@@ -19,7 +18,25 @@ export default function SearchFieldExample() {
         <SearchField
           accessibilityClearButtonLabel="Clear search field"
           accessibilityLabel=""
-          id="searchMessagesLarge"
+          id="searchfield_size_md_nolabel"
+          label="Search Messages"
+          onChange={({ value }) => setSearchValue(value)}
+          placeholder="Search by name"
+          value={searchValue}
+        />
+           <SearchField
+          accessibilityClearButtonLabel="Clear search field"
+          accessibilityLabel=""
+          id="searchfield_size_lg_label"
+          onChange={({ value }) => setLgValue(value)}
+          placeholder="Search by name"
+          size="lg"
+          value={lgValue}
+        />
+        <SearchField
+          accessibilityClearButtonLabel="Clear search field"
+          accessibilityLabel=""
+          id="searchfield_size_lg_nolabel"
           label="Search Messages"
           onChange={({ value }) => setLgValue(value)}
           placeholder="Search by name"
