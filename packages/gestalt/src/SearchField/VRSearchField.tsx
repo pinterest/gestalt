@@ -149,7 +149,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             [styles.searchIconNoLabel]: !label || (label && !isLabelVisible),
           })}
         >
-          <Icon accessibilityLabel="" color='default' icon="search"  size={16}/>
+          <Icon accessibilityLabel="" color="default" icon="search" size={16} />
         </div>
 
         <input
@@ -210,6 +210,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                 onKeyDown={({ event }) => {
                   if ([ENTER, SPACE].includes(event.keyCode)) {
                     innerRef?.current?.focus();
+                    // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                     onChange({ value: '', event });
                   }
                   if (event.keyCode !== TAB) event.preventDefault();
@@ -218,6 +219,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                 onMouseLeave={() => setIconFocused(false)}
                 onTap={({ event }) => {
                   innerRef?.current?.focus();
+                  // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                   onChange({ value: '', event });
                 }}
                 rounding={1}
