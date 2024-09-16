@@ -49,7 +49,7 @@ type Props = {
   /**
    *
    */
-  onBlur?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   /**
    * Primary callback to handle keyboard input.
    */
@@ -60,7 +60,7 @@ type Props = {
   /**
    *
    */
-  onFocus?: (arg1: { value: string; event: React.SyntheticEvent<HTMLInputElement> }) => void;
+  onFocus?: (arg1: { value: string; event: React.FocusEvent<HTMLInputElement> }) => void;
   /**
    * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
    */
@@ -145,7 +145,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     }
   };
 
-  const handleBlur = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setFocused(false);
     if (onBlur) {
       onBlur({ value: event.currentTarget.value, event });
@@ -198,7 +198,6 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
       <Box
         alignItems="center"
         display="flex"
-        // @ts-expect-error - TS2322 - Type '{ children: (false | "" | Element | undefined)[]; alignItems: "center"; display: "flex"; onBlur: (event: KeyboardEvent<HTMLInputElement>) => void; onFocus: (event: SyntheticEvent<...>) => void; onMouseEnter: () => void; onMouseLeave: () => void; position: "relative"; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
         onBlur={handleBlur}
         onFocus={handleFocus}
         onMouseEnter={handleMouseEnter}
