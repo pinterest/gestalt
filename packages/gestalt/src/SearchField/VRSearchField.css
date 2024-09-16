@@ -39,14 +39,20 @@
   border: 1.5px solid var(--sema-color-border-error);
 }
 
-.enabledBorder:focus,
-.errorBorder:focus {
+.enabledBorder:focus {
   border: 1px solid var(--sema-color-border-focus-inner-default);
   outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
+.errorBorder:focus {
+  border: 1.5px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+
 .enabledBorder:not(:focus):hover {
-  border: 1.5px solid var(--sema-color-hover-border-interactive);
+  border: 1px solid var(--sema-color-hover-border-interactive);
+  outline: 0.5px solid var(--sema-color-hover-border-interactive);
 }
 
 .errorBorder:not(:focus):hover {
@@ -168,9 +174,7 @@ html[dir="rtl"] .md_actionButton {
 }
 
 .lg_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-400) + var(--sema-font-size-ui-xs)  * 1.1);
-
+  padding-top: calc(var(--sema-space-400) + var(--sema-font-size-ui-xs) * 1.1);
 }
 
 .lg_noLabel {
