@@ -1,25 +1,18 @@
 import { useState } from 'react';
-import { Box, Flex, Icon, IconButton, SearchField } from 'gestalt';
+import { Box, SearchField } from 'gestalt';
 
 export default function SearchFieldExample() {
   const [searchValue, setSearchValue] = useState('');
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
-      <Flex alignItems="center" flex="grow" gap={{ row: 4, column: 0 }}>
-        <Icon accessibilityLabel="Pinterest" color="brandPrimary" icon="pinterest" size={20} />
-        <Flex.Item flex="grow">
-          <SearchField
-            accessibilityClearButtonLabel="Clear search field"
-            accessibilityLabel="Search all of Pinterest"
-            id="searchFieldA11yExample"
-            onChange={({ value }) => setSearchValue(value)}
-            placeholder="Search and explore"
-            value={searchValue}
-          />
-        </Flex.Item>
-        <IconButton accessibilityLabel="Notifications" icon="speech-ellipsis" size="md" />
-        <IconButton accessibilityLabel="Profile" icon="person" size="md" />
-      </Flex>
+    <Box height="100%" padding={4} width="100%">
+      <SearchField
+        accessibilityClearButtonLabel="Clear search field"
+        accessibilityLabel="Search all of Pinterest"
+        id="searchFieldA11yExample"
+        onChange={({ value }) => setSearchValue(value)}
+        placeholder="Search and explore"
+        value={searchValue}
+      />
     </Box>
   );
 }

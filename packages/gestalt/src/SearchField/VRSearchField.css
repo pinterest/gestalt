@@ -1,0 +1,195 @@
+.input {
+  border-radius: var(--sema-rounding-400);
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.inputParent {
+  isolation: isolate;
+  position: relative;
+}
+
+.visuallyHidden {
+  position: relative;
+}
+
+.enabledText {
+  color: var(--sema-color-text-default);
+}
+
+.disabledText {
+  color: var(--sema-color-text-disabled);
+}
+
+.enabled {
+  background-color: var(--sema-color-background-default);
+}
+
+.enabledBorder {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.errorBorder {
+  border: 1.5px solid var(--sema-color-border-error);
+}
+
+.enabledBorder:focus {
+  border: 1px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.errorBorder:focus {
+  border: 1.5px solid var(--sema-color-border-focus-inner-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.enabledBorder:not(:focus):hover {
+  border: 1px solid var(--sema-color-hover-border-interactive);
+  outline: 0.5px solid var(--sema-color-hover-border-interactive);
+}
+
+.errorBorder:not(:focus):hover {
+  border: 1.5px solid var(--sema-color-hover-border-error);
+}
+
+.searchIconWrapper {
+  position: absolute;
+  z-index: 1;
+}
+
+html:not([dir="rtl"]) .searchIconVisibleLabel {
+  left: var(--sema-space-400);
+}
+
+html[dir="rtl"] .searchIconVisibleLabel {
+  right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .searchIconNoLabel {
+  left: var(--sema-space-300);
+}
+
+html[dir="rtl"] .searchIconNoLabel {
+  right: var(--sema-space-300);
+}
+
+.actionButtonWrapper {
+  bottom: var(--space-0);
+  position: absolute;
+  top: var(--space-0);
+}
+
+html:not([dir="rtl"]) .actionButtonWrapper {
+  right: var(--space-0);
+}
+
+html[dir="rtl"] .actionButtonWrapper {
+  left: var(--space-0);
+}
+
+.label {
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+html:not([dir="rtl"]) .inputHorizontalPaddingNoLabel {
+  padding-left: var(--sema-space-900);
+  padding-right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .inputHorizontalPaddingVisibleLabel {
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-1000);
+}
+
+html:not([dir="rtl"]) .inputHorizontalPaddingVisibleLabel {
+  padding-left: var(--sema-space-1000);
+  padding-right: var(--sema-space-400);
+}
+
+/* md */
+
+.md_input {
+  composes: md mdDefault from "../Text.css";
+  min-height: 40px;
+  padding-bottom: var(--sema-space-150);
+}
+
+.mdSearchIcon {
+  bottom: var(--sema-space-300);
+}
+
+.md_visibleLabel {
+  padding-top: calc(var(--sema-space-400) + var(--sema-font-size-ui-xs) * 1.1);
+}
+
+.md_noLabel {
+  padding-top: var(--sema-space-150);
+}
+
+html[dir="rtl"] .md_label {
+  left: var(--sema-space-400);
+  right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .md_label {
+  left: var(--sema-space-400);
+  right: var(--sema-space-400);
+}
+
+.md_labelPos {
+  top: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .md_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .md_actionButton {
+  padding-left: var(--space-800);
+}
+
+/* lg */
+
+.lg_input {
+  composes: md mdDefault from "../Text.css";
+  min-height: 48px;
+  padding-bottom: var(--sema-space-300);
+}
+
+.lgSearchIcon {
+  bottom: var(--sema-space-400);
+}
+
+.lg_visibleLabel {
+  padding-top: calc(var(--sema-space-400) + var(--sema-font-size-ui-xs) * 1.1);
+}
+
+.lg_noLabel {
+  padding-top: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_label {
+  left: var(--sema-space-400);
+  right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .lg_label {
+  left: var(--sema-space-400);
+  right: var(--sema-space-400);
+}
+
+.lg_labelPos {
+  top: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .lg_actionButton {
+  padding-right: var(--space-800);
+}
+
+html[dir="rtl"] .lg_actionButton {
+  padding-left: var(--space-800);
+}
