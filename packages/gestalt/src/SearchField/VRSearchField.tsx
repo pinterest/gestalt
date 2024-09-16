@@ -149,7 +149,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             [styles.searchIconNoLabel]: !label || (label && !isLabelVisible),
           })}
         >
-          <Icon accessibilityLabel="" icon="search" size={16} />
+          <Icon accessibilityLabel="" color='default' icon="search"  size={16}/>
         </div>
 
         <input
