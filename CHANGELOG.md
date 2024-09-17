@@ -1,3 +1,9 @@
+## 159.8.1 (Sep 16, 2024)
+
+### Patch
+
+- SearchField: VR implementation changes ([#3762](https://github.com/pinterest/gestalt/pull/3762)) - [Preview link](https://deploy-preview-3762--gestalt.netlify.app?devexample=true)
+
 ## 159.8.0 (Sep 13, 2024)
 
 ### Minor
