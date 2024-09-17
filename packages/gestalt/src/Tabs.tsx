@@ -6,11 +6,14 @@ import {
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+  TOKEN_ROUNDING_0,
 } from 'gestalt-design-tokens';
 import Box from './Box';
 import Flex from './Flex';
 import TapAreaLink from './TapAreaLink';
 import Text from './Text';
+import TextUI from './TextUI';
+import useInExperiment from './useInExperiment';
 
 type OnChangeHandler = (arg1: {
   event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -21,7 +24,7 @@ type OnChangeHandler = (arg1: {
 function Dot() {
   return (
     <Box
-      color="brand"
+      color="primary"
       dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
       height={6}
       rounding="circle"
@@ -30,18 +33,21 @@ function Dot() {
   );
 }
 
-const UNDERLINE_HEIGHT = 3;
-
 function Underline() {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Box
       color="selected"
       dangerouslySetInlineStyle={{
         __style: {
-          borderRadius: 1.5,
+          borderRadius: isInVRExperiment ? TOKEN_ROUNDING_0 : 1.5,
         },
       }}
-      height={UNDERLINE_HEIGHT}
+      height={isInVRExperiment ? 2 : 3}
       width="100%"
     />
   );
@@ -54,7 +60,7 @@ function Count({ count }: { count: number }) {
 
   return (
     <Box
-      color="brand"
+      color="primary"
       dangerouslySetInlineStyle={{
         __style: {
           padding: `0 ${displayCount.length > 1 ? 3 : 0}px`,
@@ -92,19 +98,16 @@ type TabProps = TabType & {
   onChange: OnChangeHandler;
 };
 
-const TAB_ROUNDING = 2;
-const TAB_INNER_PADDING = 2;
-
 const COLORS = {
   default: {
     base: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
-    active: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
     hover: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
+    active: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
   },
   transparent: {
     base: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
-    active: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
     hover: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+    active: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
   },
 } as const;
 
@@ -112,9 +115,16 @@ const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
   { bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [pressed, setPressed] = useState(false);
+
+  const isRtl = document?.dir === 'rtl';
 
   let color = COLORS[bgColor].base;
   if (!isActive) {
@@ -145,21 +155,28 @@ const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
             dangerouslyDisableOnNavigation,
           });
         }}
-        rounding={TAB_ROUNDING}
+        rounding={isInVRExperiment ? 4 : 2}
         tapStyle={isActive ? 'none' : 'compress'}
       >
         <Flex alignItems="center" direction="column">
           <Box
             dangerouslySetInlineStyle={{ __style: { backgroundColor: color } }}
-            padding={TAB_INNER_PADDING}
+            height={isInVRExperiment ? 48 : undefined}
+            paddingX={isInVRExperiment ? 3 : 2}
+            paddingY={2}
             position="relative"
-            rounding={TAB_ROUNDING}
+            rounding={isInVRExperiment ? 4 : 2}
             userSelect="none"
           >
-            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-              <Text color="default" overflow="noWrap" weight="bold">
+            <Flex
+              alignItems="center"
+              gap={{ row: 2, column: 0 }}
+              height="100%"
+              justifyContent="center"
+            >
+              <TextUI color="default" overflow="noWrap" size="md">
                 {text}
-              </Text>
+              </TextUI>
 
               {indicator === 'dot' && <Dot />}
               {/* Flow is dumb and doesn't realize Number.isFinite will return false for a string or undefined */}
@@ -171,11 +188,15 @@ const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
             {isActive && (
               <Box
                 dangerouslySetInlineStyle={{
-                  __style: { bottom: -UNDERLINE_HEIGHT },
+                  __style: {
+                    bottom: isInVRExperiment ? 8 : -3,
+                    left: !isRtl && isInVRExperiment ? 8 : undefined,
+                    right: isRtl && isInVRExperiment ? -8 : undefined,
+                  },
                 }}
                 position="absolute"
-                // 4px/boint, padding on left and right
-                width={`calc(100% - ${TAB_INNER_PADDING * 4 * 2}px)`}
+                // 4px/boint, padding on left and right NEEDS 2 VR
+                width={`calc(100% - ${(isInVRExperiment ? 2 : 2) * 4 * 2}px)`}
               >
                 <Underline />
               </Box>

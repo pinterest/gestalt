@@ -307,6 +307,30 @@
             "value": "{sema.color.pressed.background.default.value}"
           }
         }
+      },
+      "tabs": {
+        "default": {
+          "base": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          }
+        },
+        "transparent": {
+          "base": {
+            "value": "{sema.color.background.default.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          }
+        }
       }
     },
     "border": {
