@@ -9,9 +9,9 @@ import {
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
 } from 'gestalt-design-tokens';
 import { Count, Notification, Underline } from './subcomponents';
-import style from './Tabs.css';
 import Box from '../Box';
 import Flex from '../Flex';
+import style from '../Tabs.css';
 import TapAreaLink from '../TapAreaLink';
 import TextUI from '../TextUI';
 import useFocusVisible from '../useFocusVisible';
