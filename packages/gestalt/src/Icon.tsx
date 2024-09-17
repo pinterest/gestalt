@@ -65,7 +65,8 @@ type Props = {
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
 const IconNames: ReadonlyArray<keyof typeof icons> = Object.keys(icons);
 
-const flipOnRtlIconNames = [
+const swapOnRtlIconNames: ReadonlyArray<keyof typeof icons> = ['360'];
+const flipOnRtlIconNames: ReadonlyArray<keyof typeof icons> = [
   'ads-stats',
   'ads-overview',
   'arrow-back',
@@ -81,7 +82,7 @@ const flipOnRtlIconNames = [
   'chevron-right-circle',
   'directional-arrow-left',
   'directional-arrow-right',
-  'flipVertical',
+  'flip-vertical',
   'hand-pointing',
   'link',
   'mute',
@@ -121,12 +122,32 @@ function Icon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
+
+  /**
+   * Some RTL Icons, we need to swap to a completely new icon because they can't be flipped
+   * @param iconName
+   */
+  function getFinalIcon(iconName?: keyof typeof icons): keyof typeof icons | undefined {
+    if (!iconName) {
+      return undefined;
+    }
+    const isRTL = document?.dir === 'rtl';
+
+    if (isRTL && swapOnRtlIconNames.includes(iconName)) {
+      return `${iconName}-rtl` as keyof typeof icons;
+    }
+    return iconName;
+  }
+
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+  const iconToUse = getFinalIcon(icon);
+
   const path =
-    (icon && (isInExperiment ? vrIcons : icons)[icon]) ||
+    (iconToUse && (isInExperiment ? vrIcons : icons)[iconToUse]) ||
     /* eslint-disable-next-line no-underscore-dangle */
     (dangerouslySetSvgPath && dangerouslySetSvgPath.__path) ||
     undefined;
