@@ -13,57 +13,53 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    <div
-      className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+    <button
+      aria-controls="expandableRow"
+      aria-expanded={false}
+      aria-label="Expand"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-controls="expandableRow"
-        aria-expanded={false}
-        aria-label="Expand"
-        className="parentButton"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button tapTransition enabled"
       >
         <div
-          className="button tapTransition enabled"
-        >
-          <div
-            className="pog transparent"
-            style={
-              Object {
-                "height": 24,
-                "width": 24,
-              }
+          className="pog transparent"
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
             }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="default icon iconBlock"
+            height={12}
+            role="img"
+            viewBox="0 0 24 24"
+            width={12}
           >
-            <svg
-              aria-hidden={true}
-              aria-label=""
-              className="default icon iconBlock"
-              height={12}
-              role="img"
-              viewBox="0 0 24 24"
-              width={12}
-            >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
-          </div>
+            <path
+              d="test-file-stub"
+            />
+          </svg>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </td>
   <div>
     row cells
@@ -84,57 +80,53 @@ exports[`renders correctly with explicit hover 1`] = `
       }
     }
   >
-    <div
-      className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+    <button
+      aria-controls="expandableRow"
+      aria-expanded={false}
+      aria-label="Expand"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-controls="expandableRow"
-        aria-expanded={false}
-        aria-label="Expand"
-        className="parentButton"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button tapTransition enabled"
       >
         <div
-          className="button tapTransition enabled"
-        >
-          <div
-            className="pog transparent"
-            style={
-              Object {
-                "height": 24,
-                "width": 24,
-              }
+          className="pog transparent"
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
             }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="default icon iconBlock"
+            height={12}
+            role="img"
+            viewBox="0 0 24 24"
+            width={12}
           >
-            <svg
-              aria-hidden={true}
-              aria-label=""
-              className="default icon iconBlock"
-              height={12}
-              role="img"
-              viewBox="0 0 24 24"
-              width={12}
-            >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
-          </div>
+            <path
+              d="test-file-stub"
+            />
+          </svg>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </td>
   <div>
     row cells
@@ -155,57 +147,53 @@ exports[`renders correctly without hover 1`] = `
       }
     }
   >
-    <div
-      className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+    <button
+      aria-controls="expandableRow"
+      aria-expanded={false}
+      aria-label="Expand"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-controls="expandableRow"
-        aria-expanded={false}
-        aria-label="Expand"
-        className="parentButton"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button tapTransition enabled"
       >
         <div
-          className="button tapTransition enabled"
-        >
-          <div
-            className="pog transparent"
-            style={
-              Object {
-                "height": 24,
-                "width": 24,
-              }
+          className="pog transparent"
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
             }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="default icon iconBlock"
+            height={12}
+            role="img"
+            viewBox="0 0 24 24"
+            width={12}
           >
-            <svg
-              aria-hidden={true}
-              aria-label=""
-              className="default icon iconBlock"
-              height={12}
-              role="img"
-              viewBox="0 0 24 24"
-              width={12}
-            >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
-          </div>
+            <path
+              d="test-file-stub"
+            />
+          </svg>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </td>
   <div>
     row cells

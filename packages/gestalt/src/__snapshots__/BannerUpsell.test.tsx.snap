@@ -200,55 +200,51 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
   <div
     className="rtlPos"
   >
-    <div
-      className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+    <button
+      aria-label="Dismiss banner"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-label="Dismiss banner"
-        className="parentButton"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button tapTransition enabled"
       >
         <div
-          className="button tapTransition enabled"
-        >
-          <div
-            className="pog transparent"
-            style={
-              Object {
-                "height": 48,
-                "width": 48,
-              }
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
             }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="default icon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
           >
-            <svg
-              aria-hidden={true}
-              aria-label=""
-              className="default icon iconBlock"
-              height={16}
-              role="img"
-              viewBox="0 0 24 24"
-              width={16}
-            >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
-          </div>
+            <path
+              d="test-file-stub"
+            />
+          </svg>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </div>
 </div>
 `;
@@ -374,55 +370,51 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
   <div
     className="rtlPos"
   >
-    <div
-      className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+    <button
+      aria-label="Dismiss banner"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-label="Dismiss banner"
-        className="parentButton"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button tapTransition enabled"
       >
         <div
-          className="button tapTransition enabled"
-        >
-          <div
-            className="pog transparent"
-            style={
-              Object {
-                "height": 48,
-                "width": 48,
-              }
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
             }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="default icon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
           >
-            <svg
-              aria-hidden={true}
-              aria-label=""
-              className="default icon iconBlock"
-              height={16}
-              role="img"
-              viewBox="0 0 24 24"
-              width={16}
-            >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
-          </div>
+            <path
+              d="test-file-stub"
+            />
+          </svg>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </div>
 </div>
 `;
@@ -516,55 +508,51 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
   <div
     className="rtlPos"
   >
-    <div
-      className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+    <button
+      aria-label="Dismiss banner"
+      className="parentButton"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex={0}
+      type="button"
     >
-      <button
-        aria-label="Dismiss banner"
-        className="parentButton"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        tabIndex={0}
-        type="button"
+      <div
+        className="button tapTransition enabled"
       >
         <div
-          className="button tapTransition enabled"
-        >
-          <div
-            className="pog transparent"
-            style={
-              Object {
-                "height": 48,
-                "width": 48,
-              }
+          className="pog transparent"
+          style={
+            Object {
+              "height": 48,
+              "width": 48,
             }
+          }
+        >
+          <svg
+            aria-hidden={true}
+            aria-label=""
+            className="default icon iconBlock"
+            height={16}
+            role="img"
+            viewBox="0 0 24 24"
+            width={16}
           >
-            <svg
-              aria-hidden={true}
-              aria-label=""
-              className="default icon iconBlock"
-              height={16}
-              role="img"
-              viewBox="0 0 24 24"
-              width={16}
-            >
-              <path
-                d="test-file-stub"
-              />
-            </svg>
-          </div>
+            <path
+              d="test-file-stub"
+            />
+          </svg>
         </div>
-      </button>
-    </div>
+      </div>
+    </button>
   </div>
 </div>
 `;
