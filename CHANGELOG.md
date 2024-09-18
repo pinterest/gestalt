@@ -1,3 +1,9 @@
+## 159.8.2 (Sep 18, 2024)
+
+### Patch
+
+- IconButton: refactor to prevent snapshot change ([#3764](https://github.com/pinterest/gestalt/pull/3764)) - [Preview link](https://deploy-preview-3764--gestalt.netlify.app?devexample=true)
+
 ## 159.8.1 (Sep 16, 2024)
 
 ### Patch
