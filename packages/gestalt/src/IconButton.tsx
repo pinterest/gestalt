@@ -195,7 +195,7 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     [styles.hoverText]: isHovered && !isActive,
   });
 
-  const divStyles = classnames(styles.button, touchableStyles.tapTransition, compressStyle, {
+  const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
     [styles.disabled]: disabled,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
@@ -268,23 +268,27 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
     </div>
   );
 
-  return (
+  const buttonWithTooltip = tooltip?.text ? (
+    <Tooltip
+      accessibilityLabel={tooltip.accessibilityLabel}
+      idealDirection={tooltip.idealDirection}
+      inline={tooltip.inline}
+      text={tooltip.text}
+      zIndex={tooltip.zIndex}
+    >
+      {buttonComponent}
+    </Tooltip>
+  ) : (
+    buttonComponent
+  );
+
+  return label && size === 'xl' ? (
     <Flex alignItems="center" direction="column">
-      {tooltip?.text ? (
-        <Tooltip
-          accessibilityLabel={tooltip.accessibilityLabel}
-          idealDirection={tooltip.idealDirection}
-          inline={tooltip.inline}
-          text={tooltip.text}
-          zIndex={tooltip.zIndex}
-        >
-          {buttonComponent}
-        </Tooltip>
-      ) : (
-        buttonComponent
-      )}
-      {label && size === 'xl' && labelComponent}
+      {buttonWithTooltip}
+      {labelComponent}
     </Flex>
+  ) : (
+    buttonWithTooltip
   );
 });
 
