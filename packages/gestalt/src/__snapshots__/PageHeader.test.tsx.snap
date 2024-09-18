@@ -434,58 +434,54 @@ exports[`PageHeader renders primary action 1`] = `
               <div
                 className="box mdDisplayNone xsDisplayBlock"
               >
-                <div
-                  className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+                <button
+                  aria-controls="pageheader-dropdown"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="test"
+                  className="parentButton"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchCancel={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
                 >
-                  <button
-                    aria-controls="pageheader-dropdown"
-                    aria-expanded={false}
-                    aria-haspopup={true}
-                    aria-label="test"
-                    className="parentButton"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button tapTransition enabled"
                   >
                     <div
-                      className="button tapTransition enabled"
-                    >
-                      <div
-                        className="pog transparent"
-                        style={
-                          Object {
-                            "height": 48,
-                            "width": 48,
-                          }
+                      className="pog transparent"
+                      style={
+                        Object {
+                          "height": 48,
+                          "width": 48,
                         }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="default icon iconBlock"
+                        height={20}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={20}
                       >
-                        <svg
-                          aria-hidden={true}
-                          aria-label=""
-                          className="default icon iconBlock"
-                          height={20}
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width={20}
-                        >
-                          <path
-                            d="test-file-stub"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
                     </div>
-                  </button>
-                </div>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -691,58 +687,54 @@ exports[`PageHeader renders secondary action 1`] = `
               <div
                 className="box mdDisplayNone xsDisplayBlock"
               >
-                <div
-                  className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+                <button
+                  aria-controls="pageheader-dropdown"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  aria-label="test"
+                  className="parentButton"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseUp={[Function]}
+                  onTouchCancel={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchMove={[Function]}
+                  onTouchStart={[Function]}
+                  tabIndex={0}
+                  type="button"
                 >
-                  <button
-                    aria-controls="pageheader-dropdown"
-                    aria-expanded={false}
-                    aria-haspopup={true}
-                    aria-label="test"
-                    className="parentButton"
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
-                    onMouseLeave={[Function]}
-                    onMouseUp={[Function]}
-                    onTouchCancel={[Function]}
-                    onTouchEnd={[Function]}
-                    onTouchMove={[Function]}
-                    onTouchStart={[Function]}
-                    tabIndex={0}
-                    type="button"
+                  <div
+                    className="button tapTransition enabled"
                   >
                     <div
-                      className="button tapTransition enabled"
-                    >
-                      <div
-                        className="pog transparent"
-                        style={
-                          Object {
-                            "height": 48,
-                            "width": 48,
-                          }
+                      className="pog transparent"
+                      style={
+                        Object {
+                          "height": 48,
+                          "width": 48,
                         }
+                      }
+                    >
+                      <svg
+                        aria-hidden={true}
+                        aria-label=""
+                        className="default icon iconBlock"
+                        height={20}
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width={20}
                       >
-                        <svg
-                          aria-hidden={true}
-                          aria-label=""
-                          className="default icon iconBlock"
-                          height={20}
-                          role="img"
-                          viewBox="0 0 24 24"
-                          width={20}
-                        >
-                          <path
-                            d="test-file-stub"
-                          />
-                        </svg>
-                      </div>
+                        <path
+                          d="test-file-stub"
+                        />
+                      </svg>
                     </div>
-                  </button>
-                </div>
+                  </div>
+                </button>
               </div>
             </div>
           </div>

@@ -50,39 +50,35 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                     <div
                       class="box marginStart2"
                     >
-                      <div
-                        class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+                      <button
+                        aria-label="Dismiss modal"
+                        class="parentButton"
+                        tabindex="0"
+                        type="button"
                       >
-                        <button
-                          aria-label="Dismiss modal"
-                          class="parentButton"
-                          tabindex="0"
-                          type="button"
+                        <div
+                          class="button tapTransition enabled"
                         >
                           <div
-                            class="button tapTransition enabled"
+                            class="pog white"
+                            style="height: 32px; width: 32px;"
                           >
-                            <div
-                              class="pog white"
-                              style="height: 32px; width: 32px;"
+                            <svg
+                              aria-hidden="true"
+                              aria-label=""
+                              class="default icon iconBlock"
+                              height="16"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="16"
                             >
-                              <svg
-                                aria-hidden="true"
-                                aria-label=""
-                                class="default icon iconBlock"
-                                height="16"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="16"
-                              >
-                                <path
-                                  d="test-file-stub"
-                                />
-                              </svg>
-                            </div>
+                              <path
+                                d="test-file-stub"
+                              />
+                            </svg>
                           </div>
-                        </button>
-                      </div>
+                        </div>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -413,39 +409,35 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                     <div
                       class="box marginStart2"
                     >
-                      <div
-                        class="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+                      <button
+                        aria-label="Dismiss modal"
+                        class="parentButton"
+                        tabindex="0"
+                        type="button"
                       >
-                        <button
-                          aria-label="Dismiss modal"
-                          class="parentButton"
-                          tabindex="0"
-                          type="button"
+                        <div
+                          class="button tapTransition enabled"
                         >
                           <div
-                            class="button tapTransition enabled"
+                            class="pog white"
+                            style="height: 32px; width: 32px;"
                           >
-                            <div
-                              class="pog white"
-                              style="height: 32px; width: 32px;"
+                            <svg
+                              aria-hidden="true"
+                              aria-label=""
+                              class="default icon iconBlock"
+                              height="16"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="16"
                             >
-                              <svg
-                                aria-hidden="true"
-                                aria-label=""
-                                class="default icon iconBlock"
-                                height="16"
-                                role="img"
-                                viewBox="0 0 24 24"
-                                width="16"
-                              >
-                                <path
-                                  d="test-file-stub"
-                                />
-                              </svg>
-                            </div>
+                              <path
+                                d="test-file-stub"
+                              />
+                            </svg>
                           </div>
-                        </button>
-                      </div>
+                        </div>
+                      </button>
                     </div>
                   </div>
                 </div>

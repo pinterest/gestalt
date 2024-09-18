@@ -1,3 +1,15 @@
+## 159.9.0 (Sep 18, 2024)
+
+### Minor
+
+- Tabs: VR implementation changes ([#3763](https://github.com/pinterest/gestalt/pull/3763)) - [Preview link](https://deploy-preview-3763--gestalt.netlify.app?devexample=true)
+
+## 159.8.2 (Sep 18, 2024)
+
+### Patch
+
+- IconButton: refactor to prevent snapshot change ([#3764](https://github.com/pinterest/gestalt/pull/3764)) - [Preview link](https://deploy-preview-3764--gestalt.netlify.app?devexample=true)
+
 ## 159.8.1 (Sep 16, 2024)
 
 ### Patch
