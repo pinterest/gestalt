@@ -153,10 +153,13 @@ export default function PartialPage({
   }, []);
 
   useEffect(() => {
-    console.log(navigator?.virtualKeyboard)
+    // @ts-expect-error - TS2769 - No overload matches this call.
+    // eslint-disable-next-line no-console
+    console.log(navigator?.virtualKeyboard);
+    // @ts-expect-error - TS2769 - No overload matches this call.
     navigator?.virtualKeyboard.addEventListener('geometrychange', (event) => {
-
-      console.log(event.target.boundingRect)
+      // eslint-disable-next-line no-console
+      console.log(event.target.boundingRect);
       // Test if the keyboard is open, you will have to write this yourself
       // But just for an example:
       const keyboardOpen = event.target.boundingRect.height > 0;
