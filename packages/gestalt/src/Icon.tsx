@@ -136,9 +136,11 @@ function Icon({
 
     if (!swapOnRtlIconNames.includes(iconName)) return iconName;
 
-    // As a convention, text direction is defined in `dir` attribute of `html` tag of the document.
-    // The following check is done under the assuption of that convention.
-    const isRTL = typeof document === 'undefined' ? false : document?.dir === 'rtl';
+    // As a convention, text direction is defined in `dir` attribute of `html` tag of the document
+    const isRTL =
+      typeof document === 'undefined'
+        ? false
+        : document.querySelector('html')?.getAttribute('dir') === 'rtl';
 
     // return the RTL version of the icon
     if (isRTL && `${iconName}-rtl` in icons) {
