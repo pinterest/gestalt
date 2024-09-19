@@ -44,7 +44,7 @@ export default function SheetMobilePage({ generatedDocGen }: { generatedDocGen: 
         pdocsLink
       >
         <SandpackExample
-          code={main}
+          code={withPrimaryActionHeader}
           hideEditor
           layout="mobileRow"
           name="Main SheetMobile example"
