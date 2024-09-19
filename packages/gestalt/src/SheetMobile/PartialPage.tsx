@@ -157,7 +157,7 @@ export default function PartialPage({
     // eslint-disable-next-line no-console
     console.log(navigator?.virtualKeyboard);
     // @ts-expect-error - TS2769 - No overload matches this call.
-    navigator?.virtualKeyboard.addEventListener('geometrychange', (event) => {
+    navigator?.virtualKeyboard?.addEventListener('geometrychange', (event) => {
       // eslint-disable-next-line no-console
       console.log(event.target.boundingRect);
       // Test if the keyboard is open, you will have to write this yourself
