@@ -152,6 +152,35 @@ export default function PartialPage({
     };
   }, []);
 
+  useEffect(() => {
+    console.log(navigator?.virtualKeyboard)
+    navigator?.virtualKeyboard.addEventListener('geometrychange', (event) => {
+
+      console.log(event.target.boundingRect)
+      // Test if the keyboard is open, you will have to write this yourself
+      // But just for an example:
+      const keyboardOpen = event.target.boundingRect.height > 0;
+      if (keyboardOpen) {
+        // Make the parent element stop scrolling by making the overflow hidden
+        // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+        if (window && window.body?.style?.overflow) {
+          // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+          prevOverflowStyle = window.body.style.overflow;
+          // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+          window.body.style.overflow = 'hidden';
+        }
+      }
+    });
+
+    return () => {
+      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+      if (window && window.body?.style?.overflow) {
+        // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+        window.body.style.overflow = prevOverflowStyle;
+      }
+    };
+  }, []);
+
   // Use useLayoutEffect instead of useEffect as we need to close the component synchronously after all DOM mutations, useEffect was needed to prevent changing state while still rendering but useEffect will create a ms blink of the full OverlayPanel after closing which gets prevented with useLayoutEffect
   useLayoutEffect(() => {
     if (animationState === ANIMATION_STATE.unmount) {
