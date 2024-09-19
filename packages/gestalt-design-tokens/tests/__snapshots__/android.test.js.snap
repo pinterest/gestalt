@@ -127,6 +127,7 @@ Object {
   <color name=\\"color_text_link\\">@color/color_blue_skycicle_400</color>
   <color name=\\"color_icon_default\\">@color/color_white_mochimalist_0</color>
   <color name=\\"color_icon_subtle\\">@color/color_gray_roboflow_400</color>
+  <color name=\\"color_icon_subtle_accent\\">@color/color_gray_roboflow_300</color>
   <color name=\\"color_icon_success\\">@color/color_green_matchacado_400</color>
   <color name=\\"color_icon_disabled\\">@color/color_gray_roboflow_600</color>
   <color name=\\"color_icon_error\\">@color/color_red_pushpin_300</color>
@@ -324,6 +325,7 @@ Object {
   <color name=\\"color_text_link\\">@color/color_blue_skycicle_700</color>
   <color name=\\"color_icon_default\\">@color/color_black_cosmicore_900</color>
   <color name=\\"color_icon_subtle\\">@color/color_gray_roboflow_500</color>
+  <color name=\\"color_icon_subtle_accent\\">@color/color_gray_roboflow_550</color>
   <color name=\\"color_icon_success\\">@color/color_green_matchacado_600</color>
   <color name=\\"color_icon_disabled\\">@color/color_gray_roboflow_400</color>
   <color name=\\"color_icon_error\\">@color/color_red_pushpin_500</color>
