@@ -154,6 +154,9 @@ export default function PartialPage({
 
   useEffect(() => {
     // eslint-disable-next-line no-console
+    document.addEventListener('focusout', (event) => console.log('focusout', event));
+
+    // eslint-disable-next-line no-console
     console.log(navigator);
     // @ts-expect-error - TS2769 - No overload matches this call.
     // eslint-disable-next-line no-console
