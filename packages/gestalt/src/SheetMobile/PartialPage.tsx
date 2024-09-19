@@ -136,6 +136,8 @@ export default function PartialPage({
   // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
   useEffect(() => {
     let prevOverflowStyle = 'auto';
+    // eslint-disable-next-line no-console
+    console.log('useEffect');
 
     // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
     if (window && window.body?.style?.overflow) {
@@ -145,6 +147,8 @@ export default function PartialPage({
       window.body.style.overflow = 'hidden';
     }
     return () => {
+      // eslint-disable-next-line no-console
+      console.log('return');
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       if (window && window.body?.style?.overflow) {
         // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
@@ -172,10 +176,10 @@ export default function PartialPage({
     [closeOnOutsideClick, onExternalDismiss, onOutsideClick],
   );
 
-  const isOnScreenKeyboardOpen = useIsOnScreenKeyboardOpen()
+  const isOnScreenKeyboardOpen = useIsOnScreenKeyboardOpen();
   // eslint-disable-next-line no-console
   console.log(isOnScreenKeyboardOpen);
-  
+
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
