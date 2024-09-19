@@ -65,7 +65,7 @@ type Props = {
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
 const IconNames: ReadonlyArray<keyof typeof icons> = Object.keys(icons);
 
-const swapOnRtlIconNames: ReadonlyArray<keyof typeof icons> = ['360'];
+const swapOnRtlIconNames: ReadonlyArray<keyof typeof icons> = ['list-numbered'];
 const flipOnRtlIconNames: ReadonlyArray<keyof typeof icons> = [
   'ads-stats',
   'ads-overview',
@@ -84,8 +84,10 @@ const flipOnRtlIconNames: ReadonlyArray<keyof typeof icons> = [
   'directional-arrow-right',
   'flip-vertical',
   'hand-pointing',
+  'indent',
   'link',
   'mute',
+  'outdent',
   'reorder-images',
   'send',
   'sound',
@@ -127,13 +129,19 @@ function Icon({
    * Some RTL Icons, we need to swap to a completely new icon because they can't be flipped
    * @param iconName
    */
-  function getFinalIcon(iconName?: keyof typeof icons): keyof typeof icons | undefined {
+  function getFinalIconName(iconName?: keyof typeof icons): keyof typeof icons | undefined {
     if (!iconName) {
       return undefined;
     }
-    const isRTL = document?.dir === 'rtl';
 
-    if (isRTL && swapOnRtlIconNames.includes(iconName)) {
+    if (!swapOnRtlIconNames.includes(iconName)) return iconName;
+
+    // As a convention, text direction is defined in `dir` attribute of `html` tag of the document.
+    // The following check is done under the assuption of that convention.
+    const isRTL = typeof document === 'undefined' ? false : document?.dir === 'rtl';
+
+    // return the RTL version of the icon
+    if (isRTL && `${iconName}-rtl` in icons) {
       return `${iconName}-rtl` as keyof typeof icons;
     }
     return iconName;
@@ -144,7 +152,7 @@ function Icon({
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-  const iconToUse = getFinalIcon(icon);
+  const iconToUse = getFinalIconName(icon);
 
   const path =
     (iconToUse && (isInExperiment ? vrIcons : icons)[iconToUse]) ||
