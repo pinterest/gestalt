@@ -181,6 +181,7 @@ export default function PartialPage({
     });
 
     return () => {
+      document.removeEventListener('focusout', (event) => console.log('focusout', event));
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       if (window && window.body?.style?.overflow) {
         // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
