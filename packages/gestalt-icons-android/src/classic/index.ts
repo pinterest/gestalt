@@ -164,6 +164,7 @@ import gauge from './ic_gauge_gestalt.svg';
 import ghost from './ic_ghost_gestalt.svg';
 import gif from './ic_gif_gestalt.svg';
 import gifVisual from './ic_gif-visual_gestalt.svg';
+import gift from './ic_gift_gestalt.svg';
 import globe from './ic_globe_gestalt.svg';
 import globeChecked from './ic_globe-checked_gestalt.svg';
 import gmail from './ic_gmail_gestalt.svg';
@@ -183,12 +184,14 @@ import homeFill from './ic_home-fill_gestalt.svg';
 import ideaPin from './ic_idea-pin_gestalt.svg';
 import imagePortrait from './ic_image-portrait_gestalt.svg';
 import impressum from './ic_impressum_gestalt.svg';
+import indent from './ic_indent_gestalt.svg';
 import infoCircle from './ic_info-circle_gestalt.svg';
 import information from './ic_information_gestalt.svg';
 import insightsAudience from './ic_insights-audience_gestalt.svg';
 import insightsConversion from './ic_insights-conversion_gestalt.svg';
 import instagram from './ic_instagram_gestalt.svg';
 import invoice from './ic_invoice_gestalt.svg';
+import kakaoTalk from './ic_kakao-talk_gestalt.svg';
 import key from './ic_key_gestalt.svg';
 import knoop from './ic_knoop_gestalt.svg';
 import labFlask from './ic_lab-flask_gestalt.svg';
@@ -199,6 +202,8 @@ import lightningBoltCircle from './ic_lightning-bolt-circle_gestalt.svg';
 import link from './ic_link_gestalt.svg';
 import linkBroken from './ic_link-broken_gestalt.svg';
 import lips from './ic_lips_gestalt.svg';
+import listNumbered from './ic_list-numbered_gestalt.svg';
+import listNumberedRtl from './ic_list-numbered-rtl_gestalt.svg';
 import location from './ic_location_gestalt.svg';
 import lock from './ic_lock_gestalt.svg';
 import logoLarge from './ic_logo-large_gestalt.svg';
@@ -225,6 +230,7 @@ import mute from './ic_mute_gestalt.svg';
 import muteFill from './ic_mute-fill_gestalt.svg';
 import orientationLandscape from './ic_orientation-landscape_gestalt.svg';
 import orientationPortrait from './ic_orientation-portrait_gestalt.svg';
+import outdent from './ic_outdent_gestalt.svg';
 import outlook from './ic_outlook_gestalt.svg';
 import overlayText from './ic_overlay-text_gestalt.svg';
 import overlayTextOutline from './ic_overlay-text-outline_gestalt.svg';
@@ -243,6 +249,7 @@ import personMagnifyingGlass from './ic_person-magnifying-glass_gestalt.svg';
 import phone from './ic_phone_gestalt.svg';
 import pin from './ic_pin_gestalt.svg';
 import pinHide from './ic_pin-hide_gestalt.svg';
+import pincode from './ic_pincode_gestalt.svg';
 import pinterest from './ic_pinterest_gestalt.svg';
 import play from './ic_play_gestalt.svg';
 import protect from './ic_protect_gestalt.svg';
@@ -283,6 +290,7 @@ import shuffles from './ic_shuffles_gestalt.svg';
 import skintone from './ic_skintone_gestalt.svg';
 import slide from './ic_slide_gestalt.svg';
 import smiley from './ic_smiley_gestalt.svg';
+import snapchat from './ic_snapchat_gestalt.svg';
 import sortAscending from './ic_sort-ascending_gestalt.svg';
 import sortDescending from './ic_sort-descending_gestalt.svg';
 import sound from './ic_sound_gestalt.svg';
@@ -315,6 +323,7 @@ import table from './ic_table_gestalt.svg';
 import tag from './ic_tag_gestalt.svg';
 import tagStar from './ic_tag-star_gestalt.svg';
 import target from './ic_target_gestalt.svg';
+import telegram from './ic_telegram_gestalt.svg';
 import template from './ic_template_gestalt.svg';
 import terms from './ic_terms_gestalt.svg';
 import text from './ic_text_gestalt.svg';
@@ -342,6 +351,7 @@ import trending from './ic_trending_gestalt.svg';
 import undo from './ic_undo_gestalt.svg';
 import unlock from './ic_unlock_gestalt.svg';
 import uploadFeed from './ic_upload-feed_gestalt.svg';
+import viber from './ic_viber_gestalt.svg';
 import videoAdvance10Seconds from './ic_video-advance-10-seconds_gestalt.svg';
 import videoCamera from './ic_video-camera_gestalt.svg';
 import videoRewind10Seconds from './ic_video-rewind-10-seconds_gestalt.svg';
@@ -534,6 +544,7 @@ const icons = Object.freeze({
   'ghost': ghost,
   'gif': gif,
   'gif-visual': gifVisual,
+  'gift': gift,
   'globe': globe,
   'globe-checked': globeChecked,
   'gmail': gmail,
@@ -553,12 +564,14 @@ const icons = Object.freeze({
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
   'impressum': impressum,
+  'indent': indent,
   'info-circle': infoCircle,
   'information': information,
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
   'invoice': invoice,
+  'kakao-talk': kakaoTalk,
   'key': key,
   'knoop': knoop,
   'lab-flask': labFlask,
@@ -569,6 +582,8 @@ const icons = Object.freeze({
   'link': link,
   'link-broken': linkBroken,
   'lips': lips,
+  'list-numbered': listNumbered,
+  'list-numbered-rtl': listNumberedRtl,
   'location': location,
   'lock': lock,
   'logo-large': logoLarge,
@@ -595,6 +610,7 @@ const icons = Object.freeze({
   'mute-fill': muteFill,
   'orientation-landscape': orientationLandscape,
   'orientation-portrait': orientationPortrait,
+  'outdent': outdent,
   'outlook': outlook,
   'overlay-text': overlayText,
   'overlay-text-outline': overlayTextOutline,
@@ -613,6 +629,7 @@ const icons = Object.freeze({
   'phone': phone,
   'pin': pin,
   'pin-hide': pinHide,
+  'pincode': pincode,
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
@@ -653,6 +670,7 @@ const icons = Object.freeze({
   'skintone': skintone,
   'slide': slide,
   'smiley': smiley,
+  'snapchat': snapchat,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
   'sound': sound,
@@ -685,6 +703,7 @@ const icons = Object.freeze({
   'tag': tag,
   'tag-star': tagStar,
   'target': target,
+  'telegram': telegram,
   'template': template,
   'terms': terms,
   'text': text,
@@ -712,6 +731,7 @@ const icons = Object.freeze({
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
+  'viber': viber,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,
