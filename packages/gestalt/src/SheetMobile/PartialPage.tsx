@@ -152,9 +152,12 @@ export default function PartialPage({
     };
   }, []);
 
+  // @ts-expect-error - TS2769 - No overload matches this call.
+  // eslint-disable-next-line no-console
+  const focusOutEvent = (event) => console.log('focusout', event);
+
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    document.addEventListener('focusout', (event) => console.log('focusout', event));
+    document.addEventListener('focusout', focusOutEvent);
 
     // eslint-disable-next-line no-console
     console.log(navigator);
@@ -179,10 +182,8 @@ export default function PartialPage({
         }
       }
     });
-
     return () => {
-      // eslint-disable-next-line no-console
-      document.removeEventListener('focusout', (event) => console.log('focusout', event));
+      document.removeEventListener('focusout', focusOutEvent);
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       if (window && window.body?.style?.overflow) {
         // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
