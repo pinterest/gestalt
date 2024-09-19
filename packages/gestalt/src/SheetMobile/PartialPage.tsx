@@ -2,6 +2,7 @@ import { ComponentProps, ReactNode, useCallback, useEffect, useId, useLayoutEffe
 import classnames from 'classnames';
 import ContentContainer from './ContentContainer';
 import Header from './Header';
+import useIsOnScreenKeyboardOpen from './useIsOnScreenKeyboardOpen';
 import animation from '../animation/animation.css';
 import { ANIMATION_STATE, useAnimation } from '../animation/AnimationContext';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
@@ -171,6 +172,10 @@ export default function PartialPage({
     [closeOnOutsideClick, onExternalDismiss, onOutsideClick],
   );
 
+  const isOnScreenKeyboardOpen = useIsOnScreenKeyboardOpen()
+  // eslint-disable-next-line no-console
+  console.log(isOnScreenKeyboardOpen);
+  
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
