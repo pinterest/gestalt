@@ -1,5 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { AvatarGroup, Box, Flex, Layer, Popover, SearchField, Text } from 'gestalt';
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e3b5eac32 (prettier)
+import {
+  AvatarGroup,
+  Box,
+  Flex,
+  Layer,
+  Popover,
+  SearchField,
+  Text,
+  useDangerouslyInGestaltExperiment,
+} from 'gestalt';
+<<<<<<< HEAD
+=======
+import { AvatarGroup, Box, Flex, Layer, Popover, SearchField, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+>>>>>>> da83e2698 (updated AvatarGroup examples)
+=======
+>>>>>>> e3b5eac32 (prettier)
 
 function SearchCollaboratorsField() {
   const ref = useRef<null | HTMLInputElement>(null);
@@ -23,6 +42,36 @@ function SearchCollaboratorsField() {
 export default function Example() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  const collaborators = [
+    {
+      name: 'Keerthi',
+      src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+    },
+    {
+      name: 'Alberto',
+      src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+    },
+    ...new Array(10),
+  ];
+
+  const collaboratorsVR = [
+    {
+      name: 'Fatima',
+      src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
+    },
+    {
+      name: 'Ayesha',
+      src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+    },
+    ...new Array(10),
+  ];
+
+  const names = isInVRExperiment ? 'Fatima, Ayesha,' : 'Keerthi, Alberto,';
 
   return (
     <Flex height="100%" width="100%">
@@ -30,19 +79,9 @@ export default function Example() {
         <AvatarGroup
           ref={anchorRef}
           accessibilityExpanded={open}
-          accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+          accessibilityLabel={`Collaborators: ${names} and 10 more. Add collaborators to this board.`}
           addCollaborators
-          collaborators={[
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-            ...new Array(10),
-          ]}
+          collaborators={isInVRExperiment ? collaboratorsVR : collaborators}
           onClick={() => setOpen((value) => !value)}
           role="button"
           size="md"

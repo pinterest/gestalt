@@ -1,6 +1,11 @@
 {
   "color": {
     "background": {
+      "avatar": {
+        "default": {
+          "value": "{sema.color.background.default.value}"
+        }
+      },
       "badge": {
         "neutral": {
           "default": {
