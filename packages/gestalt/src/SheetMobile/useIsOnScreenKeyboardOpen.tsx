@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDeviceType } from '../contexts/DeviceTypeProvider';
 
 const isKeyboardInput = (elem: HTMLElement) => {
   // eslint-disable-next-line no-console
@@ -12,6 +13,9 @@ const isKeyboardInput = (elem: HTMLElement) => {
   );
 };
 const useIsOnScreenKeyboardOpen = () => {
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
+
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
@@ -20,7 +24,7 @@ const useIsOnScreenKeyboardOpen = () => {
         return;
       }
       const target = e.target as HTMLElement;
-      if (isKeyboardInput(target)) {
+      if (isMobile && isKeyboardInput(target)) {
         setOpen(true);
       }
     };
@@ -32,7 +36,7 @@ const useIsOnScreenKeyboardOpen = () => {
         return;
       }
       const target = e.target as HTMLElement;
-      if (isKeyboardInput(target)) {
+      if (isMobile && isKeyboardInput(target)) {
         setOpen(false);
       }
     };
@@ -43,7 +47,7 @@ const useIsOnScreenKeyboardOpen = () => {
       document.removeEventListener('focusin', handleFocusIn);
       document.removeEventListener('focusout', handleFocusOut);
     };
-  }, []);
+  }, [isMobile]);
 
   return isOpen;
 };
