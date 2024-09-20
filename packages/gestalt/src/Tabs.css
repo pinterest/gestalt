@@ -1,9 +1,0 @@
-.paddingY {
-  padding-left: var(--space-300);
-  padding-right: var(--space-300);
-}
-
-.focused {
-  border-radius: var(--sema-rounding-400);
-  outline: 2px solid var(--sema-color-border-focus-outer-default);
-}
