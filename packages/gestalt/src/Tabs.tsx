@@ -1,7 +1,193 @@
-import { ReactNode } from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+  TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+} from 'gestalt-design-tokens';
+import Box from './Box';
 import Flex from './Flex';
-import Tab from './Tabs/Tab';
-import useInExperiment from './useInExperiment';
+import TapAreaLink from './TapAreaLink';
+import Text from './Text';
+
+type OnChangeHandler = (arg1: {
+  event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+  readonly activeTabIndex: number;
+  dangerouslyDisableOnNavigation: () => void;
+}) => void;
+
+function Dot() {
+  return (
+    <Box
+      color="brand"
+      dangerouslySetInlineStyle={{ __style: { marginTop: '1px' } }}
+      height={6}
+      rounding="circle"
+      width={6}
+    />
+  );
+}
+
+const UNDERLINE_HEIGHT = 3;
+
+function Underline() {
+  return (
+    <Box
+      color="selected"
+      dangerouslySetInlineStyle={{
+        __style: {
+          borderRadius: 1.5,
+        },
+      }}
+      height={UNDERLINE_HEIGHT}
+      width="100%"
+    />
+  );
+}
+
+const COUNT_HEIGHT_PX = 16;
+
+function Count({ count }: { count: number }) {
+  const displayCount = count < 100 ? `${count}` : '99+';
+
+  return (
+    <Box
+      color="brand"
+      dangerouslySetInlineStyle={{
+        __style: {
+          padding: `0 ${displayCount.length > 1 ? 3 : 0}px`,
+        },
+      }}
+      height={COUNT_HEIGHT_PX}
+      minWidth={COUNT_HEIGHT_PX}
+      rounding="pill"
+    >
+      <Box
+        dangerouslySetInlineStyle={{
+          __style: { padding: '0 0 1px 1px' },
+        }}
+      >
+        <Text align="center" color="light" size="100" weight="bold">
+          {displayCount}
+        </Text>
+      </Box>
+    </Box>
+  );
+}
+
+type TabType = {
+  href: string;
+  id?: string;
+  indicator?: 'dot' | number;
+  text: ReactNode;
+};
+type BgColor = 'default' | 'transparent';
+
+type TabProps = TabType & {
+  bgColor: BgColor;
+  index: number;
+  isActive: boolean;
+  onChange: OnChangeHandler;
+};
+
+const TAB_ROUNDING = 2;
+const TAB_INNER_PADDING = 2;
+
+const COLORS = {
+  default: {
+    base: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_DEFAULT_HOVER,
+  },
+  transparent: {
+    base: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
+    active: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
+    hover: TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+  },
+} as const;
+
+const TabWithForwardRef = forwardRef<HTMLElement, TabProps>(function Tab(
+  { bgColor, href, indicator, id, index, isActive, onChange, text }: TabProps,
+  ref,
+) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [pressed, setPressed] = useState(false);
+
+  let color = COLORS[bgColor].base;
+  if (!isActive) {
+    if (pressed) {
+      // @ts-expect-error - TS2322 - Type '"var(--color-background-tabs-default-active)" | "var(--color-background-tabs-transparent-active)"' is not assignable to type '"var(--color-background-tabs-default-base)" | "var(--color-background-tabs-transparent-base)"'.
+      color = COLORS[bgColor].active;
+    } else if (hovered || focused) {
+      // @ts-expect-error - TS2322 - Type '"var(--color-background-tabs-default-hover)" | "var(--color-background-tabs-transparent-hover)"' is not assignable to type '"var(--color-background-tabs-default-base)" | "var(--color-background-tabs-transparent-base)"'.
+      color = COLORS[bgColor].hover;
+    }
+  }
+
+  return (
+    <Box ref={ref} id={id} paddingY={3}>
+      <TapAreaLink
+        accessibilityCurrent={isActive ? 'page' : undefined}
+        href={href}
+        onBlur={() => setFocused(false)}
+        onFocus={() => setFocused(true)}
+        onMouseDown={() => setPressed(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseUp={() => setPressed(false)}
+        onTap={({ event, dangerouslyDisableOnNavigation }) => {
+          onChange({
+            activeTabIndex: index,
+            event,
+            dangerouslyDisableOnNavigation,
+          });
+        }}
+        rounding={TAB_ROUNDING}
+        tapStyle={isActive ? 'none' : 'compress'}
+      >
+        <Flex alignItems="center" direction="column">
+          <Box
+            dangerouslySetInlineStyle={{ __style: { backgroundColor: color } }}
+            padding={TAB_INNER_PADDING}
+            position="relative"
+            rounding={TAB_ROUNDING}
+            userSelect="none"
+          >
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+              <Text color="default" overflow="noWrap" weight="bold">
+                {text}
+              </Text>
+
+              {indicator === 'dot' && <Dot />}
+              {/* Flow is dumb and doesn't realize Number.isFinite will return false for a string or undefined */}
+              {typeof indicator === 'number' && Number.isFinite(indicator) && (
+                <Count count={indicator} />
+              )}
+            </Flex>
+
+            {isActive && (
+              <Box
+                dangerouslySetInlineStyle={{
+                  __style: { bottom: -UNDERLINE_HEIGHT },
+                }}
+                position="absolute"
+                // 4px/boint, padding on left and right
+                width={`calc(100% - ${TAB_INNER_PADDING * 4 * 2}px)`}
+              >
+                <Underline />
+              </Box>
+            )}
+          </Box>
+        </Flex>
+      </TapAreaLink>
+    </Box>
+  );
+});
+
+TabWithForwardRef.displayName = 'Tab';
 
 type Props = {
   /**
@@ -11,19 +197,11 @@ type Props = {
   /**
    * If Tabs is displayed in a container with a colored background, use this prop to remove the white tab background. See the [background color example](https://gestalt.pinterest.systems/web/tabs#Background-color) to learn more.
    */
-  bgColor?: 'default' | 'transparent';
-  /**
-   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
-   */
-  dataTestId?: string;
+  bgColor?: BgColor;
   /**
    * If your app requires client navigation, be sure to use [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) and/or `onChange` to navigate instead of getting a full page refresh just using `href`.
    */
-  onChange: (arg1: {
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
-    readonly activeTabIndex: number;
-    dangerouslyDisableOnNavigation: () => void;
-  }) => void;
+  onChange: OnChangeHandler;
   /**
    * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
    */
@@ -49,33 +227,15 @@ type Props = {
  * ![Tabs dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Tabs-dark.spec.ts-snapshots/Tabs-dark-chromium-darwin.png)
  *
  */
-export default function Tabs({
-  activeTabIndex,
-  bgColor = 'default',
-  onChange,
-  tabs,
-  wrap,
-  dataTestId,
-}: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-
+export default function Tabs({ activeTabIndex, bgColor = 'default', onChange, tabs, wrap }: Props) {
   return (
-    <Flex
-      alignItems="center"
-      gap={isInVRExperiment ? 1 : { row: 4, column: 0 }}
-      justifyContent="start"
-      wrap={wrap}
-    >
+    <Flex alignItems="center" gap={{ row: 4, column: 0 }} justifyContent="start" wrap={wrap}>
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
-        <Tab
+        <TabWithForwardRef
           key={id || `${href}_${index}`}
           // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
           ref={ref}
           bgColor={bgColor}
-          dataTestId={dataTestId}
           href={href}
           id={id}
           index={index}
