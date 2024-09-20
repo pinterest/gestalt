@@ -187,6 +187,7 @@ public enum GestaltTokensColor {
     public static let iconError = redPushpin500
     public static let iconDisabled = grayRoboflow400
     public static let iconSuccess = greenMatchacado600
+    public static let iconSubtleAccent = grayRoboflow550
     public static let iconSubtle = grayRoboflow500
     public static let iconDefault = blackCosmicore900
     public static let textLink = blueSkycicle700
@@ -386,6 +387,7 @@ public enum GestaltTokensColor {
     public static let iconError = redPushpin300
     public static let iconDisabled = grayRoboflow600
     public static let iconSuccess = greenMatchacado400
+    public static let iconSubtleAccent = grayRoboflow300
     public static let iconSubtle = grayRoboflow400
     public static let iconDefault = whiteMochimalist0
     public static let textLink = blueSkycicle400

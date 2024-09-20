@@ -1,3 +1,9 @@
+## 159.10.0 (Sep 20, 2024)
+
+### Minor
+
+- Tokens: add icon-subtle-accent token ([#3770](https://github.com/pinterest/gestalt/pull/3770)) - [Preview link](https://deploy-preview-3770--gestalt.netlify.app?devexample=true)
+
 ## 159.9.1 (Sep 20, 2024)
 
 ### Patch

@@ -129,6 +129,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-text-formfield-placeholder: #ababab;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
+  --color-icon-subtle-accent: #cdcdcd;
   --color-icon-success: #39d377;
   --color-icon-disabled: #4a4a4a;
   --color-icon-error: #f47171;
@@ -563,6 +564,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-text-formfield-placeholder: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
+  --color-icon-subtle-accent: #5f5f5f;
   --color-icon-success: #005f3e;
   --color-icon-disabled: #a5a5a5;
   --color-icon-error: #cc0000;
@@ -1024,6 +1026,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-text-formfield-placeholder: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
+  --color-icon-subtle-accent: #5f5f5f;
   --color-icon-success: #005f3e;
   --color-icon-disabled: #a5a5a5;
   --color-icon-error: #cc0000;
@@ -1485,6 +1488,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-text-formfield-placeholder: #767676;
   --color-icon-default: #111111;
   --color-icon-subtle: #767676;
+  --color-icon-subtle-accent: #5f5f5f;
   --color-icon-success: #005f3e;
   --color-icon-disabled: #a5a5a5;
   --color-icon-error: #cc0000;
@@ -1947,6 +1951,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-text-formfield-placeholder: #ababab;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #a5a5a5;
+  --color-icon-subtle-accent: #cdcdcd;
   --color-icon-success: #39d377;
   --color-icon-disabled: #4a4a4a;
   --color-icon-error: #f47171;
@@ -2958,6 +2963,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-text-link: #c5eaf7;
   --color-icon-default: #ffffff;
   --color-icon-subtle: #969292;
+  --color-icon-subtle-accent: #969292;
   --color-icon-success: #d0e2a8;
   --color-icon-disabled: #4c4c4a;
   --color-icon-error: #e60023;
@@ -3882,6 +3888,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-text-link: #215d82;
   --color-icon-default: #000000;
   --color-icon-subtle: #636361;
+  --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
   --color-icon-error: #e60023;
