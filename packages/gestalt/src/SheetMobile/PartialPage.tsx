@@ -199,6 +199,18 @@ export default function PartialPage({
     },
     [closeOnOutsideClick, onExternalDismiss, onOutsideClick],
   );
+  // @ts-expect-error - TS2339 -
+  function findScroller(element) {
+    // eslint-disable-next-line no-param-reassign, func-names
+    element.onscroll = function () {
+      // eslint-disable-next-line no-console
+      console.log('scrolls', element);
+    };
+
+    Array.from(element.children).forEach(findScroller);
+  }
+
+  findScroller(document.body);
 
   return (
     <StopScrollBehavior>
