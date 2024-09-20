@@ -158,26 +158,25 @@ export default function PartialPage({
 
   // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
   useEffect(() => {
-    let prevOverflowStyleVirtual = 'auto';
-    // eslint-disable-next-line no-console
-    console.log('useEffect');
+    const disableScroll = () => {
+      // Get the current page scroll position
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+      // if any scroll is attempted,
+      // set this to the previous value
+      window.onscroll = () => {
+        window.scrollTo(scrollLeft, scrollTop);
+      };
+    };
 
-    // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
-    if (window && window.body?.style?.overflow && isOnScreenKeyboardOpen) {
-      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
-      prevOverflowStyleVirtual = window.body.style.overflow;
-      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
-      window.body.style.overflow = 'hidden';
-      // eslint-disable-next-line no-console
-      console.log('hidden');
-    }
+    const enableScroll = () => {
+      window.onscroll = () => {};
+    };
 
-    // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
-    if (window && window.body?.style?.overflow && !isOnScreenKeyboardOpen) {
-      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
-      window.body.style.overflow = prevOverflowStyleVirtual;
-      // eslint-disable-next-line no-console
-      console.log('unhidden');
+    if (isOnScreenKeyboardOpen) {
+      disableScroll();
+    } else {
+      enableScroll();
     }
   }, [isOnScreenKeyboardOpen]);
 
@@ -199,20 +198,20 @@ export default function PartialPage({
     },
     [closeOnOutsideClick, onExternalDismiss, onOutsideClick],
   );
-  // @ts-expect-error - TS2339
-  function findScroller(element) {
-    // eslint-disable-next-line no-console
-    console.log('scrollstart');
-    // eslint-disable-next-line no-param-reassign, func-names
-    element.onscroll = function () {
-      // eslint-disable-next-line no-console
-      console.log('scrolls', element);
-    };
+  // // @ts-expect-error - TS2339
+  // function findScroller(element) {
+  //   // eslint-disable-next-line no-console
+  //   console.log('scrollstart');
+  //   // eslint-disable-next-line no-param-reassign, func-names
+  //   element.onscroll = function () {
+  //     // eslint-disable-next-line no-console
+  //     console.log('scrolls', element);
+  //   };
 
-    Array.from(element.children).forEach(findScroller);
-  }
+  //   Array.from(element.children).forEach(findScroller);
+  // }
 
-  findScroller(document.body);
+  // findScroller(document.body);
 
   return (
     <StopScrollBehavior>
