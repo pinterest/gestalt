@@ -8,7 +8,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     className="FlexItem"
   >
     <div
-      className="paddingY"
+      className="box paddingY3"
     >
       <a
         aria-current="page"
@@ -38,23 +38,17 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
-                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="default alignStart noWrap Text fontSize300 fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -65,8 +59,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
               style={
                 Object {
                   "bottom": -3,
-                  "left": undefined,
-                  "right": undefined,
                   "width": "calc(100% - 16px)",
                 }
               }
@@ -91,7 +83,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     className="FlexItem"
   >
     <div
-      className="paddingY"
+      className="box paddingY3"
     >
       <a
         className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
@@ -120,23 +112,17 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
-                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="default alignStart noWrap Text fontSize300 fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -158,7 +144,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     className="FlexItem"
   >
     <div
-      className="paddingY"
+      className="box paddingY3"
     >
       <a
         aria-current="page"
@@ -188,23 +174,17 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
-                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="default alignStart noWrap Text fontSize300 fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -213,7 +193,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle primary"
+                  className="box brand circle"
                   style={
                     Object {
                       "height": 6,
@@ -229,8 +209,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               style={
                 Object {
                   "bottom": -3,
-                  "left": undefined,
-                  "right": undefined,
                   "width": "calc(100% - 16px)",
                 }
               }
@@ -255,7 +233,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     className="FlexItem"
   >
     <div
-      className="paddingY"
+      className="box paddingY3"
     >
       <a
         className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
@@ -284,23 +262,17 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
-                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="default alignStart noWrap Text fontSize300 fontWeightSemiBold"
                 >
                   You
                 </div>
@@ -309,7 +281,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle primary"
+                  className="box brand circle"
                   style={
                     Object {
                       "height": 6,
@@ -336,7 +308,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     className="FlexItem"
   >
     <div
-      className="paddingY"
+      className="box paddingY3"
     >
       <a
         aria-current="page"
@@ -366,23 +338,17 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
-                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="default alignStart noWrap Text fontSize300 fontWeightSemiBold"
                 >
                   News
                 </div>
@@ -393,8 +359,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
               style={
                 Object {
                   "bottom": -3,
-                  "left": undefined,
-                  "right": undefined,
                   "width": "calc(100% - 16px)",
                 }
               }
@@ -419,7 +383,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     className="FlexItem"
   >
     <div
-      className="paddingY"
+      className="box paddingY3"
     >
       <a
         className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
@@ -448,23 +412,17 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
-                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="default alignStart noWrap Text fontSize300 fontWeightSemiBold"
                 >
                   You
                 </div>

@@ -1,3 +1,9 @@
+## 159.9.1 (Sep 20, 2024)
+
+### Patch
+
+- Tabs: Revert "Tabs: VR implementation changes ([#3763](https://github.com/pinterest/gestalt/pull/3763)) - [Preview link](https://deploy-preview-3763--gestalt.netlify.app?devexample=true)" ([#3769](https://github.com/pinterest/gestalt/pull/3769)) - [Preview link](https://deploy-preview-3769--gestalt.netlify.app?devexample=true)
+
 ## 159.9.0 (Sep 18, 2024)
 
 ### Minor
