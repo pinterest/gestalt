@@ -164,28 +164,28 @@ export default function PartialPage({
   }, []);
 
   // When SheetMobile is full page displayed in mobile browser, the body scroll is still accessible. Here we disable to just allow the scrolling within Modal
-  useEffect(() => {
-    const disableScroll = () => {
-      // Get the current page scroll position
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      // if any scroll is attempted,
-      // set this to the previous value
-      window.onscroll = () => {
-        window.scrollTo(scrollLeft, scrollTop);
-      };
-    };
+  // useEffect(() => {
+  //   const disableScroll = () => {
+  //     // Get the current page scroll position
+  //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  //     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  //     // if any scroll is attempted,
+  //     // set this to the previous value
+  //     window.onscroll = () => {
+  //       window.scrollTo(scrollLeft, scrollTop);
+  //     };
+  //   };
 
-    const enableScroll = () => {
-      window.onscroll = () => {};
-    };
+  //   const enableScroll = () => {
+  //     window.onscroll = () => {};
+  //   };
 
-    if (isOnScreenKeyboardOpen) {
-      disableScroll();
-    } else {
-      enableScroll();
-    }
-  }, [isOnScreenKeyboardOpen]);
+  //   if (isOnScreenKeyboardOpen) {
+  //     disableScroll();
+  //   } else {
+  //     enableScroll();
+  //   }
+  // }, [isOnScreenKeyboardOpen]);
 
   // Use useLayoutEffect instead of useEffect as we need to close the component synchronously after all DOM mutations, useEffect was needed to prevent changing state while still rendering but useEffect will create a ms blink of the full OverlayPanel after closing which gets prevented with useLayoutEffect
   useLayoutEffect(() => {
