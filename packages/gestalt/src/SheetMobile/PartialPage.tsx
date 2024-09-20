@@ -168,12 +168,16 @@ export default function PartialPage({
       prevOverflowStyleVirtual = window.body.style.overflow;
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       window.body.style.overflow = 'hidden';
+      // eslint-disable-next-line no-console
+      console.log('hidden');
     }
 
     // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
     if (window && window.body?.style?.overflow && !isOnScreenKeyboardOpen) {
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       window.body.style.overflow = prevOverflowStyleVirtual;
+      // eslint-disable-next-line no-console
+      console.log('unhidden');
     }
   }, [isOnScreenKeyboardOpen]);
 

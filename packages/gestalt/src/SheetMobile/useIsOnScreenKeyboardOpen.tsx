@@ -12,6 +12,8 @@ const isKeyboardInput = (elem: HTMLElement) => {
     elem.hasAttribute('contenteditable')
   );
 };
+
+// This hooks detects the on-screen keyboard. In the future we can use the VirtualKeyboard API but it's still experimental and not supported in many browsers. https://developer.mozilla.org/en-US/docs/Web/API/VirtualKeyboard/geometrychange_event
 const useIsOnScreenKeyboardOpen = () => {
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
