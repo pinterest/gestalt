@@ -201,6 +201,8 @@ export default function PartialPage({
   );
   // @ts-expect-error - TS2339
   function findScroller(element) {
+    // eslint-disable-next-line no-console
+    console.log('scrollstart');
     // eslint-disable-next-line no-param-reassign, func-names
     element.onscroll = function () {
       // eslint-disable-next-line no-console
