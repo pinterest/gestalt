@@ -145,13 +145,20 @@ export default function PartialPage({
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       prevOverflowStyle = window.body.style.overflow;
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+      prevHeightStyle = window.body.style.height;
+
+      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       window.body.style.overflow = 'hidden';
+      // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+      window.body.style.height = '100%';
     }
     return () => {
       // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
       if (window && window.body?.style?.overflow) {
         // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
         window.body.style.overflow = prevOverflowStyle;
+        // @ts-expect-error - TS2339 - Property 'body' does not exist on type 'Window & typeof globalThis'.
+        window.body.style.height = prevHeightStyle;
       }
     };
   }, []);
