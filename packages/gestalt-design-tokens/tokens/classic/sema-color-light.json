@@ -42,6 +42,9 @@
       "subtle": {
         "value": "{color.gray.roboflow.500.value}"
       },
+      "subtle-accent": {
+        "value": "{color.gray.roboflow.550.value}"
+      },
       "success": {
         "value": "{color.green.matchacado.600.value}"
       },

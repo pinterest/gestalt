@@ -42,6 +42,9 @@
       "subtle": {
         "value": "{sema.color.icon.subtle.value}"
       },
+      "subtle-accent": {
+        "value": "{sema.color.icon.subtle.value}"
+      },
       "success": {
         "value": "{sema.color.icon.success.value}"
       },
