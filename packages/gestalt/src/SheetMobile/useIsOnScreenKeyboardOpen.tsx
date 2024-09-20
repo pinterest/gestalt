@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const isKeyboardInput = (elem: HTMLElement) =>
   (elem.tagName === 'INPUT' &&
-    !['date', 'number', 'email', 'password', 'tel', 'text', 'url'].includes(
+    ['date', 'number', 'email', 'password', 'tel', 'text', 'url'].includes(
       (elem as HTMLInputElement).type,
     )) ||
   elem.hasAttribute('contenteditable');
