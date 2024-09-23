@@ -40,6 +40,16 @@
         }
       }
     },
+    "lineheight": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.lineheight.body.MD}"
+        },
+        "heading": {
+          "value": "{sema.font.lineheight.heading.SM}"
+        }
+      }
+    },
     "textdecoration": {
       "datepicker": {
         "date": {

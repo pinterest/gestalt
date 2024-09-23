@@ -258,7 +258,13 @@ to prevent conflict with another CSS module */
   font-size: var(--font-size-datepicker-date);
   font-weight: var(--font-weight-datepicker-date);
   line-height: var(--font-lineheight-datepicker-date);
-  margin: var(--space-0);
+  margin-top: calc(
+    (var(--space-1000) - var(--font-lineheight-datepicker-date)) * 0.5
+  );
+  margin-bottom: calc(
+    (var(--space-1000) - var(--font-lineheight-datepicker-date)) * 0.5
+  );
+
   text-align: center;
   text-decoration: var(--font-textdecoration-datepicker-date);
   width: var(--space-1000);

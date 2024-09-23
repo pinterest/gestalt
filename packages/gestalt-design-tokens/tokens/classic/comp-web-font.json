@@ -40,6 +40,16 @@
         }
       }
     },
+    "lineheight": {
+      "datepicker": {
+        "date": {
+          "value": "normal"
+        },
+        "heading": {
+          "value": "normal"
+        }
+      }
+    },
     "textdecoration": {
       "datepicker": {
         "date": {
