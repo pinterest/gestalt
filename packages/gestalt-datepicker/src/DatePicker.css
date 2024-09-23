@@ -390,7 +390,6 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   cursor: default;
 }
 
-
 .react-datepicker-popper {
   z-index: 1;
 }
