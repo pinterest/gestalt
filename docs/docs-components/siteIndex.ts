@@ -169,6 +169,7 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'RadioButton',
       'RadioGroup',
       'SearchField',
+      'SearchGuide',
       'SegmentedControl',
       'SelectList',
       'SheetMobile',

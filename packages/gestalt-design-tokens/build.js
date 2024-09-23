@@ -332,6 +332,7 @@ function getSources({ theme, modeTheme, platform, language }) {
       `tokens/classic/base-space.json`,
       `tokens/classic/sema-color-${modeTheme}.json`,
       `tokens/classic/base-color-dataviz-${modeTheme}.json`,
+      `tokens/classic/base-color-searchguide-${modeTheme}.json`,
       `tokens/classic/sema-color-dataviz-${modeTheme}.json`,
       `tokens/classic/base-elevation-${modeTheme}.json`,
       ...(platform === 'web'

@@ -2020,6 +2020,28 @@ const componentData: ReadonlyArray<ComponentData> = [
   {
     id: 'SearchGuide',
     platform: {
+      web: {
+        name: 'SearchGuide',
+        visual: {
+          svg: <SearchGuide />,
+        },
+        alias: ['Search filters', 'Pivots', 'Vanilla guides'],
+        description: 'SearchGuide appends and refines a search query.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
       android: {
         name: 'SearchGuide',
         visual: {

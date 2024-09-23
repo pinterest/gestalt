@@ -458,6 +458,113 @@
           }
         }
       },
+      "searchguide": {
+        "default": {
+          "01": {
+            "value": "{color.searchguide.01.value}"
+          },
+          "02": {
+            "value": "{color.searchguide.02.value}"
+          },
+          "03": {
+            "value": "{color.searchguide.03.value}"
+          },
+          "04": {
+            "value": "{color.searchguide.04.value}"
+          },
+          "05": {
+            "value": "{color.searchguide.05.value}"
+          },
+          "06": {
+            "value": "{color.searchguide.06.value}"
+          },
+          "07": {
+            "value": "{color.searchguide.07.value}"
+          },
+          "08": {
+            "value": "{color.searchguide.08.value}"
+          },
+          "09": {
+            "value": "{color.searchguide.09.value}"
+          },
+          "10": {
+            "value": "{color.searchguide.10.value}"
+          },
+          "11": {
+            "value": "{color.searchguide.11.value}"
+          }
+        },
+        "hover": {
+          "01": {
+            "value": "{color.searchguide.01.value}"
+          },
+          "02": {
+            "value": "{color.searchguide.02.value}"
+          },
+          "03": {
+            "value": "{color.searchguide.03.value}"
+          },
+          "04": {
+            "value": "{color.searchguide.04.value}"
+          },
+          "05": {
+            "value": "{color.searchguide.05.value}"
+          },
+          "06": {
+            "value": "{color.searchguide.06.value}"
+          },
+          "07": {
+            "value": "{color.searchguide.07.value}"
+          },
+          "08": {
+            "value": "{color.searchguide.08.value}"
+          },
+          "09": {
+            "value": "{color.searchguide.09.value}"
+          },
+          "10": {
+            "value": "{color.searchguide.10.value}"
+          },
+          "11": {
+            "value": "{color.searchguide.11.value}"
+          }
+        },
+        "active": {
+          "01": {
+            "value": "{color.searchguide.01.value}"
+          },
+          "02": {
+            "value": "{color.searchguide.02.value}"
+          },
+          "03": {
+            "value": "{color.searchguide.03.value}"
+          },
+          "04": {
+            "value": "{color.searchguide.04.value}"
+          },
+          "05": {
+            "value": "{color.searchguide.05.value}"
+          },
+          "06": {
+            "value": "{color.searchguide.06.value}"
+          },
+          "07": {
+            "value": "{color.searchguide.07.value}"
+          },
+          "08": {
+            "value": "{color.searchguide.08.value}"
+          },
+          "09": {
+            "value": "{color.searchguide.09.value}"
+          },
+          "10": {
+            "value": "{color.searchguide.10.value}"
+          },
+          "11": {
+            "value": "{color.searchguide.11.value}"
+          }
+        }
+      },
       "segmentedcontrol": {
         "container": {
           "value": "#efefef"
