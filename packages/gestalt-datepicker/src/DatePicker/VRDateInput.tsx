@@ -9,9 +9,9 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import { Box, Icon, TapArea, TextUI, useDefaultLabel } from 'gestalt';
-import ErrorMessage from './ErrorMessage';
-import HelperText from './HelperText';
 import styles from './VRDateInput.css';
+import ErrorMessage from '../subcomponents/ErrorMessage';
+import HelperText from '../subcomponents/HelperText';
 
 type Props = {
   id: string;
@@ -180,7 +180,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
               aria-hidden
               display="flex"
               height="100%"
-              marginEnd={2}
+              marginEnd={3}
               rounding="circle"
             >
               <TapArea
