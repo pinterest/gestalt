@@ -370,7 +370,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-datepicker-date: 700;
+  --font-weight-datepicker-date: 400;
   --font-weight-datepicker-heading: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -379,7 +379,7 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --font-family-datepicker-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-letterspacing-datepicker-date: normal;
   --font-letterspacing-datepicker-heading: normal;
-  --font-lineheight-datepicker-date: normal;
+  --font-lineheight-datepicker-date: 22px;
   --font-lineheight-datepicker-heading: normal;
   --font-textdecoration-datepicker-date: none;
   --font-textdecoration-datepicker-heading: none;
@@ -843,7 +843,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-datepicker-date: 700;
+  --font-weight-datepicker-date: 400;
   --font-weight-datepicker-heading: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -852,7 +852,7 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --font-family-datepicker-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-letterspacing-datepicker-date: normal;
   --font-letterspacing-datepicker-heading: normal;
-  --font-lineheight-datepicker-date: normal;
+  --font-lineheight-datepicker-date: 22px;
   --font-lineheight-datepicker-heading: normal;
   --font-textdecoration-datepicker-date: none;
   --font-textdecoration-datepicker-heading: none;
@@ -1316,7 +1316,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-datepicker-date: 700;
+  --font-weight-datepicker-date: 400;
   --font-weight-datepicker-heading: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -1325,7 +1325,7 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --font-family-datepicker-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-letterspacing-datepicker-date: normal;
   --font-letterspacing-datepicker-heading: normal;
-  --font-lineheight-datepicker-date: normal;
+  --font-lineheight-datepicker-date: 22px;
   --font-lineheight-datepicker-heading: normal;
   --font-textdecoration-datepicker-date: none;
   --font-textdecoration-datepicker-heading: none;
@@ -1789,7 +1789,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-datepicker-date: 700;
+  --font-weight-datepicker-date: 400;
   --font-weight-datepicker-heading: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -1798,7 +1798,7 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --font-family-datepicker-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-letterspacing-datepicker-date: normal;
   --font-letterspacing-datepicker-heading: normal;
-  --font-lineheight-datepicker-date: normal;
+  --font-lineheight-datepicker-date: 22px;
   --font-lineheight-datepicker-heading: normal;
   --font-textdecoration-datepicker-date: none;
   --font-textdecoration-datepicker-heading: none;
@@ -2236,7 +2236,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --font-weight-normal: 400;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-datepicker-date: 700;
+  --font-weight-datepicker-date: 400;
   --font-weight-datepicker-heading: 700;
   --font-family-default-latin: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-family-default-japanese: 'SF Pro JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
@@ -2245,7 +2245,7 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --font-family-datepicker-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;
   --font-letterspacing-datepicker-date: normal;
   --font-letterspacing-datepicker-heading: normal;
-  --font-lineheight-datepicker-date: normal;
+  --font-lineheight-datepicker-date: 22px;
   --font-lineheight-datepicker-heading: normal;
   --font-textdecoration-datepicker-date: none;
   --font-textdecoration-datepicker-heading: none;
