@@ -332,13 +332,13 @@ function getSources({ theme, modeTheme, platform, language }) {
       `tokens/classic/base-space.json`,
       `tokens/classic/sema-color-${modeTheme}.json`,
       `tokens/classic/base-color-dataviz-${modeTheme}.json`,
-      `tokens/classic/base-color-searchguide-${modeTheme}.json`,
       `tokens/classic/sema-color-dataviz-${modeTheme}.json`,
       `tokens/classic/base-elevation-${modeTheme}.json`,
       ...(platform === 'web'
         ? [
             `tokens/classic/comp-web-color-${modeTheme}.json`,
             `tokens/classic/comp-web-elevation-${modeTheme}.json`,
+            `tokens/classic/base-color-searchguide-${modeTheme}.json`,
             `tokens/classic/comp-web-rounding.json`,
             `tokens/classic/comp-web-font.json`,
           ]
