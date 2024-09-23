@@ -44,11 +44,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
@@ -126,11 +121,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
@@ -194,11 +184,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
@@ -290,11 +275,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
@@ -372,11 +352,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"
@@ -454,11 +429,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
-              style={
-                Object {
-                  "height": "100%",
-                }
-              }
             >
               <div
                 className="FlexItem"

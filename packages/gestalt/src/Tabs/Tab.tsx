@@ -125,12 +125,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
             rounding={isInVRExperiment ? 4 : 2}
             userSelect="none"
           >
-            <Flex
-              alignItems="center"
-              gap={{ row: 2, column: 0 }}
-              height="100%"
-              justifyContent="center"
-            >
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
               <TextUI color="default" overflow="noWrap" size="md">
                 {text}
               </TextUI>
