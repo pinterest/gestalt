@@ -3,7 +3,7 @@
     "weight": {
       "datepicker": {
         "date": {
-          "value": "{font.weight.bold.value}"
+          "value": "{font.weight.normal.value}"
         },
         "heading": {
           "value": "{font.weight.bold.value}"
@@ -43,7 +43,7 @@
     "lineheight": {
       "datepicker": {
         "date": {
-          "value": "normal"
+          "value": "22px"
         },
         "heading": {
           "value": "normal"
