@@ -41,7 +41,8 @@ to prevent conflict with another CSS module */
   width: var(--space-1000);
 }
 
-.react-datepicker__days:focus {
+.react-datepicker__days:focus-visible {
+  background-color: var(--color-background-datepicker-button-hover);
   outline: 4px solid var(--color-border-focus);
 }
 
@@ -335,8 +336,12 @@ to prevent conflict with another CSS module */
   z-index: 1;
 }
 
-:global ._gestalt .react-datepicker__navigation:hover,
-:global ._gestalt .react-datepicker__navigation:focus {
+:global ._gestalt .react-datepicker__navigation:focus-visible {
+  background: var(--color-background-datepicker-button-hover);
+  outline: 4px solid var(--color-border-focus);
+}
+
+:global ._gestalt .react-datepicker__navigation:hover {
   background: var(--color-background-datepicker-button-hover);
 }
 
@@ -385,9 +390,6 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   cursor: default;
 }
 
-:global ._gestalt .react-datepicker__navigation:focus {
-  outline: 4px solid var(--color-border-focus);
-}
 
 .react-datepicker-popper {
   z-index: 1;
@@ -407,18 +409,18 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   font-family: var(--font-family-datepicker-date);
   font-size: var(--font-size-datepicker-date);
   font-weight: var(--font-weight-datepicker-date);
-  line-height: var(--font-lineheight-datepicker-date);
-  text-decoration: var(--font-textdecoration-datepicker-date);
   height: var(--space-1000);
+  line-height: var(--font-lineheight-datepicker-date);
   margin-bottom: var(--space-200);
   margin-top: var(--space-200);
   padding: var(--space-100) var(--space-400); /* horizontal padding prevents it from running into arrow */
   position: relative;
+  text-decoration: var(--font-textdecoration-datepicker-date);
   width: 100%;
 }
 
-:global ._gestalt .react-datepicker__month-select:focus,
-:global ._gestalt .react-datepicker__year-select:focus {
+:global ._gestalt .react-datepicker__month-select:focus-visible,
+:global ._gestalt .react-datepicker__year-select:focus-visible {
   outline: 4px solid var(--color-border-focus);
 }
 
