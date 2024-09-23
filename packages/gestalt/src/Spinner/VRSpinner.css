@@ -1,0 +1,111 @@
+.spinner {
+  --size: 48px;
+  --dot-size: calc(var(--size) / 3);
+  --distance: calc(var(--dot-size) * 1.75);
+  width: var(--size);
+  height: var(--size);
+}
+
+.lg {
+  --size: 48px;
+}
+
+.md {
+  --size: 40px;
+}
+
+.sm {
+  --size: 32px;
+}
+
+.spinnerFrame {
+  top: calc(var(--dot-size) / 2);
+  left: calc(var(--dot-size) * 0.625);
+  position: relative;
+  width: var(--distance);
+  height: calc(var(--distance) * sqrt(3) / 2);
+  box-sizing: border-box;
+  animation: spin 1500ms linear infinite;
+  transform-origin: center calc(var(--distance) / sqrt(3));
+}
+
+.spinnerFrame > div {
+  position: absolute;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  animation-name: scale, colors;
+  background-color: black;
+  animation-iteration-count: infinite;
+  animation-duration: 800ms, 1.8s;
+  animation-timing-function: linear;
+  animation-composition: add;
+}
+
+.dot1 {
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  animation-delay: 0s;
+}
+
+.dot2 {
+  bottom: 0;
+  left: 0;
+  transform: translate3d(-50%, 50%, 0);
+  animation-delay: 100ms, 0s;
+}
+
+.dot3 {
+  bottom: 0;
+  right: 0;
+  transform: translate3d(50%, 50%, 0);
+  animation-delay: 200ms, 0s;
+}
+
+.delay {
+  animation-name: delay;
+  animation-fill-mode: forwards;
+  animation-duration: var(--sema-motion-opacity-duration-default);
+  opacity: var(--sema-opacity-0);
+}
+
+@keyframes delay {
+  100% {
+    opacity: var(--sema-opacity-100);
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes colors {
+  0% {
+    background-color: #d452d1;
+  }
+
+  33.33% {
+    background-color: #ff7c36;
+  }
+
+  66.66% {
+    background-color: #24ccb0;
+  }
+
+  100% {
+    background-color: #d452d1;
+  }
+}
