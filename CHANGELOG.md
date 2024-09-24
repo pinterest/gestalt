@@ -1,3 +1,15 @@
+## 159.11.0 (Sep 24, 2024)
+
+### Minor
+
+- Tooltip: implement VR changes ([#3778](https://github.com/pinterest/gestalt/pull/3778)) - [Preview link](https://deploy-preview-3778--gestalt.netlify.app?devexample=true)
+
+## 159.10.4 (Sep 24, 2024)
+
+### Patch
+
+- Tabs: fix padding ([#3777](https://github.com/pinterest/gestalt/pull/3777)) - [Preview link](https://deploy-preview-3777--gestalt.netlify.app?devexample=true)
+
 ## 159.10.3 (Sep 24, 2024)
 
 ### Patch
