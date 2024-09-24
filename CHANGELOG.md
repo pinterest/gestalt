@@ -1,3 +1,9 @@
+## 159.10.3 (Sep 24, 2024)
+
+### Patch
+
+- ColorSchemeProvider: implemented language for line height override in design tokens ([#3776](https://github.com/pinterest/gestalt/pull/3776)) - [Preview link](https://deploy-preview-3776--gestalt.netlify.app?devexample=true)
+
 ## 159.10.2 (Sep 24, 2024)
 
 ### Patch
