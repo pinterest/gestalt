@@ -68,7 +68,7 @@ const themeToStyles = (
   Object.keys(theme).forEach((key) => {
     styles += `  --gestalt-theme: ${isVisualRefresh ? 'visualRefresh' : 'classic'}-${
       // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ colorSchemeName: "lightMode" | "darkMode"; }'.
-      `${theme[key]  }_lineHeight_${  language}`
+      `${theme[key]}_lineHeight_${language}`
     };\n`;
   });
 

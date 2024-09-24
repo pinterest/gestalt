@@ -253,12 +253,7 @@ Note: Use "underline" style with caution. It should be limited to links and it's
           description={`Don't use \`ref\` to manipulate the underlaying HTML div or span elements. Use \`ref\` to only read HTML attributes. For example, a valid use case can be detecting [truncation](#Overflow-and-truncation). The example below illustrates a case where detecting truncation allows rendering links contained within Text.`}
           title="Refs"
         >
-          <SandpackExample
-            code={refs}
-            layout="column"
-            name="Variants - Refs"
-            previewHeight={250}
-          />
+          <SandpackExample code={refs} layout="column" name="Variants - Refs" previewHeight={250} />
         </MainSection.Subsection>
       </MainSection>
 
