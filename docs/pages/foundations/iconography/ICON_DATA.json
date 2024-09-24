@@ -816,6 +816,12 @@
       "keywords": ["media", "animated", "image"]
     },
     {
+      "name": "gift",
+      "categories": ["Reactions and ratings"],
+      "description": "Indicates a gift feature or concept.",
+      "keywords": ["present", "celebrate", "birthday", "box"]
+    },
+    {
       "name": "globe",
       "categories": ["Toggle"],
       "description": "Indicates the ability to claim a website account",
@@ -947,6 +953,12 @@
       "keywords": []
     },
     {
+      "name": "indent",
+      "categories": ["Text"],
+      "description": "Indicates a text indent.",
+      "keywords": ["formatting"]
+    },
+    {
       "name": "info-circle",
       "categories": ["Utility and tools"],
       "description": "Indicates more information is available",
@@ -983,6 +995,12 @@
       "keywords": ["receipt", "billing", "payment"]
     },
     {
+      "name": "kakao-talk",
+      "categories": ["Brand"],
+      "description": "Indicates Kakao Talk service or feature.",
+      "keywords": ["message"]
+    },
+    {
       "name": "key",
       "categories": ["Utility and tools"],
       "description": "Indicates keywords",
@@ -1013,6 +1031,12 @@
       "keywords": ["flash", "service", "bolt", "lightening"]
     },
     {
+      "name": "line-logo",
+      "categories": ["Brand"],
+      "description": "Indicates Line service or feature.",
+      "keywords": ["message"]
+    },
+    {
       "name": "link",
       "categories": ["Utility and tools"],
       "description": "Indicates a link source, to copy a link to clipboard, or to jump into a new page section",
@@ -1029,6 +1053,18 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to try a lipstick color",
       "keywords": ["mouth", "lipstick"]
+    },
+    {
+      "name": "list-numbered",
+      "categories": ["Text"],
+      "description": "Indicates the ability to add a numbered list in a left to right language.",
+      "keywords": ["numbers", "bullets"]
+    },
+    {
+      "name": "list-numbered-rtl",
+      "categories": ["Text"],
+      "description": "Indicates the ability to add a numbered list in a right to left language.",
+      "keywords": ["numbers", "bullets"]
     },
     {
       "name": "live",
@@ -1163,6 +1199,12 @@
       "keywords": ["sound", "off", "audio", "volume"]
     },
     {
+      "name": "outdent",
+      "categories": ["Text"],
+      "description": "Indicates a text outdent.",
+      "keywords": ["formatting"]
+    },
+    {
       "name": "overlay-text",
       "categories": ["Text"],
       "description": "Indicates text overlay settings",
@@ -1229,6 +1271,12 @@
       "keywords": []
     },
     {
+      "name": "pincode",
+      "categories": ["Utility and tools"],
+      "description": "Indicates the ability to scan and open a Pincode.",
+      "keywords": ["scan", "code"]
+    },
+    {
       "name": "pinterest",
       "categories": ["Social", "Utility and tools"],
       "description": "Indicates the Pinterest logo",
@@ -1257,6 +1305,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates help is available",
       "keywords": ["help", "support"]
+    },
+    {
+      "name": "reddit",
+      "categories": ["Brand"],
+      "description": "Indicates Reddit service or feature.",
+      "keywords": ["social", "media"]
     },
     {
       "name": "refresh",
@@ -1428,6 +1482,12 @@
       "keywords": []
     },
     {
+      "name": "skype",
+      "categories": ["Brand"],
+      "description": "Indicates Skype service or feature.",
+      "keywords": ["message"]
+    },
+    {
       "name": "smiley",
       "categories": ["Reactions and ratings"],
       "description": "Indicates a mild happy reaction",
@@ -1438,6 +1498,12 @@
       "categories": ["Reactions and ratings"],
       "description": "Indicates an unselected mild happy reaction",
       "keywords": ["happy"]
+    },
+    {
+      "name": "snapchat",
+      "categories": ["Brand"],
+      "description": "Indicates SnapChat service or feature.",
+      "keywords": ["social", "media"]
     },
     {
       "name": "sort-ascending",
@@ -1567,6 +1633,12 @@
       ]
     },
     {
+      "name": "telegram",
+      "categories": ["Brand"],
+      "description": "Indicates Telegram service or feature.",
+      "keywords": ["message"]
+    },
+    {
       "name": "terms",
       "categories": ["Utility and tools"],
       "description": "Indicates terms and services",
@@ -1681,6 +1753,12 @@
       "keywords": ["conversions", "api"]
     },
     {
+      "name": "viber",
+      "categories": ["Brand"],
+      "description": "Indicates Viber service or feature.",
+      "keywords": ["message"]
+    },
+    {
       "name": "video-advance-10-seconds",
       "categories": ["Media controls"],
       "description": "Indicates the ability to advance videos by 10 seconds",
@@ -1727,6 +1805,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates an external link or domain",
       "keywords": ["external", "link", "new window"]
+    },
+    {
+      "name": "wechat",
+      "categories": ["Brand"],
+      "description": "Indicates WeChat service or feature.",
+      "keywords": ["message"]
     },
     {
       "name": "whats-app",

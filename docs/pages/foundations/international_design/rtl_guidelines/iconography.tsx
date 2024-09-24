@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { Box, Flex, Heading, Icon, Image, Mask, Table, Text } from 'gestalt';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
 import MainSection from '../../../../docs-components/MainSection';
@@ -22,6 +23,9 @@ export default function FormsLayoutOverview() {
     'chevron-small-right',
     'directional-arrow-left',
     'directional-arrow-right',
+    'list-numbered',
+    'indent',
+    'outdent',
     'move-pin',
     'reorder-images',
     'send',
@@ -30,26 +34,34 @@ export default function FormsLayoutOverview() {
 
   const generateIconRow = (iconName: IconName) => {
     if (!iconName) return null;
+    const swapIcons = ['list-numbered'];
+
+    const shouldSwapIcon = swapIcons.includes(iconName);
+
     return (
       <Table.Row>
         <Table.Cell>
           <Text size="200">{iconName}</Text>
         </Table.Cell>
         <Table.Cell>
-          <Icon
-            accessibilityLabel={`${iconName.split('-').join(' ')}`}
-            color="default"
-            icon={iconName}
-          />
-        </Table.Cell>
-        <Table.Cell>
-          <div className="rotateIcon">
+          <div>
             <Icon
-              accessibilityLabel={`${iconName.split('-').join(' ')} mirrored`}
+              accessibilityLabel={`${iconName.split('-').join(' ')}`}
               color="default"
               icon={iconName}
             />
           </div>
+        </Table.Cell>
+        <Table.Cell>
+          <Box display="flex" justifyContent="end" width="100%">
+            <div className={cx({ 'rotateIcon': !shouldSwapIcon })} style={{ width: 'fit-content' }}>
+              <Icon
+                accessibilityLabel={`${iconName.split('-').join(' ')} mirrored`}
+                color="default"
+                icon={(iconName + (shouldSwapIcon ? '-rtl' : '')) as IconName}
+              />
+            </div>
+          </Box>
         </Table.Cell>
       </Table.Row>
     );
