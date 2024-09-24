@@ -800,6 +800,13 @@ function getWebConfig({ theme, mode, language }) {
             'destination': `variables-${mode}.json`,
             ...jsonFlat,
           },
+          language
+            ? {
+                'destination': `variables-font-lineheight-${language}.json`,
+                ...jsonFlat,
+                ...semaLineHeightFilter,
+              }
+            : undefined,
         ],
       },
       'js': {
@@ -1223,7 +1230,7 @@ registerTokenTransformGroups(StyleDictionary);
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default'MUST BE LAST
+    // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default' MUST BE LAST
     ['ck', 'ja', 'tall', 'th', 'vi', 'default'].forEach((lang) => {
       // only generate languages for the vr-themes
       const language = theme === 'vr-theme' || theme === 'vr-theme-web-mapping' ? lang : undefined;
