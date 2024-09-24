@@ -1,3 +1,9 @@
+## 159.10.4 (Sep 24, 2024)
+
+### Patch
+
+- Tabs: fix padding ([#3777](https://github.com/pinterest/gestalt/pull/3777)) - [Preview link](https://deploy-preview-3777--gestalt.netlify.app?devexample=true)
+
 ## 159.10.3 (Sep 24, 2024)
 
 ### Patch
