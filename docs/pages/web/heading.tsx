@@ -19,6 +19,7 @@ import dontUseToEmphasizeText from '../../examples/heading/dontUseToEmphasizeTex
 import dontUseVagueLanguage from '../../examples/heading/dontUseVagueLanguage';
 import groupTextIntoSections from '../../examples/heading/groupTextIntoSections';
 import keepHeadingShort from '../../examples/heading/keepHeadingShort';
+import languageTokens from '../../examples/heading/languageTokens';
 import mainExample from '../../examples/heading/mainExample';
 import overflowAndTruncationExample from '../../examples/heading/overflowAndTruncationExample';
 import startAlignHeadings from '../../examples/heading/startAlignHeadings';
@@ -185,6 +186,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           type="info"
         />
       </MainSection>
+
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection title="Logical order">
           <Markdown text="Users will find a logical heading order and structure very helpful, especially if they have difficulty with reading and language, or if they use assistive devices such as a screen reader. A clear structure will help a screen reader user navigate the app without getting confused. Our headings default to a heading level based on size. For example:" />
@@ -263,11 +265,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       </AccessibilitySection>
 
       <LocalizationSection
+        code={languageTokens}
         name={generatedDocGen?.displayName}
-        noDefaultLabelProvider
-        notes={`Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters.
-
-Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders.`}
+        notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters."
       />
 
       <MainSection name="Variants">

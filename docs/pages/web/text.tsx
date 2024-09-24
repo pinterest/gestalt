@@ -8,6 +8,9 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import alignment from '../../examples/text/alignment';
+import boxInline from '../../examples/text/boxInline';
+import colors from '../../examples/text/colors';
 import doMinimalStyle from '../../examples/text/doMinimalStyle';
 import dontCenterAlign from '../../examples/text/dontCenterAlign';
 import dontMixStyles from '../../examples/text/dontMixStyles';
@@ -16,15 +19,13 @@ import dontUseHierarchy from '../../examples/text/dontUseHierarchy';
 import doStartAlign from '../../examples/text/doStartAlign';
 import doUseSize from '../../examples/text/doUseSize';
 import doWeight from '../../examples/text/doWeight';
+import languageTokens from '../../examples/text/languageTokens';
 import main from '../../examples/text/main';
-import variantAlignment from '../../examples/text/variantAlignment';
-import variantBoxInline from '../../examples/text/variantBoxInline';
-import variantColors from '../../examples/text/variantColors';
-import variantOverflowTruncation from '../../examples/text/variantOverflowTruncation';
-import variantRefs from '../../examples/text/variantRefs';
-import variantSizes from '../../examples/text/variantSizes';
-import variantStyles from '../../examples/text/variantStyles';
-import variantTitle from '../../examples/text/variantTitle';
+import overflowTruncation from '../../examples/text/overflowTruncation';
+import refs from '../../examples/text/refs';
+import sizes from '../../examples/text/sizes';
+import styles from '../../examples/text/styles';
+import title from '../../examples/text/title';
 
 export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   return (
@@ -178,9 +179,9 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
       </AccessibilitySection>
 
       <LocalizationSection
+        code={languageTokens}
         name={generatedDocGen?.displayName}
-        noDefaultLabelProvider
-        notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters. Avoid overriding our line-height settings, as this can result in text clipping for scripts, like Hindi, that have taller ascenders and descenders."
+        notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters."
       />
 
       <MainSection name="Variants">
@@ -188,7 +189,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
           description="Use `align` to adjust the positioning of text within wrapper elements."
           title="Alignment"
         >
-          <SandpackExample code={variantAlignment} name="Variants - Alignment" />
+          <SandpackExample code={alignment} name="Variants - Alignment" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -197,11 +198,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         `}
           title="Block vs. inline"
         >
-          <SandpackExample
-            code={variantBoxInline}
-            name="Variants - Alignment"
-            previewHeight={180}
-          />
+          <SandpackExample code={boxInline} name="Variants - Alignment" previewHeight={180} />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -211,7 +208,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         `}
           title="Colors"
         >
-          <SandpackExample code={variantColors} name="Variants - Colors" />
+          <SandpackExample code={colors} name="Variants - Colors" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -219,7 +216,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
           title="Overflow & truncation"
         >
           <SandpackExample
-            code={variantOverflowTruncation}
+            code={overflowTruncation}
             name="Variants - Overflow & Truncation"
             previewHeight={500}
           />
@@ -232,7 +229,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
         `}
           title="Sizes"
         >
-          <SandpackExample code={variantSizes} layout="column" name="Variants - Sizes" />
+          <SandpackExample code={sizes} layout="column" name="Variants - Sizes" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -241,7 +238,7 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
 Note: Use "underline" style with caution. It should be limited to links and it's already internally managed by the component to adhere to best practices`}
           title="Styles"
         >
-          <SandpackExample code={variantStyles} name="Variants - Styles" previewHeight={200} />
+          <SandpackExample code={styles} name="Variants - Styles" previewHeight={200} />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -249,7 +246,7 @@ Note: Use "underline" style with caution. It should be limited to links and it's
            If \`children\` is a \`React.Node\` (e.g. [when using Link](/web/link#Link-and-Text)), use the \`title\` prop to manually set the \`title\` attribute.`}
           title="Title"
         >
-          <SandpackExample code={variantTitle} layout="column" name="Variants - Title" />
+          <SandpackExample code={title} layout="column" name="Variants - Title" />
         </MainSection.Subsection>
 
         <MainSection.Subsection
@@ -257,7 +254,7 @@ Note: Use "underline" style with caution. It should be limited to links and it's
           title="Refs"
         >
           <SandpackExample
-            code={variantRefs}
+            code={refs}
             layout="column"
             name="Variants - Refs"
             previewHeight={250}

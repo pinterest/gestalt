@@ -1,10 +1,12 @@
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
+import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import languageTokens from '../../examples/textui/languageTokens';
 import main from '../../examples/textui/main';
 import variantAlignment from '../../examples/textui/variantAlignment';
 import variantBoxInline from '../../examples/textui/variantBoxInline';
@@ -23,6 +25,12 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
+
+      <LocalizationSection
+        code={languageTokens}
+        name={generatedDocGen?.displayName}
+        notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters."
+      />
 
       <MainSection name="Variants">
         <MainSection.Subsection
