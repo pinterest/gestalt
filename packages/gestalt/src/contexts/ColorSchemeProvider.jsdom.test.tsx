@@ -141,4 +141,79 @@ describe('visual refresh tokens', () => {
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
   });
+
+  it('uses visual refresh with tall line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light" language="tall">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses visual refresh with ck line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light" language="ck">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses visual refresh with ja line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light" language="ja">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses visual refresh with th line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light" language="th">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses visual refresh with vi line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light" language="vi">
+          <ThemeAwareComponent />
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
 });
