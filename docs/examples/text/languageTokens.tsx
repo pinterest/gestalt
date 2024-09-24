@@ -52,7 +52,7 @@ export default function Example() {
           id="localizationLanaguage"
           language={language}
         >
-          <Flex direction='column' gap={1}>
+          <Flex direction="column" gap={1}>
             <Text size="100">{content[language]}</Text>
             <Text size="200">{content[language]}</Text>
             <Text size="300">{content[language]}</Text>
