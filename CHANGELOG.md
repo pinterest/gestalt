@@ -1,3 +1,15 @@
+## 159.10.2 (Sep 24, 2024)
+
+### Patch
+
+- DatePicker: adopted TextUI ([#3755](https://github.com/pinterest/gestalt/pull/3755)) - [Preview link](https://deploy-preview-3755--gestalt.netlify.app?devexample=true)
+
+## 159.10.1 (Sep 23, 2024)
+
+### Patch
+
+- Tabs: Revert "Tabs: VR implementation changes ([#3763](https://github.com/pinterest/gestalt/pull/3763)) - [Preview link](https://deploy-preview-3763--gestalt.netlify.app?devexample=true)" ([#3769](https://github.com/pinterest/gestalt/pull/3769)) - [Preview link](https://deploy-preview-3769--gestalt.netlify.app?devexample=true) ([#3773](https://github.com/pinterest/gestalt/pull/3773)) - [Preview link](https://deploy-preview-3773--gestalt.netlify.app?devexample=true)
+
 ## 159.10.0 (Sep 20, 2024)
 
 ### Minor
