@@ -269,7 +269,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         layout="column"
         name={generatedDocGen?.displayName}
         noDefaultLabelProvider
-        notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters."
+        notes="Keep text simple and short to avoid truncation or line wrapping when translating languages that require more characters."
       />
 
       <MainSection name="Variants">
