@@ -180,8 +180,9 @@ export default function TextPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <LocalizationSection
         code={languageTokens}
-        noDefaultLabelProvider
+        layout="column"
         name={generatedDocGen?.displayName}
+        noDefaultLabelProvider
         notes="Keep text simple and short to avoid truncation or line wrapping in UI controls like buttons when translating languages that require more characters."
       />
 
