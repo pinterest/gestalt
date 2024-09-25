@@ -1,3 +1,27 @@
+## 159.12.0 (Sep 24, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8440] ([#3766](https://github.com/pinterest/gestalt/pull/3766)) - [Preview link](https://deploy-preview-3766--gestalt.netlify.app?devexample=true)
+
+## 159.11.0 (Sep 24, 2024)
+
+### Minor
+
+- Tooltip: implement VR changes ([#3778](https://github.com/pinterest/gestalt/pull/3778)) - [Preview link](https://deploy-preview-3778--gestalt.netlify.app?devexample=true)
+
+## 159.10.4 (Sep 24, 2024)
+
+### Patch
+
+- Tabs: fix padding ([#3777](https://github.com/pinterest/gestalt/pull/3777)) - [Preview link](https://deploy-preview-3777--gestalt.netlify.app?devexample=true)
+
+## 159.10.3 (Sep 24, 2024)
+
+### Patch
+
+- ColorSchemeProvider: implemented language for line height override in design tokens ([#3776](https://github.com/pinterest/gestalt/pull/3776)) - [Preview link](https://deploy-preview-3776--gestalt.netlify.app?devexample=true)
+
 ## 159.10.2 (Sep 24, 2024)
 
 ### Patch
