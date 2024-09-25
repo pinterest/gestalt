@@ -204,16 +204,12 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
               </SelectList>
             </Flex.Item>
             <DateRange
-              endDateValue={null}
+              dateValue={{ startDate: new Date(), endDate: null }}
               // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly af: { readonly localeData: Locale; readonly lang: "Afrikaans"; }; readonly 'ar-SA': { readonly localeData: Locale; readonly lang: "Arabic (Saudi Arabia)"; }; ... 33 more ...; readonly 'zh-TW': { ...; }; }'.
               localeData={locale ? localeMap[locale].localeData : undefined}
               onCancel={() => {}}
-              onEndDateChange={() => {}}
-              onEndDateError={() => {}}
-              onStartDateChange={() => {}}
-              onStartDateError={() => {}}
+              onDateChange={() => {}}
               onSubmit={() => {}}
-              startDateValue={new Date()}
             />
           </Flex>
         </MainSection.Subsection>
