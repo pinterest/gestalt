@@ -24,6 +24,7 @@ type Props = {
   fullWidth?: boolean;
   href: string;
   id?: string;
+  importedClass?: string;
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut';
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -66,6 +67,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     fullWidth,
     href,
     id,
+    importedClass,
     mouseCursor,
     onClick,
     onBlur,
@@ -115,58 +117,60 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
 
-  const className = classnames(
-    styles.noOutline,
-    styles.inheritColor,
-    styles.noUnderline,
-    touchableStyles.tapTransition,
-    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
-    {
-      [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
-      [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
-    },
-    isButton
-      ? {
-          [layoutStyles.inlineFlex]: !fullWidth,
-          [layoutStyles.flex]: fullWidth,
-          [layoutStyles.justifyCenter]: true,
-          [layoutStyles.xsItemsCenter]: true,
-          [buttonStyles.button]: true,
-          [buttonStyles.disabled]: disabled,
-          [buttonStyles.selected]: !disabled && selected,
-          [buttonStyles.sm]: size === 'sm',
-          [buttonStyles.md]: size === 'md',
-          [buttonStyles.lg]: size === 'lg',
-        }
-      : {},
-    isButton && colorClass
-      ? {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore cannot infer type with dynamic property name
-          [buttonStyles[colorClass]]: !disabled && !selected,
-        }
-      : {},
-    isTapArea
-      ? {
-          [layoutStyles.block]: true,
-          [touchableStyles.fullHeight]: fullHeight,
-          [touchableStyles.fullWidth]: fullWidth,
-        }
-      : {},
-    isTapArea && mouseCursor
-      ? {
-          [touchableStyles[mouseCursor]]: !disabled,
-        }
-      : {},
-    isIconButton
-      ? {
-          [iconButtonStyles.button]: true,
-          [iconButtonStyles.disabled]: disabled,
-          [iconButtonStyles.enabled]: !disabled,
-        }
-      : {},
-  );
+  const className =
+    importedClass ??
+    classnames(
+      styles.noOutline,
+      styles.inheritColor,
+      styles.noUnderline,
+      touchableStyles.tapTransition,
+      getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
+      {
+        [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+        [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+        [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
+      },
+      isButton
+        ? {
+            [layoutStyles.inlineFlex]: !fullWidth,
+            [layoutStyles.flex]: fullWidth,
+            [layoutStyles.justifyCenter]: true,
+            [layoutStyles.xsItemsCenter]: true,
+            [buttonStyles.button]: true,
+            [buttonStyles.disabled]: disabled,
+            [buttonStyles.selected]: !disabled && selected,
+            [buttonStyles.sm]: size === 'sm',
+            [buttonStyles.md]: size === 'md',
+            [buttonStyles.lg]: size === 'lg',
+          }
+        : {},
+      isButton && colorClass
+        ? {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore cannot infer type with dynamic property name
+            [buttonStyles[colorClass]]: !disabled && !selected,
+          }
+        : {},
+      isTapArea
+        ? {
+            [layoutStyles.block]: true,
+            [touchableStyles.fullHeight]: fullHeight,
+            [touchableStyles.fullWidth]: fullWidth,
+          }
+        : {},
+      isTapArea && mouseCursor
+        ? {
+            [touchableStyles[mouseCursor]]: !disabled,
+          }
+        : {},
+      isIconButton
+        ? {
+            [iconButtonStyles.button]: true,
+            [iconButtonStyles.disabled]: disabled,
+            [iconButtonStyles.enabled]: !disabled,
+          }
+        : {},
+    );
 
   // Consumes GlobalEventsHandlerProvider
   const { linkHandlers } = useGlobalEventsHandlerContext() ?? {

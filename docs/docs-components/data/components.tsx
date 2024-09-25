@@ -2073,6 +2073,33 @@ const componentData: ReadonlyArray<ComponentData> = [
     },
   },
   {
+    id: 'SearchGuideLink',
+    platform: {
+      web: {
+        name: 'SearchGuideLink',
+        visual: {
+          svg: <SearchGuide />,
+        },
+        description:
+          'SearchGuideLink is mainly used as a navigational element to direct users to a new page or location, in the context of a search query.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
     id: 'SegmentedControl',
     platform: {
       web: {

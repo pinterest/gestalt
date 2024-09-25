@@ -7,6 +7,14 @@
   border-radius: var(--rounding-600);
 }
 
+.searchguide a,
+:link,
+:visited,
+:hover,
+:active {
+  text-decoration: none;
+}
+
 .searchguideVr {
   border-color: transparent;
   border-radius: var(--rounding-200);
