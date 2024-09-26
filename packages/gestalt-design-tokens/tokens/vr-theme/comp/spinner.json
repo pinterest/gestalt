@@ -1,0 +1,34 @@
+{
+  "comp": {
+    "spinner": {
+      "size": {
+        "lg": {
+          "type": "dimension",
+          "value": "48px"
+        },
+        "md": {
+          "type": "dimension",
+          "value": "40px"
+        },
+        "sm": {
+          "type": "dimension",
+          "value": "32px"
+        }
+      },
+      "color": {
+        "1": {
+          "type": "color",
+          "value": "#d452d1"
+        },
+        "2": {
+          "type": "color",
+          "value": "#ff7c36"
+        },
+        "3": {
+          "type": "color",
+          "value": "#24ccb0"
+        }
+      }
+    }
+  }
+}

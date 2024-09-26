@@ -1,83 +1,83 @@
 .spinner {
-  --size: 48px;
-  --dot-size: calc(var(--size) / 3);
-  --distance: calc(var(--dot-size) * 1.75);
-  width: var(--size);
-  height: var(--size);
+  --g-dot-size: calc(var(--g-size) / 3);
+  --g-dot-space: calc(var(--g-dot-size) * 1.75);
+
+  height: var(--g-size);
+  width: var(--g-size);
 }
 
 .lg {
-  --size: 48px;
+  --g-size: var(--comp-spinner-size-lg);
 }
 
 .md {
-  --size: 40px;
+  --g-size: var(--comp-spinner-size-md);
 }
 
 .sm {
-  --size: 32px;
+  --g-size: var(--comp-spinner-size-sm);
 }
 
 .spinnerFrame {
-  top: calc(var(--dot-size) / 2);
-  left: calc(var(--dot-size) * 0.625);
-  position: relative;
-  width: var(--distance);
-  height: calc(var(--distance) * sqrt(3) / 2);
-  box-sizing: border-box;
   animation: spin 1500ms linear infinite;
-  transform-origin: center calc(var(--distance) / sqrt(3));
+  box-sizing: border-box;
+  height: calc(var(--g-dot-space) * sqrt(3) / 2);
+  left: calc(var(--g-dot-size) * 0.625);
+  position: relative;
+  top: calc(var(--g-dot-size) / 2);
+  transform-origin: center calc(var(--g-dot-space) / sqrt(3));
+  width: var(--g-dot-space);
 }
 
 .spinnerFrame > div {
-  position: absolute;
-  width: var(--dot-size);
-  height: var(--dot-size);
-  border-radius: 50%;
-  animation-name: scale, colors;
-  background-color: black;
-  animation-iteration-count: infinite;
-  animation-duration: 800ms, 1.8s;
-  animation-timing-function: linear;
   animation-composition: add;
+  animation-duration: 800ms, 1.8s;
+  animation-iteration-count: infinite;
+  animation-name: scale, colors;
+  animation-timing-function: linear;
+  border-radius: 50%;
+  height: var(--g-dot-size);
+  position: absolute;
+  width: var(--g-dot-size);
 }
 
 .dot1 {
-  top: 0;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
   animation-delay: 0s;
+  left: 50%;
+  top: 0;
+  transform: translate3d(-50%, -50%, 0);
 }
 
 .dot2 {
+  animation-delay: 100ms, 0s;
   bottom: 0;
   left: 0;
   transform: translate3d(-50%, 50%, 0);
-  animation-delay: 100ms, 0s;
 }
 
 .dot3 {
+  animation-delay: 200ms, 0s;
   bottom: 0;
   right: 0;
   transform: translate3d(50%, 50%, 0);
-  animation-delay: 200ms, 0s;
 }
 
 .delay {
-  animation-name: delay;
+  animation-delay: 300ms;
+  animation-duration: 0s;
   animation-fill-mode: forwards;
-  animation-duration: var(--sema-motion-opacity-duration-default);
+  animation-name: delay;
   opacity: var(--sema-opacity-0);
 }
 
 @keyframes delay {
-  100% {
+  to {
     opacity: var(--sema-opacity-100);
   }
 }
 
 @keyframes spin {
-  100% {
+  to {
     transform: rotate(360deg);
   }
 }
@@ -94,18 +94,18 @@
 
 @keyframes colors {
   0% {
-    background-color: #d452d1;
+    background-color: var(--comp-spinner-color-1);
   }
 
-  33.33% {
-    background-color: #ff7c36;
+  33.333% {
+    background-color: var(--comp-spinner-color-2);
   }
 
-  66.66% {
-    background-color: #24ccb0;
+  66.666% {
+    background-color: var(--comp-spinner-color-3);
   }
 
   100% {
-    background-color: #d452d1;
+    background-color: var(--comp-spinner-color-1);
   }
 }
