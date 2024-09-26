@@ -44,7 +44,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog transparent"
+                    class="pog roundingCircle transparent"
                     style="height: 40px; width: 40px;"
                   >
                     <svg
@@ -263,7 +263,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
                     class="button tapTransition enabled"
                   >
                     <div
-                      class="pog transparent"
+                      class="pog roundingCircle transparent"
                       style="height: 40px; width: 40px;"
                     >
                       <svg
@@ -365,7 +365,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
                     class="button tapTransition enabled"
                   >
                     <div
-                      class="pog transparent"
+                      class="pog roundingCircle transparent"
                       style="height: 40px; width: 40px;"
                     >
                       <svg
@@ -462,7 +462,7 @@ exports[`OverlayPanel should render animation in 1`] = `
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog transparent focused"
+                    class="pog roundingCircle transparent focused"
                     style="height: 40px; width: 40px;"
                   >
                     <svg
@@ -542,7 +542,7 @@ exports[`OverlayPanel should render animation out 1`] = `
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog transparent focused"
+                    class="pog roundingCircle transparent focused"
                     style="height: 40px; width: 40px;"
                   >
                     <svg

@@ -2,7 +2,7 @@
 
 exports[`Pog active renders 1`] = `
 <div
-  className="pog transparent active"
+  className="pog roundingCircle transparent active"
   style={
     Object {
       "height": 40,
@@ -28,7 +28,7 @@ exports[`Pog active renders 1`] = `
 
 exports[`Pog focused renders 1`] = `
 <div
-  className="pog transparent focused"
+  className="pog roundingCircle transparent focused"
   style={
     Object {
       "height": 40,
@@ -54,7 +54,7 @@ exports[`Pog focused renders 1`] = `
 
 exports[`Pog hovered renders 1`] = `
 <div
-  className="pog transparent hovered"
+  className="pog roundingCircle transparent hovered"
   style={
     Object {
       "height": 40,
@@ -80,7 +80,7 @@ exports[`Pog hovered renders 1`] = `
 
 exports[`Pog renders with accessibilityLabel 1`] = `
 <div
-  className="pog transparent"
+  className="pog roundingCircle transparent"
   style={
     Object {
       "height": 40,
@@ -106,7 +106,7 @@ exports[`Pog renders with accessibilityLabel 1`] = `
 
 exports[`Pog renders with icon 1`] = `
 <div
-  className="pog transparent"
+  className="pog roundingCircle transparent"
   style={
     Object {
       "height": 40,
@@ -132,7 +132,7 @@ exports[`Pog renders with icon 1`] = `
 
 exports[`Pog renders with size and custom padding 1`] = `
 <div
-  className="pog transparent"
+  className="pog roundingCircle transparent"
   style={
     Object {
       "height": 32,
@@ -158,7 +158,7 @@ exports[`Pog renders with size and custom padding 1`] = `
 
 exports[`Pog renders with size and default padding 1`] = `
 <div
-  className="pog transparent"
+  className="pog roundingCircle transparent"
   style={
     Object {
       "height": 56,
@@ -184,7 +184,7 @@ exports[`Pog renders with size and default padding 1`] = `
 
 exports[`Pog renders with svg 1`] = `
 <div
-  className="pog transparent"
+  className="pog roundingCircle transparent"
   style={
     Object {
       "height": 40,
