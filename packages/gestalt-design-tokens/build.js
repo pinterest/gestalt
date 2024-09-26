@@ -549,7 +549,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-javascript/es6/vr-theme`,
+  name: 'constantLibrary-javascript/es6/vr-theme',
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
@@ -584,7 +584,7 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-commonJS/classic`,
+  name: 'constantLibrary-commonJS/classic',
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
@@ -613,7 +613,7 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-commonJS/vr-theme`,
+  name: 'constantLibrary-commonJS/vr-theme',
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
