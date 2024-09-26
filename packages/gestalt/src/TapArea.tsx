@@ -62,6 +62,11 @@ type Props = {
    */
   disabled?: boolean;
   /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
+  /**
    * Set the TapArea height to expand to the full height of the parent.
    */
   fullHeight?: boolean;
@@ -164,6 +169,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
     children,
     dataTestId,
     disabled = false,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth = true,
     mouseCursor = 'pointer',
@@ -213,7 +219,11 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   const buttonRoleClasses = classnames(styles.tapTransition, getRoundingClassName(rounding), {
     [focusStyles.hideOutline]: !disabled && !isFocusVisible,
     [focusStyles.accessibilityOutline]: !isInVRExperiment && !disabled && isFocusVisible,
-    [focusStyles.accessibilityOutlineVR]: isInVRExperiment && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineLightBackground]:
+      isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineDarkBackground]:
+      isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+
     [styles.fullHeight]: fullHeight,
     [styles.fullWidth]: fullWidth,
     [styles.copy]: mouseCursor === 'copy' && !disabled,
