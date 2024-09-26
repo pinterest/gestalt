@@ -444,7 +444,7 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-javascript/es6/classic`,
+  name: 'constantLibrary-javascript/es6/classic',
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
@@ -575,7 +575,7 @@ StyleDictionary.registerFormat({
           .replace('appenda', '')
           .replace('appendb', '');
 
-        return `export const TOKEN_${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
+        return `export const ${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
       })
       .join(`\n`);
 
@@ -624,7 +624,7 @@ StyleDictionary.registerFormat({
             value = value.replace(ref.value, ref.name);
           });
         }
-        return `  TOKEN_${token.path
+        return `  ${token.path
           .join('_')
           .toUpperCase()
           .replace('-', '_')}: 'var(--${`${token.path.join('-')}`})',`;
