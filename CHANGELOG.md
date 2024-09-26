@@ -1,3 +1,9 @@
+## 160.0.0 (Sep 26, 2024)
+
+### Major
+
+- Tokens: removed TOKEN\_ prefix from vr tokens in JS ([#3781](https://github.com/pinterest/gestalt/pull/3781)) - [Preview link](https://deploy-preview-3781--gestalt.netlify.app?devexample=true)
+
 ## 159.12.0 (Sep 24, 2024)
 
 ### Minor
