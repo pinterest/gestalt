@@ -12,16 +12,20 @@ export default function Example() {
               <Pog bgColor="gray" icon="saved" rounding="0" /> <Text size="100">Rounding 0</Text>
             </Flex>
             <Flex alignItems="center" gap={1}>
-              <Pog bgColor="gray" icon="saved" rounding="100" /> <Text size="100">Rounding 100</Text>
+              <Pog bgColor="gray" icon="saved" rounding="100" />{' '}
+              <Text size="100">Rounding 100</Text>
             </Flex>
             <Flex alignItems="center" gap={1}>
-              <Pog bgColor="gray" icon="saved" rounding="200" /> <Text size="100">Rounding 200</Text>
+              <Pog bgColor="gray" icon="saved" rounding="200" />{' '}
+              <Text size="100">Rounding 200</Text>
             </Flex>
             <Flex alignItems="center" gap={1}>
-              <Pog bgColor="gray" icon="saved" rounding="300" /> <Text size="100">Rounding 300</Text>
+              <Pog bgColor="gray" icon="saved" rounding="300" />{' '}
+              <Text size="100">Rounding 300</Text>
             </Flex>
             <Flex alignItems="center" gap={1}>
-              <Pog bgColor="gray" icon="saved" rounding="400" /> <Text size="100">Rounding 400</Text>
+              <Pog bgColor="gray" icon="saved" rounding="400" />{' '}
+              <Text size="100">Rounding 400</Text>
             </Flex>
             <Flex alignItems="center" gap={1}>
               <Pog bgColor="gray" icon="saved" rounding="circle" />
