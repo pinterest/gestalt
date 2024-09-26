@@ -121,7 +121,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       {text}
     </TextUI>
   );
-  const avatarVariant = thumbnail && (
+  const thumbnailVariant = thumbnail && (
     <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
       {'avatar' in thumbnail && (
         <Box aria-hidden minWidth={40}>
@@ -129,6 +129,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         </Box>
       )}
       {'avatarGroup' in thumbnail && cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
+      {'image' in thumbnail && (
+        <div style={{ width: '40px', height: '40px', borderRadius: '99px', overflow: 'hidden' }}>
+          {cloneElement(thumbnail.image, { fit: 'cover' })}
+        </div>
+      )}
+      {'icon' in thumbnail && <Box marginStart={3}>{cloneElement(thumbnail.icon)}</Box>}
       <Box marginEnd={3}>{textComponent}</Box>
       {expandable ? <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} /> : null}
     </Flex>
@@ -136,12 +142,6 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   const defaultVariant = (
     <Box paddingX={5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {thumbnail && 'image' in thumbnail && (
-          <Box aria-hidden minWidth={40}>
-            {cloneElement(thumbnail.image)}
-          </Box>
-        )}
-        {thumbnail && 'icon' in thumbnail && cloneElement(thumbnail.icon)}
         {textComponent}
         {expandable ? (
           <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} />
@@ -163,11 +163,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       }}
       type="button"
     >
-      <div className={childrenDivClasses}>
-        {thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail)
-          ? avatarVariant
-          : defaultVariant}
-      </div>
+      <div className={childrenDivClasses}>{thumbnail ? thumbnailVariant : defaultVariant}</div>
     </button>
   );
 });
