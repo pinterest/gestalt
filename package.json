@@ -87,7 +87,7 @@
     "react-docgen": "^6.0.4",
     "react-lazy-hydration": "^0.1.0",
     "react-test-renderer": "^18.1.0",
-    "rollup": "^2.45.2",
+    "rollup": "^2.79.2",
     "semver": "^7.5.3",
     "shellcheck": "^1.1.0",
     "shelljs": "^0.8.5",
