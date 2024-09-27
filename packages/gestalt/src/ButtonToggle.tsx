@@ -207,7 +207,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     {
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
-      [styles.accessibilityOutlineVr]: !disabled && isFocused && isFocusVisible && isInVRExperiment,
+      [styles.accessibilityOutlineLightBackground]:
+        !disabled && isFocused && isFocusVisible && isInVRExperiment,
     },
   );
 
