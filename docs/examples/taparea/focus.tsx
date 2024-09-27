@@ -1,4 +1,4 @@
-import { Box, Flex, TapArea } from 'gestalt';
+import { Box, Flex, TapArea, Text } from 'gestalt';
 
 export default function TapAreaExample() {
   return (
@@ -9,12 +9,16 @@ export default function TapAreaExample() {
             alignItems="center"
             borderStyle="sm"
             display="flex"
-            height={100}
+            height={150}
             justifyContent="center"
-            width={100}
+            width={150}
           >
             <TapArea focusColor="lightBackground" fullHeight={false} fullWidth={false}>
-              <Box height={50} width={50} />
+              <Box height={100} width={100}>
+                <Text size="100">
+                  focusColor=lightBackground
+                </Text>
+              </Box>
             </TapArea>
           </Box>
 
@@ -23,12 +27,16 @@ export default function TapAreaExample() {
             borderStyle="sm"
             color="selected"
             display="flex"
-            height={100}
+            height={150}
             justifyContent="center"
-            width={100}
+            width={150}
           >
             <TapArea focusColor="darkBackground" fullHeight={false} fullWidth={false}>
-              <Box height={50} width={50} />
+              <Box height={100} width={100}>
+                <Text color="inverse" size="100">
+                  focusColor=darkBackground
+                </Text>
+              </Box>
             </TapArea>
           </Box>
         </Flex>
@@ -38,12 +46,21 @@ export default function TapAreaExample() {
             borderStyle="sm"
             color="successWeak"
             display="flex"
-            height={100}
+            height={150}
             justifyContent="center"
-            width={100}
+            width={150}
           >
-            <TapArea focusColor="lightBackground" fullHeight={false} fullWidth={false} innerFocusColor='default'>
-              <Box height={50} width={50} />
+            <TapArea
+              focusColor="lightBackground"
+              fullHeight={false}
+              fullWidth={false}
+              innerFocusColor="default"
+            >
+              <Box height={100} width={100}>
+                <Text size="100">
+                  focusColor=lightBackground & innerFocusColor=default
+                </Text>
+              </Box>
             </TapArea>
           </Box>
 
@@ -52,12 +69,21 @@ export default function TapAreaExample() {
             borderStyle="sm"
             color="successBase"
             display="flex"
-            height={100}
+            height={150}
             justifyContent="center"
-            width={100}
+            width={150}
           >
-            <TapArea focusColor="darkBackground"  fullHeight={false} fullWidth={false} innerFocusColor='default'>
-              <Box height={50} width={50} />
+            <TapArea
+              focusColor="darkBackground"
+              fullHeight={false}
+              fullWidth={false}
+              innerFocusColor="default"
+            >
+              <Box height={100} width={100}>
+                <Text size="100">
+                  focusColor=darkBackground & innerFocusColor=default
+                </Text>
+              </Box>
             </TapArea>
           </Box>
         </Flex>
@@ -67,12 +93,21 @@ export default function TapAreaExample() {
             borderStyle="sm"
             color="successWeak"
             display="flex"
-            height={100}
+            height={150}
             justifyContent="center"
-            width={100}
+            width={150}
           >
-            <TapArea  focusColor="lightBackground"   fullHeight={false} fullWidth={false} innerFocusColor='inverse'>
-              <Box height={50} width={50} />
+            <TapArea
+              focusColor="lightBackground"
+              fullHeight={false}
+              fullWidth={false}
+              innerFocusColor="inverse"
+            >
+              <Box height={100} width={100}>
+                <Text size="100">
+                  focusColor=lightBackground & innerFocusColor=inverse
+                </Text>
+              </Box>
             </TapArea>
           </Box>
 
@@ -81,12 +116,21 @@ export default function TapAreaExample() {
             borderStyle="sm"
             color="successBase"
             display="flex"
-            height={100}
+            height={150}
             justifyContent="center"
-            width={100}
+            width={150}
           >
-            <TapArea focusColor="darkBackground"  fullHeight={false} fullWidth={false} innerFocusColor='inverse'>
-              <Box height={50} width={50} />
+            <TapArea
+              focusColor="darkBackground"
+              fullHeight={false}
+              fullWidth={false}
+              innerFocusColor="inverse"
+            >
+              <Box height={100} width={100}>
+                <Text size="100">
+                  focusColor=darkBackground & innerFocusColor=inverse
+                </Text>
+              </Box>
             </TapArea>
           </Box>
         </Flex>
