@@ -40,12 +40,12 @@ const optionsFileHeader = {
   },
 };
 
-const getFiles = ({ theme, mode, language, fileType }) => {
+const getFiles = ({ theme, modeTheme, language, fileType }) => {
   const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
 
-  const modeSuffix = theme === 'dark' ? '_dark' : '';
-  const altModeSuffix = theme === 'dark' ? '-dark' : '';
-  const modePrefix = theme === 'dark' ? 'darkTheme-' : '';
+  const modeSuffix = modeTheme === 'dark' ? '_dark' : '';
+  const altModeSuffix = modeTheme === 'dark' ? '-dark' : '';
+  const modePrefix = modeTheme === 'dark' ? 'darkTheme-' : '';
 
   const files = [];
 
@@ -54,7 +54,7 @@ const getFiles = ({ theme, mode, language, fileType }) => {
       {
         'destination': `variables${altModeSuffix}.css`,
         ...cssVariables,
-        ...(mode === 'dark' ? colorElevationFilter : undefined),
+        ...(modeTheme === 'dark' ? colorElevationFilter : undefined),
       },
       language
         ? {
@@ -117,7 +117,7 @@ const getFiles = ({ theme, mode, language, fileType }) => {
   if (fileType === 'json') {
     files.push([
       {
-        'destination': `variables-${mode}.json`,
+        'destination': `variables-${modeTheme}.json`,
         ...jsonFlat,
       },
       language
@@ -147,12 +147,12 @@ function getWebConfig({ theme, mode, language }) {
         ...webCssTransformGroup,
         'buildPath': `dist/css/${theme}/`,
         ...optionsFileHeaderOutputReferences,
-        'files': getFiles({ theme, mode, language, fileType: 'css' }),
+        'files': getFiles({ theme, modeTheme, language, fileType: 'css' }),
       },
       'json': {
         ...webCssTransformGroup,
         'buildPath': `dist/json/${theme}/`,
-        'files': getFiles({ theme, mode, language, fileType: 'json' }),
+        'files': getFiles({ theme, modeTheme, language, fileType: 'json' }),
       },
       'js': {
         'transformGroup': 'webJsTransformGroup',
@@ -160,7 +160,7 @@ function getWebConfig({ theme, mode, language }) {
           'https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
         'buildPath': `dist/js/${theme}/`,
         ...optionsFileHeader,
-        'files': getFiles({ theme, mode, language, fileType: 'js' }),
+        'files': getFiles({ theme, modeTheme, language, fileType: 'js' }),
       },
     },
   };
