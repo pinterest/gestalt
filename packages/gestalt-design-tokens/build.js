@@ -374,6 +374,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
+          `tokens/vr-theme-web-mapping/base-color-searchguide-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-color.json',
           `tokens/vr-theme-web-mapping/base-elevation-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/base-font.json',

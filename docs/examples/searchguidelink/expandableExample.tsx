@@ -25,8 +25,9 @@ export default function Example() {
           anchor={anchorRef.current}
           idealDirection="down"
           onDismiss={() => setShowOutfits(false)}
+          size="flexible"
         >
-          <Box height={120}>
+          <Box height={120} overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuideLink color="02" href="http://pinterest.com" text="Casual" />
               <SearchGuideLink color="02" href="http://pinterest.com" text="Formal" />

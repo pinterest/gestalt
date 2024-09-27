@@ -130,31 +130,55 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(funct
   const { isFocusVisible } = useFocusVisible();
 
   const buttonClasses = isInVRExperiment
-    ? classnames(styles.searchguideVr, touchableStyles.tapTransition, [styles[`color${color}`]], {
+    ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
+        [styles[`color${color}`]]: !selected,
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
-        [styles.selected]: selected,
+        [styles.selectedVr]: selected,
       })
     : classnames(styles.searchguide, touchableStyles.tapTransition, [styles[`color${color}`]], {
         [styles.selected]: selected,
-        [focusStyles.hideOutline]: !isFocusVisible,
+        [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       });
   const childrenDivClasses = classnames(styles.childrenDiv);
 
   const textComponent = (
-    <TextUI align="center" color="dark" overflow="noWrap">
+    <TextUI
+      align="center"
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      overflow="noWrap"
+    >
       {text}
     </TextUI>
   );
-  const avatarVariant = thumbnail && (
+  const thumbnailVariant = thumbnail && (
     <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
       {'avatar' in thumbnail && (
-        <Box aria-hidden minWidth={40}>
+        <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
           {cloneElement(thumbnail.avatar, { size: 'fit' })}
         </Box>
       )}
-      {'avatarGroup' in thumbnail && cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
+      {'avatarGroup' in thumbnail && (
+        <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
+          {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
+        </Box>
+      )}
+      {'image' in thumbnail && (
+        <div
+          className={
+            isInVRExperiment
+              ? classnames({
+                  [styles.imageDivVr]: !selected,
+                  [styles.selectedImageDivVr]: selected,
+                })
+              : styles.imageDiv
+          }
+        >
+          {cloneElement(thumbnail.image, { fit: 'cover' })}
+        </div>
+      )}
+      {'icon' in thumbnail && <Box marginStart={3}>{cloneElement(thumbnail.icon)}</Box>}
       <Box marginEnd={3}>{textComponent}</Box>
       {expandable ? <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} /> : null}
     </Flex>
@@ -162,12 +186,6 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(funct
   const defaultVariant = (
     <Box paddingX={5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {thumbnail && 'image' in thumbnail && (
-          <Box aria-hidden minWidth={40}>
-            {cloneElement(thumbnail.image)}
-          </Box>
-        )}
-        {thumbnail && 'icon' in thumbnail && cloneElement(thumbnail.icon)}
         {textComponent}
         {expandable ? (
           <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} />
@@ -211,9 +229,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(funct
         className={childrenDivClasses}
         data-test-id={dataTestId}
       >
-        {thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail)
-          ? avatarVariant
-          : defaultVariant}
+        {thumbnail ? thumbnailVariant : defaultVariant}
       </div>
     </InternalLink>
   );
