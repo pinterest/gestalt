@@ -1,0 +1,88 @@
+{
+  "comp": {
+    "badge": {
+      "color": {
+        "hover": {
+          "background": {
+            "info": {
+              "value": "{sema.color.hover.background.info.weak}",
+              "type": "color"
+            },
+            "error": {
+              "value": "{sema.color.hover.background.error.weak}",
+              "type": "color"
+            },
+            "warning": {
+              "value": "{sema.color.hover.background.warning.weak}",
+              "type": "color"
+            },
+            "success": {
+              "value": "{sema.color.hover.background.success.weak}",
+              "type": "color"
+            },
+            "recommendation": {
+              "value": "{sema.color.hover.background.recommendation.weak}",
+              "type": "color"
+            },
+            "neutral": {
+              "value": "{sema.color.hover.background.neutral.weak}",
+              "type": "color"
+            },
+            "wash": {
+              "dark": {
+                "value": "{sema.color.hover.background.wash.dark}",
+                "type": "color"
+              },
+              "light": {
+                "value": "{sema.color.hover.background.wash.light}",
+                "type": "color"
+              }
+            }
+          },
+          "text": {
+            "info": {
+              "value": "{sema.color.hover.text.info}",
+              "type": "color"
+            },
+            "error": {
+              "value": "{sema.color.hover.text.error}",
+              "type": "color"
+            },
+            "warning": {
+              "value": "{sema.color.hover.text.warning}",
+              "type": "color"
+            },
+            "success": {
+              "value": "{sema.color.hover.text.success}",
+              "type": "color"
+            },
+            "recommendation": {
+              "value": "{sema.color.hover.text.recommendation}",
+              "type": "color"
+            },
+            "neutral": {
+              "value": "{sema.color.hover.text.neutral}",
+              "type": "color"
+            },
+            "wash": {
+              "dark": {
+                "value": "{sema.color.text.light}",
+                "type": "color"
+              },
+              "light": {
+                "value": "{sema.color.text.dark}",
+                "type": "color"
+              }
+            }
+          }
+        },
+        "background": {
+          "test": {
+            "value": "{base.color.orange.300}",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}
