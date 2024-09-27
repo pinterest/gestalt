@@ -1,3 +1,9 @@
+## 160.1.0 (Sep 27, 2024)
+
+### Minor
+
+- IconButton, IconButtonFloating, Pog: created InternalIconButton to support different rounding in Pog-based components ([#3780](https://github.com/pinterest/gestalt/pull/3780)) - [Preview link](https://deploy-preview-3780--gestalt.netlify.app?devexample=true)
+
 ## 160.0.1 (Sep 27, 2024)
 
 ### Patch
