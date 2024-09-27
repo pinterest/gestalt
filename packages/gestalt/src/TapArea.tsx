@@ -66,6 +66,8 @@ type Props = {
    * Used for improving focus ring color contrast.
    */
   focusColor?: 'lightBackground' | 'darkBackground';
+
+  innerFocusColor?: 'transparent' | 'default' | 'inverse';
   /**
    * Set the TapArea height to expand to the full height of the parent.
    */
@@ -172,6 +174,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
     focusColor = 'lightBackground',
     fullHeight,
     fullWidth = true,
+    innerFocusColor = 'transparent',
     mouseCursor = 'pointer',
     onBlur,
     onKeyDown,
@@ -223,7 +226,10 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
       isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineDarkBackground]:
       isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
-
+    [focusStyles.accessibilityOutlineBorderDefault]:
+      isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineBorderInverse]:
+      isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
     [styles.fullHeight]: fullHeight,
     [styles.fullWidth]: fullWidth,
     [styles.copy]: mouseCursor === 'copy' && !disabled,
