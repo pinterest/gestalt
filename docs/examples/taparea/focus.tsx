@@ -36,13 +36,14 @@ export default function TapAreaExample() {
           <Box
             alignItems="center"
             borderStyle="sm"
+            color="successBase"
             display="flex"
             height={100}
             justifyContent="center"
             width={100}
           >
             <TapArea
-              focusColor="lightBackground"
+              focusColor="darkBackground"
               fullHeight={false}
               fullWidth={false}
               innerFocusColor="default"
@@ -54,7 +55,7 @@ export default function TapAreaExample() {
           <Box
             alignItems="center"
             borderStyle="sm"
-            color="selected"
+            color="successBase"
             display="flex"
             height={100}
             justifyContent="center"
@@ -70,44 +71,43 @@ export default function TapAreaExample() {
             </TapArea>
           </Box>
         </Flex>
-        <Flex direction="column" gap={6} width="100%">
-          <Box
-            alignItems="center"
-            borderStyle="sm"
-            display="flex"
-            height={100}
-            justifyContent="center"
-            width={100}
+        <Box
+          alignItems="center"
+          borderStyle="sm"
+          color="successBase"
+          display="flex"
+          height={100}
+          justifyContent="center"
+          width={100}
+        >
+          <TapArea
+            focusColor="darkBackground"
+            fullHeight={false}
+            fullWidth={false}
+            innerFocusColor="inverse"
           >
-            <TapArea
-              focusColor="lightBackground"
-              fullHeight={false}
-              fullWidth={false}
-              innerFocusColor="inverse"
-            >
-              <Box height={50} width={50} />
-            </TapArea>
-          </Box>
+            <Box height={50} width={50} />
+          </TapArea>
+        </Box>
 
-          <Box
-            alignItems="center"
-            borderStyle="sm"
-            color="selected"
-            display="flex"
-            height={100}
-            justifyContent="center"
-            width={100}
+        <Box
+          alignItems="center"
+          borderStyle="sm"
+          color="successBase"
+          display="flex"
+          height={100}
+          justifyContent="center"
+          width={100}
+        >
+          <TapArea
+            focusColor="darkBackground"
+            fullHeight={false}
+            fullWidth={false}
+            innerFocusColor="inverse"
           >
-            <TapArea
-              focusColor="darkBackground"
-              fullHeight={false}
-              fullWidth={false}
-              innerFocusColor="inverse"
-            >
-              <Box height={50} width={50} />
-            </TapArea>
-          </Box>
-        </Flex>{' '}
+            <Box height={50} width={50} />
+          </TapArea>
+        </Box>
       </Flex>
     </Box>
   );
