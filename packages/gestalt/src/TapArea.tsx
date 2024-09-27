@@ -229,6 +229,8 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
       isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineDarkBackground]:
       isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineBorder]:
+      isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
     [focusStyles.accessibilityOutlineBorderDefault]:
       isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineBorderInverse]:

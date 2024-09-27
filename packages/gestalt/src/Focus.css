@@ -22,6 +22,10 @@
   border: 2px solid var(--sema-color-border-focus-inner-light);
 }
 
+.accessibilityOutlineBorder {
+  border: 2px solid var(--base-color-transparent);
+}
+
 .accessibilityOutlineBorderInverse:focus {
   border: 2px solid var(--sema-color-border-focus-inner-dark);
 }
