@@ -1,3 +1,9 @@
+## 160.2.0 (Sep 27, 2024)
+
+### Minor
+
+- TapArea: support to VR visible focus style ([#3783](https://github.com/pinterest/gestalt/pull/3783)) - [Preview link](https://deploy-preview-3783--gestalt.netlify.app?devexample=true)
+
 ## 160.1.0 (Sep 27, 2024)
 
 ### Minor
