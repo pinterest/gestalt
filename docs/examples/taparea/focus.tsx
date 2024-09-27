@@ -15,9 +15,7 @@ export default function TapAreaExample() {
           >
             <TapArea focusColor="lightBackground" fullHeight={false} fullWidth={false}>
               <Box height={100} width={100}>
-                <Text size="100">
-                  focusColor=lightBackground
-                </Text>
+                <Text size="100">focusColor=lightBackground</Text>
               </Box>
             </TapArea>
           </Box>
@@ -57,9 +55,7 @@ export default function TapAreaExample() {
               innerFocusColor="default"
             >
               <Box height={100} width={100}>
-                <Text size="100">
-                  focusColor=lightBackground & innerFocusColor=default
-                </Text>
+                <Text size="100">focusColor=lightBackground & innerFocusColor=default</Text>
               </Box>
             </TapArea>
           </Box>
@@ -80,9 +76,7 @@ export default function TapAreaExample() {
               innerFocusColor="default"
             >
               <Box height={100} width={100}>
-                <Text size="100">
-                  focusColor=darkBackground & innerFocusColor=default
-                </Text>
+                <Text size="100">focusColor=darkBackground & innerFocusColor=default</Text>
               </Box>
             </TapArea>
           </Box>
@@ -104,9 +98,7 @@ export default function TapAreaExample() {
               innerFocusColor="inverse"
             >
               <Box height={100} width={100}>
-                <Text size="100">
-                  focusColor=lightBackground & innerFocusColor=inverse
-                </Text>
+                <Text size="100">focusColor=lightBackground & innerFocusColor=inverse</Text>
               </Box>
             </TapArea>
           </Box>
@@ -127,9 +119,7 @@ export default function TapAreaExample() {
               innerFocusColor="inverse"
             >
               <Box height={100} width={100}>
-                <Text size="100">
-                  focusColor=darkBackground & innerFocusColor=inverse
-                </Text>
+                <Text size="100">focusColor=darkBackground & innerFocusColor=inverse</Text>
               </Box>
             </TapArea>
           </Box>
