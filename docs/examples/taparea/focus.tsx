@@ -36,18 +36,13 @@ export default function TapAreaExample() {
           <Box
             alignItems="center"
             borderStyle="sm"
-            color="successBase"
+            color="successWeak"
             display="flex"
             height={100}
             justifyContent="center"
             width={100}
           >
-            <TapArea
-              focusColor="darkBackground"
-              fullHeight={false}
-              fullWidth={false}
-              innerFocusColor="default"
-            >
+            <TapArea focusColor="lightBackground" fullHeight={false} fullWidth={false} innerFocusColor='default'>
               <Box height={50} width={50} />
             </TapArea>
           </Box>
@@ -61,53 +56,40 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={100}
           >
-            <TapArea
-              focusColor="darkBackground"
-              fullHeight={false}
-              fullWidth={false}
-              innerFocusColor="default"
-            >
+            <TapArea focusColor="darkBackground"  fullHeight={false} fullWidth={false} innerFocusColor='default'>
               <Box height={50} width={50} />
             </TapArea>
           </Box>
         </Flex>
-        <Box
-          alignItems="center"
-          borderStyle="sm"
-          color="successBase"
-          display="flex"
-          height={100}
-          justifyContent="center"
-          width={100}
-        >
-          <TapArea
-            focusColor="darkBackground"
-            fullHeight={false}
-            fullWidth={false}
-            innerFocusColor="inverse"
+        <Flex direction="column" gap={6} width="100%">
+          <Box
+            alignItems="center"
+            borderStyle="sm"
+            color="successWeak"
+            display="flex"
+            height={100}
+            justifyContent="center"
+            width={100}
           >
-            <Box height={50} width={50} />
-          </TapArea>
-        </Box>
+            <TapArea  focusColor="lightBackground"   fullHeight={false} fullWidth={false} innerFocusColor='inverse'>
+              <Box height={50} width={50} />
+            </TapArea>
+          </Box>
 
-        <Box
-          alignItems="center"
-          borderStyle="sm"
-          color="successBase"
-          display="flex"
-          height={100}
-          justifyContent="center"
-          width={100}
-        >
-          <TapArea
-            focusColor="darkBackground"
-            fullHeight={false}
-            fullWidth={false}
-            innerFocusColor="inverse"
+          <Box
+            alignItems="center"
+            borderStyle="sm"
+            color="successBase"
+            display="flex"
+            height={100}
+            justifyContent="center"
+            width={100}
           >
-            <Box height={50} width={50} />
-          </TapArea>
-        </Box>
+            <TapArea focusColor="darkBackground"  fullHeight={false} fullWidth={false} innerFocusColor='inverse'>
+              <Box height={50} width={50} />
+            </TapArea>
+          </Box>
+        </Flex>
       </Flex>
     </Box>
   );

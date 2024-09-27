@@ -18,11 +18,11 @@
   outline-offset: 0;
 }
 
-.accessibilityOutlineBorderDefault {
+.accessibilityOutlineBorderDefault:focus {
   border: 2px solid var(--sema-color-border-focus-inner-light);
 }
 
-.accessibilityOutlineBorderInverse {
+.accessibilityOutlineBorderInverse:focus {
   border: 2px solid var(--sema-color-border-focus-inner-dark);
 }
 
