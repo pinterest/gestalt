@@ -2879,6 +2879,12 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --sema-motion-opacity-duration-instant: 0ms;
   --sema-motion-opacity-easing-default: cubic-bezier(0, 0, 1, 1);
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
+  --comp-spinner-size-lg: 48px;
+  --comp-spinner-size-md: 40px;
+  --comp-spinner-size-sm: 32px;
+  --comp-spinner-color-1: #d452d1;
+  --comp-spinner-color-2: #ff7c36;
+  --comp-spinner-color-3: #24ccb0;
   --color-data-visualization-10: #007a72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -3821,6 +3827,12 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-motion-opacity-duration-instant: 0ms;
   --sema-motion-opacity-easing-default: cubic-bezier(0, 0, 1, 1);
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
+  --comp-spinner-size-lg: 48px;
+  --comp-spinner-size-md: 40px;
+  --comp-spinner-size-sm: 32px;
+  --comp-spinner-color-1: #d452d1;
+  --comp-spinner-color-2: #ff7c36;
+  --comp-spinner-color-3: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
