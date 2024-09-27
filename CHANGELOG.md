@@ -1,3 +1,9 @@
+## 160.0.1 (Sep 27, 2024)
+
+### Patch
+
+- Internal: Bump rollup from 2.45.2 to 2.79.2 ([#3782](https://github.com/pinterest/gestalt/pull/3782)) - [Preview link](https://deploy-preview-3782--gestalt.netlify.app?devexample=true)
+
 ## 160.0.0 (Sep 26, 2024)
 
 ### Major
