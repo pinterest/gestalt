@@ -300,7 +300,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
               className="button tapTransition enabled"
             >
               <div
-                className="pog transparent"
+                className="pog roundingCircle transparent"
                 style={
                   Object {
                     "height": 24,

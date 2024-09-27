@@ -2,31 +2,34 @@
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
-  border-radius: var(--rounding-circle);
 
   /* This fixes a mobile Safari bug (device only) that makes the icon disappear when rotated for RTL support
   https://stackoverflow.com/a/28617071/5253702 */
   perspective: 1px;
 }
 
-.xs {
-  border-radius: var(--sema-rounding-100);
+.rounding0 {
+  border-radius: var(--rounding-0);
 }
 
-.sm {
-  border-radius: var(--sema-rounding-200);
+.rounding100 {
+  border-radius: var(--rounding-100);
 }
 
-.md {
-  border-radius: var(--sema-rounding-300);
+.rounding200 {
+  border-radius: var(--rounding-200);
 }
 
-.lg {
-  border-radius: var(--sema-rounding-400);
+.rounding300 {
+  border-radius: var(--rounding-300);
 }
 
-.xl {
-  border-radius: var(--sema-rounding-400);
+.rounding400 {
+  border-radius: var(--rounding-400);
+}
+
+.roundingCircle {
+  border-radius: var(--rounding-circle);
 }
 
 /* TOKENIZED */

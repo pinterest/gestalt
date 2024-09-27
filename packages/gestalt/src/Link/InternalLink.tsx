@@ -5,7 +5,7 @@ import buttonStyles from '../Button.css';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
 import getRoundingClassName, { Rounding } from '../getRoundingClassName';
-import iconButtonStyles from '../IconButton.css';
+import iconButtonStyles from '../IconButton/InternalIconButton.css';
 import layoutStyles from '../Layout.css';
 import touchableStyles from '../TapArea.css';
 import styles from '../Text.css';
