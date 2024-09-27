@@ -3,6 +3,10 @@ const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
 const { registerTokenTransformGroups } = require('./transform');
+const { registerTokenFilters } = require('./filters');
+const { getWebConfig } = require('./platforms/web');
+const { registerWebFormats } = require('./platforms/registerWebFormats');
+const { getSources } = require('./sources');
 
 // #region CONFIG
 
@@ -150,36 +154,11 @@ const iosSwiftEnumSwift = {
   '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=ios-swiftenumswift',
 };
 
-const jsonFlat = {
-  'format': 'json/flat',
-  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=jsonflat',
-};
-
-const cssVariables = {
-  'format': 'css/variables',
-  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=cssvariables',
-};
-
-const colorElevationFilter = {
-  'filter': 'colorElevationFilter',
-  '_filter_comment': 'Custom',
-};
-
-const dataVisualizationFilter = {
-  'filter': 'dataVisualizationFilter',
-  '_filter_comment': 'Custom',
-};
-
 const semaLineHeightFilter = {
   'filter': 'semaLineHeightFilter',
   '_filter_comment': 'Custom filter for semantic lineheight tokens',
 };
 
-const webCssTransformGroup = {
-  'transformGroup': 'webCssTransformGroup',
-  '_transformGroup_comment':
-    'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
-};
 const androidTransformGroup = {
   'transformGroup': 'androidTransformGroup',
   '_format_comment': 'Custom',
@@ -289,112 +268,9 @@ function buildShadowValue(values, platform) {
     .join(', ');
 }
 
-const regex = /(\{|\})/gi;
-const regex1A = /(\{(?!\w)|\}(?!\w))/gi;
-
-const commonJSFormatter = ({ token, darkTheme, isVR }) => {
-  const isWebMappingToken = token.filePath.includes('mapping');
-
-  return JSON.stringify({
-    name:
-      isVR && !isWebMappingToken
-        ? token.path.join('-').replace('appenda', '')
-        : token.path.join('-').replace('appenda', '').replace('appendb', ''),
-    value: token.value,
-    // For lightened values with appended 1A, let's keep {value}1A if not remove the parenthesis
-
-    // eslint-disable-next-line no-nested-ternary
-    originalValue: isVR
-      ? 'NA'
-      : // eslint-disable-next-line no-nested-ternary
-      typeof token.original.value === 'string'
-      ? token.original.value.endsWith('}1A')
-        ? token.original.value?.replace(regex1A, '')
-        : token.original.value.replace(regex, '')
-      : token.value,
-    // eslint-disable-next-line no-underscore-dangle
-    ...(darkTheme ? { _darkModeSupport: !token._darkMode } : {}), // For dark mode we are adding this metadada to track unsupported tokens
-    comment: token.comment,
-    category: token.attributes.category,
-  });
-};
-
-const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
-  `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
-
-function getSources({ theme, modeTheme, platform, language }) {
-  if (theme === 'classic') {
-    return [
-      `tokens/classic/base-color.json`,
-      `tokens/classic/base-font.json`,
-      `tokens/classic/base-opacity.json`,
-      `tokens/classic/base-rounding.json`,
-      `tokens/classic/base-space.json`,
-      `tokens/classic/sema-color-${modeTheme}.json`,
-      `tokens/classic/base-color-dataviz-${modeTheme}.json`,
-      `tokens/classic/sema-color-dataviz-${modeTheme}.json`,
-      `tokens/classic/base-elevation-${modeTheme}.json`,
-      ...(platform === 'web'
-        ? [
-            `tokens/classic/comp-web-color-${modeTheme}.json`,
-            `tokens/classic/comp-web-elevation-${modeTheme}.json`,
-            `tokens/classic/comp-web-rounding.json`,
-            `tokens/classic/comp-web-font.json`,
-          ]
-        : []),
-    ];
-  }
-
-  return [
-    'tokens/vr-theme/base/color/default.json',
-    'tokens/vr-theme/base/text/font.json',
-    'tokens/vr-theme/base/opacity.json',
-    'tokens/vr-theme/base/rounding.json',
-    'tokens/vr-theme/base/space.json',
-    'tokens/vr-theme/base/lineheight.json',
-    'tokens/vr-theme/base/motion.json',
-    `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
-    `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
-    'tokens/vr-theme/sema/text/font.json',
-    ...(platform === 'web'
-      ? [
-          'tokens/vr-theme/base/color/pressed.json',
-          'tokens/vr-theme/base/color/hover.json',
-          `tokens/vr-theme/sema/color/${modeTheme}/hover.json`,
-          `tokens/vr-theme/sema/color/${modeTheme}/pressed.json`,
-        ]
-      : []),
-    'tokens/vr-theme/sema/elevation.json',
-    'tokens/vr-theme/sema/opacity.json',
-    'tokens/vr-theme/sema/rounding.json',
-    'tokens/vr-theme/sema/space.json',
-    `tokens/vr-theme/sema/text/language/${language}.json`,
-    'tokens/vr-theme/sema/motion.json',
-    ...(theme === 'vr-theme-web-mapping'
-      ? [
-          `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
-          'tokens/vr-theme-web-mapping/base-color.json',
-          `tokens/vr-theme-web-mapping/base-elevation-${modeTheme}.json`,
-          'tokens/vr-theme-web-mapping/base-font.json',
-          'tokens/vr-theme-web-mapping/base-opacity.json',
-          'tokens/vr-theme-web-mapping/base-rounding.json',
-          'tokens/vr-theme-web-mapping/base-space.json',
-          `tokens/vr-theme-web-mapping/sema-color-dataviz-${modeTheme}.json`,
-          'tokens/vr-theme-web-mapping/sema-color.json',
-          `tokens/vr-theme-web-mapping/comp-web-color-${modeTheme}.json`,
-          `tokens/vr-theme-web-mapping/comp-web-rounding.json`,
-          `tokens/vr-theme-web-mapping/comp-web-font.json`,
-        ]
-      : []),
-  ];
-}
 // #endregion
 
 // #region X-PLATFORM REGISTERS
-
-// REGISTER FILE HEADERS
-
-const { fileHeader } = StyleDictionary.formatHelpers;
 
 StyleDictionary.registerFileHeader({
   name: 'fileHeader',
@@ -402,69 +278,6 @@ StyleDictionary.registerFileHeader({
 });
 
 // REGISTER FORMATS
-
-StyleDictionary.registerFormat({
-  name: 'commonJS/classic',
-  formatter: ({ dictionary, file }) => {
-    const tokenArray = dictionary.allTokens.map((token) => commonJSFormatter({ token }));
-    return moduleExportFileHeader({ fileHeader, file, tokenArray });
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'commonJS/vr-theme',
-  formatter: ({ dictionary, file }) => {
-    const tokenArray = dictionary.allTokens.map((token) =>
-      commonJSFormatter({ token, isVR: true }),
-    );
-    return moduleExportFileHeader({ fileHeader, file, tokenArray });
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'darkTheme-commonJS/classic',
-  formatter: ({ dictionary, file }) => {
-    const tokenArray = dictionary.allTokens.map((token) =>
-      commonJSFormatter({ token, darkTheme: true }),
-    );
-
-    return moduleExportFileHeader({ fileHeader, file, tokenArray });
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'darkTheme-commonJS/vr-theme',
-  formatter: ({ dictionary, file }) => {
-    const tokenArray = dictionary.allTokens.map((token) =>
-      commonJSFormatter({ token, darkTheme: true, isVR: true }),
-    );
-
-    return moduleExportFileHeader({ fileHeader, file, tokenArray });
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'constantLibrary-javascript/es6/classic',
-  formatter({ dictionary }) {
-    const tokenDataString = dictionary.allTokens
-      .map((token) => {
-        let value = JSON.stringify(token.value);
-        if (dictionary.usesReference(token.original.value)) {
-          const refs = dictionary.getReferences(token.original.value);
-          refs.forEach((ref) => {
-            value = value.replace(ref.value, ref.name);
-          });
-        }
-
-        const formattedTokenName = token.path.join('_').toUpperCase().replace('-', '_');
-
-        return `export const TOKEN_${formattedTokenName} = 'var(--${token.path.join('-')})';`;
-      })
-      .join(`\n`);
-
-    return `/* File is autogenerated */\n\n${tokenDataString}`;
-  },
-});
 
 StyleDictionary.registerTransform({
   name: 'attribute/custom-cti',
@@ -548,122 +361,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerFormat({
-  name: 'constantLibrary-javascript/es6/vr-theme',
-  formatter({ dictionary }) {
-    const tokenDataString = dictionary.allTokens
-      .map((token) => {
-        let value = JSON.stringify(token.value);
-        if (dictionary.usesReference(token.original.value)) {
-          const refs = dictionary.getReferences(token.original.value);
-          refs.forEach((ref) => {
-            value = value.replace(ref.value, ref.name);
-          });
-        }
-
-        const formattedTokenNameKey = token.path
-          .join('_')
-          .toUpperCase()
-          .replace('-', '_')
-          .replace('appenda', '')
-          .replace('appendb', '')
-          .replace('APPENDA', '')
-          .replace('APPENDB', '');
-
-        const formattedTokenNameValue = token.path
-          .join('-')
-          .replace('appenda', '')
-          .replace('appendb', '');
-
-        return `export const ${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
-      })
-      .join(`\n`);
-
-    return `/* File is autogenerated */\n\n${tokenDataString}`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'constantLibrary-commonJS/classic',
-  formatter({ dictionary, file }) {
-    const tokens = dictionary.allTokens
-      .map((token) => {
-        let value = JSON.stringify(token.value);
-        if (dictionary.usesReference(token.original.value)) {
-          const refs = dictionary.getReferences(token.original.value);
-          refs.forEach((ref) => {
-            value = value.replace(ref.value, ref.name);
-          });
-        }
-        return `  TOKEN_${token.path
-          .join('_')
-          .toUpperCase()
-          .replace('-', '_')}: 'var(--${token.path.join('-')})',`;
-      })
-      .join(`\n`)
-      .slice(0, -1);
-
-    const fileHeaderString = fileHeader({
-      file,
-      commentStyle: 'short',
-    });
-
-    return `${fileHeaderString}module.exports = Object.freeze({\n${tokens}\n})`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'constantLibrary-commonJS/vr-theme',
-  formatter({ dictionary, file }) {
-    const tokens = dictionary.allTokens
-      .map((token) => {
-        let value = JSON.stringify(token.value);
-        if (dictionary.usesReference(token.original.value)) {
-          const refs = dictionary.getReferences(token.original.value);
-          refs.forEach((ref) => {
-            value = value.replace(ref.value, ref.name);
-          });
-        }
-        return `  ${token.path
-          .join('_')
-          .toUpperCase()
-          .replace('-', '_')}: 'var(--${`${token.path.join('-')}`})',`;
-      })
-      .join(`\n`)
-      .slice(0, -1);
-
-    const fileHeaderString = fileHeader({
-      file,
-      commentStyle: 'short',
-    });
-
-    return `${fileHeaderString}module.exports = Object.freeze({\n${tokens}\n})`;
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: 'filterMotionDuration',
-  matcher(token) {
-    return (
-      token.attributes.category === 'motion' &&
-      (token.attributes.type === 'duration' ||
-        token.attributes.item === 'duration' ||
-        token.attributes.subitem === 'duration')
-    );
-  },
-});
-
-StyleDictionary.registerFilter({
-  name: 'filterMotionEasing',
-  matcher(token) {
-    return (
-      token.attributes.category === 'motion' &&
-      (token.attributes.type === 'easing' ||
-        token.attributes.item === 'easing' ||
-        token.attributes.subitem === 'easing')
-    );
-  },
-});
 // #endregion
 
 // BUILD CONFIGURATION
@@ -720,166 +417,6 @@ StyleDictionary.registerTransform({
     return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
   },
 });
-
-// REGISTER FILTERS
-
-// Filters only tokens with dark theme values
-StyleDictionary.registerFilter({
-  name: 'colorElevationFilter',
-  matcher(token) {
-    return token.attributes.category === 'color' || token.attributes.category === 'elevation';
-  },
-});
-
-// Filters only tokens with data-visualization
-StyleDictionary.registerFilter({
-  name: 'dataVisualizationFilter',
-  matcher(token) {
-    return (
-      token.attributes.category === 'color' &&
-      ['data-visualization', 'dataviz', 'datavizbase'].includes(token.attributes.type)
-    );
-  },
-});
-
-// Filters only to semantic line-height tokens
-StyleDictionary.registerFilter({
-  name: 'semaLineHeightFilter',
-  matcher(token) {
-    return (
-      token.attributes.category === 'font' &&
-      token.attributes.type === 'lineheight' &&
-      !token.name.startsWith('Base')
-    );
-  },
-});
-
-function getWebConfig({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'dark' : 'light';
-
-  const mappedTheme = theme === 'vr-theme-web-mapping' ? 'vr-theme' : theme;
-
-  // light theme
-  // run languages in for loop
-
-  return {
-    'source': getSources({ theme, modeTheme, platform: 'web', language }),
-    'platforms': {
-      'css': {
-        ...webCssTransformGroup,
-        'buildPath': `dist/css/${theme}/`,
-        ...optionsFileHeaderOutputReferences,
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'variables.css',
-                  ...cssVariables,
-                },
-                language
-                  ? {
-                      'destination': `font-lineheight-${language}.css`,
-                      ...cssVariables,
-                      ...semaLineHeightFilter,
-                    }
-                  : undefined,
-              ]
-            : [
-                {
-                  'destination': 'variables-dark.css',
-                  ...cssVariables,
-                  ...colorElevationFilter,
-                },
-              ],
-      },
-      'json': {
-        ...webCssTransformGroup,
-        'buildPath': `dist/json/${theme}/`,
-        'files': [
-          {
-            'destination': `variables-${mode}.json`,
-            ...jsonFlat,
-          },
-          language
-            ? {
-                'destination': `variables-font-lineheight-${language}.json`,
-                ...jsonFlat,
-                ...semaLineHeightFilter,
-              }
-            : undefined,
-        ],
-      },
-      'js': {
-        'transformGroup': 'webJsTransformGroup',
-        '_transformGroup_comment':
-          'https://amzn.github.io/style-dictionary/#/transform_groups?id=js',
-        'buildPath': `dist/js/${theme}/`,
-        ...optionsFileHeader,
-        'files':
-          mode === 'light'
-            ? [
-                ...(theme === 'vr-theme' || theme === 'classic'
-                  ? [
-                      {
-                        'destination': 'constants.es.js',
-                        'format': `constantLibrary-javascript/es6/${theme}`,
-                        '_format_comment': 'Custom',
-                      },
-                      {
-                        'destination': 'constants.js',
-                        'format': `constantLibrary-commonJS/${theme}`,
-                        '_format_comment': 'Custom',
-                      },
-                      {
-                        'destination': 'constants.es.d.ts',
-                        'format': `constantLibrary-javascript/es6/${theme}`,
-                        '_format_comment': 'Custom',
-                      },
-                      {
-                        'destination': 'constants.d.ts',
-                        'format': `constantLibrary-commonJS/${theme}`,
-                        '_format_comment': 'Custom',
-                      },
-                    ]
-                  : []),
-                {
-                  'destination': 'tokens.js',
-                  'format': `commonJS/${mappedTheme}`,
-                  '_format_comment': 'Custom',
-                },
-                {
-                  'destination': 'data-viz-tokens.js',
-                  'format': `commonJS/${mappedTheme}`,
-                  '_format_comment': 'Custom',
-                  ...dataVisualizationFilter,
-                },
-                language
-                  ? {
-                      'destination': `font-lineheight-${language}.js`,
-                      'format': `commonJS/${mappedTheme}`,
-                      '_format_comment': 'Custom',
-                      ...semaLineHeightFilter,
-                    }
-                  : undefined,
-              ]
-            : [
-                {
-                  'destination': 'tokens_dark.js',
-                  'format': `darkTheme-commonJS/${mappedTheme}`,
-                  '_format_comment': 'Custom',
-                },
-                {
-                  'destination': 'data-viz-tokens_dark.js',
-                  'format': `darkTheme-commonJS/${mappedTheme}`,
-                  '_format_comment': 'Custom',
-                  ...dataVisualizationFilter,
-                },
-              ],
-      },
-    },
-  };
-}
-// #endregion
 
 // #region ANDROID PLATFORM
 
@@ -1226,7 +763,9 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift'],
 };
 
+registerWebFormats(StyleDictionary);
 registerTokenTransformGroups(StyleDictionary);
+registerTokenFilters(StyleDictionary);
 
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
@@ -1258,3 +797,5 @@ registerTokenTransformGroups(StyleDictionary);
   }),
 );
 // #endregion
+
+module.exports = { getSources };
