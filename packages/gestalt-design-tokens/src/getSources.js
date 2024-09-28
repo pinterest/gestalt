@@ -1,5 +1,12 @@
 const fs = require('fs');
 
+const getListOfComponents = (theme) => {
+  const folders = fs.readdirSync(`tokens/${theme}/comp`);
+
+  const components = folders.filter((file) => !file.includes('.json'));
+  return components;
+};
+
 const filterComponentTokenFiles = (theme, components, prefix) =>
   components
     .map((component) => {
@@ -15,11 +22,8 @@ const filterComponentTokenFiles = (theme, components, prefix) =>
  */
 function getComponentTokenSources(platform) {
   const theme = 'vr-theme';
-  const folders = fs.readdirSync(`tokens/${theme}/comp`);
+  const components = getListOfComponents(theme);
 
-  const components = folders.filter((file) => !file.includes('.json'));
-
-  // default.json and mobile.json files for each component
   const files = filterComponentTokenFiles(theme, components, 'default');
 
   if (platform !== 'web') {
@@ -37,10 +41,7 @@ function getComponentTokenSources(platform) {
  */
 function getComponentTokenOverrides(platform) {
   const theme = 'vr-theme';
-  const folders = fs.readdirSync(`tokens/${theme}/comp`);
-
-  const components = folders.filter((file) => !file.includes('.json'));
-
+  const components = getListOfComponents(theme);
   return filterComponentTokenFiles(theme, components, platform);
 }
 
@@ -112,4 +113,9 @@ function getSources({ theme, modeTheme, platform, language }) {
   ];
 }
 
-module.exports = { getSources, getComponentTokenSources, getComponentTokenOverrides };
+module.exports = {
+  getSources,
+  getComponentTokenSources,
+  getComponentTokenOverrides,
+  getListOfComponents,
+};

@@ -755,6 +755,36 @@ Object {
 
   </resources>
 ",
+  "dist/android/vr-theme/component/badge.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+
+<resources>
+  <dimen name=\\"comp_badge_size_min_height\\">@dimen/sema_space_500</dimen>
+  <dimen name=\\"comp_badge_size_icon\\">@dimen/sema_space_300</dimen>
+  <dimen name=\\"comp_badge_space_padding_horizontal\\">@dimen/sema_space_100</dimen>
+  <dimen name=\\"comp_badge_space_padding_vertical\\">@dimen/sema_space_0</dimen>
+  <dimen name=\\"comp_badge_space_gap_iconlabel\\">@dimen/sema_space_100</dimen>
+  <dimen name=\\"comp_badge_rounding\\">@dimen/sema_rounding_100</dimen>
+  <dimen name=\\"comp_badge_color_background_info\\">@dimen/sema_color_background_info_weak</dimen>
+  <dimen name=\\"comp_badge_color_background_error\\">@dimen/sema_color_background_error_weak</dimen>
+  <dimen name=\\"comp_badge_color_background_warning\\">@dimen/sema_color_background_warning_weak</dimen>
+  <dimen name=\\"comp_badge_color_background_success\\">@dimen/sema_color_background_success_weak</dimen>
+  <dimen name=\\"comp_badge_color_background_recommendation\\">@dimen/sema_color_background_recommendation_weak</dimen>
+  <dimen name=\\"comp_badge_color_background_neutral\\">@dimen/sema_color_background_neutral_weak</dimen>
+  <dimen name=\\"comp_badge_color_background_wash_dark\\">@dimen/sema_color_background_wash_dark</dimen>
+  <dimen name=\\"comp_badge_color_background_wash_light\\">@dimen/sema_color_background_wash_light</dimen>
+  <dimen name=\\"comp_badge_color_background_test\\">@dimen/base_color_green_300</dimen>
+  <dimen name=\\"comp_badge_color_text_info\\">@dimen/sema_color_text_info</dimen>
+  <dimen name=\\"comp_badge_color_text_error\\">@dimen/sema_color_text_error</dimen>
+  <dimen name=\\"comp_badge_color_text_warning\\">@dimen/sema_color_text_warning</dimen>
+  <dimen name=\\"comp_badge_color_text_success\\">@dimen/sema_color_text_success</dimen>
+  <dimen name=\\"comp_badge_color_text_recommendation\\">@dimen/sema_color_text_recommendation</dimen>
+  <dimen name=\\"comp_badge_color_text_neutral\\">@dimen/sema_color_text_neutral</dimen>
+  <dimen name=\\"comp_badge_color_text_wash_dark\\">@dimen/sema_color_text_light</dimen>
+  <dimen name=\\"comp_badge_color_text_wash_light\\">@dimen/sema_color_text_dark</dimen>
+  <dimen name=\\"comp_badge_typography_label\\">@dimen/sema_font_size_ui_sm</dimen>
+
+  </resources>
+",
   "dist/android/vr-theme/font-lineheight-ck.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
