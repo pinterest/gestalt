@@ -1,3 +1,26 @@
+const fs = require('fs');
+
+/**
+ * Gets the available files for component tokens
+ */
+function getComponentTokenSources(theme) {
+  const folders = fs.readdirSync(`tokens/${theme}/comp`);
+
+  const components = folders.filter((file) => !file.includes('.json'));
+
+  // default.json and mobile.json files for each component
+  const componentTokenFiles = components
+    .map((component) => {
+      const files = fs.readdirSync(`tokens/${theme}/comp/${component}`);
+      return files
+        .filter((file) => file.startsWith('default') || file.startsWith('mobile'))
+        .map((file) => `tokens/${theme}/comp/${component}/${file}`);
+    })
+    .flat();
+
+  return componentTokenFiles;
+}
+
 function getSources({ theme, modeTheme, platform, language }) {
   if (theme === 'classic') {
     return [
@@ -46,6 +69,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/sema/space.json',
     `tokens/vr-theme/sema/text/language/${language}.json`,
     'tokens/vr-theme/sema/motion.json',
+    ...(theme === 'vr-theme' ? getComponentTokenSources(theme) : []),
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
