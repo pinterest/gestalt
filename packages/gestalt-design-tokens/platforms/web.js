@@ -67,7 +67,7 @@ const getFiles = ({ theme, modeTheme, language, fileType }) => {
   }
 
   if (fileType === 'js') {
-    if (theme === 'vr-theme' || theme === 'classic') {
+    if ((theme === 'vr-theme' || theme === 'classic') && modeTheme === 'light') {
       files.push([
         {
           'destination': 'constants.es.js',
@@ -135,7 +135,6 @@ const getFiles = ({ theme, modeTheme, language, fileType }) => {
     ]);
   }
 
-  console.log(files.flat());
   return files.flat();
 };
 
