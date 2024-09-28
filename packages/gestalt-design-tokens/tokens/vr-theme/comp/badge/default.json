@@ -113,8 +113,8 @@
       },
       "typography": {
         "label": {
-          "value": "{sema.typography.UI.SM}",
-          "type": "typography"
+          "value": "{sema.font.size.UI.SM}",
+          "type": "font"
         }
       }
     }
