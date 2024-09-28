@@ -54,4 +54,4 @@ function transformHEXRGBaForCSS(token) {
   return transformed;
 }
 
-module.exports = transformHEXRGBaForCSS;
+module.exports = { transformHEXRGBaForCSS };
