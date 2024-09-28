@@ -6,7 +6,7 @@ const { registerTokenTransformGroups } = require('./transform');
 const { registerTokenFilters } = require('./filters');
 const { getWebConfig } = require('./platforms/web');
 const { registerWebFormats } = require('./platforms/registerWebFormats');
-const { getSources } = require('./sources');
+const { getSources } = require('./getSources');
 
 // #region CONFIG
 
@@ -450,7 +450,7 @@ function getAndroidConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   return {
-    'source': getSources({ theme, modeTheme, language }),
+    'include': getSources({ theme, modeTheme, language }),
     'platforms': {
       'android': {
         ...androidTransformGroup,
@@ -688,7 +688,7 @@ function getIOSConfiguration({ theme, mode, language }) {
   }
 
   return {
-    'source': getSources({ theme, modeTheme, language }),
+    'include': getSources({ theme, modeTheme, language }),
     'platforms': {
       'ios': {
         ...iOSTransformGroup,
