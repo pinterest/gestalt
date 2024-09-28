@@ -28,9 +28,9 @@
     "gestalt": ">0.0.0"
   },
   "scripts": {
-    "build": "rm -rf dist && node build.js",
-    "build:prod": "NODE_ENV=production node build.js",
-    "watch": "nodemon build.js",
+    "build": "rm -rf dist && node src/build.js",
+    "build:prod": "NODE_ENV=production node src/build.js",
+    "watch": "nodemon src/build.js",
     "test": "rm -rf dist && yarn build && jest --testPathPattern=tests",
     "update-tests": "yarn build && jest --testPathPattern=tests --updateSnapshot && cd .. && jest --update-snapshot -- \"ColorScheme\""
   },
