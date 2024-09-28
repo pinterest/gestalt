@@ -5,18 +5,14 @@ const toCamelCase = require('lodash.camelcase');
 const { registerTokenTransformGroups } = require('./transform');
 const { registerTokenFilters } = require('./filters');
 const { getWebConfig } = require('./platforms/web');
+const { getAndroidConfiguration } = require('./platforms/android');
 const { registerWebFormats } = require('./platforms/registerWebFormats');
 const { getSources } = require('./getSources');
+const { getFilter } = require('./utils/getFilter');
+
+const { filterColor, filterElevation, filterLineHeight } = require('./filters');
 
 // #region CONFIG
-
-const optionsFileHeader = {
-  'options': {
-    'fileHeader': 'fileHeader',
-    '_fileHeader_comment': 'Custom',
-    'showFileHeader': true,
-  },
-};
 
 const optionsFileHeaderOutputReferences = {
   'options': {
@@ -27,106 +23,12 @@ const optionsFileHeaderOutputReferences = {
   },
 };
 
-const dimenResource = { 'resourceType': 'dimen' };
-
-const colorResource = { 'resourceType': 'color' };
-
-const integerResource = { 'resourceType': 'integer' };
-
-const filterColor = {
-  'filter': {
-    'attributes': {
-      'category': 'color',
-    },
+const optionsFileHeader = {
+  'options': {
+    'fileHeader': 'fileHeader',
+    '_fileHeader_comment': 'Custom',
+    'showFileHeader': true,
   },
-};
-
-const filterRounding = {
-  'filter': {
-    'attributes': {
-      'category': 'rounding',
-    },
-  },
-};
-
-const filterOpacity = {
-  'filter': {
-    'attributes': {
-      'category': 'opacity',
-    },
-  },
-};
-
-const filterSpace = {
-  'filter': {
-    'attributes': {
-      'category': 'space',
-    },
-  },
-};
-
-const filterElevation = {
-  'filter': {
-    'attributes': {
-      'category': 'elevation',
-    },
-  },
-};
-
-const filterFontWeight = {
-  'filter': {
-    'attributes': {
-      'category': 'font',
-      'type': 'weight',
-    },
-  },
-};
-
-const filterFontSize = {
-  'filter': {
-    'attributes': {
-      'category': 'font',
-      'type': 'size',
-    },
-  },
-};
-
-const filterFontFamily = {
-  'filter': {
-    'attributes': {
-      'category': 'font',
-      'type': 'family',
-    },
-  },
-};
-
-const filterLineHeight = {
-  'filter': {
-    'attributes': {
-      'category': 'font',
-      'type': 'lineheight',
-    },
-  },
-};
-
-const filterMotionDuration = {
-  'filter': 'filterMotionDuration',
-  '_filter_comment': 'Custom',
-};
-
-const filterMotionEasing = {
-  'filter': 'filterMotionEasing',
-  '_filter_comment': 'Custom',
-};
-
-const androidResources = {
-  'format': 'android/resources',
-  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
-};
-
-const composeObject = {
-  'format': 'compose/object',
-  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=composeobject',
 };
 
 const iosColorsH = {
@@ -159,11 +61,6 @@ const semaLineHeightFilter = {
   '_filter_comment': 'Custom filter for semantic lineheight tokens',
 };
 
-const androidTransformGroup = {
-  'transformGroup': 'androidTransformGroup',
-  '_format_comment': 'Custom',
-};
-
 const iOSTransformGroup = {
   'transformGroup': 'iOSTransformGroup',
   '_transformGroup_comment':
@@ -177,50 +74,6 @@ const iOSSwiftEnumTransformGroup = {
 // #endregion
 
 // #region HELPER FUNCTIONS
-
-const filterList = [
-  filterColor,
-  filterRounding,
-  filterOpacity,
-  filterSpace,
-  filterElevation,
-  filterLineHeight,
-  filterFontFamily,
-  filterFontSize,
-  filterFontWeight,
-  filterMotionDuration,
-  filterMotionEasing,
-];
-
-const getFilter = (category, type) => {
-  // eslint-disable-next-line no-restricted-syntax
-  for (const item of filterList) {
-    // eslint-disable-next-line no-underscore-dangle
-    if (item._filter_comment === 'Custom') {
-      if (
-        typeof item.filter === 'string' &&
-        item.filter.toLowerCase() === `filter${category}${type}`
-      ) {
-        return item;
-      }
-
-      // eslint-disable-next-line no-continue
-      continue;
-    }
-
-    if (type === undefined) {
-      if (item.filter.attributes.category === category) {
-        return item;
-      }
-    } else if (
-      item.filter.attributes.category === category &&
-      item.filter.attributes.type === type
-    ) {
-      return item;
-    }
-  }
-  return undefined;
-};
 
 function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
@@ -446,90 +299,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-function getAndroidConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'dark' : 'light';
-
-  return {
-    'include': getSources({ theme, modeTheme, language }),
-    'platforms': {
-      'android': {
-        ...androidTransformGroup,
-        'buildPath': `dist/android/${theme}/`,
-        ...optionsFileHeaderOutputReferences,
-        'files':
-          mode === 'light'
-            ? [
-                {
-                  'destination': 'colors-light.xml',
-                  ...androidResources,
-                  ...colorResource,
-                  ...filterColor,
-                },
-                {
-                  'destination': 'font-size.xml',
-                  ...androidResources,
-                  ...dimenResource,
-                  ...filterFontSize,
-                },
-                {
-                  'destination': 'font-weight.xml',
-                  ...androidResources,
-                  ...dimenResource,
-                  ...filterFontWeight,
-                },
-                {
-                  'destination': 'opacity.xml',
-                  ...androidResources,
-                  ...dimenResource,
-                  ...filterOpacity,
-                },
-                {
-                  'destination': 'rounding.xml',
-                  ...androidResources,
-                  ...dimenResource,
-                  ...filterRounding,
-                },
-                {
-                  'destination': 'space.xml',
-                  ...androidResources,
-                  ...dimenResource,
-                  ...filterSpace,
-                },
-                language && {
-                  'destination': `font-lineheight-${language}.xml`,
-                  ...androidResources,
-                  ...dimenResource,
-                  ...filterLineHeight,
-                },
-                {
-                  'destination': 'motion-duration.xml',
-                  ...androidResources,
-                  ...integerResource,
-                  ...filterMotionDuration,
-                },
-                {
-                  'destination': 'motion-easing.kt',
-                  className: 'GestaltInterpolators',
-                  packageName: 'interpolator',
-                  options: {
-                    import: ['androidx.core.view.animation.PathInterpolatorCompat'],
-                  },
-                  ...composeObject,
-                  ...filterMotionEasing,
-                },
-              ]
-            : [
-                {
-                  'destination': 'color-dark.xml',
-                  ...androidResources,
-                  ...colorResource,
-                  ...filterColor,
-                },
-              ],
-      },
-    },
-  };
-}
 // #endregion
 
 // #region IOS PLATFORM

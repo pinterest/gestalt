@@ -13,6 +13,92 @@ const colorElevationFilter = {
   '_filter_comment': 'Custom',
 };
 
+const filterColor = {
+  'filter': {
+    'attributes': {
+      'category': 'color',
+    },
+  },
+};
+
+const filterRounding = {
+  'filter': {
+    'attributes': {
+      'category': 'rounding',
+    },
+  },
+};
+
+const filterOpacity = {
+  'filter': {
+    'attributes': {
+      'category': 'opacity',
+    },
+  },
+};
+
+const filterSpace = {
+  'filter': {
+    'attributes': {
+      'category': 'space',
+    },
+  },
+};
+
+const filterElevation = {
+  'filter': {
+    'attributes': {
+      'category': 'elevation',
+    },
+  },
+};
+
+const filterFontWeight = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'weight',
+    },
+  },
+};
+
+const filterFontSize = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'size',
+    },
+  },
+};
+
+const filterFontFamily = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'family',
+    },
+  },
+};
+
+const filterLineHeight = {
+  'filter': {
+    'attributes': {
+      'category': 'font',
+      'type': 'lineheight',
+    },
+  },
+};
+
+const filterMotionDuration = {
+  'filter': 'filterMotionDuration',
+  '_filter_comment': 'Custom',
+};
+
+const filterMotionEasing = {
+  'filter': 'filterMotionEasing',
+  '_filter_comment': 'Custom',
+};
+
 /**
  * registers any filters
  * @param {*} sd - StyleDictionary root
@@ -79,4 +165,15 @@ module.exports = {
   semaLineHeightFilter,
   colorElevationFilter,
   registerTokenFilters,
+  filterColor,
+  filterRounding,
+  filterOpacity,
+  filterSpace,
+  filterElevation,
+  filterFontWeight,
+  filterFontSize,
+  filterFontFamily,
+  filterLineHeight,
+  filterMotionDuration,
+  filterMotionEasing,
 };
