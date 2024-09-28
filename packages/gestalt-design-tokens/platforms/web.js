@@ -91,6 +91,17 @@ const getFiles = ({ theme, modeTheme, language, fileType }) => {
         },
       ]);
     }
+
+    if (language) {
+      files.push([
+        {
+          'destination': `font-lineheight-${language}.js`,
+          'format': `commonJS/${mappedTheme}`,
+          '_format_comment': 'Custom',
+          ...semaLineHeightFilter,
+        },
+      ]);
+    }
     files.push([
       {
         'destination': `tokens${modeSuffix}.js`,
@@ -103,42 +114,33 @@ const getFiles = ({ theme, modeTheme, language, fileType }) => {
         '_format_comment': 'Custom',
         ...dataVisualizationFilter,
       },
-      language
-        ? {
-            'destination': `font-lineheight-${language}.js`,
-            'format': `commonJS/${mappedTheme}`,
-            '_format_comment': 'Custom',
-            ...semaLineHeightFilter,
-          }
-        : undefined,
     ]);
   }
 
   if (fileType === 'json') {
+    if (language) {
+      files.push([
+        {
+          'destination': `variables-font-lineheight-${language}.json`,
+          ...jsonFlat,
+          ...semaLineHeightFilter,
+        },
+      ]);
+    }
     files.push([
       {
         'destination': `variables-${modeTheme}.json`,
         ...jsonFlat,
       },
-      language
-        ? {
-            'destination': `variables-font-lineheight-${language}.json`,
-            ...jsonFlat,
-            ...semaLineHeightFilter,
-          }
-        : undefined,
     ]);
   }
 
+  console.log(files.flat());
   return files.flat();
 };
 
 function getWebConfig({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
-
-  // light theme
-
-  // run languages in for loop
 
   return {
     'source': getSources({ theme, modeTheme, platform: 'web', language }),

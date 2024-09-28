@@ -797,5 +797,3 @@ registerTokenFilters(StyleDictionary);
   }),
 );
 // #endregion
-
-module.exports = { getSources };
