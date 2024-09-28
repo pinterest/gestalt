@@ -1,6 +1,11 @@
 const { getFilter } = require('../utils/getFilter');
-const { filterLineHeight, filterColor, filterElevation } = require('../filters');
-const { getSources } = require('../getSources');
+const {
+  filterLineHeight,
+  filterColor,
+  filterElevation,
+  filterComponentToken,
+} = require('../filters');
+const { getSources, getListOfComponents, getComponentTokenOverrides } = require('../getSources');
 
 function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
@@ -64,9 +69,7 @@ const iOSSwiftEnumTransformGroup = {
     'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
 };
 
-function getIOSConfiguration({ theme, mode, language }) {
-  const modeTheme = mode === 'dark' ? 'dark' : 'light';
-
+function getFiles({ theme, modeTheme, language, fileType }) {
   const categories = [
     'color',
     'rounding',
@@ -154,68 +157,101 @@ function getIOSConfiguration({ theme, mode, language }) {
     });
   }
 
+  // if (theme === 'vr-theme') {
+  //   iOSSwiftFiles.push(
+  //     ...getListOfComponents(theme).map((component) => ({
+  //       'destination': `components/${component}.swift`,
+  //       ...iosSwiftEnumSwift,
+  //       'className': `GestaltTokens${component.toUpperCase()}`,
+  //       ...filterComponentToken(component),
+  //       fileHeader: `// ${language} specific tokens`,
+  //     })),
+  //   );
+  // }
+
+  if (fileType === 'swift') {
+    if (modeTheme === 'dark') {
+      return [
+        {
+          'destination': `GestaltTokensColorDark${getTheme(theme)}.swift`,
+          ...iosSwiftEnumSwift,
+          'className': `GestaltTokensColor${getTheme(theme)}`,
+          ...filterColor,
+        },
+        {
+          'destination': `GestaltTokensElevationDark${getTheme(theme)}.swift`,
+          ...iosSwiftEnumSwift,
+          'className': `GestaltTokensElevationDark${getTheme(theme)}`,
+          ...filterElevation,
+        },
+      ];
+    }
+    return iOSSwiftFiles;
+  }
+
+  if (fileType === 'objc') {
+    if (modeTheme === 'dark') {
+      return [
+        {
+          'destination': `GestaltTokensColorDark${getTheme(theme)}.h`,
+          ...iosColorsH,
+          'className': `GestaltTokensColor${getTheme(theme)}`,
+          'type': `GestaltTokensColorName${getTheme(theme)}`,
+          ...filterColor,
+        },
+        {
+          'destination': `GestaltTokensColorDark${getTheme(theme)}.m`,
+          ...iosColorsM,
+          'className': `GestaltTokensColor${getTheme(theme)}`,
+          'type': `GestaltTokensColorName${getTheme(theme)}`,
+          ...filterColor,
+        },
+        {
+          'destination': `GestaltTokensElevationDark${getTheme(theme)}.h`,
+          ...iosStaticH,
+          'className': `GestaltTokensElevationDark${getTheme(theme)}`,
+          'type': `GestaltTokensElevationDark${getTheme(theme)}`,
+          ...filterElevation,
+        },
+        {
+          'destination': `GestaltTokensElevationDark${getTheme(theme)}.m`,
+          ...iosStaticM,
+          'className': `GestaltTokensElevationDark${getTheme(theme)}`,
+          'type': `GestaltTokensElevationDark${getTheme(theme)}`,
+          ...filterElevation,
+        },
+      ];
+    }
+    return iOSObjectiveCFiles;
+  }
+}
+
+const getComponentTokenFiles = ({ theme }) => {
+  if (theme !== 'vr-theme') {
+    return [];
+  }
+
+  return getComponentTokenOverrides('ios');
+};
+
+function getIOSConfiguration({ theme, mode, language }) {
+  const modeTheme = mode === 'dark' ? 'dark' : 'light';
+
   return {
     'include': getSources({ theme, modeTheme, language }),
+    // 'source': getComponentTokenFiles({ theme }),
     'platforms': {
       'ios': {
         ...iOSTransformGroup,
         'buildPath': `dist/ios/${theme}/`,
         ...optionsFileHeader,
-        'files':
-          mode === 'light'
-            ? iOSObjectiveCFiles
-            : [
-                {
-                  'destination': `GestaltTokensColorDark${getTheme(theme)}.h`,
-                  ...iosColorsH,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  'type': `GestaltTokensColorName${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensColorDark${getTheme(theme)}.m`,
-                  ...iosColorsM,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  'type': `GestaltTokensColorName${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensElevationDark${getTheme(theme)}.h`,
-                  ...iosStaticH,
-                  'className': `GestaltTokensElevationDark${getTheme(theme)}`,
-                  'type': `GestaltTokensElevationDark${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-                {
-                  'destination': `GestaltTokensElevationDark${getTheme(theme)}.m`,
-                  ...iosStaticM,
-                  'className': `GestaltTokensElevationDark${getTheme(theme)}`,
-                  'type': `GestaltTokensElevationDark${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-              ],
+        'files': getFiles({ theme, modeTheme, language, fileType: 'objc' }),
       },
       'ios-swift': {
         ...iOSSwiftEnumTransformGroup,
         'buildPath': `dist/ios-swift/${theme}/`,
         ...optionsFileHeaderOutputReferences,
-        'files':
-          mode === 'light'
-            ? iOSSwiftFiles
-            : [
-                {
-                  'destination': `GestaltTokensColorDark${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensColor${getTheme(theme)}`,
-                  ...filterColor,
-                },
-                {
-                  'destination': `GestaltTokensElevationDark${getTheme(theme)}.swift`,
-                  ...iosSwiftEnumSwift,
-                  'className': `GestaltTokensElevationDark${getTheme(theme)}`,
-                  ...filterElevation,
-                },
-              ],
+        'files': getFiles({ theme, modeTheme, language, fileType: 'swift' }),
       },
     },
   };
