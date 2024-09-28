@@ -1,26 +1,35 @@
 const fs = require('fs');
 
+const filterComponentTokenFiles = (theme, components, prefix) =>
+  components
+    .map((component) => {
+      const files = fs.readdirSync(`tokens/${theme}/comp/${component}`);
+      return files
+        .filter((file) => file.startsWith(prefix))
+        .map((file) => `tokens/${theme}/comp/${component}/${file}`);
+    })
+    .flat();
+
 /**
  * Gets the available files for component tokens
  */
-function getComponentTokenSources() {
+function getComponentTokenSources(platform) {
   const theme = 'vr-theme';
   const folders = fs.readdirSync(`tokens/${theme}/comp`);
 
   const components = folders.filter((file) => !file.includes('.json'));
 
   // default.json and mobile.json files for each component
-  const componentTokenFiles = components
-    .map((component) => {
-      const files = fs.readdirSync(`tokens/${theme}/comp/${component}`);
-      return files
-        .filter((file) => file.startsWith('default') || file.startsWith('mobile'))
-        .map((file) => `tokens/${theme}/comp/${component}/${file}`);
-    })
-    .flat();
+  const files = filterComponentTokenFiles(theme, components, 'default');
 
-  return componentTokenFiles;
+  if (platform !== 'web') {
+    const mobileFiles = filterComponentTokenFiles(theme, components, 'mobile');
+    files.push(...mobileFiles);
+  }
+
+  return files;
 }
+
 /**
  * Gets platform-specific component token files
  * @param {*} platform - ios, android, web
@@ -32,17 +41,7 @@ function getComponentTokenOverrides(platform) {
 
   const components = folders.filter((file) => !file.includes('.json'));
 
-  // default.json and mobile.json files for each component
-  const componentTokenFiles = components
-    .map((component) => {
-      const files = fs.readdirSync(`tokens/${theme}/comp/${component}`);
-      return files
-        .filter((file) => file.startsWith(platform))
-        .map((file) => `tokens/${theme}/comp/${component}/${file}`);
-    })
-    .flat();
-
-  return componentTokenFiles;
+  return filterComponentTokenFiles(theme, components, platform);
 }
 
 function getSources({ theme, modeTheme, platform, language }) {

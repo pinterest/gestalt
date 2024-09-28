@@ -1,8 +1,4 @@
-const {
-  getSources,
-  getComponentTokenOverrides,
-  getComponentTokenSources,
-} = require('../getSources');
+const { getSources, getComponentTokenOverrides } = require('../getSources');
 const {
   dataVisualizationFilter,
   colorElevationFilter,
