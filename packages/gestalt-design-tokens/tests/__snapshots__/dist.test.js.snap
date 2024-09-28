@@ -179,5 +179,6 @@ Array [
   "dist/ios-swift/vr-theme/GestaltTokensOpacityVR.swift",
   "dist/ios-swift/vr-theme/GestaltTokensRoundingVR.swift",
   "dist/ios-swift/vr-theme/GestaltTokensSpaceVR.swift",
+  "dist/ios-swift/vr-theme/components/GestaltTokensBadge.swift",
 ]
 `;

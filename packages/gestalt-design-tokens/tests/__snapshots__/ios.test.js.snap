@@ -1295,5 +1295,38 @@ public enum GestaltTokensSpaceVR {
     public static let baseUnit = 4px
 }
 ",
+  "dist/ios-swift/vr-theme/components/GestaltTokensBadge.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensBadge {
+    public static let compColorBackgroundTest = baseRed300
+    public static let compRounding = sema100
+    public static let compSpaceGapIconlabel = sema100
+    public static let compSpacePaddingVertical = sema0
+    public static let compSpacePaddingHorizontal = sema100
+    public static let compSizeIcon = sema300
+    public static let compSizeMinHeight = sema500
+    public static let compTypographyLabel = semaSizeUiSm
+    public static let compColorTextWashLight = semaTextDark
+    public static let compColorTextWashDark = semaTextLight
+    public static let compColorTextNeutral = semaTextNeutral
+    public static let compColorTextRecommendation = semaTextRecommendation
+    public static let compColorTextSuccess = semaTextSuccess
+    public static let compColorTextWarning = semaTextWarning
+    public static let compColorTextError = semaTextError
+    public static let compColorTextInfo = semaTextInfo
+    public static let compColorBackgroundWashLight = semaBackgroundWashLight
+    public static let compColorBackgroundWashDark = semaBackgroundWashDark
+    public static let compColorBackgroundNeutral = semaBackgroundNeutralWeak
+    public static let compColorBackgroundRecommendation = semaBackgroundRecommendationWeak
+    public static let compColorBackgroundSuccess = semaBackgroundSuccessWeak
+    public static let compColorBackgroundWarning = semaBackgroundWarningWeak
+    public static let compColorBackgroundError = semaBackgroundErrorWeak
+    public static let compColorBackgroundInfo = semaBackgroundInfoWeak
+}
+",
 }
 `;
