@@ -1,10 +1,16 @@
 const fs = require('fs');
 
 const getListOfComponents = (theme) => {
-  const folders = fs.readdirSync(`tokens/${theme}/comp`);
+  try {
+    const folders = fs.readdirSync(`tokens/${theme}/comp`);
 
-  const components = folders.filter((file) => !file.includes('.json'));
-  return components;
+    const components = folders.filter((file) => !file.includes('.json'));
+    return components;
+  } catch (ex) {
+    // if this fails, it means there are no components
+    console.log(`No component tokens found for theme ${theme}`);
+    return [];
+  }
 };
 
 const filterComponentTokenFiles = (theme, components, prefix) =>
