@@ -52,7 +52,6 @@ type Props = {
     zIndex?: Indexable;
   };
   type?: 'submit' | 'button';
-  variant?: 'floating' | 'default';
 };
 
 const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
@@ -78,7 +77,6 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
     tabIndex = 0,
     tooltip,
     type,
-    variant,
   }: Props,
   ref,
 ) {

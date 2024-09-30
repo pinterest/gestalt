@@ -85,7 +85,7 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
     ref,
   ) {
     return (
-      <Box borderStyle="shadow" color="default" rounding="circle">
+      <Box borderStyle="shadow" color="default" rounding={4}>
         <InternalIconButton
           ref={ref}
           accessibilityControls={accessibilityControls}
@@ -100,7 +100,6 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
           selected={selected}
           size="xl"
           tooltip={tooltip}
-          variant="floating"
         />
       </Box>
     );
