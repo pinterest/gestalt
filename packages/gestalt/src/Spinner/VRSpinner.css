@@ -77,18 +77,18 @@
 
 @keyframes colors {
   0% {
-    background-color: var(--comp-spinner-color-pink);
+    background-color: var(--comp-spinner-color-background-pink);
   }
 
   33.333% {
-    background-color: var(--comp-spinner-color-orange);
+    background-color: var(--comp-spinner-color-background-orange);
   }
 
   66.666% {
-    background-color: var(--comp-spinner-color-blue);
+    background-color: var(--comp-spinner-color-background-blue);
   }
 
   100% {
-    background-color: var(--comp-spinner-color-pink);
+    background-color: var(--comp-spinner-color-background-pink);
   }
 }

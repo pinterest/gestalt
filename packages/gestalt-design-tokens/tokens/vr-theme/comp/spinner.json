@@ -2,17 +2,19 @@
   "comp": {
     "spinner": {
       "color": {
-        "pink": {
-          "type": "color",
-          "value": "#d452d1"
-        },
-        "orange": {
-          "type": "color",
-          "value": "#ff7c36"
-        },
-        "blue": {
-          "type": "color",
-          "value": "#24ccb0"
+        "background": {
+          "pink": {
+            "type": "color",
+            "value": "#d452d1"
+          },
+          "orange": {
+            "type": "color",
+            "value": "#ff7c36"
+          },
+          "blue": {
+            "type": "color",
+            "value": "#24ccb0"
+          }
         }
       }
     }
