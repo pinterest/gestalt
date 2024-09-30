@@ -6,18 +6,6 @@
   width: var(--g-size);
 }
 
-.lg {
-  --g-size: var(--comp-spinner-size-lg);
-}
-
-.md {
-  --g-size: var(--comp-spinner-size-md);
-}
-
-.sm {
-  --g-size: var(--comp-spinner-size-sm);
-}
-
 .spinnerFrame {
   animation: spin 1500ms linear infinite;
   box-sizing: border-box;
@@ -27,6 +15,10 @@
   top: calc(var(--g-dot-size) / 2);
   transform-origin: center calc(var(--g-dot-space) / sqrt(3));
   width: var(--g-dot-space);
+}
+
+.spinner.delay .spinnerFrame > div {
+  animation-delay: 300ms;
 }
 
 .spinnerFrame > div {
@@ -64,16 +56,6 @@
 
 .delay {
   animation-delay: 300ms;
-  animation-duration: 0s;
-  animation-fill-mode: forwards;
-  animation-name: delay;
-  opacity: var(--sema-opacity-0);
-}
-
-@keyframes delay {
-  to {
-    opacity: var(--sema-opacity-100);
-  }
 }
 
 @keyframes spin {
@@ -94,18 +76,18 @@
 
 @keyframes colors {
   0% {
-    background-color: var(--comp-spinner-color-1);
+    background-color: var(--color-background-spinner-color-pink);
   }
 
   33.333% {
-    background-color: var(--comp-spinner-color-2);
+    background-color: var(--color-background-spinner-color-orange);
   }
 
   66.666% {
-    background-color: var(--comp-spinner-color-3);
+    background-color: var(--color-background-spinner-color-blue);
   }
 
   100% {
-    background-color: var(--comp-spinner-color-1);
+    background-color: var(--color-background-spinner-color-pink);
   }
 }
