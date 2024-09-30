@@ -1,3 +1,9 @@
+## 160.2.1 (Sep 30, 2024)
+
+### Patch
+
+- Internal: updates icon declaration file ([#3785](https://github.com/pinterest/gestalt/pull/3785)) - [Preview link](https://deploy-preview-3785--gestalt.netlify.app?devexample=true)
+
 ## 160.2.0 (Sep 27, 2024)
 
 ### Minor
