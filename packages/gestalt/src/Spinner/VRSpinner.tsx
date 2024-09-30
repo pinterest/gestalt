@@ -25,7 +25,7 @@ export default function Spinner({ accessibilityLabel, delay = true, show, size =
     <Box display="flex" justifyContent="around">
       <div
         aria-label={accessibilityLabel ?? accessibilityLabelDefault}
-        className={classnames(styles.spinner, styles[size], { [styles.delay]: delay })}
+        className={classnames(styles.spinner, { [styles.delay]: delay })}
         style={
           {
             '--g-size': `${SIZE_NAME_TO_PIXEL[size]}px`,
