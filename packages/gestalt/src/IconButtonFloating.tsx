@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import Box from './Box';
 import InternalIconButton from './IconButton/InternalIconButton';
 import icons from './icons/index';
+import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
 
 type Props = {
@@ -84,8 +85,13 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
     }: Props,
     ref,
   ) {
+    const isInVRExperiment = useInExperiment({
+      webExperimentName: 'web_gestalt_visualRefresh',
+      mwebExperimentName: 'web_gestalt_visualRefresh',
+    });
+
     return (
-      <Box borderStyle="shadow" color="default" rounding={4}>
+      <Box borderStyle="shadow" color="default" rounding={isInVRExperiment ? 4 : 'circle'}>
         <InternalIconButton
           ref={ref}
           accessibilityControls={accessibilityControls}
