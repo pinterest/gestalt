@@ -468,6 +468,19 @@
           }
         }
       },
+      "spinner": {
+        "color": {
+          "pink": {
+            "value": "#d452d1"
+          },
+          "orange": {
+            "value": "#ff7c36"
+          },
+          "blue": {
+            "value": "#24ccb0"
+          }
+        }
+      },
       "switch": {
         "default": {
           "selected": {

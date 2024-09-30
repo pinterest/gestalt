@@ -1,4 +1,5 @@
 .spinner {
+  --g-size: 40px;
   --g-dot-size: calc(var(--g-size) / 3);
   --g-dot-space: calc(var(--g-dot-size) * 1.75);
 
@@ -15,10 +16,6 @@
   top: calc(var(--g-dot-size) / 2);
   transform-origin: center calc(var(--g-dot-space) / sqrt(3));
   width: var(--g-dot-space);
-}
-
-.spinner.delay .spinnerFrame > div {
-  animation-delay: 300ms;
 }
 
 .spinnerFrame > div {
@@ -52,6 +49,10 @@
   bottom: 0;
   right: 0;
   transform: translate3d(50%, 50%, 0);
+}
+
+.spinner.delay .spinnerFrame > div {
+  animation-delay: 300ms;
 }
 
 .delay {

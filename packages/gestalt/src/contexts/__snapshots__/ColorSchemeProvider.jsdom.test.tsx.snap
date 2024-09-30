@@ -289,6 +289,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-tag-warning-active: #d86800;
   --color-background-segmentedcontrol-container: #404040;
   --color-background-segmentedcontrol-tab-selected: #030303;
+  --color-background-spinner-color-pink: #d452d1;
+  --color-background-spinner-color-orange: #ff7c36;
+  --color-background-spinner-color-blue: #24ccb0;
   --color-background-switch-default-selected: #efefef;
   --color-background-switch-default-unselected: #030303;
   --color-background-switch-disabled-selected: #ababab;
@@ -748,6 +751,9 @@ exports[`ColorSchemeProvider renders styling for light mode when no color scheme
   --color-background-tag-warning-active: #943a00;
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
+  --color-background-spinner-color-pink: #d452d1;
+  --color-background-spinner-color-orange: #ff7c36;
+  --color-background-spinner-color-blue: #24ccb0;
   --color-background-switch-default-selected: #111111;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-disabled-selected: #767676;
@@ -1221,6 +1227,9 @@ exports[`ColorSchemeProvider renders styling for light mode when specified 1`] =
   --color-background-tag-warning-active: #943a00;
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
+  --color-background-spinner-color-pink: #d452d1;
+  --color-background-spinner-color-orange: #ff7c36;
+  --color-background-spinner-color-blue: #24ccb0;
   --color-background-switch-default-selected: #111111;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-disabled-selected: #767676;
@@ -1694,6 +1703,9 @@ exports[`ColorSchemeProvider renders styling with a custom class if has an id 1`
   --color-background-tag-warning-active: #943a00;
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-segmentedcontrol-tab-selected: #ffffff;
+  --color-background-spinner-color-pink: #d452d1;
+  --color-background-spinner-color-orange: #ff7c36;
+  --color-background-spinner-color-blue: #24ccb0;
   --color-background-switch-default-selected: #111111;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-disabled-selected: #767676;
@@ -2155,6 +2167,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-tag-warning-active: #d86800;
   --color-background-segmentedcontrol-container: #404040;
   --color-background-segmentedcontrol-tab-selected: #030303;
+  --color-background-spinner-color-pink: #d452d1;
+  --color-background-spinner-color-orange: #ff7c36;
+  --color-background-spinner-color-blue: #24ccb0;
   --color-background-switch-default-selected: #efefef;
   --color-background-switch-default-unselected: #030303;
   --color-background-switch-disabled-selected: #ababab;
