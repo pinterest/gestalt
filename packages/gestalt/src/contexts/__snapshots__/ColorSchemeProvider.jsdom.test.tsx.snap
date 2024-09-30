@@ -2881,7 +2881,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #007a72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -3141,6 +3141,9 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-datepicker-button-hover: #242423;
   --color-background-datepicker-button-active: #393937;
   --color-background-datepicker-button-selected: #efefef;
+  --color-background-spinner-color-pink: #d452d1;
+  --color-background-spinner-color-orange: #ff7c36;
+  --color-background-spinner-color-blue: #24ccb0;
   --color-background-switch-default-unselected: #000000;
   --color-background-switch-default-selected: #e8e7e1;
   --color-background-switch-disabled-unselected: #000000;
@@ -3826,7 +3829,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -4772,7 +4775,7 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -5718,7 +5721,7 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -6664,7 +6667,7 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -7610,7 +7613,7 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -8556,7 +8559,7 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-spinner-color-pink: #d452d1;
   --comp-spinner-color-orange: #ff7c36;
-  --comp-spinner-color-green: #24ccb0;
+  --comp-spinner-color-blue: #24ccb0;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;

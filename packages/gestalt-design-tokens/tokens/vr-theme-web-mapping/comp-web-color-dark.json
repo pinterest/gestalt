@@ -274,6 +274,19 @@
           }
         }
       },
+      "spinner": {
+        "color": {
+          "pink": {
+            "value": "{comp.spinner.color.pink}"
+          },
+          "orange": {
+            "value": "{comp.spinner.color.orange}"
+          },
+          "blue": {
+            "value": "{comp.spinner.color.blue}"
+          }
+        }
+      },
       "switch": {
         "default": {
           "unselected": {
