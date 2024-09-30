@@ -179,7 +179,6 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
           icon={icon}
           iconColor={iconColor}
           padding={padding}
-          rounding={variant === 'floating' ? 'circle' : undefined}
           selected={selected}
           size={size}
         />
