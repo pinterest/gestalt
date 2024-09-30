@@ -98,11 +98,11 @@ type Props = {
    */
   radioGroup?: ReactElement;
   /**
-   * DateRange is a controlled component. `dateValue` sets the value of the start date and end date.  See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * DateRange is a controlled component. `dateValue` sets the value of the start date and end date.  See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
   dateValue: { startDate: Date | null; endDate: Date | null };
   /**
-   * DateRange is a controlled component. `dateValue` sets the value of the start date and end date.  See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * DateRange is a controlled component. `dateValue` sets the value of the start date and end date.  See the [secondary date range variant](https://gestalt.pinterest.systems/web/daterange#Secondary-date-range) to learn more.
    */
   secondaryDateValue?: { startDate: Date | null; endDate: Date | null };
   /**
