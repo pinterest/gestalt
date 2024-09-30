@@ -1,4 +1,4 @@
-const { getSources, getComponentTokenOverrides } = require('../getSources');
+const { getSources } = require('../getSources');
 const {
   dataVisualizationFilter,
   colorElevationFilter,
@@ -138,20 +138,11 @@ const getFiles = ({ theme, modeTheme, language, fileType }) => {
   return files.flat();
 };
 
-const getComponentTokenFiles = ({ theme }) => {
-  if (theme === 'classic') {
-    return [];
-  }
-
-  return getComponentTokenOverrides('web');
-};
-
 function getWebConfig({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   return {
-    'include': getSources({ theme, modeTheme, platform: 'web', language }),
-    'source': getComponentTokenFiles({ theme }),
+    'source': getSources({ theme, modeTheme, platform: 'web', language }),
     'platforms': {
       'css': {
         ...webCssTransformGroup,

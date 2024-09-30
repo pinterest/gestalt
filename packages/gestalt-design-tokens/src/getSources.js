@@ -1,56 +1,3 @@
-const fs = require('fs');
-
-const getListOfComponents = (theme) => {
-  try {
-    const folders = fs.readdirSync(`tokens/${theme}/comp`);
-
-    const components = folders.filter((file) => !file.includes('.json'));
-    return components;
-  } catch (ex) {
-    // if this fails, it means there are no components
-    console.log(`No component tokens found for theme ${theme}`);
-    return [];
-  }
-};
-
-const filterComponentTokenFiles = (theme, components, prefix) =>
-  components
-    .map((component) => {
-      const files = fs.readdirSync(`tokens/${theme}/comp/${component}`);
-      return files
-        .filter((file) => file.startsWith(prefix))
-        .map((file) => `tokens/${theme}/comp/${component}/${file}`);
-    })
-    .flat();
-
-/**
- * Gets the available files for component tokens
- */
-function getComponentTokenSources(platform) {
-  const theme = 'vr-theme';
-  const components = getListOfComponents(theme);
-
-  const files = filterComponentTokenFiles(theme, components, 'default');
-
-  if (platform !== 'web') {
-    const mobileFiles = filterComponentTokenFiles(theme, components, 'mobile');
-    files.push(...mobileFiles);
-  }
-
-  return files;
-}
-
-/**
- * Gets platform-specific component token files
- * @param {*} platform - ios, android, web
- * @returns
- */
-function getComponentTokenOverrides(platform) {
-  const theme = 'vr-theme';
-  const components = getListOfComponents(theme);
-  return filterComponentTokenFiles(theme, components, platform);
-}
-
 function getSources({ theme, modeTheme, platform, language }) {
   if (theme === 'classic') {
     return [
@@ -85,7 +32,6 @@ function getSources({ theme, modeTheme, platform, language }) {
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
     `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
     'tokens/vr-theme/sema/text/font.json',
-    ...getComponentTokenSources(),
     ...(platform === 'web'
       ? [
           'tokens/vr-theme/base/color/pressed.json',
@@ -121,7 +67,4 @@ function getSources({ theme, modeTheme, platform, language }) {
 
 module.exports = {
   getSources,
-  getComponentTokenSources,
-  getComponentTokenOverrides,
-  getListOfComponents,
 };

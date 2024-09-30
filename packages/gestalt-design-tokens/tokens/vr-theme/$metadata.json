@@ -26,11 +26,6 @@
     "sema/text/language/vi",
     "sema/text/font",
     "sema/text/typography",
-    "sema/motion",
-    "comp/badge/default",
-    "comp/badge/mobile",
-    "comp/badge/ios",
-    "comp/badge/android",
-    "comp/badge/web"
+    "sema/motion"
   ]
 }
