@@ -239,11 +239,9 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
 
 1. Red (Primary)
     High emphasis, used for primary actions.
-2. Blue (Primary in shopping context)
-    The blue ButtonLink is only intended for the shopping experience and is used for primary shopping actions.
-3. Gray (Secondary)
+2. Gray (Secondary)
     Medium emphasis, used for secondary actions.
-4. Transparent (Tertiary)
+3. Transparent (Tertiary)
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
 
 #### On color/image backgrounds
