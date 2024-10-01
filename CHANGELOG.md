@@ -1,3 +1,9 @@
+## 160.3.1 (Oct 1, 2024)
+
+### Patch
+
+- IconButtonFloating: reverting circle to squircle ([#3784](https://github.com/pinterest/gestalt/pull/3784)) - [Preview link](https://deploy-preview-3784--gestalt.netlify.app?devexample=true)
+
 ## 160.3.0 (Oct 1, 2024)
 
 ### Minor
