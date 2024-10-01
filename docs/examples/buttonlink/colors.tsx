@@ -5,7 +5,6 @@ export default function Example() {
     <Box padding={4}>
       <Flex gap={6} height="100%" width="100%" wrap>
         {['gray', 'red', 'blue', 'transparent'].map((color) => {
-
           const colorCopy: 'gray' | 'red' | 'blue' | 'transparent' = color as
             | 'gray'
             | 'red'
