@@ -370,6 +370,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/sema/space.json',
     `tokens/vr-theme/sema/text/language/${language}.json`,
     'tokens/vr-theme/sema/motion.json',
+    'tokens/vr-theme/comp/spinner.json',
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,

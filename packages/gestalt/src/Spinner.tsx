@@ -3,6 +3,8 @@ import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
 import styles from './Spinner.css';
+import VRSpinner from './Spinner/VRSpinner';
+import useInExperiment from './useInExperiment';
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
@@ -46,6 +48,18 @@ export default function Spinner({
   size = 'md',
 }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  if (isInVRExperiment) {
+    return (
+      <VRSpinner accessibilityLabel={accessibilityLabel} delay={delay} show={show} size={size} />
+    );
+  }
+
   return show ? (
     <Box display="flex" justifyContent="around" overflow="hidden">
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>

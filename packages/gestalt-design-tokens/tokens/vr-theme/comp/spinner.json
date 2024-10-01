@@ -1,0 +1,22 @@
+{
+  "comp": {
+    "spinner": {
+      "color": {
+        "background": {
+          "pink": {
+            "type": "color",
+            "value": "#d452d1"
+          },
+          "orange": {
+            "type": "color",
+            "value": "#ff7c36"
+          },
+          "blue": {
+            "type": "color",
+            "value": "#24ccb0"
+          }
+        }
+      }
+    }
+  }
+}
