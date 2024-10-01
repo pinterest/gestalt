@@ -1,8 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e3b5eac32 (prettier)
 import {
   AvatarGroup,
   Box,
@@ -13,12 +9,6 @@ import {
   Text,
   useDangerouslyInGestaltExperiment,
 } from 'gestalt';
-<<<<<<< HEAD
-=======
-import { AvatarGroup, Box, Flex, Layer, Popover, SearchField, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
->>>>>>> da83e2698 (updated AvatarGroup examples)
-=======
->>>>>>> e3b5eac32 (prettier)
 
 function SearchCollaboratorsField() {
   const ref = useRef<null | HTMLInputElement>(null);

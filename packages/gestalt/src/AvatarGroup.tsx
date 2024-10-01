@@ -1,6 +1,4 @@
 import { forwardRef, Fragment } from 'react';
-import classnames from 'classnames';
-import avatarGroupStyles from './AvatarGroup.css';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
@@ -48,19 +46,7 @@ type Props = {
    * The user group data. See the [collaborators display](https://gestalt.pinterest.systems/web/avatargroup#Collaborators-display) variant to learn more.
    */
   collaborators: ReadonlyArray<{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    avatarColor?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
-=======
-    avatarColorIndex?: string;
->>>>>>> 389753d3c (fixed typing)
-=======
-    avatarColorIndex?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
->>>>>>> 6408ebbaf (fixed)
-=======
-    avatarColor?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
->>>>>>> b81f81405 (fixed prop naming)
+    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
     name: string;
     src?: string;
   }>;
@@ -155,11 +141,11 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
 
   const collaboratorStack = (
     <Fragment>
-      {displayedCollaborators.map(({ src, name, avatarColor }, index) => (
+      {displayedCollaborators.map(({ src, name, color }, index) => (
         <CollaboratorAvatar
           // eslint-disable-next-line react/no-array-index-key
           key={`collaboratorStack-${name}-${index}`}
-          avatarColor={avatarColor}
+          color={color}
           index={index}
           isFocused={isFocused}
           isFocusVisible={isFocusVisible}
@@ -257,107 +243,47 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
 
   if (isInVRExperiment && role === 'link' && href) {
     return (
-      <div
-<<<<<<< HEAD
-<<<<<<< HEAD
-        className={classnames({
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          [avatarGroupStyles.focused]: isFocused && isFocusVisible,
-=======
-        className={classnames('container', {
-=======
-        className={classnames({
->>>>>>> 950395011 (fixed focus outline)
-          [avatarGroupStyles.focused]: true,
->>>>>>> f0a23bbc2 (text ui working)
-=======
-          [avatarGroupStyles.groupFocused]: displayedCollaborators.length > 1 && isFocused && isFocusVisible,
-          [avatarGroupStyles.singleFocused]: displayedCollaborators.length === 1 && isFocused && isFocusVisible,
->>>>>>> b81f81405 (fixed prop naming)
-=======
-          // [avatarGroupStyles.focused]: displayedCollaborators.length > 1 && isFocused && isFocusVisible,
-          // [avatarGroupStyles.focused]: displayedCollaborators.length === 1 && isFocused && isFocusVisible,
-=======
->>>>>>> 8e95c0684 (cleanup)
-          [avatarGroupStyles.focused]: isFocused && isFocusVisible,
->>>>>>> cff195f61 (fixed pressed state)
-        })}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={0}
+      <TapAreaLink
+        ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
+        accessibilityLabel={accessibilityLabel}
+        fullWidth={false}
+        href={href}
+        onMouseDown={handleOnMouseDown}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={handleOnMouseUp}
+        onTap={({ event, dangerouslyDisableOnNavigation }) =>
+          onClick?.({ event, dangerouslyDisableOnNavigation })
+        }
+        rounding="pill"
+        tapStyle="compress"
       >
-        <TapAreaLink
-          ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
-          accessibilityLabel={accessibilityLabel}
-          fullWidth={false}
-          href={href}
-          onMouseDown={handleOnMouseDown}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-          onMouseUp={handleOnMouseUp}
-          onTap={({ event, dangerouslyDisableOnNavigation }) =>
-            onClick?.({ event, dangerouslyDisableOnNavigation })
-          }
-          rounding="pill"
-          tapStyle="compress"
-        >
-          {avatarGroupStack}
-        </TapAreaLink>
-      </div>
+        {avatarGroupStack}
+      </TapAreaLink>
     );
   }
 
   if (isInVRExperiment && role === 'button' && onClick) {
     return (
-      <div
-        className={classnames({
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-          [avatarGroupStyles.focused]: isFocused && isFocusVisible,
-=======
-          [avatarGroupStyles.focused]: true,
->>>>>>> 950395011 (fixed focus outline)
-=======
-          [avatarGroupStyles.groupFocused]: displayedCollaborators.length > 1 && isFocused && isFocusVisible,
-          [avatarGroupStyles.singleFocused]: displayedCollaborators.length === 1 && isFocused && isFocusVisible,
->>>>>>> b81f81405 (fixed prop naming)
-=======
-          // [avatarGroupStyles.focused]: displayedCollaborators.length > 1 && isFocused && isFocusVisible,
-          // [avatarGroupStyles.focused]: displayedCollaborators.length === 1 && isFocused && isFocusVisible,
-=======
->>>>>>> 8e95c0684 (cleanup)
-          [avatarGroupStyles.focused]: isFocused && isFocusVisible,
->>>>>>> cff195f61 (fixed pressed state)
-        })}
-        onBlur={handleOnBlur}
-        onFocus={handleOnFocus}
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={0}
+      <TapArea
+        ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
+        accessibilityControls={accessibilityControls}
+        accessibilityExpanded={accessibilityExpanded}
+        accessibilityHaspopup={accessibilityHaspopup}
+        accessibilityLabel={accessibilityLabel}
+        fullWidth={false}
+        innerFocusColor="default"
+        onMouseDown={handleOnMouseDown}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={handleOnMouseUp}
+        // @ts-expect-error - TS2345 - Argument of type '{ event: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement, MouseEvent>; }' is not assignable to parameter of type '{ event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<...> | MouseEvent<...>; dangerouslyDisableOnNavigation: () => void; }'.
+        onTap={({ event }) => onClick({ event })}
+        rounding="pill"
+        tapStyle="compress"
       >
-        <TapArea
-          ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
-          accessibilityControls={accessibilityControls}
-          accessibilityExpanded={accessibilityExpanded}
-          accessibilityHaspopup={accessibilityHaspopup}
-          accessibilityLabel={accessibilityLabel}
-          fullWidth={false}
-          onMouseDown={handleOnMouseDown}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-          onMouseUp={handleOnMouseUp}
-          // @ts-expect-error - TS2345 - Argument of type '{ event: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement, MouseEvent>; }' is not assignable to parameter of type '{ event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<...> | MouseEvent<...>; dangerouslyDisableOnNavigation: () => void; }'.
-          onTap={({ event }) => onClick({ event })}
-          rounding="pill"
-          tapStyle="compress"
-        >
-          {avatarGroupStack}
-        </TapArea>
-      </div>
+        {avatarGroupStack}
+      </TapArea>
     );
   }
 

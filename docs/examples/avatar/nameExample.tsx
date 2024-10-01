@@ -6,7 +6,7 @@ export default function Example() {
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-  const name = isInVRExperiment ? 'Tamia Rashad' : 'Shanice Byles';
+  const name = isInVRExperiment ? 'Ayesha Rashad' : 'Shanice Byles';
   const src = isInVRExperiment
     ? 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg'
     : 'https://i.ibb.co/7tGKGvb/shanice.jpg';

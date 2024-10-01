@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import classnames from 'classnames';
-import {
-  TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
-  TOKEN_COLOR_BORDER_AVATAR,
-} from 'gestalt-design-tokens';
+import { TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER } from 'gestalt-design-tokens';
 import avatarStyles from './Avatar/AvatarFoundation.css';
 import DefaultAvatar from './Avatar/DefaultAvatar';
 import Box from './Box';
@@ -35,7 +32,7 @@ interface DocumentedProps {
   /**
    * The background color chosen by the user. A default color will be used if none is selected.
    */
-  avatarColor?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
   /**
    * The name of the user. This is used for the placeholder treatment if an image is not available.
    */
@@ -60,8 +57,6 @@ interface DocumentedProps {
 
 type Props = DocumentedProps & Partial<InternalProps>;
 
-type Props = DocumentedProps & Partial<InternalProps>;
-
 /**
  * [Avatar](https://gestalt.pinterest.systems/web/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
  *
@@ -77,15 +72,7 @@ function Avatar(props: Props) {
   });
   const {
     accessibilityLabel,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    avatarColor,
-=======
-    avatarColorIndex,
->>>>>>> 950395011 (fixed focus outline)
-=======
-    avatarColor,
->>>>>>> b81f81405 (fixed prop naming)
+    color,
     isHovered,
     isPressed,
     name,
@@ -98,45 +85,15 @@ function Avatar(props: Props) {
   const handleImageError = () => setIsImageLoaded(false);
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  const { handleOnBlur, handleOnFocus, isFocused } = useInteractiveStates();
-  const { isFocusVisible } = useFocusVisible();
->>>>>>> 950395011 (fixed focus outline)
-=======
->>>>>>> b81f81405 (fixed prop naming)
 
   return (
     <div
       className={classnames({
         [avatarStyles.outline]: !isInVRExperiment && outline,
         [avatarStyles.outlineVR]: isInVRExperiment && outline,
-<<<<<<< HEAD
-<<<<<<< HEAD
       })}
-=======
-        [avatarStyles.focused]: isInVRExperiment && isFocused && isFocusVisible,
-=======
->>>>>>> b81f81405 (fixed prop naming)
-      })}
-<<<<<<< HEAD
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-      tabIndex={0}
->>>>>>> 950395011 (fixed focus outline)
-=======
->>>>>>> ed3635c15 (removed focus from regular avatar)
     >
       <Box
-        {...(outline
-          ? {
-              dangerouslySetInlineStyle: {
-                __style: {
-                  boxShadow: `0 0 0 1px ${TOKEN_COLOR_BORDER_AVATAR}`,
-                },
-              },
-            }
-          : {})}
         data-test-id="gestalt-avatar-svg"
         height={height}
         position="relative"
@@ -164,15 +121,7 @@ function Avatar(props: Props) {
         ) : (
           <DefaultAvatar
             accessibilityLabel={accessibilityLabel}
-<<<<<<< HEAD
-<<<<<<< HEAD
-            avatarColor={avatarColor}
-=======
-            avatarColorIndex={avatarColorIndex}
->>>>>>> 950395011 (fixed focus outline)
-=======
-            avatarColor={avatarColor}
->>>>>>> b81f81405 (fixed prop naming)
+            color={color}
             isHovered={isHovered}
             isPressed={isPressed}
             name={name}

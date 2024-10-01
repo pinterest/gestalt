@@ -7,18 +7,8 @@ export default function Example() {
   });
 
   const accessibilityLabel = isInVRExperiment
-<<<<<<< HEAD
-<<<<<<< HEAD
     ? 'Collaborators: Fatima, Sora, Ayesha.'
     : 'Collaborators: Keerthi, Alberto, Shanice.';
-=======
-  ? 'Collaborators: Fatima, Sora, Ayesha.'
-  : 'Collaborators: Keerthi, Alberto, Shanice.';
->>>>>>> da83e2698 (updated AvatarGroup examples)
-=======
-    ? 'Collaborators: Fatima, Sora, Ayesha.'
-    : 'Collaborators: Keerthi, Alberto, Shanice.';
->>>>>>> e3b5eac32 (prettier)
 
   const collaborators = [
     {

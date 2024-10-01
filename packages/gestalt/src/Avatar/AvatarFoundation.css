@@ -5,15 +5,8 @@
 }
 
 .outline {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  outline: 1px solid var(--sema-color-border-focus-inner-default);
-=======
-  outline: 1px solid var(--sema-color-border-focus-outer-default);
->>>>>>> 950395011 (fixed focus outline)
-=======
-  outline: 1px solid var(--sema-color-border-focus-inner-default);
->>>>>>> 8e95c0684 (cleanup)
+  border-radius: 50%;
+  outline: 1px solid rgb(255 255 255);
 }
 
 .outlineVR {
@@ -27,17 +20,23 @@
   outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
+.imageHovered {
+  background: var(--sema-color-hover-background-wash-image-tint);
+}
+
+.imagePressed {
+  background: var(--sema-color-pressed-background-wash-image-tint);
+}
+
 .innerDiv {
   display: flex;
   inset: 0;
   justify-content: center;
   position: absolute;
-<<<<<<< HEAD
 }
 
 .text {
   composes: antialiased sansSerif fontWeightSemiBold from "../Typography.css";
-  color: var(--color-icon-avatar-default);
 }
 
 .vrText {
@@ -49,39 +48,10 @@
   vertical-align: middle;
 }
 
-.imageHovered {
-  background: var(--sema-color-hover-background-wash-image-tint);
+.iconFillDefault {
+  fill: var(--color-icon-avatar-default);
 }
 
-<<<<<<< HEAD
-.imagePressed {
-  background: var(--sema-color-pressed-background-wash-image-tint);
-=======
 .iconFillDarkMode {
   fill: var(--color-icon-light);
-=======
->>>>>>> 950395011 (fixed focus outline)
->>>>>>> 4e0fbafb8 (fixed focus outline)
-}
-
-.text {
-  composes: antialiased sansSerif fontWeightSemiBold from "../Typography.css";
-  color: var(--color-icon-avatar-default);
-}
-
-.vrText {
-  composes: lg from "../TextUI.css";
-}
-
-.icon {
-  stroke-width: 0;
-  vertical-align: middle;
-}
-
-.imageHovered {
-  background: var(--sema-color-hover-background-wash-image-tint);
-}
-
-.imagePressed {
-  background: var(--sema-color-pressed-background-wash-image-tint);
 }

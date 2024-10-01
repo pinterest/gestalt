@@ -4,7 +4,7 @@ import PositioningWrapper from './PositioningWrapper';
 import Avatar from '../Avatar';
 
 type Props = BaseStackType & {
-  avatarColor?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
   index: number;
   name: string;
   isFocused: boolean;
@@ -15,7 +15,7 @@ type Props = BaseStackType & {
 };
 
 export default function AvatarGroupCollaboratorAvatar({
-  avatarColor,
+  color,
   isHovered,
   index,
   isFocused,
@@ -30,7 +30,7 @@ export default function AvatarGroupCollaboratorAvatar({
     <PositioningWrapper index={index} pileCount={pileCount} size={size}>
       <HoverOverlay hovered={isHovered} size={size}>
         <Avatar
-          avatarColor={avatarColor}
+          color={color}
           isFocused={isFocused}
           isFocusVisible={isFocusVisible}
           isHovered={isHovered}

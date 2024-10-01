@@ -2,15 +2,7 @@ import AvatarFoundation from './Foundation';
 
 type Props = {
   accessibilityLabel?: string;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  avatarColor?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
-=======
-  avatarColorIndex?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
->>>>>>> 950395011 (fixed focus outline)
-=======
-  avatarColor?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
->>>>>>> b81f81405 (fixed prop naming)
+  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
   isHovered?: boolean;
   isPressed?: boolean;
   name: string;
@@ -18,15 +10,7 @@ type Props = {
 
 export default function DefaultAvatar({
   accessibilityLabel,
-<<<<<<< HEAD
-<<<<<<< HEAD
-  avatarColor,
-=======
-  avatarColorIndex,
->>>>>>> 950395011 (fixed focus outline)
-=======
-  avatarColor,
->>>>>>> b81f81405 (fixed prop naming)
+  color,
   isHovered,
   isPressed,
   name,
@@ -36,7 +20,7 @@ export default function DefaultAvatar({
 
   return (
     <AvatarFoundation
-      avatarColor={avatarColor}
+      color={color}
       fontSize="40px"
       isHovered={isHovered}
       isPressed={isPressed}

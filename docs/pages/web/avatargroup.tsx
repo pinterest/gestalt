@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { useState } from 'react';
-<<<<<<< HEAD
-=======
-import { Fragment, useState } from 'react';
->>>>>>> a8d098199 (building examples)
-=======
-import { useState } from 'react';
->>>>>>> da83e2698 (updated AvatarGroup examples)
 import {
   AvatarGroup,
   Box,
@@ -16,12 +7,6 @@ import {
   Text,
   useDangerouslyInGestaltExperiment,
 } from 'gestalt';
-<<<<<<< HEAD
-=======
-import { AvatarGroup, Box, SelectList, useDangerouslyInGestaltExperiment } from 'gestalt';
->>>>>>> b81f81405 (fixed prop naming)
-=======
->>>>>>> a8d098199 (building examples)
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -43,25 +28,10 @@ import roleLink from '../../examples/avatarGroup/roleLink';
 import sizing from '../../examples/avatarGroup/sizing';
 
 export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
-<<<<<<< HEAD
-<<<<<<< HEAD
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
-<<<<<<< HEAD
-=======
-    const isInVRExperiment = useDangerouslyInGestaltExperiment({
-=======
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
->>>>>>> 80cd4e984 (working on docs)
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-
->>>>>>> b81f81405 (fixed prop naming)
-=======
->>>>>>> a8d098199 (building examples)
   const [avatarsize, setAvatarsize] = useState<'md' | 'xs' | 'sm'>('md');
 
   const sizeExamples = (
@@ -214,7 +184,7 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
         src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
       },
       {
-        avatarColor: '08',
+        color: '08',
         name: 'Zola',
       },
       {
@@ -233,7 +203,7 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
     ],
     [
       {
-        avatarColor: '10',
+        color: '10',
         name: 'Benito',
       },
       {
@@ -244,349 +214,19 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
     ],
     [
       {
-        avatarColor: '04',
+        color: '04',
         name: 'Alanna',
       },
       {
-        avatarColor: '06',
+        color: '06',
         name: 'Elliot',
       },
       {
-        avatarColor: '08',
+        color: '08',
         name: 'Ricardo',
       },
       {
-        avatarColor: '10',
-        name: 'Ricardo',
-      },
-      ...new Array(10),
-    ],
-    [
-      {
-        name: 'Fatima',
-        src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-      },
-      {
-        name: 'Sora',
-        src: 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg',
-      },
-      {
-        name: 'Ayesha',
-        src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-      },
-      ...new Array(100),
-    ],
-  ];
-
-  const staticExamples = (
-    <CombinationNew
-      // @ts-expect-error - TS2322 - Type '{ children: ({ addCollaborators, collaborators }: { [key: string]: any; }) => Element; addCollaborators: boolean[]; collaborators: any[][]; hideTitle: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
-      addCollaborators={[false]}
-      collaborators={staticCollaborators}
-      hideTitle
-    >
-      {({ collaborators }) => {
-        const accessibilityLabel =
-          collaborators.length <= 3
-            ? // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-              `Collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
-            : `Collaborators: ${collaborators
-                .slice(0, 2)
-                // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-                .map((x) => x?.name)
-                .join(', ')} ${
-                collaborators.length > 3 ? `and ${collaborators.length - 2} more.` : '.'
-              }`;
-
-        return (
-          <Flex alignItems="center" direction="column" gap={2}>
-            <AvatarGroup
-              accessibilityLabel={accessibilityLabel}
-              collaborators={collaborators}
-              size={avatarsize}
-            />
-            <Text overflow="normal" size="200" weight="bold">
-              Display Only
-            </Text>
-          </Flex>
-        );
-      }}
-    </CombinationNew>
-  );
-
-  const interactiveExamples = (
-    <CombinationNew
-      // @ts-expect-error - TS2322 - Type '{ children: ({ addCollaborators, collaborators }: { [key: string]: any; }) => Element; addCollaborators: boolean[]; collaborators: any[][]; hideTitle: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
-      addCollaborators={[true]}
-      collaborators={interactiveCollaborators}
-      hideTitle
-    >
-      {({ addCollaborators, collaborators }) => {
-        const accessibilityLabel =
-          collaborators.length <= 3
-            ? // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-              `Collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
-            : `Collaborators: ${collaborators
-                .slice(0, 2)
-                // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-                .map((x) => x?.name)
-                .join(', ')} ${
-                collaborators.length > 3 ? `and ${collaborators.length - 2} more.` : '.'
-              }`;
-
-        return addCollaborators && collaborators.length > 12 ? (
-          <Flex alignItems="center" direction="column" gap={2}>
-            <AvatarGroup
-              accessibilityLabel={`${accessibilityLabel} Add collaborators to this board.`}
-              addCollaborators
-              collaborators={collaborators}
-              onClick={() => {}}
-              role="button"
-              size={avatarsize}
-            />
-            <Text overflow="normal" size="200" weight="bold">
-              Interactive
-            </Text>
-          </Flex>
-        ) : (
-          <Flex alignItems="center" direction="column" gap={2}>
-            <AvatarGroup
-              accessibilityLabel={accessibilityLabel}
-              collaborators={collaborators}
-              onClick={() => {}}
-              role="button"
-              size={avatarsize}
-            />
-            <Text overflow="normal" size="200" weight="bold">
-              Interactive
-            </Text>
-          </Flex>
-        );
-      }}
-    </CombinationNew>
-  );
-
-  const sizeExamplesVR = (
-    <Flex alignContent="center" direction="column" gap={3}>
-      <Box display="flex">
-        <SelectList
-          id="sizeExamples"
-          label="Size"
-          onChange={({ value }) => {
-            if (value === 'md' || value === 'xs' || value === 'sm') {
-              setAvatarsize(value);
-            }
-          }}
-          size="md"
-          value={avatarsize}
-        >
-          {[
-            { label: 'xs', value: 'xs' },
-            { label: 'sm', value: 'sm' },
-            { label: 'md', value: 'md' },
-          ].map(({ label, value }) => (
-            <SelectList.Option key={label} label={label} value={value} />
-          ))}
-        </SelectList>
-      </Box>
-      {staticExamples}
-      {interactiveExamples}
-    </Flex>
-  );
-
-  const sizeExamples = (
-    <div>
-      <Box display="flex">
-        <SelectList
-          id="sizeExamples"
-          label="Size"
-          onChange={({ value }) => {
-            if (value === 'md' || value === 'xs' || value === 'sm') {
-              setAvatarsize(value);
-            }
-          }}
-          size="md"
-          value={avatarsize}
-        >
-          {[
-            { label: 'xs', value: 'xs' },
-            { label: 'sm', value: 'sm' },
-            { label: 'md', value: 'md' },
-          ].map(({ label, value }) => (
-            <SelectList.Option key={label} label={label} value={value} />
-          ))}
-        </SelectList>
-      </Box>
-      <CombinationNew
-        // @ts-expect-error - TS2322 - Type '{ children: ({ addCollaborators, collaborators }: { [key: string]: any; }) => Element; addCollaborators: boolean[]; collaborators: any[][]; hideTitle: true; }' is not assignable to type 'IntrinsicAttributes & Props'.
-        addCollaborators={[false, true]}
-        collaborators={[
-          [
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-          ],
-          [
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-          ],
-          [
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-            {
-              name: 'Shanice',
-              src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-            },
-          ],
-          [
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-            {
-              name: 'Shanice',
-              src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-            },
-            ...new Array(10),
-          ],
-          [
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-            {
-              name: 'Shanice',
-              src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-            },
-            ...new Array(100),
-          ],
-        ]}
-        hideTitle
-      >
-        {({ addCollaborators, collaborators }) => {
-          const accessibilityLabel =
-            collaborators.length <= 3
-              ? // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-                `Collaborators: ${collaborators.map((x) => x?.name).join(', and ')}.`
-              : `Collaborators: ${collaborators
-                  .slice(0, 2)
-                  // @ts-expect-error - TS7006 - Parameter 'x' implicitly has an 'any' type.
-                  .map((x) => x?.name)
-                  .join(', ')} ${
-                  collaborators.length > 3 ? `and ${collaborators.length - 2} more.` : '.'
-                }`;
-          return addCollaborators ? (
-            <AvatarGroup
-              accessibilityLabel={`${accessibilityLabel} Add collaborators to this board.`}
-              addCollaborators
-              collaborators={collaborators}
-              onClick={() => {}}
-              role="button"
-              size={avatarsize}
-            />
-          ) : (
-            <AvatarGroup
-              accessibilityLabel={accessibilityLabel}
-              collaborators={collaborators}
-              size={avatarsize}
-            />
-          );
-        }}
-      </CombinationNew>
-    </div>
-  );
-
-  const staticCollaborators = [
-    [
-      {
-        name: 'Sora',
-        src: 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg',
-      },
-    ],
-    [
-      {
-        name: 'Fatima',
-        src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-      },
-      {
-        name: 'Sora',
-        src: 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg',
-      },
-      {
-        name: 'Ayesha',
-        src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-      },
-    ],
-    [
-      {
-        name: 'Fatima',
-        src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-      },
-      {
-        avatarColor: '08',
-        name: 'Zola',
-      },
-      {
-        name: 'Ayesha',
-        src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-      },
-    ],
-  ];
-
-  const interactiveCollaborators = [
-    [
-      {
-        name: 'Fatima',
-        src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-      },
-    ],
-    [
-      {
-        avatarColor: '10',
-        name: 'Benito',
-      },
-      {
-        name: 'Ayesha',
-        src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-      },
-      ...new Array(10),
-    ],
-    [
-      {
-        avatarColor: '04',
-        name: 'Alanna',
-      },
-      {
-        avatarColor: '06',
-        name: 'Elliot',
-      },
-      {
-        avatarColor: '08',
-        name: 'Ricardo',
-      },
-      {
-        avatarColor: '10',
+        color: '10',
         name: 'Ricardo',
       },
       ...new Array(10),
@@ -842,17 +482,11 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           <CombinationNew size={['xs', 'sm', 'md']}>
             {({ size }) => (
               <AvatarGroup
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> da83e2698 (updated AvatarGroup examples)
                 accessibilityLabel={
                   isInVRExperiment
                     ? 'Collaborators: Fatima, Sora, Ayesha.'
                     : 'Collaborators: Keerthi, Alberto, and Shanice.'
                 }
-<<<<<<< HEAD
                 collaborators={
                   isInVRExperiment
                     ? [
@@ -884,75 +518,6 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
                         },
                       ]
                 }
-=======
-                accessibilityLabel="Collaborators: Keerthi, Alberto, and Shanice."
-<<<<<<< HEAD
-                collaborators={ isInVRExperiment ? [
-                  {
-                    name: 'Sora',
-                    src: 'https://i.pinimg.com/originals/ab/b6/ed/abb6ed2d94c8ed84c9ade8b21db6b5ab.jpg',
-                  },
-                  {
-                    name: 'Tamia',
-                    src: 'https://i.pinimg.com/originals/7c/4c/7e/7c4c7e35d0c85fe3959c78841a59f153.jpg',
-                  },
-                  {
-                    name: 'Javier',
-                    src: 'https://i.pinimg.com/originals/c2/ad/f1/c2adf1758516e3f21459a1717124cb66.jpg',
-                  },
-                ] : [
-                  {
-                    name: 'Keerthi',
-                    src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-                  },
-                  {
-                    name: 'Alberto',
-                    src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-                  },
-                  {
-                    name: 'Shanice',
-                    src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-                  },
-                ]}
->>>>>>> 80cd4e984 (working on docs)
-=======
-=======
-                accessibilityLabel={isInVRExperiment ? 'Collaborators: Fatima, Sora, Ayesha.' : 'Collaborators: Keerthi, Alberto, and Shanice.'}
->>>>>>> 4161d981c (updated images)
-=======
->>>>>>> da83e2698 (updated AvatarGroup examples)
-                collaborators={
-                  isInVRExperiment
-                    ? [
-                        {
-                          name: 'Fatima',
-                          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-                        },
-                        {
-                          name: 'Sora',
-                          src: 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg',
-                        },
-                        {
-                          name: 'Ayesha',
-                          src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-                        },
-                      ]
-                    : [
-                        {
-                          name: 'Keerthi',
-                          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-                        },
-                        {
-                          name: 'Alberto',
-                          src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-                        },
-                        {
-                          name: 'Shanice',
-                          src: 'https://i.ibb.co/7tGKGvb/shanice.jpg',
-                        },
-                      ]
-                }
->>>>>>> a8d098199 (building examples)
                 size={size}
               />
             )}
@@ -962,10 +527,6 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           <MainSection.Subsection
             description="AvatarGroup is a responsive component. Avatar Groups that are not given a size prop or use size `fit` will expand to fit to the width of their parent container. A common use case is to achieve column-based sizing.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 80cd4e984 (working on docs)
                     Resize the width or number of avatars to see the AvatarGroup change to match the width of the Column it's been placed in.
               "
             title="Responsive sizing"
@@ -978,22 +539,6 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
             />
           </MainSection.Subsection>
         )}
-<<<<<<< HEAD
-=======
-        Resize the width or number of avatars to see the AvatarGroup change to match the width of the Column it's been placed in.
-  "
-          title="Responsive sizing"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={isInVRExperiment ? sizingVR : sizing} name="Responsive sizing" previewHeight={200} />
-            }
-          />
-        </MainSection.Subsection>
->>>>>>> b81f81405 (fixed prop naming)
-=======
->>>>>>> 80cd4e984 (working on docs)
         <MainSection.Subsection
           description="AvatarGroup displays up to three user avatars. More users, if present, will be displayed as a numerical count. Not available for 'xs' size."
           title="Collaborators display"

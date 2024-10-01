@@ -204,48 +204,13 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          columns={2}
-          description="There are 12 available colors for Avatar."
-          title="Colors"
-        >
-          <MainSection.Card
-            cardSize="md"
-            description={`
-          - To reflect a person, company or brand within the product.
-        `}
-            sandpackExample={
-              <SandpackExample
-                code={colorExample}
-                hideEditor
-                name="Color Examples"
-                previewHeight={200}
-              />
-            }
-            title="When to use"
-            type="do"
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
           description={`
           There are 5 sizes available for Avatar. For certain designs you may need a [container-based size](#Container-Based-Sizes).
         `}
           title="Fixed sizes"
         >
           <MainSection.Card
-<<<<<<< HEAD
-<<<<<<< HEAD
             sandpackExample={<SandpackExample code={sizingExample} name="Sizing variant" />}
-=======
-            sandpackExample={
-              <SandpackExample
-                code={isInVRExperiment ? sizingVR : sizingExample}
-                name="Sizing variant"
-              />
-            }
->>>>>>> 88a4a9048 (added more VR examples)
-=======
-            sandpackExample={<SandpackExample code={sizingExample} name="Sizing variant" />}
->>>>>>> 2003c2dd8 (examples fixed)
           />
         </MainSection.Subsection>
         {!isInVRExperiment && (

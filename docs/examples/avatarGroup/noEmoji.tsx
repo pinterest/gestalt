@@ -21,27 +21,11 @@ export default function Example() {
 
   const collaboratorsVR = [
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      avatarColor: '10',
+      color: '10',
       name: 'Sora',
     },
     {
-      avatarColor: '04',
-=======
-      avatarColor: "10",
-      name: 'Sora',
-    },
-    {
-      avatarColor: "04",
->>>>>>> da83e2698 (updated AvatarGroup examples)
-=======
-      avatarColor: '10',
-      name: 'Sora',
-    },
-    {
-      avatarColor: '04',
->>>>>>> e3b5eac32 (prettier)
+      color: '04',
       name: '🙏🏾',
     },
     {

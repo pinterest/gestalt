@@ -1,32 +1,32 @@
 import { Avatar, Box, Flex } from 'gestalt';
 
-type AvatarColorIndex = '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+type Color = '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
 
 interface AvatarProps {
   name: string;
-  avatarColorIndex: AvatarColorIndex;
+  color: Color;
 }
 
 const avatars: AvatarProps[] = [
-  { name: 'Alberto', avatarColorIndex: '01' },
-  { name: 'Andy', avatarColorIndex: '02' },
-  { name: 'Alexandra', avatarColorIndex: '03' },
-  { name: 'Alexi', avatarColorIndex: '04' },
-  { name: 'Alonso', avatarColorIndex: '05' },
-  { name: 'Arturo', avatarColorIndex: '06' },
-  { name: 'Amanda', avatarColorIndex: '07' },
-  { name: 'Angelina', avatarColorIndex: '08' },
-  { name: 'Adrian', avatarColorIndex: '09' },
-  { name: 'Amelia', avatarColorIndex: '10' },
+  { name: 'Alberto', color: '01' },
+  { name: 'Andy', color: '02' },
+  { name: 'Alexandra', color: '03' },
+  { name: 'Alexi', color: '04' },
+  { name: 'Alonso', color: '05' },
+  { name: 'Arturo', color: '06' },
+  { name: 'Amanda', color: '07' },
+  { name: 'Angelina', color: '08' },
+  { name: 'Adrian', color: '09' },
+  { name: 'Amelia', color: '10' },
 ];
 
 export default function Example() {
   return (
     <Box maxWidth={900} width="100%">
       <Flex alignItems="center" height="50%" justifyContent="evenly" width="100%">
-        {avatars.map(({ name, avatarColorIndex }) => (
+        {avatars.map(({ name, color }) => (
           <Box key={name} width={40}>
-            <Avatar avatarColor={avatarColorIndex} name={name} outline />
+            <Avatar color={color} name={name} outline />
           </Box>
         ))}
       </Flex>

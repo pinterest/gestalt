@@ -9,7 +9,6 @@ exports[`Avatar renders an outline 1`] = `
     data-test-id="gestalt-avatar-svg"
     style={
       Object {
-        "boxShadow": "0 0 0 1px var(--color-border-avatar)",
         "height": "",
         "width": "100%",
       }
@@ -17,71 +16,10 @@ exports[`Avatar renders an outline 1`] = `
   >
     <div
       className="box circle relative secondary"
-<<<<<<< HEAD
       style={
         Object {
-          "boxShadow": undefined,
-          "paddingBottom": "100%",
-        }
-      }
-    >
-      <div
-        className="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
-      >
-        <svg
-          preserveAspectRatio="xMidYMid meet"
-          version="1.1"
-          viewBox="-50 -50 100 100"
-          width="100%"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>
-            Jenny
-          </title>
-          <text
-            className="text"
-            dy="0.35em"
-            fill="var(--color-text-default)"
-            fontSize="40px"
-            textAnchor="middle"
-          >
-            J
-          </text>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Avatar renders everything in visual refresh 1`] = `
-<div
-  className="box circle relative"
-  data-test-id="gestalt-avatar-svg"
-  style={
-    Object {
-      "height": 64,
-      "width": 64,
-    }
-  }
->
-  <div
-    className="Mask circle willChangeTransform"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  >
-      
-    <div
-      className="box relative"
-=======
->>>>>>> 159a0f9a6 (snapshot)
-      style={
-        Object {
-          "boxShadow": undefined,
+          "borderRadius": undefined,
+          "outline": undefined,
           "paddingBottom": "100%",
         }
       }
@@ -133,7 +71,8 @@ exports[`Avatar renders multi-byte character initial 1`] = `
       className="box circle relative secondary"
       style={
         Object {
-          "boxShadow": undefined,
+          "borderRadius": undefined,
+          "outline": undefined,
           "paddingBottom": "100%",
         }
       }
@@ -181,10 +120,6 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -276,10 +211,6 @@ exports[`Avatar renders the correct size - lg 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -334,10 +265,6 @@ exports[`Avatar renders the correct size - md 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -392,10 +319,6 @@ exports[`Avatar renders the correct size - sm 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -450,10 +373,6 @@ exports[`Avatar renders the correct size - xl 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -508,10 +427,6 @@ exports[`Avatar renders the correct size - xs 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -566,10 +481,6 @@ exports[`Avatar renders the correct src 1`] = `
       }
     }
   >
-<<<<<<< HEAD
-
-=======
->>>>>>> 159a0f9a6 (snapshot)
     <div
       className="Mask circle willChangeTransform"
       style={
@@ -628,7 +539,8 @@ exports[`Avatar renders the verified icon 1`] = `
       className="box circle relative secondary"
       style={
         Object {
-          "boxShadow": undefined,
+          "borderRadius": undefined,
+          "outline": undefined,
           "paddingBottom": "100%",
         }
       }
@@ -717,7 +629,8 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
       className="box circle relative secondary"
       style={
         Object {
-          "boxShadow": undefined,
+          "borderRadius": undefined,
+          "outline": undefined,
           "paddingBottom": "100%",
         }
       }
