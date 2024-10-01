@@ -1,3 +1,21 @@
+## 160.3.1 (Oct 1, 2024)
+
+### Patch
+
+- IconButtonFloating: reverting circle to squircle ([#3784](https://github.com/pinterest/gestalt/pull/3784)) - [Preview link](https://deploy-preview-3784--gestalt.netlify.app?devexample=true)
+
+## 160.3.0 (Oct 1, 2024)
+
+### Minor
+
+- Spinner: VR implementation changes ([#3774](https://github.com/pinterest/gestalt/pull/3774)) - [Preview link](https://deploy-preview-3774--gestalt.netlify.app?devexample=true)
+
+## 160.2.1 (Sep 30, 2024)
+
+### Patch
+
+- Internal: updates icon declaration file ([#3785](https://github.com/pinterest/gestalt/pull/3785)) - [Preview link](https://deploy-preview-3785--gestalt.netlify.app?devexample=true)
+
 ## 160.2.0 (Sep 27, 2024)
 
 ### Minor

@@ -1,0 +1,94 @@
+.spinner {
+  --g-size: 40px;
+  --g-dot-size: calc(var(--g-size) / 3);
+  --g-dot-space: calc(var(--g-dot-size) * 1.75);
+
+  height: var(--g-size);
+  width: var(--g-size);
+}
+
+.spinnerFrame {
+  animation: spin 1500ms linear infinite;
+  box-sizing: border-box;
+  height: calc(var(--g-dot-space) * sqrt(3) / 2);
+  left: calc(var(--g-dot-size) * 0.625);
+  position: relative;
+  top: calc(var(--g-dot-size) / 2);
+  transform-origin: center calc(var(--g-dot-space) / sqrt(3));
+  width: var(--g-dot-space);
+}
+
+.spinnerFrame > div {
+  animation-composition: add;
+  animation-duration: 800ms, 1.8s;
+  animation-iteration-count: infinite;
+  animation-name: scale, colors;
+  animation-timing-function: linear;
+  border-radius: 50%;
+  height: var(--g-dot-size);
+  position: absolute;
+  width: var(--g-dot-size);
+}
+
+.dot1 {
+  animation-delay: 0s;
+  left: 50%;
+  top: 0;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.dot2 {
+  animation-delay: 100ms, 0s;
+  bottom: 0;
+  left: 0;
+  transform: translate3d(-50%, 50%, 0);
+}
+
+.dot3 {
+  animation-delay: 200ms, 0s;
+  bottom: 0;
+  right: 0;
+  transform: translate3d(50%, 50%, 0);
+}
+
+.spinner.delay .spinnerFrame > div {
+  animation-delay: 300ms;
+}
+
+.delay {
+  animation-delay: 300ms;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  50% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes colors {
+  0% {
+    background-color: var(--comp-spinner-color-background-pink);
+  }
+
+  33.333% {
+    background-color: var(--comp-spinner-color-background-orange);
+  }
+
+  66.666% {
+    background-color: var(--comp-spinner-color-background-blue);
+  }
+
+  100% {
+    background-color: var(--comp-spinner-color-background-pink);
+  }
+}
