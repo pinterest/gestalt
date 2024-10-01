@@ -5,7 +5,6 @@ export default function Example() {
     <Box direction="column" display="flex" justifyContent="center" margin={4} width="100%">
       <Box margin={2} width="100%">
         <ButtonLink
-          accessibilityLabel="Visit Pinterest"
           color="red"
           fullWidth={false}
           href="https://pinterest.com"
@@ -17,7 +16,6 @@ export default function Example() {
       </Box>
       <Box margin={2} width="100%">
         <ButtonLink
-          accessibilityLabel="Visit Pinterest"
           color="red"
           fullWidth
           href="https://pinterest.com"
