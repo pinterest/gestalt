@@ -13,6 +13,7 @@ import SandpackExample from '../../docs-components/SandpackExample';
 import colors from '../../examples/buttonlink/colors';
 import disabled from '../../examples/buttonlink/disabled';
 import enabled from '../../examples/buttonlink/enabled';
+import focus from '../../examples/buttonlink/focus';
 import iconEndExample from '../../examples/buttonlink/iconEnd';
 import iconTooltipToExplainDo from '../../examples/buttonlink/iconTooltipToExplainDo';
 import iconTooltipToExplainDont from '../../examples/buttonlink/iconTooltipToExplainDont';
@@ -318,6 +319,12 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Focus style">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={focus} name="Focus example" />}
           />
         </MainSection.Subsection>
 

@@ -12,8 +12,9 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
 import colors from '../../examples/button/colors';
-import defaultStateExample from '../../examples/button/defaultStateExample';
-import disabledStateExample from '../../examples/button/disabledStateExample';
+import disabledStateExample from '../../examples/button/disabled';
+import defaultStateExample from '../../examples/button/enabled';
+import focus from '../../examples/button/focus';
 import iconExample from '../../examples/button/iconExample';
 import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo';
 import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont';
@@ -71,6 +72,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -192,6 +194,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
@@ -280,33 +283,32 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
             }
           />
         </MainSection.Subsection>
-      </MainSection>
 
-      <MainSection.Subsection
-        description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
+        <MainSection.Subsection
+          description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
 2. \`md\` (${isInExperiment ? '36' : '40'}px)
     Medium is used on more dense UI such as business surfaces or internal tools.
 3. \`sm\` (${isInExperiment ? '28' : '32'}px)
     Small should be used sparingly and only in places where the UI is very dense.`}
-        title="Size"
-      >
-        {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-        <CombinationNew size={['sm', 'md', 'lg']}>
-          {({ size }) => (
-            <Button
-              accessibilityLabel={`Example size ${size}`}
-              color="red"
-              size={size}
-              text="Save"
-            />
-          )}
-        </CombinationNew>
-      </MainSection.Subsection>
+          title="Size"
+        >
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          <CombinationNew size={['sm', 'md', 'lg']}>
+            {({ size }) => (
+              <Button
+                accessibilityLabel={`Example size ${size}`}
+                color="red"
+                size={size}
+                text="Save"
+              />
+            )}
+          </CombinationNew>
+        </MainSection.Subsection>
 
-      <MainSection.Subsection
-        description={`
+        <MainSection.Subsection
+          description={`
 #### On white backgrounds
 
 1. Red (Primary)
@@ -324,78 +326,85 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
       Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 
 `}
-        title="Color"
-      >
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
-          }
-          title="On white backgrounds"
-        />
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample
-              code={washColors}
-              layout="column"
-              name="Color on color/image backgrounds"
-              previewHeight={500}
-            />
-          }
-          title="On color/image backgrounds"
-        />
-      </MainSection.Subsection>
+          title="Color"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
+            }
+            title="On white backgrounds"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={washColors}
+                layout="column"
+                name="Color on color/image backgrounds"
+                previewHeight={500}
+              />
+            }
+            title="On color/image backgrounds"
+          />
+        </MainSection.Subsection>
 
-      <MainSection.Subsection
-        description={`
+        <MainSection.Subsection
+          description={`
 1. Inline (default)
     Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
 2. Full-width (\`fullWidth\`)
     Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
-        title="Width"
-      >
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample
-              code={width}
-              layout="column"
-              name="Width example."
-              previewHeight={PREVIEW_HEIGHT}
-            />
-          }
-        />
-      </MainSection.Subsection>
+          title="Width"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={width}
+                layout="column"
+                name="Width example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
-      <MainSection.Subsection
-        description={`
+        <MainSection.Subsection
+          description={`
 \`iconEnd\` adds an icon after the Button text, and \`iconStart\` adds an icon before. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that icons on Button are not accessible to screen readers.
 `}
-        title="Icons"
-      >
-        <BannerSlim
-          helperLink={{
-            accessibilityLabel: 'Learn more about the "button-icon-restrictions" rule',
-            href: '/get_started/developers/eslint_plugin#gestaltbutton-icon-restrictions',
-            text: 'Learn more about the "button-icon-restrictions" rule',
-          }}
-          iconAccessibilityLabel="Recommendation"
-          message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."
-          type="recommendationBare"
-        />
+          title="Icons"
+        >
+          <BannerSlim
+            helperLink={{
+              accessibilityLabel: 'Learn more about the "button-icon-restrictions" rule',
+              href: '/get_started/developers/eslint_plugin#gestaltbutton-icon-restrictions',
+              text: 'Learn more about the "button-icon-restrictions" rule',
+            }}
+            iconAccessibilityLabel="Recommendation"
+            message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."
+            type="recommendationBare"
+          />
 
-        <MainSection.Card
-          cardSize="lg"
-          sandpackExample={
-            <SandpackExample
-              code={iconExample}
-              name="Icon end of button example."
-              previewHeight={PREVIEW_HEIGHT}
-            />
-          }
-        />
-      </MainSection.Subsection>
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={iconExample}
+                name="Icon end of button example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Focus style">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={focus} name="Focus example" />}
+          />
+        </MainSection.Subsection>
+      </MainSection>
 
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
