@@ -287,7 +287,7 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
     Inline is our default ButtonLink width.  The width of an inline ButtonLink is based on the length of its text. Use in most cases where you need a ButtonLink.
 
 2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the ButtonLink is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
+    Full-width ButtonLink can be used in narrower content areas when the text in the ButtonLink is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
           title="Width"
         >
           <MainSection.Card
