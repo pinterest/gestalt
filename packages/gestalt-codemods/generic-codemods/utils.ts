@@ -59,8 +59,7 @@ const getComponentIdentifierByName = ({
 const getGestaltImport = ({ src, j }: { src: Collection; j: JSCodeshift }): Collection =>
   src.find(j.ImportDeclaration, {
     source: {
-      // type: 'Literal',
-      value: 'gestalt',
+      value: (value: string) => value.includes('gestalt'),
     },
   });
 
