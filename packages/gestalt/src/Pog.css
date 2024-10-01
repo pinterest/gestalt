@@ -163,20 +163,28 @@
 }
 
 .transparentDarkGray {
-  background-color: var(--color-background-button-semitransparentdark-default);
+  background-color: var(
+    --color-background-iconbutton-semitransparentdark-default
+  );
 }
 
 .transparentDarkGray.hovered,
 .transparentDarkGray.focused {
-  background-color: var(--color-background-button-semitransparentdark-hover);
+  background-color: var(
+    --color-background-iconbutton-semitransparentdark-hover
+  );
 }
 
 .transparentDarkGray.active {
-  background-color: var(--color-background-button-semitransparentdark-active);
+  background-color: var(
+    --color-background-iconbutton-semitransparentdark-active
+  );
 }
 
 .transparentDarkGray.disabled {
-  background-color: var(--color-background-button-semitransparentdark-disabled);
+  background-color: var(
+    --color-background-iconbutton-semitransparentdark-disabled
+  );
 }
 
 .gray {
