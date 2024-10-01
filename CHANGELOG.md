@@ -1,3 +1,9 @@
+## 160.3.0 (Oct 1, 2024)
+
+### Minor
+
+- Spinner: VR implementation changes ([#3774](https://github.com/pinterest/gestalt/pull/3774)) - [Preview link](https://deploy-preview-3774--gestalt.netlify.app?devexample=true)
+
 ## 160.2.1 (Sep 30, 2024)
 
 ### Patch
