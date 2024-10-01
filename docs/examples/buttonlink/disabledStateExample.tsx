@@ -7,6 +7,7 @@ export default function Example() {
         accessibilityLabel="Go back"
         disabled
         href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="Go back"
       />

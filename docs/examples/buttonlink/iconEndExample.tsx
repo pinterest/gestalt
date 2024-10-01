@@ -8,6 +8,7 @@ export default function Example() {
         href="https://www.pinterest.com/"
         iconEnd="visit"
         iconStart="sparkle"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="Visit AI solution"
       />

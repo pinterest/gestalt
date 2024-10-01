@@ -7,6 +7,7 @@ export default function Example() {
         accessibilityLabel="Visit Pinterest"
         color="red"
         href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="Visit Pinterest"
       />
