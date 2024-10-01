@@ -138,6 +138,18 @@
   background-color: var(--color-background-button-tertiary-active);
 }
 
+.transparentWhiteText {
+  background-color: var(--color-background-button-tertiary-default);
+}
+
+.transparentWhiteText:hover {
+  background-color: var(--color-background-button-semitransparentdark-hover);
+}
+
+.transparentWhiteText:active {
+  background-color: var(--color-background-button-semitransparentdark-active);
+}
+
 .blue {
   background-color: var(--color-background-button-shopping-default);
 }
