@@ -165,6 +165,13 @@ export default function DocsPage({ generatedDocGen }: DocType) {
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
+When ButtonLink text does not provide sufficient context about the ButtonLink’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
+Texts like “Visit“, or “Learn more“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonLink text, like “Visit Pinterest's help center“ or “Learn more about Pinterest's ads policy”.
+`}
+          title="ARIA attributes"
+        />
+        <MainSection.Subsection
+          description={`
 Disabled Buttons do not need to pass color contrast guidelines.
 
 [From w3.org, 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html): Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.
@@ -278,15 +285,17 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
           description={`
 1. Inline (default)
     Inline is our default ButtonLink width.  The width of an inline ButtonLink is based on the length of its text. Use in most cases where you need a ButtonLink.
+
 2. Full-width (\`fullWidth\`)
     Full-width Buttons can be used in narrower content areas when the text in the ButtonLink is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
           title="Width"
         >
-         <MainSection.Card
+          <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={width}
+                layout="column"
                 name="Width example."
                 previewHeight={PREVIEW_HEIGHT}
               />

@@ -26,6 +26,7 @@ import selectedStateExample from '../../examples/button/selectedStateExample';
 import showFullTextDo from '../../examples/button/showFullTextDo';
 import showFullTextDont from '../../examples/button/showFullTextDont';
 import washColors from '../../examples/button/washColors';
+import width from '../../examples/button/width';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -237,125 +238,6 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
-1. \`lg\` (48px)
-    Large is the only size that should be used on Pinner surfaces.
-2. \`md\` (${isInExperiment ? '36' : '40'}px)
-    Medium is used on more dense UI such as business surfaces or internal tools.
-3. \`sm\` (${isInExperiment ? '28' : '32'}px)
-    Small should be used sparingly and only in places where the UI is very dense.`}
-          title="Size"
-        >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew size={['sm', 'md', 'lg']}>
-            {({ size }) => (
-              <Button
-                accessibilityLabel={`Example size ${size}`}
-                color="red"
-                size={size}
-                text="Save"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-1. Inline (default)
-    Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
-2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
-          title="Width"
-        >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ fullwidth }: { [key: string]: any; }) => Element; fullwidth: boolean[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew fullwidth={[false, true]} size={['sm', 'md', 'lg']}>
-            {({ fullwidth, size }) => (
-              <Button
-                accessibilityLabel={`Example width ${fullwidth}`}
-                color="red"
-                fullWidth={fullwidth}
-                size={size}
-                text="Save"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-1. Red (Primary)
-    High emphasis, used for primary actions.
-2. Blue (Primary in shopping context)
-${
-  isInExperiment
-    ? `In Visual Refresh, the primary shopping "blue" Button is <b>red</b>, same as the standard primary color. It is only intended for the shopping experience.`
-    : `The blue Button is only intended for the shopping experience and is used for primary shopping actions.`
-}
-3. Gray (Secondary)
-    Medium emphasis, used for secondary actions.
-4. Transparent (Tertiary)
-    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
-`}
-          title="Color on white backgrounds"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`
-  1. White (Primary)
-      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
-  2. Semi-transparent white (Secondary)
-      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
-`}
-          title="Color on color/image backgrounds"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={washColors}
-                layout="column"
-                name="Color on color/image backgrounds"
-                previewHeight={500}
-              />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          description={`
-\`iconEnd\` adds an icon after the Button text, and \`iconStart\` adds an icon before. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that icons on Button are not accessible to screen readers.
-`}
-          title="Icons"
-        >
-          <BannerSlim
-            helperLink={{
-              accessibilityLabel: 'Learn more about the "button-icon-restrictions" rule',
-              href: '/get_started/developers/eslint_plugin#gestaltbutton-icon-restrictions',
-              text: 'Learn more about the "button-icon-restrictions" rule',
-            }}
-            iconAccessibilityLabel="Recommendation"
-            message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."
-            type="recommendationBare"
-          />
-
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={iconExample}
-                name="Icon end of button example."
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
           columns={2}
           description={`
 1. Default
@@ -365,7 +247,7 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
 3. Selected
   When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state.
 `}
-          title="States"
+          title="State"
         >
           <MainSection.Card
             cardSize="md"
@@ -399,6 +281,122 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
           />
         </MainSection.Subsection>
       </MainSection>
+
+      <MainSection.Subsection
+        description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
+1. \`lg\` (48px)
+    Large is the only size that should be used on Pinner surfaces.
+2. \`md\` (${isInExperiment ? '36' : '40'}px)
+    Medium is used on more dense UI such as business surfaces or internal tools.
+3. \`sm\` (${isInExperiment ? '28' : '32'}px)
+    Small should be used sparingly and only in places where the UI is very dense.`}
+        title="Size"
+      >
+        {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+        <CombinationNew size={['sm', 'md', 'lg']}>
+          {({ size }) => (
+            <Button
+              accessibilityLabel={`Example size ${size}`}
+              color="red"
+              size={size}
+              text="Save"
+            />
+          )}
+        </CombinationNew>
+      </MainSection.Subsection>
+
+      <MainSection.Subsection
+        description={`
+#### On white backgrounds
+
+1. Red (Primary)
+    High emphasis, used for primary actions.
+2. Gray (Secondary)
+    Medium emphasis, used for secondary actions.
+3. Transparent (Tertiary)
+    Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
+
+#### On color/image backgrounds
+
+1. White (Primary)
+      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
+2. Semi-transparent white (Secondary)
+      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
+
+`}
+        title="Color"
+      >
+        <MainSection.Card
+          cardSize="lg"
+          sandpackExample={
+            <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
+          }
+          title="On white backgrounds"
+        />
+        <MainSection.Card
+          cardSize="lg"
+          sandpackExample={
+            <SandpackExample
+              code={washColors}
+              layout="column"
+              name="Color on color/image backgrounds"
+              previewHeight={500}
+            />
+          }
+          title="On color/image backgrounds"
+        />
+      </MainSection.Subsection>
+
+      <MainSection.Subsection
+        description={`
+1. Inline (default)
+    Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
+2. Full-width (\`fullWidth\`)
+    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
+        title="Width"
+      >
+        <MainSection.Card
+          cardSize="lg"
+          sandpackExample={
+            <SandpackExample
+              code={width}
+              layout="column"
+              name="Width example."
+              previewHeight={PREVIEW_HEIGHT}
+            />
+          }
+        />
+      </MainSection.Subsection>
+
+      <MainSection.Subsection
+        description={`
+\`iconEnd\` adds an icon after the Button text, and \`iconStart\` adds an icon before. Icons should only be used to visually reinforce a specific function or interaction of the Button. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that icons on Button are not accessible to screen readers.
+`}
+        title="Icons"
+      >
+        <BannerSlim
+          helperLink={{
+            accessibilityLabel: 'Learn more about the "button-icon-restrictions" rule',
+            href: '/get_started/developers/eslint_plugin#gestaltbutton-icon-restrictions',
+            text: 'Learn more about the "button-icon-restrictions" rule',
+          }}
+          iconAccessibilityLabel="Recommendation"
+          message="Use Gestalt's ESLint rule to enforce the correct icons usage in Button."
+          type="recommendationBare"
+        />
+
+        <MainSection.Card
+          cardSize="lg"
+          sandpackExample={
+            <SandpackExample
+              code={iconExample}
+              name="Icon end of button example."
+              previewHeight={PREVIEW_HEIGHT}
+            />
+          }
+        />
+      </MainSection.Subsection>
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
