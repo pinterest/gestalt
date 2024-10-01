@@ -63,7 +63,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
-    focusColor,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
     href,
@@ -107,6 +107,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
