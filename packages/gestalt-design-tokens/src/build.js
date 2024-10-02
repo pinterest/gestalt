@@ -7,7 +7,7 @@ const { getWebConfig } = require('./platforms/web');
 const { getAndroidConfiguration } = require('./platforms/android');
 const { getIOSConfiguration } = require('./platforms/ios');
 const { registerWebFormats } = require('./formatters/registerWebFormats');
-const { registerFileHeader } = require('./headers/fileheader');
+const { registerFileHeaders } = require('./headers/fileheader');
 
 const platformFileMap = {
   web: ['css', 'json', 'js'],
@@ -15,7 +15,7 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift'],
 };
 
-registerFileHeader(StyleDictionary);
+registerFileHeaders(StyleDictionary);
 registerWebFormats(StyleDictionary);
 registerTokenFilters(StyleDictionary);
 registerTokenTransforms(StyleDictionary);
