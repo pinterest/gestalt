@@ -1,3 +1,9 @@
+## 160.5.3 (Oct 2, 2024)
+
+### Patch
+
+- Tokens: Refactor Token Build Script ([#3786](https://github.com/pinterest/gestalt/pull/3786)) - [Preview link](https://deploy-preview-3786--gestalt.netlify.app?devexample=true)
+
 ## 160.5.2 (Oct 2, 2024)
 
 ### Patch
