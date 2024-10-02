@@ -19,7 +19,7 @@
 }
 
 .accessibilityOutlineBorderDefault:focus {
-  border: 2px solid var(--sema-color-border-focus-inner-light);
+  border: 2px solid var(--sema-color-border-focus-inner-default);
 }
 
 .accessibilityOutlineBorder {
@@ -27,7 +27,7 @@
 }
 
 .accessibilityOutlineBorderInverse:focus {
-  border: 2px solid var(--sema-color-border-focus-inner-dark);
+  border: 2px solid var(--sema-color-border-focus-inner-inverse);
 }
 
 .accessibilityOutlineFocusWithin .accessibilityOutline:focus {
