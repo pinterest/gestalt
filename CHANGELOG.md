@@ -1,3 +1,9 @@
+## 160.5.2 (Oct 2, 2024)
+
+### Patch
+
+- TapArea: fix focus token to support built-in darkmode ([#3791](https://github.com/pinterest/gestalt/pull/3791)) - [Preview link](https://deploy-preview-3791--gestalt.netlify.app?devexample=true)
+
 ## 160.5.1 (Oct 2, 2024)
 
 ### Patch
