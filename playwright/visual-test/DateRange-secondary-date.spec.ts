@@ -1,4 +1,3 @@
-
 import { expect, test } from '@playwright/test';
 
 test('DateRange secondary date range visual regression check', async ({ page }) => {
