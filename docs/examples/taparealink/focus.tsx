@@ -1,6 +1,6 @@
-import { Box, Flex, TapArea, Text } from 'gestalt';
+import { Box, Flex, TapAreaLink, Text } from 'gestalt';
 
-export default function TapAreaExample() {
+export default function TapAreaLinkExample() {
   return (
     <Box padding={8} width="100%">
       <Flex gap={6} width="100%">
@@ -14,13 +14,19 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={150}
           >
-            <TapArea focusColor="lightBackground" fullHeight={false} fullWidth={false}>
+            <TapAreaLink
+              focusColor="lightBackground"
+              fullHeight={false}
+              fullWidth={false}
+              href="www.pinterest.com"
+              onTap={({ event }) => event.preventDefault()}
+            >
               <Box height={100} width={100}>
                 <Text color="dark" size="100">
                   focusColor=lightBackground
                 </Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Box>
 
           <Box
@@ -32,13 +38,19 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={150}
           >
-            <TapArea focusColor="darkBackground" fullHeight={false} fullWidth={false}>
+            <TapAreaLink
+              focusColor="darkBackground"
+              fullHeight={false}
+              fullWidth={false}
+              href="www.pinterest.com"
+              onTap={({ event }) => event.preventDefault()}
+            >
               <Box height={100} width={100}>
                 <Text color="light" size="100">
                   focusColor=darkBackground
                 </Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Box>
         </Flex>
         <Flex direction="column" gap={6} width="100%">
@@ -51,18 +63,20 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={150}
           >
-            <TapArea
+            <TapAreaLink
               focusColor="lightBackground"
               fullHeight={false}
               fullWidth={false}
+              href="www.pinterest.com"
               innerFocusColor="default"
+              onTap={({ event }) => event.preventDefault()}
             >
               <Box height={100} width={100}>
                 <Text color="dark" size="100">
                   focusColor=lightBackground & innerFocusColor=default
                 </Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Box>
 
           <Box
@@ -74,18 +88,20 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={150}
           >
-            <TapArea
+            <TapAreaLink
               focusColor="darkBackground"
               fullHeight={false}
               fullWidth={false}
+              href="www.pinterest.com"
               innerFocusColor="default"
+              onTap={({ event }) => event.preventDefault()}
             >
               <Box height={100} width={100}>
                 <Text color="light" size="100">
                   focusColor=darkBackground & innerFocusColor=default
                 </Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Box>
         </Flex>
         <Flex direction="column" gap={6} width="100%">
@@ -98,18 +114,20 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={150}
           >
-            <TapArea
+            <TapAreaLink
               focusColor="lightBackground"
               fullHeight={false}
               fullWidth={false}
+              href="www.pinterest.com"
               innerFocusColor="inverse"
+              onTap={({ event }) => event.preventDefault()}
             >
               <Box height={100} width={100}>
                 <Text color="dark" size="100">
                   focusColor=lightBackground & innerFocusColor=inverse
                 </Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Box>
 
           <Box
@@ -121,18 +139,20 @@ export default function TapAreaExample() {
             justifyContent="center"
             width={150}
           >
-            <TapArea
+            <TapAreaLink
               focusColor="darkBackground"
               fullHeight={false}
               fullWidth={false}
+              href="www.pinterest.com"
               innerFocusColor="inverse"
+              onTap={({ event }) => event.preventDefault()}
             >
               <Box height={100} width={100}>
                 <Text color="light" size="100">
                   focusColor=darkBackground & innerFocusColor=inverse
                 </Text>
               </Box>
-            </TapArea>
+            </TapAreaLink>
           </Box>
         </Flex>
       </Flex>

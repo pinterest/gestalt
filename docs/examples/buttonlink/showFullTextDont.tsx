@@ -9,8 +9,20 @@ export default function Example() {
       justifyContent="center"
       width="100%"
     >
-      <ButtonLink color="gray" href="https://www.pinterest.com/" size="lg" text="Kontoeinst..." />
-      <ButtonLink color="red" href="https://www.pinterest.com/" size="lg" text="Neues We..." />
+      <ButtonLink
+        color="gray"
+        href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
+        size="lg"
+        text="Kontoeinst..."
+      />
+      <ButtonLink
+        color="red"
+        href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
+        size="lg"
+        text="Neues We..."
+      />
     </Flex>
   );
 }

@@ -7,6 +7,7 @@ export default function Example() {
         color="red"
         disabled
         href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="Visit Pinterest"
       />

@@ -20,10 +20,12 @@ type Props = {
   colorClass?: string;
   dataTestId?: string;
   disabled?: boolean;
+  focusColor?: 'lightBackground' | 'darkBackground';
   fullHeight?: boolean;
   fullWidth?: boolean;
   href: string;
   id?: string;
+  innerFocusColor?: 'default' | 'inverse';
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut';
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -62,10 +64,12 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
     href,
     id,
+    innerFocusColor,
     mouseCursor,
     onClick,
     onBlur,
@@ -105,12 +109,14 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
   const { isFocusVisible } = useFocusVisible();
+
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
@@ -120,13 +126,14 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     styles.inheritColor,
     styles.noUnderline,
     touchableStyles.tapTransition,
-    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
+    isTapArea ? getRoundingClassName(rounding || 0) : undefined,
+    !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
-    isButton
+    isButton && !isInVRExperiment
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
@@ -140,6 +147,25 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.lg]: size === 'lg',
         }
       : {},
+    isButton && isInVRExperiment
+      ? {
+          [layoutStyles.inlineFlex]: !fullWidth,
+          [layoutStyles.flex]: fullWidth,
+          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
+          [buttonStyles.buttonVr]: true,
+          [buttonStyles.disabled]: disabled,
+          [buttonStyles.selected]: !disabled && selected,
+          [buttonStyles.smVr]: size === 'sm',
+          [buttonStyles.mdVr]: size === 'md',
+          [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.vrFocused]: !disabled && isFocusVisible,
+          [buttonStyles.defaultFocus]:
+            !disabled && isFocusVisible && focusColor === 'lightBackground',
+          [buttonStyles.inverseFocus]:
+            !disabled && isFocusVisible && focusColor === 'darkBackground',
+        }
+      : {},
     isButton && colorClass
       ? {
           [buttonStyles[colorClass as keyof typeof buttonStyles]]: !disabled && !selected,
@@ -150,6 +176,16 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [layoutStyles.block]: true,
           [touchableStyles.fullHeight]: fullHeight,
           [touchableStyles.fullWidth]: fullWidth,
+          [focusStyles.accessibilityOutlineLightBackground]:
+            isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineDarkBackground]:
+            isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorder]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderDefault]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderInverse]:
+            isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
         }
       : {},
     isTapArea && mouseCursor

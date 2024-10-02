@@ -71,7 +71,7 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Focus state">
+        <MainSection.Subsection title="Focus style">
           <MainSection.Card
             sandpackExample={<SandpackExample code={focus} name="Focus example" />}
           />
