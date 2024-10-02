@@ -13,7 +13,6 @@ import localizationLabels from '../../examples/iconbuttonlink/localizationLabels
 import main from '../../examples/iconbuttonlink/main';
 
 export default function DocsPage({ generatedDocGen }: DocType) {
-
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
