@@ -10,7 +10,6 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import avatarExample from '../../examples/searchguidelink/avatarExample';
 import colors from '../../examples/searchguidelink/colors';
-import expandableExample from '../../examples/searchguidelink/expandableExample';
 import hideLowQualityDo from '../../examples/searchguidelink/hideLowQualityDo';
 import main from '../../examples/searchguidelink/main';
 import noScrollDo from '../../examples/searchguidelink/noScrollDo';
@@ -37,7 +36,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
         <SandpackExample
           code={main}
           hideEditor
-          name="Main Searchguide example"
+          name="Main Searchguidelink example"
           previewHeight={150}
         />
       </PageHeader>
@@ -286,24 +285,6 @@ Use the \`selected\` prop to indicate that the Searchguide is in a selected stat
               <SandpackExample
                 code={selectedStateExample}
                 name="Selected state searchguide example."
-                previewHeight={150}
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`
-When a Searchguide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped Searchguides.
-`}
-          title="Expandable"
-        >
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={expandableExample}
-                name="Expandable searchguide example."
                 previewHeight={150}
               />
             }

@@ -2,28 +2,12 @@ import React, { cloneElement, forwardRef, ReactElement, useImperativeHandle, use
 import classnames from 'classnames';
 import Box from './Box';
 import Flex from './Flex';
-import focusStyles from './Focus.css';
-import Icon from './Icon';
 import InternalLink from './Link/InternalLink';
 import styles from './SearchGuide.css';
-import touchableStyles from './TapArea.css';
 import TextUI from './TextUI';
-import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 
 type Props = {
-  /**
-   * Specifies the id of an associated element (or elements) whose contents or visibility are controlled by SearchGuideLink so that screen reader users can identify the relationship between elements.
-   */
-  accessibilityControls?: string;
-  /**
-   * Indicates that SearchGuideLink hides or exposes collapsible components and exposes whether they are currently expanded or collapsed.
-   */
-  accessibilityExpanded?: boolean;
-  /**
-   * Indicates that a component controls the appearance of interactive popup elements, such as menu or dialog. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/searchguide#ARIA-attributes) for details on proper usage.
-   */
-  accessibilityHaspopup?: boolean;
   /**
    * Label for screen readers to announce SearchGuideLink. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/searchguide#ARIA-attributes) for details on proper usage.
    */
@@ -37,10 +21,6 @@ type Props = {
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
   dataTestId?: string;
-  /**
-   * Indicates that the SearchGuideLink is expandable. See the [expandable variant](https://gestalt.pinterest.systems/web/searchguide#Expandable) to learn more.
-   */
-  expandable?: boolean;
   /**
    * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more. See the [state variant](https://gestalt.pinterest.systems/web/searchguide#State) for details on proper usage.
    */
@@ -89,22 +69,18 @@ type Props = {
 };
 
 /**
- * [SearchGuideLink](https://gestalt.pinterest.systems/web/searchguide) appends and refines a search query. They appear under [SearchField](/web/searchfield) after user submits a search input.
+ * [SearchGuideLink](https://gestalt.pinterest.systems/web/searchguidelink) appends and refines a search query. They appear under [SearchField](/web/searchfield) after user submits a search input.
  *
  * ![SearchGuideLink light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchGuideLink.spec.ts-snapshots/SearchGuideLink-chromium-darwin.png)
  * ![SearchGuideLink dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/SearchGuideLink-dark.spec.ts-snapshots/SearchGuideLink-dark-chromium-darwin.png)
  *
  */
 
-const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(function SearchGuideLink(
+const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function SearchGuide(
   {
-    accessibilityControls,
-    accessibilityExpanded,
-    accessibilityHaspopup,
     accessibilityLabel,
     color = '01',
     dataTestId,
-    expandable,
     onClick,
     selected = false,
     text,
@@ -127,20 +103,6 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(funct
   // that renders <SearchGuideLink ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
-  const { isFocusVisible } = useFocusVisible();
-
-  const buttonClasses = isInVRExperiment
-    ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
-        [styles[`color${color}`]]: !selected,
-        [focusStyles.hideOutline]: !isFocusVisible,
-        [styles.vrFocused]: isFocusVisible,
-        [styles.selectedVr]: selected,
-      })
-    : classnames(styles.searchguide, touchableStyles.tapTransition, [styles[`color${color}`]], {
-        [styles.selected]: selected,
-        [focusStyles.hideOutline]: !isFocusVisible && !selected,
-        [focusStyles.accessibilityOutline]: isFocusVisible,
-      });
   const childrenDivClasses = classnames(styles.childrenDiv);
 
   const textComponent = (
@@ -180,16 +142,12 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(funct
       )}
       {'icon' in thumbnail && <Box marginStart={3}>{cloneElement(thumbnail.icon)}</Box>}
       <Box marginEnd={3}>{textComponent}</Box>
-      {expandable ? <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} /> : null}
     </Flex>
   );
   const defaultVariant = (
     <Box paddingX={5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
-        {expandable ? (
-          <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} />
-        ) : null}
       </Flex>
     </Box>
   );
@@ -212,25 +170,17 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLButtonElement, Props>(funct
     <InternalLink
       ref={innerRef}
       aria-label={accessibilityLabel}
+      colorClass={`color${color}`}
       dataTestId={dataTestId}
       href={href}
-      importedClass={buttonClasses}
       onClick={handleClick}
       rel={rel}
-      selected={false}
+      selected={selected}
       tabIndex={tabIndex}
       target={target}
-      wrappedComponent="button"
+      wrappedComponent="searchGuide"
     >
-      <div
-        aria-controls={accessibilityControls}
-        aria-expanded={accessibilityExpanded}
-        aria-haspopup={accessibilityHaspopup || expandable}
-        className={childrenDivClasses}
-        data-test-id={dataTestId}
-      >
-        {thumbnail ? thumbnailVariant : defaultVariant}
-      </div>
+      <div className={childrenDivClasses}>{thumbnail ? thumbnailVariant : defaultVariant}</div>
     </InternalLink>
   );
 });

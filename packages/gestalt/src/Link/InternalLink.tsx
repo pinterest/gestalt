@@ -7,6 +7,7 @@ import focusStyles from '../Focus.css';
 import getRoundingClassName, { Rounding } from '../getRoundingClassName';
 import iconButtonStyles from '../IconButton.css';
 import layoutStyles from '../Layout.css';
+import searchGuideStyles from '../SearchGuide.css';
 import touchableStyles from '../TapArea.css';
 import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
@@ -52,7 +53,7 @@ type Props = {
   size?: 'sm' | 'md' | 'lg';
   tapStyle?: 'none' | 'compress';
   target?: null | 'self' | 'blank';
-  wrappedComponent: 'button' | 'iconButton' | 'tapArea';
+  wrappedComponent: 'button' | 'iconButton' | 'tapArea' | 'searchGuide';
 };
 
 const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
@@ -67,7 +68,6 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     fullWidth,
     href,
     id,
-    importedClass,
     mouseCursor,
     onClick,
     onBlur,
@@ -116,61 +116,84 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
+  const isSearchGuide = wrappedComponent === 'searchGuide';
 
-  const className =
-    importedClass ??
-    classnames(
-      styles.noOutline,
-      styles.inheritColor,
-      styles.noUnderline,
-      touchableStyles.tapTransition,
-      getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
-      {
-        [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
-        [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-        [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
-      },
-      isButton
-        ? {
-            [layoutStyles.inlineFlex]: !fullWidth,
-            [layoutStyles.flex]: fullWidth,
-            [layoutStyles.justifyCenter]: true,
-            [layoutStyles.xsItemsCenter]: true,
-            [buttonStyles.button]: true,
-            [buttonStyles.disabled]: disabled,
-            [buttonStyles.selected]: !disabled && selected,
-            [buttonStyles.sm]: size === 'sm',
-            [buttonStyles.md]: size === 'md',
-            [buttonStyles.lg]: size === 'lg',
-          }
-        : {},
-      isButton && colorClass
-        ? {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore cannot infer type with dynamic property name
-            [buttonStyles[colorClass]]: !disabled && !selected,
-          }
-        : {},
-      isTapArea
-        ? {
-            [layoutStyles.block]: true,
-            [touchableStyles.fullHeight]: fullHeight,
-            [touchableStyles.fullWidth]: fullWidth,
-          }
-        : {},
-      isTapArea && mouseCursor
-        ? {
-            [touchableStyles[mouseCursor]]: !disabled,
-          }
-        : {},
-      isIconButton
-        ? {
-            [iconButtonStyles.button]: true,
-            [iconButtonStyles.disabled]: disabled,
-            [iconButtonStyles.enabled]: !disabled,
-          }
-        : {},
-    );
+  const className = classnames(
+    styles.noUnderline,
+    {
+      [classnames(
+        styles.noOutline,
+        styles.inheritColor,
+        touchableStyles.tapTransition,
+        getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
+        {
+          [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+          [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+          [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
+        },
+      )]: !isSearchGuide,
+    },
+    isButton
+      ? {
+          [layoutStyles.inlineFlex]: !fullWidth,
+          [layoutStyles.flex]: fullWidth,
+          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
+          [buttonStyles.button]: true,
+          [buttonStyles.disabled]: disabled,
+          [buttonStyles.selected]: !disabled && selected,
+          [buttonStyles.sm]: size === 'sm',
+          [buttonStyles.md]: size === 'md',
+          [buttonStyles.lg]: size === 'lg',
+        }
+      : {},
+    isButton && colorClass
+      ? {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore cannot infer type with dynamic property name
+          [buttonStyles[colorClass]]: !disabled && !selected,
+        }
+      : {},
+    isTapArea
+      ? {
+          [layoutStyles.block]: true,
+          [touchableStyles.fullHeight]: fullHeight,
+          [touchableStyles.fullWidth]: fullWidth,
+        }
+      : {},
+    isTapArea && mouseCursor
+      ? {
+          [touchableStyles[mouseCursor]]: !disabled,
+        }
+      : {},
+    isIconButton
+      ? {
+          [iconButtonStyles.button]: true,
+          [iconButtonStyles.disabled]: disabled,
+          [iconButtonStyles.enabled]: !disabled,
+        }
+      : {},
+    isSearchGuide && isInVRExperiment
+      ? {
+          [searchGuideStyles.searchguideVr]: true,
+          [touchableStyles.tapTransition]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: !selected,
+          [focusStyles.hideOutline]: !isFocusVisible,
+          [searchGuideStyles.vrFocused]: isFocusVisible,
+          [searchGuideStyles.selectedVr]: selected,
+        }
+      : {},
+    isSearchGuide && !isInVRExperiment
+      ? {
+          [searchGuideStyles.searchguide]: true,
+          [touchableStyles.tapTransition]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
+          [searchGuideStyles.selected]: selected,
+          [focusStyles.hideOutline]: !isFocusVisible && !selected,
+          [focusStyles.accessibilityOutline]: isFocusVisible,
+        }
+      : {},
+  );
 
   // Consumes GlobalEventsHandlerProvider
   const { linkHandlers } = useGlobalEventsHandlerContext() ?? {

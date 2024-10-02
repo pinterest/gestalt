@@ -195,7 +195,7 @@ function Header() {
 
         <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'} paddingX={2}>
           <Flex alignItems="center" gap={3}>
-            {showVRToggle && (
+            {true && (
               <ButtonToggle
                 iconStart="sparkle"
                 onClick={() => setExperiments(isInVRExperiment ? '' : 'Tokens')}

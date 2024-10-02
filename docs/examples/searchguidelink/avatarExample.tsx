@@ -12,7 +12,7 @@ export default function Example() {
     >
       <SearchGuideLink
         accessibilityLabel="Image"
-        color="02"
+        color="01"
         href="https://pinterest.com"
         text="Image"
         thumbnail={{
@@ -28,7 +28,7 @@ export default function Example() {
       />
       <SearchGuideLink
         accessibilityLabel="Icon"
-        color="03"
+        color="02"
         href="https://pinterest.com"
         text="Icon"
         thumbnail={{
@@ -37,7 +37,7 @@ export default function Example() {
       />
       <SearchGuideLink
         accessibilityLabel="Avatar"
-        color="04"
+        color="03"
         href="https://pinterest.com"
         text="Avatar"
         thumbnail={{
@@ -46,6 +46,7 @@ export default function Example() {
       />
       <SearchGuideLink
         accessibilityLabel="AvatarGroup"
+        color="04"
         href="https://pinterest.com"
         text="AvatarGroup"
         thumbnail={{

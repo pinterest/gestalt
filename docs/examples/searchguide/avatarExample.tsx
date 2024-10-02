@@ -12,7 +12,7 @@ export default function Example() {
     >
       <SearchGuide
         accessibilityLabel="Image"
-        color="02"
+        color="01"
         text="Image"
         thumbnail={{
           image: (
@@ -27,6 +27,7 @@ export default function Example() {
       />
       <SearchGuide
         accessibilityLabel="Icon"
+        color="02"
         text="Icon"
         thumbnail={{
           icon: <Icon accessibilityLabel="" icon="sparkle" />,

@@ -5,20 +5,20 @@
   composes: large from "./Layout.css";
   composes: paddingX1 from "./boxWhitespace.css";
   border-radius: var(--rounding-600);
+  display: inherit;
 }
 
-.searchguide a,
-:link,
-:visited,
-:hover,
-:active {
-  text-decoration: none;
+a.searchguide,
+a.searchguideVr {
+  padding-bottom: 2px;
+  padding-top: 2px;
 }
 
 .searchguideVr {
   border-color: transparent;
   border-radius: var(--rounding-400);
   box-sizing: border-box;
+  display: inherit;
   padding: var(--space-0) var(--space-0);
   text-wrap: balance;
 }
