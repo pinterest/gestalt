@@ -1,0 +1,14 @@
+{
+  "comp": {
+    "badge": {
+      "color": {
+        "background": {
+          "test": {
+            "value": "{base.color.red.300}",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}
