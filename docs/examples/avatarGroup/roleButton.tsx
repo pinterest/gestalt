@@ -76,7 +76,7 @@ export default function Example() {
               width={360}
             >
               <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                <Text align="center" color="default" weight="bold">
+                <Text align="start" color="default" weight="bold">
                   Collaborators
                 </Text>
                 <Flex direction="column" gap={{ column: 2, row: 0 }}>

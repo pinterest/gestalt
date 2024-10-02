@@ -3,6 +3,7 @@ import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
 import Box from './Box';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import TapArea from './TapArea';
 import TapAreaLink from './TapAreaLink';
@@ -107,15 +108,22 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     size = isInVRExperiment ? 'md' : 'fit',
   } = props;
 
+  const { colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
+
   const isDisplayOnly = !role;
 
   const isXS = size === 'xs';
 
-  const showCollaboratorsCount = collaborators.length > MAX_COLLABORATOR_AVATARS && !isXS;
+  const validCollaborators = collaborators.filter(
+    (collaborator) => collaborator && collaborator.name,
+  );
+
+  const showCollaboratorsCount = validCollaborators.length > MAX_COLLABORATOR_AVATARS && !isXS;
 
   const showAddCollaboratorsButton = (!isDisplayOnly && addCollaborators && !isXS) ?? false;
 
-  const displayedCollaborators = collaborators.slice(
+  const displayedCollaborators = validCollaborators.slice(
     0,
     showCollaboratorsCount ? 2 : MAX_COLLABORATOR_AVATARS,
   );
@@ -256,6 +264,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
           onClick?.({ event, dangerouslyDisableOnNavigation })
         }
         rounding="pill"
+        tabIndex={0}
         tapStyle="compress"
       >
         {avatarGroupStack}
@@ -272,7 +281,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
         accessibilityHaspopup={accessibilityHaspopup}
         accessibilityLabel={accessibilityLabel}
         fullWidth={false}
-        innerFocusColor="default"
+        innerFocusColor={isDarkMode ? 'inverse' : 'default'}
         onMouseDown={handleOnMouseDown}
         onMouseEnter={handleOnMouseEnter}
         onMouseLeave={handleOnMouseLeave}

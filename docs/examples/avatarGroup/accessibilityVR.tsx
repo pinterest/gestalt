@@ -6,7 +6,7 @@ function SearchCollaboratorsField() {
 
   useEffect(() => {
     if (ref.current) ref.current.focus();
-  }, []);
+  });
 
   return (
     <SearchField
@@ -15,7 +15,7 @@ function SearchCollaboratorsField() {
       id="searchField"
       onChange={() => {}}
       placeholder="Search by name or email"
-      size="lg"
+      size="md"
     />
   );
 }
@@ -24,25 +24,29 @@ export default function Example() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
+  const collaboratorsVR = [
+    {
+      name: 'Fatima',
+      src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
+    },
+    {
+      name: 'Ayesha',
+      src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+    },
+    ...new Array(10),
+  ];
+
+  const names = 'Fatima, Ayesha,';
+
   return (
     <Flex height="100%" width="100%">
       <Box height="200" marginTop={6} padding={2}>
         <AvatarGroup
           ref={anchorRef}
           accessibilityExpanded={open}
-          accessibilityLabel="Collaborators: Keerthi, Alberto, and 10 more. Add collaborators to this board."
+          accessibilityLabel={`Collaborators: ${names} and 10 more. Add collaborators to this board.`}
           addCollaborators
-          collaborators={[
-            {
-              name: 'Keerthi',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
-            },
-            {
-              name: 'Alberto',
-              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-            },
-            ...new Array(10),
-          ]}
+          collaborators={collaboratorsVR}
           onClick={() => setOpen((value) => !value)}
           role="button"
           size="md"
@@ -55,7 +59,7 @@ export default function Example() {
             idealDirection="down"
             onDismiss={() => setOpen(false)}
             positionRelativeToAnchor={false}
-            size="xl"
+            size={500}
           >
             <Box
               flex="grow"
@@ -65,7 +69,7 @@ export default function Example() {
               marginTop={6}
               width={360}
             >
-              <Flex direction="column" gap={{ column: 6, row: 0 }}>
+              <Flex direction="column" gap={{ column: 4, row: 0 }}>
                 <Text align="center" color="default" weight="bold">
                   Invite collaborators
                 </Text>

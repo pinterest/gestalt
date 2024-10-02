@@ -18,6 +18,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibility from '../../examples/avatarGroup/accessibility';
+import accessibilityVR from '../../examples/avatarGroup/accessibilityVR';
 import ideas from '../../examples/avatarGroup/ideas';
 import main from '../../examples/avatarGroup/main';
 import noEmoji from '../../examples/avatarGroup/noEmoji';
@@ -460,7 +461,7 @@ If AvatarGroup is used as a control button to show/hide Popover-component, we re
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample code={accessibility} name="ARIA" previewHeight={250} />
+              <SandpackExample code={isInVRExperiment ? accessibilityVR : accessibility} name="ARIA" previewHeight={250} />
             }
           />
         </MainSection.Subsection>

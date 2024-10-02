@@ -139,9 +139,9 @@ const colorTokensDark: ColorTokens = Object.freeze({
   },
   '10': {
     // orangeDefault
-    base: '#9B4B1C',
-    hover: '#9B4B1C',
-    pressed: '#9B4B1C',
+    base: '#C66F31',
+    hover: '#C66F31',
+    pressed: '#C66F31',
   },
 });
 

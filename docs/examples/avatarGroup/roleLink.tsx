@@ -1,4 +1,4 @@
-import { AvatarGroup, Box, Flex, Link, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { AvatarGroup, Flex, useDangerouslyInGestaltExperiment } from 'gestalt';
 
 export default function Example() {
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
@@ -38,33 +38,14 @@ export default function Example() {
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Box height={100} padding={2} width={600}>
-        <Flex alignItems="center" height="100%">
-          <Box column={5} height="100%">
-            <AvatarGroup
-              accessibilityLabel={
-                isInVRExperiment
-                  ? 'Collaborators: Fatima, Sora, and Ayesha.'
-                  : 'Collaborators: Keerthi, Alberto, and Shanice.'
-              }
-              collaborators={isInVRExperiment ? collaboratorsVR : collaborators}
-              size={isInVRExperiment ? 'md' : 'fit'}
-            />
-          </Box>
-          <Box column={7} marginStart={2}>
-            <Text inline>The </Text>
-            <Text inline weight="bold">
-              <Link
-                display="inlineBlock"
-                href="https://www.pinterest.com/search/boards/?q=quick%20vegan%20recipes&rs=typed&term_meta[]=quick%7Ctyped&term_meta[]=vegan%7Ctyped&term_meta[]=recipes%7Ctyped"
-              >
-                Quick Vegan Recipes{' '}
-              </Link>
-            </Text>
-            <Text inline> board has 3 followers.</Text>
-          </Box>
-        </Flex>
-      </Box>
+      <AvatarGroup
+        accessibilityLabel="Visit group activity board."
+        collaborators={isInVRExperiment ? collaboratorsVR : collaborators}
+        href="#Role"
+        onClick={() => {}}
+        role="link"
+        size="md"
+      />
     </Flex>
   );
 }
