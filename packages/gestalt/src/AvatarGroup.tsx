@@ -3,7 +3,6 @@ import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
 import Box from './Box';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import TapArea from './TapArea';
 import TapAreaLink from './TapAreaLink';
@@ -107,9 +106,6 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     role,
     size = isInVRExperiment ? 'md' : 'fit',
   } = props;
-
-  const { colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
 
   const isDisplayOnly = !role;
 
@@ -281,7 +277,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
         accessibilityHaspopup={accessibilityHaspopup}
         accessibilityLabel={accessibilityLabel}
         fullWidth={false}
-        innerFocusColor={isDarkMode ? 'inverse' : 'default'}
+        innerFocusColor='default'
         onMouseDown={handleOnMouseDown}
         onMouseEnter={handleOnMouseEnter}
         onMouseLeave={handleOnMouseLeave}
