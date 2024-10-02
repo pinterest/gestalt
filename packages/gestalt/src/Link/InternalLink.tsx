@@ -25,6 +25,7 @@ type Props = {
   fullWidth?: boolean;
   href: string;
   id?: string;
+  innerFocusColor?: 'default' | 'inverse';
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut';
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -68,6 +69,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     fullWidth,
     href,
     id,
+    innerFocusColor,
     mouseCursor,
     onClick,
     onBlur,
@@ -176,6 +178,16 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [layoutStyles.block]: true,
           [touchableStyles.fullHeight]: fullHeight,
           [touchableStyles.fullWidth]: fullWidth,
+          [focusStyles.accessibilityOutlineLightBackground]:
+            isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineDarkBackground]:
+            isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorder]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderDefault]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderInverse]:
+            isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
         }
       : {},
     isTapArea && mouseCursor

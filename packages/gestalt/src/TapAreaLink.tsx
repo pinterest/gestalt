@@ -42,6 +42,17 @@ type Props = {
    */
   disabled?: boolean;
   /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
+  /**
+   * Indicates whether this component presents a light ('default') or dark ('inverse') inner focus border when focused.
+   * Used for improving focus ring color contrast.
+   */
+  innerFocusColor?: 'default' | 'inverse';
+
+  /**
    * Set the TapAreaLink height to expand to the full height of the parent.
    */
   fullHeight?: boolean;
@@ -132,9 +143,11 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
     children,
     dataTestId,
     disabled = false,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth = true,
     href,
+    innerFocusColor,
     mouseCursor = 'pointer',
     onBlur,
     onKeyDown,
@@ -172,9 +185,11 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
       })}
       dataTestId={dataTestId}
       disabled={disabled}
+      focusColor={focusColor}
       fullHeight={fullHeight}
       fullWidth={fullWidth}
       href={href}
+      innerFocusColor={innerFocusColor}
       mouseCursor={mouseCursor}
       onBlur={({ event }) => {
         if (!disabled) onBlur?.({ event });
