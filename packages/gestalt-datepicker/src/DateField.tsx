@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Locale } from 'date-fns/locale';
-import { useGlobalEventsHandler } from 'gestalt';
+import { useDangerouslyInGestaltExperiment, useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField';
+import VRInternalDateField from './DateField/VRInternalDateField';
 
 export type Props = {
   /**
@@ -126,9 +127,42 @@ function DateField({
     dateFieldHandlers: undefined,
   };
 
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   useEffect(() => {
     if (dateFieldHandlers?.onRender) dateFieldHandlers?.onRender();
   }, [dateFieldHandlers]);
+
+  if (isInVRExperiment) {
+    return (
+      <VRInternalDateField
+        autoComplete={autoComplete}
+        disabled={disabled}
+        disableRange={disableRange}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        localeData={localeData}
+        maxDate={maxDate}
+        minDate={minDate}
+        mobileEnterKeyHint={mobileEnterKeyHint}
+        name={name}
+        onBlur={onBlur}
+        onChange={onChange}
+        onClearInput={onClearInput}
+        onError={onError}
+        onFocus={onFocus}
+        readOnly={readOnly}
+        size={size}
+        value={value}
+      />
+    );
+  }
 
   return (
     <InternalDateField

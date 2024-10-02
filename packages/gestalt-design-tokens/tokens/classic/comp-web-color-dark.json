@@ -3,313 +3,292 @@
     "background": {
       "avatar": {
         "placeholder": {
-          "value": "#404040",
-          "comment": "Avatar component placeholder background color."
+          "value": "#404040"
         },
         "wash": {
-          "value": "rgba(250, 250, 250, 0.5)",
-          "comment": "Avatar dark overlay wash."
+          "value": "rgba(250, 250, 250, 0.5)"
         }
       },
       "badge": {
         "neutral": {
-          "value": "{color.background.tertiary.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.tertiary.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.tertiary.base.value}"
+          }
         },
         "info": {
           "default": {
-            "value": "{color.background.info.base.value}",
-            "comment": "Box component infoBase background color"
+            "value": "{color.background.info.base.value}"
           },
           "hover": {
-            "value": "{color.background.info.strong.value}",
-            "comment": "Box component infoBase background color"
+            "value": "{color.background.info.strong.value}"
           }
         },
         "error": {
-          "value": "{color.background.error.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.error.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.error.base.value}"
+          }
         },
         "warning": {
-          "value": "{color.background.warning.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.warning.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.warning.base.value}"
+          }
         },
         "success": {
-          "value": "{color.background.success.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.success.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.success.base.value}"
+          }
         },
         "recommendation": {
-          "value": "{color.background.recommendation.base.value}",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.recommendation.base.value}"
+          },
+          "hover": {
+            "value": "{color.background.recommendation.base.value}"
+          }
         },
         "lightwash": {
-          "value": "{color.background.wash.light.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.wash.light.value}"
+          },
+          "hover": {
+            "value": "{color.background.wash.light.value}"
+          }
         },
         "darkwash": {
-          "value": "{color.background.wash.dark.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component infoBase background color"
+          "default": {
+            "value": "{color.background.wash.dark.value}"
+          },
+          "hover": {
+            "value": "{color.background.wash.dark.value}"
+          }
         }
       },
       "box": {
         "default": {
-          "value": "{color.background.default.value}",
-          "comment": "Box component default background color"
+          "value": "{color.background.default.value}"
         },
         "info": {
           "base": {
-            "value": "{color.background.info.base.value}",
-            "comment": "Box component info base background color"
+            "value": "{color.background.info.base.value}"
           },
           "weak": {
-            "value": "{color.background.info.weak.value}",
-            "comment": "Box component info weak background color"
+            "value": "{color.background.info.weak.value}"
           }
         },
         "error": {
           "base": {
-            "value": "{color.background.error.base.value}",
-            "comment": "Box component error base background color"
+            "value": "{color.background.error.base.value}"
           },
           "weak": {
-            "value": "{color.background.error.weak.value}",
-            "comment": "Box component error weak background color"
+            "value": "{color.background.error.weak.value}"
           }
         },
         "warning": {
           "base": {
-            "value": "{color.background.warning.base.value}",
-            "comment": "Box component warning base background color"
+            "value": "{color.background.warning.base.value}"
           },
           "weak": {
-            "value": "{color.background.warning.weak.value}",
-            "comment": "Box component warning weak background color"
+            "value": "{color.background.warning.weak.value}"
           }
         },
         "success": {
           "base": {
-            "value": "{color.background.success.base.value}",
-            "comment": "Box component success base background color"
+            "value": "{color.background.success.base.value}"
           },
           "weak": {
-            "value": "{color.background.success.weak.value}",
-            "comment": "Box component success weak background color"
+            "value": "{color.background.success.weak.value}"
           }
         },
         "recommendation": {
           "base": {
-            "value": "{color.background.recommendation.base.value}",
-            "comment": "Box component recommendation base background color"
+            "value": "{color.background.recommendation.base.value}"
           },
           "weak": {
-            "value": "{color.background.recommendation.weak.value}",
-            "comment": "Box component recommendation weak background color"
+            "value": "{color.background.recommendation.weak.value}"
           }
         },
         "shopping": {
-          "value": "{color.background.shopping.value}",
-          "comment": "Box component shopping background color"
+          "value": "{color.background.shopping.value}"
         },
         "primary": {
           "value": "{color.background.primary.base.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component primary background color"
+          "_darkMode": "Unsupported color"
         },
         "secondary": {
-          "value": "{color.background.secondary.base.value}",
-          "comment": "Box component secondary background color"
+          "value": "{color.background.secondary.base.value}"
         },
         "tertiary": {
-          "value": "{color.background.tertiary.base.value}",
-          "comment": "Box component tertiary background color"
+          "value": "{color.background.tertiary.base.value}"
         },
         "selected": {
-          "value": "{color.background.selected.base.value}",
-          "comment": "Box component selected background color"
+          "value": "{color.background.selected.base.value}"
         },
         "inverse": {
-          "value": "{color.background.inverse.base.value}",
-          "comment": "Box component inverse background color"
+          "value": "{color.background.inverse.base.value}"
         },
         "brand": {
           "value": "{color.background.brand.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component brand background color"
+          "_darkMode": "Unsupported color"
         },
         "education": {
-          "value": "{color.background.education.value}",
-          "comment": "Box component education background color"
+          "value": "{color.background.education.value}"
         },
         "elevation": {
           "accent": {
-            "value": "{color.background.elevation.accent.value}",
-            "comment": "Box component elevation accent background color"
+            "value": "{color.background.elevation.accent.value}"
           },
           "floating": {
-            "value": "{color.background.elevation.floating.value}",
-            "comment": "Box component elevation floating background color"
+            "value": "{color.background.elevation.floating.value}"
           },
           "raised": {
-            "value": "{color.background.elevation.raised.value}",
-            "comment": "Box component elevation raised background color"
+            "value": "{color.background.elevation.raised.value}"
           }
         },
         "lightwash": {
-          "value": "#535353",
-          "comment": "Box component light wash background color."
+          "value": "#535353"
         },
         "darkwash": {
-          "value": "#666",
-          "comment": "Box component dark wash background color."
+          "value": "#666"
         },
         "transparentdarkgray": {
-          "value": "rgba(255, 255, 255, 0.8)",
-          "comment": "Box component light transparent dark gray background color."
+          "value": "rgba(255, 255, 255, 0.8)"
         },
         "dark": {
           "value": "{color.background.dark.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component dark background color"
+          "_darkMode": "Unsupported color"
         },
         "light": {
           "value": "{color.background.light.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component light background color"
+          "_darkMode": "Unsupported color"
         },
         "transparent": {
           "value": "{color.transparent.value}",
-          "_darkMode": "Unsupported color",
-          "comment": "Box component transparent background color."
+          "_darkMode": "Unsupported color"
         }
       },
       "button": {
         "primary": {
           "default": {
             "value": "{color.background.primary.base.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "Primary button background color"
+            "_darkMode": "Unsupported color"
           },
           "hover": {
             "value": "{color.background.primary.strong.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "Primary button background color on hover"
+            "_darkMode": "Unsupported color"
           },
           "active": {
-            "value": "#b8001b",
-            "comment": "Primary button background color on active"
+            "value": "#b8001b"
           }
         },
         "secondary": {
           "default": {
-            "value": "{color.gray.roboflow.600.value}",
-            "comment": "Secondary button background color."
+            "value": "{color.gray.roboflow.600.value}"
           },
           "hover": {
-            "value": "#535353",
-            "comment": "Secondary button background color on hover."
+            "value": "#535353"
           },
           "active": {
-            "value": "#666",
-            "comment": "Secondary button background color on active."
+            "value": "#666"
           }
         },
         "tertiary": {
           "default": {
             "value": "{color.transparent.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "Tertiary button background color."
+            "_darkMode": "Unsupported color"
           },
           "hover": {
-            "value": "rgba(250, 250, 250, 0.5)",
-            "comment": "Tertiary button background color on hover."
+            "value": "rgba(250, 250, 250, 0.5)"
           },
           "active": {
-            "value": "rgba(250, 250, 250, 0.6)",
-            "comment": "Tertiary button background color on active."
+            "value": "rgba(250, 250, 250, 0.6)"
           }
         },
         "shopping": {
           "default": {
-            "value": "{color.background.shopping.value}",
-            "comment": "Button background color for shopping"
+            "value": "{color.background.shopping.value}"
           },
           "hover": {
-            "value": "#4a8ad4",
-            "comment": "Button background color for shopping on hover."
+            "value": "#4a8ad4"
           },
           "active": {
-            "value": "#4a85c9",
-            "comment": "Button background color for shopping on active."
+            "value": "#4a85c9"
           }
         },
         "white": {
           "default": {
-            "value": "#030303",
-            "comment": "Button white background color for images with background"
+            "value": "#030303"
           },
           "hover": {
-            "value": "#121212",
-            "comment": "Button white background color for images with background on hover."
+            "value": "#121212"
           },
           "active": {
-            "value": "#1f1f1f",
-            "comment": "Button white background color for images with background on active."
+            "value": "#1f1f1f"
           }
         },
         "gray": {
           "default": {
-            "value": "{color.background.neutral.value}",
-            "comment": "Button gray background color for images with background"
+            "value": "{color.background.neutral.value}"
           },
           "hover": {
-            "value": "#919191",
-            "comment": "Button gray background color for images with background on hover."
+            "value": "#919191"
           },
           "active": {
-            "value": "#9b9b9b",
-            "comment": "Button gray background color for images with background on active."
+            "value": "#9b9b9b"
+          }
+        },
+        "semitransparentdefault": {
+          "default": {
+            "value": "rgba(51, 51, 51, 0.8)"
+          },
+          "hover": {
+            "value": "#121212"
+          },
+          "active": {
+            "value": "#1f1f1f"
           }
         },
         "semitransparentwhite": {
           "default": {
-            "value": "rgba(51, 51, 51, 0.8)",
-            "comment": "Button semi-transparent white background color for images with background"
+            "value": "rgba(51, 51, 51, 0.8)"
           },
           "hover": {
-            "value": "#121212",
-            "comment": "Button semi-transparent white background color for images with background on hover."
+            "value": "#121212"
           },
           "active": {
-            "value": "#1f1f1f",
-            "comment": "Button semi-transparent white background color for images with background on active."
+            "value": "#1f1f1f"
           }
         },
         "semitransparentdark": {
           "default": {
-            "value": "rgba(255, 255, 255, 0.8)",
-            "comment": "Button semi-transparent dark background color for images with background"
+            "value": "rgba(255, 255, 255, 0.8)"
           },
           "hover": {
-            "value": "#f0f0f0",
-            "comment": "Button semi-transparent dark background color for images with background on hover."
+            "value": "#f0f0f0"
           },
           "active": {
-            "value": "#e0e0e0",
-            "comment": "Button semi-transparent dark background color for images with background on active."
+            "value": "#e0e0e0"
           }
         },
         "disabled": {
           "default": {
-            "value": "{color.gray.roboflow.600.value}",
-            "comment": "Disabled button background color."
+            "value": "{color.gray.roboflow.700.value}"
           }
         },
         "selected": {
           "default": {
-            "value": "{color.background.selected.base.value}",
-            "comment": "Disabled button background color."
+            "value": "{color.background.selected.base.value}"
           }
         }
       },
@@ -317,384 +296,365 @@
         "item": {
           "default": {
             "value": "{color.transparent.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "ComboBox item background color"
+            "_darkMode": "Unsupported color"
           },
           "hover": {
-            "value": "#404040",
-            "comment": "ComboBox item on hover background color"
+            "value": "#404040"
           }
         }
       },
       "datepicker": {
         "container": {
-          "value": "#212121",
-          "comment": "DatePicker component background color."
+          "value": "#212121"
+        },
+        "range": {
+          "default": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          }
         },
         "button": {
           "default": {
-            "value": "#212121",
-            "comment": "DatePicker date selectors background color."
+            "value": "#212121"
           },
           "hover": {
-            "value": "rgba(250, 250, 250, 0.5)",
-            "comment": "DatePicker date selectors background color on hover."
+            "value": "rgba(250, 250, 250, 0.5)"
+          },
+          "active": {
+            "value": "rgba(250, 250, 250, 0.5)"
           },
           "selected": {
-            "value": "#efefef",
-            "comment": "DatePicker date selectors selected background color."
+            "value": "#efefef"
           }
         }
       },
       "formfield": {
         "primary": {
-          "value": "#030303",
-          "comment": "Formfield default background color"
+          "value": "#030303"
         },
         "disabled": {
-          "value": "#404040",
-          "comment": "Formfield disabled background color"
+          "value": "#404040"
         },
         "selected": {
-          "value": "#efefef",
-          "comment": "Formfield selected background color"
+          "value": "#efefef"
         }
       },
       "mask": {
         "wash": {
           "value": "rgba(0, 0, 0, 0.04)",
-          "_darkMode": "Unsupported color",
-          "comment": "Mask component wash."
+          "_darkMode": "Unsupported color"
         }
       },
       "overlay": {
-        "value": "{color.background.elevation.floating.value}",
-        "comment": "Overlay component background color."
+        "value": "{color.background.elevation.floating.value}"
       },
       "popover": {
         "primary": {
-          "value": "{color.background.elevation.floating.value}",
-          "comment": "Popover component primary background color."
+          "value": "{color.background.elevation.floating.value}"
         },
         "secondary": {
-          "value": "#efefef",
-          "comment": "Popover component secondary background color."
+          "value": "#efefef"
         },
         "education": {
-          "value": "{color.background.education.value}",
-          "comment": "Popover component secondary background color."
+          "value": "{color.background.education.value}"
         }
       },
       "tabs": {
         "default": {
           "base": {
-            "value": "{color.background.default.value}",
-            "comment": "Tabs component default background color."
+            "value": "{color.background.default.value}"
           },
           "hover": {
-            "value": "{color.background.secondary.base.value}",
-            "comment": "Tabs component default background color on hover."
+            "value": "{color.background.secondary.base.value}"
           },
           "active": {
-            "value": "#535353",
-            "comment": "Tabs component default background color on press."
+            "value": "#535353"
           }
         },
         "transparent": {
           "base": {
             "value": "{color.transparent.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "Tabs component transparent background color."
+            "_darkMode": "Unsupported color"
           },
           "hover": {
             "value": "rgba(0, 0, 0, 0.06)",
-            "_darkMode": "Unsupported color",
-            "comment": "Tabs component transparent background color on hover."
+            "_darkMode": "Unsupported color"
           },
           "active": {
             "value": "rgba(0, 0, 0, 0.1)",
-            "_darkMode": "Unsupported color",
-            "comment": "Tabs component transparent background color on press."
+            "_darkMode": "Unsupported color"
           }
         }
       },
-
       "tag": {
         "primary": {
           "default": {
-            "value": "{color.background.secondary.base.value}",
-            "comment": "Primary tag background color"
+            "value": "{color.background.secondary.base.value}"
           },
           "hover": {
-            "value": "#535353",
-            "comment": "Primary tag's close button background color on hover"
+            "value": "#535353"
           },
           "active": {
-            "value": "#666",
-            "comment": "Primary tag's close button background color on active"
+            "value": "#666"
           }
         },
         "error": {
           "default": {
-            "value": "{color.background.error.base.value}",
-            "comment": "Error tag background color."
+            "value": "{color.background.error.base.value}"
           },
           "hover": {
-            "value": "#cf001f",
-            "comment": "Error tag's close button background color on hover."
+            "value": "#cf001f"
           },
           "active": {
-            "value": "#b8001b",
-            "comment": "Error tag's close button background color on active."
+            "value": "#b8001b"
           }
         },
         "warning": {
           "default": {
-            "value": "{color.background.warning.base.value}",
-            "comment": "Warning tag background color."
+            "value": "{color.background.warning.base.value}"
           },
           "hover": {
-            "value": "{color.yellow.caramellow.400.value}",
-            "comment": "Warning tag's close button background color on hover."
+            "value": "{color.yellow.caramellow.400.value}"
           },
           "active": {
-            "value": "{color.yellow.caramellow.450.value}",
-            "comment": "Warning tag's close button background color on active."
+            "value": "{color.yellow.caramellow.450.value}"
           }
         }
       },
       "segmentedcontrol": {
         "container": {
-          "value": "#404040",
-          "comment": "SegmentedControl container background color"
+          "value": "#404040"
         },
         "tab": {
           "selected": {
-            "value": "#030303",
-            "comment": "SegmentedControl selected tab background color"
+            "value": "#030303"
           }
         }
       },
       "switch": {
         "default": {
-          "unselected": {
-            "value": "#030303",
-            "comment": "Switch enabled unselected background color"
-          },
           "selected": {
-            "value": "#efefef",
-            "comment": "Switch enabled selected background color"
+            "value": "#efefef"
+          },
+          "unselected": {
+            "value": "#030303"
           }
         },
         "disabled": {
-          "unselected": {
-            "value": "#404040",
-            "comment": "Switch disabled unselected background color"
-          },
           "selected": {
-            "value": "#ababab",
-            "comment": "Switch disabled selected background color"
+            "value": "#ababab"
+          },
+          "unselected": {
+            "value": "#404040"
+          }
+        },
+        "hover": {
+          "selected": {
+            "value": "#efefef"
+          },
+          "unselected": {
+            "value": "#030303"
+          }
+        },
+        "pressed": {
+          "selected": {
+            "value": "#efefef"
+          },
+          "unselected": {
+            "value": "#030303"
           }
         }
       },
       "table": {
         "footer": {
-          "value": "#030303",
-          "comment": "Table footer background color"
+          "value": "#030303"
         },
         "row": {
           "hover": {
-            "value": "#404040",
-            "comment": "Table row selected color"
+            "value": "#404040"
           },
           "selected": {
-            "value": "#404040",
-            "comment": "Table row selected color"
+            "value": "#404040"
           }
         }
       },
       "tagdata": {
         "primary": {
-          "value": "{color.background.secondary.base.value}",
-          "comment": "TagData primary background color"
+          "value": "{color.background.secondary.base.value}"
         },
         "secondary": {
-          "value": "{color.background.default.value}",
-          "comment": "TagData secondary background color"
+          "value": "{color.background.default.value}"
         },
         "disabled": {
-          "value": "#404040",
-          "comment": "TagData disabled background color"
+          "value": "#404040"
         }
       },
       "tableofcontents": {
         "item": {
           "default": {
             "value": "{color.transparent.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "Table of contents item default background color"
+            "_darkMode": "Unsupported color"
           },
           "hover": {
-            "value": "{color.background.secondary.base.value}",
-            "comment": "Table of contents item background color on hover"
+            "value": "{color.background.secondary.base.value}"
           }
         }
       },
       "tiledata": {
         "01": {
-          "value": "{color.data-visualization.01.value}1A",
-          "comment": "TileData background color 01"
+          "value": "{color.data-visualization.01.value}1A"
         },
         "02": {
-          "value": "{color.data-visualization.02.value}1A",
-          "comment": "TileData background color 02"
+          "value": "{color.data-visualization.02.value}1A"
         },
         "03": {
-          "value": "{color.data-visualization.03.value}1A",
-          "comment": "TileData background color 03"
+          "value": "{color.data-visualization.03.value}1A"
         },
         "04": {
-          "value": "{color.data-visualization.04.value}1A",
-          "comment": "TileData background color 04"
+          "value": "{color.data-visualization.04.value}1A"
         },
         "05": {
-          "value": "{color.data-visualization.05.value}1A",
-          "comment": "TileData background color 05"
+          "value": "{color.data-visualization.05.value}1A"
         },
         "06": {
-          "value": "{color.data-visualization.06.value}1A",
-          "comment": "TileData background color 06"
+          "value": "{color.data-visualization.06.value}1A"
         },
         "07": {
-          "value": "{color.data-visualization.07.value}1A",
-          "comment": "TileData background color 07"
+          "value": "{color.data-visualization.07.value}1A"
         },
         "08": {
-          "value": "{color.data-visualization.08.value}1A",
-          "comment": "TileData background color 08"
+          "value": "{color.data-visualization.08.value}1A"
         },
         "09": {
-          "value": "{color.data-visualization.09.value}1A",
-          "comment": "TileData background color 09"
+          "value": "{color.data-visualization.09.value}1A"
         },
         "10": {
-          "value": "{color.data-visualization.10.value}1A",
-          "comment": "TileData background color 10"
+          "value": "{color.data-visualization.10.value}1A"
         },
         "11": {
-          "value": "{color.data-visualization.11.value}1A",
-          "comment": "TileData background color 11"
+          "value": "{color.data-visualization.11.value}1A"
         },
         "12": {
-          "value": "{color.data-visualization.12.value}1A",
-          "comment": "TileData background color 12"
+          "value": "{color.data-visualization.12.value}1A"
         },
         "hover": {
-          "value": "{color.background.secondary.base.value}",
-          "comment": "TileData default background color on hover"
+          "value": "{color.background.secondary.base.value}"
         },
         "disabled": {
-          "value": "#404040",
-          "comment": "TileData disabled background color"
+          "value": "#404040"
         }
       },
       "video": {
         "container": {
           "primary": {
-            "value": "{color.background.inverse.base.value}",
-            "comment": "Video background primary dark color"
+            "value": "{color.background.inverse.base.value}"
           },
           "secondary": {
             "value": "{color.transparent.value}",
-            "_darkMode": "Unsupported color",
-            "comment": "Video background secondary transparent color"
+            "_darkMode": "Unsupported color"
           }
         }
       }
     },
     "border": {
       "avatar": {
-        "value": "#030303",
-        "comment": "Avatar component outline border color."
+        "value": "#030303"
+      },
+      "badge": {
+        "default": {
+          "value": "{color.black.cosmicore.900.value}"
+        },
+        "light": {
+          "value": "{color.white.mochimalist.0.value}"
+        },
+        "dark": {
+          "value": "{color.black.cosmicore.900.value}"
+        }
       },
       "formfield": {
         "error": {
           "default": {
-            "value": "{color.border.error.value}",
-            "comment": "Error formfield border color."
+            "value": "{color.border.error.value}"
           },
           "hover": {
-            "value": "#cf001f",
-            "comment": "Error formfield border color on hover."
+            "value": "#cf001f"
           }
         },
         "disabled": {
-          "value": "#404040",
-          "comment": "Formfield disabled border color"
+          "value": "#404040"
         }
       },
       "popover": {
         "primary": {
-          "value": "#212121",
-          "comment": "Popover component primary border color."
+          "value": "#212121"
         },
         "secondary": {
-          "value": "#efefef",
-          "comment": "Popover component secondary border color."
+          "value": "#efefef"
         },
         "education": {
-          "value": "{color.background.education.value}",
-          "comment": "Popover component secondary border color."
+          "value": "{color.background.education.value}"
         }
       },
       "pulsar": {
         "default": {
           "value": "#0074e8",
-          "_darkMode": "Unsupported color",
-          "comment": "Pulsar component default border color."
+          "_darkMode": "Unsupported color"
         },
         "hover": {
           "value": "#dce9fa",
-          "_darkMode": "Unsupported color",
-          "comment": "Pulsar component border color on hover."
+          "_darkMode": "Unsupported color"
+        }
+      },
+      "switch": {
+        "focus": {
+          "inner": {
+            "value": "{color.border.default}"
+          }
+        },
+        "disabled": {
+          "selected": {
+            "value": "{color.background.default}"
+          },
+          "unselected": {
+            "value": "{color.border.container}"
+          }
         }
       },
       "table": {
         "row": {
           "selected": {
-            "value": "{color.white.mochimalist.0.value}",
-            "comment": "Tag component disabled border color."
+            "value": "{color.white.mochimalist.0.value}"
           }
         }
       },
       "tag": {
         "disabled": {
-          "value": "#ababab",
-          "comment": "Tag component disabled border color."
+          "value": "#ababab"
         }
       }
     },
     "text": {
       "formfield": {
         "default": {
-          "value": "#efefef",
-          "comment": "Formfield default text color."
+          "value": "#efefef"
         },
         "disabled": {
-          "value": "#ababab",
-          "comment": "Formfield disabled text color."
+          "value": "#ababab"
         },
         "placeholder": {
-          "value": "#ababab",
-          "comment": "Formfield placeholder text color."
+          "value": "#ababab"
         }
       }
     },
     "icon": {
       "avatar": {
         "default": {
-          "value": "#efefef",
-          "comment": "Avatar default text color."
+          "value": "#efefef"
         }
       }
     }

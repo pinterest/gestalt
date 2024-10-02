@@ -1,0 +1,64 @@
+{
+  "font": {
+    "weight": {
+      "datepicker": {
+        "date": {
+          "value": "{font.weight.normal.value}"
+        },
+        "heading": {
+          "value": "{font.weight.bold.value}"
+        }
+      }
+    },
+    "size": {
+      "datepicker": {
+        "date": {
+          "value": "{font.size.300.value}"
+        },
+        "heading": {
+          "value": "{font.size.400.value}"
+        }
+      }
+    },
+    "family": {
+      "datepicker": {
+        "date": {
+          "value": "{font.family.default.latin.value}"
+        },
+        "heading": {
+          "value": "{font.family.default.latin.value}"
+        }
+      }
+    },
+    "letterspacing": {
+      "datepicker": {
+        "date": {
+          "value": "normal"
+        },
+        "heading": {
+          "value": "normal"
+        }
+      }
+    },
+    "lineheight": {
+      "datepicker": {
+        "date": {
+          "value": "22px"
+        },
+        "heading": {
+          "value": "normal"
+        }
+      }
+    },
+    "textdecoration": {
+      "datepicker": {
+        "date": {
+          "value": "none"
+        },
+        "heading": {
+          "value": "none"
+        }
+      }
+    }
+  }
+}

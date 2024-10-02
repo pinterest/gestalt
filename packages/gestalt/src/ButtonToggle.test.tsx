@@ -34,9 +34,9 @@ describe('<ButtonToggle />', () => {
     const instance = create(
       <ButtonToggle color="transparent" selected={false} text="Hello World" />,
     ).root;
-    expect(instance.findAll((element: any) => element.type === 'div')[3].props.className).toContain(
-      'default',
-    );
+    expect(
+      instance.findAll((element: any) => element.type === 'div')[3]?.props.className,
+    ).toContain('default');
   });
 
   test('accessibilityControls', () => {

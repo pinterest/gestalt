@@ -159,18 +159,22 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('Masonry');
 
-  generatedDocGen.props.loadItems = {
-    ...generatedDocGen.props.loadItems,
-    defaultValue: null,
-  };
+  if (generatedDocGen.props.loadItems) {
+    generatedDocGen.props.loadItems = {
+      ...generatedDocGen.props.loadItems,
+      defaultValue: null,
+    };
+  }
 
-  generatedDocGen.props.measurementStore = {
-    ...generatedDocGen.props.measurementStore,
-    tsType: {
-      name: 'string',
-      raw: 'typeof MeasurementStore',
-    },
-  };
+  if (generatedDocGen.props.measurementStore) {
+    generatedDocGen.props.measurementStore = {
+      ...generatedDocGen.props.measurementStore,
+      tsType: {
+        name: 'string',
+        raw: 'typeof MeasurementStore',
+      },
+    };
+  }
 
   return {
     props: { generatedDocGen },

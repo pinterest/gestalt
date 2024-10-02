@@ -2,7 +2,8 @@ import { forwardRef, ReactElement, ReactNode } from 'react';
 import cx from 'classnames';
 import styles from './Text.css';
 import { semanticColors } from './textTypes';
-import typography from './Typography.css';
+import typographyStyle from './Typography.css';
+import useInExperiment from './useInExperiment';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -34,8 +35,13 @@ type Props = {
     | 'shopping'
     | 'link'
     | 'inverse'
+    | 'recommendation'
     | 'light'
     | 'dark';
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
   /**
    * Indicates how the text should flow with the surrounding content. See the [block vs inline variant](https://gestalt.pinterest.systems/web/text#Block-vs.-inline) for more details.
    */
@@ -80,11 +86,12 @@ type Props = {
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text.spec.ts-snapshots/Text-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Text-dark.spec.ts-snapshots/Text-dark-chromium-darwin.png)
  */
-const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
+const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   {
     align = 'start',
     children,
     color = 'default',
+    dataTestId,
     inline = false,
     italic = false,
     lineClamp,
@@ -98,37 +105,63 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
 ): ReactElement {
   const colorClass = semanticColors.includes(color) && styles[color];
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
-      return typography.breakAll;
+      return typographyStyle.breakAll;
     }
 
     // default to breakWord if lineClamp is set
     if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
-      return typography.breakWord;
+      return typographyStyle.breakWord;
     }
 
     return undefined;
   };
 
   const cs = cx(
-    styles.Text,
-    typography[`fontSize${size}`],
     color && colorClass,
-    align === 'center' && typography.alignCenter,
+    align === 'center' && typographyStyle.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
-    align === 'justify' && typography.alignJustify,
-    align === 'start' && typography.alignStart,
-    align === 'end' && typography.alignEnd,
-    align === 'forceLeft' && typography.alignForceLeft,
-    align === 'forceRight' && typography.alignForceRight,
+    align === 'justify' && typographyStyle.alignJustify,
+    align === 'start' && typographyStyle.alignStart,
+    align === 'end' && typographyStyle.alignEnd,
+    align === 'forceLeft' && typographyStyle.alignForceLeft,
+    align === 'forceRight' && typographyStyle.alignForceRight,
     getWordBreakStyle(),
-    overflow === 'noWrap' && typography.noWrap,
-    italic && typography.fontStyleItalic,
-    underline && typography.underline,
-    weight === 'bold' && typography.fontWeightSemiBold,
-    weight === 'normal' && typography.fontWeightNormal,
-    isNotNullish(lineClamp) && typography.lineClamp,
+    overflow === 'noWrap' && typographyStyle.noWrap,
+    italic && typographyStyle.fontStyleItalic,
+    underline && styles.underline,
+    isNotNullish(lineClamp) && typographyStyle.lineClamp,
+    {
+      [styles.Text]: !isInVRExperiment,
+      [typographyStyle[`fontSize${size}`]]: !isInVRExperiment,
+      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment && weight === 'bold',
+      [typographyStyle.fontWeightNormal]: !isInVRExperiment && weight === 'normal',
+      [styles.TextBody]: isInVRExperiment,
+      [styles.lg]: isInVRExperiment && (size === '400' || size === '500' || size === '600'),
+      [styles.md]: isInVRExperiment && size === '300',
+      [styles.sm]: isInVRExperiment && size === '200',
+      [styles.xs]: isInVRExperiment && size === '100',
+      [styles.lgDefault]:
+        isInVRExperiment &&
+        (size === '400' || size === '500' || size === '600') &&
+        weight === 'normal',
+      [styles.mdDefault]: isInVRExperiment && size === '300' && weight === 'normal',
+      [styles.smDefault]: isInVRExperiment && size === '200' && weight === 'normal',
+      [styles.xsDefault]: isInVRExperiment && size === '100' && weight === 'normal',
+      [styles.lgEmphasis]:
+        isInVRExperiment &&
+        (size === '400' || size === '500' || size === '600') &&
+        weight === 'bold',
+      [styles.mdEmphasis]: isInVRExperiment && size === '300' && weight === 'bold',
+      [styles.smEmphasis]: isInVRExperiment && size === '200' && weight === 'bold',
+      [styles.xsEmphasis]: isInVRExperiment && size === '100' && weight === 'bold',
+    },
   );
 
   const Tag: As = inline ? 'span' : 'div';
@@ -136,11 +169,11 @@ const TextWithForwardRef = forwardRef<HTMLElement, Props>(function Text(
   return (
     <Tag
       className={cs}
+      data-test-id={dataTestId}
       title={
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }
       {...(lineClamp ? { style: { WebkitLineClamp: lineClamp } } : {})}
-      // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
       ref={ref}
     >
       {children}

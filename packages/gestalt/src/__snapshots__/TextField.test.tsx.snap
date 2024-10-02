@@ -111,10 +111,11 @@ exports[`TextField TextField with error 1`] = `
     />
   </div>
   <div
-    className="box marginTop1"
+    className="md_startPadding md_topPadding"
+    id="test-error"
   >
     <div
-      className="Text fontSize100 error alignStart breakWord fontWeightNormal"
+      className="error alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -130,19 +131,23 @@ exports[`TextField TextField with error 1`] = `
             <div
               className="FlexItem"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="error icon iconBlock"
-                height={16}
-                role="img"
-                viewBox="0 0 24 24"
-                width={16}
+              <div
+                className="box"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="error icon iconBlock"
+                  height={16}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={16}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               className="FlexItem"
@@ -201,7 +206,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
     />
   </div>
   <div
-    className="box marginTop1"
+    className="md_startPadding md_topPadding"
     id="test-helperText"
   >
     <div
@@ -222,13 +227,13 @@ exports[`TextField TextField with maxLength character counter 1`] = `
           }
         >
           <div
-            className="Text fontSize100 subtle alignStart breakWord fontWeightNormal"
+            className="subtle alignStart breakWord Text fontSize100 fontWeightNormal"
           >
             20/20
           </div>
         </div>
         <div
-          className="Flex rowGap1 columnGap1 xsDirectionRow"
+          className="Flex rowGap1 columnGap1 justifyCenter xsDirectionRow"
         >
           <div
             className="FlexItem"
@@ -254,7 +259,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
               }
             >
               <div
-                className="Text fontSize100 subtle alignEnd breakWord fontWeightNormal"
+                className="subtle alignEnd breakWord Text fontSize100 fontWeightNormal"
               >
                 <div
                   className="box xsDisplayVisuallyHidden"
@@ -352,7 +357,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -425,7 +430,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -498,7 +503,7 @@ exports[`TextField TextField with tags 1`] = `
             }
           >
             <span
-              className="Text fontSize100 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize100 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,

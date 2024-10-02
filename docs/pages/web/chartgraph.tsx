@@ -15,7 +15,7 @@ import {
 } from 'gestalt-design-tokens';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -57,13 +57,10 @@ import timeseries from '../../examples/chartgraph/timeseries';
 import title from '../../examples/chartgraph/title';
 import tooltip from '../../examples/chartgraph/tooltip';
 
-export default function ComponentPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['ChartGraph', 'LegendIcon'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function ComponentPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   const MEDIUM_HEIGHT = 300;
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
@@ -723,14 +720,12 @@ Tables show data that's more complex and granular.      `}
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {
     props: {
-      generatedDocGen: await multipleDocGen(['ChartGraph', 'LegendIcon']),
+      generatedDocGen: await multipleDocGen(DOC_NAMES),
     },
   };
 }

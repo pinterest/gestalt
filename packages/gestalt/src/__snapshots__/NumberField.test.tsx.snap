@@ -16,6 +16,7 @@ exports[`NumberField NumberField normal 1`] = `
       onFocus={[Function]}
       onKeyDown={[Function]}
       pattern="\\\\d*"
+      readOnly={false}
       type="number"
     />
   </div>
@@ -40,6 +41,7 @@ exports[`NumberField NumberField with autocomplete 1`] = `
       onFocus={[Function]}
       onKeyDown={[Function]}
       pattern="\\\\d*"
+      readOnly={false}
       type="number"
     />
   </div>
@@ -63,6 +65,7 @@ exports[`NumberField NumberField with enterKeyHint 1`] = `
       onFocus={[Function]}
       onKeyDown={[Function]}
       pattern="\\\\d*"
+      readOnly={false}
       type="number"
     />
   </div>
@@ -85,14 +88,16 @@ exports[`NumberField NumberField with error 1`] = `
       onFocus={[Function]}
       onKeyDown={[Function]}
       pattern="\\\\d*"
+      readOnly={false}
       type="number"
     />
   </div>
   <div
-    className="box marginTop1"
+    className="md_startPadding md_topPadding"
+    id="test-error"
   >
     <div
-      className="Text fontSize100 error alignStart breakWord fontWeightNormal"
+      className="error alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -108,19 +113,23 @@ exports[`NumberField NumberField with error 1`] = `
             <div
               className="FlexItem"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="error icon iconBlock"
-                height={16}
-                role="img"
-                viewBox="0 0 24 24"
-                width={16}
+              <div
+                className="box"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="error icon iconBlock"
+                  height={16}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={16}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               className="FlexItem"
@@ -152,6 +161,7 @@ exports[`NumberField NumberField with name 1`] = `
       onFocus={[Function]}
       onKeyDown={[Function]}
       pattern="\\\\d*"
+      readOnly={false}
       type="number"
     />
   </div>

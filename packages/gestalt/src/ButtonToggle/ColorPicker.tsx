@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import {
+  TOKEN_COLOR_BACKGROUND_BUTTON_SELECTED_DEFAULT,
+  TOKEN_COLOR_BORDER_DEFAULT,
+  TOKEN_COLOR_BORDER_FOCUS,
+} from 'gestalt-design-tokens';
+import styles from './ColorPicker.css';
 import Box from '../Box';
+import useInExperiment from '../useInExperiment';
 
-const BORDER_OFFSET_PX = 4;
+const outlineWidth = 2;
 
 const heights = {
   sm: 32,
@@ -13,6 +19,12 @@ const widths = {
   sm: 60,
   md: 72,
   lg: 88,
+};
+
+const rounding = {
+  sm: 8,
+  md: 12,
+  lg: 16,
 };
 
 const skinColor = {
@@ -36,15 +48,18 @@ const skinColor = {
 
 export type SkinColor = keyof typeof skinColor;
 
-function getBorderColor(hovered: boolean, selected: boolean) {
+function getOutlineColor(hovered: boolean, selected: boolean, focused: boolean) {
   // Selection state takes precedence
-  if (selected) {
-    return 'selected';
+  if (selected && !focused) {
+    return TOKEN_COLOR_BACKGROUND_BUTTON_SELECTED_DEFAULT;
   }
-  if (hovered) {
-    return 'tertiary';
+  if (hovered && !focused) {
+    return TOKEN_COLOR_BORDER_DEFAULT;
   }
-  return undefined;
+  if (focused) {
+    return TOKEN_COLOR_BORDER_FOCUS;
+  }
+  return 'transparent';
 }
 
 export type Props = {
@@ -52,55 +67,75 @@ export type Props = {
   selected: boolean;
   size: 'sm' | 'md' | 'lg';
   disabled: boolean;
+  isHovered: boolean;
+  isFocused: boolean;
 };
 
-export default function ColorPicker({ colors, disabled, selected, size }: Props) {
-  const filtersContainerHeightPx = heights[size] + BORDER_OFFSET_PX * 2;
-  const filtersContainerWidthPx = widths[size] + BORDER_OFFSET_PX * 2;
-  const [hovered, setHovered] = useState(false);
+export default function ColorPicker({ colors, selected, isHovered, isFocused, size }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+  const vrFocus = isFocused && isInVRExperiment;
+  const hasBorder = isHovered || selected || vrFocus || isFocused;
+  const filtersContainerHeightPx = heights[size] - (hasBorder ? outlineWidth : 0);
+  const filtersContainerWidthPx = widths[size] - (hasBorder ? outlineWidth : 0);
+  const outlineStyle = `${
+    outlineWidth + ((selected && isFocused) || (!isInVRExperiment && isFocused) ? 2 : 0)
+  }px solid ${getOutlineColor(isHovered, selected, isFocused)}`;
 
   return (
     <Box
-      alignItems="center"
-      color={getBorderColor(hovered, selected)}
+      alignContent="center"
+      color="default"
+      dangerouslySetInlineStyle={
+        hasBorder
+          ? {
+              __style: {
+                outline: outlineStyle,
+                outlineOffset: isInVRExperiment || !isFocused ? outlineWidth : 0,
+                margin: outlineWidth / 2,
+              },
+            }
+          : undefined
+      }
       display="flex"
       height={filtersContainerHeightPx}
       justifyContent="center"
-      onMouseEnter={() => !disabled && setHovered(true)}
-      onMouseLeave={() => !disabled && setHovered(false)}
-      rounding="pill"
+      overflow="hidden"
+      rounding={
+        isInVRExperiment
+          ? ((rounding[size] / 4) as
+              | 0
+              | 2
+              | 'circle'
+              | 8
+              | 4
+              | 'pill'
+              | 1
+              | 3
+              | 5
+              | 6
+              | 7
+              | undefined)
+          : 'pill'
+      }
       width={filtersContainerWidthPx}
+      wrap
     >
-      <Box
-        alignItems="center"
-        color="default"
-        display="flex"
-        height={filtersContainerHeightPx - BORDER_OFFSET_PX}
-        justifyContent="center"
-        rounding="pill"
-        width={filtersContainerWidthPx - BORDER_OFFSET_PX}
-      >
-        <Box
-          display="flex"
-          height={heights[size]}
-          overflow="hidden"
-          rounding="pill"
-          width={widths[size]}
-          wrap
-        >
-          {colors.map((color, index) => (
-            <Box
-              // eslint-disable-next-line react/no-array-index-key
-              key={`${color}-${index}`}
-              dangerouslySetInlineStyle={{
-                __style: { backgroundColor: skinColor[color as SkinColor] },
-              }}
-              height={heights[size] / 2}
-              width={widths[size] / 2}
-            />
-          ))}
-        </Box>
-      </Box>
+      <div className={styles.colorPicker} style={{ borderRadius: rounding[size] }}>
+        {colors.map((color, index) => (
+          <Box
+            // eslint-disable-next-line react/no-array-index-key
+            key={`${color}-${index}`}
+            dangerouslySetInlineStyle={{
+              __style: { backgroundColor: skinColor[color as SkinColor] },
+            }}
+            height={filtersContainerHeightPx / 2}
+            width={filtersContainerWidthPx / 2}
+          />
+        ))}
+      </div>
     </Box>
   );
 }

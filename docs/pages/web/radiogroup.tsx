@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -24,13 +24,10 @@ import withCustomLabelsExample from '../../examples/radiogroup/withCustomLabelsE
 import withHelperTextExample from '../../examples/radiogroup/withHelperTextExample';
 import withImageExample from '../../examples/radiogroup/withImageExample';
 
-export default function DocsPage({
-  generatedDocGen,
-}: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
-}) {
+const DOC_NAMES = ['RadioGroup', 'RadioGroupButton'] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
+export default function DocsPage({ generatedDocGen }: { generatedDocGen: GeneratedDocGen }) {
   return (
     <Page title={generatedDocGen?.RadioGroup?.displayName}>
       <PageHeader
@@ -345,14 +342,12 @@ export default function DocsPage({
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {
     props: {
-      generatedDocGen: await multipleDocGen(['RadioGroup', 'RadioGroupButton']),
+      generatedDocGen: await multipleDocGen(DOC_NAMES),
     },
   };
 }

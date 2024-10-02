@@ -215,26 +215,26 @@ exports[`PageHeader renders badge with type 1`] = `
                             className="FlexItem"
                           >
                             <div
-                              className="Badge middle warning"
+                              className="badge warning middle"
                             >
                               <div
-                                className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                               >
                                 <div
                                   className="FlexItem"
                                 >
                                   <div
-                                    className="box xsDisplayInlineBlock"
-                                    style={
-                                      Object {
-                                        "marginTop": "2px",
-                                      }
-                                    }
+                                    className="box contentCenter xsDisplayFlex"
                                   >
-                                    Needs attention
+                                    <span
+                                      className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                                    >
+                                      Needs attention
+                                    </span>
                                   </div>
                                 </div>
                               </div>
+                               
                             </div>
                           </div>
                         </div>
@@ -421,7 +421,7 @@ exports[`PageHeader renders primary action 1`] = `
                           className="button inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                           >
                             Create
                           </div>
@@ -458,7 +458,7 @@ exports[`PageHeader renders primary action 1`] = `
                     className="button tapTransition enabled"
                   >
                     <div
-                      className="pog transparent"
+                      className="pog roundingCircle transparent"
                       style={
                         Object {
                           "height": 48,
@@ -627,7 +627,7 @@ exports[`PageHeader renders secondary action 1`] = `
                       }
                     >
                       <a
-                        className="link tapTransition rounding0 block noUnderline hoverUnderline accessibilityOutline"
+                        className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
                         href="www.pinterest.com"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -640,7 +640,6 @@ exports[`PageHeader renders secondary action 1`] = `
                         onTouchMove={[Function]}
                         onTouchStart={[Function]}
                         rel=""
-                        target={null}
                       >
                         Help center
                       </a>
@@ -675,7 +674,7 @@ exports[`PageHeader renders secondary action 1`] = `
                           className="button inline accessibilityOutline tapTransition lg red enabled childrenDiv"
                         >
                           <div
-                            className="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                           >
                             Create
                           </div>
@@ -712,7 +711,7 @@ exports[`PageHeader renders secondary action 1`] = `
                     className="button tapTransition enabled"
                   >
                     <div
-                      className="pog transparent"
+                      className="pog roundingCircle transparent"
                       style={
                         Object {
                           "height": 48,
@@ -846,7 +845,7 @@ exports[`PageHeader renders subtext 1`] = `
                       className="box smDisplayBlock xsDisplayNone"
                     >
                       <span
-                        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                       >
                         5 followers
                       </span>
@@ -980,7 +979,7 @@ exports[`PageHeader renders within a max width 1`] = `
                       className="box smDisplayBlock xsDisplayNone"
                     >
                       <span
-                        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                       >
                         5 followers
                       </span>

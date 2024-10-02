@@ -1,0 +1,36 @@
+.tapScaleDown {
+  animation: scale-down calc(var(--base-motion-duration-150) / 2)
+    var(--base-motion-easing-linear) forwards;
+}
+
+.tapScaleUp {
+  animation: scale-up calc(var(--base-motion-duration-150) / 2)
+    var(--base-motion-easing-linear) forwards;
+}
+
+@keyframes scale-down {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.95);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .tapScaleDown,
+  .tapScaleUp {
+    animation: none;
+  }
+}

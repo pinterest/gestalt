@@ -11,9 +11,10 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import colors from '../../examples/buttonlink/colors';
-import defaultStateExample from '../../examples/buttonlink/defaultStateExample';
-import disabledStateExample from '../../examples/buttonlink/disabledStateExample';
-import iconEndExample from '../../examples/buttonlink/iconEndExample';
+import disabled from '../../examples/buttonlink/disabled';
+import enabled from '../../examples/buttonlink/enabled';
+import focus from '../../examples/buttonlink/focus';
+import iconEndExample from '../../examples/buttonlink/iconEnd';
 import iconTooltipToExplainDo from '../../examples/buttonlink/iconTooltipToExplainDo';
 import iconTooltipToExplainDont from '../../examples/buttonlink/iconTooltipToExplainDont';
 import localizationLabels from '../../examples/buttonlink/localizationLabels';
@@ -24,6 +25,7 @@ import relAndTargetExample from '../../examples/buttonlink/relAndTargetExample';
 import showFullTextDo from '../../examples/buttonlink/showFullTextDo';
 import showFullTextDont from '../../examples/buttonlink/showFullTextDont';
 import washColors from '../../examples/buttonlink/washColors';
+import width from '../../examples/buttonlink/width';
 
 const PREVIEW_HEIGHT = 300;
 
@@ -164,6 +166,13 @@ export default function DocsPage({ generatedDocGen }: DocType) {
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
+When ButtonLink text does not provide sufficient context about the ButtonLink’s behavior, supply a short, descriptive label for screen-readers using \`accessibilityLabel\`.
+Texts like “Visit“, or “Learn more“ can be confusing when a screen reader reads them out of context. In those cases, we must pass an alternative text with deeper context to replace the ButtonLink text, like “Visit Pinterest's help center“ or “Learn more about Pinterest's ads policy”.
+`}
+          title="ARIA attributes"
+        />
+        <MainSection.Subsection
+          description={`
 Disabled Buttons do not need to pass color contrast guidelines.
 
 [From w3.org, 1.4.3 Contrast (Minimum)](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html): Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.
@@ -179,6 +188,33 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
+          description={`
+1. Enabled
+    The typical state of a ButtonLink that represents it can be interacted with and is not in a selected state.
+
+2. Disabled
+Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
+ `}
+          title="State"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={enabled} name="Enabled example." previewHeight={150} />
+            }
+            title="Enabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} name="Disabled example." previewHeight={150} />
+            }
+            title="Disabled"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`ButtonLink is available in 3 fixed sizes. The ButtonLink text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
@@ -190,69 +226,48 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew size={['sm', 'md', 'lg']}>
-            {({ size }) => (
-              <ButtonLink
-                accessibilityLabel={`Example size ${size}`}
-                color="red"
-                href=""
-                size={size}
-                text="Visit"
-              />
-            )}
+            {({ size }) => {
+              const sizeCopy: 'sm' | 'md' | 'lg' = size as 'sm' | 'md' | 'lg';
+              return (
+                <ButtonLink
+                  accessibilityLabel={`Example size ${size}`}
+                  color="red"
+                  href=""
+                  size={sizeCopy}
+                  text="Visit"
+                />
+              );
+            }}
           </CombinationNew>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
-1. Inline (default)
-    Inline is our default ButtonLink width.  The width of an inline ButtonLink is based on the length of its text. Use in most cases where you need a ButtonLink.
-2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the ButtonLink is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
-          title="Width"
-        >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ fullwidth }: { [key: string]: any; }) => Element; fullwidth: boolean[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew fullwidth={[false, true]}>
-            {({ fullwidth }) => (
-              <ButtonLink
-                accessibilityLabel={`Example width ${fullwidth}`}
-                color="red"
-                fullWidth={fullwidth}
-                href=""
-                size="lg"
-                text="Visit"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
+#### On white backgrounds
+
 1. Red (Primary)
     High emphasis, used for primary actions.
-2. Blue (Primary in shopping context)
-    The blue ButtonLink is only intended for the shopping experience and is used for primary shopping actions.
-3. Gray (Secondary)
+2. Gray (Secondary)
     Medium emphasis, used for secondary actions.
-4. Transparent (Tertiary)
+3. Transparent (Tertiary)
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
+
+#### On color/image backgrounds
+
+1. White (Primary)
+      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
+2. Semi-transparent white (Secondary)
+      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
 `}
-          title="Color on white backgrounds"
+          title="Color"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
             }
+            title="On white backgrounds"
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`
-  1. White (Primary)
-      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
-  2. Semi-transparent white (Secondary)
-      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
-`}
-          title="Color on color/image backgrounds"
-        >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -263,51 +278,32 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
                 previewHeight={500}
               />
             }
+            title="On color/image backgrounds"
           />
         </MainSection.Subsection>
+
         <MainSection.Subsection
-          columns={2}
           description={`
-1. Default
-    The typical state of a ButtonLink that represents it can be interacted with and is not in a selected state.
-2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
- `}
-          title="States"
+1. Inline (default)
+    Inline is our default ButtonLink width.  The width of an inline ButtonLink is based on the length of its text. Use in most cases where you need a ButtonLink.
+
+2. Full-width (\`fullWidth\`)
+    Full-width ButtonLink can be used in narrower content areas when the text in the ButtonLink is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
+          title="Width"
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={defaultStateExample}
-                name="Default state button example."
-                previewHeight={150}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={disabledStateExample}
-                name="Disabled state button example."
-                previewHeight={150}
+                code={width}
+                layout="column"
+                name="Width example."
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection
-          description={`ButtonLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
-
-Handlers:
-
-- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when ButtonLink is clicked
-
-See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
-`}
-          title="External handlers"
-        />
         <MainSection.Subsection
           description={`
 \`iconEnd\` adds an icon after the ButtonLink text, and \`iconStart\` adds an icon before. Icons should only be used to visually reinforce a specific function or interaction of the ButtonLink. Menus and external links are a common use case. Use \`visit\` when linking to an external URL or \`arrow-down\` when displaying a Popover on click. Note that icons on ButtonLink are not accessible to screen readers.
@@ -325,6 +321,24 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
             }
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection title="Focus style">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={focus} name="Focus example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`ButtonLink consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).
+
+Handlers:
+
+- [onNavigation](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation): executed when ButtonLink is clicked
+
+See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onNavigation:-custom-navigation) for more information.
+`}
+          title="External handlers"
+        />
 
         <MainSection.Subsection
           description={`

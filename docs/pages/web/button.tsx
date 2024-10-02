@@ -1,4 +1,4 @@
-import { BannerSlim, Button } from 'gestalt';
+import { BannerSlim, Button, useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
@@ -12,8 +12,9 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibilityDropdownExample from '../../examples/button/accessibilityDropdownExample';
 import colors from '../../examples/button/colors';
-import defaultStateExample from '../../examples/button/defaultStateExample';
-import disabledStateExample from '../../examples/button/disabledStateExample';
+import disabledStateExample from '../../examples/button/disabled';
+import defaultStateExample from '../../examples/button/enabled';
+import focus from '../../examples/button/focus';
 import iconExample from '../../examples/button/iconExample';
 import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo';
 import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont';
@@ -26,10 +27,16 @@ import selectedStateExample from '../../examples/button/selectedStateExample';
 import showFullTextDo from '../../examples/button/showFullTextDo';
 import showFullTextDont from '../../examples/button/showFullTextDont';
 import washColors from '../../examples/button/washColors';
+import width from '../../examples/button/width';
 
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
+  const isInExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -65,6 +72,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
@@ -186,6 +194,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           />
         </MainSection.Subsection>
       </MainSection>
+
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
@@ -232,12 +241,56 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
+          description={`
+1. Default
+    The typical state of a Button that represents it can be interacted with and is not in a selected state.
+2. Disabled
+Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
+3. Selected
+  When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state.
+`}
+          title="State"
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={defaultStateExample}
+                name="Default state button example."
+                previewHeight={150}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={disabledStateExample}
+                name="Disabled state button example."
+                previewHeight={150}
+              />
+            }
+          />
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={selectedStateExample}
+                name="Selected state button example."
+                previewHeight={150}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`Button is available in 3 fixed sizes. The Button text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
-2. \`md\` (40px)
+2. \`md\` (${isInExperiment ? '36' : '40'}px)
     Medium is used on more dense UI such as business surfaces or internal tools.
-3. \`sm\` (32px)
+3. \`sm\` (${isInExperiment ? '28' : '32'}px)
     Small should be used sparingly and only in places where the UI is very dense.`}
           title="Size"
         >
@@ -253,57 +306,35 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             )}
           </CombinationNew>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
-1. Inline (default)
-    Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
-2. Full-width (\`fullWidth\`)
-    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
-          title="Width"
-        >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ fullwidth }: { [key: string]: any; }) => Element; fullwidth: boolean[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew fullwidth={[false, true]}>
-            {({ fullwidth }) => (
-              <Button
-                accessibilityLabel={`Example width ${fullwidth}`}
-                color="red"
-                fullWidth={fullwidth}
-                size="lg"
-                text="Save"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
+#### On white backgrounds
+
 1. Red (Primary)
     High emphasis, used for primary actions.
-2. Blue (Primary in shopping context)
-    The blue Button is only intended for the shopping experience and is used for primary shopping actions.
-3. Gray (Secondary)
+2. Gray (Secondary)
     Medium emphasis, used for secondary actions.
-4. Transparent (Tertiary)
+3. Transparent (Tertiary)
     Low emphasis when placed on dark/image backgrounds, used for tertiary actions in that context. *Note, this treatment should be used with caution as it has potential color contrast issues.*
+
+#### On color/image backgrounds
+
+1. White (Primary)
+      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
+2. Semi-transparent white (Secondary)
+      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
+
 `}
-          title="Color on white backgrounds"
+          title="Color"
         >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
             }
+            title="On white backgrounds"
           />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`
-  1. White (Primary)
-      High emphasis when placed on color/image backgrounds, used for primary actions in that context.
-  2. Semi-transparent white (Secondary)
-      Medium emphasis when placed on color/image backgrounds, used for secondary actions in that context.
-`}
-          title="Color on color/image backgrounds"
-        >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -312,6 +343,28 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
                 layout="column"
                 name="Color on color/image backgrounds"
                 previewHeight={500}
+              />
+            }
+            title="On color/image backgrounds"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+1. Inline (default)
+    Inline is our default Button width.  The width of an inline Button is based on the length of its text. Use in most cases where you need a Button.
+2. Full-width (\`fullWidth\`)
+    Full-width Buttons can be used in narrower content areas when the text in the Button is close to full width in the content area. This is especially common to see in components such as BannerCallout and BannerUpsell at their smaller breakpoints.`}
+          title="Width"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={width}
+                layout="column"
+                name="Width example."
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
           />
@@ -346,50 +399,13 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection
-          columns={2}
-          description={`
-1. Default
-    The typical state of a Button that represents it can be interacted with and is not in a selected state.
-2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled Buttons are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled Buttons.
-3. Selected
-  When Button is used to toggle a boolean state or control the visibility of other elements (e.g. Dropdown), use the \`selected\` prop to indicate the current state.
-`}
-          title="States"
-        >
+        <MainSection.Subsection title="Focus style">
           <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={defaultStateExample}
-                name="Default state button example."
-                previewHeight={150}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={disabledStateExample}
-                name="Disabled state button example."
-                previewHeight={150}
-              />
-            }
-          />
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={selectedStateExample}
-                name="Selected state button example."
-                previewHeight={150}
-              />
-            }
+            sandpackExample={<SandpackExample code={focus} name="Focus example" />}
           />
         </MainSection.Subsection>
       </MainSection>
+
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
           <MainSection.Card

@@ -5,12 +5,12 @@ import buttonStyles from '../Button.css';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
 import getRoundingClassName, { Rounding } from '../getRoundingClassName';
-import iconButtonStyles from '../IconButton.css';
+import iconButtonStyles from '../IconButton/InternalIconButton.css';
 import layoutStyles from '../Layout.css';
-import linkStyles from '../Link.css';
 import touchableStyles from '../TapArea.css';
-import textStyles from '../Typography.css';
+import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
 
 type Props = {
@@ -20,10 +20,12 @@ type Props = {
   colorClass?: string;
   dataTestId?: string;
   disabled?: boolean;
+  focusColor?: 'lightBackground' | 'darkBackground';
   fullHeight?: boolean;
   fullWidth?: boolean;
   href: string;
   id?: string;
+  innerFocusColor?: 'default' | 'inverse';
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut';
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -62,10 +64,12 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
     href,
     id,
+    innerFocusColor,
     mouseCursor,
     onClick,
     onBlur,
@@ -106,22 +110,30 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     width: innerRef?.current?.clientWidth,
   });
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const { isFocusVisible } = useFocusVisible();
+
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
 
   const className = classnames(
-    linkStyles.link,
-    textStyles.noUnderline,
+    styles.noOutline,
+    styles.inheritColor,
+    styles.noUnderline,
     touchableStyles.tapTransition,
-    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
+    isTapArea ? getRoundingClassName(rounding || 0) : undefined,
+    !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
-    isButton
+    isButton && !isInVRExperiment
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
@@ -133,6 +145,25 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.sm]: size === 'sm',
           [buttonStyles.md]: size === 'md',
           [buttonStyles.lg]: size === 'lg',
+        }
+      : {},
+    isButton && isInVRExperiment
+      ? {
+          [layoutStyles.inlineFlex]: !fullWidth,
+          [layoutStyles.flex]: fullWidth,
+          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
+          [buttonStyles.buttonVr]: true,
+          [buttonStyles.disabled]: disabled,
+          [buttonStyles.selected]: !disabled && selected,
+          [buttonStyles.smVr]: size === 'sm',
+          [buttonStyles.mdVr]: size === 'md',
+          [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.vrFocused]: !disabled && isFocusVisible,
+          [buttonStyles.defaultFocus]:
+            !disabled && isFocusVisible && focusColor === 'lightBackground',
+          [buttonStyles.inverseFocus]:
+            !disabled && isFocusVisible && focusColor === 'darkBackground',
         }
       : {},
     isButton && colorClass
@@ -147,6 +178,16 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [layoutStyles.block]: true,
           [touchableStyles.fullHeight]: fullHeight,
           [touchableStyles.fullWidth]: fullWidth,
+          [focusStyles.accessibilityOutlineLightBackground]:
+            isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineDarkBackground]:
+            isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorder]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderDefault]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderInverse]:
+            isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
         }
       : {},
     isTapArea && mouseCursor
@@ -180,8 +221,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       onClick({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
-
   return (
+    // @ts-expect-error TS2322 Types of property '"aria-selected"' are incompatible. Type '"section" | undefined' is not assignable to type 'Booleanish | undefined'
     <a
       ref={innerRef}
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
@@ -232,19 +273,15 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchMove={handleTouchMove}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
-      // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
-      tabIndex={disabled ? null : tabIndex}
+      tabIndex={disabled ? undefined : tabIndex}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
-      // @ts-expect-error - TS2322 - Type '"_self" | "_blank" | null' is not assignable to type 'HTMLAttributeAnchorTarget | undefined'.
-      target={target ? `_${target}` : null}
+      target={target ? `_${target}` : undefined}
     >
       {children}
     </a>

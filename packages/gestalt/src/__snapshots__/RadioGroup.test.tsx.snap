@@ -8,7 +8,7 @@ exports[`RadioGroup renders 1`] = `
     className="label formLabel paddingX0"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       testing
     </div>
@@ -65,7 +65,7 @@ exports[`RadioGroup renders a hidden legend 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       testing
     </div>
@@ -123,7 +123,7 @@ exports[`RadioGroup renders an error 1`] = `
     className="label formLabel paddingX0"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       testing
     </div>
@@ -170,10 +170,11 @@ exports[`RadioGroup renders an error 1`] = `
     </div>
   </div>
   <div
-    className="box marginTop2"
+    className=""
+    id="testingErrorEx-error"
   >
     <div
-      className="Text fontSize100 error alignStart breakWord fontWeightNormal"
+      className="error alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -189,19 +190,23 @@ exports[`RadioGroup renders an error 1`] = `
             <div
               className="FlexItem"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="error icon iconBlock"
-                height={16}
-                role="img"
-                viewBox="0 0 24 24"
-                width={16}
+              <div
+                className="box"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="error icon iconBlock"
+                  height={16}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={16}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               className="FlexItem"
@@ -224,7 +229,7 @@ exports[`RadioGroup renders in different direction 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       testing
     </div>

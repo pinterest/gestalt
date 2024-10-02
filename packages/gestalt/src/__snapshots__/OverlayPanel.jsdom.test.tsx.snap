@@ -44,7 +44,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog transparent"
+                    class="pog roundingCircle transparent"
                     style="height: 40px; width: 40px;"
                   >
                     <svg
@@ -124,7 +124,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                               class="FlexItem"
                             >
                               <div
-                                class="Text fontSize300 default alignStart breakWord fontWeightSemiBold"
+                                class="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
                               >
                                 Are you sure you want to dismiss?
                               </div>
@@ -133,7 +133,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                               class="FlexItem"
                             >
                               <div
-                                class="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                class="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 You will lose all of your changes. This cannot be undone
                               </div>
@@ -160,7 +160,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                                 class="button inline accessibilityOutline tapTransition md gray enabled childrenDiv"
                               >
                                 <div
-                                  class="Text fontSize300 default alignCenter fontWeightSemiBold"
+                                  class="default alignCenter Text fontSize300 fontWeightSemiBold"
                                 >
                                   No, go back
                                 </div>
@@ -180,7 +180,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                                 class="button inline accessibilityOutline tapTransition md red enabled childrenDiv"
                               >
                                 <div
-                                  class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                                  class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                                 >
                                   Yes, dismiss
                                 </div>
@@ -263,7 +263,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
                     class="button tapTransition enabled"
                   >
                     <div
-                      class="pog transparent"
+                      class="pog roundingCircle transparent"
                       style="height: 40px; width: 40px;"
                     >
                       <svg
@@ -365,7 +365,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
                     class="button tapTransition enabled"
                   >
                     <div
-                      class="pog transparent"
+                      class="pog roundingCircle transparent"
                       style="height: 40px; width: 40px;"
                     >
                       <svg
@@ -462,7 +462,7 @@ exports[`OverlayPanel should render animation in 1`] = `
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog transparent focused"
+                    class="pog roundingCircle transparent focused"
                     style="height: 40px; width: 40px;"
                   >
                     <svg
@@ -542,7 +542,7 @@ exports[`OverlayPanel should render animation out 1`] = `
                   class="button tapTransition enabled"
                 >
                   <div
-                    class="pog transparent focused"
+                    class="pog roundingCircle transparent focused"
                     style="height: 40px; width: 40px;"
                   >
                     <svg

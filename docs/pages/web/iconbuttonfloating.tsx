@@ -127,17 +127,6 @@ IconButtonFloating should be contained within the \`role="contentinfo"\` contain
       <MainSection name="Variants">
         <MainSection.Subsection
           columns={2}
-          description="IconButtonFloating size is only available in a single size, 56px (the equivalent of [IconButton's size='xl'](/web/iconbutton#Size)). Keeping the size consistent will promote a cohesive Pinner experience and avoid usability issues. "
-          title="Size"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={<SandpackExample code={doForScroll} name="Variants - Size" />}
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          columns={2}
           description={`
           IconButtonFloating is always placed along the bottom of the screen. A consistent position improves discoverability when IconButtonFloating appears across a wide range of surfaces. For example, an IconButtonFloating used to open resources should remain in the same spot on the page across surfaces. In most cases, only one IconButtonFloating should be present on a screen. The exception is using a centered IconButtonFloating as a primary action, like Pin or board creation.
 
@@ -224,13 +213,15 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('IconButtonFloating');
 
-  generatedDocGen.props.icon = {
-    ...generatedDocGen.props.icon,
-    tsType: {
-      name: 'string',
-      raw: 'Icon[icon]',
-    },
-  };
+  if (generatedDocGen.props.icon) {
+    generatedDocGen.props.icon = {
+      ...generatedDocGen.props.icon,
+      tsType: {
+        name: 'string',
+        raw: 'Icon[icon]',
+      },
+    };
+  }
 
   return {
     props: { generatedDocGen },

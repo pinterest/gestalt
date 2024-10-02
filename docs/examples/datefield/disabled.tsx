@@ -2,66 +2,38 @@ import { useState } from 'react';
 import { Box, Flex } from 'gestalt';
 import { DateField } from 'gestalt-datepicker';
 
-export default function Example() {
-  const [dateValueDisableFuture, setDateValueDisableFuture] = useState<Date | null>(null);
-  const [dateValueDisablePast, setDatealueDisablePast] = useState<Date | null>(null);
-
-  const [errorTextDisableFuture, setErrorTextDisableFuture] = useState<string | null | undefined>(
-    null,
-  );
-  const [errorTextDisablePast, setErrorTextDisablePast] = useState<string | null | undefined>(null);
+export default function TextFieldSizes() {
+  const [input1Text, setInput1Text] = useState<Date | null>(new Date('1995-12-17T03:24:00'));
+  const [input2Text, setInput2Text] = useState<Date | null>(new Date('1995-12-17T03:24:00'));
 
   return (
-    <Flex
-      alignItems="center"
-      direction="column"
-      gap={4}
-      height="100%"
-      justifyContent="center"
-      width="100%"
-    >
-      <Box width={400}>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={6} width="100%">
         <DateField
-          disableRange="disableFuture"
-          errorMessage={
-            (errorTextDisableFuture &&
-              errorTextDisableFuture === 'disableFuture' &&
-              'Please, enter a valid past date') ||
-            undefined
-          }
-          helperText="Enter your date of birth"
-          id="disableFuture"
+          disabled
+          id="disabled-datefield-md"
           label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {
-            setDateValueDisableFuture(value);
+            setInput1Text(value);
           }}
-          onClearInput={() => setDateValueDisableFuture(null)}
-          onError={({ errorMessage }) => setErrorTextDisableFuture(errorMessage)}
-          value={dateValueDisableFuture}
+          onClearInput={() => setInput1Text(null)}
+          size="md"
+          value={input1Text}
         />
-      </Box>
-      <Box width={400}>
         <DateField
-          disableRange="disablePast"
-          errorMessage={
-            (errorTextDisablePast &&
-              errorTextDisablePast === 'disablePast' &&
-              'Please, enter a valid future date') ||
-            undefined
-          }
-          helperText="Enter an activation date for your campaign"
-          id="disablePast"
-          label="Campaign activation date"
+          disabled
+          id="disabled-datefield-lg"
+          label="Date of birth"
           name="bday_datefield"
           onChange={({ value }) => {
-            setDatealueDisablePast(value);
+            setInput2Text(value);
           }}
-          onClearInput={() => setDatealueDisablePast(null)}
-          onError={({ errorMessage }) => setErrorTextDisablePast(errorMessage)}
-          value={dateValueDisablePast}
+          onClearInput={() => setInput2Text(null)}
+          size="lg"
+          value={input2Text}
         />
-      </Box>
-    </Flex>
+      </Flex>
+    </Box>
   );
 }

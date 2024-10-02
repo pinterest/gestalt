@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
+import useInteractiveStates from './utils/useInteractiveStates';
 
 type Props = {
   /**
@@ -37,7 +38,10 @@ type Props = {
  *
  */
 export default function Switch({ disabled = false, id, name, onChange, switched = false }: Props) {
-  const [focused, setFocused] = useState(false);
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -46,21 +50,32 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
     onChange({ event, value: checked });
   };
 
+  const { handleOnFocus, handleOnBlur, isFocused } = useInteractiveStates();
   const { isFocusVisible } = useFocusVisible();
 
   const switchStyles = classnames(styles.switch, {
-    [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
+    [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
     [styles.disabledSelected]: disabled && switched,
-    [styles.disabled]: disabled && !switched,
+    [styles.disabledUnselected]: disabled && !switched,
     [styles.enabledSelected]: !disabled && switched,
-    [styles.enabled]: !disabled && !switched,
+    [styles.enabledUnselected]:
+      !disabled && !switched && !(isFocused && isFocusVisible && isInVRExperiment),
+    [styles.borderColorTransition]: !isInVRExperiment,
   });
 
-  const sliderStyles = classnames(
-    styles.slider,
-    switched ? styles.sliderRight : styles.sliderLeft,
-    !disabled ? styles.sliderDark : styles.sliderLight,
-  );
+  const sliderStyles = classnames(styles.slider, {
+    [styles.sliderRight]: switched,
+    [styles.sliderLeft]: !switched,
+    [styles.sliderDark]: !disabled,
+    [styles.sliderLight]: disabled,
+  });
+
+  const sliderVrStyles = classnames(styles.sliderVr, {
+    [styles.sliderVrOn]: switched,
+    [styles.sliderVrOff]: !switched,
+    [styles.disabledSlider]: disabled && !switched,
+  });
 
   const inputStyles = classnames(styles.checkbox, {
     [styles.checkboxEnabled]: !disabled,
@@ -74,12 +89,12 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
         disabled={disabled}
         id={id}
         name={name}
-        onBlur={() => setFocused(false)}
+        onBlur={handleOnBlur}
         onChange={handleChange}
-        onFocus={() => setFocused(true)}
+        onFocus={handleOnFocus}
         type="checkbox"
       />
-      <div className={sliderStyles} />
+      <div className={isInVRExperiment ? sliderVrStyles : sliderStyles} />
     </div>
   );
 }

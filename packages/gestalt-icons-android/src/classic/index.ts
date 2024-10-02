@@ -9,6 +9,7 @@ import addCircle from './ic_add-circle_gestalt.svg';
 import addLayout from './ic_add-layout_gestalt.svg';
 import addPin from './ic_add-pin_gestalt.svg';
 import addSection from './ic_add-section_gestalt.svg';
+import addSmall from './ic_add-small_gestalt.svg';
 import adsOverview from './ic_ads-overview_gestalt.svg';
 import adsStats from './ic_ads-stats_gestalt.svg';
 import alert from './ic_alert_gestalt.svg';
@@ -28,6 +29,7 @@ import animate from './ic_animate_gestalt.svg';
 import api from './ic_api_gestalt.svg';
 import apple from './ic_apple_gestalt.svg';
 import apps from './ic_apps_gestalt.svg';
+import arTryOn from './ic_ar-try-on_gestalt.svg';
 import arrowBack from './ic_arrow-back_gestalt.svg';
 import arrowCircleBack from './ic_arrow-circle-back_gestalt.svg';
 import arrowCircleDown from './ic_arrow-circle-down_gestalt.svg';
@@ -41,6 +43,7 @@ import arrowEnd from './ic_arrow-end_gestalt.svg';
 import arrowForward from './ic_arrow-forward_gestalt.svg';
 import arrowLeftCurved from './ic_arrow-left-curved_gestalt.svg';
 import arrowNested from './ic_arrow-nested_gestalt.svg';
+import arrowSmallUpRight from './ic_arrow-small-up-right_gestalt.svg';
 import arrowStart from './ic_arrow-start_gestalt.svg';
 import arrowUp from './ic_arrow-up_gestalt.svg';
 import arrowUpLeft from './ic_arrow-up-left_gestalt.svg';
@@ -52,12 +55,14 @@ import audioMix from './ic_audio-mix_gestalt.svg';
 import audioPlaying from './ic_audio-playing_gestalt.svg';
 import bell from './ic_bell_gestalt.svg';
 import bellFill from './ic_bell-fill_gestalt.svg';
+import birthdayCake from './ic_birthday-cake_gestalt.svg';
 import board from './ic_board_gestalt.svg';
 import boardStickerLarge from './ic_board-sticker-large_gestalt.svg';
 import boardStickerSmall from './ic_board-sticker-small_gestalt.svg';
 import border from './ic_border_gestalt.svg';
 import borderShadow from './ic_border-shadow_gestalt.svg';
 import briefcase from './ic_briefcase_gestalt.svg';
+import buildingBusiness from './ic_building-business_gestalt.svg';
 import businessHierarchy from './ic_business-hierarchy_gestalt.svg';
 import calendar from './ic_calendar_gestalt.svg';
 import calendarCheck from './ic_calendar-check_gestalt.svg';
@@ -65,12 +70,22 @@ import camera from './ic_camera_gestalt.svg';
 import cameraFlip from './ic_camera-flip_gestalt.svg';
 import cameraRoll from './ic_camera-roll_gestalt.svg';
 import cancel from './ic_cancel_gestalt.svg';
+import cancelSmall from './ic_cancel-small_gestalt.svg';
 import canonicalPin from './ic_canonical-pin_gestalt.svg';
 import captions from './ic_captions_gestalt.svg';
 import captionsOutline from './ic_captions-outline_gestalt.svg';
+import cardStack from './ic_card-stack_gestalt.svg';
 import check from './ic_check_gestalt.svg';
 import checkCircle from './ic_check-circle_gestalt.svg';
 import checkCircleFill from './ic_check-circle-fill_gestalt.svg';
+import checkSmall from './ic_check-small_gestalt.svg';
+import chevronDownCircle from './ic_chevron-down-circle_gestalt.svg';
+import chevronLeftCircle from './ic_chevron-left-circle_gestalt.svg';
+import chevronRightCircle from './ic_chevron-right-circle_gestalt.svg';
+import chevronSmallDown from './ic_chevron-small-down_gestalt.svg';
+import chevronSmallLeft from './ic_chevron-small-left_gestalt.svg';
+import chevronSmallRight from './ic_chevron-small-right_gestalt.svg';
+import chevronSmallUp from './ic_chevron-small-up_gestalt.svg';
 import chevronUpCircle from './ic_chevron-up-circle_gestalt.svg';
 import circle from './ic_circle_gestalt.svg';
 import circleEllipsis from './ic_circle-ellipsis_gestalt.svg';
@@ -100,6 +115,7 @@ import creditCard from './ic_credit-card_gestalt.svg';
 import crop from './ic_crop_gestalt.svg';
 import cutout from './ic_cutout_gestalt.svg';
 import dash from './ic_dash_gestalt.svg';
+import dashSmall from './ic_dash-small_gestalt.svg';
 import dataSource from './ic_data-source_gestalt.svg';
 import design from './ic_design_gestalt.svg';
 import desktop from './ic_desktop_gestalt.svg';
@@ -125,6 +141,7 @@ import faceNeutral from './ic_face-neutral_gestalt.svg';
 import faceSad from './ic_face-sad_gestalt.svg';
 import faceSmiley from './ic_face-smiley_gestalt.svg';
 import faceSmileyOutline from './ic_face-smiley-outline_gestalt.svg';
+import faceSmileyPlus from './ic_face-smiley-plus_gestalt.svg';
 import faceTryon from './ic_face-tryon_gestalt.svg';
 import facebook from './ic_facebook_gestalt.svg';
 import fade from './ic_fade_gestalt.svg';
@@ -147,6 +164,7 @@ import gauge from './ic_gauge_gestalt.svg';
 import ghost from './ic_ghost_gestalt.svg';
 import gif from './ic_gif_gestalt.svg';
 import gifVisual from './ic_gif-visual_gestalt.svg';
+import gift from './ic_gift_gestalt.svg';
 import globe from './ic_globe_gestalt.svg';
 import globeChecked from './ic_globe-checked_gestalt.svg';
 import gmail from './ic_gmail_gestalt.svg';
@@ -166,12 +184,14 @@ import homeFill from './ic_home-fill_gestalt.svg';
 import ideaPin from './ic_idea-pin_gestalt.svg';
 import imagePortrait from './ic_image-portrait_gestalt.svg';
 import impressum from './ic_impressum_gestalt.svg';
+import indent from './ic_indent_gestalt.svg';
 import infoCircle from './ic_info-circle_gestalt.svg';
 import information from './ic_information_gestalt.svg';
 import insightsAudience from './ic_insights-audience_gestalt.svg';
 import insightsConversion from './ic_insights-conversion_gestalt.svg';
 import instagram from './ic_instagram_gestalt.svg';
 import invoice from './ic_invoice_gestalt.svg';
+import kakaoTalk from './ic_kakao-talk_gestalt.svg';
 import key from './ic_key_gestalt.svg';
 import knoop from './ic_knoop_gestalt.svg';
 import labFlask from './ic_lab-flask_gestalt.svg';
@@ -180,7 +200,10 @@ import layout from './ic_layout_gestalt.svg';
 import lightbulb from './ic_lightbulb_gestalt.svg';
 import lightningBoltCircle from './ic_lightning-bolt-circle_gestalt.svg';
 import link from './ic_link_gestalt.svg';
+import linkBroken from './ic_link-broken_gestalt.svg';
 import lips from './ic_lips_gestalt.svg';
+import listNumbered from './ic_list-numbered_gestalt.svg';
+import listNumberedRtl from './ic_list-numbered-rtl_gestalt.svg';
 import location from './ic_location_gestalt.svg';
 import lock from './ic_lock_gestalt.svg';
 import logoLarge from './ic_logo-large_gestalt.svg';
@@ -207,6 +230,7 @@ import mute from './ic_mute_gestalt.svg';
 import muteFill from './ic_mute-fill_gestalt.svg';
 import orientationLandscape from './ic_orientation-landscape_gestalt.svg';
 import orientationPortrait from './ic_orientation-portrait_gestalt.svg';
+import outdent from './ic_outdent_gestalt.svg';
 import outlook from './ic_outlook_gestalt.svg';
 import overlayText from './ic_overlay-text_gestalt.svg';
 import overlayTextOutline from './ic_overlay-text-outline_gestalt.svg';
@@ -225,6 +249,7 @@ import personMagnifyingGlass from './ic_person-magnifying-glass_gestalt.svg';
 import phone from './ic_phone_gestalt.svg';
 import pin from './ic_pin_gestalt.svg';
 import pinHide from './ic_pin-hide_gestalt.svg';
+import pincode from './ic_pincode_gestalt.svg';
 import pinterest from './ic_pinterest_gestalt.svg';
 import play from './ic_play_gestalt.svg';
 import protect from './ic_protect_gestalt.svg';
@@ -242,6 +267,7 @@ import reorderImages from './ic_reorder-images_gestalt.svg';
 import replace from './ic_replace_gestalt.svg';
 import report from './ic_report_gestalt.svg';
 import rewind from './ic_rewind_gestalt.svg';
+import ribbon from './ic_ribbon_gestalt.svg';
 import rocketship from './ic_rocketship_gestalt.svg';
 import rotate from './ic_rotate_gestalt.svg';
 import saturation from './ic_saturation_gestalt.svg';
@@ -264,6 +290,7 @@ import shuffles from './ic_shuffles_gestalt.svg';
 import skintone from './ic_skintone_gestalt.svg';
 import slide from './ic_slide_gestalt.svg';
 import smiley from './ic_smiley_gestalt.svg';
+import snapchat from './ic_snapchat_gestalt.svg';
 import sortAscending from './ic_sort-ascending_gestalt.svg';
 import sortDescending from './ic_sort-descending_gestalt.svg';
 import sound from './ic_sound_gestalt.svg';
@@ -276,13 +303,13 @@ import speechEllipsis from './ic_speech-ellipsis_gestalt.svg';
 import speechEllipsisFill from './ic_speech-ellipsis-fill_gestalt.svg';
 import speechExclamationPoint from './ic_speech-exclamation-point_gestalt.svg';
 import speechHeart from './ic_speech-heart_gestalt.svg';
-import speechoutline from './ic_speech-outline_gestalt.svg';
+import speechOutline from './ic_speech-outline_gestalt.svg';
 import speed from './ic_speed_gestalt.svg';
 import speedThirdX from './ic_speed-.3x_gestalt.svg';
-import speedFofthX from './ic_speed-.5x_gestalt.svg';
+import speedFifthX from './ic_speed-.5x_gestalt.svg';
 import speed1X from './ic_speed-1x_gestalt.svg';
-import speed2x from './ic_speed-2x_gestalt.svg';
-import speed3x from './ic_speed-3x_gestalt.svg';
+import speedDoubleX from './ic_speed-2x_gestalt.svg';
+import speedTripleX from './ic_speed-3x_gestalt.svg';
 import spread from './ic_spread_gestalt.svg';
 import star from './ic_star_gestalt.svg';
 import starHalf from './ic_star-half_gestalt.svg';
@@ -294,7 +321,9 @@ import swap from './ic_swap_gestalt.svg';
 import switchAccount from './ic_switch-account_gestalt.svg';
 import table from './ic_table_gestalt.svg';
 import tag from './ic_tag_gestalt.svg';
+import tagStar from './ic_tag-star_gestalt.svg';
 import target from './ic_target_gestalt.svg';
+import telegram from './ic_telegram_gestalt.svg';
 import template from './ic_template_gestalt.svg';
 import terms from './ic_terms_gestalt.svg';
 import text from './ic_text_gestalt.svg';
@@ -303,6 +332,7 @@ import textAlignLeft from './ic_text-align-left_gestalt.svg';
 import textAlignRight from './ic_text-align-right_gestalt.svg';
 import textAllCaps from './ic_text-all-caps_gestalt.svg';
 import textExtraSmall from './ic_text-extra-small_gestalt.svg';
+import textInvert from './ic_text-invert_gestalt.svg';
 import textLarge from './ic_text-large_gestalt.svg';
 import textLineHeight from './ic_text-line-height_gestalt.svg';
 import textMedium from './ic_text-medium_gestalt.svg';
@@ -321,13 +351,14 @@ import trending from './ic_trending_gestalt.svg';
 import undo from './ic_undo_gestalt.svg';
 import unlock from './ic_unlock_gestalt.svg';
 import uploadFeed from './ic_upload-feed_gestalt.svg';
-import videoAdvance10seconds from './ic_video-advance-10-seconds_gestalt.svg';
+import viber from './ic_viber_gestalt.svg';
+import videoAdvance10Seconds from './ic_video-advance-10-seconds_gestalt.svg';
 import videoCamera from './ic_video-camera_gestalt.svg';
-import videoRewind10seconds from './ic_video-rewind-10-seconds_gestalt.svg';
+import videoRewind10Seconds from './ic_video-rewind-10-seconds_gestalt.svg';
 import viewTypeDefault from './ic_view-type-default_gestalt.svg';
 import viewTypeDense from './ic_view-type-dense_gestalt.svg';
 import viewTypeList from './ic_view-type-list_gestalt.svg';
-import viewTypeSpace from './ic_view-type-space_gestalt.svg';
+import viewTypeSparse from './ic_view-type-sparse_gestalt.svg';
 import visit from './ic_visit_gestalt.svg';
 import warmth from './ic_warmth_gestalt.svg';
 import wave from './ic_wave_gestalt.svg';
@@ -342,14 +373,14 @@ import workflowStatusProblem from './ic_workflow-status-problem_gestalt.svg';
 import workflowStatusQueued from './ic_workflow-status-queued_gestalt.svg';
 import workflowStatusUnstarted from './ic_workflow-status-unstarted_gestalt.svg';
 import workflowStatusWarning from './ic_workflow-status-warning_gestalt.svg';
-import x from './ic_x_gestalt.svg';
+import xSocial from './ic_x-social_gestalt.svg';
 import yahoo from './ic_yahoo_gestalt.svg';
 import youtube from './ic_youtube_gestalt.svg';
 
 const icons = Object.freeze({
+  '360': threeSixty,
   '3d': threeD,
   '3d-move': threeDMove,
-  '360': threeSixty,
   'accessibility': accessibility,
   'ad': ad,
   'ad-group': adGroup,
@@ -358,6 +389,7 @@ const icons = Object.freeze({
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
+  'add-small': addSmall,
   'ads-overview': adsOverview,
   'ads-stats': adsStats,
   'alert': alert,
@@ -377,6 +409,7 @@ const icons = Object.freeze({
   'api': api,
   'apple': apple,
   'apps': apps,
+  'ar-try-on': arTryOn,
   'arrow-back': arrowBack,
   'arrow-circle-back': arrowCircleBack,
   'arrow-circle-down': arrowCircleDown,
@@ -390,6 +423,7 @@ const icons = Object.freeze({
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
   'arrow-nested': arrowNested,
+  'arrow-small-up-right': arrowSmallUpRight,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
@@ -401,12 +435,14 @@ const icons = Object.freeze({
   'audio-playing': audioPlaying,
   'bell': bell,
   'bell-fill': bellFill,
+  'birthday-cake': birthdayCake,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
   'border': border,
   'border-shadow': borderShadow,
   'briefcase': briefcase,
+  'building-business': buildingBusiness,
   'business-hierarchy': businessHierarchy,
   'calendar': calendar,
   'calendar-check': calendarCheck,
@@ -414,12 +450,22 @@ const icons = Object.freeze({
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
   'cancel': cancel,
+  'cancel-small': cancelSmall,
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
+  'card-stack': cardStack,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
+  'check-small': checkSmall,
+  'chevron-down-circle': chevronDownCircle,
+  'chevron-left-circle': chevronLeftCircle,
+  'chevron-right-circle': chevronRightCircle,
+  'chevron-small-down': chevronSmallDown,
+  'chevron-small-left': chevronSmallLeft,
+  'chevron-small-right': chevronSmallRight,
+  'chevron-small-up': chevronSmallUp,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
@@ -449,6 +495,7 @@ const icons = Object.freeze({
   'crop': crop,
   'cutout': cutout,
   'dash': dash,
+  'dash-small': dashSmall,
   'data-source': dataSource,
   'design': design,
   'desktop': desktop,
@@ -463,8 +510,8 @@ const icons = Object.freeze({
   'edit': edit,
   'ellipsis': ellipsis,
   'envelope': envelope,
-  'erase-auto': eraseAuto,
   'erase': erase,
+  'erase-auto': eraseAuto,
   'etsy': etsy,
   'expand': expand,
   'eye': eye,
@@ -474,6 +521,7 @@ const icons = Object.freeze({
   'face-sad': faceSad,
   'face-smiley': faceSmiley,
   'face-smiley-outline': faceSmileyOutline,
+  'face-smiley-plus': faceSmileyPlus,
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
@@ -496,6 +544,7 @@ const icons = Object.freeze({
   'ghost': ghost,
   'gif': gif,
   'gif-visual': gifVisual,
+  'gift': gift,
   'globe': globe,
   'globe-checked': globeChecked,
   'gmail': gmail,
@@ -515,12 +564,14 @@ const icons = Object.freeze({
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
   'impressum': impressum,
+  'indent': indent,
   'info-circle': infoCircle,
   'information': information,
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
   'invoice': invoice,
+  'kakao-talk': kakaoTalk,
   'key': key,
   'knoop': knoop,
   'lab-flask': labFlask,
@@ -529,7 +580,10 @@ const icons = Object.freeze({
   'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
   'link': link,
+  'link-broken': linkBroken,
   'lips': lips,
+  'list-numbered': listNumbered,
+  'list-numbered-rtl': listNumberedRtl,
   'location': location,
   'lock': lock,
   'logo-large': logoLarge,
@@ -556,6 +610,7 @@ const icons = Object.freeze({
   'mute-fill': muteFill,
   'orientation-landscape': orientationLandscape,
   'orientation-portrait': orientationPortrait,
+  'outdent': outdent,
   'outlook': outlook,
   'overlay-text': overlayText,
   'overlay-text-outline': overlayTextOutline,
@@ -574,15 +629,16 @@ const icons = Object.freeze({
   'phone': phone,
   'pin': pin,
   'pin-hide': pinHide,
+  'pincode': pincode,
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
-  'record-limit-5': recordLimit5,
-  'record-limit-15': recordLimit15,
   'record-limit-10': recordLimit10,
+  'record-limit-15': recordLimit15,
   'record-limit-30': recordLimit30,
+  'record-limit-5': recordLimit5,
   'record-limit-60': recordLimit60,
   'redo': redo,
   'refresh': refresh,
@@ -591,6 +647,7 @@ const icons = Object.freeze({
   'replace': replace,
   'report': report,
   'rewind': rewind,
+  'ribbon': ribbon,
   'rocketship': rocketship,
   'rotate': rotate,
   'saturation': saturation,
@@ -613,6 +670,7 @@ const icons = Object.freeze({
   'skintone': skintone,
   'slide': slide,
   'smiley': smiley,
+  'snapchat': snapchat,
   'sort-ascending': sortAscending,
   'sort-descending': sortDescending,
   'sound': sound,
@@ -625,13 +683,13 @@ const icons = Object.freeze({
   'speech-ellipsis-fill': speechEllipsisFill,
   'speech-exclamation-point': speechExclamationPoint,
   'speech-heart': speechHeart,
-  'speech-outline': speechoutline,
+  'speech-outline': speechOutline,
   'speed': speed,
   'speed-.3x': speedThirdX,
-  'speed-.5x': speedFofthX,
+  'speed-.5x': speedFifthX,
   'speed-1x': speed1X,
-  'speed-2x': speed2x,
-  'speed-3x': speed3x,
+  'speed-2x': speedDoubleX,
+  'speed-3x': speedTripleX,
   'spread': spread,
   'star': star,
   'star-half': starHalf,
@@ -643,7 +701,9 @@ const icons = Object.freeze({
   'switch-account': switchAccount,
   'table': table,
   'tag': tag,
+  'tag-star': tagStar,
   'target': target,
+  'telegram': telegram,
   'template': template,
   'terms': terms,
   'text': text,
@@ -652,6 +712,7 @@ const icons = Object.freeze({
   'text-align-right': textAlignRight,
   'text-all-caps': textAllCaps,
   'text-extra-small': textExtraSmall,
+  'text-invert': textInvert,
   'text-large': textLarge,
   'text-line-height': textLineHeight,
   'text-medium': textMedium,
@@ -663,20 +724,21 @@ const icons = Object.freeze({
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,
-  'timer-3': timer3,
   'timer-10': timer10,
+  'timer-3': timer3,
   'trash-can': trashCan,
   'trending': trending,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
-  'video-advance-10-seconds': videoAdvance10seconds,
+  'viber': viber,
+  'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
-  'video-rewind-10-seconds': videoRewind10seconds,
+  'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
-  'view-type-space': viewTypeSpace,
+  'view-type-sparse': viewTypeSparse,
   'visit': visit,
   'warmth': warmth,
   'wave': wave,
@@ -691,7 +753,7 @@ const icons = Object.freeze({
   'workflow-status-queued': workflowStatusQueued,
   'workflow-status-unstarted': workflowStatusUnstarted,
   'workflow-status-warning': workflowStatusWarning,
-  'x': x,
+  'x-social': xSocial,
   'yahoo': yahoo,
   'youtube': youtube,
 });

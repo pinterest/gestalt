@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, ComboBox, DefaultLabelProvider, Flex } from 'gestalt';
+import { Box, ComboBox, DefaultLabelProvider } from 'gestalt';
 
 export default function Example() {
   const PRONOUNS = [
@@ -31,25 +31,23 @@ export default function Example() {
         },
       }}
     >
-      <Flex alignItems="center" gap={4} height="100%" justifyContent="center" width="100%">
-        <Box paddingX={8} paddingY={8}>
-          <ComboBox
-            accessibilityClearButtonLabel="Löscht den aktuellen Wert"
-            errorMessage={errorMessage}
-            helperText="Wählen Sie die Pronomen, die in Ihrem Profil erscheinen sollen, damit andere wissen, wie sie Sie ansprechen sollen. Sie können diese jederzeit bearbeiten oder entfernen."
-            id="header"
-            label="Pronomen"
-            onBlur={({ value }) => {
-              if (value !== '' && !PRONOUNS.includes(value))
-                setErrorMessage('Bitte wählen Sie eine gültige Option.');
-            }}
-            onChange={resetErrorMessage}
-            onClear={resetErrorMessage}
-            options={options}
-            placeholder="Fügen Sie Ihre Pronomen hinzu"
-          />
-        </Box>
-      </Flex>
+      <Box padding={8} width="100%">
+        <ComboBox
+          accessibilityClearButtonLabel="Löscht den aktuellen Wert"
+          errorMessage={errorMessage}
+          helperText="Wählen Sie die Pronomen, die in Ihrem Profil erscheinen sollen, damit andere wissen, wie sie Sie ansprechen sollen. Sie können diese jederzeit bearbeiten oder entfernen."
+          id="header"
+          label="Pronomen"
+          onBlur={({ value }) => {
+            if (value !== '' && !PRONOUNS.includes(value))
+              setErrorMessage('Bitte wählen Sie eine gültige Option.');
+          }}
+          onChange={resetErrorMessage}
+          onClear={resetErrorMessage}
+          options={options}
+          placeholder="Fügen Sie Ihre Pronomen hinzu"
+        />
+      </Box>
     </DefaultLabelProvider>
   );
 }

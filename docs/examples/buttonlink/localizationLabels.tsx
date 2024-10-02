@@ -7,14 +7,16 @@ export default function Example() {
       labels={{
         Link: {
           accessibilityNewTabLabel: 'Öffnet eine neue Browser-Registerkarte.',
+          accessibilityDownloadLabel: 'Es lädt eine Datei herunter.',
         },
       }}
     >
       <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
         <ButtonLink
           color="red"
-          href="https://pinterest.com"
+          href="https://www.pinterest.com/"
           iconEnd="visit"
+          onClick={({ event }) => event.preventDefault()}
           size="lg"
           text="Besuchen Sie Pinterest"
         />

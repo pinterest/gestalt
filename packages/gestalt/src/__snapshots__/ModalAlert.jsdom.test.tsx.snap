@@ -60,7 +60,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                           class="button tapTransition enabled"
                         >
                           <div
-                            class="pog white"
+                            class="pog roundingCircle white"
                             style="height: 32px; width: 32px;"
                           >
                             <svg
@@ -113,7 +113,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -227,7 +227,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -341,7 +341,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>
@@ -419,7 +419,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                           class="button tapTransition enabled"
                         >
                           <div
-                            class="pog white"
+                            class="pog roundingCircle white"
                             style="height: 32px; width: 32px;"
                           >
                             <svg
@@ -472,7 +472,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                         class="button block accessibilityOutline tapTransition lg red enabled childrenDiv"
                       >
                         <div
-                          class="Text fontSize300 inverse alignCenter fontWeightSemiBold"
+                          class="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                         >
                           Got it
                         </div>

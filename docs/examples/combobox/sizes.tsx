@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { Box, ComboBox, Flex, SegmentedControl } from 'gestalt';
+import { Box, ComboBox, Flex } from 'gestalt';
 
 export default function Example() {
-  const sizes = ['sm', 'md', 'lg'];
-  const [size, setSize] = useState('md');
   const options = Array(20)
     .fill(0)
     .map((item, index) => ({
@@ -13,36 +10,35 @@ export default function Example() {
     }));
 
   return (
-    <Box height="100%" padding={2} width="100%">
-      <Flex
-        alignItems="center"
-        direction="column"
-        height="100%"
-        justifyContent="center"
-        width="100%"
-      >
-        <Box width={320}>
-          <ComboBox
-            accessibilityClearButtonLabel="Clear the current value"
-            id="subtext"
-            label="Choose a value"
-            noResultText="No results for your selection"
-            options={options}
-            placeholder="Select a value"
-            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"sm" | "md" | "lg" | undefined'.
-            size={size}
-          />
-          <Box paddingY={5}>
-            <SegmentedControl
-              items={sizes}
-              onChange={({ activeIndex }) => {
-                setSize(sizes[activeIndex]);
-              }}
-              selectedItemIndex={sizes.indexOf(size)}
-              size="sm"
-            />
-          </Box>
-        </Box>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={4}>
+        <ComboBox
+          accessibilityClearButtonLabel="Clear the current value"
+          id="sm"
+          label="Choose a value"
+          noResultText="No results for your selection"
+          options={options}
+          placeholder="Select a value"
+          size="sm"
+        />
+        <ComboBox
+          accessibilityClearButtonLabel="Clear the current value"
+          id="md"
+          label="Choose a value"
+          noResultText="No results for your selection"
+          options={options}
+          placeholder="Select a value"
+          size="md"
+        />
+        <ComboBox
+          accessibilityClearButtonLabel="Clear the current value"
+          id="lg"
+          label="Choose a value"
+          noResultText="No results for your selection"
+          options={options}
+          placeholder="Select a value"
+          size="lg"
+        />
       </Flex>
     </Box>
   );

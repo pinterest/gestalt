@@ -6,7 +6,7 @@ export default function Example() {
   const [openB, setOpenB] = useState(false);
 
   const anchorRefA = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
-  const anchorRefB = useRef<null | HTMLElement>(null);
+  const anchorRefB = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     setOpenA(true);

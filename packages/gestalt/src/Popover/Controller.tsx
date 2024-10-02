@@ -16,7 +16,7 @@ const SIZE_WIDTH_MAP = {
 type Props = {
   accessibilityLabel?: string;
   anchor: HTMLElement;
-  bgColor: 'blue' | 'darkGray' | 'white';
+  bgColor?: 'blue' | 'darkGray' | 'white';
   border?: boolean;
   caret?: boolean;
   children?: ReactNode;

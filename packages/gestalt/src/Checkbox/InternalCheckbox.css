@@ -3,40 +3,98 @@
   --g-size-md: var(--space-600);
 }
 
+.sizeSm {
+  height: var(--g-size-sm);
+  width: var(--g-size-sm);
+}
+
+.sizeMd {
+  height: var(--g-size-md);
+  width: var(--g-size-md);
+}
+
 .enabled {
-  background-color: var(--color-background-formfield-primary);
+  background-color: var(--color-background-checkbox-unchecked-default);
 }
 
 .disabled {
-  background-color: var(--color-background-formfield-disabled);
+  background-color: var(--color-background-checkbox-disabled);
 }
 
 .checked {
-  background-color: var(--color-background-formfield-selected);
+  background-color: var(--color-background-checkbox-checked-default);
+}
+
+.errorChecked {
+  background-color: var(--color-background-checkbox-checked-error);
+}
+
+.error {
+  background-color: var(--color-background-checkbox-unchecked-error);
 }
 
 .border {
-  composes: borderColorDarkGray from "../Borders.css";
+  border-color: var(--color-border-checkbox-unchecked-default);
 }
 
 .borderSelected {
-  composes: borderColorSelected from "../Borders.css";
-}
-
-.borderDarkGray {
-  composes: borderColorDarkGray from "../Borders.css";
+  border-color: var(--color-border-checkbox-checked-default);
 }
 
 .borderDisabled {
-  composes: borderColorLightGrayDisabled from "../Borders.css";
+  border-color: var(--color-border-checkbox-disabled);
 }
 
-.borderError {
-  composes: borderColorRed from "../Borders.css";
+.borderErrorChecked {
+  border-color: var(--color-border-checkbox-checked-error);
+}
+
+.borderErrorUnchecked {
+  border-color: var(--color-border-checkbox-unchecked-error);
 }
 
 .borderHovered {
-  composes: borderColorLightGrayHovered from "../Borders.css";
+  border-color: var(--color-border-checkbox-unchecked-hover);
+}
+
+.borderHoveredError {
+  border-color: var(--sema-color-hover-border-error);
+}
+
+.borderPressed {
+  border-color: var(--sema-color-pressed-border-interactive);
+}
+
+.borderPressedError {
+  border-color: var(--sema-color-pressed-border-error);
+}
+
+.hovered {
+  background-color: var(--sema-color-hover-background-selected);
+  border-color: var(--sema-color-hover-background-selected);
+}
+
+.focus {
+  border-color: var(--sema-color-border-focus-inner-default);
+  border-style: solid;
+  border-width: 2px;
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+}
+
+.hoveredError {
+  background-color: var(--sema-color-hover-background-error-weak);
+  border-color: var(--sema-color-hover-background-error-weak);
+}
+
+.pressed {
+  background-color: var(--sema-color-pressed-background-selected);
+  border-color: var(--sema-color-pressed-background-selected);
+}
+
+.pressedError {
+  background-color: var(--sema-color-pressed-background-error-weak);
+  border-color: var(--sema-color-pressed-background-error-weak);
 }
 
 .borderRadiusSm {
@@ -47,14 +105,34 @@
   composes: rounding2 from "../Borders.css";
 }
 
+.vrBorderRadiusSm {
+  border-radius: var(--sema-rounding-100);
+}
+
+.vrBorderRadiusMd {
+  border-radius: var(--sema-rounding-200);
+}
+
 .check {
   composes: block from "../Layout.css";
   composes: borderBox from "../Layout.css";
   composes: flex from "../Layout.css";
   composes: xsItemsCenter from "../Layout.css";
   composes: justifyCenter from "../Layout.css";
-  composes: sizeLg from "../Borders.css";
   composes: solid from "../Borders.css";
+}
+
+.sizeLg {
+  height: var(--space-600);
+  width: var(--space-600);
+}
+
+.thinBorder {
+  composes: sizeSm from "../Borders.css";
+}
+
+.thickBorder {
+  composes: sizeLg from "../Borders.css";
 }
 
 .inputEnabled {
@@ -71,14 +149,4 @@
   appearance: none;
   opacity: var(--opacity-0);
   outline: 0;
-}
-
-.sizeSm {
-  height: var(--g-size-sm);
-  width: var(--g-size-sm);
-}
-
-.sizeMd {
-  height: var(--g-size-md);
-  width: var(--g-size-md);
 }

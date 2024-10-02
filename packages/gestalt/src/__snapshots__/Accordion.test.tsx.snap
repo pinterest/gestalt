@@ -23,7 +23,7 @@ exports[`Accordion renders a badge correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -51,26 +51,26 @@ exports[`Accordion renders a badge correctly 1`] = `
             }
           >
             <div
-              className="Badge middle info"
+              className="badge info middle"
             >
               <div
-                className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="box xsDisplayInlineBlock"
-                    style={
-                      Object {
-                        "marginTop": "2px",
-                      }
-                    }
+                    className="box contentCenter xsDisplayFlex"
                   >
-                    Try it out!
+                    <span
+                      className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                    >
+                      Try it out!
+                    </span>
                   </div>
                 </div>
               </div>
+               
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ exports[`Accordion renders a badge correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
       >
         Testing
       </div>
@@ -112,7 +112,7 @@ exports[`Accordion renders a title correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -177,7 +177,7 @@ exports[`Accordion renders an error correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 error alignStart breakWord fontWeightSemiBold lineClamp"
+            className="error alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -194,7 +194,7 @@ exports[`Accordion renders an error correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
       >
         Testing
       </div>
@@ -226,7 +226,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -266,7 +266,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
               className="button tapTransition enabled"
             >
               <div
-                className="pog lightGray"
+                className="pog roundingCircle lightGray"
                 style={
                   Object {
                     "height": 24,
@@ -297,7 +297,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
       >
         Testing
       </div>
@@ -351,7 +351,7 @@ exports[`Accordion renders an icon correctly 1`] = `
           }
         >
           <div
-            className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
             style={
               Object {
                 "WebkitLineClamp": 1,
@@ -368,7 +368,7 @@ exports[`Accordion renders an icon correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
       >
         Testing
       </div>
@@ -389,7 +389,7 @@ exports[`Accordion renders content correctly 1`] = `
       className="FlexItem"
     >
       <div
-        className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
       >
         Testing
       </div>

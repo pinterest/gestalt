@@ -54,17 +54,21 @@ export default function Example() {
               height={150}
               layoutKey={layoutKey}
               renderImage={({ index, width, height }) => {
-                const image = images[index] || {};
+                const image = images[index];
                 return (
                   <Mask height={height} wash width={width}>
-                    <Image
-                      alt="collage image"
-                      color={image.color}
-                      fit="cover"
-                      naturalHeight={image.naturalHeight}
-                      naturalWidth={image.naturalWidth}
-                      src={image.src}
-                    />
+                    {image ? (
+                      <Image
+                        alt="collage image"
+                        color={image.color}
+                        fit="cover"
+                        naturalHeight={image.naturalHeight}
+                        naturalWidth={image.naturalWidth}
+                        src={image.src}
+                      />
+                    ) : (
+                      <Box color="secondary" height={height} width={width} />
+                    )}
                   </Mask>
                 );
               }}

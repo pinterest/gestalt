@@ -1,0 +1,92 @@
+.formErrorMessage * {
+  /* Ensure that error message will always be correct size and color regardless of what's passed in */
+  /* stylelint-disable-next-line declaration-no-important */
+  color: var(--color-text-error) !important;
+  /* stylelint-disable-next-line declaration-no-important */
+  font-size: var(--font-size-100) !important;
+}
+
+/* none */
+
+.noStartPadding {
+  padding-left: var(--space-0);
+  padding-right: var(--space-0);
+}
+
+/* sm */
+
+.sm_topPadding {
+  padding-top: var(--space-100);
+}
+
+html[dir="rtl"] .sm_startPadding {
+  padding-right: var(--space-0);
+}
+
+html:not([dir="rtl"]) .sm_startPadding {
+  padding-left: var(--space-0);
+}
+
+.vr_sm_topPadding {
+  padding-top: var(--sema-space-100);
+}
+
+html[dir="rtl"] .vr_sm_startPadding {
+  padding-right: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .vr_sm_startPadding {
+  padding-left: var(--sema-space-200);
+}
+
+/* md */
+
+.md_topPadding {
+  padding-top: var(--space-100);
+}
+
+html[dir="rtl"] .md_startPadding {
+  padding-right: var(--space-0);
+}
+
+html:not([dir="rtl"]) .md_startPadding {
+  padding-left: var(--space-0);
+}
+
+.vr_md_topPadding {
+  padding-top: var(--sema-space-100);
+}
+
+html[dir="rtl"] .vr_md_startPadding {
+  padding-right: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .vr_md_startPadding {
+  padding-left: var(--sema-space-300);
+}
+
+/* lg */
+
+.lg_topPadding {
+  padding-top: var(--space-200);
+}
+
+html[dir="rtl"] .lg_startPadding {
+  padding-right: var(--space-0);
+}
+
+html:not([dir="rtl"]) .lg_startPadding {
+  padding-left: var(--space-0);
+}
+
+.vr_lg_topPadding {
+  padding-top: var(--sema-space-200);
+}
+
+html[dir="rtl"] .vr_lg_startPadding {
+  padding-right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .vr_lg_startPadding {
+  padding-left: var(--sema-space-400);
+}

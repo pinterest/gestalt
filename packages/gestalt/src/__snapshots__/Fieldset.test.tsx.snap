@@ -8,7 +8,7 @@ exports[`Fieldset renders 1`] = `
     className="label formLabel paddingX0"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -32,12 +32,14 @@ exports[`Fieldset renders 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -56,7 +58,7 @@ exports[`Fieldset renders 1`] = `
             className="box paddingX1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Schnauzer
             </div>
@@ -87,12 +89,14 @@ exports[`Fieldset renders 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -111,7 +115,7 @@ exports[`Fieldset renders 1`] = `
             className="box paddingX1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Aussie
             </div>
@@ -134,7 +138,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -158,12 +162,14 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -182,7 +188,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
             className="box paddingX1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Schnauzer
             </div>
@@ -213,12 +219,14 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -237,7 +245,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
             className="box paddingX1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Aussie
             </div>
@@ -261,7 +269,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="label formLabel paddingX0 visuallyHidden"
   >
     <div
-      className="Text fontSize100 default alignStart breakWord fontWeightNormal"
+      className="default alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       What is your favorite dog?
     </div>
@@ -285,12 +293,14 @@ exports[`Fieldset renders with errorMessage 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -309,7 +319,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
             className="box paddingX1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Schnauzer
             </div>
@@ -340,12 +350,14 @@ exports[`Fieldset renders with errorMessage 1`] = `
           onChange={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
+          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseUp={[Function]}
           type="checkbox"
         />
         <div
-          className="enabled border borderRadiusMd sizeMd check"
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
         />
       </div>
       <div
@@ -364,7 +376,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
             className="box paddingX1"
           >
             <div
-              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
               Aussie
             </div>
@@ -377,10 +389,11 @@ exports[`Fieldset renders with errorMessage 1`] = `
     </div>
   </div>
   <div
-    className="box marginTop2"
+    className=""
+    id="fieldset-with-error-error"
   >
     <div
-      className="Text fontSize100 error alignStart breakWord fontWeightNormal"
+      className="error alignStart breakWord Text fontSize100 fontWeightNormal"
     >
       <span
         className="formErrorMessage"
@@ -396,19 +409,23 @@ exports[`Fieldset renders with errorMessage 1`] = `
             <div
               className="FlexItem"
             >
-              <svg
-                aria-hidden={true}
-                aria-label=""
-                className="error icon iconBlock"
-                height={16}
-                role="img"
-                viewBox="0 0 24 24"
-                width={16}
+              <div
+                className="box"
               >
-                <path
-                  d="test-file-stub"
-                />
-              </svg>
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="error icon iconBlock"
+                  height={16}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={16}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
             </div>
             <div
               className="FlexItem"

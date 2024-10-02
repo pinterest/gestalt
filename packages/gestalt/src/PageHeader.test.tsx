@@ -69,7 +69,7 @@ describe('PageHeader', () => {
             <Dropdown.Link
               key="Analytics"
               href="https://pinterest.com"
-              isExternal
+              iconEnd="visit"
               option={{ value: 'Help center', label: 'Help center' }}
             />,
           ],

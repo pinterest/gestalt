@@ -4,7 +4,7 @@ import { Box, SearchField } from 'gestalt';
 export default function SearchFieldExample() {
   const [searchValue, setSearchValue] = useState('');
   return (
-    <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
+    <Box height="100%" padding={4} width="100%">
       <SearchField
         accessibilityClearButtonLabel="खोज फ़ील्ड साफ़ करें"
         accessibilityLabel="सभी Pinterest खोजें"

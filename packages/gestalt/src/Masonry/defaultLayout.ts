@@ -1,15 +1,9 @@
-import { Align, Layout } from 'gestalt/src//Masonry/types';
 import { Cache } from './Cache';
+import { getHeightAndGutter, offscreen } from './layoutHelpers';
+import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
-import { Position } from './types';
-
-const offscreen = (width: number, height: number = Infinity) => ({
-  top: -9999,
-  left: -9999,
-  width,
-  height,
-});
+import { Align, Layout, LoadingStateItem, Position } from './types';
 
 const calculateCenterOffset = ({
   align,
@@ -52,6 +46,7 @@ const defaultLayout =
     width,
     measurementCache,
     _getColumnSpanConfig,
+    renderLoadingState,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -65,8 +60,9 @@ const defaultLayout =
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     whitespaceThreshold?: number;
-    logWhitespace?: (arg1: number) => void;
-  }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
+    logWhitespace?: (arg1: ReadonlyArray<number>) => void;
+    renderLoadingState?: boolean;
+  }): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) =>
   (items): ReadonlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));
@@ -87,7 +83,7 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpanConfig
+    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -98,25 +94,22 @@ const defaultLayout =
           _getColumnSpanConfig,
           ...otherProps,
         })
-      : items.reduce<Array<any>>((acc, item) => {
-          const positions = acc;
-          const height = measurementCache.get(item);
-          let position;
+      : items.map((item) => {
+          const height = isLoadingStateItem(item, renderLoadingState)
+            ? item.height
+            : measurementCache.get(item);
 
           if (height == null) {
-            position = offscreen(columnWidth);
-          } else {
-            const heightAndGutter = height + gutter;
-            const col = mindex(heights);
-            const top = heights[col];
-            const left = col * columnWidthAndGutter + centerOffset;
-
-            heights[col] += heightAndGutter;
-            position = { top, left, width: columnWidth, height };
+            return offscreen(columnWidth);
           }
-          positions.push(position);
-          return positions;
-        }, []);
+          const heightAndGutter = getHeightAndGutter(height, gutter);
+          const col = mindex(heights);
+          const top = heights[col]!;
+          const left = col * columnWidthAndGutter + centerOffset;
+
+          heights[col] = heights[col]! + heightAndGutter;
+          return { top, left, width: columnWidth, height };
+        });
   };
 
 export default defaultLayout;

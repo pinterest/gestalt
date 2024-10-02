@@ -8,6 +8,7 @@
     "packages/stylelint-plugin-gestalt/src/__fixtures__/**/*.css"
   ],
   "plugins": [
+    "stylelint-value-no-unknown-custom-properties",
     "stylelint-order",
     "./packages/stylelint-plugin-gestalt/src/no-invalid-design-tokens.js"
   ],
@@ -20,7 +21,7 @@
         "ignoreProperties": ["composes"]
       }
     ],
-    "custom-property-pattern": "g|color|font|elevation|space|opacity|font-.+",
+    "custom-property-pattern": "g|color|font|elevation|space|opacity|motion|font-.+",
     "value-keyword-case": [
       "lower",
       {
@@ -46,6 +47,18 @@
     "no-descending-specificity": true,
     "no-duplicate-selectors": true,
     "no-unknown-animations": true,
+    "csstools/value-no-unknown-custom-properties": [
+      true,
+      {
+        "importFrom": [
+          "packages/gestalt-design-tokens/dist/css/vr-theme-web-mapping/variables.css",
+          "packages/gestalt-design-tokens/dist/css/classic/variables.css",
+          "packages/gestalt-design-tokens/dist/css/classic/variables.css",
+          "packages/gestalt/src/Column.css",
+          "packages/gestalt/src/Borders.css"
+        ]
+      }
+    ],
     "number-max-precision": 5,
     "order/properties-order": [
       ["composes"],

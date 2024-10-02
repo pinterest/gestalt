@@ -22,7 +22,8 @@ export default function Example() {
           <ButtonLink
             color="red"
             fullWidth
-            href="https://gestalt.pinterest.systems/"
+            href="https://www.pinterest.com/"
+            onClick={({ event }) => event.preventDefault()}
             size="lg"
             text="Learn more"
           />
@@ -30,6 +31,7 @@ export default function Example() {
             color="gray"
             fullWidth
             href="https://gestalt.pinterest.systems/get_started/developers/installation"
+            onClick={({ event }) => event.preventDefault()}
             size="lg"
             text="Install now"
           />

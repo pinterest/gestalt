@@ -2,21 +2,20 @@
   "rounding": {
     "datepicker": {
       "container": {
-        "value": "{rounding.400.value}",
-        "comment": "DatePicker calendar container rounding"
+        "value": "{rounding.400.value}"
+      },
+      "days": {
+        "value": "{rounding.circle.value}"
       },
       "range": {
         "start": {
-          "value": "{rounding.circle.value} {rounding.0.value} {rounding.0.value} {rounding.circle.value}",
-          "comment": "DatePicker semicircle rounding for start range selector"
+          "value": "{rounding.circle.value} {rounding.0.value} {rounding.0.value} {rounding.circle.value}"
         },
         "middle": {
-          "value": "{rounding.0.value}",
-          "comment": "DatePicker semicircle rounding for start range selector"
+          "value": "{rounding.0.value}"
         },
         "end": {
-          "value": "{rounding.0.value} {rounding.circle.value} {rounding.circle.value} {rounding.0.value}",
-          "comment": "DatePicker semicircle rounding for end range selector"
+          "value": "{rounding.0.value} {rounding.circle.value} {rounding.circle.value} {rounding.0.value}"
         }
       }
     }

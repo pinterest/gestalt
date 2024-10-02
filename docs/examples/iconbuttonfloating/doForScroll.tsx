@@ -78,7 +78,7 @@ export default function Example() {
         >
           <Dropdown.Link
             href="#"
-            isExternal
+            iconEnd="visit"
             onClick={() => {
               /* log click here */
             }}
@@ -86,7 +86,7 @@ export default function Example() {
           />
           <Dropdown.Link
             href="#"
-            isExternal
+            iconEnd="visit"
             onClick={() => {
               /* log click here */
             }}

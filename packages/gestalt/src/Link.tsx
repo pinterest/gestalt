@@ -8,20 +8,20 @@ import {
   useRef,
 } from 'react';
 import classnames from 'classnames';
-import AccessibilityOpenNewTab from './accessibility/AccessibilityOpenNewTab';
+import AccessibilityLinkActionIcon from './accessibility/AccessibilityLinkActionIcon';
 import getAriaLabel from './accessibility/getAriaLabel';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import focusStyles from './Focus.css';
 import getRoundingClassName from './getRoundingClassName';
-import Icon from './Icon';
 import layoutStyles from './Layout.css';
-import styles from './Link.css';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
-import textStyles from './Typography.css';
+import styles from './Text.css';
+import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 const externalLinkIconMap = {
@@ -40,7 +40,6 @@ type ExternalLinkIcon =
   | 'none'
   | 'default'
   | {
-      color: ComponentProps<typeof Icon>['color'];
       size: ComponentProps<typeof Text>['size'];
     };
 
@@ -150,6 +149,11 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 ): ReactElement {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
@@ -172,24 +176,46 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 
   const { isFocusVisible } = useFocusVisible();
 
-  let underlineStyle = ['inline', 'inlineBlock'].includes(display) ? 'always' : 'hover';
+  const isInline = ['inline', 'inlineBlock'].includes(display);
+
+  let underlineStyle = isInline ? 'always' : 'hover';
 
   if (underline && underline !== 'auto') {
     underlineStyle = underline;
   }
 
   const className = classnames(
-    styles.link,
-    touchableStyles.tapTransition,
+    styles.noOutline,
+    styles.inheritColor,
     getRoundingClassName(rounding),
     layoutStyles[display],
+    touchableStyles.tapTransition,
     {
-      [textStyles.underline]: underlineStyle === 'always',
       [styles.hoverNoUnderline]: underlineStyle === 'always',
-      [textStyles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
       [styles.hoverUnderline]: underlineStyle === 'hover',
+      [styles.underline]: underlineStyle === 'always',
+      [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.outlineFocus]: isFocusVisible,
       [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
+      [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
+    },
+  );
+
+  const VRclassName = classnames(
+    styles.noOutline,
+    styles.inheritColor,
+    getRoundingClassName(rounding),
+    layoutStyles[display],
+    touchableStyles.tapTransition,
+    {
+      [styles.vrInheritColor]: isInline,
+      [styles.standalone]: !isInline,
+      [styles.underline]: underlineStyle === 'always',
+      [styles.noUnderline]: underlineStyle === 'hover' || underlineStyle === 'none',
+      [styles.hoverUnderline]: underlineStyle === 'hover',
+      [styles.outlineFocusVR]: isFocusVisible,
+      [typographyStyles.fontWeightSemiBold]: !isInline,
+      [focusStyles.hideOutline]: !isFocusVisible,
       [touchableStyles.tapCompress]: tapStyle === 'compress' && isTapping,
     },
   );
@@ -222,15 +248,13 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     <a
       ref={innerRef}
       aria-label={ariaLabel}
-      className={className}
+      className={isInVRExperiment ? VRclassName : className}
       data-test-id={dataTestId}
       href={href}
       id={id}
       onBlur={(event) => {
         handleBlur();
-        if (onBlur) {
-          onBlur({ event });
-        }
+        onBlur?.({ event });
       }}
       onClick={(event) => {
         let defaultOnNavigationIsEnabled = true;
@@ -238,45 +262,37 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
           defaultOnNavigationIsEnabled = false;
         };
 
-        if (onClick) {
-          onClick({
-            event,
-            dangerouslyDisableOnNavigation,
-          });
-        }
+        onClick?.({
+          event,
+          dangerouslyDisableOnNavigation,
+        });
+
         if (onNavigationHandler && defaultOnNavigationIsEnabled) {
           onNavigationHandler({ event });
         }
       }}
       onFocus={(event) => {
-        if (onFocus) {
-          onFocus({ event });
-        }
+        onFocus?.({ event });
       }}
       onKeyPress={handleKeyPress}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchMove={handleTouchMove}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLAnchorElement>'.
       onTouchStart={handleTouchStart}
       rel={[
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
-      // @ts-expect-error - TS2322 - Type '"_self" | "_blank" | null' is not assignable to type 'HTMLAttributeAnchorTarget | undefined'.
-      target={target ? `_${target}` : null}
+      target={target ? `_${target}` : undefined}
     >
       {children}
       {externalLinkIcon === 'none' ? null : (
         <Box display="inlineBlock" marginStart={1}>
-          <AccessibilityOpenNewTab
-            color={
-              externalLinkIcon === 'default' ? 'default' : externalLinkIcon?.color ?? 'default'
-            }
+          <AccessibilityLinkActionIcon
+            icon="visit"
             size={
               externalLinkIcon === 'default'
                 ? externalLinkIconMap['300']

@@ -4,6 +4,7 @@ import focusStyles from './Focus.css';
 import getRoundingClassName, { Rounding } from './getRoundingClassName';
 import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
 
 type FocusEventHandler = (arg1: { event: React.FocusEvent<HTMLDivElement> }) => void;
@@ -60,6 +61,16 @@ type Props = {
    * Set disabled state so TapArea cannot be interacted with and actions are not available.
    */
   disabled?: boolean;
+  /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
+  /**
+   * Indicates whether this component presents a light ('default') or dark ('inverse') inner focus border when focused.
+   * Used for improving focus ring color contrast.
+   */
+  innerFocusColor?: 'default' | 'inverse';
   /**
    * Set the TapArea height to expand to the full height of the parent.
    */
@@ -163,8 +174,10 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
     children,
     dataTestId,
     disabled = false,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth = true,
+    innerFocusColor,
     mouseCursor = 'pointer',
     onBlur,
     onKeyDown,
@@ -187,6 +200,11 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const { isFocusVisible } = useFocusVisible();
 
   const {
@@ -206,7 +224,17 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
 
   const buttonRoleClasses = classnames(styles.tapTransition, getRoundingClassName(rounding), {
     [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-    [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutline]: !isInVRExperiment && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineLightBackground]:
+      isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineDarkBackground]:
+      isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineBorder]:
+      isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+    [focusStyles.accessibilityOutlineBorderDefault]:
+      isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineBorderInverse]:
+      isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
     [styles.fullHeight]: fullHeight,
     [styles.fullWidth]: fullWidth,
     [styles.copy]: mouseCursor === 'copy' && !disabled,

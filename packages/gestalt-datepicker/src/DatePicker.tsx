@@ -79,6 +79,10 @@ export type Props = {
    */
   rangeStartDate?: Date | null;
   /**
+   * Indicate if the input is readOnly. See the [readOnly example](https://gestalt.pinterest.systems/web/textfield#Read-only) for more details.
+   */
+  readOnly?: boolean;
+  /**
    * Required for date range selection. Pass a ref object to DatePicker to autofocus on the unselected date range field. See the [date range picker example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
   ref?: ReactElement;
@@ -120,6 +124,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     rangeEndDate,
     rangeSelector,
     rangeStartDate,
+    readOnly,
     selectLists,
     value,
   }: Props,
@@ -128,6 +133,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   const innerInputRef = useRef<null | HTMLInputElement>(null);
   // @ts-expect-error - TS2322 - Type 'HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerInputRef.current);
+
   // Consume GlobalEventsHandlerProvider
   const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
@@ -158,6 +164,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
       rangeEndDate={rangeEndDate}
       rangeSelector={rangeSelector}
       rangeStartDate={rangeStartDate}
+      readOnly={readOnly}
       selectLists={selectLists}
       value={value}
     />

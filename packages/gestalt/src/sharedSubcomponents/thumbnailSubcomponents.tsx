@@ -16,6 +16,7 @@ import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';
 import Text from '../Text';
+import useInExperiment from '../useInExperiment';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
@@ -41,12 +42,16 @@ export function Message({
   };
   type?: 'default' | 'success' | 'error' | 'progress';
 }) {
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const isError = type === 'error';
-  const textRef = useRef<null | HTMLElement>(null);
+  const textRef = useRef<null | HTMLDivElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
 
   // There’s two attributes for HTML elements which we can use to check if the text is truncated, offsetHeight and scrollHeight. scrollHeight is the total scrollable content height, and offsetHeight is the visible height on the screen. For an overflow view, the scrollHeight is larger than offsetHeight. We can deduce that if the scrollHeight is larger than the offsetHeight, then the element is truncated.
-  const isEllipsisActive = (element: HTMLElement) =>
+  const isEllipsisActive = (element: HTMLDivElement) =>
     element.offsetHeight < element.scrollHeight || element.offsetWidth < element.scrollWidth;
 
   const checkEllipsisActive = useCallback(() => {
@@ -82,13 +87,17 @@ export function Message({
           lineClamp={2}
           title={isTruncated && typeof text === 'string' ? text : undefined}
           // Set title prop manually if text is truncated
-          weight={isError ? 'bold' : undefined}
+          weight={isError && !isInExperiment ? 'bold' : undefined}
         >
           {text}
           {helperLink ? (
             <Fragment>
               {' '}
-              <Text color={textColor} inline weight={isError ? 'bold' : undefined}>
+              <Text
+                color={textColor}
+                inline
+                weight={isError && !isInExperiment ? 'bold' : undefined}
+              >
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
                   display="inlineBlock"
@@ -105,7 +114,7 @@ export function Message({
       ) : null}
       {/* Should the helkper link */}
       {isTruncatedWithHelperLink ? (
-        <Text color={textColor} weight={isError ? 'bold' : undefined}>
+        <Text color={textColor} weight={isError && !isInExperiment ? 'bold' : undefined}>
           <Link
             accessibilityLabel={helperLink?.accessibilityLabel ?? ''}
             display="inlineBlock"
@@ -159,6 +168,10 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
     accessibilityIconErrorLabel,
     accessibilityProcessingLabel,
   } = useDefaultLabelContext('Toast');
+  const isInExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   return (
     <Fragment>
@@ -177,7 +190,7 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
         >
           <Icon
             accessibilityLabel={accessibilityIconSuccessLabel}
-            color="success"
+            color={isInExperiment ? 'default' : 'success'}
             icon="workflow-status-ok"
             size={SIZE_ICON}
           />

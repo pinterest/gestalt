@@ -96,7 +96,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -113,15 +113,14 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -140,7 +139,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             test
                           </span>
@@ -259,7 +258,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                     role="presentation"
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                      className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -277,7 +276,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -294,15 +293,14 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -343,7 +341,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 test
                                 <div
@@ -360,26 +358,26 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                     , 
                                   </div>
                                   <div
-                                    className="Badge middle info"
+                                    className="badge info middle"
                                   >
                                     <div
-                                      className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                                      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                                     >
                                       <div
                                         className="FlexItem"
                                       >
                                         <div
-                                          className="box xsDisplayInlineBlock"
-                                          style={
-                                            Object {
-                                              "marginTop": "2px",
-                                            }
-                                          }
+                                          className="box contentCenter xsDisplayFlex"
                                         >
-                                          New
+                                          <span
+                                            className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                                          >
+                                            New
+                                          </span>
                                         </div>
                                       </div>
                                     </div>
+                                     
                                   </div>
                                 </div>
                               </span>
@@ -397,7 +395,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                 className="box"
                               >
                                 <div
-                                  className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
+                                  className="subtle alignEnd breakWord Text fontSize300 fontWeightNormal"
                                 >
                                   20
                                 </div>
@@ -411,7 +409,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -428,15 +426,14 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -477,7 +474,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 test
                                 <div
@@ -520,7 +517,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                 className="box"
                               >
                                 <div
-                                  className="Text fontSize300 subtle alignEnd breakWord fontWeightNormal"
+                                  className="subtle alignEnd breakWord Text fontSize300 fontWeightNormal"
                                 >
                                   20
                                 </div>
@@ -605,7 +602,7 @@ exports[`SideNavigation renders Sections 1`] = `
                     role="presentation"
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                      className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -623,7 +620,7 @@ exports[`SideNavigation renders Sections 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -640,15 +637,14 @@ exports[`SideNavigation renders Sections 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -667,7 +663,7 @@ exports[`SideNavigation renders Sections 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 test
                               </span>
@@ -747,7 +743,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -764,15 +760,14 @@ exports[`SideNavigation renders basic Item 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -791,7 +786,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             test
                           </span>
@@ -869,7 +864,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -886,15 +881,14 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -935,7 +929,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             Reporting
                           </span>
@@ -948,7 +942,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -965,15 +959,14 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     onTouchStart={[Function]}
                     rel=""
                     tabIndex={0}
-                    target={null}
                   >
                     <div
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -1014,7 +1007,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             Conversions
                           </span>
@@ -1031,7 +1024,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     role="presentation"
                   >
                     <div
-                      className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                      className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                       style={
                         Object {
                           "WebkitLineClamp": 2,
@@ -1049,7 +1042,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1066,15 +1059,14 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -1115,7 +1107,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Thanksgiving
                               </span>
@@ -1152,9 +1144,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -1195,7 +1187,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Christmas
                               </span>
@@ -1270,9 +1262,9 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-400)",
                               "width": undefined,
@@ -1313,7 +1305,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Halloween
                               </span>
@@ -1455,9 +1447,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
-                          "border": undefined,
                           "height": undefined,
                           "minHeight": 44,
+                          "outline": undefined,
                           "paddingInlineEnd": "var(--space-400)",
                           "paddingInlineStart": "var(--space-400)",
                           "width": undefined,
@@ -1498,7 +1490,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="FlexItem flexGrow"
                         >
                           <span
-                            className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
                             Christmas
                           </span>
@@ -1552,7 +1544,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1569,15 +1561,14 @@ exports[`SideNavigation renders expanded group 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
@@ -1596,7 +1587,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Luxury Christmas
                               </span>
@@ -1633,9 +1624,9 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
@@ -1654,7 +1645,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Classic Christmas
                               </span>
@@ -1708,7 +1699,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -1725,15 +1716,14 @@ exports[`SideNavigation renders expanded group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -1752,7 +1742,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     West Coast
                                   </span>
@@ -1765,7 +1755,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -1782,15 +1772,14 @@ exports[`SideNavigation renders expanded group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -1809,7 +1798,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     East Coast
                                   </span>
@@ -1894,9 +1883,9 @@ exports[`SideNavigation renders static group 1`] = `
                     className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
-                        "border": undefined,
                         "height": undefined,
                         "minHeight": 44,
+                        "outline": undefined,
                         "paddingInlineEnd": "var(--space-400)",
                         "paddingInlineStart": "var(--space-400)",
                         "width": undefined,
@@ -1937,7 +1926,7 @@ exports[`SideNavigation renders static group 1`] = `
                         className="FlexItem flexGrow"
                       >
                         <span
-                          className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                         >
                           Christmas
                         </span>
@@ -1952,7 +1941,7 @@ exports[`SideNavigation renders static group 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1969,15 +1958,14 @@ exports[`SideNavigation renders static group 1`] = `
                         onTouchStart={[Function]}
                         rel=""
                         tabIndex={0}
-                        target={null}
                       >
                         <div
                           className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
-                              "border": undefined,
                               "height": undefined,
                               "minHeight": 44,
+                              "outline": undefined,
                               "paddingInlineEnd": "var(--space-400)",
                               "paddingInlineStart": "var(--space-1200)",
                               "width": undefined,
@@ -1996,7 +1984,7 @@ exports[`SideNavigation renders static group 1`] = `
                               className="FlexItem flexGrow"
                             >
                               <span
-                                className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
                                 Luxury Christmas
                               </span>
@@ -2012,9 +2000,9 @@ exports[`SideNavigation renders static group 1`] = `
                         className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
-                            "border": undefined,
                             "height": undefined,
                             "minHeight": 44,
+                            "outline": undefined,
                             "paddingInlineEnd": "var(--space-400)",
                             "paddingInlineStart": "var(--space-1200)",
                             "width": undefined,
@@ -2033,7 +2021,7 @@ exports[`SideNavigation renders static group 1`] = `
                             className="FlexItem flexGrow"
                           >
                             <span
-                              className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                             >
                               Classic Christmas
                             </span>
@@ -2048,7 +2036,7 @@ exports[`SideNavigation renders static group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -2065,15 +2053,14 @@ exports[`SideNavigation renders static group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -2092,7 +2079,7 @@ exports[`SideNavigation renders static group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     West Coast
                                   </span>
@@ -2105,7 +2092,7 @@ exports[`SideNavigation renders static group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -2122,15 +2109,14 @@ exports[`SideNavigation renders static group 1`] = `
                             onTouchStart={[Function]}
                             rel=""
                             tabIndex={0}
-                            target={null}
                           >
                             <div
                               className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
-                                  "border": undefined,
                                   "height": undefined,
                                   "minHeight": 44,
+                                  "outline": undefined,
                                   "paddingInlineEnd": "var(--space-400)",
                                   "paddingInlineStart": "68px",
                                   "width": undefined,
@@ -2149,7 +2135,7 @@ exports[`SideNavigation renders static group 1`] = `
                                   className="FlexItem flexGrow"
                                 >
                                   <span
-                                    className="Text fontSize300 default alignStart breakWord fontWeightNormal"
+                                    className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
                                     East Coast
                                   </span>

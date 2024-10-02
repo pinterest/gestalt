@@ -14,7 +14,7 @@ export type siteIndexType = {
 //    >>> page 2
 //    >>> page 3
 // Any new section/page must be added to siteIndex to be displayed.
-const siteIndex: ReadonlyArray<siteIndexType> = [
+const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
   {
     sectionName: 'Get started',
     pages: [
@@ -185,6 +185,8 @@ const siteIndex: ReadonlyArray<siteIndexType> = [
       'TapArea',
       'TapAreaLink',
       'Text',
+      'TextCompact',
+      'TextUI',
       'TextArea',
       'TextField',
       'TileData',

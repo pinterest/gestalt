@@ -1,8 +1,10 @@
+const transformHEXRGBaForCSS = require('./transformers/hexToRgba');
 const StyleDictionary = require('style-dictionary');
 const tinycolor = require('tinycolor2');
 const toCamelCase = require('lodash.camelcase');
+const { registerTokenTransformGroups } = require('./transform');
 
-// CONFIG
+// #region CONFIG
 
 const optionsFileHeader = {
   'options': {
@@ -24,6 +26,8 @@ const optionsFileHeaderOutputReferences = {
 const dimenResource = { 'resourceType': 'dimen' };
 
 const colorResource = { 'resourceType': 'color' };
+
+const integerResource = { 'resourceType': 'integer' };
 
 const filterColor = {
   'filter': {
@@ -101,9 +105,24 @@ const filterLineHeight = {
   },
 };
 
+const filterMotionDuration = {
+  'filter': 'filterMotionDuration',
+  '_filter_comment': 'Custom',
+};
+
+const filterMotionEasing = {
+  'filter': 'filterMotionEasing',
+  '_filter_comment': 'Custom',
+};
+
 const androidResources = {
   'format': 'android/resources',
   '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=androidresources',
+};
+
+const composeObject = {
+  'format': 'compose/object',
+  '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=composeobject',
 };
 
 const iosColorsH = {
@@ -176,8 +195,9 @@ const iOSSwiftEnumTransformGroup = {
   '_transformGroup_comment':
     'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=ios-swift-separate',
 };
+// #endregion
 
-// HELPER FUNCTIONS
+// #region HELPER FUNCTIONS
 
 const filterList = [
   filterColor,
@@ -189,11 +209,26 @@ const filterList = [
   filterFontFamily,
   filterFontSize,
   filterFontWeight,
+  filterMotionDuration,
+  filterMotionEasing,
 ];
 
 const getFilter = (category, type) => {
   // eslint-disable-next-line no-restricted-syntax
   for (const item of filterList) {
+    // eslint-disable-next-line no-underscore-dangle
+    if (item._filter_comment === 'Custom') {
+      if (
+        typeof item.filter === 'string' &&
+        item.filter.toLowerCase() === `filter${category}${type}`
+      ) {
+        return item;
+      }
+
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
     if (type === undefined) {
       if (item.filter.attributes.category === category) {
         return item;
@@ -217,6 +252,8 @@ function buildShadowValue(values, platform) {
   // x, y, blur, spread, color, alpha;
   // convert hex code to rgba string
 
+  // print the last value
+
   return Object.values(values)
     .map((value) => {
       //  Note: we have two formats for elevation tokens.
@@ -227,7 +264,8 @@ function buildShadowValue(values, platform) {
       const opacity = tinycolor(rgbString).getAlpha();
 
       // older format has an explicit opacity value
-      if ('opacity' in value) {
+
+      if (typeof value === 'object' && 'opacity' in value) {
         const shadowColor = tinycolor(rgbString);
         shadowColor.setAlpha(value.opacity);
         rgbString = shadowColor.toRgbString();
@@ -301,6 +339,7 @@ function getSources({ theme, modeTheme, platform, language }) {
             `tokens/classic/comp-web-color-${modeTheme}.json`,
             `tokens/classic/comp-web-elevation-${modeTheme}.json`,
             `tokens/classic/comp-web-rounding.json`,
+            `tokens/classic/comp-web-font.json`,
           ]
         : []),
     ];
@@ -308,26 +347,30 @@ function getSources({ theme, modeTheme, platform, language }) {
 
   return [
     'tokens/vr-theme/base/color/default.json',
-    `tokens/vr-theme/base/elevation/${modeTheme}.json`,
-    'tokens/vr-theme/base/font.json',
+    'tokens/vr-theme/base/text/font.json',
     'tokens/vr-theme/base/opacity.json',
     'tokens/vr-theme/base/rounding.json',
     'tokens/vr-theme/base/space.json',
     'tokens/vr-theme/base/lineheight.json',
+    'tokens/vr-theme/base/motion.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
-    platform === 'web'
+    `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
+    'tokens/vr-theme/sema/text/font.json',
+    ...(platform === 'web'
       ? [
           'tokens/vr-theme/base/color/pressed.json',
           'tokens/vr-theme/base/color/hover.json',
           `tokens/vr-theme/sema/color/${modeTheme}/hover.json`,
+          `tokens/vr-theme/sema/color/${modeTheme}/pressed.json`,
         ]
-      : [],
-    `tokens/vr-theme/sema/elevation.json`,
-    `tokens/vr-theme/sema/font.json`,
-    `tokens/vr-theme/sema/opacity.json`,
-    `tokens/vr-theme/sema/rounding.json`,
-    `tokens/vr-theme/sema/space.json`,
-    `tokens/vr-theme/sema/lineheight/${language}.json`,
+      : []),
+    'tokens/vr-theme/sema/elevation.json',
+    'tokens/vr-theme/sema/opacity.json',
+    'tokens/vr-theme/sema/rounding.json',
+    'tokens/vr-theme/sema/space.json',
+    `tokens/vr-theme/sema/text/language/${language}.json`,
+    'tokens/vr-theme/sema/motion.json',
+    'tokens/vr-theme/comp/spinner.json',
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,
@@ -339,12 +382,16 @@ function getSources({ theme, modeTheme, platform, language }) {
           'tokens/vr-theme-web-mapping/base-space.json',
           `tokens/vr-theme-web-mapping/sema-color-dataviz-${modeTheme}.json`,
           'tokens/vr-theme-web-mapping/sema-color.json',
+          `tokens/vr-theme-web-mapping/comp-web-color-${modeTheme}.json`,
+          `tokens/vr-theme-web-mapping/comp-web-rounding.json`,
+          `tokens/vr-theme-web-mapping/comp-web-font.json`,
         ]
       : []),
   ];
 }
+// #endregion
 
-// X-PLATFORM REGISTERS
+// #region X-PLATFORM REGISTERS
 
 // REGISTER FILE HEADERS
 
@@ -398,7 +445,7 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-javascript/es6/classic`,
+  name: 'constantLibrary-javascript/es6/classic',
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
@@ -446,8 +493,64 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'color/css/hexrgba',
+  type: 'value',
+  transitive: true,
+  matcher: (token) => {
+    const type = token.$type ?? token.type;
+    return typeof type === 'string' && ['color', 'shadow', 'border'].includes(type);
+  },
+  transformer: (token) => transformHEXRGBaForCSS(token),
+});
+
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'font-size/px',
+  type: 'value',
+  matcher: (prop) => prop.attributes.category === 'font' && prop.attributes.type === 'size',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
+  },
+});
+
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'font-size/px',
+  type: 'value',
+  matcher: (prop) => prop.attributes.category === 'font' && prop.attributes.type === 'size',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
+  },
+});
+
+/**
+ * Adds 'px' ending to anything matching a font-size value
+ */
+StyleDictionary.registerTransform({
+  name: 'line-height/px',
+  type: 'value',
+  matcher: (prop) =>
+    prop.attributes.category === 'font' &&
+    prop.attributes.type === 'lineheight' &&
+    prop.attributes.prefix === 'sema',
+  transformer(prop) {
+    const val = parseFloat(prop.value);
+    if (Number.isNaN(val)) return val;
+    return `${val}px`;
+  },
+});
+
 StyleDictionary.registerFormat({
-  name: `constantLibrary-javascript/es6/vr-theme`,
+  name: 'constantLibrary-javascript/es6/vr-theme',
   formatter({ dictionary }) {
     const tokenDataString = dictionary.allTokens
       .map((token) => {
@@ -473,7 +576,7 @@ StyleDictionary.registerFormat({
           .replace('appenda', '')
           .replace('appendb', '');
 
-        return `export const TOKEN_${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
+        return `export const ${formattedTokenNameKey} = 'var(--${formattedTokenNameValue})';`;
       })
       .join(`\n`);
 
@@ -482,7 +585,7 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-commonJS/classic`,
+  name: 'constantLibrary-commonJS/classic',
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
@@ -511,7 +614,7 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-  name: `constantLibrary-commonJS/vr-theme`,
+  name: 'constantLibrary-commonJS/vr-theme',
   formatter({ dictionary, file }) {
     const tokens = dictionary.allTokens
       .map((token) => {
@@ -522,7 +625,7 @@ StyleDictionary.registerFormat({
             value = value.replace(ref.value, ref.name);
           });
         }
-        return `  TOKEN_${token.path
+        return `  ${token.path
           .join('_')
           .toUpperCase()
           .replace('-', '_')}: 'var(--${`${token.path.join('-')}`})',`;
@@ -539,9 +642,34 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerFilter({
+  name: 'filterMotionDuration',
+  matcher(token) {
+    return (
+      token.attributes.category === 'motion' &&
+      (token.attributes.type === 'duration' ||
+        token.attributes.item === 'duration' ||
+        token.attributes.subitem === 'duration')
+    );
+  },
+});
+
+StyleDictionary.registerFilter({
+  name: 'filterMotionEasing',
+  matcher(token) {
+    return (
+      token.attributes.category === 'motion' &&
+      (token.attributes.type === 'easing' ||
+        token.attributes.item === 'easing' ||
+        token.attributes.subitem === 'easing')
+    );
+  },
+});
+// #endregion
+
 // BUILD CONFIGURATION
 
-// WEB PLATFORM
+// #region WEB PLATFORM
 
 // REGISTER TRANSFORMS
 
@@ -553,7 +681,6 @@ StyleDictionary.registerTransform({
   },
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
-
     return buildShadowValue(prop.value, 'css');
   },
 });
@@ -572,27 +699,27 @@ StyleDictionary.registerTransform({
   },
 });
 
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'webCssTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/kebab',
-    'name/conflictFixing',
-    'value/elevation/css',
-    'color/css',
-  ],
+StyleDictionary.registerTransform({
+  name: 'value/duration/css',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'duration';
+  },
+  transformer(prop) {
+    return `${prop.value}ms`;
+  },
 });
 
-StyleDictionary.registerTransformGroup({
-  name: 'webJsTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/pascal',
-    'name/conflictFixing',
-    'value/elevation/css',
-    'color/hex',
-  ],
+StyleDictionary.registerTransform({
+  name: 'value/easing/css',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `cubic-bezier(${x1}, ${y1}, ${x2}, ${y2})`;
+  },
 });
 
 // REGISTER FILTERS
@@ -674,6 +801,13 @@ function getWebConfig({ theme, mode, language }) {
             'destination': `variables-${mode}.json`,
             ...jsonFlat,
           },
+          language
+            ? {
+                'destination': `variables-font-lineheight-${language}.json`,
+                ...jsonFlat,
+                ...semaLineHeightFilter,
+              }
+            : undefined,
         ],
       },
       'js': {
@@ -746,8 +880,9 @@ function getWebConfig({ theme, mode, language }) {
     },
   };
 }
+// #endregion
 
-// ANDROID PLATFORM
+// #region ANDROID PLATFORM
 
 // REGISTER TRANSFORM
 StyleDictionary.registerTransform({
@@ -763,16 +898,16 @@ StyleDictionary.registerTransform({
   },
 });
 
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'androidTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/snake',
-    'name/conflictFixing',
-    'color/hex8android',
-    'size/pxToDpOrSp',
-  ],
+StyleDictionary.registerTransform({
+  name: 'value/easing/android',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `PathInterpolatorCompat.create(${x1}f, ${y1}f, ${x2}f, ${y2}f)`;
+  },
 });
 
 function getAndroidConfiguration({ theme, mode, language }) {
@@ -830,6 +965,22 @@ function getAndroidConfiguration({ theme, mode, language }) {
                   ...dimenResource,
                   ...filterLineHeight,
                 },
+                {
+                  'destination': 'motion-duration.xml',
+                  ...androidResources,
+                  ...integerResource,
+                  ...filterMotionDuration,
+                },
+                {
+                  'destination': 'motion-easing.kt',
+                  className: 'GestaltInterpolators',
+                  packageName: 'interpolator',
+                  options: {
+                    import: ['androidx.core.view.animation.PathInterpolatorCompat'],
+                  },
+                  ...composeObject,
+                  ...filterMotionEasing,
+                },
               ]
             : [
                 {
@@ -843,8 +994,9 @@ function getAndroidConfiguration({ theme, mode, language }) {
     },
   };
 }
+// #endregion
 
-// IOS PLATFORM
+// #region IOS PLATFORM
 
 // REGISTER TRANSFORM
 StyleDictionary.registerTransform({
@@ -870,40 +1022,43 @@ StyleDictionary.registerTransform({
   },
   transformer(prop) {
     if (typeof prop.value === 'string' && prop.value === 'none') return 'none';
-
     return buildShadowValue(prop.value, 'ios');
   },
 });
 
-// REGISTER TRANSFORM GROUP
-StyleDictionary.registerTransformGroup({
-  name: 'iOSTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/cti/pascal',
-    'name/conflictFixing',
-    'value/elevation/ios',
-    'color/UIColor',
-    'content/objC/literal',
-    'asset/objC/literal',
-    'size/remToPt',
-    'font/objC/literal',
-  ],
+StyleDictionary.registerTransform({
+  name: 'value/duration/ios',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'duration';
+  },
+  transformer(prop) {
+    return prop.value / 1000;
+  },
 });
 
-StyleDictionary.registerTransformGroup({
-  name: 'iOSSwiftEnumTransformGroup',
-  transforms: [
-    'attribute/custom-cti',
-    'name/custom-ti/camel',
-    'name/conflictFixing',
-    'value/elevation/ios',
-    'color/UIColorSwift',
-    'content/swift/literal',
-    'asset/swift/literal',
-    'size/swift/remToCGFloat',
-    'font/swift/literal',
-  ],
+StyleDictionary.registerTransform({
+  name: 'value/easing/ios',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `[CAMediaTimingFunction functionWithControlPoints:${x1} :${y1} :${x2} :${y2}]`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'value/easing/ios-swift',
+  type: 'value',
+  matcher(prop) {
+    return prop.attributes.type === 'easing';
+  },
+  transformer(prop) {
+    const { x1, y1, x2, y2 } = prop.value;
+    return `CAMediaTimingFunction(controlPoints: ${x1}, ${y1}, ${x2}, ${y2})`;
+  },
 });
 
 function getIOSConfiguration({ theme, mode, language }) {
@@ -918,6 +1073,8 @@ function getIOSConfiguration({ theme, mode, language }) {
     'font size',
     'font weight',
     'font family',
+    'motion duration',
+    'motion easing',
   ];
 
   /**
@@ -1060,8 +1217,9 @@ function getIOSConfiguration({ theme, mode, language }) {
     },
   };
 }
+// #endregion
 
-// BUILD EXECUTION
+// #region BUILD EXECUTION
 
 const platformFileMap = {
   web: ['css', 'json', 'js'],
@@ -1069,9 +1227,11 @@ const platformFileMap = {
   ios: ['ios', 'ios-swift'],
 };
 
+registerTokenTransformGroups(StyleDictionary);
+
 ['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
-    // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default'MUST BE LAST
+    // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default' MUST BE LAST
     ['ck', 'ja', 'tall', 'th', 'vi', 'default'].forEach((lang) => {
       // only generate languages for the vr-themes
       const language = theme === 'vr-theme' || theme === 'vr-theme-web-mapping' ? lang : undefined;
@@ -1098,3 +1258,4 @@ const platformFileMap = {
     });
   }),
 );
+// #endregion

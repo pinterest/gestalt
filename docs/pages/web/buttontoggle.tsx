@@ -17,7 +17,9 @@ import confirmationDo from '../../examples/buttontoggle/confirmationDo';
 import consistencyDo from '../../examples/buttontoggle/consistencyDo';
 import defaultState from '../../examples/buttontoggle/default';
 import disabled from '../../examples/buttontoggle/disabled';
+import dropdown from '../../examples/buttontoggle/dropdown';
 import icon from '../../examples/buttontoggle/icon';
+import iconOnly from '../../examples/buttontoggle/iconOnly';
 import localization from '../../examples/buttontoggle/localization';
 import locationDo from '../../examples/buttontoggle/locationDo';
 import main from '../../examples/buttontoggle/main';
@@ -134,6 +136,59 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
+          description={`
+1. Unselected
+The initial state of a ButtonToggle that represents it is in a non-selected state.
+
+2. Disabled
+Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
+
+3. Selected
+When ButtonToggle is currently active or selected.
+`}
+          title="States"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={defaultState}
+                layout="column"
+                name="Unselected state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Unselected"
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={selected}
+                layout="column"
+                name="Selected state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Selected"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={disabled}
+                layout="column"
+                name="Disabled state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Disabled"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`ButtonToggle is available in 3 fixed sizes. The ButtonToggle text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
@@ -156,6 +211,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             )}
           </CombinationNew>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
 1. Red (Primary)
@@ -184,6 +240,23 @@ This variant also changes the shape of the ButtonToggle.
               <SandpackExample
                 code={thumbnail}
                 name="Thumbnail buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+The ButtonToggle can be used as a dropdown trigger by setting the \`hasDropdown\` prop to \`true\`.
+`}
+          title="Dropdown"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample
+                code={dropdown}
+                name="Dropdown buttontoggle example."
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
@@ -237,6 +310,8 @@ The skin tones currently supported are:
         <MainSection.Subsection
           description={`
 \`iconStart\` adds an icon before the ButtonToggle text.
+
+Text can be ommited when using an icon to have an icon-only ButtonToggle, but in that case, accessibilityLabel is required. ButtonToggle will fail to render if both \`text\` and \`accessibilityLabel\` are unset.
 `}
           title="Icons"
         >
@@ -249,58 +324,15 @@ The skin tones currently supported are:
               />
             }
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          columns={2}
-          description={`
-1. Unselected
-The initial state of a ButtonToggle that represents it is in a non-selected state.
-
-2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
-
-3. Selected
-When ButtonToggle is currently active or selected.
-`}
-          title="States"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={defaultState}
-                layout="column"
-                name="Unselected state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-            title="Unselected"
-          />
 
           <MainSection.Card
-            cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={selected}
-                layout="column"
-                name="Selected state buttontoggle example."
-                previewHeight={150}
+                code={iconOnly}
+                name="Icon start of buttontoggle example."
+                previewHeight={PREVIEW_HEIGHT}
               />
             }
-            title="Selected"
-          />
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={disabled}
-                layout="column"
-                name="Disabled state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-            title="Disabled"
           />
         </MainSection.Subsection>
       </MainSection>

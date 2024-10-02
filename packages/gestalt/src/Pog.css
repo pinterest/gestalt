@@ -1,5 +1,4 @@
 .pog {
-  composes: circle from "./Borders.css";
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
@@ -9,9 +8,37 @@
   perspective: 1px;
 }
 
+.rounding0 {
+  border-radius: var(--rounding-0);
+}
+
+.rounding100 {
+  border-radius: var(--rounding-100);
+}
+
+.rounding200 {
+  border-radius: var(--rounding-200);
+}
+
+.rounding300 {
+  border-radius: var(--rounding-300);
+}
+
+.rounding400 {
+  border-radius: var(--rounding-400);
+}
+
+.roundingCircle {
+  border-radius: var(--rounding-circle);
+}
+
 /* TOKENIZED */
 
 /* STATES */
+
+.disabledSelected {
+  background-color: var(--color-background-button-selected-disabled);
+}
 
 .selected {
   background-color: var(--color-background-button-selected-default);
@@ -19,6 +46,31 @@
 
 .focused {
   composes: accessibilityOutlineFocus from "./Focus.css";
+}
+
+.vrFocused {
+  border: 2px solid;
+  border-color: var(--sema-color-border-focus-inner-default);
+  box-sizing: border-box;
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+  padding: var(--space-0) var(--space-0);
+}
+
+.vrFocused.lightOuterFocus {
+  outline: 2px solid var(--sema-color-border-focus-outer-light);
+}
+
+.vrFocused.inverseOuterFocus {
+  outline: 2px solid var(--sema-color-border-focus-outer-inverse);
+}
+
+.vrFocused.transparentInnerFocus {
+  border-color: transparent;
+}
+
+.vrFocused.darkInnerFocus {
+  border: 2px solid var(--sema-color-border-focus-inner-dark);
 }
 
 /* COLORS */
@@ -36,6 +88,10 @@
   background-color: var(--color-background-button-primary-active);
 }
 
+.red.disabled {
+  background-color: var(--color-background-button-primary-disabled);
+}
+
 .lightGray {
   background-color: var(--color-background-button-secondary-default);
 }
@@ -47,6 +103,10 @@
 
 .lightGray.active {
   background-color: var(--color-background-button-secondary-active);
+}
+
+.lightGray.disabled {
+  background-color: var(--color-background-button-secondary-disabled);
 }
 
 .transparent {
@@ -62,6 +122,29 @@
   background-color: var(--color-background-button-tertiary-active);
 }
 
+.transparent.disabled {
+  background-color: var(--color-background-button-tertiary-disabled);
+}
+
+.washLight {
+  background-color: var(--color-background-button-semitransparentwhite-default);
+}
+
+.washLight.hovered,
+.washLight.focused {
+  background-color: var(--color-background-button-semitransparentwhite-hover);
+}
+
+.washLight.active {
+  background-color: var(--color-background-button-semitransparentwhite-active);
+}
+
+.washLight.disabled {
+  background-color: var(
+    --color-background-button-semitransparentwhite-disabled
+  );
+}
+
 .white {
   background-color: var(--color-background-button-white-default);
 }
@@ -73,6 +156,10 @@
 
 .white.active {
   background-color: var(--color-background-button-white-active);
+}
+
+.white.disabled {
+  background-color: var(--color-background-button-white-disabled);
 }
 
 .transparentDarkGray {
@@ -88,6 +175,10 @@
   background-color: var(--color-background-button-semitransparentdark-active);
 }
 
+.transparentDarkGray.disabled {
+  background-color: var(--color-background-button-semitransparentdark-disabled);
+}
+
 .gray {
   background-color: var(--color-background-button-gray-default);
 }
@@ -99,4 +190,8 @@
 
 .gray.active {
   background-color: var(--color-background-button-gray-active);
+}
+
+.gray.disabled {
+  background-color: var(--color-background-button-gray-disabled);
 }

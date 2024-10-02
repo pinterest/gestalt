@@ -79,6 +79,40 @@ describe('one column layout test cases', () => {
       { top: 134, height: 100, left: 250, width: 236 },
     ]);
   });
+
+  test('correctly positions items with no height', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 0 },
+      { 'name': 'Pin 3', 'height': 100 },
+      { 'name': 'Pin 4', 'height': 100 },
+      { 'name': 'Pin 5', 'height': 120 },
+      { 'name': 'Pin 6', 'height': 80 },
+      { 'name': 'Pin 7', 'height': 100 },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const positions = multiColumnLayout({
+      items,
+      columnCount: 4,
+      measurementCache: measurementStore,
+      positionCache,
+      _getColumnSpanConfig: getColumnSpanConfig,
+    });
+
+    const pin2Position = positions[2];
+    const pin3Position = positions[3];
+
+    expect(pin2Position?.height).toBe(0);
+    expect(pin2Position?.top).toBe(0);
+    expect(pin3Position?.top).toBe(0);
+    expect(pin2Position?.left).toBe(pin3Position?.left);
+  });
 });
 
 describe('multi column layout test cases', () => {
@@ -115,7 +149,7 @@ describe('multi column layout test cases', () => {
     // perform single column layout first since we expect two column items on second page+ currently
     layout(items);
 
-    let newItems = [
+    const newItems = [
       { name: 'Pin 10', height: 210, color: '#30BAF6' },
       { name: 'Pin 11', height: 211, color: '#7076FA' },
       { name: 'Pin 12', height: 212, color: '#B032ED' },
@@ -130,17 +164,17 @@ describe('multi column layout test cases', () => {
     // perform positioning of batch with two column item
     layout(updatedItems);
 
-    newItems = [
+    const newItems2 = [
       { name: 'Pin 15', height: 210, color: '#30BAF6' },
       { name: 'Pin 16', height: 211, color: '#7076FA' },
       { name: 'Pin 17', height: 212, color: '#B032ED' },
       { name: 'Pin 18', height: 213, color: '#F21DCF', columnSpan: 3 },
       { name: 'Pin 19', height: 214, color: '#45098F' },
     ];
-    newItems.forEach((item: any) => {
+    newItems2.forEach((item: any) => {
       measurementStore.set(item, item.height);
     });
-    updatedItems = updatedItems.concat(newItems);
+    updatedItems = updatedItems.concat(newItems2);
 
     // perform positioning of batch with multi column item
     layout(updatedItems);
@@ -282,7 +316,7 @@ describe('multi column layout test cases', () => {
 
     // Placing the first one col item after first line we have a whitespace of 10
     // so we break early although the next combination has 0 whitespace
-    const items = [
+    const items: readonly [Item, Item, Item, Item, Item, ...Item[]] = [
       { 'name': 'Pin 0', 'height': 300, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 150, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 350, 'color': '#FAB032' },
@@ -298,7 +332,7 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = (itemsToLayout: Item[]) =>
+    const layout = (itemsToLayout: readonly Item[]) =>
       multiColumnLayout({
         items: itemsToLayout,
         gutter: 0,
@@ -497,7 +531,7 @@ describe('multi column layout test cases', () => {
     // Correct position when two column module is on the start of the batch
     const positions = layout(items);
 
-    expect(positions[multiColumnModuleIndex].width).toEqual(1002);
+    expect(positions[multiColumnModuleIndex]?.width).toEqual(1002);
   });
 
   test('set correct width for multi col item that is scaled to fit', () => {
@@ -565,7 +599,7 @@ describe('multi column layout test cases', () => {
   test('correctly position multiple multi column items', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items = [
+    const items: readonly [Item, Item, Item, Item, Item, ...Item[]] = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032', columnSpan: 2 },
@@ -584,7 +618,7 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
-    const layout = (itemsToLayout: Item[]) =>
+    const layout = (itemsToLayout: readonly Item[]) =>
       multiColumnLayout({
         items: itemsToLayout,
         columnWidth: 240,
@@ -637,7 +671,7 @@ describe('multi column layout test cases', () => {
 
       const mockItems = [
         ...items.slice(0, multiColumnModuleIndex),
-        { ...items[multiColumnModuleIndex], columnSpan },
+        { ...items[multiColumnModuleIndex]!, columnSpan },
         ...items.slice(multiColumnModuleIndex + 1),
       ];
       mockItems.forEach((item: any) => {
@@ -695,7 +729,7 @@ describe('multi column layout test cases', () => {
 
       const mockItems = [
         ...items.slice(0, multiColumnModuleIndex),
-        { ...items[multiColumnModuleIndex], columnSpan },
+        { ...items[multiColumnModuleIndex]!, columnSpan },
         ...items.slice(multiColumnModuleIndex + 1),
       ];
       mockItems.forEach((item: any) => {
@@ -731,13 +765,74 @@ describe('multi column layout test cases', () => {
       });
     },
   );
+
+  test.each([
+    // This will be on top row so we expect 0 whitespace
+    [1, 2, [0, 0]],
+    // This will be on second row first column
+    [5, 3, [0, 5, 5]],
+    // This will be on second row first column
+    [5, 4, [35, 40, 40, 0]],
+  ])(
+    'logging function returns whitespace deltas correctly',
+    (
+      multiColumnModuleIndex: number,
+      columnSpan: number,
+      expectedWhitespace: ReadonlyArray<number>,
+    ) => {
+      const measurementStore = new MeasurementStore<Record<any, any>, number>();
+      const positionCache = new MeasurementStore<Record<any, any>, Position>();
+      const items = [
+        { name: 'Pin 0', height: 105, color: '#E230BA' },
+        { name: 'Pin 1', height: 100, color: '#FAB032' },
+        { name: 'Pin 2', height: 100, color: '#EDF21D' },
+        { name: 'Pin 3', height: 140, color: '#CF4509' },
+        { name: 'Pin 4', height: 180, color: '#230BAF' },
+        { name: 'Pin 5', height: 100, color: '#67076F' },
+        { name: 'Pin 6', height: 100, color: '#AB032E' },
+        { name: 'Pin 7', height: 100, color: '#DF21DC' },
+        { name: 'Pin 8', height: 100, color: '#F45098' },
+        { name: 'Pin 9', height: 100, color: '#F67076' },
+      ];
+
+      const mockItems = [
+        ...items.slice(0, multiColumnModuleIndex),
+        { ...items[multiColumnModuleIndex]!, columnSpan },
+        ...items.slice(multiColumnModuleIndex + 1),
+      ];
+      mockItems.forEach((item: any) => {
+        measurementStore.set(item, item.height);
+      });
+
+      const logWhitespace = jest.fn();
+
+      const layout = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter: 0,
+          columnWidth: 240,
+          columnCount: 5,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          logWhitespace,
+        });
+
+      layout(mockItems);
+
+      expect(logWhitespace.mock.calls).toHaveLength(1);
+      expect(logWhitespace.mock.calls[0][0]).toHaveLength(columnSpan);
+      expect(logWhitespace.mock.calls[0][0]).toStrictEqual(expectedWhitespace);
+    },
+  );
 });
 
 describe('responsive module layout test cases', () => {
   test('sets the correct column width for fixed column span', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items = [
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
@@ -776,7 +871,7 @@ describe('responsive module layout test cases', () => {
   test('sets the correct column width for responsive column span', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
-    const items = [
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },

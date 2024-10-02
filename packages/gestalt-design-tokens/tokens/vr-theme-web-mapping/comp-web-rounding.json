@@ -1,0 +1,23 @@
+{
+  "rounding": {
+    "datepicker": {
+      "container": {
+        "value": "{rounding.400.value}"
+      },
+      "days": {
+        "value": "{sema.rounding.400.value}"
+      },
+      "range": {
+        "start": {
+          "value": "{sema.rounding.400.value} {sema.rounding.0.value} {sema.rounding.0.value} {sema.rounding.400.value}"
+        },
+        "middle": {
+          "value": "{sema.rounding.0.value}"
+        },
+        "end": {
+          "value": "{sema.rounding.0.value} {sema.rounding.400.value} {sema.rounding.400.value} {sema.rounding.0.value}"
+        }
+      }
+    }
+  }
+}

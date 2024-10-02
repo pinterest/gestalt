@@ -7,7 +7,8 @@
   "dependencies": {
     "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "stylelint-value-no-unknown-custom-properties": "5.0.0"
   },
   "devDependencies": {
     "@actions/core": "^1.9.1",
@@ -86,7 +87,7 @@
     "react-docgen": "^6.0.4",
     "react-lazy-hydration": "^0.1.0",
     "react-test-renderer": "^18.1.0",
-    "rollup": "^2.45.2",
+    "rollup": "^2.79.2",
     "semver": "^7.5.3",
     "shellcheck": "^1.1.0",
     "shelljs": "^0.8.5",
@@ -96,7 +97,7 @@
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
     "sucrase": "^3.35.0",
-    "typescript": "5.5.2",
+    "typescript": "5.6.2",
     "typescript-plugin-css-modules": "^5.1.0",
     "xml2js": "^0.5.0"
   },

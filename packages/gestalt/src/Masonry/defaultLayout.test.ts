@@ -246,4 +246,108 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       { top: 0, left: 600, width: 100, height: 100 },
     ]);
   });
+
+  test('correctly positions items with no height', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 0 },
+      { 'name': 'Pin 3', 'height': 100 },
+      { 'name': 'Pin 4', 'height': 100 },
+      { 'name': 'Pin 5', 'height': 120 },
+      { 'name': 'Pin 6', 'height': 80 },
+      { 'name': 'Pin 7', 'height': 100 },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultLayout({
+      align: 'end',
+      measurementCache: measurementStore,
+      positionCache,
+      layout: 'basic',
+      minCols: 2,
+      rawItemCount: items.length,
+      width: 1000,
+      _getColumnSpanConfig,
+    });
+
+    const positions = layout(items);
+    const pin2Position = positions[2];
+    const pin3Position = positions[3];
+
+    expect(pin2Position?.height).toBe(0);
+    expect(pin2Position?.top).toBe(0);
+    expect(pin3Position?.top).toBe(0);
+    expect(pin2Position?.left).toBe(pin3Position?.left);
+  });
+});
+
+describe('loadingStateItems', () => {
+  test("uses the loadingStateItem's height", () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const loadingStateItems: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+
+    const layout = defaultLayout({
+      align: 'start',
+      measurementCache: measurementStore,
+      positionCache,
+      layout: 'basic',
+      minCols: 2,
+      rawItemCount: loadingStateItems.length,
+      width: 8000,
+      renderLoadingState: true,
+    });
+
+    expect(layout(loadingStateItems)).toEqual([
+      { top: 0, height: 100, left: 0, width: 236 },
+      { top: 0, height: 120, left: 250, width: 236 },
+      { top: 0, height: 80, left: 500, width: 236 },
+      { top: 0, height: 100, left: 750, width: 236 },
+    ]);
+  });
+
+  test('uses the measurementCache height when not a loadingStateitem', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: ReadonlyArray<Item> = [
+      { 'name': 'Pin 0', 'height': 100 },
+      { 'name': 'Pin 1', 'height': 120 },
+      { 'name': 'Pin 2', 'height': 80 },
+      { 'name': 'Pin 3', 'height': 100 },
+    ];
+    items.forEach((item: any) => {
+      /**
+       * Forcing the height to be different here since we always want to get the height from the measurement cache
+       * We only want to use the item's height if we are rendering loading state items
+       */
+      measurementStore.set(item, item.height + 1);
+    });
+
+    const layout = defaultLayout({
+      align: 'start',
+      measurementCache: measurementStore,
+      positionCache,
+      layout: 'basic',
+      minCols: 2,
+      rawItemCount: items.length,
+      width: 8000,
+    });
+
+    expect(layout(items)).toEqual([
+      { top: 0, height: 101, left: 0, width: 236 },
+      { top: 0, height: 121, left: 250, width: 236 },
+      { top: 0, height: 81, left: 500, width: 236 },
+      { top: 0, height: 101, left: 750, width: 236 },
+    ]);
+  });
 });

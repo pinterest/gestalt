@@ -5,8 +5,9 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonLink
         accessibilityLabel="Visit Pinterest"
-        href="#"
+        href="https://www.pinterest.com/"
         iconEnd="visit"
+        onClick={({ event }) => event.preventDefault()}
         rel="nofollow"
         size="lg"
         target="blank"

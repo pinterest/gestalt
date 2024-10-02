@@ -5,9 +5,11 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import layout from './Layout.css';
 import styles from './SearchField.css';
+import VRSearchField from './SearchField/VRSearchField';
 import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormLabel from './sharedSubcomponents/FormLabel';
+import useInExperiment from './useInExperiment';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
@@ -24,6 +26,10 @@ type Props = {
    * The type of autocomplete used, if any. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more info.
    */
   autoComplete?: 'on' | 'off' | 'username' | 'name';
+  /**
+   * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
+   */
+  dataTestId?: string;
   /**
    * Error text displayed below the input field.
    */
@@ -43,7 +49,7 @@ type Props = {
   /**
    *
    */
-  onBlur?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   /**
    * Primary callback to handle keyboard input.
    */
@@ -54,7 +60,7 @@ type Props = {
   /**
    *
    */
-  onFocus?: (arg1: { value: string; event: React.SyntheticEvent<HTMLInputElement> }) => void;
+  onFocus?: (arg1: { value: string; event: React.FocusEvent<HTMLInputElement> }) => void;
   /**
    * Secondary callback for keyboard events. Possible uses include validation, form submission, etc.
    */
@@ -90,6 +96,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     accessibilityLabel,
     accessibilityClearButtonLabel,
     autoComplete,
+    dataTestId,
     id,
     label,
     labelDisplay = 'visible',
@@ -104,6 +111,11 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
 
@@ -133,7 +145,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     }
   };
 
-  const handleBlur = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     setFocused(false);
     if (onBlur) {
       onBlur({ value: event.currentTarget.value, event });
@@ -159,6 +171,26 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     },
     errorMessage ? formElement.errored : formElement.normal,
   );
+  if (isInVRExperiment) {
+    return (
+      <VRSearchField
+        ref={ref}
+        autoComplete={autoComplete}
+        dataTestId={dataTestId}
+        errorMessage={errorMessage}
+        id={id}
+        label={label}
+        labelDisplay={labelDisplay}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+        size={size}
+        value={value}
+      />
+    );
+  }
 
   return (
     <span>
@@ -166,7 +198,6 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
       <Box
         alignItems="center"
         display="flex"
-        // @ts-expect-error - TS2322 - Type '{ children: (false | "" | Element | undefined)[]; alignItems: "center"; display: "flex"; onBlur: (event: KeyboardEvent<HTMLInputElement>) => void; onFocus: (event: SyntheticEvent<...>) => void; onMouseEnter: () => void; onMouseLeave: () => void; position: "relative"; }' is not assignable to type 'IntrinsicAttributes & Omit<Props, "ref"> & RefAttributes<HTMLElement>'.
         onBlur={handleBlur}
         onFocus={handleFocus}
         onMouseEnter={handleMouseEnter}

@@ -4,6 +4,7 @@ import Layer from '../Layer';
 import Controller from '../Popover/Controller';
 import Text from '../Text';
 import useDebouncedCallback from '../useDebouncedCallback';
+import useInExperiment from '../useInExperiment';
 import { Indexable } from '../zIndex';
 
 const noop = () => {};
@@ -56,6 +57,7 @@ const reducer = (
 type Props = {
   accessibilityLabel?: string;
   children?: ReactNode;
+  dataTestId?: string;
   /**
    * Whether to show the tooltip or not
    */
@@ -70,6 +72,7 @@ type Props = {
 export default function InternalTooltip({
   accessibilityLabel,
   children,
+  dataTestId,
   disabled,
   link,
   idealDirection,
@@ -84,6 +87,11 @@ export default function InternalTooltip({
   const { current: anchor } = childRef;
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   useEffect(() => {
     if (disabled === true) {
@@ -127,6 +135,7 @@ export default function InternalTooltip({
   };
 
   const accessibilityLabelFallback = typeof text === 'string' ? text : text.join('');
+  const dataTestIdText = dataTestId && `${dataTestId}-text`;
 
   return (
     <Box display={inline ? 'inlineBlock' : 'block'}>
@@ -135,6 +144,7 @@ export default function InternalTooltip({
         aria-label={
           accessibilityLabel != null && !disabled ? accessibilityLabel : accessibilityLabelFallback
         }
+        data-test-id={dataTestId}
         onBlur={handleIconMouseLeave}
         onFocus={handleIconMouseEnter}
         onMouseEnter={handleIconMouseEnter}
@@ -146,7 +156,7 @@ export default function InternalTooltip({
         <Layer zIndex={zIndex}>
           <Controller
             anchor={anchor}
-            bgColor="darkGray"
+            bgColor={isInVRExperiment ? undefined : 'darkGray'}
             border={false}
             caret={false}
             disablePortal
@@ -158,15 +168,17 @@ export default function InternalTooltip({
             shouldFocus={false}
           >
             <Box
+              color={isInVRExperiment ? 'inverse' : undefined}
               maxWidth={180}
               onBlur={link ? handleTextMouseLeave : undefined}
               onFocus={link ? handleTextMouseEnter : undefined}
               onMouseEnter={link ? handleTextMouseEnter : undefined}
               onMouseLeave={link ? handleTextMouseLeave : undefined}
               padding={2}
+              rounding={2}
               tabIndex={0}
             >
-              <Text color="inverse" size="100">
+              <Text color="inverse" dataTestId={dataTestIdText} size="100">
                 {getTooltipText()}
               </Text>
 

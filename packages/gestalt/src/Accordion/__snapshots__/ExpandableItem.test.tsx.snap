@@ -53,7 +53,7 @@ exports[`AccordionExpandableItem renders correctly 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -127,7 +127,7 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -155,26 +155,26 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                     }
                   >
                     <div
-                      className="Badge middle info"
+                      className="badge info middle"
                     >
                       <div
-                        className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
                         >
                           <div
-                            className="box xsDisplayInlineBlock"
-                            style={
-                              Object {
-                                "marginTop": "2px",
-                              }
-                            }
+                            className="box contentCenter xsDisplayFlex"
                           >
-                            Try it out!
+                            <span
+                              className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                            >
+                              Try it out!
+                            </span>
                           </div>
                         </div>
                       </div>
+                       
                     </div>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ exports[`AccordionExpandableItem renders correctly with children 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -337,7 +337,7 @@ exports[`AccordionExpandableItem renders correctly with error 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 error alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="error alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -433,7 +433,7 @@ exports[`AccordionExpandableItem renders correctly with icon 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -507,7 +507,7 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -547,7 +547,7 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
                       className="button tapTransition enabled"
                     >
                       <div
-                        className="pog lightGray"
+                        className="pog roundingCircle lightGray"
                         style={
                           Object {
                             "height": 24,
@@ -635,7 +635,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -658,7 +658,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -673,7 +673,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -688,7 +688,7 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Text fontSize200 default alignStart breakWord fontWeightNormal lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                     style={
                       Object {
                         "WebkitLineClamp": 1,
@@ -762,7 +762,7 @@ exports[`AccordionExpandableItem renders correctly with when expanded 1`] = `
                   }
                 >
                   <div
-                    className="Text fontSize300 default alignStart breakWord fontWeightSemiBold lineClamp"
+                    className="default alignStart breakWord lineClamp Text fontSize300 fontWeightSemiBold"
                     style={
                       Object {
                         "WebkitLineClamp": 1,

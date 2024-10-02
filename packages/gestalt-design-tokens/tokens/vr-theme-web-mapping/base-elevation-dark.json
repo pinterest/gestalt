@@ -1,14 +1,14 @@
 {
   "elevation": {
     "floatingappenda": {
-      "value": "{base.elevation.200.value}"
+      "value": "{sema.elevation.floating.value}"
     },
     "raisedappenda": {
       "top": {
-        "value": "{base.elevation.325.value}"
+        "value": "{sema.elevation.raised.top.value}"
       },
       "bottom": {
-        "value": "{base.elevation.350.value}"
+        "value": "{sema.elevation.raised.bottom.value}"
       }
     }
   }

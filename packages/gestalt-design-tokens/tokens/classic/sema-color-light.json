@@ -2,297 +2,235 @@
   "color": {
     "text": {
       "default": {
-        "value": "{color.black.cosmicore.900.value}",
-        "comment": "Default text color"
+        "value": "{color.black.cosmicore.900.value}"
       },
       "subtle": {
-        "value": "{color.gray.roboflow.500.value}",
-        "comment": "Secondary, subtle text color"
+        "value": "{color.gray.roboflow.500.value}"
       },
       "success": {
-        "value": "{color.green.matchacado.600.value}",
-        "comment": "Text color to indicate success"
+        "value": "{color.green.matchacado.600.value}"
       },
       "disabled": {
-        "value": "{color.gray.roboflow.400.value}",
-        "comment": "Disabled text color"
+        "value": "{color.gray.roboflow.400.value}"
       },
       "error": {
-        "value": "{color.red.pushpin.500.value}",
-        "comment": "Text color to indicate an error"
+        "value": "{color.red.pushpin.500.value}"
       },
       "warning": {
-        "value": "{color.yellow.caramellow.500.value}",
-        "comment": "Text color to indicate a warning or caution"
+        "value": "{color.yellow.caramellow.500.value}"
       },
       "inverse": {
-        "value": "{color.white.mochimalist.0.value}",
-        "comment": "Text color to use on inverted backgrounds"
+        "value": "{color.white.mochimalist.0.value}"
       },
       "dark": {
-        "value": "{color.black.cosmicore.900.value}",
-        "comment": "Dark text color that won't change in dark mode"
+        "value": "{color.black.cosmicore.900.value}"
       },
       "light": {
-        "value": "{color.white.mochimalist.0.value}",
-        "comment": "Light text color that won't change in dark mode"
+        "value": "{color.white.mochimalist.0.value}"
       },
       "shopping": {
-        "value": "{color.blue.skycicle.500.value}",
-        "comment": "Text color to use for shopping surfaces"
+        "value": "{color.blue.skycicle.500.value}"
       },
       "link": {
-        "value": "{color.blue.skycicle.700.value}",
-        "comment": "Text color to use for links in documentation sites"
+        "value": "{color.blue.skycicle.700.value}"
       }
     },
     "icon": {
       "default": {
-        "value": "{color.black.cosmicore.900.value}",
-        "comment": "Default color for icons"
+        "value": "{color.black.cosmicore.900.value}"
       },
       "subtle": {
-        "value": "{color.gray.roboflow.500.value}",
-        "comment": "Subtle, secondary color for icons"
+        "value": "{color.gray.roboflow.500.value}"
+      },
+      "subtle-accent": {
+        "value": "{color.gray.roboflow.550.value}"
       },
       "success": {
-        "value": "{color.green.matchacado.600.value}",
-        "comment": "Icon color to indicate success"
+        "value": "{color.green.matchacado.600.value}"
       },
       "disabled": {
-        "value": "{color.gray.roboflow.400.value}",
-        "comment": "Disabled color for icons"
+        "value": "{color.gray.roboflow.400.value}"
       },
       "error": {
-        "value": "{color.red.pushpin.500.value}",
-        "comment": "Icon color to indicate an error"
+        "value": "{color.red.pushpin.500.value}"
       },
       "warning": {
-        "value": "{color.yellow.caramellow.500.value}",
-        "comment": "Icon color to indicate a warning or caution"
+        "value": "{color.yellow.caramellow.500.value}"
       },
       "info": {
-        "value": "{color.blue.skycicle.500.value}",
-        "comment": "Icon color to use for information"
+        "value": "{color.blue.skycicle.500.value}"
       },
       "recommendation": {
-        "value": "{color.purple.mysticool.500.value}",
-        "comment": "Icon color to use for recommendations"
+        "value": "{color.purple.mysticool.500.value}"
       },
       "inverse": {
-        "value": "{color.white.mochimalist.0.value}",
-        "comment": "Icon color to use on inverted backgrounds"
+        "value": "{color.white.mochimalist.0.value}"
       },
       "shopping": {
-        "value": "{color.blue.skycicle.500.value}",
-        "comment": "Icon color to use for shopping surfaces"
+        "value": "{color.blue.skycicle.500.value}"
       },
       "brand": {
         "primary": {
-          "value": "{color.red.pushpin.450.value}",
-          "comment": "Icon color to use solely for representing the Pinterest brand"
+          "value": "{color.red.pushpin.450.value}"
         }
       },
       "light": {
-        "value": "{color.white.mochimalist.0.value}",
-        "comment": "Icon color that will always remain light"
+        "value": "{color.white.mochimalist.0.value}"
       },
       "dark": {
-        "value": "{color.black.cosmicore.900.value}",
-        "comment": "Icon color that will always remain dark"
+        "value": "{color.black.cosmicore.900.value}"
       }
     },
     "background": {
       "default": {
-        "value": "{color.white.mochimalist.0.value}",
-        "comment": "Background color that will match the current color scheme"
+        "value": "{color.white.mochimalist.0.value}"
       },
       "info": {
         "base": {
-          "value": "{color.blue.skycicle.500.value}",
-          "comment": "Background color to indicate neutral information"
+          "value": "{color.blue.skycicle.500.value}"
         },
         "weak": {
-          "value": "{color.blue.skycicle.100.value}",
-          "comment": "Weak background color to indicate neutral information, can be used behind text"
+          "value": "{color.blue.skycicle.100.value}"
         },
 
         "strong": {
-          "value": "{color.blue.skycicle.600.value}",
-          "comment": "Strong background color to indicate neutral information, can be used for hover"
+          "value": "{color.blue.skycicle.600.value}"
         }
       },
       "error": {
         "base": {
-          "value": "{color.red.pushpin.500.value}",
-          "comment": "Background color to indicate errors"
+          "value": "{color.red.pushpin.500.value}"
         },
         "weak": {
-          "value": "{color.red.pushpin.100.value}",
-          "comment": "Weak background color to indicate errors, can be used behind text"
+          "value": "{color.red.pushpin.100.value}"
         }
       },
       "warning": {
         "base": {
-          "value": "{color.yellow.caramellow.500.value}",
-          "comment": "Background color to indicate warnings"
+          "value": "{color.yellow.caramellow.500.value}"
         },
         "weak": {
-          "value": "{color.orange.firetini.100.value}",
-          "comment": "Weak background color to indicate warnings, can be used behind text"
+          "value": "{color.orange.firetini.100.value}"
         }
       },
       "success": {
         "base": {
-          "value": "{color.green.matchacado.500.value}",
-          "comment": "Background color to indicate success"
+          "value": "{color.green.matchacado.500.value}"
         },
         "weak": {
-          "value": "{color.green.matchacado.100.value}",
-          "comment": "Weak background color to indicate success, can be used behind text"
+          "value": "{color.green.matchacado.100.value}"
         }
       },
       "recommendation": {
         "base": {
-          "value": "{color.purple.mysticool.500.value}",
-          "comment": "Background color to indicate recommendations"
+          "value": "{color.purple.mysticool.500.value}"
         },
         "weak": {
-          "value": "{color.purple.mysticool.100.value}",
-          "comment": "Weak background color to indicate recommendations, can be used behind text"
+          "value": "{color.purple.mysticool.100.value}"
         }
       },
       "neutral": {
-        "value": "{color.gray.roboflow.500.value}",
-        "comment": "Background color to indicate neutral information"
+        "value": "{color.gray.roboflow.500.value}"
       },
       "shopping": {
-        "value": "{color.blue.skycicle.500.value}",
-        "comment": "Background color to indicate shopping-related features"
+        "value": "{color.blue.skycicle.500.value}"
       },
       "primary": {
         "base": {
-          "value": "{color.red.pushpin.450.value}",
-          "comment": "Primary background color"
+          "value": "{color.red.pushpin.450.value}"
         },
         "strong": {
-          "value": "{color.red.pushpin.600.value}",
-          "comment": "Strong version of the primary background color, used for hover"
+          "value": "{color.red.pushpin.600.value}"
         },
         "weak": {
-          "value": "{color.red.pushpin.300.value}",
-          "comment": "Weak version of the primary background color, used for hover"
+          "value": "{color.red.pushpin.300.value}"
         }
       },
       "secondary": {
         "base": {
-          "value": "{color.gray.roboflow.200.value}",
-          "comment": "Secondary background color"
+          "value": "{color.gray.roboflow.200.value}"
         },
         "strong": {
-          "value": "{color.gray.roboflow.400.value}",
-          "comment": "Strong version of secondary background color, used for hover"
+          "value": "{color.gray.roboflow.400.value}"
         },
         "weak": {
-          "value": "{color.gray.roboflow.300.value}",
-          "comment": "Weak version of secondary background color, used for hover"
+          "value": "{color.gray.roboflow.300.value}"
         }
       },
       "tertiary": {
         "base": {
-          "value": "{color.gray.roboflow.500.value}",
-          "comment": "Tertiary background color"
+          "value": "{color.gray.roboflow.500.value}"
         },
         "strong": {
-          "value": "{color.gray.roboflow.700.value}",
-          "comment": "Strong version of tertiary background color, used for hover"
+          "value": "{color.gray.roboflow.700.value}"
         },
         "weak": {
-          "value": "{color.gray.roboflow.300.value}",
-          "comment": "Weak version of tertiary background color, used for hover"
+          "value": "{color.gray.roboflow.300.value}"
         }
       },
       "selected": {
         "base": {
-          "value": "{color.black.cosmicore.900.value}",
-          "comment": "Background color to indicate selected state, like a selected IconButton"
+          "value": "{color.black.cosmicore.900.value}"
         },
         "strong": {
-          "value": "{color.gray.roboflow.700.value}",
-          "comment": "Strong version of the selected background color, used for hover"
+          "value": "{color.gray.roboflow.700.value}"
         },
         "weak": {
-          "value": "{color.gray.roboflow.400.value}",
-          "comment": "Weak version of the selected background color, used for hover"
+          "value": "{color.gray.roboflow.400.value}"
         }
       },
       "inverse": {
         "base": {
-          "value": "{color.black.cosmicore.900.value}",
-          "comment": "Background color for use on inverted backgrounds"
+          "value": "{color.black.cosmicore.900.value}"
         },
         "strong": {
-          "value": "{color.gray.roboflow.200.value}",
-          "comment": "Strong version of inverse background color, used for hover"
+          "value": "{color.gray.roboflow.200.value}"
         }
       },
       "brand": {
-        "value": "{color.red.pushpin.450.value}",
-        "comment": "Background color to signify the Pinterest brand"
+        "value": "{color.red.pushpin.450.value}"
       },
       "education": {
-        "value": "{color.blue.skycicle.500.value}",
-        "comment": "Background color to indicate educational moments or messages"
+        "value": "{color.blue.skycicle.500.value}"
       },
       "wash": {
         "dark": {
-          "value": "rgba(0, 0, 0, 0.8)",
-          "comment": "Background color to supply a dark wash over an item"
+          "value": "rgba(0, 0, 0, 0.8)"
         },
         "light": {
-          "value": "rgba(255, 255, 255, 0.9)",
-          "comment": "Background color to supply a light wash over an item"
+          "value": "rgba(255, 255, 255, 0.9)"
         }
       },
       "dark": {
-        "value": "{color.black.cosmicore.900.value}",
-        "comment": "Background color that will always be dark, no matter the color scheme"
+        "value": "{color.black.cosmicore.900.value}"
       },
       "light": {
-        "value": "{color.white.mochimalist.0.value}",
-        "comment": "Background color that will always be light, no matter the color scheme"
+        "value": "{color.white.mochimalist.0.value}"
       },
       "elevation": {
         "accent": {
-          "value": "{color.gray.roboflow.100.value}",
-          "comment": "Background color used to accent containers when shadows are not an option "
+          "value": "{color.gray.roboflow.100.value}"
         },
         "floating": {
-          "value": "{color.transparent.value}",
-          "comment": "Background color used for floating elements in dark mode (like Modal or OverlayPanel) "
+          "value": "{color.transparent.value}"
         },
         "raised": {
-          "value": "{color.transparent.value}",
-          "comment": "Background color used for raised elements in dark mode, like sticky headers or navigation footers "
+          "value": "{color.transparent.value}"
         }
       }
     },
     "border": {
       "container": {
-        "value": "{color.gray.roboflow.300.value}",
-        "comment": "Used to delineate a larger container, like Card or TextArea"
+        "value": "{color.gray.roboflow.300.value}"
       },
       "default": {
-        "value": "{color.gray.roboflow.500.value}",
-        "comment": "Used to indicate specific UI element boundaries, like Checkbox or RadioButton"
+        "value": "{color.gray.roboflow.500.value}"
       },
       "error": {
-        "value": "{color.red.pushpin.500.value}",
-        "comment": "Used to indicate an error on a contained element, like TextField or TextArea"
+        "value": "{color.red.pushpin.500.value}"
       },
       "focus": {
-        "value": "rgba(0, 132, 255, 0.5)",
-        "comment": "Used to indicate a focused state on interactive elements, like TextField or Button"
+        "value": "rgba(0, 132, 255, 0.5)"
       }
     }
   }

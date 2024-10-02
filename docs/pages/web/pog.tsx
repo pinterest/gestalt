@@ -8,7 +8,9 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import focusOnDarkBackground from '../../examples/pog/focusOnDarkBackground';
 import main from '../../examples/pog/main';
+import rounding from '../../examples/pog/rounding';
 import states from '../../examples/pog/states';
 import statesOnBackground from '../../examples/pog/statesOnBackground';
 
@@ -57,22 +59,35 @@ Follow these guidelines for \`bgColor\`
 Follow these guidelines for \`bgColor\`
 
 1. Transparent Dark Gray ("transparentDarkGray"). Medium emphasis, used for secondary actions, usually above a colored background.
-2. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
-3. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
+2. Wash Light ("washLight"). Used when there is a need of an IconButton over an image or colored background to provide a semi-transparent IconButton with a light wash.
+3. White ("white"). Used when there is a need of an IconButton over an image or colored background to provide better contrast and visibility.
+4. Transparent ("transparent"). Used when there is a need to have an IconButton over an image without a background.
 `}
           title="Background colors on color/image backgrounds"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ bgColor }: { [key: string]: any; }) => Element; bgColor: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew bgColor={['transparentDarkGray', 'white', 'transparent']}>
+          <CombinationNew bgColor={['transparentDarkGray', 'washLight', 'white', 'transparent']}>
             {({ bgColor }) => <Pog bgColor={bgColor} icon="heart" />}
           </CombinationNew>
         </MainSection.Subsection>
+
         <MainSection.Subsection title="States">
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={states} name="States on white backgrounds" />}
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`Internally, Pog manages rounding depending on its size. For overriding the default rounding, use the "rounding" prop.`}
+          title="Rounding"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={rounding} name="Rounding" />}
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection title="States on color/image backgrounds">
           <MainSection.Card
             cardSize="lg"
@@ -84,6 +99,20 @@ Follow these guidelines for \`bgColor\`
             }
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection title="Focus ring on dark backgrounds">
+          <MainSection.Card
+            cardSize="lg"
+            description="IconButtonLink can be used on dark backgrounds. The focus ring is visible on dark backgrounds to ensure accessibility."
+            sandpackExample={
+              <SandpackExample
+                code={focusOnDarkBackground}
+                name="Usage of focus ring on dark backgrounds"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection title="Sizes with default padding">
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; hasCheckerboard: false; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
           <CombinationNew hasCheckerboard={false} size={['xs', 'sm', 'md', 'lg', 'xl']}>
@@ -115,13 +144,15 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('Pog');
 
-  generatedDocGen.props.icon = {
-    ...generatedDocGen.props.icon,
-    tsType: {
-      name: 'string',
-      raw: 'Icon[icon]',
-    },
-  };
+  if (generatedDocGen.props.icon) {
+    generatedDocGen.props.icon = {
+      ...generatedDocGen.props.icon,
+      tsType: {
+        name: 'string',
+        raw: 'Icon[icon]',
+      },
+    };
+  }
 
   return {
     props: { generatedDocGen },

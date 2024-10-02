@@ -1,0 +1,64 @@
+{
+  "font": {
+    "weight": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.weight.body.MD.default}"
+        },
+        "heading": {
+          "value": "{sema.font.weight.heading.SM}"
+        }
+      }
+    },
+    "size": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.size.body.MD}"
+        },
+        "heading": {
+          "value": "{sema.font.size.heading.SM}"
+        }
+      }
+    },
+    "family": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.family.body.MD}"
+        },
+        "heading": {
+          "value": "{sema.font.family.heading.SM}"
+        }
+      }
+    },
+    "letterspacing": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.letterspacing.body.MD}"
+        },
+        "heading": {
+          "value": "{sema.font.letterspacing.heading.SM}"
+        }
+      }
+    },
+    "lineheight": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.lineheight.body.MD}"
+        },
+        "heading": {
+          "value": "{sema.font.lineheight.heading.SM}"
+        }
+      }
+    },
+    "textdecoration": {
+      "datepicker": {
+        "date": {
+          "value": "{sema.font.textdecoration.body.MD}"
+        },
+        "heading": {
+          "value": "{sema.font.textdecoration.heading.SM}"
+        }
+      }
+    }
+  }
+}

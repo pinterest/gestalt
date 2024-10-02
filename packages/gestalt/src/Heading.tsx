@@ -3,7 +3,8 @@ import cx from 'classnames';
 import styles from './Heading.css';
 import colors from './Text.css';
 import { semanticColors } from './textTypes';
-import typography from './Typography.css';
+import typographyStyle from './Typography.css';
+import useInExperiment from './useInExperiment';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -11,6 +12,15 @@ function isNotNullish(val?: number | null): boolean {
 
 const defaultHeadingLevels = {
   '100': 6,
+  '200': 5,
+  '300': 4,
+  '400': 3,
+  '500': 2,
+  '600': 1,
+} as const;
+
+const defaultHeadingLevelsVR = {
+  '100': 5,
   '200': 5,
   '300': 4,
   '400': 3,
@@ -85,35 +95,51 @@ export default function Heading({
   overflow = 'breakWord',
   size = '600',
 }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
-      return typography.breakAll;
+      return typographyStyle.breakAll;
     }
 
     // default to breakWord if lineClamp is set
     if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
-      return typography.breakWord;
+      return typographyStyle.breakWord;
     }
 
     return undefined;
   };
 
   const cs = cx(
-    styles.Heading,
-    typography[`fontSize${size}`],
+    {
+      [styles.Heading]: !isInVRExperiment,
+      [styles.HeadingVR]: isInVRExperiment,
+      [typographyStyle[`fontSize${size}`]]: !isInVRExperiment,
+      [styles.lg]: isInVRExperiment && size === '600',
+      [styles.md]: isInVRExperiment && size === '500',
+      [styles.sm]: isInVRExperiment && size === '400',
+      [styles.xs]: isInVRExperiment && size === '300',
+      [styles.xxs]: isInVRExperiment && (size === '200' || size === '100'),
+    },
     color && semanticColors.includes(color) && colors[color],
-    align === 'center' && typography.alignCenter,
+    align === 'center' && typographyStyle.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
-    align === 'justify' && typography.alignJustify,
-    align === 'start' && typography.alignStart,
-    align === 'end' && typography.alignEnd,
-    align === 'forceLeft' && typography.alignForceLeft,
-    align === 'forceRight' && typography.alignForceRight,
+    align === 'justify' && typographyStyle.alignJustify,
+    align === 'start' && typographyStyle.alignStart,
+    align === 'end' && typographyStyle.alignEnd,
+    align === 'forceLeft' && typographyStyle.alignForceLeft,
+    align === 'forceRight' && typographyStyle.alignForceRight,
     getWordBreakStyle(),
-    isNotNullish(lineClamp) && typography.lineClamp,
+    isNotNullish(lineClamp) && typographyStyle.lineClamp,
   );
 
-  const headingLevel = accessibilityLevel || defaultHeadingLevels[size];
+  const headingLevel =
+    accessibilityLevel ||
+    (!isInVRExperiment ? defaultHeadingLevels[size] : defaultHeadingLevelsVR[size]);
+
   let newProps = { className: cs };
   if (id) {
     // @ts-expect-error - TS2322 - Type '{ id: string; className: string; }' is not assignable to type '{ className: string; }'.

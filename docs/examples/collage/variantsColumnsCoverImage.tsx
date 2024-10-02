@@ -54,10 +54,10 @@ export default function Example() {
               cover
               height={150}
               renderImage={({ index, width, height }) => {
-                const image = images[index] || {};
+                const image = images[index];
                 return (
                   <Mask height={height} wash width={width}>
-                    {image.src ? (
+                    {image?.src ? (
                       <Image
                         alt="collage image"
                         color={image.color}

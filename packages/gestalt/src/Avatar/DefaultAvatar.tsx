@@ -6,7 +6,7 @@ type Props = {
 };
 
 export default function DefaultAvatar({ accessibilityLabel, name }: Props) {
-  const firstInitial = name ? Array.from(name)[0].toUpperCase() : '';
+  const firstInitial = (name && Array.from(name)[0]?.toUpperCase()) || '';
   const title = accessibilityLabel ?? name;
 
   return (

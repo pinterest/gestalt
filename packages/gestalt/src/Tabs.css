@@ -1,0 +1,8 @@
+.paddingY {
+  composes: paddingY3 from "./boxWhitespace.css";
+}
+
+.focused {
+  border-radius: var(--sema-rounding-400);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}

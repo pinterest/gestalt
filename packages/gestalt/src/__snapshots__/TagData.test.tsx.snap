@@ -57,7 +57,7 @@ exports[`TagData TagData has a tooltip 1`] = `
             }
           >
             <span
-              className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -138,7 +138,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -214,7 +214,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -290,7 +290,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -366,7 +366,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -442,7 +442,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -518,7 +518,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -594,7 +594,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -670,7 +670,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -746,7 +746,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -822,7 +822,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -898,7 +898,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -974,7 +974,7 @@ exports[`TagData renders all colors as expected 1`] = `
                 }
               >
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -1079,12 +1079,14 @@ exports[`TagData renders base color as expected 1`] = `
                           onChange={[Function]}
                           onClick={[Function]}
                           onFocus={[Function]}
+                          onMouseDown={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
                           type="checkbox"
                         />
                         <div
-                          className="checked borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -1111,7 +1113,7 @@ exports[`TagData renders base color as expected 1`] = `
                   </div>
                 </div>
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -1209,12 +1211,14 @@ exports[`TagData renders base color as expected 1`] = `
                           onChange={[Function]}
                           onClick={[Function]}
                           onFocus={[Function]}
+                          onMouseDown={[Function]}
                           onMouseEnter={[Function]}
                           onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
                           type="checkbox"
                         />
                         <div
-                          className="checked borderSelected borderRadiusSm sizeSm check"
+                          className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                           style={
                             Object {
                               "backgroundColor": "#0081fe",
@@ -1241,7 +1245,7 @@ exports[`TagData renders base color as expected 1`] = `
                   </div>
                 </div>
                 <span
-                  className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+                  className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
                   style={
                     Object {
                       "WebkitLineClamp": 1,
@@ -1335,12 +1339,14 @@ exports[`TagData renders disabled selected state 1`] = `
                       onChange={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
                       type="checkbox"
                     />
                     <div
-                      className="checked borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
@@ -1367,7 +1373,7 @@ exports[`TagData renders disabled selected state 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 subtle alignStart breakAll fontWeightNormal lineClamp"
+              className="subtle alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1459,12 +1465,14 @@ exports[`TagData renders disabled unselected state 1`] = `
                       onChange={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
                       type="checkbox"
                     />
                     <div
-                      className="enabled border borderRadiusSm sizeSm check"
+                      className="enabled border borderRadiusSm sizeSm check thickBorder"
                       style={
                         Object {
                           "backgroundColor": "var(--color-gray-roboflow-300)",
@@ -1477,7 +1485,7 @@ exports[`TagData renders disabled unselected state 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 subtle alignStart breakAll fontWeightNormal lineClamp"
+              className="subtle alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1574,12 +1582,14 @@ exports[`TagData renders dismisible button with color background 1`] = `
                       onChange={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
                       type="checkbox"
                     />
                     <div
-                      className="checked borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                       style={
                         Object {
                           "backgroundColor": "#924af7",
@@ -1606,7 +1616,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1740,12 +1750,14 @@ exports[`TagData renders dismissable button 1`] = `
                       onChange={[Function]}
                       onClick={[Function]}
                       onFocus={[Function]}
+                      onMouseDown={[Function]}
                       onMouseEnter={[Function]}
                       onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
                       type="checkbox"
                     />
                     <div
-                      className="checked borderSelected borderRadiusSm sizeSm check"
+                      className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                       style={
                         Object {
                           "backgroundColor": "#0081fe",
@@ -1772,7 +1784,7 @@ exports[`TagData renders dismissable button 1`] = `
               </div>
             </div>
             <span
-              className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+              className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
               style={
                 Object {
                   "WebkitLineClamp": 1,
@@ -1894,12 +1906,14 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
                     onChange={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
+                    onMouseDown={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
                     type="checkbox"
                   />
                   <div
-                    className="enabled border borderRadiusSm sizeSm check"
+                    className="enabled border borderRadiusSm sizeSm check thickBorder"
                     style={
                       Object {
                         "backgroundColor": "var(--color-background-formfield-primary)",
@@ -1912,7 +1926,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
             </div>
           </div>
           <span
-            className="Text fontSize200 default alignStart breakAll fontWeightNormal lineClamp"
+            className="default alignStart breakAll lineClamp Text fontSize200 fontWeightNormal"
             style={
               Object {
                 "WebkitLineClamp": 1,

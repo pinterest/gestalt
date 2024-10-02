@@ -1,5 +1,5 @@
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
-import { DocGen, multipleDocGen } from '../../docs-components/docgen';
+import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import LocalizationSection from '../../docs-components/LocalizationSection';
 import MainSection from '../../docs-components/MainSection';
@@ -41,12 +41,20 @@ import primaryAction from '../../examples/sidenavigation/primaryAction';
 import sectionsExample from '../../examples/sidenavigation/sectionsExample';
 import subcomponent from '../../examples/sidenavigation/subcomponent';
 
+const DOC_NAMES = [
+  'SideNavigation',
+  'SideNavigationSection',
+  'SideNavigationTopItem',
+  'SideNavigationNestedItem',
+  'SideNavigationGroup',
+  'SideNavigationNestedGroup',
+] as const;
+type GeneratedDocGen = MultipleDocGenType<typeof DOC_NAMES[number]>;
+
 export default function SideNavigationPage({
   generatedDocGen,
 }: {
-  generatedDocGen: {
-    [key: string]: DocGen;
-  };
+  generatedDocGen: GeneratedDocGen;
 }) {
   return (
     <Page title={generatedDocGen.SideNavigation?.displayName ?? ''}>
@@ -619,21 +627,12 @@ For pages with a main top nav bar, every SideNav should have a PageHeader to ann
 
 export async function getServerSideProps(): Promise<{
   props: {
-    generatedDocGen: {
-      [key: string]: DocGen;
-    };
+    generatedDocGen: GeneratedDocGen;
   };
 }> {
   return {
     props: {
-      generatedDocGen: await multipleDocGen([
-        'SideNavigation',
-        'SideNavigationSection',
-        'SideNavigationTopItem',
-        'SideNavigationNestedItem',
-        'SideNavigationGroup',
-        'SideNavigationNestedGroup',
-      ]),
+      generatedDocGen: await multipleDocGen(DOC_NAMES),
     },
   };
 }

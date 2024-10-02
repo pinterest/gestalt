@@ -1,3 +1,4 @@
+import focusOnDarkBackground from 'docs/examples/iconbuttonlink/focusOnDarkBackground';
 import { BannerSlim, Icon } from 'gestalt';
 import docGen, { DocGen, DocType, overrideTypes } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -57,6 +58,19 @@ See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#onN
 `}
           title="External handlers"
         />
+
+        <MainSection.Subsection title="Focus ring on dark backgrounds">
+          <MainSection.Card
+            cardSize="lg"
+            description="IconButtonLink can be used on dark backgrounds. The focus ring is visible on dark backgrounds to ensure accessibility."
+            sandpackExample={
+              <SandpackExample
+                code={focusOnDarkBackground}
+                name="Usage of focus ring on dark backgrounds"
+              />
+            }
+          />
+        </MainSection.Subsection>
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

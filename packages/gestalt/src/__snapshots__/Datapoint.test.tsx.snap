@@ -19,7 +19,7 @@ exports[`Datapoint renders 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Title
           <div
@@ -50,7 +50,7 @@ exports[`Datapoint renders 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
         >
           1M
           <div
@@ -96,7 +96,7 @@ exports[`Datapoint renders 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize200 success alignStart breakWord fontWeightSemiBold"
+              className="success alignStart breakWord Text fontSize200 fontWeightSemiBold"
             >
               30%
             </div>
@@ -127,7 +127,7 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Title
           <div
@@ -150,26 +150,26 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="Badge middle info"
+          className="badge info middle"
         >
           <div
-            className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="box xsDisplayInlineBlock"
-                style={
-                  Object {
-                    "marginTop": "2px",
-                  }
-                }
+                className="box contentCenter xsDisplayFlex"
               >
-                Early access
+                <span
+                  className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                >
+                  Early access
+                </span>
               </div>
             </div>
           </div>
+           
         </div>
       </div>
     </div>
@@ -184,7 +184,7 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
         >
           1M
           <div
@@ -230,7 +230,7 @@ exports[`Datapoint renders a badge 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize200 success alignStart breakWord fontWeightSemiBold"
+              className="success alignStart breakWord Text fontSize200 fontWeightSemiBold"
             >
               30%
             </div>
@@ -261,7 +261,7 @@ exports[`Datapoint renders a tooltip 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Title
           <div
@@ -343,7 +343,7 @@ exports[`Datapoint renders a tooltip 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
         >
           1M
           <div
@@ -389,7 +389,7 @@ exports[`Datapoint renders a tooltip 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize200 success alignStart breakWord fontWeightSemiBold"
+              className="success alignStart breakWord Text fontSize200 fontWeightSemiBold"
             >
               30%
             </div>
@@ -420,7 +420,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize200 default alignStart breakWord fontWeightNormal"
+          className="default alignStart breakWord Text fontSize200 fontWeightNormal"
         >
           Title
           <div
@@ -451,7 +451,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
         className="FlexItem"
       >
         <div
-          className="Text fontSize400 default alignStart breakWord fontWeightSemiBold"
+          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
         >
           1M
           <div
@@ -497,7 +497,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
             className="FlexItem"
           >
             <div
-              className="Text fontSize200 success alignStart breakWord fontWeightSemiBold"
+              className="success alignStart breakWord Text fontSize200 fontWeightSemiBold"
             >
               30%
             </div>

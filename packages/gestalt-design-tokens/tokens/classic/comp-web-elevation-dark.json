@@ -10,8 +10,7 @@
           "color": "#fafafa",
           "opacity": 0.06
         }
-      },
-      "comment": "DatePicker container elevation"
+      }
     }
   }
 }

@@ -49,12 +49,18 @@ describe('useDefaultLabelContext', () => {
             noResultText: 'No results',
             accessibilityClearButtonLabel: 'Clear input',
           },
+          DatePicker: {
+            openCalendar: 'Open calendar',
+            previousMonth: 'Navigate to previou month',
+            nextMonth: 'Navigate to next month',
+          },
           DateRange: {
             cancelText: 'Cancel',
             applyText: 'Apply',
           },
           Link: {
             accessibilityNewTabLabel: 'Opens a new tab',
+            accessibilityDownloadLabel: 'Downloads a file',
           },
           Modal: {
             accessibilityDismissButtonLabel: 'Dismiss modal',
@@ -112,7 +118,7 @@ describe('useDefaultLabelContext', () => {
             tooltipMessage: 'Click to learn more',
           },
           Toast: {
-            accessibilityDismissButtonLabel: 'Dismiss toast',
+            accessibilityDismissButtonLabel: 'Dismiss message',
             accessibilityIconSuccessLabel: 'Success message',
             accessibilityIconErrorLabel: 'Error message',
             accessibilityProcessingLabel: 'Processing message',

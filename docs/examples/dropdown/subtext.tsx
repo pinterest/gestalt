@@ -71,7 +71,7 @@ export default function CustomIconButtonPopoverExample() {
             />
             <Dropdown.Link
               href="https://pinterest.com"
-              isExternal
+              iconEnd="visit"
               onClick={({ event }) => event.preventDefault()}
               option={{ value: 'Get help', label: 'Get help' }}
             />

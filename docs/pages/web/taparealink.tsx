@@ -10,6 +10,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import compressBehavior from '../../examples/taparealink/compressBehavior';
+import focus from '../../examples/taparealink/focus';
 import heightWidth from '../../examples/taparealink/heightWidth';
 import inlineUsage from '../../examples/taparealink/inlineUsage';
 import localizationLabels from '../../examples/taparealink/localizationLabels';
@@ -44,6 +45,12 @@ export default function DocsPage({ generatedDocGen }: DocType) {
                 previewHeight={400}
               />
             }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Focus style">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={focus} name="Focus example" />}
           />
         </MainSection.Subsection>
 

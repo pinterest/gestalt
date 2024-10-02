@@ -1,12 +1,6 @@
-import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
-import classnames from 'classnames';
-import styles from './IconButton.css';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+import InternalIconButton from './IconButton/InternalIconButton';
 import icons from './icons/index';
-import Pog from './Pog';
-import touchableStyles from './TapArea.css';
-import Tooltip from './Tooltip';
-import useFocusVisible from './useFocusVisible';
-import useTapFeedback from './useTapFeedback';
 import { Indexable } from './zIndex';
 
 type Props = {
@@ -31,9 +25,21 @@ type Props = {
    */
   accessibilityPopupRole?: 'menu' | 'dialog';
   /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
+  /**
    * Primary colors to apply to the IconButton background.
    */
-  bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red';
+  bgColor?:
+    | 'transparent'
+    | 'transparentDarkGray'
+    | 'gray'
+    | 'lightGray'
+    | 'washLight'
+    | 'white'
+    | 'red';
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    */
@@ -55,7 +61,11 @@ type Props = {
   /**
    * Primary color to apply to the [Icon](/web/icon). See [icon color](https://gestalt.pinterest.systems/web/iconbutton#Icon-color) variant to learn more.
    */
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
+  /**
+   * Visible label for the IconButton. Only visible in XL size IconButtons. See the [label](https://gestalt.pinterest.systems/web/iconbutton#Label) variant to learn more.
+   */
+  label?: string;
   /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
@@ -114,25 +124,27 @@ type Props = {
 
 const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function IconButton(
   {
-    accessibilityLabel,
     accessibilityControls,
     accessibilityExpanded,
     accessibilityHaspopup,
+    accessibilityLabel,
     accessibilityPopupRole,
-    name,
-    selected,
-    type,
     bgColor,
+    focusColor = 'lightBackground',
     dangerouslySetSvgPath,
     dataTestId,
     disabled,
     icon,
     iconColor,
+    label,
+    name,
     onClick,
     padding,
+    selected,
+    size = 'lg',
     tabIndex = 0,
     tooltip,
-    size = 'lg',
+    type,
   }: Props,
   ref,
 ) {
@@ -142,104 +154,31 @@ const IconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function I
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const {
-    compressStyle,
-    isTapping,
-    handleBlur,
-    handleMouseDown,
-    handleMouseUp,
-    handleTouchStart,
-    handleTouchMove,
-    handleTouchCancel,
-    handleTouchEnd,
-  } = useTapFeedback({
-    height: innerRef?.current?.clientHeight,
-    width: innerRef?.current?.clientWidth,
-  });
-
-  const [isActive, setActive] = useState(false);
-  const [isFocused, setFocused] = useState(false);
-  const [isHovered, setHovered] = useState(false);
-
-  const { isFocusVisible } = useFocusVisible();
-
-  const buttonComponent = (
-    <button
+  return (
+    <InternalIconButton
       ref={innerRef}
-      aria-controls={accessibilityControls}
-      aria-expanded={accessibilityExpanded}
-      aria-haspopup={accessibilityPopupRole || accessibilityHaspopup}
-      aria-label={accessibilityLabel}
-      className={classnames(styles.parentButton)}
-      data-test-id={dataTestId}
+      accessibilityControls={accessibilityControls}
+      accessibilityExpanded={accessibilityExpanded}
+      accessibilityHaspopup={accessibilityHaspopup}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityPopupRole={accessibilityPopupRole}
+      bgColor={bgColor}
+      dangerouslySetSvgPath={dangerouslySetSvgPath}
+      dataTestId={dataTestId}
       disabled={disabled}
+      focusColor={focusColor}
+      icon={icon}
+      iconColor={iconColor}
+      label={label}
       name={name}
-      onBlur={() => {
-        handleBlur();
-        setFocused(false);
-      }}
-      onClick={(event) => onClick?.({ event })}
-      onFocus={() => setFocused(true)}
-      onMouseDown={() => {
-        handleMouseDown();
-        setActive(true);
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => {
-        setActive(false);
-        setHovered(false);
-      }}
-      onMouseUp={() => {
-        handleMouseUp();
-        setActive(false);
-      }}
-      onTouchCancel={handleTouchCancel}
-      onTouchEnd={handleTouchEnd}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
-      onTouchMove={handleTouchMove}
-      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
-      onTouchStart={handleTouchStart}
-      // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
-      tabIndex={disabled ? null : tabIndex}
-      // react/button-has-type is very particular about this verbose syntax
+      onClick={onClick}
+      padding={padding}
+      selected={selected}
+      size={size}
+      tabIndex={tabIndex}
+      tooltip={tooltip}
       type={type === 'submit' ? 'submit' : 'button'}
-    >
-      <div
-        className={classnames(styles.button, touchableStyles.tapTransition, {
-          [styles.disabled]: disabled,
-          [styles.enabled]: !disabled,
-          [touchableStyles.tapCompress]: !disabled && isTapping,
-        })}
-        style={compressStyle || undefined}
-      >
-        <Pog
-          active={!disabled && isActive}
-          bgColor={bgColor}
-          dangerouslySetSvgPath={dangerouslySetSvgPath}
-          focused={!disabled && isFocusVisible && isFocused}
-          hovered={!disabled && isHovered}
-          icon={icon}
-          iconColor={iconColor}
-          padding={padding}
-          selected={selected}
-          size={size}
-        />
-      </div>
-    </button>
-  );
-
-  return tooltip?.text ? (
-    <Tooltip
-      accessibilityLabel={tooltip.accessibilityLabel}
-      idealDirection={tooltip.idealDirection}
-      inline={tooltip.inline}
-      text={tooltip.text}
-      zIndex={tooltip.zIndex}
-    >
-      {buttonComponent}
-    </Tooltip>
-  ) : (
-    buttonComponent
+    />
   );
 });
 

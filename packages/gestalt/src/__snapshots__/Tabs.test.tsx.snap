@@ -8,11 +8,11 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     className="FlexItem"
   >
     <div
-      className="box paddingY3"
+      className="paddingY"
     >
       <a
         aria-current="page"
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -29,7 +29,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -39,17 +38,23 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
                 >
                   News
                 </div>
@@ -60,6 +65,8 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
               style={
                 Object {
                   "bottom": -3,
+                  "left": undefined,
+                  "right": undefined,
                   "width": "calc(100% - 16px)",
                 }
               }
@@ -84,10 +91,10 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     className="FlexItem"
   >
     <div
-      className="box paddingY3"
+      className="paddingY"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -104,7 +111,6 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -114,17 +120,23 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
                 >
                   You
                 </div>
@@ -146,11 +158,11 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     className="FlexItem"
   >
     <div
-      className="box paddingY3"
+      className="paddingY"
     >
       <a
         aria-current="page"
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -167,7 +179,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -177,17 +188,23 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
                 >
                   News
                 </div>
@@ -196,7 +213,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box brand circle"
+                  className="box circle primary"
                   style={
                     Object {
                       "height": 6,
@@ -212,6 +229,8 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               style={
                 Object {
                   "bottom": -3,
+                  "left": undefined,
+                  "right": undefined,
                   "width": "calc(100% - 16px)",
                 }
               }
@@ -236,10 +255,10 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     className="FlexItem"
   >
     <div
-      className="box paddingY3"
+      className="paddingY"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -256,7 +275,6 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -266,17 +284,23 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
                 >
                   You
                 </div>
@@ -285,7 +309,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box brand circle"
+                  className="box circle primary"
                   style={
                     Object {
                       "height": 6,
@@ -312,11 +336,11 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     className="FlexItem"
   >
     <div
-      className="box paddingY3"
+      className="paddingY"
     >
       <a
         aria-current="page"
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -333,7 +357,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -343,17 +366,23 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
                 >
                   News
                 </div>
@@ -364,6 +393,8 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
               style={
                 Object {
                   "bottom": -3,
+                  "left": undefined,
+                  "right": undefined,
                   "width": "calc(100% - 16px)",
                 }
               }
@@ -388,10 +419,10 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     className="FlexItem"
   >
     <div
-      className="box paddingY3"
+      className="paddingY"
     >
       <a
-        className="link noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -408,7 +439,6 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
         onTouchStart={[Function]}
         rel=""
         tabIndex={0}
-        target={null}
       >
         <div
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
@@ -418,17 +448,23 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
               }
             }
           >
             <div
               className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Text fontSize300 default alignStart noWrap fontWeightSemiBold"
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
                 >
                   You
                 </div>

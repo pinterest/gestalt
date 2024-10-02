@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextCompact emphasis style renders 1`] = `
+<div
+  className="default alignStart breakWord Text fontSize100 fontWeightSemiBold"
+/>
+`;
+
+exports[`TextCompact error adds the error color class 1`] = `
+<div
+  className="error alignStart breakWord Text fontSize100 fontWeightNormal"
+/>
+`;
+
+exports[`TextCompact lineClamp should add a title when the children are text only 1`] = `
+<div
+  className="default alignStart breakWord lineClamp Text fontSize100 fontWeightNormal"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
+  title="Shall I compare thee to a summer's day - William Shakespeare"
+>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
+exports[`TextCompact lineClamp should not add a title when the children are objects 1`] = `
+<div
+  className="default alignStart breakWord lineClamp Text fontSize100 fontWeightNormal"
+  style={
+    Object {
+      "WebkitLineClamp": 1,
+    }
+  }
+>
+  <div>
+    Summer reading:
+  </div>
+  Shall I compare thee to a summer's day - William Shakespeare
+</div>
+`;
+
+exports[`TextCompact renders 1`] = `
+<div
+  className="default alignStart breakWord Text fontSize100 fontWeightNormal"
+/>
+`;
+
+exports[`TextCompact warning adds the warning color class 1`] = `
+<div
+  className="warning alignStart breakWord Text fontSize100 fontWeightNormal"
+/>
+`;
