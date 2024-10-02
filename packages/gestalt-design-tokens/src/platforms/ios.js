@@ -1,3 +1,5 @@
+const { optionsFileHeader, optionsFileHeaderOutputReferences } = require('../headers/fileheader');
+
 const { getFilter } = require('../utils/getFilter');
 const { filterLineHeight, filterColor, filterElevation } = require('../filters');
 const { getSources } = require('../getSources');
@@ -5,23 +7,6 @@ const { getSources } = require('../getSources');
 function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
 }
-
-const optionsFileHeaderOutputReferences = {
-  'options': {
-    'fileHeader': 'fileHeader',
-    '_fileHeader_comment': 'Custom',
-    'showFileHeader': true,
-    'outputReferences': true,
-  },
-};
-
-const optionsFileHeader = {
-  'options': {
-    'fileHeader': 'fileHeader',
-    '_fileHeader_comment': 'Custom',
-    'showFileHeader': true,
-  },
-};
 
 const iosColorsH = {
   'format': 'ios/colors.h',

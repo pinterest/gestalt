@@ -1,4 +1,5 @@
 const { getSources } = require('../getSources');
+const { optionsFileHeaderOutputReferences } = require('../headers/fileheader');
 
 const {
   filterColor,
@@ -27,15 +28,6 @@ const colorResource = { 'resourceType': 'color' };
 const dimenResource = { 'resourceType': 'dimen' };
 
 const integerResource = { 'resourceType': 'integer' };
-
-const optionsFileHeaderOutputReferences = {
-  'options': {
-    'fileHeader': 'fileHeader',
-    '_fileHeader_comment': 'Custom',
-    'showFileHeader': true,
-    'outputReferences': true,
-  },
-};
 
 const composeObject = {
   'format': 'compose/object',

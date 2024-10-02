@@ -1,4 +1,5 @@
 const { getSources } = require('../getSources');
+const { optionsFileHeader, optionsFileHeaderOutputReferences } = require('../headers/fileheader');
 const {
   dataVisualizationFilter,
   colorElevationFilter,
@@ -21,23 +22,6 @@ const webCssTransformGroup = {
   'transformGroup': 'webCssTransformGroup',
   '_transformGroup_comment':
     'Custom from https://amzn.github.io/style-dictionary/#/transform_groups?id=css',
-};
-
-const optionsFileHeaderOutputReferences = {
-  'options': {
-    'fileHeader': 'fileHeader',
-    '_fileHeader_comment': 'Custom',
-    'showFileHeader': true,
-    'outputReferences': true,
-  },
-};
-
-const optionsFileHeader = {
-  'options': {
-    'fileHeader': 'fileHeader',
-    '_fileHeader_comment': 'Custom',
-    'showFileHeader': true,
-  },
 };
 
 const getFiles = ({ theme, modeTheme, language, fileType }) => {
