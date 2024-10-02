@@ -1,5 +1,5 @@
 import dataVizTokens from 'gestalt-design-tokens/dist/js/classic/data-viz-tokens';
-import tokens from 'gestalt-design-tokens/dist/js/classic/tokens';
+import classicTokens from 'gestalt-design-tokens/dist/js/classic/tokens';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -148,9 +148,13 @@ const dataVizColorTokens: ReadonlyArray<Token> = dataVizTokens.sort((a, b) =>
   }),
 );
 
-const allTokens: ReadonlyArray<Token> = tokens;
+type Props = {
+  tokens: ReadonlyArray<Token>;
+};
 
-export default function DesignTokensPage() {
+export default function DesignTokensPage({ tokens }: Props) {
+  const allTokens: ReadonlyArray<Token> = tokens;
+
   return (
     <Page title="Design tokens guidelines">
       <PageHeader
@@ -187,4 +191,12 @@ Visit the [${infoPage?.name} page](/${infoPage?.path}) for guidelines and usage.
       </MainSection>
     </Page>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      tokens: classicTokens,
+    },
+  };
 }
