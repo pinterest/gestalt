@@ -1,3 +1,9 @@
+## 160.4.0 (Oct 2, 2024)
+
+### Minor
+
+- ButtonLink: VR implementation changes ([#3788](https://github.com/pinterest/gestalt/pull/3788)) - [Preview link](https://deploy-preview-3788--gestalt.netlify.app?devexample=true)
+
 ## 160.3.1 (Oct 1, 2024)
 
 ### Patch
