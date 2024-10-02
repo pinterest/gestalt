@@ -2,7 +2,7 @@
 
 exports[`TapAreaLink renders 1`] = `
 <a
-  className="noOutline inheritColor noUnderline tapTransition rounding0 accessibilityOutline block fullWidth pointer"
+  className="noUnderline noOutline inheritColor tapTransition rounding0 accessibilityOutline block fullWidth pointer"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -41,7 +41,7 @@ exports[`TapAreaLink renders 1`] = `
 
 exports[`TapAreaLink renders disabled 1`] = `
 <a
-  className="noOutline inheritColor noUnderline tapTransition rounding0 block fullWidth"
+  className="noUnderline noOutline inheritColor tapTransition rounding0 block fullWidth"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
