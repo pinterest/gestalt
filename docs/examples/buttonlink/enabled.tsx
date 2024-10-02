@@ -4,11 +4,12 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonLink
-        accessibilityLabel="Go back"
-        disabled
+        accessibilityLabel="Visit Pinterest"
+        color="red"
         href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
-        text="Go back"
+        text="Visit Pinterest"
       />
     </Flex>
   );

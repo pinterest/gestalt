@@ -1,3 +1,21 @@
+## 160.5.1 (Oct 2, 2024)
+
+### Patch
+
+- Docs: removed hidden examples for VR ([#3790](https://github.com/pinterest/gestalt/pull/3790)) - [Preview link](https://deploy-preview-3790--gestalt.netlify.app?devexample=true)
+
+## 160.5.0 (Oct 2, 2024)
+
+### Minor
+
+- TapAreaLink: support to VR visible focus style ([#3789](https://github.com/pinterest/gestalt/pull/3789)) - [Preview link](https://deploy-preview-3789--gestalt.netlify.app?devexample=true)
+
+## 160.4.0 (Oct 2, 2024)
+
+### Minor
+
+- ButtonLink: VR implementation changes ([#3788](https://github.com/pinterest/gestalt/pull/3788)) - [Preview link](https://deploy-preview-3788--gestalt.netlify.app?devexample=true)
+
 ## 160.3.1 (Oct 1, 2024)
 
 ### Patch

@@ -8,6 +8,8 @@ import Icon from './Icon';
 import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Text from './Text';
+import TextUI from './TextUI';
+import useInExperiment from './useInExperiment';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -49,6 +51,11 @@ type ButtonProps = {
    * Indicates if ButtonLink is disabled. Disabled Buttons are inactive and cannot be interacted with.
    */
   disabled?: boolean;
+  /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
   /**
    * An icon displayed after the text to help clarify the usage of ButtonLink. See the [icon variant](#Icons) to learn more.
    */
@@ -111,6 +118,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     color = 'gray',
     dataTestId,
     disabled = false,
+    focusColor,
     fullWidth = false,
     iconEnd,
     iconStart,
@@ -124,12 +132,25 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   }: ButtonProps,
   ref,
 ) {
+  const textSizesVR: {
+    [key: string]: 'xs' | 'sm' | 'md';
+  } = {
+    sm: 'xs',
+    md: 'sm',
+    lg: 'md',
+  };
+
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <ButtonLink ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
@@ -170,6 +191,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       colorClass={colorClass}
       dataTestId={dataTestId}
       disabled={disabled}
+      focusColor={focusColor}
       fullWidth={fullWidth}
       href={href}
       onClick={handleClick}
@@ -189,15 +211,21 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
             size={SIZE_NAME_TO_PIXEL[size]}
           />
         ) : null}
-        <Text
-          align="center"
-          color={textColor}
-          overflow="normal"
-          size={size === 'sm' ? '200' : '300'}
-          weight="bold"
-        >
-          {text}
-        </Text>
+        {isInVRExperiment ? (
+          <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
+            {text}
+          </TextUI>
+        ) : (
+          <Text
+            align="center"
+            color={textColor}
+            overflow="normal"
+            size={size === 'sm' ? '200' : '300'}
+            weight="bold"
+          >
+            {text}
+          </Text>
+        )}
         {iconEnd ? (
           <Icon
             accessibilityLabel=""
