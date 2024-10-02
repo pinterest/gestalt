@@ -141,7 +141,7 @@ export type Token = {
   category: string;
 };
 
-const dataVizColorTokens: ReadonlyArray<Token> = dataVizTokens.sort((a, b) =>
+const dataVizColorTokensSorted: ReadonlyArray<Token> = dataVizTokens.sort((a, b) =>
   a.name.localeCompare(b.name, undefined, {
     numeric: true,
     sensitivity: 'base',
@@ -150,9 +150,10 @@ const dataVizColorTokens: ReadonlyArray<Token> = dataVizTokens.sort((a, b) =>
 
 type Props = {
   tokens: ReadonlyArray<Token>;
+  dataVizColorTokens: ReadonlyArray<Token>;
 };
 
-export default function DesignTokensPage({ tokens }: Props) {
+export default function DesignTokensPage({ tokens, dataVizColorTokens }: Props) {
   const allTokens: ReadonlyArray<Token> = tokens;
 
   return (
@@ -197,6 +198,7 @@ export async function getStaticProps() {
   return {
     props: {
       tokens: classicTokens,
+      dataVizColorTokens: dataVizColorTokensSorted,
     },
   };
 }
