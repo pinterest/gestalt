@@ -138,8 +138,6 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  const colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
-
   const textColor =
     (disabled && 'disabled') || (isDarkModeRed && 'default') || DEFAULT_TEXT_COLORS[color];
 
@@ -167,7 +165,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     <InternalLink
       ref={innerRef}
       accessibilityLabel={ariaLabel}
-      colorClass={colorClass}
+      colorClass={color}
       dataTestId={dataTestId}
       disabled={disabled}
       fullWidth={fullWidth}
