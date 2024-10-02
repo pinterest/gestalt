@@ -15,6 +15,7 @@ export default function Example() {
         color="red"
         fullWidth
         href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="Create account"
       />
@@ -22,6 +23,7 @@ export default function Example() {
         color="gray"
         fullWidth
         href="https://www.pinterest.com/"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="View settings"
       />

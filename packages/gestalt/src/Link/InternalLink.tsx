@@ -20,6 +20,7 @@ type Props = {
   colorClass?: string;
   dataTestId?: string;
   disabled?: boolean;
+  focusColor?: 'lightBackground' | 'darkBackground';
   fullHeight?: boolean;
   fullWidth?: boolean;
   href: string;
@@ -62,6 +63,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
     href,
@@ -105,12 +107,14 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
   const { isFocusVisible } = useFocusVisible();
+
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
@@ -120,13 +124,14 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     styles.inheritColor,
     styles.noUnderline,
     touchableStyles.tapTransition,
-    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
+    isTapArea ? getRoundingClassName(rounding || 0) : undefined,
+    !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
-    isButton
+    isButton && !isInVRExperiment
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
@@ -138,6 +143,25 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.sm]: size === 'sm',
           [buttonStyles.md]: size === 'md',
           [buttonStyles.lg]: size === 'lg',
+        }
+      : {},
+    isButton && isInVRExperiment
+      ? {
+          [layoutStyles.inlineFlex]: !fullWidth,
+          [layoutStyles.flex]: fullWidth,
+          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
+          [buttonStyles.buttonVr]: true,
+          [buttonStyles.disabled]: disabled,
+          [buttonStyles.selected]: !disabled && selected,
+          [buttonStyles.smVr]: size === 'sm',
+          [buttonStyles.mdVr]: size === 'md',
+          [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.vrFocused]: !disabled && isFocusVisible,
+          [buttonStyles.defaultFocus]:
+            !disabled && isFocusVisible && focusColor === 'lightBackground',
+          [buttonStyles.inverseFocus]:
+            !disabled && isFocusVisible && focusColor === 'darkBackground',
         }
       : {},
     isButton && colorClass
