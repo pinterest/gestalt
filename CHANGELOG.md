@@ -1,3 +1,9 @@
+## 160.5.1 (Oct 2, 2024)
+
+### Patch
+
+- Docs: removed hidden examples for VR ([#3790](https://github.com/pinterest/gestalt/pull/3790)) - [Preview link](https://deploy-preview-3790--gestalt.netlify.app?devexample=true)
+
 ## 160.5.0 (Oct 2, 2024)
 
 ### Minor
