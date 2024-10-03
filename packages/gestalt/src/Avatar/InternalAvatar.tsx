@@ -17,7 +17,7 @@ const sizes = {
   xl: 120,
 } as const;
 
-interface Props {
+type Props = {
   accessibilityLabel?: string;
   color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
   isHovered?: boolean;
@@ -27,17 +27,9 @@ interface Props {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fit';
   src?: string;
   verified?: boolean;
-}
+};
 
-/**
- * [Avatar](https://gestalt.pinterest.systems/web/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
- *
- * ![Avatar light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Avatar.spec.ts-snapshots/Avatar-chromium-darwin.png)
- * ![Avatar dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Avatar-dark.spec.ts-snapshots/Avatar-dark-chromium-darwin.png)
- *
- */
-
-function Avatar(props: Props) {
+function InternalAvatar(props: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -124,6 +116,4 @@ function Avatar(props: Props) {
   );
 }
 
-Avatar.displayName = 'Avatar';
-
-export default Avatar;
+export default InternalAvatar;
