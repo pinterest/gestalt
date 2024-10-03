@@ -241,7 +241,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  const colorClass = color === 'transparentWhiteText' ? 'transparent' : color;
+  const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
 
   const { isFocusVisible } = useFocusVisible();
 

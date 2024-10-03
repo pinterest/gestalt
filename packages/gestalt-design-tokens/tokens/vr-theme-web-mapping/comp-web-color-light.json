@@ -259,6 +259,20 @@
           }
         }
       },
+      "semitransparentdark": {
+        "default": {
+          "value": "{sema.color.background.wash.dark.value}"
+        },
+        "hover": {
+          "value": "{sema.color.hover.background.wash.dark.value}"
+        },
+        "active": {
+          "value": "{sema.color.pressed.background.wash.dark.value}"
+        },
+        "disabled": {
+          "value": "#00000064"
+        }
+      },
       "switch": {
         "default": {
           "unselected": {
