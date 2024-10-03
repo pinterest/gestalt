@@ -1,3 +1,9 @@
+## 160.5.4 (Oct 3, 2024)
+
+### Patch
+
+- Docs: Fix Tokens Page not loading ([#3792](https://github.com/pinterest/gestalt/pull/3792)) - [Preview link](https://deploy-preview-3792--gestalt.netlify.app?devexample=true)
+
 ## 160.5.3 (Oct 2, 2024)
 
 ### Patch
