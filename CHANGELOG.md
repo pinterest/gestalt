@@ -1,3 +1,9 @@
+## 161.1.0 (Oct 3, 2024)
+
+### Minor
+
+- Avatar/AvatarGroup: VR Implementation Changes ([#3765](https://github.com/pinterest/gestalt/pull/3765)) - [Preview link](https://deploy-preview-3765--gestalt.netlify.app?devexample=true)
+
 ## 161.0.1 (Oct 3, 2024)
 
 ### Patch
