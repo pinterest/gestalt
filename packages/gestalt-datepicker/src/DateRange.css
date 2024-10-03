@@ -7,6 +7,24 @@ html[dir="rtl"] .borderRight {
 }
 
 .dateFieldSection {
+  background-color: transparent;
   border-bottom: var(--g-border-width) solid var(--color-border-container);
+  border-radius: inherit;
   padding: var(--space-300);
+  position: relative;
+}
+
+.dateFieldSectionActive {
+  background-color: var(--color-gray-roboflow-100);
+}
+
+.dateFieldSectionLeftBorder {
+  background-color: var(--color-black-cosmicore-900);
+  border-radius: 10px;
+  height: 60%;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
 }

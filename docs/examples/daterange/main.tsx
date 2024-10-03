@@ -9,14 +9,14 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        endDateValue={endDate}
+        dateValue={{ startDate, endDate }}
         onCancel={() => {}}
-        onEndDateChange={({ value }) => setEndDate(value)}
-        onEndDateError={() => {}}
-        onStartDateChange={({ value }) => setStartDate(value)}
-        onStartDateError={() => {}}
+        onDateChange={(newStartDate, newEndDate) => {
+          setStartDate(newStartDate.value);
+          setEndDate(newEndDate.value);
+        }}
+        onDateError={{ startDate: () => {}, endDate: () => {} }}
         onSubmit={() => {}}
-        startDateValue={startDate}
       />
     </Flex>
   );

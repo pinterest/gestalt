@@ -1,41 +1,73 @@
 import { ComponentProps, useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { id, Locale } from 'date-fns/locale';
+import userEvent from '@testing-library/user-event';
+import { enUS, id, Locale } from 'date-fns/locale';
 import DateRange from './DateRange';
 
 function DateRangeWrap({
   initialStartDate,
   initialEndDate,
   localeData,
-  onEndDateChange,
-  onStartDateChange,
+  onDateChange,
 }: {
   initialStartDate?: Date;
   initialEndDate?: Date;
   localeData?: Locale;
-  onEndDateChange?: ComponentProps<typeof DateRange>['onEndDateChange'];
-  onStartDateChange?: ComponentProps<typeof DateRange>['onStartDateChange'];
+  onDateChange?: ComponentProps<typeof DateRange>['onDateChange'];
 }) {
   const [startDate, setStartDate] = useState<Date | null>(initialStartDate ?? null);
   const [endDate, setEndDate] = useState<Date | null>(initialEndDate ?? null);
 
   return (
     <DateRange
-      endDateValue={endDate}
+      dateValue={{ startDate, endDate }}
       localeData={localeData}
       onCancel={() => {}}
-      onEndDateChange={({ value }: any) => {
-        onEndDateChange?.({ value });
-        setEndDate(value);
+      onDateChange={(newStartDate, newEndDate) => {
+        onDateChange?.({ value: newStartDate.value }, { value: newEndDate.value });
+        setStartDate(newStartDate.value);
+        setEndDate(newEndDate.value);
       }}
-      onEndDateError={() => {}}
-      onStartDateChange={({ value }: any) => {
-        onStartDateChange?.({ value });
-        setStartDate(value);
-      }}
-      onStartDateError={() => {}}
+      onDateError={{ startDate: () => {}, endDate: () => {} }}
       onSubmit={() => {}}
-      startDateValue={startDate}
+    />
+  );
+}
+
+function TwoDateRangeWrap({
+  initialStartDate,
+  initialEndDate,
+  initialCompEndDate,
+  initialCompStartDate,
+  localeData,
+}: {
+  initialStartDate?: Date;
+  initialEndDate?: Date;
+  initialCompStartDate?: Date;
+  initialCompEndDate?: Date;
+  localeData?: Locale;
+}) {
+  const [startDate, setStartDate] = useState<Date | null>(initialStartDate ?? null);
+  const [endDate, setEndDate] = useState<Date | null>(initialEndDate ?? null);
+  const [compStartDate, setCompStartDate] = useState<Date | null>(initialCompStartDate ?? null);
+  const [compEndDate, setCompEndDate] = useState<Date | null>(initialCompEndDate ?? null);
+
+  return (
+    <DateRange
+      dateValue={{ startDate, endDate }}
+      localeData={localeData}
+      onCancel={() => {}}
+      onDateChange={(newStartDate, newEndDate) => {
+        setStartDate(newStartDate.value);
+        setEndDate(newEndDate.value);
+      }}
+      onDateError={{ startDate: () => {}, endDate: () => {} }}
+      onSecondaryDateChange={(newStartDate, newEndDate) => {
+        setCompStartDate(newStartDate.value);
+        setCompEndDate(newEndDate.value);
+      }}
+      onSubmit={() => {}}
+      secondaryDateValue={{ startDate: compStartDate, endDate: compEndDate }}
     />
   );
 }
@@ -107,17 +139,11 @@ describe('DateRange', () => {
   });
 
   it('handles events correctly', async () => {
-    const onEndDateChangeMock = jest.fn<
+    const onDateChangeMock = jest.fn<
       [
         {
           value: Date | null;
         },
-      ],
-      // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
-      undefined
-    >();
-    const onStartDateChangeMock = jest.fn<
-      [
         {
           value: Date | null;
         },
@@ -135,8 +161,7 @@ describe('DateRange', () => {
       <DateRangeWrap
         initialEndDate={initialEndDate}
         initialStartDate={initialStartDate}
-        onEndDateChange={onEndDateChangeMock}
-        onStartDateChange={onStartDateChangeMock}
+        onDateChange={onDateChangeMock}
       />,
     );
 
@@ -156,24 +181,81 @@ describe('DateRange', () => {
       }
     });
 
-    expect(onStartDateChangeMock).toHaveBeenNthCalledWith(
+    expect(onDateChangeMock).toHaveBeenNthCalledWith(
       1,
       expect.objectContaining({ value: selectedStartDate }),
-    );
-
-    expect(onStartDateChangeMock).toHaveBeenNthCalledWith(
-      2,
-      expect.objectContaining({ value: selectedStartDate }),
-    );
-
-    expect(onEndDateChangeMock).toHaveBeenNthCalledWith(
-      1,
       expect.objectContaining({ value: null }),
     );
 
-    expect(onEndDateChangeMock).toHaveBeenNthCalledWith(
+    expect(onDateChangeMock).toHaveBeenNthCalledWith(
       2,
+      expect.objectContaining({ value: selectedStartDate }),
       expect.objectContaining({ value: selectedEndDate }),
     );
+  });
+
+  it('displays two date ranges', () => {
+    const initialStartDate = new Date('December 16, 1995 03:24:00');
+    const initialEndDate = new Date('December 17, 1995 03:24:00');
+    const initialCompStartDate = new Date('December 16, 1996 03:24:00');
+    const initialCompEndDate = new Date('December 17, 1996 03:24:00');
+    render(
+      <TwoDateRangeWrap
+        initialCompEndDate={initialCompEndDate}
+        initialCompStartDate={initialCompStartDate}
+        initialEndDate={initialEndDate}
+        initialStartDate={initialStartDate}
+        localeData={id}
+      />,
+    );
+    expect(screen.getAllByPlaceholderText('DD / MM / YYYY')).toHaveLength(4);
+    expect(screen.getByDisplayValue('16 / 12 / 1995')).toBeInTheDocument();
+    expect(screen.getByDisplayValue('17 / 12 / 1995')).toBeInTheDocument();
+    expect(screen.getByDisplayValue('16 / 12 / 1996')).toBeInTheDocument();
+    expect(screen.getByDisplayValue('17 / 12 / 1996')).toBeInTheDocument();
+    expect(screen.getByText('Desember 1995')).toBeInTheDocument();
+    expect(screen.getByText('Januari 1996')).toBeInTheDocument();
+  });
+
+  it('updates both date ranges', async () => {
+    const initialStartDate = new Date('September 2, 2024 03:24:00');
+    const initialEndDate = new Date('September 3, 2024 03:24:00');
+    render(
+      <TwoDateRangeWrap
+        initialEndDate={initialEndDate}
+        initialStartDate={initialStartDate}
+        localeData={enUS}
+      />,
+    );
+
+    const startDateButton = screen.getByRole('option', {
+      name: /choose wednesday, september 11th, 2024/i,
+    });
+    await userEvent.click(startDateButton);
+    expect(screen.getByDisplayValue('09 / 11 / 2024')).toBeInTheDocument();
+
+    const endDateButton = screen.getByRole('option', {
+      name: /choose thursday, september 12th, 2024/i,
+    });
+    await userEvent.click(endDateButton);
+    expect(screen.getByDisplayValue('09 / 12 / 2024')).toBeInTheDocument();
+
+    const dateInputs = screen.getAllByPlaceholderText('MM / DD / YYYY');
+    const secondaryStartDateInput = dateInputs.find((input) =>
+      input.id.includes('datefield-start-secondary'),
+    );
+    if (secondaryStartDateInput) await userEvent.click(secondaryStartDateInput);
+
+    const secondaryStartDateButton = screen.getByRole('option', {
+      name: /choose tuesday, october 8th, 2024/i,
+    });
+    await userEvent.click(secondaryStartDateButton);
+    expect(screen.getByDisplayValue('10 / 08 / 2024')).toBeInTheDocument();
+
+    const secondaryEndDateButton = screen.getByRole('option', {
+      name: /choose wednesday, october 9th, 2024/i,
+    });
+    await userEvent.click(secondaryEndDateButton);
+    expect(screen.getByDisplayValue('10 / 09 / 2024')).toBeInTheDocument();
   });
 });

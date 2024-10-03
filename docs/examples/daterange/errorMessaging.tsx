@@ -29,42 +29,46 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        endDateErrorMessage={endErrorMessage}
-        endDateValue={endDate}
+        dateErrorMessage={{ startDate: startErrorMessage, endDate: endErrorMessage }}
+        dateValue={{ startDate, endDate }}
         maxDate={maxDate}
         minDate={minDate}
         onCancel={() => {}}
-        onEndDateBlur={() => {
-          if (currentEndErrorMessage && currentEndErrorMessage[0]) {
-            setEndErrorMessage('Select a valid date in July');
-          } else {
-            setEndErrorMessage(null);
-          }
+        onDateBlur={{
+          startDate: () => {
+            if (currentStartErrorMessage && currentStartErrorMessage[0]) {
+              setStartErrorMessage('Select a valid date in July');
+            } else {
+              setStartErrorMessage(null);
+            }
+          },
+          endDate: () => {
+            if (currentEndErrorMessage && currentEndErrorMessage[0]) {
+              setEndErrorMessage('Select a valid date in July');
+            } else {
+              setEndErrorMessage(null);
+            }
+          },
         }}
-        onEndDateChange={({ value }) => setEndDate(value)}
-        onEndDateError={({ errorMessage, value }) => {
-          if (!errorMessage) {
-            setEndErrorMessage(null);
-          }
-          setCurrentEndErrorMessage([errorMessage, value]);
+        onDateChange={(newStartDate, newEndDate) => {
+          setStartDate(newStartDate.value);
+          setEndDate(newEndDate.value);
         }}
-        onStartDateBlur={() => {
-          if (currentStartErrorMessage && currentStartErrorMessage[0]) {
-            setStartErrorMessage('Select a valid date in July');
-          } else {
-            setStartErrorMessage(null);
-          }
-        }}
-        onStartDateChange={({ value }) => setStartDate(value)}
-        onStartDateError={({ errorMessage, value }) => {
-          if (!errorMessage) {
-            setStartErrorMessage(null);
-          }
-          setCurrentStartErrorMessage([errorMessage, value]);
+        onDateError={{
+          startDate: ({ errorMessage, value }) => {
+            if (!errorMessage) {
+              setStartErrorMessage(null);
+            }
+            setCurrentStartErrorMessage([errorMessage, value]);
+          },
+          endDate: ({ errorMessage, value }) => {
+            if (!errorMessage) {
+              setEndErrorMessage(null);
+            }
+            setCurrentEndErrorMessage([errorMessage, value]);
+          },
         }}
         onSubmit={() => {}}
-        startDateErrorMessage={startErrorMessage}
-        startDateValue={startDate}
       />
     </Flex>
   );
