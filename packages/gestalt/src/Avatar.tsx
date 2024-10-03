@@ -1,30 +1,6 @@
-import { useState } from 'react';
-import classnames from 'classnames';
-import { TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER } from 'gestalt-design-tokens';
-import avatarStyles from './Avatar/AvatarFoundation.css';
-import DefaultAvatar from './Avatar/DefaultAvatar';
-import Box from './Box';
-import Icon from './Icon';
-import Image from './Image';
-import Mask from './Mask';
-import useInExperiment from './useInExperiment';
+import InternalAvatar from './Avatar/InternalAvatar';
 
-const sizes = {
-  xs: 24,
-  sm: 32,
-  md: 48,
-  lg: 64,
-  xl: 120,
-} as const;
-
-interface InternalProps {
-  isFocused?: boolean;
-  isFocusVisible?: boolean;
-  isHovered?: boolean;
-  isPressed?: boolean;
-}
-
-interface DocumentedProps {
+type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
    */
@@ -53,9 +29,7 @@ interface DocumentedProps {
    * Used to indicate if the user is verified.
    */
   verified?: boolean;
-}
-
-type Props = DocumentedProps & Partial<InternalProps>;
+};
 
 /**
  * [Avatar](https://gestalt.pinterest.systems/web/avatar) is used to represent a user. Every Avatar image has a subtle color wash.
@@ -65,90 +39,17 @@ type Props = DocumentedProps & Partial<InternalProps>;
  *
  */
 
-function Avatar(props: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-  const {
-    accessibilityLabel,
-    color,
-    isHovered,
-    isPressed,
-    name,
-    outline,
-    size = isInVRExperiment ? 'md' : 'fit',
-    src,
-    verified,
-  } = props;
-  const [isImageLoaded, setIsImageLoaded] = useState(true);
-  const handleImageError = () => setIsImageLoaded(false);
-  const width = size === 'fit' ? '100%' : sizes[size];
-  const height = size === 'fit' ? '' : sizes[size];
-
+function Avatar({ accessibilityLabel, color, name, outline, size, src, verified }: Props) {
   return (
-    <div
-      className={classnames({
-        [avatarStyles.outline]: !isInVRExperiment && outline,
-        [avatarStyles.outlineVR]: isInVRExperiment && outline,
-      })}
-    >
-      <Box
-        data-test-id="gestalt-avatar-svg"
-        height={height}
-        position="relative"
-        rounding="circle"
-        width={width}
-      >
-        {src && isImageLoaded ? (
-          <Mask rounding="circle" wash>
-            <div
-              className={classnames({
-                [avatarStyles.imageHovered]: isInVRExperiment && isHovered,
-                [avatarStyles.imagePressed]: isInVRExperiment && isPressed,
-              })}
-            >
-              <Image
-                alt={accessibilityLabel ?? name}
-                color={TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER}
-                naturalHeight={1}
-                naturalWidth={1}
-                onError={handleImageError}
-                src={src}
-              />
-            </div>
-          </Mask>
-        ) : (
-          <DefaultAvatar
-            accessibilityLabel={accessibilityLabel}
-            color={color}
-            isHovered={isHovered}
-            isPressed={isPressed}
-            name={name}
-          />
-        )}
-
-        {verified && (
-          <Box
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: '4%',
-                right: '4%',
-              },
-            }}
-            height="25%"
-            minHeight={12}
-            minWidth={12}
-            position="absolute"
-            width="25%"
-          >
-            <Box color="default" height="100%" rounding="circle" width="100%">
-              <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
-            </Box>
-          </Box>
-        )}
-      </Box>
-    </div>
+    <InternalAvatar
+      accessibilityLabel={accessibilityLabel}
+      color={color}
+      name={name}
+      outline={outline}
+      size={size}
+      src={src}
+      verified={verified}
+    />
   );
 }
 

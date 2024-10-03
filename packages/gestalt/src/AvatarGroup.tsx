@@ -6,7 +6,6 @@ import Box from './Box';
 import Flex from './Flex';
 import TapArea from './TapArea';
 import TapAreaLink from './TapAreaLink';
-import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 
@@ -136,12 +135,9 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     handleOnFocus,
     handleOnMouseDown,
     handleOnMouseUp,
-    isFocused,
     isHovered,
     isActive: isPressed,
   } = useInteractiveStates();
-
-  const { isFocusVisible } = useFocusVisible();
 
   const collaboratorStack = (
     <Fragment>
@@ -151,8 +147,6 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
           key={`collaboratorStack-${name}-${index}`}
           color={color}
           index={index}
-          isFocused={isFocused}
-          isFocusVisible={isFocusVisible}
           isHovered={isHovered}
           isPressed={isPressed}
           name={name}
