@@ -267,6 +267,9 @@ exports[`ColorSchemeProvider renders styling for dark mode when specified 1`] = 
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
   --color-background-formfield-selected: #efefef;
+  --color-background-iconbutton-semitransparentdark-default: rgba(255, 255, 255, 0.8);
+  --color-background-iconbutton-semitransparentdark-hover: #f0f0f0;
+  --color-background-iconbutton-semitransparentdark-active: #e0e0e0;
   --color-background-mask-wash: rgba(0, 0, 0, 0.04);
   --color-background-overlay: #2b2b2b;
   --color-background-popover-primary: #2b2b2b;
@@ -2145,6 +2148,9 @@ exports[`ColorSchemeProvider renders styling with media query when userPreferenc
   --color-background-formfield-primary: #030303;
   --color-background-formfield-disabled: #404040;
   --color-background-formfield-selected: #efefef;
+  --color-background-iconbutton-semitransparentdark-default: rgba(255, 255, 255, 0.8);
+  --color-background-iconbutton-semitransparentdark-hover: #f0f0f0;
+  --color-background-iconbutton-semitransparentdark-active: #e0e0e0;
   --color-background-mask-wash: rgba(0, 0, 0, 0.04);
   --color-background-overlay: #2b2b2b;
   --color-background-popover-primary: #2b2b2b;
@@ -4100,6 +4106,10 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-datepicker-button-hover: #f8f7f2;
   --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
+  --color-background-semitransparentdark-default: rgba(0, 0, 0, 0.8);
+  --color-background-semitransparentdark-hover: rgba(36, 36, 35, 0.85);
+  --color-background-semitransparentdark-active: rgba(57, 57, 55, 0.9);
+  --color-background-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -5043,6 +5053,10 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-background-datepicker-button-hover: #f8f7f2;
   --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
+  --color-background-semitransparentdark-default: rgba(0, 0, 0, 0.8);
+  --color-background-semitransparentdark-hover: rgba(36, 36, 35, 0.85);
+  --color-background-semitransparentdark-active: rgba(57, 57, 55, 0.9);
+  --color-background-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -5986,6 +6000,10 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-background-datepicker-button-hover: #f8f7f2;
   --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
+  --color-background-semitransparentdark-default: rgba(0, 0, 0, 0.8);
+  --color-background-semitransparentdark-hover: rgba(36, 36, 35, 0.85);
+  --color-background-semitransparentdark-active: rgba(57, 57, 55, 0.9);
+  --color-background-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -6929,6 +6947,10 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-background-datepicker-button-hover: #f8f7f2;
   --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
+  --color-background-semitransparentdark-default: rgba(0, 0, 0, 0.8);
+  --color-background-semitransparentdark-hover: rgba(36, 36, 35, 0.85);
+  --color-background-semitransparentdark-active: rgba(57, 57, 55, 0.9);
+  --color-background-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -7872,6 +7894,10 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-background-datepicker-button-hover: #f8f7f2;
   --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
+  --color-background-semitransparentdark-default: rgba(0, 0, 0, 0.8);
+  --color-background-semitransparentdark-hover: rgba(36, 36, 35, 0.85);
+  --color-background-semitransparentdark-active: rgba(57, 57, 55, 0.9);
+  --color-background-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -8815,6 +8841,10 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-background-datepicker-button-hover: #f8f7f2;
   --color-background-datepicker-button-active: #ebebe5;
   --color-background-datepicker-button-selected: #000000;
+  --color-background-semitransparentdark-default: rgba(0, 0, 0, 0.8);
+  --color-background-semitransparentdark-hover: rgba(36, 36, 35, 0.85);
+  --color-background-semitransparentdark-active: rgba(57, 57, 55, 0.9);
+  --color-background-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
