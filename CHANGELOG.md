@@ -1,3 +1,9 @@
+## 161.0.0 (Oct 3, 2024)
+
+### Major
+
+- DateRange: Enhance component to support a secondary date range (web) ([#3779](https://github.com/pinterest/gestalt/pull/3779)) - [Preview link](https://deploy-preview-3779--gestalt.netlify.app?devexample=true)
+
 ## 160.5.4 (Oct 3, 2024)
 
 ### Patch
