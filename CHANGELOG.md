@@ -1,3 +1,9 @@
+## 161.0.1 (Oct 3, 2024)
+
+### Patch
+
+- Button: Fixing transparentwhitetext interactive colors ([#3787](https://github.com/pinterest/gestalt/pull/3787)) - [Preview link](https://deploy-preview-3787--gestalt.netlify.app?devexample=true)
+
 ## 161.0.0 (Oct 3, 2024)
 
 ### Major
