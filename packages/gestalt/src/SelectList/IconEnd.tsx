@@ -15,15 +15,15 @@ export default function PasswordIconButton({ accessibilityHidden, disabled }: Pr
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
   return (
-    // styles.actionButtonContainer is required for RTL positioning
     <div
       className={classnames({
+        // styles.actionButtonContainer is required for RTL positioning
         [styles.actionButtonContainer]: !isInVRExperiment,
         [styles.vr_actionButtonContainer]: isInVRExperiment,
       })}
     >
       <Box
-        alignItems={isInVRExperiment ? 'end' : 'center'}
+        alignItems="center"
         aria-hidden={accessibilityHidden}
         display="flex"
         height="100%"
