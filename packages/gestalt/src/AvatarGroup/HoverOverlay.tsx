@@ -7,7 +7,7 @@ import { FixedZIndex } from '../zIndex';
 
 type Props = {
   children: ReactNode;
-  hovered: boolean;
+  hovered?: boolean;
   size: Size;
 };
 

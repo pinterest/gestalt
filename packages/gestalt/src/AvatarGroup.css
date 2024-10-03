@@ -31,7 +31,3 @@
 html[dir="rtl"] .translateX10 {
   transform: translateX(10%);
 }
-
-.text {
-  color: var(--color-icon-avatar-default);
-}
