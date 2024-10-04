@@ -291,13 +291,7 @@ Use the \`selected\` prop to indicate that the SearchGuide is in a selected stat
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`
-When a SearchGuide query is broad and can be further refined (example: Season), an **arrow-down** icon can be added at the end, to trigger a Sheet with a cluster of wrapped SearchGuides.
-`}
-          title="Expandable"
-        >
+        <MainSection.Subsection columns={2} title="Expandable">
           <MainSection.Card
             cardSize="md"
             sandpackExample={

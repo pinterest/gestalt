@@ -28,9 +28,9 @@ export default function Example() {
         >
           <Box height={120} overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
-              <SearchGuide color="02" text="Casual" />
+              <SearchGuide color="01" text="Casual" />
               <SearchGuide color="02" text="Formal" />
-              <SearchGuide color="02" text="Athletic" />
+              <SearchGuide color="03" text="Athletic" />
             </Flex>
           </Box>
         </Popover>

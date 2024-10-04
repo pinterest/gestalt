@@ -82,7 +82,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     accessibilityLabel,
     color = '01',
     dataTestId,
-    expandable,
+    expandable = false,
     onClick,
     selected = false,
     text,
@@ -174,11 +174,10 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       aria-expanded={accessibilityExpanded}
       aria-haspopup={accessibilityHaspopup || expandable}
       aria-label={accessibilityLabel}
+      aria-pressed={selected}
       className={buttonClasses}
       data-test-id={dataTestId}
-      onClick={(event) => {
-        onClick?.({ event });
-      }}
+      onClick={(event) => onClick?.({ event })}
       type="button"
     >
       <div className={childrenDivClasses}>{thumbnail ? thumbnailVariant : defaultVariant}</div>
