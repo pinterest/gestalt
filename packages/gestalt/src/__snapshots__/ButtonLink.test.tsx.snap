@@ -2,7 +2,7 @@
 
 exports[`ButtonLink renders 1`] = `
 <a
-  className="noUnderline noOutline inheritColor tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button lg gray"
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button lg gray"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
@@ -53,7 +53,7 @@ exports[`ButtonLink renders 1`] = `
 
 exports[`ButtonLink renders disabled 1`] = `
 <a
-  className="noUnderline noOutline inheritColor tapTransition pill inlineFlex justifyCenter xsItemsCenter button disabled lg"
+  className="noOutline inheritColor noUnderline tapTransition pill inlineFlex justifyCenter xsItemsCenter button disabled lg"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -102,7 +102,7 @@ exports[`ButtonLink renders disabled 1`] = `
 
 exports[`ButtonLink renders with icon on the right 1`] = `
 <a
-  className="noUnderline noOutline inheritColor tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button lg gray"
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button lg gray"
   href="#"
   onBlur={[Function]}
   onClick={[Function]}
