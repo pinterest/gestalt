@@ -176,7 +176,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         {!disabled && (
           <div className={classnames(styles.vr_lg_actionButtonContainer)}>
             <Box
-              alignItems="end"
+              alignItems="center"
               aria-hidden
               display="flex"
               height="100%"
