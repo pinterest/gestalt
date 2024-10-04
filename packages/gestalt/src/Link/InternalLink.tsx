@@ -7,6 +7,7 @@ import focusStyles from '../Focus.css';
 import getRoundingClassName, { Rounding } from '../getRoundingClassName';
 import iconButtonStyles from '../IconButton/InternalIconButton.css';
 import layoutStyles from '../Layout.css';
+import searchGuideStyles from '../SearchGuide.css';
 import touchableStyles from '../TapArea.css';
 import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
@@ -53,7 +54,7 @@ type Props = {
   size?: 'sm' | 'md' | 'lg';
   tapStyle?: 'none' | 'compress';
   target?: null | 'self' | 'blank';
-  wrappedComponent: 'button' | 'iconButton' | 'tapArea';
+  wrappedComponent: 'button' | 'iconButton' | 'tapArea' | 'searchGuide';
 };
 
 const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
@@ -120,6 +121,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
+  const isSearchGuide = wrappedComponent === 'searchGuide';
 
   const className = classnames(
     styles.noOutline,
@@ -202,6 +204,31 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       : {},
   );
 
+  const searchGuideClassNames = classnames(
+    styles.noUnderline,
+    touchableStyles.tapTransition,
+    isSearchGuide && isInVRExperiment
+      ? {
+          [searchGuideStyles.searchguideVr]: true,
+          [touchableStyles.tapTransition]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: !selected,
+          [focusStyles.hideOutline]: !isFocusVisible,
+          [searchGuideStyles.vrFocused]: isFocusVisible,
+          [searchGuideStyles.selectedVr]: selected,
+        }
+      : {},
+    isSearchGuide && !isInVRExperiment
+      ? {
+          [searchGuideStyles.searchguide]: true,
+          [touchableStyles.tapTransition]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
+          [searchGuideStyles.selected]: selected,
+          [focusStyles.hideOutline]: !isFocusVisible && !selected,
+          [focusStyles.accessibilityOutline]: isFocusVisible,
+        }
+      : {},
+  );
+
   // Consumes GlobalEventsHandlerProvider
   const { linkHandlers } = useGlobalEventsHandlerContext() ?? {
     linkHandlers: { onNavigation: undefined },
@@ -226,7 +253,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
-      className={className}
+      className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
       id={id}

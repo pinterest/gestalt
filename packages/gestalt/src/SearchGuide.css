@@ -1,0 +1,247 @@
+.searchguide {
+  composes: borderBox minWidth60 from "./Layout.css";
+  composes: noBorder from "./Borders.css";
+  composes: pointer from "./Cursor.css";
+  composes: large from "./Layout.css";
+  composes: paddingX1 from "./boxWhitespace.css";
+  border-radius: var(--rounding-600);
+  display: inherit;
+}
+
+a.searchguide,
+a.searchguideVr {
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+.searchguideVr {
+  border-color: transparent;
+  border-radius: var(--rounding-400);
+  box-sizing: border-box;
+  display: inherit;
+  padding: var(--space-0) var(--space-0);
+  text-wrap: balance;
+}
+
+.parentSearchGuide {
+  composes: paddingX0 from "./boxWhitespace.css";
+  composes: paddingY0 from "./boxWhitespace.css";
+  background-color: var(--color-transparent);
+}
+
+.childrenDiv {
+  composes: flex from "./Layout.css";
+  composes: xsItemsCenter from "./Layout.css";
+  composes: justifyCenter from "./Layout.css";
+  min-height: 44px;
+}
+
+.imageDiv {
+  border-radius: 99px;
+  height: 40px;
+  overflow: hidden;
+  width: 40px;
+}
+
+.imageDivVr {
+  border-end-start-radius: calc(var(--rounding-400) - 2px);
+  border-start-start-radius: calc(var(--rounding-400) - 2px);
+  height: 48px;
+  margin-block-end: -2px;
+  margin-block-start: -2px;
+  margin-inline-start: -2px;
+  overflow: hidden;
+  width: 48px;
+}
+
+.searchguideVr:focus-visible .imageDivVr {
+  border: solid;
+  border-block-start-width: 2px;
+  border-color: var(--sema-color-border-focus-inner-default);
+  border-inline-end-width: 0;
+  border-inline-start-width: 2px;
+  border-inline-start-width: 2px;
+  box-sizing: border-box;
+}
+
+.searchguideVr:not(:focus-visible) .selectedImageDivVr {
+  border: solid;
+  border-block-end-width: 2px;
+  border-block-start-width: 1px;
+  border-color: var(--color-background-button-selected-default);
+  border-end-start-radius: calc(var(--rounding-400) - 2px);
+  border-inline-end-width: 0;
+  border-inline-start-width: 2px;
+  border-inline-start-width: 1px;
+  border-start-start-radius: calc(var(--rounding-400) - 2px);
+  box-sizing: border-box;
+  height: 48px;
+  margin-block-end: -2px;
+  margin-block-start: -1px;
+  margin-inline-start: -1px;
+  overflow: hidden;
+  width: 48px;
+}
+
+/* STATES */
+
+.selected {
+  composes: sizeLg borderColorSelected from "./Borders.css";
+  outline: 2px solid;
+  outline-color: var(--color-background-button-selected-default);
+  outline-offset: 2px;
+}
+
+.selectedVr {
+  background-color: var(--sema-color-background-selected);
+}
+
+.selectedVr:hover {
+  background-color: var(--sema-color-hover-background-selected);
+}
+
+.selectedVr:active {
+  background-color: var(--sema-color-pressed-background-selected);
+}
+
+.vrFocused:focus {
+  border: 2px solid;
+  border-color: var(--sema-color-border-focus-inner-default);
+  outline: 2px solid;
+  outline-color: var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+}
+
+/* COLORS */
+
+.color01 {
+  background-color: var(--color-background-searchguide-default-01);
+}
+
+.color01:hover {
+  background-color: var(--color-background-searchguide-hover-01);
+}
+
+.color01:active {
+  background-color: var(--color-background-searchguide-active-01);
+}
+
+.color02 {
+  background-color: var(--color-background-searchguide-default-02);
+}
+
+.color02:hover {
+  background-color: var(--color-background-searchguide-hover-02);
+}
+
+.color02:active {
+  background-color: var(--color-background-searchguide-active-02);
+}
+
+.color03 {
+  background-color: var(--color-background-searchguide-default-03);
+}
+
+.color03:hover {
+  background-color: var(--color-background-searchguide-hover-03);
+}
+
+.color03:active {
+  background-color: var(--color-background-searchguide-active-03);
+}
+
+.color04 {
+  background-color: var(--color-background-searchguide-default-04);
+}
+
+.color04:hover {
+  background-color: var(--color-background-searchguide-hover-04);
+}
+
+.color04:active {
+  background-color: var(--color-background-searchguide-active-04);
+}
+
+.color05 {
+  background-color: var(--color-background-searchguide-default-05);
+}
+
+.color05:hover {
+  background-color: var(--color-background-searchguide-hover-05);
+}
+
+.color05:active {
+  background-color: var(--color-background-searchguide-active-05);
+}
+
+.color06 {
+  background-color: var(--color-background-searchguide-default-06);
+}
+
+.color06:hover {
+  background-color: var(--color-background-searchguide-hover-06);
+}
+
+.color06:active {
+  background-color: var(--color-background-searchguide-active-06);
+}
+
+.color07 {
+  background-color: var(--color-background-searchguide-default-07);
+}
+
+.color07:hover {
+  background-color: var(--color-background-searchguide-hover-07);
+}
+
+.color07:active {
+  background-color: var(--color-background-searchguide-active-07);
+}
+
+.color08 {
+  background-color: var(--color-background-searchguide-default-08);
+}
+
+.color08:hover {
+  background-color: var(--color-background-searchguide-hover-08);
+}
+
+.color08:active {
+  background-color: var(--color-background-searchguide-active-08);
+}
+
+.color09 {
+  background-color: var(--color-background-searchguide-default-09);
+}
+
+.color09:hover {
+  background-color: var(--color-background-searchguide-hover-09);
+}
+
+.color09:active {
+  background-color: var(--color-background-searchguide-active-09);
+}
+
+.color10 {
+  background-color: var(--color-background-searchguide-default-10);
+}
+
+.color10:hover {
+  background-color: var(--color-background-searchguide-hover-10);
+}
+
+.color10:active {
+  background-color: var(--color-background-searchguide-active-10);
+}
+
+.color11 {
+  background-color: var(--color-background-searchguide-default-11);
+}
+
+.color11:hover {
+  background-color: var(--color-background-searchguide-hover-11);
+}
+
+.color11:active {
+  background-color: var(--color-background-searchguide-active-11);
+}
