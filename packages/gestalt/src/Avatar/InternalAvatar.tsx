@@ -34,7 +34,6 @@ function InternalAvatar(props: Props) {
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
-  const defaultSize = isInVRExperiment ? 'md' : 'fit';
   const {
     accessibilityLabel,
     color,
@@ -42,14 +41,14 @@ function InternalAvatar(props: Props) {
     isPressed,
     name,
     outline,
-    size = defaultSize,
+    size = 'fit',
     src,
     verified,
   } = props;
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const handleImageError = () => setIsImageLoaded(false);
-  const width = size === 'fit' ? '100%' : sizes[size] || 48;
-  const height = size === 'fit' ? '' : sizes[size] || 48;
+  const width = size === 'fit' ? '100%' : sizes[size];
+  const height = size === 'fit' ? '' : sizes[size];
 
   return (
     <div
