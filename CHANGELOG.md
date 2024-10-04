@@ -1,3 +1,9 @@
+## 161.1.1 (Oct 4, 2024)
+
+### Patch
+
+- TextField, SelectList, DateField, DatePicker: center iconEnd in VR ([#3794](https://github.com/pinterest/gestalt/pull/3794)) - [Preview link](https://deploy-preview-3794--gestalt.netlify.app?devexample=true)
+
 ## 161.1.0 (Oct 3, 2024)
 
 ### Minor
