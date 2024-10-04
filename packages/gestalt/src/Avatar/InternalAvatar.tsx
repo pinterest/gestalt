@@ -48,8 +48,8 @@ function InternalAvatar(props: Props) {
   } = props;
   const [isImageLoaded, setIsImageLoaded] = useState(true);
   const handleImageError = () => setIsImageLoaded(false);
-  const width = size === 'fit' ? '100%' : (sizes[size] || 48);
-  const height = size === 'fit' ? '' : (sizes[size] || 48);
+  const width = size === 'fit' ? '100%' : sizes[size] || 48;
+  const height = size === 'fit' ? '' : sizes[size] || 48;
 
   return (
     <div
