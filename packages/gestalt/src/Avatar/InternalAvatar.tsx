@@ -51,68 +51,70 @@ function InternalAvatar(props: Props) {
   const height = size === 'fit' ? '' : sizes[size];
 
   return (
-    <div
-      className={classnames({
-        [avatarStyles.outline]: !isInVRExperiment && outline,
-        [avatarStyles.outlineVR]: isInVRExperiment && outline,
-      })}
+    <Box
+      dangerouslySetInlineStyle={{
+        __style: {
+          outline: (() => {
+            if (isInVRExperiment && outline) return `2px solid var(--sema-color-border-inverse)`;
+            if (!isInVRExperiment && outline) return `1px solid rgb(255 255 255)`;
+            return undefined;
+          })(),
+        },
+      }}
+      data-test-id="gestalt-avatar-svg"
+      height={height}
+      position="relative"
+      rounding="circle"
+      width={width}
     >
-      <Box
-        data-test-id="gestalt-avatar-svg"
-        height={height}
-        position="relative"
-        rounding="circle"
-        width={width}
-      >
-        {src && isImageLoaded ? (
-          <Mask rounding="circle" wash>
-            <div
-              className={classnames({
-                [avatarStyles.imageHovered]: isInVRExperiment && isHovered,
-                [avatarStyles.imagePressed]: isInVRExperiment && isPressed,
-              })}
-            >
-              <Image
-                alt={accessibilityLabel ?? name}
-                color={TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER}
-                naturalHeight={1}
-                naturalWidth={1}
-                onError={handleImageError}
-                src={src}
-              />
-            </div>
-          </Mask>
-        ) : (
-          <DefaultAvatar
-            accessibilityLabel={accessibilityLabel}
-            color={color}
-            isHovered={isHovered}
-            isPressed={isPressed}
-            name={name}
-          />
-        )}
-
-        {verified && (
-          <Box
-            dangerouslySetInlineStyle={{
-              __style: {
-                bottom: '4%',
-                right: '4%',
-              },
-            }}
-            height="25%"
-            minHeight={12}
-            minWidth={12}
-            position="absolute"
-            width="25%"
+      {src && isImageLoaded ? (
+        <Mask rounding="circle" wash>
+          <div
+            className={classnames({
+              [avatarStyles.imageHovered]: isInVRExperiment && isHovered,
+              [avatarStyles.imagePressed]: isInVRExperiment && isPressed,
+            })}
           >
-            <Box color="default" height="100%" rounding="circle" width="100%">
-              <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
-            </Box>
+            <Image
+              alt={accessibilityLabel ?? name}
+              color={TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER}
+              naturalHeight={1}
+              naturalWidth={1}
+              onError={handleImageError}
+              src={src}
+            />
+          </div>
+        </Mask>
+      ) : (
+        <DefaultAvatar
+          accessibilityLabel={accessibilityLabel}
+          color={color}
+          isHovered={isHovered}
+          isPressed={isPressed}
+          name={name}
+        />
+      )}
+
+      {verified && (
+        <Box
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: '4%',
+              right: '4%',
+            },
+          }}
+          height="25%"
+          minHeight={12}
+          minWidth={12}
+          position="absolute"
+          width="25%"
+        >
+          <Box color="default" height="100%" rounding="circle" width="100%">
+            <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
           </Box>
-        )}
-      </Box>
-    </div>
+        </Box>
+      )}
+    </Box>
   );
 }
 
