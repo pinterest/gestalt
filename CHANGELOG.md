@@ -1,3 +1,9 @@
+## 161.1.2 (Oct 4, 2024)
+
+### Patch
+
+- Icon: vertical-align unset when within Text ([#3795](https://github.com/pinterest/gestalt/pull/3795)) - [Preview link](https://deploy-preview-3795--gestalt.netlify.app?devexample=true)
+
 ## 161.1.1 (Oct 4, 2024)
 
 ### Patch
