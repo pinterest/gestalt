@@ -124,19 +124,16 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const isSearchGuide = wrappedComponent === 'searchGuide';
 
   const className = classnames(
+    styles.noOutline,
+    styles.inheritColor,
     styles.noUnderline,
+    touchableStyles.tapTransition,
+    isTapArea ? getRoundingClassName(rounding || 0) : undefined,
+    !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
     {
-      [classnames(
-        styles.noOutline,
-        styles.inheritColor,
-        touchableStyles.tapTransition,
-        getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
-        {
-          [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
-          [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-          [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
-        },
-      )]: !isSearchGuide,
+      [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+      [focusStyles.hideOutline]: !disabled && !isFocusVisible,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
     isButton && !isInVRExperiment
       ? {
@@ -205,6 +202,11 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [iconButtonStyles.enabled]: !disabled,
         }
       : {},
+  );
+
+  const searchGuideClassNames = classnames(
+    styles.noUnderline,
+    touchableStyles.tapTransition,
     isSearchGuide && isInVRExperiment
       ? {
           [searchGuideStyles.searchguideVr]: true,
@@ -251,7 +253,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
-      className={className}
+      className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
       id={id}
