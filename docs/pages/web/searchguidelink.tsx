@@ -13,7 +13,6 @@ import colors from '../../examples/searchguidelink/colors';
 import hideLowQualityDo from '../../examples/searchguidelink/hideLowQualityDo';
 import main from '../../examples/searchguidelink/main';
 import noScrollDo from '../../examples/searchguidelink/noScrollDo';
-import selectedStateExample from '../../examples/searchguidelink/selectedStateExample';
 import serialDo from '../../examples/searchguidelink/serialDo';
 import showLowQualityDont from '../../examples/searchguidelink/showLowQualityDont';
 import singleDont from '../../examples/searchguidelink/singleDont';
@@ -268,24 +267,6 @@ Also consider:
                 code={avatarExample}
                 name="Searchguide example with avatar."
                 previewHeight={PREVIEW_HEIGHT}
-              />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`
-Use the \`selected\` prop to indicate that the Searchguide is in a selected state.
-`}
-          title="States"
-        >
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={selectedStateExample}
-                name="Selected state searchguide example."
-                previewHeight={150}
               />
             }
           />

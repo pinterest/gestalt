@@ -22,10 +22,6 @@ type Props = {
    */
   dataTestId?: string;
   /**
-   * Toggles between binary states: on/off, selected/unselected, open/closed. See the [selected](#Selected-state) variant to learn more. See the [state variant](https://gestalt.pinterest.systems/web/searchguide#State) for details on proper usage.
-   */
-  selected?: boolean;
-  /**
    * Text to render inside the SearchGuideLink to convey the function and purpose of the SearchGuideLink.
    *
    * It can be empty, but is still required as a fallback to accessibilityLabel.
@@ -82,7 +78,6 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     color = '01',
     dataTestId,
     onClick,
-    selected = false,
     text,
     thumbnail,
     href,
@@ -106,11 +101,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   const childrenDivClasses = classnames(styles.childrenDiv);
 
   const textComponent = (
-    <TextUI
-      align="center"
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      overflow="noWrap"
-    >
+    <TextUI align="center" color="dark" overflow="noWrap">
       {text}
     </TextUI>
   );
@@ -127,16 +118,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
         </Box>
       )}
       {'image' in thumbnail && (
-        <div
-          className={
-            isInVRExperiment
-              ? classnames({
-                  [styles.imageDivVr]: !selected,
-                  [styles.selectedImageDivVr]: selected,
-                })
-              : styles.imageDiv
-          }
-        >
+        <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
           {cloneElement(thumbnail.image, { fit: 'cover' })}
         </div>
       )}
@@ -175,7 +157,6 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
       href={href}
       onClick={handleClick}
       rel={rel}
-      selected={selected}
       tabIndex={tabIndex}
       target={target}
       wrappedComponent="searchGuide"
