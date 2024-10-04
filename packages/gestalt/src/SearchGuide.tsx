@@ -117,42 +117,47 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       });
   const childrenDivClasses = classnames(styles.childrenDiv);
 
-  const textComponent = (
-    <TextUI
-      align="center"
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      overflow="noWrap"
-    >
-      {text}
-    </TextUI>
-  );
+  const textComponent =
+    text.length > 0 ? (
+      <TextUI
+        align="center"
+        color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+        overflow="noWrap"
+      >
+        {text}
+      </TextUI>
+    ) : null;
   const thumbnailVariant = thumbnail && (
-    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-      {'avatar' in thumbnail && (
-        <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
-          {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
-        </Box>
-      )}
-      {'avatarGroup' in thumbnail && (
-        <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
-          {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
-        </Box>
-      )}
-      {'image' in thumbnail && (
-        <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
-          {cloneElement(thumbnail.image, { fit: 'cover' })}
-        </div>
-      )}
-      {'icon' in thumbnail && (
-        <Box marginStart={3}>
-          {cloneElement(thumbnail.icon, {
-            color: isInVRExperiment && selected ? 'inverse' : 'dark',
-          })}
-        </Box>
-      )}
-      <Box marginEnd={3}>{textComponent}</Box>
-      {expandable ? <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} /> : null}
-    </Flex>
+    <Box marginEnd={3}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {'avatar' in thumbnail && (
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
+            {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
+          </Box>
+        )}
+        {'avatarGroup' in thumbnail && (
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
+            {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
+          </Box>
+        )}
+        {'image' in thumbnail && (
+          <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
+            {cloneElement(thumbnail.image, { fit: 'cover' })}
+          </div>
+        )}
+        {'icon' in thumbnail && (
+          <Box marginStart={3}>
+            {cloneElement(thumbnail.icon, {
+              color: isInVRExperiment && selected ? 'inverse' : 'dark',
+            })}
+          </Box>
+        )}
+        {text.length > 0 && textComponent}
+        {expandable ? (
+          <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} />
+        ) : null}
+      </Flex>
+    </Box>
   );
   const defaultVariant = (
     <Box paddingX={5}>
