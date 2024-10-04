@@ -57,7 +57,6 @@ exports[`Avatar renders multi-byte character initial 1`] = `
   style={
     Object {
       "height": "",
-      "outline": undefined,
       "width": "100%",
     }
   }
@@ -107,7 +106,6 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
   style={
     Object {
       "height": 48,
-      "outline": undefined,
       "width": 48,
     }
   }
@@ -195,7 +193,6 @@ exports[`Avatar renders the correct size - lg 1`] = `
   style={
     Object {
       "height": 64,
-      "outline": undefined,
       "width": 64,
     }
   }
@@ -246,7 +243,6 @@ exports[`Avatar renders the correct size - md 1`] = `
   style={
     Object {
       "height": 48,
-      "outline": undefined,
       "width": 48,
     }
   }
@@ -297,7 +293,6 @@ exports[`Avatar renders the correct size - sm 1`] = `
   style={
     Object {
       "height": 32,
-      "outline": undefined,
       "width": 32,
     }
   }
@@ -348,7 +343,6 @@ exports[`Avatar renders the correct size - xl 1`] = `
   style={
     Object {
       "height": 24,
-      "outline": undefined,
       "width": 24,
     }
   }
@@ -399,7 +393,6 @@ exports[`Avatar renders the correct size - xs 1`] = `
   style={
     Object {
       "height": 24,
-      "outline": undefined,
       "width": 24,
     }
   }
@@ -450,7 +443,6 @@ exports[`Avatar renders the correct src 1`] = `
   style={
     Object {
       "height": "",
-      "outline": undefined,
       "width": "100%",
     }
   }
@@ -501,7 +493,6 @@ exports[`Avatar renders the verified icon 1`] = `
   style={
     Object {
       "height": "",
-      "outline": undefined,
       "width": "100%",
     }
   }
@@ -588,7 +579,6 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
   style={
     Object {
       "height": "",
-      "outline": undefined,
       "width": "100%",
     }
   }

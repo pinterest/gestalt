@@ -53,13 +53,13 @@ function InternalAvatar(props: Props) {
   return (
     <Box
       dangerouslySetInlineStyle={{
-        __style: {
-          outline: (() => {
-            if (isInVRExperiment && outline) return `2px solid var(--sema-color-border-inverse)`;
-            if (!isInVRExperiment && outline) return `1px solid rgb(255 255 255)`;
-            return undefined;
-          })(),
-        },
+        __style: outline
+          ? {
+              outline: isInVRExperiment
+                ? '2px solid var(--sema-color-border-inverse)'
+                : '1px solid rgb(255 255 255)',
+            }
+          : {},
       }}
       data-test-id="gestalt-avatar-svg"
       height={height}
