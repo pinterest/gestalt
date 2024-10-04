@@ -64,7 +64,7 @@ a.searchguideVr {
   box-sizing: border-box;
 }
 
-.selectedImageDivVr {
+.searchguideVr:not(:focus-visible) .selectedImageDivVr {
   border: solid;
   border-block-end-width: 2px;
   border-block-start-width: 1px;

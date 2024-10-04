@@ -130,7 +130,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
       {'avatar' in thumbnail && (
         <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
-          {cloneElement(thumbnail.avatar, { size: 'fit' })}
+          {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
         </Box>
       )}
       {'avatarGroup' in thumbnail && (
@@ -139,20 +139,17 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         </Box>
       )}
       {'image' in thumbnail && (
-        <div
-          className={
-            isInVRExperiment
-              ? classnames({
-                  [styles.imageDivVr]: !selected,
-                  [styles.selectedImageDivVr]: selected,
-                })
-              : styles.imageDiv
-          }
-        >
+        <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
           {cloneElement(thumbnail.image, { fit: 'cover' })}
         </div>
       )}
-      {'icon' in thumbnail && <Box marginStart={3}>{cloneElement(thumbnail.icon)}</Box>}
+      {'icon' in thumbnail && (
+        <Box marginStart={3}>
+          {cloneElement(thumbnail.icon, {
+            color: isInVRExperiment && selected ? 'inverse' : 'dark',
+          })}
+        </Box>
+      )}
       <Box marginEnd={3}>{textComponent}</Box>
       {expandable ? <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} /> : null}
     </Flex>
@@ -162,7 +159,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
         {expandable ? (
-          <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} />
+          <Icon
+            accessibilityLabel=""
+            color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+            icon="arrow-down"
+            size={12}
+          />
         ) : null}
       </Flex>
     </Box>

@@ -15,6 +15,7 @@ export default function Example() {
           color="02"
           expandable
           onClick={() => setShowOutfits((showing) => !showing)}
+          selected={showOutfits}
           text="Outfits"
         />
         <SearchGuide color="03" text="Vintage" />
