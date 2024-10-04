@@ -1,3 +1,9 @@
+## 161.2.0 (Oct 4, 2024)
+
+### Minor
+
+- SearchGuide: New Component + VR Implementation ([#3772](https://github.com/pinterest/gestalt/pull/3772)) - [Preview link](https://deploy-preview-3772--gestalt.netlify.app?devexample=true)
+
 ## 161.1.2 (Oct 4, 2024)
 
 ### Patch
