@@ -1,3 +1,9 @@
+## 161.2.1 (Oct 4, 2024)
+
+### Patch
+
+- Avatar/AvatarGroup: Fix for broken default sizing on VR ([#3796](https://github.com/pinterest/gestalt/pull/3796)) - [Preview link](https://deploy-preview-3796--gestalt.netlify.app?devexample=true)
+
 ## 161.2.0 (Oct 4, 2024)
 
 ### Minor
