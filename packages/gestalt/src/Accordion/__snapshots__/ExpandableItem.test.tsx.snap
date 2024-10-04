@@ -547,7 +547,7 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
                       className="button tapTransition enabled"
                     >
                       <div
-                        className="pog lightGray"
+                        className="pog roundingCircle lightGray"
                         style={
                           Object {
                             "height": 24,

@@ -320,7 +320,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
         className="button tapTransition enabled"
       >
         <div
-          className="pog transparent"
+          className="pog roundingCircle transparent"
           style={
             Object {
               "height": 48,
@@ -475,7 +475,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
         className="button tapTransition enabled"
       >
         <div
-          className="pog transparent"
+          className="pog roundingCircle transparent"
           style={
             Object {
               "height": 48,

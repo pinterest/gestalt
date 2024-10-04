@@ -9,7 +9,7 @@ if [[ $# -eq 0 ]]; then
   exit 0
 fi
 
-yarn jscodeshift --ignore-pattern=**/node_modules/** --ignore-pattern=build/** --parser=tsx -t="${DIR}"/"${1}".tsx "${@:2}"
+yarn jscodeshift --ignore-pattern=**/node_modules/** --ignore-pattern=build/** --parser=tsx -t="${DIR}"/"${1}".ts "${@:2}"
 modified_files=$(git diff --relative --name-only -- '**/*.tsx' | xargs)
 if [ -n "${modified_files}" ]; then
   yarn prettier --write "$(git diff --relative --name-only -- '**/*.tsx' | xargs)"

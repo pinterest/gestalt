@@ -54,21 +54,20 @@ export default function Example() {
             size="flexible"
           >
             <DateRange
-              endDateValue={endDate}
+              dateValue={{ startDate, endDate }}
               onCancel={() => {
                 setStartDate(null);
                 setEndDate(null);
                 setShowComponent(false);
               }}
-              onEndDateChange={({ value }) => setEndDate(value)}
-              onEndDateError={() => {}}
-              onStartDateChange={({ value }) => setStartDate(value)}
-              onStartDateError={() => {}}
+              onDateChange={(newStartDate, newEndDate) => {
+                setStartDate(newStartDate.value);
+                setEndDate(newEndDate.value);
+              }}
               onSubmit={() => {
                 if (startDate && endDate) setSelectedDates([startDate, endDate]);
                 setShowComponent(false);
               }}
-              startDateValue={startDate}
             />
           </Popover>
         </Layer>

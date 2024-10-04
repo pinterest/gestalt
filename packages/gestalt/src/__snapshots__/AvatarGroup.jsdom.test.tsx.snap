@@ -23,28 +23,36 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
+                class="outline"
               >
                 <div
-                  class="Mask circle willChangeTransform"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 48px; width: 48px;"
                 >
                   <div
-                    class="box relative"
-                    style="padding-bottom: 100%;"
+                    class="Mask circle willChangeTransform"
                   >
-                    <img
-                      alt="Keerthi"
-                      class="img"
-                      fetchpriority="auto"
-                      loading="auto"
-                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="box relative"
+                        style="padding-bottom: 100%;"
+                      >
+                        <img
+                          alt="Keerthi"
+                          class="img"
+                          fetchpriority="auto"
+                          loading="auto"
+                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="wash"
                     />
                   </div>
-                  <div
-                    class="wash"
-                  />
                 </div>
               </div>
             </div>
@@ -64,13 +72,13 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
             >
               <div
                 class="box circle relative secondary"
-                style="padding-bottom: 100%; box-shadow: 0 0 0 1px var(--color-border-avatar);"
+                style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
               >
                 <div
                   class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                 >
                   <svg
-                    class="icon text"
+                    class="icon"
                     preserveAspectRatio="xMidYMid meet"
                     role="img"
                     version="1.1"
@@ -126,28 +134,36 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                 class=""
               >
                 <div
-                  class="box circle relative"
-                  data-test-id="gestalt-avatar-svg"
-                  style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
+                  class="outline"
                 >
                   <div
-                    class="Mask circle willChangeTransform"
+                    class="box circle relative"
+                    data-test-id="gestalt-avatar-svg"
+                    style="height: 48px; width: 48px;"
                   >
                     <div
-                      class="box relative"
-                      style="padding-bottom: 100%;"
+                      class="Mask circle willChangeTransform"
                     >
-                      <img
-                        alt="Keerthi"
-                        class="img"
-                        fetchpriority="auto"
-                        loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                      <div
+                        class=""
+                      >
+                        <div
+                          class="box relative"
+                          style="padding-bottom: 100%;"
+                        >
+                          <img
+                            alt="Keerthi"
+                            class="img"
+                            fetchpriority="auto"
+                            loading="auto"
+                            src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="wash"
                       />
                     </div>
-                    <div
-                      class="wash"
-                    />
                   </div>
                 </div>
               </div>
@@ -167,13 +183,13 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
               >
                 <div
                   class="box circle relative secondary"
-                  style="padding-bottom: 100%; box-shadow: 0 0 0 1px var(--color-border-avatar);"
+                  style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
                 >
                   <div
                     class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                   >
                     <svg
-                      class="icon text"
+                      class="icon"
                       preserveAspectRatio="xMidYMid meet"
                       role="img"
                       version="1.1"
@@ -224,28 +240,36 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
+                class="outline"
               >
                 <div
-                  class="Mask circle willChangeTransform"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 48px; width: 48px;"
                 >
                   <div
-                    class="box relative"
-                    style="padding-bottom: 100%;"
+                    class="Mask circle willChangeTransform"
                   >
-                    <img
-                      alt="Keerthi"
-                      class="img"
-                      fetchpriority="auto"
-                      loading="auto"
-                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="box relative"
+                        style="padding-bottom: 100%;"
+                      >
+                        <img
+                          alt="Keerthi"
+                          class="img"
+                          fetchpriority="auto"
+                          loading="auto"
+                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="wash"
                     />
                   </div>
-                  <div
-                    class="wash"
-                  />
                 </div>
               </div>
             </div>
@@ -264,28 +288,36 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
+                class="outline"
               >
                 <div
-                  class="Mask circle willChangeTransform"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 48px; width: 48px;"
                 >
                   <div
-                    class="box relative"
-                    style="padding-bottom: 100%;"
+                    class="Mask circle willChangeTransform"
                   >
-                    <img
-                      alt="Keerthi"
-                      class="img"
-                      fetchpriority="auto"
-                      loading="auto"
-                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="box relative"
+                        style="padding-bottom: 100%;"
+                      >
+                        <img
+                          alt="Keerthi"
+                          class="img"
+                          fetchpriority="auto"
+                          loading="auto"
+                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="wash"
                     />
                   </div>
-                  <div
-                    class="wash"
-                  />
                 </div>
               </div>
             </div>
@@ -305,7 +337,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
             >
               <div
                 class="box circle relative secondary"
-                style="padding-bottom: 100%; box-shadow: 0 0 0 1px var(--color-border-avatar);"
+                style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
               >
                 <div
                   class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
@@ -318,7 +350,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <text
-                      class="antialiased sansSerif fontWeightSemiBold "
+                      class="text"
                       dy="0.35em"
                       fill="var(--color-text-default)"
                       font-size="40px"
@@ -362,37 +394,41 @@ exports[`AvatarGroup renders display-only AvatarGroup without image 1`] = `
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
+                class="outline"
               >
                 <div
-                  class="box circle relative secondary"
-                  style="padding-bottom: 100%;"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 48px; width: 48px;"
                 >
                   <div
-                    class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                    class="box circle relative secondary"
+                    style="padding-bottom: 100%;"
                   >
-                    <svg
-                      preserveAspectRatio="xMidYMid meet"
-                      version="1.1"
-                      viewBox="-50 -50 100 100"
-                      width="100%"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <div
+                      class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
                     >
-                      <title>
-                        Keerthi
-                      </title>
-                      <text
-                        class="antialiased sansSerif fontWeightSemiBold "
-                        dy="0.35em"
-                        fill="var(--color-text-default)"
-                        font-size="40px"
-                        text-anchor="middle"
+                      <svg
+                        preserveAspectRatio="xMidYMid meet"
+                        version="1.1"
+                        viewBox="-50 -50 100 100"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        K
-                      </text>
-                    </svg>
+                        <title>
+                          Keerthi
+                        </title>
+                        <text
+                          class="text"
+                          dy="0.35em"
+                          fill="var(--color-text-default)"
+                          font-size="40px"
+                          text-anchor="middle"
+                        >
+                          K
+                        </text>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -436,28 +472,36 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
                 class=""
               >
                 <div
-                  class="box circle relative"
-                  data-test-id="gestalt-avatar-svg"
-                  style="box-shadow: 0 0 0 1px var(--color-border-avatar); width: 100%;"
+                  class="outline"
                 >
                   <div
-                    class="Mask circle willChangeTransform"
+                    class="box circle relative"
+                    data-test-id="gestalt-avatar-svg"
+                    style="width: 100%;"
                   >
                     <div
-                      class="box relative"
-                      style="padding-bottom: 100%;"
+                      class="Mask circle willChangeTransform"
                     >
-                      <img
-                        alt="Keerthi"
-                        class="img"
-                        fetchpriority="auto"
-                        loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                      <div
+                        class=""
+                      >
+                        <div
+                          class="box relative"
+                          style="padding-bottom: 100%;"
+                        >
+                          <img
+                            alt="Keerthi"
+                            class="img"
+                            fetchpriority="auto"
+                            loading="auto"
+                            src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="wash"
                       />
                     </div>
-                    <div
-                      class="wash"
-                    />
                   </div>
                 </div>
               </div>
@@ -494,28 +538,36 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 48px; width: 48px;"
+                class="outline"
               >
                 <div
-                  class="Mask circle willChangeTransform"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 48px; width: 48px;"
                 >
                   <div
-                    class="box relative"
-                    style="padding-bottom: 100%;"
+                    class="Mask circle willChangeTransform"
                   >
-                    <img
-                      alt="Keerthi"
-                      class="img"
-                      fetchpriority="auto"
-                      loading="auto"
-                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="box relative"
+                        style="padding-bottom: 100%;"
+                      >
+                        <img
+                          alt="Keerthi"
+                          class="img"
+                          fetchpriority="auto"
+                          loading="auto"
+                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="wash"
                     />
                   </div>
-                  <div
-                    class="wash"
-                  />
                 </div>
               </div>
             </div>
@@ -551,28 +603,36 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 32px; width: 32px;"
+                class="outline"
               >
                 <div
-                  class="Mask circle willChangeTransform"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 32px; width: 32px;"
                 >
                   <div
-                    class="box relative"
-                    style="padding-bottom: 100%;"
+                    class="Mask circle willChangeTransform"
                   >
-                    <img
-                      alt="Keerthi"
-                      class="img"
-                      fetchpriority="auto"
-                      loading="auto"
-                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="box relative"
+                        style="padding-bottom: 100%;"
+                      >
+                        <img
+                          alt="Keerthi"
+                          class="img"
+                          fetchpriority="auto"
+                          loading="auto"
+                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="wash"
                     />
                   </div>
-                  <div
-                    class="wash"
-                  />
                 </div>
               </div>
             </div>
@@ -608,28 +668,36 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
               class=""
             >
               <div
-                class="box circle relative"
-                data-test-id="gestalt-avatar-svg"
-                style="box-shadow: 0 0 0 1px var(--color-border-avatar); height: 24px; width: 24px;"
+                class="outline"
               >
                 <div
-                  class="Mask circle willChangeTransform"
+                  class="box circle relative"
+                  data-test-id="gestalt-avatar-svg"
+                  style="height: 24px; width: 24px;"
                 >
                   <div
-                    class="box relative"
-                    style="padding-bottom: 100%;"
+                    class="Mask circle willChangeTransform"
                   >
-                    <img
-                      alt="Keerthi"
-                      class="img"
-                      fetchpriority="auto"
-                      loading="auto"
-                      src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="box relative"
+                        style="padding-bottom: 100%;"
+                      >
+                        <img
+                          alt="Keerthi"
+                          class="img"
+                          fetchpriority="auto"
+                          loading="auto"
+                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="wash"
                     />
                   </div>
-                  <div
-                    class="wash"
-                  />
                 </div>
               </div>
             </div>

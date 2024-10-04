@@ -158,7 +158,7 @@ exports[`Modal Mobile Modal renders 1`] = `
                       class="button tapTransition enabled"
                     >
                       <div
-                        class="pog transparent"
+                        class="pog roundingCircle transparent"
                         style="height: 48px; width: 48px;"
                       >
                         <svg

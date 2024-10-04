@@ -221,7 +221,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
         className="button tapTransition enabled"
       >
         <div
-          className="pog transparent"
+          className="pog roundingCircle transparent"
           style={
             Object {
               "height": 48,
@@ -391,7 +391,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
         className="button tapTransition enabled"
       >
         <div
-          className="pog transparent"
+          className="pog roundingCircle transparent"
           style={
             Object {
               "height": 48,
@@ -529,7 +529,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
         className="button tapTransition enabled"
       >
         <div
-          className="pog transparent"
+          className="pog roundingCircle transparent"
           style={
             Object {
               "height": 48,

@@ -3,14 +3,31 @@
   outline-offset: 0;
 }
 
-.accessibilityOutlineVR:focus {
-  outline: 2px solid var(--color-border-focus);
+.accessibilityOutlineLightBackground:focus {
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+}
+
+.accessibilityOutlineDarkBackground:focus {
+  outline: 2px solid var(--sema-color-border-focus-outer-light);
   outline-offset: 0;
 }
 
 .accessibilityOutlineFocusWithin .accessibilityOutline:focus-within {
   outline: 4px solid var(--color-border-focus);
   outline-offset: 0;
+}
+
+.accessibilityOutlineBorderDefault:focus {
+  border: 2px solid var(--sema-color-border-focus-inner-default);
+}
+
+.accessibilityOutlineBorder {
+  border: 2px solid var(--base-color-transparent);
+}
+
+.accessibilityOutlineBorderInverse:focus {
+  border: 2px solid var(--sema-color-border-focus-inner-inverse);
 }
 
 .accessibilityOutlineFocusWithin .accessibilityOutline:focus {

@@ -266,7 +266,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
               className="button tapTransition enabled"
             >
               <div
-                className="pog lightGray"
+                className="pog roundingCircle lightGray"
                 style={
                   Object {
                     "height": 24,

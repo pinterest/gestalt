@@ -375,7 +375,7 @@ exports[`<ActivationCard /> message + title + link + dismissButton 1`] = `
         className="button tapTransition enabled"
       >
         <div
-          className="pog transparent"
+          className="pog roundingCircle transparent"
           style={
             Object {
               "height": 48,

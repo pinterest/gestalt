@@ -12,6 +12,7 @@ import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import accessibility from '../../examples/taparea/accessibility';
 import compressBehavior from '../../examples/taparea/compressBehavior';
+import focus from '../../examples/taparea/focus';
 import fullSpace from '../../examples/taparea/fullSpace';
 import heightWidth from '../../examples/taparea/heightWidth';
 import inlineUsage from '../../examples/taparea/inlineUsage';
@@ -67,6 +68,12 @@ TapArea with link interaction can be paired with GlobalEventsHandlerProvider. Se
                 previewHeight={400}
               />
             }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Focus style">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={focus} name="Focus example" />}
           />
         </MainSection.Subsection>
 

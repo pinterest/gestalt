@@ -8,6 +8,7 @@ export default function Example() {
         color="red"
         href="https://pinterest.com"
         iconEnd="visit"
+        onClick={({ event }) => event.preventDefault()}
         size="lg"
         text="Visit Pinterest"
       />

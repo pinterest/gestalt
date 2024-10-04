@@ -12,7 +12,7 @@ exports[`IconButton renders with disabled state 1`] = `
       class="button tapTransition disabled"
     >
       <div
-        class="pog transparent"
+        class="pog roundingCircle transparent"
         style="height: 48px; width: 48px;"
       >
         <svg
@@ -46,7 +46,7 @@ exports[`IconButton renders with icon 1`] = `
       class="button tapTransition enabled"
     >
       <div
-        class="pog transparent"
+        class="pog roundingCircle transparent"
         style="height: 48px; width: 48px;"
       >
         <svg
@@ -80,7 +80,7 @@ exports[`IconButton renders with svg 1`] = `
       class="button tapTransition enabled"
     >
       <div
-        class="pog transparent"
+        class="pog roundingCircle transparent"
         style="height: 48px; width: 48px;"
       >
         <svg
@@ -121,7 +121,7 @@ exports[`IconButton renders with tooltip 1`] = `
           class="button tapTransition enabled"
         >
           <div
-            class="pog transparent"
+            class="pog roundingCircle transparent"
             style="height: 48px; width: 48px;"
           >
             <svg
@@ -164,7 +164,7 @@ exports[`IconButton renders with tooltip and no accessibilityLabel 1`] = `
           class="button tapTransition enabled"
         >
           <div
-            class="pog transparent"
+            class="pog roundingCircle transparent"
             style="height: 48px; width: 48px;"
           >
             <svg
