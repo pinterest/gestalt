@@ -22,7 +22,7 @@ const avatars: AvatarProps[] = [
 
 export default function Example() {
   return (
-    <Box maxWidth={900} width="100%">
+    <Box marginTop={4} maxWidth={900} width="100%">
       <Flex alignItems="center" height="50%" justifyContent="evenly" width="100%">
         {avatars.map(({ name, color }) => (
           <Box key={name} width={40}>
