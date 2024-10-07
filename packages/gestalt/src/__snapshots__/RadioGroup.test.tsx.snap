@@ -27,6 +27,8 @@ exports[`RadioGroup renders 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
           >
             <input
               checked={false}
@@ -84,6 +86,8 @@ exports[`RadioGroup renders a hidden legend 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
           >
             <input
               checked={false}
@@ -142,6 +146,8 @@ exports[`RadioGroup renders an error 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
           >
             <input
               checked={false}
@@ -248,6 +254,8 @@ exports[`RadioGroup renders in different direction 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
           >
             <input
               checked={false}
