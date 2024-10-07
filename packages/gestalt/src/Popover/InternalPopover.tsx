@@ -74,10 +74,10 @@ export default function InternalPopover({
       border
       caret={showCaret}
       disablePortal={disablePortal}
+      forceDirection={forceDirection}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}
       idealDirection={idealDirection}
-      forceDirection={forceDirection}
       onDismiss={onDismiss}
       onKeyDown={onKeyDown}
       onPositioned={onPositioned}
