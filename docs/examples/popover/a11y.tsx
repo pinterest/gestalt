@@ -33,7 +33,8 @@ export default function Example() {
           accessibilityLabel="Save to board"
           anchor={anchorRef.current}
           id="a11l-example"
-          idealDirection="forceDown"
+          idealDirection="down"
+          forceDirection
           onDismiss={() => setOpen(false)}
           shouldFocus={false}
           // positionRelativeToAnchor={false}

@@ -1,16 +1,26 @@
 import { ReactNode, useEffect, useRef } from 'react';
-import { FloatingFocusManager } from '@floating-ui/react';
+import { FloatingFocusManager, Side } from '@floating-ui/react';
 import classnames from 'classnames';
-import usePopover, { DIRECTIONS_MAP, SIDES_MAP } from './usePopover';
+import usePopover, { SIDES_MAP } from './usePopover';
 import borderStyles from '../Borders.css';
 import { Overflow } from '../boxTypes';
 import Caret from '../Caret';
 import styles from '../Contents.css';
 import layoutStyles from '../Layout.css';
-import { MainDirections } from '../utils/positioningTypes';
-import { CARET_HEIGHT, CARET_WIDTH } from '../utils/positioningUtils';
+
+const CARET_HEIGHT = 4;
+const CARET_WIDTH = 12;
 
 export type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';
+
+type MainDirections = 'up' | 'right' | 'down' | 'left';
+
+const DIRECTIONS_MAP: Record<MainDirections, Side> = {
+  down: 'bottom',
+  left: 'left',
+  right: 'right',
+  up: 'top',
+};
 
 type Props = {
   accessibilityLabel?: string;
@@ -20,7 +30,8 @@ type Props = {
   caret?: boolean;
   children?: ReactNode;
   id: string | undefined;
-  idealDirection?: MainDirections;
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  forceDirection?: boolean;
   onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => void;
   role: Role | undefined;
   rounding?: 2 | 4;
@@ -42,6 +53,7 @@ export default function Contents({
   children,
   id,
   idealDirection,
+  forceDirection,
   role,
   rounding,
   width,
@@ -54,12 +66,18 @@ export default function Contents({
   overflow,
 }: Props) {
   const caretRef = useRef<HTMLElement | null>(null);
-  const idealPlacement = idealDirection ? DIRECTIONS_MAP[idealDirection] : 'top';
+
+  let idealPlacement: 'top' | 'right' | 'bottom' | 'left' = 'top';
+
+  if (idealDirection) {
+    idealPlacement = DIRECTIONS_MAP[idealDirection];
+  }
 
   const { refs, placement, floatingStyles, middlewareData, context, isPositioned } = usePopover({
     anchor,
     caretElement: caretRef.current,
     caretPadding: rounding && rounding * 4,
+    forceDirection,
     direction: idealPlacement,
     scrollBoundary,
     hideWhenReferenceHidden,
