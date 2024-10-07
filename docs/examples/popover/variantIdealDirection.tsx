@@ -9,7 +9,14 @@ export default function Example() {
   const anchorRef = useRef<null | HTMLButtonElement>(null);
 
   return (
-    <Flex alignItems="center" direction="column" gap={6} height="100%" justifyContent="center" width="100%">
+    <Flex
+      alignItems="center"
+      direction="column"
+      gap={6}
+      height="100%"
+      justifyContent="center"
+      width="100%"
+    >
       <Flex gap={6}>
         <SelectList
           id="idealDir"
@@ -28,9 +35,11 @@ export default function Example() {
             <SelectList.Option key={label} label={label} value={value} />
           ))}
         </SelectList>
-        <Flex alignItems="center" direction='column' gap={2}>
+        <Flex alignItems="center" direction="column" gap={2}>
           <Label htmlFor="idealDirLabel">
-            <Text size='100'>{ forceDirection ? 'forceDirection: true' : 'forceDirection: false'}</Text>
+            <Text size="100">
+              {forceDirection ? 'forceDirection: true' : 'forceDirection: false'}
+            </Text>
           </Label>
 
           <Switch
