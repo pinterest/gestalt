@@ -68,14 +68,9 @@
 }
 
 .checked {
-  transition-delay: var(--comp-radiogroupbutton-motion-border-scale-duration);
-  transition-duration: var(
-    --comp-radiogroupbutton-motion-border-scale-duration
-  );
-  transition-property: border;
-  transition-timing-function: var(
-    --comp-radiogroupbutton-motion-border-scale-easing
-  );
+  transition: border var(--comp-radiogroupbutton-motion-border-scale-duration)
+    var(--comp-radiogroupbutton-motion-border-scale-easing)
+    var(--comp-radiogroupbutton-motion-border-scale-duration);
 }
 
 .unchecked {
