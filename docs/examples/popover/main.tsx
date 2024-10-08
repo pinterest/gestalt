@@ -40,8 +40,9 @@ export default function Example() {
         <Popover
           accessibilityLabel="Save to board"
           anchor={anchorRef.current}
+          forceDirection
           id="main-example"
-          idealDirection="forceDown"
+          idealDirection="down"
           onDismiss={() => setOpen(false)}
           showDismissButton
           size="xl"
