@@ -7,6 +7,7 @@ export default function Example() {
   return (
     <DeviceTypeProvider deviceType="mobile">
       <DatePicker
+        disableMobileUI={false}
         id="main"
         label="Select a date"
         onChange={({ value }) => setDateValue(value)}

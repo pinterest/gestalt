@@ -25,6 +25,10 @@ interface Indexable {
 
 export type Props = {
   /**
+   * DatePicker can adapt to mobile devices to [SheetMobile](https://gestalt.pinterest.systems/web/sheetmobile). Mobile adaptation is disabled by default. Set to 'false' to enable SheetMobile in mobile devices. See the [mobile variant](https://gestalt.pinterest.systems/web/datepicker#Mobile) to learn more.
+   */
+  disableMobileUI?: boolean;
+  /**
    *  When disabled, DatePicker looks inactive and cannot be interacted with. See the [disabled example](https://gestalt.pinterest.systems/web/datepicker#States) to learn more.
    */
   disabled?: boolean;
@@ -86,7 +90,7 @@ export type Props = {
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */
   placeholder?: string;
-    /**
+  /**
    * Callback fired when SheetMobile's in & out animations end. See [SheetMobile's animation variant](https://gestalt.pinterest.systems/web/sheetmobile#Animation) to learn more.
    */
   mobileOnAnimationEnd?: (arg1: { animationState: 'in' | 'out' }) => void;
@@ -135,6 +139,7 @@ export type Props = {
 const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function DatePicker(
   {
     disabled,
+    disableMobileUI,
     errorMessage,
     excludeDates,
     helperText,
@@ -180,7 +185,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     if (datePickerHandlers?.onRender) datePickerHandlers?.onRender();
   }, [datePickerHandlers]);
 
-  if (isMobile) {
+  if (isMobile && !disableMobileUI) {
     return (
       <Fragment>
         <InternalDatePicker
