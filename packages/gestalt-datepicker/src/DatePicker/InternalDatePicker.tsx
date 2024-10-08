@@ -12,7 +12,12 @@ import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
-type InternalProps = Props & { inline?: boolean; inputOnly?: boolean; onFocus?: () => void };
+type InternalProps = Props & {
+  inline?: boolean;
+  inputOnly?: boolean;
+  onFocus?: () => void;
+  onSelect?: () => void;
+};
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function MyNoContainer({ className, children }: { className: string; children: ReactElement }) {
@@ -39,6 +44,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       nextRef,
       onChange,
       onFocus,
+      onSelect,
       placeholder,
       rangeEndDate,
       rangeSelector,
@@ -144,6 +150,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
             onChange({ event, value });
             if (event.type === 'click') {
               nextRef?.current?.focus();
+              console.log(123);
+              onSelect?.();
             }
           }}
           onKeyDown={(event) => {

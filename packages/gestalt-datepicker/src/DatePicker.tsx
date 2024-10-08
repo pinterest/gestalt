@@ -196,38 +196,38 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
               showDismissButton={false}
               size="auto"
             >
-              <Flex
-                alignItems="center"
-                direction="column"
-                gap={4}
-                justifyContent="center"
-                width="100%"
-              >
-                <InternalDatePicker
-                  errorMessage={errorMessage}
-                  excludeDates={excludeDates}
-                  id={id}
-                  idealDirection={idealDirection}
-                  includeDates={includeDates}
-                  inline
-                  localeData={localeData}
-                  maxDate={maxDate}
-                  minDate={minDate}
-                  nextRef={nextRef}
-                  onChange={onChange}
-                  rangeEndDate={rangeEndDate}
-                  rangeSelector={rangeSelector}
-                  rangeStartDate={rangeStartDate}
-                  selectLists={selectLists}
-                  value={value}
-                />
-
-                <SheetMobile.DismissingElement>
-                  {({ onDismissStart }) => (
+              <SheetMobile.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Flex
+                    alignItems="center"
+                    direction="column"
+                    gap={4}
+                    justifyContent="center"
+                    width="100%"
+                  >
+                    <InternalDatePicker
+                      errorMessage={errorMessage}
+                      excludeDates={excludeDates}
+                      id={id}
+                      idealDirection={idealDirection}
+                      includeDates={includeDates}
+                      inline
+                      localeData={localeData}
+                      maxDate={maxDate}
+                      minDate={minDate}
+                      nextRef={nextRef}
+                      onChange={onChange}
+                      onSelect={() => onDismissStart()}
+                      rangeEndDate={rangeEndDate}
+                      rangeSelector={rangeSelector}
+                      rangeStartDate={rangeStartDate}
+                      selectLists={selectLists}
+                      value={value}
+                    />
                     <Button color="gray" onClick={() => onDismissStart()} size="lg" text="Close" />
-                  )}
-                </SheetMobile.DismissingElement>
-              </Flex>
+                  </Flex>
+                )}
+              </SheetMobile.DismissingElement>
             </SheetMobile>
           </Layer>
         ) : null}
