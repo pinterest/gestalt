@@ -1,6 +1,14 @@
-import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef } from 'react';
+import {
+  forwardRef,
+  Fragment,
+  ReactElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import { Locale } from 'date-fns/locale';
-import { useGlobalEventsHandler } from 'gestalt';
+import { Button, Flex, SheetMobile, useDeviceType, useGlobalEventsHandler } from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
 
 export type Props = {
@@ -138,10 +146,82 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
   };
+  const [showMobileCalendar, setShowMobileCalendar] = useState<boolean>(false);
+
+  const deviceType = useDeviceType();
+  const isMobile = deviceType === 'mobile';
 
   useEffect(() => {
     if (datePickerHandlers?.onRender) datePickerHandlers?.onRender();
   }, [datePickerHandlers]);
+
+  if (isMobile) {
+    return (
+      <Fragment>
+        <InternalDatePicker
+          ref={innerInputRef}
+          errorMessage={errorMessage}
+          excludeDates={excludeDates}
+          id={id}
+          idealDirection={idealDirection}
+          includeDates={includeDates}
+          inputOnly
+          localeData={localeData}
+          maxDate={maxDate}
+          minDate={minDate}
+          nextRef={nextRef} onChange={onChange}
+          onFocus={() => setShowMobileCalendar(true)}
+          rangeEndDate={rangeEndDate}
+          rangeSelector={rangeSelector}
+          rangeStartDate={rangeStartDate}
+          selectLists={selectLists}
+          value={value}
+        />
+        {showMobileCalendar ? (
+          <SheetMobile
+            heading=""
+            onDismiss={() => setShowMobileCalendar(false)}
+            padding="none"
+            showDismissButton={false}
+            size="auto"
+          >
+            <Flex
+              alignItems="center"
+              direction="column"
+              gap={4}
+              justifyContent="center"
+              width="100%"
+            >
+              <InternalDatePicker
+                errorMessage={errorMessage}
+                excludeDates={excludeDates}
+                id={id}
+                idealDirection={idealDirection}
+                includeDates={includeDates}
+                inline
+                localeData={localeData}
+                maxDate={maxDate}
+                minDate={minDate}
+                nextRef={nextRef}
+                onChange={onChange}
+                rangeEndDate={rangeEndDate}
+                rangeSelector={rangeSelector}
+                rangeStartDate={rangeStartDate}
+                selectLists={selectLists}
+                value={value}
+              />
+
+              <SheetMobile.DismissingElement>
+                {({ onDismissStart }) => (
+                  <Button color="gray" onClick={() => onDismissStart()} size="lg" text="Close" />
+                )}
+              </SheetMobile.DismissingElement>
+            </Flex>
+          </SheetMobile>
+        ) : null}
+      </Fragment>
+    );
+  }
 
   return (
     <InternalDatePicker
