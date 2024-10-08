@@ -67,7 +67,7 @@ export default function Contents({
 }: Props) {
   const caretRef = useRef<HTMLElement | null>(null);
 
-  let idealPlacement: 'top' | 'right' | 'bottom' | 'left' = 'top';
+  let idealPlacement: Side = 'top';
 
   if (idealDirection) {
     idealPlacement = DIRECTIONS_MAP[idealDirection];
