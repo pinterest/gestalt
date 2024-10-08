@@ -139,7 +139,7 @@ export type Props = {
 const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function DatePicker(
   {
     disabled,
-    disableMobileUI,
+    disableMobileUI = false,
     errorMessage,
     excludeDates,
     helperText,
