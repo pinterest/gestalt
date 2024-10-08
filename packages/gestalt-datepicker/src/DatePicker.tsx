@@ -86,6 +86,10 @@ export type Props = {
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */
   placeholder?: string;
+    /**
+   * Callback fired when SheetMobile's in & out animations end. See [SheetMobile's animation variant](https://gestalt.pinterest.systems/web/sheetmobile#Animation) to learn more.
+   */
+  mobileOnAnimationEnd?: (arg1: { animationState: 'in' | 'out' }) => void;
   /**
    * An object representing the zIndex value of the SheetMobile where DatePicker is built upon on mobile. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
@@ -142,6 +146,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     maxDate,
     minDate,
     mobileZIndex,
+    mobileOnAnimationEnd,
     name,
     nextRef,
     onChange,
@@ -223,6 +228,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                 </SheetMobile.DismissingElement>
               }
               heading=""
+              onAnimationEnd={mobileOnAnimationEnd}
               onDismiss={() => setShowMobileCalendar(false)}
               padding="none"
               showDismissButton={false}
