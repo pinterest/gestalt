@@ -166,25 +166,16 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
       });
 
-  const checkedStyles = classnames(
-    styles.VRRadioButton,
-    styles.checked,
-    borderColor,
-    borderWidth,
-    bgStyle,
-    styleSize,
-    {
-      [styles.noTransitionDelay]: checked,
-    },
-  );
+  const sharedBorderStyles = classnames(styles.VRRadioButton, borderColor, bgStyle, styleSize);
 
-  const uncheckedStyles = classnames(
-    styles.VRRadioButton,
+  const checkedBorderStyles = classnames(sharedBorderStyles, styles.checked, borderWidth, {
+    [styles.noTransitionDelay]: checked,
+  });
+
+  const uncheckedBorderStyles = classnames(
+    sharedBorderStyles,
     styles.unchecked,
-    borderColor,
     uncheckedBorderWidth,
-    bgStyle,
-    styleSize,
     {
       [boxStyles.opacity0]: checked || disabled,
       [styles.noTransition]: checked,
@@ -207,8 +198,8 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         >
           {isInVRExperiment && (
             <Fragment>
-              <div className={checkedStyles} />
-              <div className={uncheckedStyles} />
+              <div className={checkedBorderStyles} />
+              <div className={uncheckedBorderStyles} />
             </Fragment>
           )}
 
