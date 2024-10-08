@@ -35,7 +35,7 @@ type Props = {
 
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
 const IconNames: ReadonlyArray<IconName> = Object.keys(icons);
-const swapOnRtlIconNames: ReadonlyArray<keyof typeof icons> = ['list-numbered'];
+const swapOnRtlIconNames: ReadonlyArray<IconName> = ['list-numbered'];
 
 const flipOnRtlIconNames = [
   'ads-stats',
@@ -98,7 +98,7 @@ function InternalIcon({
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-  const getIconPath = (iconToUse: string) => {
+  const getIconPath = (iconToUse?: IconName) => {
     let iconName = iconToUse;
 
     if (icon && isInExperiment) {
@@ -116,7 +116,7 @@ function InternalIcon({
    * Some RTL Icons, we need to swap to a completely new icon because they can't be flipped
    * @param iconName
    */
-  function getFinalIconName(iconName?: keyof typeof icons): keyof typeof icons | undefined {
+  function getFinalIconName(iconName?: IconName): IconName | undefined {
     if (!iconName) {
       return undefined;
     }
@@ -149,7 +149,7 @@ function InternalIcon({
   let viewBox = '0 0 24 24';
 
   // if it's a component icon use a 16x16 view box
-  if (icon && icon in componentIcons) {
+  if (iconToUse && iconToUse in componentIcons) {
     viewBox = '0 0 16 16';
   }
 
