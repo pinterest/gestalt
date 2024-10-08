@@ -124,6 +124,8 @@ module.exports = {
       extends: [...baseExtends, 'plugin:@typescript-eslint/recommended'],
       rules: {
         ...baseRules,
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': 'error',
         '@typescript-eslint/prefer-as-const': 'off',
         '@typescript-eslint/no-this-alias': 'off',
         '@typescript-eslint/no-explicit-any': 'off',

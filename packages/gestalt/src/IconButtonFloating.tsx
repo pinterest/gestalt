@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import Box from './Box';
-import IconButton from './IconButton';
+import InternalIconButton from './IconButton/InternalIconButton';
 import icons from './icons/index';
 import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
@@ -92,7 +92,7 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
 
     return (
       <Box borderStyle="shadow" color="default" rounding={isInVRExperiment ? 4 : 'circle'}>
-        <IconButton
+        <InternalIconButton
           ref={ref}
           accessibilityControls={accessibilityControls}
           accessibilityExpanded={accessibilityExpanded}

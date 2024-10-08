@@ -6,6 +6,11 @@
   composes: antialiased from "./Typography.css";
 }
 
+.Text svg,
+.TextBody svg {
+  vertical-align: unset;
+}
+
 .lg {
   font-family: var(--sema-font-family-body-lg);
   font-size: var(--sema-font-size-body-lg);
@@ -114,7 +119,7 @@
 }
 
 a.standalone {
-  color: var(--color-text-link);
+  color: var(--sema-color-text-default);
 }
 
 a.standalone:hover {

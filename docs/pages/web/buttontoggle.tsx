@@ -136,6 +136,59 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
+          description={`
+1. Unselected
+The initial state of a ButtonToggle that represents it is in a non-selected state.
+
+2. Disabled
+Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
+
+3. Selected
+When ButtonToggle is currently active or selected.
+`}
+          title="States"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={defaultState}
+                layout="column"
+                name="Unselected state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Unselected"
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={selected}
+                layout="column"
+                name="Selected state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Selected"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={disabled}
+                layout="column"
+                name="Disabled state buttontoggle example."
+                previewHeight={150}
+              />
+            }
+            title="Disabled"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`ButtonToggle is available in 3 fixed sizes. The ButtonToggle text has always a fixed size of 16px:
 1. \`lg\` (48px)
     Large is the only size that should be used on Pinner surfaces.
@@ -158,6 +211,7 @@ On [cypress-axe](https://www.npmjs.com/package/cypress-axe) that can be achieved
             )}
           </CombinationNew>
         </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
 1. Red (Primary)
@@ -279,59 +333,6 @@ Text can be ommited when using an icon to have an icon-only ButtonToggle, but in
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
-          />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
-          columns={2}
-          description={`
-1. Unselected
-The initial state of a ButtonToggle that represents it is in a non-selected state.
-
-2. Disabled
-Used to block user interaction such as hover, focus and click. Disabled ButtonToggles are completely unreachable by a keyboard and screenreader, so do not attach Tooltips to disabled ButtonToggles.
-
-3. Selected
-When ButtonToggle is currently active or selected.
-`}
-          title="States"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={defaultState}
-                layout="column"
-                name="Unselected state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-            title="Unselected"
-          />
-
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={selected}
-                layout="column"
-                name="Selected state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-            title="Selected"
-          />
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={disabled}
-                layout="column"
-                name="Disabled state buttontoggle example."
-                previewHeight={150}
-              />
-            }
-            title="Disabled"
           />
         </MainSection.Subsection>
       </MainSection>

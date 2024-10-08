@@ -5,8 +5,9 @@ import buttonStyles from '../Button.css';
 import { useGlobalEventsHandlerContext } from '../contexts/GlobalEventsHandlerProvider';
 import focusStyles from '../Focus.css';
 import getRoundingClassName, { Rounding } from '../getRoundingClassName';
-import iconButtonStyles from '../IconButton.css';
+import iconButtonStyles from '../IconButton/InternalIconButton.css';
 import layoutStyles from '../Layout.css';
+import searchGuideStyles from '../SearchGuide.css';
 import touchableStyles from '../TapArea.css';
 import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
@@ -20,10 +21,12 @@ type Props = {
   colorClass?: string;
   dataTestId?: string;
   disabled?: boolean;
+  focusColor?: 'lightBackground' | 'darkBackground';
   fullHeight?: boolean;
   fullWidth?: boolean;
   href: string;
   id?: string;
+  innerFocusColor?: 'default' | 'inverse';
   mouseCursor?: 'copy' | 'grab' | 'grabbing' | 'move' | 'noDrop' | 'pointer' | 'zoomIn' | 'zoomOut';
   onClick?: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -51,7 +54,7 @@ type Props = {
   size?: 'sm' | 'md' | 'lg';
   tapStyle?: 'none' | 'compress';
   target?: null | 'self' | 'blank';
-  wrappedComponent: 'button' | 'iconButton' | 'tapArea';
+  wrappedComponent: 'button' | 'iconButton' | 'tapArea' | 'searchGuide';
 };
 
 const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
@@ -62,10 +65,12 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
     href,
     id,
+    innerFocusColor,
     mouseCursor,
     onClick,
     onBlur,
@@ -105,28 +110,32 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     height: innerRef?.current?.clientHeight,
     width: innerRef?.current?.clientWidth,
   });
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
   const { isFocusVisible } = useFocusVisible();
+
   const isTapArea = wrappedComponent === 'tapArea';
   const isButton = wrappedComponent === 'button';
   const isIconButton = wrappedComponent === 'iconButton';
+  const isSearchGuide = wrappedComponent === 'searchGuide';
 
   const className = classnames(
     styles.noOutline,
     styles.inheritColor,
     styles.noUnderline,
     touchableStyles.tapTransition,
-    getRoundingClassName(isTapArea ? rounding || 0 : 'pill'),
+    isTapArea ? getRoundingClassName(rounding || 0) : undefined,
+    !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
-    isButton
+    isButton && !isInVRExperiment
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
@@ -140,11 +149,28 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.lg]: size === 'lg',
         }
       : {},
+    isButton && isInVRExperiment
+      ? {
+          [layoutStyles.inlineFlex]: !fullWidth,
+          [layoutStyles.flex]: fullWidth,
+          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.xsItemsCenter]: true,
+          [buttonStyles.buttonVr]: true,
+          [buttonStyles.disabled]: disabled,
+          [buttonStyles.selected]: !disabled && selected,
+          [buttonStyles.smVr]: size === 'sm',
+          [buttonStyles.mdVr]: size === 'md',
+          [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.vrFocused]: !disabled && isFocusVisible,
+          [buttonStyles.defaultFocus]:
+            !disabled && isFocusVisible && focusColor === 'lightBackground',
+          [buttonStyles.inverseFocus]:
+            !disabled && isFocusVisible && focusColor === 'darkBackground',
+        }
+      : {},
     isButton && colorClass
       ? {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore cannot infer type with dynamic property name
-          [buttonStyles[colorClass]]: !disabled && !selected,
+          [buttonStyles[colorClass as keyof typeof buttonStyles]]: !disabled && !selected,
         }
       : {},
     isTapArea
@@ -152,6 +178,16 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [layoutStyles.block]: true,
           [touchableStyles.fullHeight]: fullHeight,
           [touchableStyles.fullWidth]: fullWidth,
+          [focusStyles.accessibilityOutlineLightBackground]:
+            isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineDarkBackground]:
+            isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorder]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderDefault]:
+            isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+          [focusStyles.accessibilityOutlineBorderInverse]:
+            isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
         }
       : {},
     isTapArea && mouseCursor
@@ -164,6 +200,31 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [iconButtonStyles.button]: true,
           [iconButtonStyles.disabled]: disabled,
           [iconButtonStyles.enabled]: !disabled,
+        }
+      : {},
+  );
+
+  const searchGuideClassNames = classnames(
+    styles.noUnderline,
+    touchableStyles.tapTransition,
+    isSearchGuide && isInVRExperiment
+      ? {
+          [searchGuideStyles.searchguideVr]: true,
+          [touchableStyles.tapTransition]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: !selected,
+          [focusStyles.hideOutline]: !isFocusVisible,
+          [searchGuideStyles.vrFocused]: isFocusVisible,
+          [searchGuideStyles.selectedVr]: selected,
+        }
+      : {},
+    isSearchGuide && !isInVRExperiment
+      ? {
+          [searchGuideStyles.searchguide]: true,
+          [touchableStyles.tapTransition]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
+          [searchGuideStyles.selected]: selected,
+          [focusStyles.hideOutline]: !isFocusVisible && !selected,
+          [focusStyles.accessibilityOutline]: isFocusVisible,
         }
       : {},
   );
@@ -192,7 +253,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       aria-current={accessibilityCurrent !== 'section' ? accessibilityCurrent : undefined}
       aria-label={accessibilityLabel}
       aria-selected={accessibilityCurrent === 'section' ? accessibilityCurrent : undefined}
-      className={className}
+      className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
       id={id}

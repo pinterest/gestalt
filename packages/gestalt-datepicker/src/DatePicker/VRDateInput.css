@@ -74,9 +74,6 @@
 }
 
 .label {
-  font-size: var(--sema-font-size-ui-xs);
-  font-weight: var(--base-font-weight-500);
-  line-height: var(--sema-font-lineheight-ui-xs);
   padding: 0;
   position: absolute;
   z-index: 1;
@@ -133,8 +130,9 @@ html[dir="rtl"] .lg_actionButton {
 }
 
 .vr_lg_actionButtonContainer {
-  bottom: var(--sema-space-400);
+  bottom: var(--sema-space-0);
   position: absolute;
+  top: var(--sema-space-0);
 }
 
 html:not([dir="rtl"]) .actionButtonContainer,

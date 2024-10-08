@@ -4,6 +4,7 @@ import Layer from '../Layer';
 import Controller from '../Popover/Controller';
 import Text from '../Text';
 import useDebouncedCallback from '../useDebouncedCallback';
+import useInExperiment from '../useInExperiment';
 import { Indexable } from '../zIndex';
 
 const noop = () => {};
@@ -87,6 +88,11 @@ export default function InternalTooltip({
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   useEffect(() => {
     if (disabled === true) {
       dispatch({ type: 'hoverOutIcon', disabled });
@@ -150,7 +156,7 @@ export default function InternalTooltip({
         <Layer zIndex={zIndex}>
           <Controller
             anchor={anchor}
-            bgColor="darkGray"
+            bgColor={isInVRExperiment ? undefined : 'darkGray'}
             border={false}
             caret={false}
             disablePortal
@@ -162,12 +168,14 @@ export default function InternalTooltip({
             shouldFocus={false}
           >
             <Box
+              color={isInVRExperiment ? 'inverse' : undefined}
               maxWidth={180}
               onBlur={link ? handleTextMouseLeave : undefined}
               onFocus={link ? handleTextMouseEnter : undefined}
               onMouseEnter={link ? handleTextMouseEnter : undefined}
               onMouseLeave={link ? handleTextMouseLeave : undefined}
               padding={2}
+              rounding={2}
               tabIndex={0}
             >
               <Text color="inverse" dataTestId={dataTestIdText} size="100">

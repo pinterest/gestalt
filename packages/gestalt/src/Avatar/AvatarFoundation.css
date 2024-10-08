@@ -1,0 +1,57 @@
+.container {
+  border-radius: 50%;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.outline {
+  border-radius: 50%;
+  outline: 1px solid rgb(255 255 255);
+}
+
+.outlineVR {
+  border-radius: var(--sema-rounding-circle);
+  outline: 2px solid var(--sema-color-border-inverse);
+}
+
+.focused {
+  border: 2px solid var(--sema-color-border-focus-inner-default);
+  border-radius: 50%;
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.imageHovered {
+  background: var(--sema-color-hover-background-wash-image-tint);
+}
+
+.imagePressed {
+  background: var(--sema-color-pressed-background-wash-image-tint);
+}
+
+.innerDiv {
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+}
+
+.text {
+  composes: antialiased sansSerif fontWeightSemiBold from "../Typography.css";
+}
+
+.vrText {
+  composes: lg from "../TextUI.css";
+}
+
+.icon {
+  stroke-width: 0;
+  vertical-align: middle;
+}
+
+.iconFillDefault {
+  fill: var(--color-icon-avatar-default);
+}
+
+.iconFillDarkMode {
+  fill: var(--color-icon-light);
+}

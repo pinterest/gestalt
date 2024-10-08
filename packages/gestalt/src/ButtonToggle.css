@@ -144,7 +144,7 @@
   margin: calc(var(--g-border-width-lg) / 2 * -1);
 }
 
-.accessibilityOutlineVr {
+.accessibilityOutlineLightBackground {
   border-color: var(--sema-color-border-focus-inner-default);
   outline: 2px solid var(--sema-color-border-focus-outer-default);
   outline-offset: 2px;

@@ -165,6 +165,7 @@ declare const icons: Readonly<{
     ghost: any;
     gif: any;
     'gif-visual': any;
+    gift: any;
     globe: any;
     'globe-checked': any;
     gmail: any;
@@ -184,12 +185,14 @@ declare const icons: Readonly<{
     'idea-pin': any;
     'image-portrait': any;
     impressum: any;
+    indent: any;
     'info-circle': any;
     information: any;
     'insights-audience': any;
     'insights-conversion': any;
     instagram: any;
     invoice: any;
+    'kakao-talk': any;
     key: any;
     knoop: any;
     'lab-flask': any;
@@ -200,6 +203,8 @@ declare const icons: Readonly<{
     link: any;
     'link-broken': any;
     lips: any;
+    'list-numbered': any;
+    'list-numbered-rtl': any;
     location: any;
     lock: any;
     'logo-large': any;
@@ -226,6 +231,7 @@ declare const icons: Readonly<{
     'mute-fill': any;
     'orientation-landscape': any;
     'orientation-portrait': any;
+    outdent: any;
     outlook: any;
     'overlay-text': any;
     'overlay-text-outline': any;
@@ -244,6 +250,7 @@ declare const icons: Readonly<{
     phone: any;
     pin: any;
     'pin-hide': any;
+    pincode: any;
     pinterest: any;
     play: any;
     protect: any;
@@ -284,6 +291,7 @@ declare const icons: Readonly<{
     skintone: any;
     slide: any;
     smiley: any;
+    snapchat: any;
     'sort-ascending': any;
     'sort-descending': any;
     sound: any;
@@ -316,6 +324,7 @@ declare const icons: Readonly<{
     tag: any;
     'tag-star': any;
     target: any;
+    telegram: any;
     template: any;
     terms: any;
     text: any;
@@ -343,6 +352,7 @@ declare const icons: Readonly<{
     undo: any;
     unlock: any;
     'upload-feed': any;
+    viber: any;
     'video-advance-10-seconds': any;
     'video-camera': any;
     'video-rewind-10-seconds': any;

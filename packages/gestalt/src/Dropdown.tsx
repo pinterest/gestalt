@@ -122,9 +122,13 @@ type Props = {
    */
   id: string;
   /**
-   * Preferred direction for the Dropdown to open.
+   * Specifies the preferred position of Dropdown relative to its anchor element. See the [ideal direction variant in Popover's](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left';
+  /**
+   * Forces the  position of Dropdown relative to its anchor element.
+   */
+  forceDirection?: boolean;
   /**
    *  Define a controlled size to dropdown's Popover.
    */
@@ -161,6 +165,7 @@ export default function Dropdown({
   headerContent,
   id,
   idealDirection = 'down',
+  forceDirection = false,
   onDismiss,
   zIndex,
   maxHeight,
@@ -286,6 +291,7 @@ export default function Dropdown({
       anchor={anchor}
       color="white"
       disablePortal
+      forceDirection={forceDirection}
       hideWhenReferenceHidden
       id={id}
       idealDirection={idealDirection}

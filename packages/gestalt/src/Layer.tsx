@@ -2,7 +2,7 @@ import { ReactElement, ReactNode, ReactPortal, useEffect, useRef, useState } fro
 import { createPortal } from 'react-dom';
 import { useScrollBoundaryContainer } from './contexts/ScrollBoundaryContainerProvider';
 import styles from './Layer.css';
-import { getContainerNode } from './utils/positioningUtils';
+import getContainerNode from './utils/positioningUtils';
 import { Indexable } from './zIndex';
 
 type Props = {

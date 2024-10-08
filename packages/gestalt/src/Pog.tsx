@@ -62,6 +62,10 @@ type Props = {
    */
   padding?: 1 | 2 | 3 | 4 | 5;
   /**
+   * See the [rounding](https://gestalt.pinterest.systems/web/pog#Rounding) variant for more info.
+   */
+  rounding?: '0' | '100' | '200' | '300' | '400' | 'circle';
+  /**
    * Indicate if Pog is in a selected state. See [States](https://gestalt.pinterest.systems/web/pog#States) for more details.
    */
   selected?: boolean;
@@ -92,6 +96,7 @@ export default function Pog({
   icon,
   iconColor,
   padding,
+  rounding,
   selected = false,
   size = 'md',
 }: Props) {
@@ -157,6 +162,12 @@ export default function Pog({
   } as const;
 
   const classes = classnames(styles.pog, {
+    [styles.rounding0]: rounding === '0',
+    [styles.rounding100]: rounding === '100',
+    [styles.rounding200]: rounding === '200',
+    [styles.rounding300]: rounding === '300',
+    [styles.rounding400]: rounding === '400',
+    [styles.roundingCircle]: !rounding || rounding === 'circle',
     [styles[bgColor]]: !selected,
     [styles.selected]: selected,
     [styles.active]: active,
@@ -165,6 +176,12 @@ export default function Pog({
   });
 
   const vrClasses = classnames(styles.pog, styles[size], {
+    [styles.rounding0]: rounding === '0',
+    [styles.rounding100]: (!rounding && size === 'xs') || rounding === '100',
+    [styles.rounding200]: (!rounding && size === 'sm') || rounding === '200',
+    [styles.rounding300]: (!rounding && size === 'md') || rounding === '300',
+    [styles.rounding400]: (!rounding && (size === 'lg' || size === 'xl')) || rounding === '400',
+    [styles.roundingCircle]: rounding === 'circle',
     [styles[bgColor]]: !selected,
     [styles.disabled]: disabled && !selected,
     [styles.selected]: selected && !disabled,

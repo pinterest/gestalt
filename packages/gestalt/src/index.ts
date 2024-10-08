@@ -59,6 +59,8 @@ import RadioGroup from './RadioGroup';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 import ScrollFetch from './ScrollFetch';
 import SearchField from './SearchField';
+import SearchGuide from './SearchGuide';
+import SearchGuideLink from './SearchGuideLink';
 import SegmentedControl from './SegmentedControl';
 import SelectList from './SelectList';
 import SheetMobile from './SheetMobile';
@@ -150,6 +152,8 @@ export {
   ScrollBoundaryContainer,
   ScrollFetch,
   SearchField,
+  SearchGuide,
+  SearchGuideLink,
   SegmentedControl,
   SelectList,
   SheetMobile,

@@ -6,7 +6,6 @@ import { ENTER, SPACE, TAB } from '../keyCodes';
 import Pog from '../Pog';
 import TapArea from '../TapArea';
 import Tooltip from '../Tooltip';
-import useInExperiment from '../useInExperiment';
 
 function MaybeTooltip({
   children,
@@ -31,7 +30,6 @@ type Props = {
   hoverStyle?: 'default' | 'none';
   icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide';
   onClick: () => void;
-  paddingSize?: 'sm' | 'md' | 'lg';
   pogPadding?: 1 | 2;
   role?: 'switch';
   tapStyle?: ComponentProps<typeof TapArea>['tapStyle'];
@@ -45,29 +43,18 @@ export default function IconButtonEnd({
   hoverStyle = 'default',
   icon,
   onClick,
-  paddingSize,
   pogPadding = 1,
   role,
   tapStyle,
   tooltipText,
 }: Props) {
   const [focused, setFocused] = useState(false);
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
+
   return (
     // styles.actionButtonContainer is required for RTL positioning
-    <div
-      className={classnames({
-        [styles.actionButtonContainer]: !isInVRExperiment,
-        [styles.vr_sm_actionButtonContainer]: isInVRExperiment && paddingSize === 'sm',
-        [styles.vr_md_actionButtonContainer]: isInVRExperiment && paddingSize === 'md',
-        [styles.vr_lg_actionButtonContainer]: isInVRExperiment && paddingSize === 'lg',
-      })}
-    >
+    <div className={classnames(styles.actionButtonContainer)}>
       <Box
-        alignItems={isInVRExperiment ? 'end' : 'center'}
+        alignItems="center"
         aria-hidden={accessibilityHidden}
         display="flex"
         height="100%"

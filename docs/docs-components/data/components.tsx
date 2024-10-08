@@ -58,6 +58,7 @@ import Pulsar from '../../graphics/general/Pulsar.svg';
 import RadioGroup from '../../graphics/general/RadioGroup.svg';
 import SearchField from '../../graphics/general/SearchField.svg';
 import SearchGuide from '../../graphics/general/SearchGuide.svg';
+import SearchGuideLink from '../../graphics/general/SearchGuideLink.svg';
 import SegmentedControl from '../../graphics/general/SegmentedControl.svg';
 import SelectList from '../../graphics/general/SelectList.svg';
 import SheetMobile from '../../graphics/general/SheetMobile.svg';
@@ -2020,6 +2021,28 @@ const componentData: ReadonlyArray<ComponentData> = [
   {
     id: 'SearchGuide',
     platform: {
+      web: {
+        name: 'SearchGuide',
+        visual: {
+          svg: <SearchGuide />,
+        },
+        alias: ['Search filters', 'Pivots', 'Vanilla guides'],
+        description: 'SearchGuide appends and refines a search query.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          responsive: 'ready',
+          status: 'ready',
+        },
+      },
       android: {
         name: 'SearchGuide',
         visual: {
@@ -2045,6 +2068,33 @@ const componentData: ReadonlyArray<ComponentData> = [
         status: {
           documentation: 'ready',
           figmaStatus: 'partial',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'SearchGuideLink',
+    platform: {
+      web: {
+        name: 'SearchGuideLink',
+        visual: {
+          svg: <SearchGuideLink />,
+        },
+        description:
+          'SearchGuideLink is mainly used as a navigational element to direct users to a new page or location, in the context of a search query.',
+        category: ['Actions'],
+        status: {
+          accessible: {
+            summary: 'ready',
+            a11yVisual: 'ready',
+            a11yScreenreader: 'ready',
+            a11yNavigation: 'ready',
+            a11yComprehension: 'ready',
+          },
+          documentation: 'ready',
+          figmaStatus: 'partial',
+          responsive: 'ready',
           status: 'ready',
         },
       },

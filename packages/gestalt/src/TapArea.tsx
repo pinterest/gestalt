@@ -62,6 +62,16 @@ type Props = {
    */
   disabled?: boolean;
   /**
+   * Indicates whether this component is hosted in a light or dark container.
+   * Used for improving focus ring color contrast.
+   */
+  focusColor?: 'lightBackground' | 'darkBackground';
+  /**
+   * Indicates whether this component presents a light ('default') or dark ('inverse') inner focus border when focused.
+   * Used for improving focus ring color contrast.
+   */
+  innerFocusColor?: 'default' | 'inverse';
+  /**
    * Set the TapArea height to expand to the full height of the parent.
    */
   fullHeight?: boolean;
@@ -164,8 +174,10 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
     children,
     dataTestId,
     disabled = false,
+    focusColor = 'lightBackground',
     fullHeight,
     fullWidth = true,
+    innerFocusColor,
     mouseCursor = 'pointer',
     onBlur,
     onKeyDown,
@@ -213,7 +225,16 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   const buttonRoleClasses = classnames(styles.tapTransition, getRoundingClassName(rounding), {
     [focusStyles.hideOutline]: !disabled && !isFocusVisible,
     [focusStyles.accessibilityOutline]: !isInVRExperiment && !disabled && isFocusVisible,
-    [focusStyles.accessibilityOutlineVR]: isInVRExperiment && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineLightBackground]:
+      isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineDarkBackground]:
+      isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineBorder]:
+      isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+    [focusStyles.accessibilityOutlineBorderDefault]:
+      isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutlineBorderInverse]:
+      isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
     [styles.fullHeight]: fullHeight,
     [styles.fullWidth]: fullWidth,
     [styles.copy]: mouseCursor === 'copy' && !disabled,

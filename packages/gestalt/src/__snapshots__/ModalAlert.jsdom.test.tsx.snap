@@ -60,7 +60,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                           class="button tapTransition enabled"
                         >
                           <div
-                            class="pog white"
+                            class="pog roundingCircle white"
                             style="height: 32px; width: 32px;"
                           >
                             <svg
@@ -419,7 +419,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                           class="button tapTransition enabled"
                         >
                           <div
-                            class="pog white"
+                            class="pog roundingCircle white"
                             style="height: 32px; width: 32px;"
                           >
                             <svg

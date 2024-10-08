@@ -16,13 +16,14 @@ const SIZE_WIDTH_MAP = {
 type Props = {
   accessibilityLabel?: string;
   anchor: HTMLElement;
-  bgColor: 'blue' | 'darkGray' | 'white';
+  bgColor?: 'blue' | 'darkGray' | 'white';
   border?: boolean;
   caret?: boolean;
   children?: ReactNode;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
   id?: string;
-  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  forceDirection?: boolean;
   onDismiss: () => void;
   role?: Role;
   rounding?: 2 | 4;
@@ -45,6 +46,7 @@ export default function Controller({
   children,
   id,
   idealDirection,
+  forceDirection,
   role,
   rounding,
   shouldFocus,
@@ -81,6 +83,7 @@ export default function Controller({
         bgColor={bgColor}
         border={border}
         caret={caret}
+        forceDirection={forceDirection}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
         id={id}
         idealDirection={idealDirection}
