@@ -8,7 +8,15 @@ import {
   useState,
 } from 'react';
 import { Locale } from 'date-fns/locale';
-import { Button, Flex, Layer, SheetMobile, useDeviceType, useGlobalEventsHandler } from 'gestalt';
+import {
+  Button,
+  Flex,
+  Layer,
+  SheetMobile,
+  useDefaultLabel,
+  useDeviceType,
+  useGlobalEventsHandler,
+} from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
 
 interface Indexable {
@@ -155,6 +163,9 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   const { datePickerHandlers } = useGlobalEventsHandler() ?? {
     datePickerHandlers: undefined,
   };
+
+  const { accessibilityDismissButtonLabel, dismissButton } = useDefaultLabel('DatePicker');
+
   const [showMobileCalendar, setShowMobileCalendar] = useState<boolean>(false);
 
   const deviceType = useDeviceType();
@@ -190,6 +201,27 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
         {showMobileCalendar ? (
           <Layer zIndex={mobileZIndex}>
             <SheetMobile
+              footer={
+                <SheetMobile.DismissingElement>
+                  {({ onDismissStart }) => (
+                    <Flex
+                      alignItems="center"
+                      direction="column"
+                      gap={4}
+                      justifyContent="center"
+                      width="100%"
+                    >
+                      <Button
+                        accessibilityLabel={accessibilityDismissButtonLabel}
+                        color="gray"
+                        onClick={() => onDismissStart()}
+                        size="lg"
+                        text={dismissButton}
+                      />
+                    </Flex>
+                  )}
+                </SheetMobile.DismissingElement>
+              }
               heading=""
               onDismiss={() => setShowMobileCalendar(false)}
               padding="none"
@@ -224,7 +256,6 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                       selectLists={selectLists}
                       value={value}
                     />
-                    <Button color="gray" onClick={() => onDismissStart()} size="lg" text="Close" />
                   </Flex>
                 )}
               </SheetMobile.DismissingElement>
