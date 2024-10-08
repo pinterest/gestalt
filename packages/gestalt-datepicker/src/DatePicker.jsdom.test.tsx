@@ -149,7 +149,7 @@ describe('DatePicker', () => {
     expect(screen.queryAllByRole('option', { name: '2017' })).toHaveLength(1);
   });
 
-  test('Mobile Datepicker renders', () => {
+  test('Mobile Datepicker renders', async () => {
     const { baseElement } = render(
       <DeviceTypeProvider deviceType="mobile">
         <DatePickerWrap disableMobileUI={false} />
