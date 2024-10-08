@@ -3,102 +3,102 @@
     "motion": {
       "duration": {
         "0": {
-          "value": 0,
+          "value": "0",
           "type": "other"
         },
         "50": {
-          "value": 50,
+          "value": "50",
           "type": "other"
         },
         "100": {
-          "value": 100,
+          "value": "100",
           "type": "other"
         },
         "150": {
-          "value": 150,
+          "value": "150",
           "type": "other"
         },
         "200": {
-          "value": 200,
+          "value": "200",
           "type": "other"
         },
         "300": {
-          "value": 300,
+          "value": "300",
           "type": "other"
         },
         "400": {
-          "value": 400,
+          "value": "400",
           "type": "other"
         },
         "500": {
-          "value": 500,
+          "value": "500",
           "type": "other"
         },
         "600": {
-          "value": 600,
+          "value": "600",
           "type": "other"
         },
         "700": {
-          "value": 700,
+          "value": "700",
           "type": "other"
         },
         "900": {
-          "value": 900,
+          "value": "900",
           "type": "other"
         }
       },
       "easing": {
         "linear": {
           "value": {
-            "x1": 0,
-            "y1": 0,
-            "x2": 1,
-            "y2": 1
+            "x1": "0",
+            "y1": "0",
+            "x2": "1",
+            "y2": "1"
           },
           "type": "other"
         },
         "expressive": {
           "value": {
-            "x1": 0.55,
-            "y1": 0,
-            "x2": 0,
-            "y2": 1
+            "x1": "0.55",
+            "y1": "0",
+            "x2": "0",
+            "y2": "1"
           },
           "type": "other"
         },
         "lateral": {
           "value": {
-            "x1": 0.8,
-            "y1": 0,
-            "x2": 0.2,
-            "y2": 1
+            "x1": "0.8",
+            "y1": "0",
+            "x2": "0.2",
+            "y2": "1"
           },
           "type": "other"
         },
         "bounce": {
           "value": {
-            "x1": 0,
-            "y1": 0.35,
-            "x2": 0,
-            "y2": 1.25
+            "x1": "0",
+            "y1": "0.35",
+            "x2": "0",
+            "y2": "1.25"
           },
           "type": "other"
         },
         "enter": {
           "value": {
-            "x1": 0.05,
-            "y1": 0.7,
-            "x2": 0.1,
-            "y2": 1
+            "x1": "0.05",
+            "y1": "0.7",
+            "x2": "0.1",
+            "y2": "1"
           },
           "type": "other"
         },
         "exit": {
           "value": {
-            "x1": 0.3,
-            "y1": 0,
-            "x2": 0.8,
-            "y2": 0.15
+            "x1": "0.3",
+            "y1": "0",
+            "x2": "0.8",
+            "y2": "0.15"
           },
           "type": "other"
         }

@@ -1,5 +1,5 @@
-const { getSources } = require('../getSources');
 const { optionsFileHeaderOutputReferences } = require('../headers/fileheader');
+const { getSources, getComponentTokenOverrides, getListOfComponents } = require('../getSources');
 
 const {
   filterColor,
@@ -11,6 +11,7 @@ const {
   filterFontWeight,
   filterMotionDuration,
   filterMotionEasing,
+  filterComponentToken,
 } = require('../filters');
 
 const androidTransformGroup = {
@@ -34,7 +35,7 @@ const composeObject = {
   '_format_comment': 'https://amzn.github.io/style-dictionary/#/formats?id=composeobject',
 };
 
-const getFiles = ({ modeTheme, language }) => {
+const getFiles = ({ theme, modeTheme, language }) => {
   if (modeTheme === 'dark') {
     return [
       {
@@ -47,6 +48,18 @@ const getFiles = ({ modeTheme, language }) => {
   }
 
   const files = [];
+
+  if (theme === 'vr-theme') {
+    // add component token files
+    getListOfComponents(theme).forEach((component) => {
+      files.push({
+        'destination': `component/${component}.xml`,
+        ...androidResources,
+        ...dimenResource,
+        ...filterComponentToken(component),
+      });
+    });
+  }
 
   if (language) {
     files.push({
@@ -115,11 +128,20 @@ const getFiles = ({ modeTheme, language }) => {
   return files.flat();
 };
 
+const getComponentTokenFiles = ({ theme }) => {
+  if (theme !== 'vr-theme') {
+    return [];
+  }
+
+  return getComponentTokenOverrides('android');
+};
+
 function getAndroidConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   return {
-    'source': getSources({ theme, modeTheme, language }),
+    'include': getSources({ theme, modeTheme, language }),
+    'source': getComponentTokenFiles({ theme }),
     'platforms': {
       'android': {
         ...androidTransformGroup,
