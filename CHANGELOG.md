@@ -1,3 +1,9 @@
+## 162.0.0 (Oct 8, 2024)
+
+### Major
+
+- Popover, Dropdown, PopoverEducational: support `forcePosition` prop ([#3744](https://github.com/pinterest/gestalt/pull/3744)) - [Preview link](https://deploy-preview-3744--gestalt.netlify.app?devexample=true)
+
 ## 161.2.1 (Oct 4, 2024)
 
 ### Patch
