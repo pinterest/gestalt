@@ -8,6 +8,7 @@ const getListOfComponents = (theme) => {
     return components;
   } catch (ex) {
     // if this fails, it means there are no components
+    // eslint-disable-next-line no-console
     console.log(`No component tokens found for theme ${theme}`);
     return [];
   }
