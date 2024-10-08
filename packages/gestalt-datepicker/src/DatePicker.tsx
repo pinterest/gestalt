@@ -8,8 +8,12 @@ import {
   useState,
 } from 'react';
 import { Locale } from 'date-fns/locale';
-import { Button, Flex, SheetMobile, useDeviceType, useGlobalEventsHandler } from 'gestalt';
+import { Button, Flex, Layer, SheetMobile, useDeviceType, useGlobalEventsHandler } from 'gestalt';
 import InternalDatePicker from './DatePicker/InternalDatePicker';
+
+interface Indexable {
+  index(): number;
+}
 
 export type Props = {
   /**
@@ -75,6 +79,10 @@ export type Props = {
    */
   placeholder?: string;
   /**
+   * An object representing the zIndex value of the SheetMobile where DatePicker is built upon on mobile. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   */
+  mobileZIndex?: Indexable;
+  /**
    * Required for date range selection. End date on a date range selection. See the [date range example](https://gestalt.pinterest.systems/web/datepicker#Date-range) to learn more.
    */
   rangeEndDate?: Date | null;
@@ -125,6 +133,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     localeData,
     maxDate,
     minDate,
+    mobileZIndex,
     name,
     nextRef,
     onChange,
@@ -169,7 +178,8 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
           localeData={localeData}
           maxDate={maxDate}
           minDate={minDate}
-          nextRef={nextRef} onChange={onChange}
+          nextRef={nextRef}
+          onChange={onChange}
           onFocus={() => setShowMobileCalendar(true)}
           rangeEndDate={rangeEndDate}
           rangeSelector={rangeSelector}
@@ -178,46 +188,48 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
           value={value}
         />
         {showMobileCalendar ? (
-          <SheetMobile
-            heading=""
-            onDismiss={() => setShowMobileCalendar(false)}
-            padding="none"
-            showDismissButton={false}
-            size="auto"
-          >
-            <Flex
-              alignItems="center"
-              direction="column"
-              gap={4}
-              justifyContent="center"
-              width="100%"
+          <Layer zIndex={mobileZIndex}>
+            <SheetMobile
+              heading=""
+              onDismiss={() => setShowMobileCalendar(false)}
+              padding="none"
+              showDismissButton={false}
+              size="auto"
             >
-              <InternalDatePicker
-                errorMessage={errorMessage}
-                excludeDates={excludeDates}
-                id={id}
-                idealDirection={idealDirection}
-                includeDates={includeDates}
-                inline
-                localeData={localeData}
-                maxDate={maxDate}
-                minDate={minDate}
-                nextRef={nextRef}
-                onChange={onChange}
-                rangeEndDate={rangeEndDate}
-                rangeSelector={rangeSelector}
-                rangeStartDate={rangeStartDate}
-                selectLists={selectLists}
-                value={value}
-              />
+              <Flex
+                alignItems="center"
+                direction="column"
+                gap={4}
+                justifyContent="center"
+                width="100%"
+              >
+                <InternalDatePicker
+                  errorMessage={errorMessage}
+                  excludeDates={excludeDates}
+                  id={id}
+                  idealDirection={idealDirection}
+                  includeDates={includeDates}
+                  inline
+                  localeData={localeData}
+                  maxDate={maxDate}
+                  minDate={minDate}
+                  nextRef={nextRef}
+                  onChange={onChange}
+                  rangeEndDate={rangeEndDate}
+                  rangeSelector={rangeSelector}
+                  rangeStartDate={rangeStartDate}
+                  selectLists={selectLists}
+                  value={value}
+                />
 
-              <SheetMobile.DismissingElement>
-                {({ onDismissStart }) => (
-                  <Button color="gray" onClick={() => onDismissStart()} size="lg" text="Close" />
-                )}
-              </SheetMobile.DismissingElement>
-            </Flex>
-          </SheetMobile>
+                <SheetMobile.DismissingElement>
+                  {({ onDismissStart }) => (
+                    <Button color="gray" onClick={() => onDismissStart()} size="lg" text="Close" />
+                  )}
+                </SheetMobile.DismissingElement>
+              </Flex>
+            </SheetMobile>
+          </Layer>
         ) : null}
       </Fragment>
     );
