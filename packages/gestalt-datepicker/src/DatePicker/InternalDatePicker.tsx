@@ -150,7 +150,6 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
             onChange({ event, value });
             if (event.type === 'click') {
               nextRef?.current?.focus();
-              console.log(123);
               onSelect?.();
             }
           }}
