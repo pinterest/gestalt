@@ -68,35 +68,6 @@
 }
 
 .checked {
-  transition-property: border;
-  transition-duration: 0.15s;
-  transition-timing-function: cubic-bezier(0, 0.35, 0, 1.25);
-  transition-delay: 0.15s;
-}
-
-.unchecked {
-  background: var(--sema-color-background-default);
-  transition: opacity 150ms;
-}
-
-.noTransition {
-  transition: none;
-}
-
-.noTransitionDelay {
-  transition-delay: 0s;
-}
-
-.VRRadioButton {
-  composes: borderBox from "./Layout.css";
-  composes: absolute from "./Layout.css";
-  composes: fullWidth from "./Layout.css";
-  composes: fullHeight from "./Layout.css";
-  composes: circle from "./Borders.css";
-  composes: solid from "./Borders.css";
-}
-
-.checked {
   transition-delay: var(--comp-radiogroupbutton-motion-border-scale-duration);
   transition-duration: var(
     --comp-radiogroupbutton-motion-border-scale-duration
