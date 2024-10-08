@@ -1,3 +1,63 @@
+## 162.0.0 (Oct 8, 2024)
+
+### Major
+
+- Popover, Dropdown, PopoverEducational: support `forcePosition` prop ([#3744](https://github.com/pinterest/gestalt/pull/3744)) - [Preview link](https://deploy-preview-3744--gestalt.netlify.app?devexample=true)
+
+## 161.2.1 (Oct 4, 2024)
+
+### Patch
+
+- Avatar/AvatarGroup: Fix for broken default sizing on VR ([#3796](https://github.com/pinterest/gestalt/pull/3796)) - [Preview link](https://deploy-preview-3796--gestalt.netlify.app?devexample=true)
+
+## 161.2.0 (Oct 4, 2024)
+
+### Minor
+
+- SearchGuide: New Component + VR Implementation ([#3772](https://github.com/pinterest/gestalt/pull/3772)) - [Preview link](https://deploy-preview-3772--gestalt.netlify.app?devexample=true)
+
+## 161.1.2 (Oct 4, 2024)
+
+### Patch
+
+- Icon: vertical-align unset when within Text ([#3795](https://github.com/pinterest/gestalt/pull/3795)) - [Preview link](https://deploy-preview-3795--gestalt.netlify.app?devexample=true)
+
+## 161.1.1 (Oct 4, 2024)
+
+### Patch
+
+- TextField, SelectList, DateField, DatePicker: center iconEnd in VR ([#3794](https://github.com/pinterest/gestalt/pull/3794)) - [Preview link](https://deploy-preview-3794--gestalt.netlify.app?devexample=true)
+
+## 161.1.0 (Oct 3, 2024)
+
+### Minor
+
+- Avatar/AvatarGroup: VR Implementation Changes ([#3765](https://github.com/pinterest/gestalt/pull/3765)) - [Preview link](https://deploy-preview-3765--gestalt.netlify.app?devexample=true)
+
+## 161.0.1 (Oct 3, 2024)
+
+### Patch
+
+- Button: Fixing transparentwhitetext interactive colors ([#3787](https://github.com/pinterest/gestalt/pull/3787)) - [Preview link](https://deploy-preview-3787--gestalt.netlify.app?devexample=true)
+
+## 161.0.0 (Oct 3, 2024)
+
+### Major
+
+- DateRange: Enhance component to support a secondary date range (web) ([#3779](https://github.com/pinterest/gestalt/pull/3779)) - [Preview link](https://deploy-preview-3779--gestalt.netlify.app?devexample=true)
+
+## 160.5.4 (Oct 3, 2024)
+
+### Patch
+
+- Docs: Fix Tokens Page not loading ([#3792](https://github.com/pinterest/gestalt/pull/3792)) - [Preview link](https://deploy-preview-3792--gestalt.netlify.app?devexample=true)
+
+## 160.5.3 (Oct 2, 2024)
+
+### Patch
+
+- Tokens: Refactor Token Build Script ([#3786](https://github.com/pinterest/gestalt/pull/3786)) - [Preview link](https://deploy-preview-3786--gestalt.netlify.app?devexample=true)
+
 ## 160.5.2 (Oct 2, 2024)
 
 ### Patch

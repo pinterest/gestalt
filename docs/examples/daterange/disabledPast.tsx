@@ -10,18 +10,20 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        endDateValue={endDate}
+        dateErrorMessage={{ startDate: startErrorMessage, endDate: null }}
+        dateValue={{ startDate, endDate }}
         minDate={new Date()}
         onCancel={() => {}}
-        onEndDateChange={({ value }) => setEndDate(value)}
-        onEndDateError={() => {}}
-        onStartDateChange={({ value }) => setStartDate(value)}
-        onStartDateError={({ errorMessage }) =>
-          setStartErrorMessage(errorMessage ? 'Please, enter a valid date' : null)
-        }
+        onDateChange={(newStartDate, newEndDate) => {
+          setStartDate(newStartDate.value);
+          setEndDate(newEndDate.value);
+        }}
+        onDateError={{
+          startDate: ({ errorMessage }) =>
+            setStartErrorMessage(errorMessage ? 'Please, enter a valid date' : null),
+          endDate: () => {},
+        }}
         onSubmit={() => {}}
-        startDateErrorMessage={startErrorMessage}
-        startDateValue={startDate}
       />
     </Flex>
   );

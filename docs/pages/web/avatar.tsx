@@ -1,3 +1,4 @@
+import { useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -8,6 +9,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import colorExample from '../../examples/avatar/colorExample';
 import containerExample from '../../examples/avatar/containerExample';
 import ideasExample from '../../examples/avatar/ideasExample';
 import mainExample from '../../examples/avatar/mainExample';
@@ -21,6 +23,11 @@ import sizingExample from '../../examples/avatar/sizingExample';
 import verifiedExample from '../../examples/avatar/verifiedExample';
 
 export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -175,6 +182,28 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
+          description="There are 12 available colors for Avatar."
+          title="Colors"
+        >
+          <MainSection.Card
+            cardSize="md"
+            description={`
+          - To reflect a person, company or brand within the product.
+        `}
+            sandpackExample={
+              <SandpackExample
+                code={colorExample}
+                hideEditor
+                name="Color Examples"
+                previewHeight={200}
+              />
+            }
+            title="When to use"
+            type="do"
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
           description={`
           There are 5 sizes available for Avatar. For certain designs you may need a [container-based size](#Container-Based-Sizes).
         `}
@@ -184,20 +213,22 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
             sandpackExample={<SandpackExample code={sizingExample} name="Sizing variant" />}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-    Avatars without a \`size\` prop will expand to fit the width of their parent container. A common use case is to achieve column-based sizing.
+        {!isInVRExperiment && (
+          <MainSection.Subsection
+            description={`
+                Avatars without a \`size\` prop will expand to fit the width of their parent container. A common use case is to achieve column-based sizing.
 
-    Resize the browser to see these Avatar change to match the width of the \`Column\` they have been placed in.
-  `}
-          title="Container-based sizes"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={containerExample} name="Container-based variant" />
-            }
-          />
-        </MainSection.Subsection>
+                Resize the browser to see these Avatar change to match the width of the \`Column\` they have been placed in.
+              `}
+            title="Container-based sizes"
+          >
+            <MainSection.Card
+              sandpackExample={
+                <SandpackExample code={containerExample} name="Container-based variant" />
+              }
+            />
+          </MainSection.Subsection>
+        )}
         <MainSection.Subsection
           description={`
     If there is no image source provided to the Avatar, the first character of

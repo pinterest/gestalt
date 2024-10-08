@@ -5,10 +5,10 @@ export default function Example() {
     <Box maxWidth={900} width="100%">
       <Flex>
         <Box width={40}>
-          <Avatar name="Julia" />
+          <Avatar name="Keerthi" />
         </Box>
         <Box column={2}>
-          <Avatar name="Julia" />
+          <Avatar name="Keethi" />
         </Box>
         <Box column={4}>
           <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />

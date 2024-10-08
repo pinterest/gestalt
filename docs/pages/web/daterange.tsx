@@ -57,6 +57,7 @@ import localizationLabels from '../../examples/daterange/localizationLabels';
 import main from '../../examples/daterange/main';
 import mobile from '../../examples/daterange/mobile';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup';
+import secondaryDateRange from '../../examples/daterange/secondaryDateRange';
 
 const PREVIEW_HEIGHT = 600;
 
@@ -204,16 +205,12 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
               </SelectList>
             </Flex.Item>
             <DateRange
-              endDateValue={null}
+              dateValue={{ startDate: new Date(), endDate: null }}
               // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly af: { readonly localeData: Locale; readonly lang: "Afrikaans"; }; readonly 'ar-SA': { readonly localeData: Locale; readonly lang: "Arabic (Saudi Arabia)"; }; ... 33 more ...; readonly 'zh-TW': { ...; }; }'.
               localeData={locale ? localeMap[locale].localeData : undefined}
               onCancel={() => {}}
-              onEndDateChange={() => {}}
-              onEndDateError={() => {}}
-              onStartDateChange={() => {}}
-              onStartDateError={() => {}}
+              onDateChange={() => {}}
               onSubmit={() => {}}
-              startDateValue={new Date()}
             />
           </Flex>
         </MainSection.Subsection>
@@ -352,6 +349,23 @@ On mobile devices, the \`radiogroup\` prop is not shown.
           <MainSection.Card
             sandpackExample={
               <SandpackExample code={mobile} layout="mobileRow" name="Mobile example" />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`
+DateRange supports a secondary date range in case you need to handle more that one range, in order to enable it you just need to pass the props \`secondaryDateValue\` and \`onSecondaryDateChange\`.`}
+          title="Secondary date range"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={secondaryDateRange}
+                layout="column"
+                name="Secondary date range example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
             }
           />
         </MainSection.Subsection>

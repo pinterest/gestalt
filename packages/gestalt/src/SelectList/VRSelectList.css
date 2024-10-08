@@ -218,8 +218,9 @@ html[dir="rtl"] .lg_actionButton {
 }
 
 .vr_actionButtonContainer {
-  bottom: var(--sema-space-300);
+  bottom: var(--sema-space-0);
   position: absolute;
+  top: var(--sema-space-0);
 }
 
 html:not([dir="rtl"]) .actionButtonContainer,

@@ -1,27 +1,14 @@
-import { useState } from 'react';
-import {
-  TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
-  TOKEN_COLOR_BORDER_AVATAR,
-} from 'gestalt-design-tokens';
-import DefaultAvatar from './Avatar/DefaultAvatar';
-import Box from './Box';
-import Icon from './Icon';
-import Image from './Image';
-import Mask from './Mask';
-
-const sizes = {
-  xs: 24,
-  sm: 32,
-  md: 48,
-  lg: 64,
-  xl: 120,
-} as const;
+import InternalAvatar from './Avatar/InternalAvatar';
 
 type Props = {
   /**
    * String that clients such as VoiceOver will read to describe the element. Will default to `name` prop if not provided.
    */
   accessibilityLabel?: string;
+  /**
+   * The background color chosen by the user. A default color will be used if none is selected.
+   */
+  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
   /**
    * The name of the user. This is used for the placeholder treatment if an image is not available.
    */
@@ -52,66 +39,17 @@ type Props = {
  *
  */
 
-function Avatar(props: Props) {
-  const [isImageLoaded, setIsImageLoaded] = useState(true);
-  const { accessibilityLabel, name, outline, size = 'fit', src, verified } = props;
-  const width = size === 'fit' ? '100%' : sizes[size];
-  const height = size === 'fit' ? '' : sizes[size];
-
-  const handleImageError = () => setIsImageLoaded(false);
-
+function Avatar({ accessibilityLabel, color, name, outline, size, src, verified }: Props) {
   return (
-    <Box
-      {...(outline
-        ? {
-            dangerouslySetInlineStyle: {
-              __style: {
-                boxShadow: `0 0 0 1px ${TOKEN_COLOR_BORDER_AVATAR}`,
-              },
-            },
-          }
-        : {})}
-      data-test-id="gestalt-avatar-svg"
-      height={height}
-      position="relative"
-      rounding="circle"
-      width={width}
-    >
-      {src && isImageLoaded ? (
-        <Mask rounding="circle" wash>
-          <Image
-            alt={accessibilityLabel ?? name}
-            color={TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER}
-            naturalHeight={1}
-            naturalWidth={1}
-            onError={handleImageError}
-            src={src}
-          />
-        </Mask>
-      ) : (
-        <DefaultAvatar accessibilityLabel={accessibilityLabel} name={name} />
-      )}
-
-      {verified && (
-        <Box
-          dangerouslySetInlineStyle={{
-            __style: {
-              bottom: '4%',
-              right: '4%',
-            },
-          }}
-          height="25%"
-          minHeight={12}
-          minWidth={12}
-          position="absolute"
-          width="25%"
-        >
-          <Box color="default" height="100%" rounding="circle" width="100%">
-            <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
-          </Box>
-        </Box>
-      )}
-    </Box>
+    <InternalAvatar
+      accessibilityLabel={accessibilityLabel}
+      color={color}
+      name={name}
+      outline={outline}
+      size={size}
+      src={src}
+      verified={verified}
+    />
   );
 }
 

@@ -68,21 +68,15 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <DateRange
-        endDateValue={endDate}
+        dateValue={{ startDate, endDate }}
         onCancel={() => {}}
-        onEndDateChange={({ value }) => {
+        onDateChange={(newStartDate, newEndDate) => {
           setPeriod('custom');
-          setEndDate(value);
+          setStartDate(newStartDate.value);
+          setEndDate(newEndDate.value);
         }}
-        onEndDateError={() => {}}
-        onStartDateChange={({ value }) => {
-          setPeriod('custom');
-          setStartDate(value);
-        }}
-        onStartDateError={() => {}}
         onSubmit={() => {}}
         radioGroup={radioGroup}
-        startDateValue={startDate}
       />
     </Flex>
   );

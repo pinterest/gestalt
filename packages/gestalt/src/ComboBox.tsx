@@ -471,14 +471,12 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                   }
                   icon="cancel"
                   onClick={handleOnClickIconButtonClear}
-                  paddingSize={size}
                 />
               ) : (
                 <IconButtonEnd
                   accessibilityHidden
                   icon="arrow-down"
                   onClick={handleSetShowOptionsList}
-                  paddingSize={size}
                 />
               )
             }
@@ -523,14 +521,12 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                   }
                   icon="cancel"
                   onClick={handleOnClickIconButtonClear}
-                  paddingSize={size}
                 />
               ) : (
                 <IconButtonEnd
                   accessibilityHidden
                   icon="arrow-down"
                   onClick={handleSetShowOptionsList}
-                  paddingSize={size}
                 />
               )
             }

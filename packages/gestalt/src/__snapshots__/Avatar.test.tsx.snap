@@ -6,8 +6,8 @@ exports[`Avatar renders an outline 1`] = `
   data-test-id="gestalt-avatar-svg"
   style={
     Object {
-      "boxShadow": "0 0 0 1px var(--color-border-avatar)",
       "height": "",
+      "outline": "1px solid rgb(255 255 255)",
       "width": "100%",
     }
   }
@@ -16,7 +16,8 @@ exports[`Avatar renders an outline 1`] = `
     className="box circle relative secondary"
     style={
       Object {
-        "boxShadow": undefined,
+        "borderRadius": undefined,
+        "outline": undefined,
         "paddingBottom": "100%",
       }
     }
@@ -35,7 +36,7 @@ exports[`Avatar renders an outline 1`] = `
           Jenny
         </title>
         <text
-          className="antialiased sansSerif fontWeightSemiBold "
+          className="text"
           dy="0.35em"
           fill="var(--color-text-default)"
           fontSize="40px"
@@ -64,7 +65,8 @@ exports[`Avatar renders multi-byte character initial 1`] = `
     className="box circle relative secondary"
     style={
       Object {
-        "boxShadow": undefined,
+        "borderRadius": undefined,
+        "outline": undefined,
         "paddingBottom": "100%",
       }
     }
@@ -83,7 +85,7 @@ exports[`Avatar renders multi-byte character initial 1`] = `
           💩 astral
         </title>
         <text
-          className="antialiased sansSerif fontWeightSemiBold "
+          className="text"
           dy="0.35em"
           fill="var(--color-text-default)"
           fontSize="40px"
@@ -118,23 +120,27 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -201,23 +207,27 @@ exports[`Avatar renders the correct size - lg 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -247,23 +257,27 @@ exports[`Avatar renders the correct size - md 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -293,23 +307,27 @@ exports[`Avatar renders the correct size - sm 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -339,23 +357,27 @@ exports[`Avatar renders the correct size - xl 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -385,23 +407,27 @@ exports[`Avatar renders the correct size - xs 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -431,23 +457,27 @@ exports[`Avatar renders the correct src 1`] = `
     }
   >
     <div
-      className="box relative"
-      style={
-        Object {
-          "backgroundColor": "var(--color-background-avatar-placeholder)",
-          "paddingBottom": "100%",
-        }
-      }
+      className=""
     >
-      <img
-        alt="Strava"
-        className="img"
-        fetchpriority="auto"
-        loading="auto"
-        onError={[Function]}
-        onLoad={[Function]}
-        src="http://pinterest.com/img/strave.png"
-      />
+      <div
+        className="box relative"
+        style={
+          Object {
+            "backgroundColor": "var(--color-background-avatar-placeholder)",
+            "paddingBottom": "100%",
+          }
+        }
+      >
+        <img
+          alt="Strava"
+          className="img"
+          fetchpriority="auto"
+          loading="auto"
+          onError={[Function]}
+          onLoad={[Function]}
+          src="http://pinterest.com/img/strave.png"
+        />
+      </div>
     </div>
     <div
       className="wash"
@@ -471,7 +501,8 @@ exports[`Avatar renders the verified icon 1`] = `
     className="box circle relative secondary"
     style={
       Object {
-        "boxShadow": undefined,
+        "borderRadius": undefined,
+        "outline": undefined,
         "paddingBottom": "100%",
       }
     }
@@ -490,7 +521,7 @@ exports[`Avatar renders the verified icon 1`] = `
           Jammy
         </title>
         <text
-          className="antialiased sansSerif fontWeightSemiBold "
+          className="text"
           dy="0.35em"
           fill="var(--color-text-default)"
           fontSize="40px"
@@ -556,7 +587,8 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
     className="box circle relative secondary"
     style={
       Object {
-        "boxShadow": undefined,
+        "borderRadius": undefined,
+        "outline": undefined,
         "paddingBottom": "100%",
       }
     }
@@ -572,7 +604,7 @@ exports[`Avatar renders with an empty name shows default icon 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <text
-          className="antialiased sansSerif fontWeightSemiBold "
+          className="text"
           dy="0.35em"
           fill="var(--color-text-default)"
           fontSize="40px"

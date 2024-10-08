@@ -1,6 +1,17 @@
-import { Avatar, Flex, Text } from 'gestalt';
+import { Avatar, Flex, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
 
 export default function Example() {
+  const isInVRExperiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  const firstName = isInVRExperiment ? 'Sora' : 'Keerthi';
+  const fullName = isInVRExperiment ? 'Sora Suzuki' : 'Keerthi Singh';
+  const src = isInVRExperiment
+    ? 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg'
+    : 'https://i.ibb.co/ZfCZrY8/keerthi.jpg';
+
   return (
     <Flex
       alignItems="center"
@@ -10,8 +21,8 @@ export default function Example() {
       justifyContent="center"
       width="100%"
     >
-      <Avatar name="Keerthi" size="xl" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
-      <Text weight="bold">Keerthi Singh</Text>
+      <Avatar name={firstName} size="xl" src={src} />
+      <Text weight="bold">{fullName}</Text>
     </Flex>
   );
 }

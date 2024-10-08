@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, useState } from 'react';
+import { forwardRef, Fragment } from 'react';
 import AddCollaboratorsButton from './AvatarGroup/AddCollaboratorsButton';
 import CollaboratorAvatar from './AvatarGroup/CollaboratorAvatar';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
@@ -6,6 +6,8 @@ import Box from './Box';
 import Flex from './Flex';
 import TapArea from './TapArea';
 import TapAreaLink from './TapAreaLink';
+import useInExperiment from './useInExperiment';
+import useInteractiveStates from './utils/useInteractiveStates';
 
 const MAX_COLLABORATOR_AVATARS = 3;
 
@@ -43,6 +45,7 @@ type Props = {
    * The user group data. See the [collaborators display](https://gestalt.pinterest.systems/web/avatargroup#Collaborators-display) variant to learn more.
    */
   collaborators: ReadonlyArray<{
+    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
     name: string;
     src?: string;
   }>;
@@ -82,7 +85,15 @@ type Props = {
  * ![AvatarGroup dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/AvatarGroup-dark.spec.ts-snapshots/AvatarGroup-dark-chromium-darwin.png)
  */
 const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGroup(
-  {
+  props: Props,
+  ref,
+) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  const {
     accessibilityLabel,
     accessibilityControls,
     accessibilityExpanded,
@@ -92,21 +103,22 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     href,
     onClick,
     role,
-    size = 'fit',
-  }: Props,
-  ref,
-) {
-  const [hovered, setHovered] = useState(false);
+    size = isInVRExperiment ? 'md' : 'fit',
+  } = props;
 
   const isDisplayOnly = !role;
 
   const isXS = size === 'xs';
 
-  const showCollaboratorsCount = collaborators.length > MAX_COLLABORATOR_AVATARS && !isXS;
+  const validCollaborators = collaborators.filter(
+    (collaborator) => collaborator && collaborator.name,
+  );
+
+  const showCollaboratorsCount = validCollaborators.length > MAX_COLLABORATOR_AVATARS && !isXS;
 
   const showAddCollaboratorsButton = (!isDisplayOnly && addCollaborators && !isXS) ?? false;
 
-  const displayedCollaborators = collaborators.slice(
+  const displayedCollaborators = validCollaborators.slice(
     0,
     showCollaboratorsCount ? 2 : MAX_COLLABORATOR_AVATARS,
   );
@@ -116,14 +128,27 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     (showCollaboratorsCount ? 1 : 0) +
     (showAddCollaboratorsButton ? 1 : 0);
 
+  const {
+    handleOnMouseEnter,
+    handleOnMouseLeave,
+    handleOnBlur,
+    handleOnFocus,
+    handleOnMouseDown,
+    handleOnMouseUp,
+    isHovered,
+    isActive: isPressed,
+  } = useInteractiveStates();
+
   const collaboratorStack = (
     <Fragment>
-      {displayedCollaborators.map(({ src, name }, index) => (
+      {displayedCollaborators.map(({ src, name, color }, index) => (
         <CollaboratorAvatar
           // eslint-disable-next-line react/no-array-index-key
           key={`collaboratorStack-${name}-${index}`}
-          hovered={hovered}
+          color={color}
           index={index}
+          isHovered={isHovered}
+          isPressed={isPressed}
           name={name}
           pileCount={pileCount}
           size={size}
@@ -134,7 +159,9 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
         <CollaboratorsCount
           key={`collaboratorStack-count-${collaborators.length}`}
           count={collaborators.length - 2}
-          hovered={hovered}
+          hovered={isHovered}
+          isHovered={isHovered}
+          isPressed={isPressed}
           pileCount={pileCount}
           showAddCollaboratorsButton={showAddCollaboratorsButton}
           size={size}
@@ -143,7 +170,9 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
       {showAddCollaboratorsButton && (
         <AddCollaboratorsButton
           key={`collaboratorStack-addButton-${collaborators.length}`}
-          hovered={hovered}
+          hovered={isHovered}
+          isHovered={isHovered}
+          isPressed={isPressed}
           pileCount={pileCount}
           size={size}
         />
@@ -161,15 +190,19 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     </Box>
   );
 
-  if (role === 'link' && href) {
+  if (!isInVRExperiment && role === 'link' && href) {
     return (
       <TapAreaLink
         ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
         accessibilityLabel={accessibilityLabel}
         fullWidth={false}
         href={href}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        onMouseDown={handleOnMouseDown}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={handleOnMouseUp}
         onTap={({ event, dangerouslyDisableOnNavigation }) =>
           onClick?.({ event, dangerouslyDisableOnNavigation })
         }
@@ -181,7 +214,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     );
   }
 
-  if (role === 'button' && onClick) {
+  if (!isInVRExperiment && role === 'button' && onClick) {
     return (
       <TapArea
         ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
@@ -190,8 +223,59 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
         accessibilityHaspopup={accessibilityHaspopup}
         accessibilityLabel={accessibilityLabel}
         fullWidth={false}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        onMouseDown={handleOnMouseDown}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={handleOnMouseUp}
+        // @ts-expect-error - TS2345 - Argument of type '{ event: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement, MouseEvent>; }' is not assignable to parameter of type '{ event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<...> | MouseEvent<...>; dangerouslyDisableOnNavigation: () => void; }'.
+        onTap={({ event }) => onClick({ event })}
+        rounding="pill"
+        tapStyle="compress"
+      >
+        {avatarGroupStack}
+      </TapArea>
+    );
+  }
+
+  if (isInVRExperiment && role === 'link' && href) {
+    return (
+      <TapAreaLink
+        ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
+        accessibilityLabel={accessibilityLabel}
+        fullWidth={false}
+        href={href}
+        onMouseDown={handleOnMouseDown}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={handleOnMouseUp}
+        onTap={({ event, dangerouslyDisableOnNavigation }) =>
+          onClick?.({ event, dangerouslyDisableOnNavigation })
+        }
+        rounding="pill"
+        tabIndex={0}
+        tapStyle="compress"
+      >
+        {avatarGroupStack}
+      </TapAreaLink>
+    );
+  }
+
+  if (isInVRExperiment && role === 'button' && onClick) {
+    return (
+      <TapArea
+        ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
+        accessibilityControls={accessibilityControls}
+        accessibilityExpanded={accessibilityExpanded}
+        accessibilityHaspopup={accessibilityHaspopup}
+        accessibilityLabel={accessibilityLabel}
+        fullWidth={false}
+        innerFocusColor="default"
+        onMouseDown={handleOnMouseDown}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onMouseUp={handleOnMouseUp}
         // @ts-expect-error - TS2345 - Argument of type '{ event: KeyboardEvent<HTMLDivElement> | MouseEvent<HTMLDivElement, MouseEvent>; }' is not assignable to parameter of type '{ event: MouseEvent<HTMLAnchorElement, MouseEvent> | KeyboardEvent<HTMLAnchorElement> | KeyboardEvent<...> | MouseEvent<...>; dangerouslyDisableOnNavigation: () => void; }'.
         onTap={({ event }) => onClick({ event })}
         rounding="pill"
