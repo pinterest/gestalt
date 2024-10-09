@@ -18,7 +18,8 @@ type Props = {
   color?: Color;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
   id?: string;
-  idealDirection?: 'up' | 'right' | 'down' | 'left' | 'forceDown';
+  idealDirection?: 'up' | 'right' | 'down' | 'left';
+  forceDirection?: boolean;
   onDismiss: () => void;
   role?: Role;
   shouldFocus?: boolean;
@@ -42,6 +43,7 @@ export default function InternalPopover({
   onKeyDown,
   id,
   idealDirection,
+  forceDirection,
   onDismiss,
   color = 'white',
   role,
@@ -72,6 +74,7 @@ export default function InternalPopover({
       border
       caret={showCaret}
       disablePortal={disablePortal}
+      forceDirection={forceDirection}
       hideWhenReferenceHidden={hideWhenReferenceHidden}
       id={id}
       idealDirection={idealDirection}

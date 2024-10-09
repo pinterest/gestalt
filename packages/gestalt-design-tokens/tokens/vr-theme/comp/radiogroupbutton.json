@@ -1,0 +1,30 @@
+{
+  "comp": {
+    "radiogroupbutton": {
+      "motion": {
+        "border": {
+          "scale": {
+            "easing": {
+              "type": "other",
+              "value": "{base.motion.easing.bounce}"
+            },
+            "duration": {
+              "type": "color",
+              "value": "{base.motion.duration.150}"
+            }
+          },
+          "fade": {
+            "easing": {
+              "type": "other",
+              "value": "{base.motion.easing.exit}"
+            },
+            "duration": {
+              "type": "color",
+              "value": "{base.motion.duration.150}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

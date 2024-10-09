@@ -1,3 +1,21 @@
+## 162.1.1 (Oct 9, 2024)
+
+### Patch
+
+- SearchGuide: Renaming Examples ([#3800](https://github.com/pinterest/gestalt/pull/3800)) - [Preview link](https://deploy-preview-3800--gestalt.netlify.app?devexample=true)
+
+## 162.1.0 (Oct 9, 2024)
+
+### Minor
+
+- RadioGroupButton: VR motion implementation ([#3797](https://github.com/pinterest/gestalt/pull/3797)) - [Preview link](https://deploy-preview-3797--gestalt.netlify.app?devexample=true)
+
+## 162.0.0 (Oct 8, 2024)
+
+### Major
+
+- Popover, Dropdown, PopoverEducational: support `forcePosition` prop ([#3744](https://github.com/pinterest/gestalt/pull/3744)) - [Preview link](https://deploy-preview-3744--gestalt.netlify.app?devexample=true)
+
 ## 161.2.1 (Oct 4, 2024)
 
 ### Patch

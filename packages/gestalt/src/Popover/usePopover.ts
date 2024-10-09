@@ -13,15 +13,8 @@ import {
   useFloating,
   UseFloatingReturn,
 } from '@floating-ui/react';
-import { MainDirections } from '../utils/positioningTypes';
 
-export const DIRECTIONS_MAP: Record<MainDirections, Side | 'forceDown'> = {
-  down: 'bottom',
-  forceDown: 'forceDown',
-  left: 'left',
-  right: 'right',
-  up: 'top',
-};
+type MainDirections = 'up' | 'right' | 'down' | 'left';
 
 export const SIDES_MAP: Record<Side, MainDirections> = {
   'bottom': 'down',
@@ -53,7 +46,11 @@ interface Props {
   /**
    * Specifies the preferred position of Popover relative to its anchor element.
    */
-  direction?: Placement | 'forceDown';
+  direction?: Placement;
+  /**
+   * Forces the position of Popover relative to its anchor element.
+   */
+  forceDirection?: boolean;
   /**
    * Type of CSS position property to use.
    * Deafult is `absolute`
@@ -74,13 +71,20 @@ export default function usePopover({
   caretElement,
   caretPadding,
   direction,
+  forceDirection,
   strategy,
   scrollBoundary,
   hideWhenReferenceHidden,
   onPositioned,
 }: Props): UseFloatingReturn {
-  const isForceDown = direction === 'forceDown';
-  const placement = isForceDown ? 'bottom' : direction;
+  let placement: Placement = direction ?? 'bottom';
+  const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
+
+  if (isRtl && direction === 'left') {
+    placement = 'right';
+  } else if (isRtl && direction === 'right') {
+    placement = 'left';
+  }
 
   // #region Middlewares
 
@@ -117,7 +121,7 @@ export default function usePopover({
     middleware: [
       popoverOffset,
       popoverShift,
-      isForceDown ? undefined : popoverFlip,
+      forceDirection ? undefined : popoverFlip,
       popoverArrow,
       popoverHide,
     ],
