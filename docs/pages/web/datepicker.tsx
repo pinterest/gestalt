@@ -58,6 +58,7 @@ import enabled from '../../examples/datepicker/enabled';
 import error from '../../examples/datepicker/error';
 import helperText from '../../examples/datepicker/helperText';
 import main from '../../examples/datepicker/main';
+import mobile from '../../examples/datepicker/mobile';
 import preselected from '../../examples/datepicker/preselected';
 import range from '../../examples/datepicker/range';
 import readOnly from '../../examples/datepicker/readOnly';
@@ -391,6 +392,22 @@ Read-only TextFields are used to present information to the user without allowin
             )}
           </CombinationNew>
         </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`DatePicker requires [DeviceTypeProvider](/web/utilities/devicetypeprovider) to enable its mobile user interface. The example below shows the mobile platform UI and its implementation.
+
+For mobile, DatePicker is displayed in a SheetMobile.
+`}
+          title="Mobile"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={mobile} layout="mobileRow" name="Mobile example" />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           badge="experimental"
           description={`DatePicker consumes external handlers from [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider).

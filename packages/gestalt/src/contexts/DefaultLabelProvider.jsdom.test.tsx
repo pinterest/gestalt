@@ -50,6 +50,8 @@ describe('useDefaultLabelContext', () => {
             accessibilityClearButtonLabel: 'Clear input',
           },
           DatePicker: {
+            accessibilityDismissButtonLabel: 'Dismiss date picker',
+            dismissButton: 'Close',
             openCalendar: 'Open calendar',
             previousMonth: 'Navigate to previou month',
             nextMonth: 'Navigate to next month',
