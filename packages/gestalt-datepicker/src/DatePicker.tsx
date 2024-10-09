@@ -190,21 +190,27 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
       <Fragment>
         <InternalDatePicker
           ref={innerInputRef}
+          disabled={disabled}
           errorMessage={errorMessage}
           excludeDates={excludeDates}
+          helperText={helperText}
           id={id}
           idealDirection={idealDirection}
           includeDates={includeDates}
           inputOnly
+          label={label}
           localeData={localeData}
           maxDate={maxDate}
           minDate={minDate}
+          name={name}
           nextRef={nextRef}
           onChange={onChange}
           onFocus={() => setShowMobileCalendar(true)}
+          placeholder={placeholder}
           rangeEndDate={rangeEndDate}
           rangeSelector={rangeSelector}
           rangeStartDate={rangeStartDate}
+          readOnly={readOnly}
           selectLists={selectLists}
           value={value}
         />

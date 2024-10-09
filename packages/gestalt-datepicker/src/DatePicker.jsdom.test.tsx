@@ -8,9 +8,11 @@ const initialDate = new Date(2018, 11, 14);
 function DatePickerWrap({
   showMonthYearDropdown,
   disableMobileUI,
+  label,
 }: {
   showMonthYearDropdown?: boolean;
   disableMobileUI?: boolean;
+  label?: string;
 }) {
   const [date, setDate] = useState<Date | null>(initialDate);
 
@@ -152,7 +154,7 @@ describe('DatePicker', () => {
   test('Mobile Datepicker renders', async () => {
     const { baseElement } = render(
       <DeviceTypeProvider deviceType="mobile">
-        <DatePickerWrap disableMobileUI={false} />
+        <DatePickerWrap disableMobileUI={false} label="select" />
       </DeviceTypeProvider>,
     );
 
