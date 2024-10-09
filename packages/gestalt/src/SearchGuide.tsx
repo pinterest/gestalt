@@ -103,19 +103,38 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   useImperativeHandle(ref, () => innerRef.current);
   const { isFocusVisible } = useFocusVisible();
 
+  const colorClass: { [key: string]: keyof typeof styles } = {
+    '01': 'color01',
+    '02': 'color02',
+    '03': 'color03',
+    '04': 'color04',
+    '05': 'color05',
+    '06': 'color06',
+    '07': 'color07',
+    '08': 'color08',
+    '09': 'color09',
+    '10': 'color10',
+    '11': 'color11',
+  };
+
   const buttonClasses = isInVRExperiment
     ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
-        [styles[`color${color}`]]: !selected,
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
         [styles.selectedVr]: selected,
       })
-    : classnames(styles.searchguide, touchableStyles.tapTransition, [styles[`color${color}`]], {
+    : classnames(styles.searchguide, touchableStyles.tapTransition, [styles[colorClass[color]!]], {
         [styles.selected]: selected,
         [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       });
-  const childrenDivClasses = classnames(styles.childrenDiv);
+  const childrenDivClasses = classnames(
+    styles.childrenDiv,
+    isInVRExperiment && {
+      [styles[`color${color}`]]: !selected,
+      [styles.selectedVr]: selected,
+    },
+  );
 
   const textComponent =
     text.length > 0 ? (
@@ -131,12 +150,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     <Box marginEnd={3}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {'avatar' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
         {'avatarGroup' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
         )}
