@@ -1,3 +1,9 @@
+## 162.1.1 (Oct 9, 2024)
+
+### Patch
+
+- SearchGuide: Renaming Examples ([#3800](https://github.com/pinterest/gestalt/pull/3800)) - [Preview link](https://deploy-preview-3800--gestalt.netlify.app?devexample=true)
+
 ## 162.1.0 (Oct 9, 2024)
 
 ### Minor
