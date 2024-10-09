@@ -8,6 +8,20 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
     <div
       class="_gestalt"
     >
+      <label
+        class="label__LTD block__kVc pointer__BG7"
+        for="fake_id"
+      >
+        <div
+          class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom2__VxL"
+        >
+          <div
+            class="default__X8m alignStart__zDA breakWord__IZT Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 fontWeightNormal__swG"
+          >
+            select
+          </div>
+        </div>
+      </label>
       <div
         class="react-datepicker-wrapper"
       >
