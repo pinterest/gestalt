@@ -58,6 +58,7 @@
   composes: pointer from "./Cursor.css";
 }
 
+/* VR related styles below */
 .VRRadioButton {
   composes: borderBox from "./Layout.css";
   composes: absolute from "./Layout.css";
