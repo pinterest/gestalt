@@ -22,7 +22,8 @@ function DatePickerWrap({
       id="fake_id"
       label={label}
       onChange={({ value }: any) => setDate(value)}
-      selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined} value={date}
+      selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
+      value={date}
     />
   );
 }
