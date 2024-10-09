@@ -3065,6 +3065,10 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #007a72;
   --color-data-visualization-11: #f76593;
   --color-data-visualization-12: #ffc58f;
@@ -4048,6 +4052,10 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -5028,6 +5036,10 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -6008,6 +6020,10 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -6988,6 +7004,10 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -7968,6 +7988,10 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
@@ -8948,6 +8972,10 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --comp-spinner-color-background-pink: #d452d1;
   --comp-spinner-color-background-orange: #ff7c36;
   --comp-spinner-color-background-blue: #24ccb0;
+  --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
+  --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
+  --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
   --color-data-visualization-10: #005062;
   --color-data-visualization-11: #de2c62;
   --color-data-visualization-12: #660e00;
