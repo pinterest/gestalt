@@ -105,7 +105,6 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
 
   const buttonClasses = isInVRExperiment
     ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
-        [styles[`color${color}`]]: !selected,
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
         [styles.selectedVr]: selected,
@@ -115,7 +114,13 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       });
-  const childrenDivClasses = classnames(styles.childrenDiv);
+  const childrenDivClasses = classnames(
+    styles.childrenDiv,
+    isInVRExperiment && {
+      [styles[`color${color}`]]: !selected,
+      [styles.selectedVr]: selected,
+    },
+  );
 
   const textComponent =
     text.length > 0 ? (
@@ -141,7 +146,16 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           </Box>
         )}
         {'image' in thumbnail && (
-          <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
+          <div
+            className={
+              isInVRExperiment
+                ? classnames({
+                    [styles.imageDivVr]: true,
+                    [styles.selectedImageDivVr]: selected,
+                  })
+                : styles.imageDiv
+            }
+          >
             {cloneElement(thumbnail.image, { fit: 'cover' })}
           </div>
         )}
