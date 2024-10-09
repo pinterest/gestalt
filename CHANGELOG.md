@@ -1,3 +1,9 @@
+## 162.1.0 (Oct 9, 2024)
+
+### Minor
+
+- RadioGroupButton: VR motion implementation ([#3797](https://github.com/pinterest/gestalt/pull/3797)) - [Preview link](https://deploy-preview-3797--gestalt.netlify.app?devexample=true)
+
 ## 162.0.0 (Oct 8, 2024)
 
 ### Major
