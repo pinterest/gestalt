@@ -10,13 +10,14 @@
 
 a.searchguide,
 a.searchguideVr {
-  padding-bottom: 2px;
-  padding-top: 2px;
+  padding-bottom: var(--g-border-width-lg);
+  padding-top: var(--g-border-width-lg);
 }
 
 .searchguideVr {
+  background: transparent;
   border-color: transparent;
-  border-radius: var(--rounding-400);
+  border-radius: calc(var(--rounding-400) + var(--g-border-width-lg));
   box-sizing: border-box;
   display: inherit;
   padding: var(--space-0) var(--space-0);
@@ -33,6 +34,7 @@ a.searchguideVr {
   composes: flex from "./Layout.css";
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
+  border-radius: var(--rounding-400);
   min-height: 44px;
 }
 
@@ -44,52 +46,22 @@ a.searchguideVr {
 }
 
 .imageDivVr {
-  border-end-start-radius: calc(var(--rounding-400) - 2px);
-  border-start-start-radius: calc(var(--rounding-400) - 2px);
-  height: 48px;
-  margin-block-end: -2px;
-  margin-block-start: -2px;
-  margin-inline-start: -2px;
+  border-end-start-radius: calc(var(--rounding-400) - var(--g-border-width-lg));
+  border-start-start-radius: calc(
+    var(--rounding-400) - var(--g-border-width-lg)
+  );
+  height: 44px;
   overflow: hidden;
-  width: 48px;
-}
-
-.searchguideVr:focus-visible .imageDivVr {
-  border: solid;
-  border-block-start-width: 2px;
-  border-color: var(--sema-color-border-focus-inner-default);
-  border-inline-end-width: 0;
-  border-inline-start-width: 2px;
-  border-inline-start-width: 2px;
-  box-sizing: border-box;
-}
-
-.searchguideVr:not(:focus-visible) .selectedImageDivVr {
-  border: solid;
-  border-block-end-width: 2px;
-  border-block-start-width: 1px;
-  border-color: var(--color-background-button-selected-default);
-  border-end-start-radius: calc(var(--rounding-400) - 2px);
-  border-inline-end-width: 0;
-  border-inline-start-width: 2px;
-  border-inline-start-width: 1px;
-  border-start-start-radius: calc(var(--rounding-400) - 2px);
-  box-sizing: border-box;
-  height: 48px;
-  margin-block-end: -2px;
-  margin-block-start: -1px;
-  margin-inline-start: -1px;
-  overflow: hidden;
-  width: 48px;
+  width: 44px;
 }
 
 /* STATES */
 
 .selected {
   composes: sizeLg borderColorSelected from "./Borders.css";
-  outline: 2px solid;
+  outline: var(--g-border-width-lg) solid;
   outline-color: var(--color-background-button-selected-default);
-  outline-offset: 2px;
+  outline-offset: var(--g-border-width-lg);
 }
 
 .selectedVr {
@@ -105,9 +77,9 @@ a.searchguideVr {
 }
 
 .vrFocused:focus {
-  border: 2px solid;
+  border: var(--g-border-width-lg) solid;
   border-color: var(--sema-color-border-focus-inner-default);
-  outline: 2px solid;
+  outline: var(--g-border-width-lg) solid;
   outline-color: var(--sema-color-border-focus-outer-default);
   outline-offset: 0;
 }

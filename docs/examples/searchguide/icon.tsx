@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
-import { Avatar, Box, Flex, Popover, SearchGuide } from 'gestalt';
+import { Box, Flex, Icon, Popover, SearchGuide } from 'gestalt';
 
 export default function Example() {
-  const enioRef = useRef(null);
-  const keerthiRef = useRef(null);
-  const [showEnio, setShowEnio] = useState(false);
-  const [showKeerthi, setShowKeerthi] = useState(false);
+  const ideasRef = useRef(null);
+  const boardsRef = useRef(null);
+  const [showIdeas, setshowIdeas] = useState(false);
+  const [showBoards, setshowBoards] = useState(false);
 
   return (
     <Flex
@@ -17,34 +17,34 @@ export default function Example() {
       width="100%"
     >
       <SearchGuide
-        accessibilityLabel="Alberto"
+        accessibilityLabel="Search"
         color="02"
-        text="Alberto"
+        text="Search"
         thumbnail={{
-          avatar: <Avatar name="Alberto" src="https://i.ibb.co/NsK2w5y/Alberto.jpg" />,
+          icon: <Icon accessibilityLabel="search" icon="search" />,
         }}
       />
       <SearchGuide
-        ref={enioRef}
+        ref={ideasRef}
         accessibilityControls="popover"
-        accessibilityExpanded={showEnio}
+        accessibilityExpanded={showIdeas}
         accessibilityHaspopup
-        accessibilityLabel="Enio"
+        accessibilityLabel="Ideas"
         color="03"
         expandable
-        onClick={() => setShowEnio((showing) => !showing)}
-        selected={showEnio}
-        text="Enio"
+        onClick={() => setshowIdeas((showing) => !showing)}
+        selected={showIdeas}
+        text="Ideas"
         thumbnail={{
-          avatar: <Avatar name="Enio" src="https://i.ibb.co/r7hRdgc/1727060847006.jpg" />,
+          icon: <Icon accessibilityLabel="ideas" icon="sparkle" />,
         }}
       />
-      {showEnio && (
+      {showIdeas && (
         <Popover
-          anchor={enioRef.current}
+          anchor={ideasRef.current}
           id="popover"
           idealDirection="down"
-          onDismiss={() => setShowEnio(false)}
+          onDismiss={() => setshowIdeas(false)}
           size="flexible"
         >
           <Box height={120} overflow="scrollX" padding={4}>
@@ -56,26 +56,23 @@ export default function Example() {
         </Popover>
       )}
       <SearchGuide
-        ref={keerthiRef}
-        accessibilityControls="popover"
-        accessibilityExpanded={showKeerthi}
-        accessibilityHaspopup
-        accessibilityLabel="Keerthi"
+        ref={boardsRef}
+        accessibilityLabel="Search"
         color="04"
         expandable
-        onClick={() => setShowKeerthi((showing) => !showing)}
-        selected={showKeerthi}
+        onClick={() => setshowBoards((showing) => !showing)}
+        selected={showBoards}
         text=""
         thumbnail={{
-          avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+          icon: <Icon accessibilityLabel="search" icon="search" />,
         }}
       />
-      {showKeerthi && (
+      {showBoards && (
         <Popover
-          anchor={keerthiRef.current}
+          anchor={boardsRef.current}
           id="popover"
           idealDirection="down"
-          onDismiss={() => setShowKeerthi(false)}
+          onDismiss={() => setshowBoards(false)}
           size="flexible"
         >
           <Box height={120} overflow="scrollX" padding={4}>
