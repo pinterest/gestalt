@@ -120,6 +120,23 @@ type Props = {
   type?: 'button' | 'submit';
 };
 
+function InternalButtonWrapper({ children }: { children: ReactNode }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  return isInVRExperiment ? (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
+      {children}
+    </div>
+  ) : (
+    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+      {children}
+    </Flex>
+  );
+}
+
 function InternalButtonContent({
   target,
   text,
@@ -137,7 +154,7 @@ function InternalButtonContent({
 }) {
   return (
     <Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+      <InternalButtonWrapper>
         {iconStart && (
           <Icon
             accessibilityLabel=""
@@ -157,7 +174,7 @@ function InternalButtonContent({
             size={SIZE_NAME_TO_PIXEL[size]}
           />
         ) : null}
-      </Flex>
+      </InternalButtonWrapper>
       <NewTabAccessibilityLabel target={target} />
     </Fragment>
   );
@@ -364,6 +381,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       onTouchMove={handleTouchMove}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
+      style={isInVRExperiment ? compressStyle || undefined : undefined}
       // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       type="button"

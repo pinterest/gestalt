@@ -1,5 +1,6 @@
 import { Children, ReactNode } from 'react';
 import Box from './Box';
+import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -16,15 +17,26 @@ type Props = {
  *
  */
 function ButtonGroup({ children }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   if (Children.count(children) === 0) {
     return null;
   }
 
   return (
     <Box display="flex" margin={-1} wrap>
-      {Children.map(children, (child) =>
-        child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
-      )}
+      {isInVRExperiment
+        ? Children.map(children, (child) =>
+            child !== null && child !== undefined ? (
+              <div style={{ padding: 2 }}>{child}</div>
+            ) : null,
+          )
+        : Children.map(children, (child) =>
+            child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
+          )}
     </Box>
   );
 }
