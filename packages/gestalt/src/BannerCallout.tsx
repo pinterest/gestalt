@@ -1,15 +1,11 @@
 import { Children, ComponentProps, ReactElement } from 'react';
 import classnames from 'classnames';
-import {
-  SEMA_SPACE_800,
-  SEMA_SPACE_1200,
-} from 'gestalt-design-tokens/dist/js/vr-theme/constants.es';
 import styles from './BannerCallout.css';
+import VRBannerCallout from './BannerCallout/VRBannerCallout';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Heading from './Heading';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
@@ -122,14 +118,9 @@ function BannerCalloutAction({
   level: string;
   type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
 }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
+  const primaryColor: ComponentProps<typeof Button>['color'] = 'white';
 
-  const primaryColor: ComponentProps<typeof Button>['color'] = isInVRExperiment ? 'red' : 'white';
-
-  let secondaryColor: 'white' | 'transparent' | 'gray' = isInVRExperiment ? 'white' : 'transparent';
+  let secondaryColor: 'white' | 'transparent' | 'gray' = 'transparent';
 
   if (type === 'default') {
     secondaryColor = 'gray';
@@ -205,8 +196,6 @@ export default function BannerCallout({
     iconAccessibilityLabelWarning,
   } = useDefaultLabelContext('BannerCallout');
 
-  const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
-
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -229,23 +218,28 @@ export default function BannerCallout({
     }
   };
 
+  if (isInVRExperiment) {
+    return (
+      <VRBannerCallout
+        dismissButton={dismissButton}
+        iconAccessibilityLabel={iconAccessibilityLabel}
+        message={message}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
+        title={title}
+        type={type}
+      />
+    );
+  }
+
   return (
     <Box
       borderStyle={type === 'default' ? 'sm' : undefined}
       // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
-      dangerouslySetInlineStyle={
-        isInVRExperiment
-          ? {
-              __style: isRtl
-                ? { paddingRight: SEMA_SPACE_800, paddingLeft: SEMA_SPACE_1200 }
-                : { paddingRight: SEMA_SPACE_1200, paddingLeft: SEMA_SPACE_800 },
-            }
-          : undefined
-      }
       direction="column"
       display="flex"
-      paddingX={isInVRExperiment ? undefined : 6}
+      paddingX={6}
       paddingY={6}
       position="relative"
       rounding={4}
@@ -263,12 +257,7 @@ export default function BannerCallout({
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
-          <Box
-            marginBottom={4}
-            marginTop={0}
-            smMarginBottom="auto"
-            smMarginTop={isInVRExperiment ? undefined : 'auto'}
-          >
+          <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
@@ -289,24 +278,18 @@ export default function BannerCallout({
             >
               {title && (
                 <Box marginBottom={2}>
-                  {isInVRExperiment ? (
-                    <Heading align={responsiveMinWidth === 'xs' ? 'center' : undefined} size="400">
-                      {title}
-                    </Heading>
-                  ) : (
-                    <Text
-                      align={responsiveMinWidth === 'xs' ? 'center' : undefined}
-                      size="400"
-                      weight="bold"
-                    >
-                      {title}
-                    </Text>
-                  )}
+                  <Text
+                    align={responsiveMinWidth === 'xs' ? 'center' : undefined}
+                    size="400"
+                    weight="bold"
+                  >
+                    {title}
+                  </Text>
                 </Box>
               )}
-              {typeof message === 'string' ? (
+              {typeof message === 'string' && (
                 <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
-              ) : null}
+              )}
               {typeof message !== 'string' &&
               // @ts-expect-error - TS2339
               Children.only<ReactElement>(message).type.displayName === 'Text'
@@ -335,18 +318,13 @@ export default function BannerCallout({
         )}
       </Box>
       {dismissButton && (
-        <div
-          className={classnames(styles.dismissButton, {
-            [styles.rtlPos]: !isInVRExperiment,
-            [styles.rtlVRPos]: isInVRExperiment,
-          })}
-        >
+        <div className={classnames(styles.dismissButton, styles.rtlPos)}>
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}
-            padding={isInVRExperiment ? undefined : 4}
+            padding={4}
             size="sm"
           />
         </div>
