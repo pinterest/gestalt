@@ -14,7 +14,7 @@ export default function Example() {
           onChange={({ value }) => setDateValue(value)}
           value={dateValue}
         />
-      </Flex>{' '}
+      </Flex>
     </Box>
   );
 }

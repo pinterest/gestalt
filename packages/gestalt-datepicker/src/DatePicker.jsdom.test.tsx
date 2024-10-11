@@ -1,15 +1,26 @@
 import { useState } from 'react';
 import { act, fireEvent, render, screen } from '@testing-library/react';
+import { DeviceTypeProvider } from 'gestalt';
 import DatePicker from './DatePicker';
 
 const initialDate = new Date(2018, 11, 14);
 
-function DatePickerWrap({ showMonthYearDropdown }: { showMonthYearDropdown?: boolean }) {
+function DatePickerWrap({
+  showMonthYearDropdown,
+  disableMobileUI,
+  label,
+}: {
+  showMonthYearDropdown?: boolean;
+  disableMobileUI?: boolean;
+  label?: string;
+}) {
   const [date, setDate] = useState<Date | null>(initialDate);
 
   return (
     <DatePicker
+      disableMobileUI={disableMobileUI}
       id="fake_id"
+      label={label}
       onChange={({ value }: any) => setDate(value)}
       selectLists={showMonthYearDropdown ? ['year', 'month'] : undefined}
       value={date}
@@ -139,5 +150,19 @@ describe('DatePicker', () => {
     });
     expect(screen.queryAllByRole('option', { name: 'January' })).toHaveLength(1);
     expect(screen.queryAllByRole('option', { name: '2017' })).toHaveLength(1);
+  });
+
+  test('Mobile Datepicker renders', async () => {
+    const { baseElement } = render(
+      <DeviceTypeProvider deviceType="mobile">
+        <DatePickerWrap disableMobileUI={false} label="select" />
+      </DeviceTypeProvider>,
+    );
+
+    fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
+
+    expect(baseElement).toMatchSnapshot();
+
+    expect(screen.getByText('Close')).toBeInTheDocument();
   });
 });
