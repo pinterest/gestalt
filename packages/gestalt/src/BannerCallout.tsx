@@ -129,7 +129,7 @@ function BannerCalloutAction({
 
   const primaryColor: ComponentProps<typeof Button>['color'] = isInVRExperiment ? 'red' : 'white';
 
-  let secondaryColor: 'white' | 'transparent' | 'gray'  = isInVRExperiment ? 'white' : 'transparent';
+  let secondaryColor: 'white' | 'transparent' | 'gray' = isInVRExperiment ? 'white' : 'transparent';
 
   if (type === 'default') {
     secondaryColor = 'gray';
