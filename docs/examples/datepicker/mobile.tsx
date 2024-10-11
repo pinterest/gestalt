@@ -9,7 +9,8 @@ export default function Example() {
       <DatePicker
         disableMobileUI={false}
         helperText="Select a date"
-        id="main" label="Delivery date"
+        id="main"
+        label="Delivery date"
         onChange={({ value }) => setDateValue(value)}
         value={dateValue}
       />
