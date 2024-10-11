@@ -161,8 +161,8 @@ describe('DatePicker', () => {
 
     fireEvent.focus(screen.getByDisplayValue('12/14/2018'));
 
-    expect(screen.getByText('Close')).toBeInTheDocument();
-
     expect(baseElement).toMatchSnapshot();
+
+    expect(screen.getByText('Close')).toBeInTheDocument();
   });
 });

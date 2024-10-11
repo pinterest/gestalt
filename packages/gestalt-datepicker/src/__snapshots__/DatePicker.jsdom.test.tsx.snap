@@ -9,14 +9,14 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
       class="_gestalt"
     >
       <label
-        class="label__LTD block__kVc pointer__BG7"
+        class="LTD kVc BG7"
         for="fake_id"
       >
         <div
-          class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom2__VxL"
+          class="VxL zI7 iyn Hsu"
         >
           <div
-            class="default__X8m alignStart__zDA breakWord__IZT Text__tBJ antialiased__dyH sansSerif__iFc fontSize100__dR0 fontWeightNormal__swG"
+            class="X8m zDA IZT tBJ dyH iFc dR0 swG"
           >
             select
           </div>
@@ -29,19 +29,19 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
           class="react-datepicker__input-container"
         >
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU relative__XiG xsCol12__xcv xsCol12__L4E xsDisplayFlex__Jea xsItemsCenter__KS5"
+            class="Jea KS5 XiG ujU xcv L4E zI7 iyn Hsu"
           >
             <div
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU xsCol12__xcv xsCol12__L4E"
+              class="ujU xcv L4E zI7 iyn Hsu"
             >
               <span>
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu relative__XiG"
+                  class="XiG zI7 iyn Hsu"
                 >
                   <input
                     aria-invalid="false"
                     autocomplete="off"
-                    class="textField__D8X borderBox__Hsu Text__tBJ antialiased__dyH sansSerif__iFc xsCol12__L4E base__mbr accessibilityOutline__iyn enabled__fSK normal__Et3 borderColorLightGray__LJB lg__oVz large__xD4 lg__ybQ truncate__z-6"
+                    class="D8X Hsu tBJ dyH iFc L4E mbr iyn fSK Et3 LJB oVz xD4 ybQ z-6"
                     id="fake_id"
                     inputmode="none"
                     type="text"
@@ -54,18 +54,18 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
               class="calendarIcon"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginEnd5__wzk relative__XiG xsDisplayFlex__Jea xsItemsCenter__KS5"
+                class="Jea KS5 XiG wzk zI7 iyn Hsu"
                 style="min-height: 48px;"
               >
                 <div
                   aria-disabled="false"
-                  class="tapTransition__S9z circle__INd accessibilityOutline__iyn"
+                  class="S9z INd iyn"
                   role="button"
                   tabindex="-1"
                 >
                   <svg
                     aria-label="Open calendar"
-                    class="default__Uvi icon__gUZ iconBlock__U9O block__kVc"
+                    class="Uvi gUZ U9O kVc"
                     height="16"
                     role="img"
                     viewBox="0 0 24 24"
@@ -113,63 +113,63 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
       name="trap-focus"
     >
       <div
-        class="container__aQn fixed___he borderBox__Hsu flex___O1 justifyCenter__mQ8 left0__Rym top0__QLY xsCol12__L4E partialPageContainer__I4V xsItemsEnd__iJk"
+        class="aQn _he Hsu _O1 mQ8 Rym QLY L4E I4V iJk"
       >
         <div
-          class="backdrop__JJV absolute__MIw left0__Rym top0__QLY right0__p6V bottom0__ojN overflowScrollY__Cii initialize__UxA zoomOut__kOw zoomOut__Smz"
+          class="JJV MIw Rym QLY p6V ojN Cii UxA kOw Smz"
         />
         <div
           aria-label="Bottom sheet"
-          class="wrapper__A2V relative__XiG overflowAuto__XbT flex___O1 hideOutline__CCY autoWrapper__pZq slideUpInitialize__D_U"
+          class="A2V XiG XbT _O1 CCY pZq D_U"
           id=":r6:"
           role="dialog"
           style="width: 100%;"
           tabindex="-1"
         >
           <div
-            class="box__zI7 accessibilityOutline__iyn borderBox__Hsu relative__XiG xsDirectionColumn__jzS xsDisplayFlex__Jea"
+            class="Jea XiG jzS zI7 iyn Hsu"
             style="width: 100%;"
           >
             <div
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu fit__xuU paddingX4__fZz paddingY4__qDf relative__XiG"
+              class="XiG fZz qDf xuU zI7 iyn Hsu"
             >
               <div
-                class="Flex__un8 rowGap0__C9i columnGap0__TB_ justifyCenter__mQ8 xsDirectionRow__hs0"
+                class="hs0 mQ8 un8 C9i TB_"
               >
                 <div
-                  class="box__zI7 accessibilityOutline__iyn borderBox__Hsu marginBottom2__VxL"
+                  class="VxL zI7 iyn Hsu"
                 >
                   <div
                     aria-disabled="false"
                     aria-label="Grabber"
-                    class="tapTransition__S9z rounding7__v_3 accessibilityOutline__iyn pointer__e8F pointer__BG7"
+                    class="S9z v_3 iyn e8F BG7"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="box__zI7 accessibilityOutline__iyn borderBox__Hsu rounding7__v_3 secondary__haa"
+                      class="haa v_3 zI7 iyn Hsu"
                       style="height: 5px; width: 37px;"
                     />
                   </div>
                 </div>
               </div>
               <div
-                class="Flex__un8 rowGap4__HOt columnGap4__BxF justifyCenter__mQ8 xsDirectionRow__hs0 xsItemsCenter__KS5"
+                class="KS5 hs0 mQ8 un8 HOt BxF"
               >
                 <div
-                  class="FlexItem__xuA flexGrow__ujU"
+                  class="ujU xuA"
                 />
               </div>
             </div>
             <div
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu flexGrow__ujU overflowAuto__XbT paddingX0__lnZ paddingY2__hA-"
+              class="XbT hA- lnZ ujU zI7 iyn Hsu"
             >
               <div
-                class="Flex__un8 rowGap4__HOt columnGap4__BxF justifyCenter__mQ8 xsDirectionColumn__jzS xsItemsCenter__KS5"
+                class="KS5 jzS mQ8 un8 HOt BxF"
                 style="width: 100%;"
               >
                 <div
-                  class="FlexItem__xuA"
+                  class="xuA"
                 >
                   <div
                     class="_gestalt"
@@ -198,7 +198,7 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
                           >
                             <svg
                               aria-label="Navigate to previou month"
-                              class="rtlSupport__Hn_ default__Uvi icon__gUZ iconBlock__U9O block__kVc"
+                              class="Hn_ Uvi gUZ U9O kVc"
                               height="16"
                               role="img"
                               viewBox="0 0 24 24"
@@ -220,7 +220,7 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
                           >
                             <svg
                               aria-label="Navigate to next month"
-                              class="rtlSupport__Hn_ default__Uvi icon__gUZ iconBlock__U9O block__kVc"
+                              class="Hn_ Uvi gUZ U9O kVc"
                               height="16"
                               role="img"
                               viewBox="0 0 24 24"
@@ -793,29 +793,29 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
               </div>
             </div>
             <div
-              class="box__zI7 accessibilityOutline__iyn borderBox__Hsu fit__xuU relative__XiG"
+              class="XiG xuU zI7 iyn Hsu"
             >
               <div
-                class="box__zI7 accessibilityOutline__iyn borderBox__Hsu paddingX4__fZz paddingY4__qDf"
+                class="fZz qDf zI7 iyn Hsu"
               >
                 <div
-                  class="Flex__un8 rowGap4__HOt columnGap4__BxF justifyCenter__mQ8 xsDirectionColumn__jzS xsItemsCenter__KS5"
+                  class="KS5 jzS mQ8 un8 HOt BxF"
                   style="width: 100%;"
                 >
                   <div
-                    class="FlexItem__xuA"
+                    class="xuA"
                   >
                     <button
                       aria-label="Dismiss date picker"
-                      class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn inline__NTm inlineBlock__KhY accessibilityOutline__iyn parentButton__oRi paddingX0__lnZ paddingY0__wsz"
+                      class="RCK Hsu USg adn NTm KhY iyn oRi lnZ wsz"
                       tabindex="0"
                       type="button"
                     >
                       <div
-                        class="button__RCK borderBox__Hsu minWidth60__USg noBorder__adn inline__NTm inlineBlock__KhY accessibilityOutline__iyn tapTransition__S9z lg__F10 large__xD4 paddingX4__fZz paddingY3__hUC gray__a_A enabled__hNT pointer__BG7 childrenDiv__hDj flex___O1 xsItemsCenter__KS5 justifyCenter__mQ8 fullWidth__Tbt xsCol12__L4E"
+                        class="RCK Hsu USg adn NTm KhY iyn S9z F10 xD4 fZz hUC a_A hNT BG7 hDj _O1 KS5 mQ8 Tbt L4E"
                       >
                         <div
-                          class="default__X8m alignCenter__tg7 Text__tBJ antialiased__dyH sansSerif__iFc fontSize300__sAJ fontWeightSemiBold__H2s"
+                          class="X8m tg7 tBJ dyH iFc sAJ H2s"
                         >
                           Close
                         </div>
