@@ -1,11 +1,23 @@
+.dismissButton {
+  position: absolute;
+}
+
 html[dir="rtl"] .rtlPos {
   left: 0;
-  position: absolute;
   top: 0;
 }
 
 html:not([dir="rtl"]) .rtlPos {
-  position: absolute;
   right: 0;
   top: 0;
+}
+
+html[dir="rtl"] .rtlVRPos {
+  left: var(--sema-space-400);
+  top: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .rtlVRPos {
+  right: var(--sema-space-400);
+  top: var(--sema-space-400);
 }
