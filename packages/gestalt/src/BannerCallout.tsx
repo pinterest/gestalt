@@ -129,13 +129,14 @@ function BannerCalloutAction({
 
   const primaryColor: ComponentProps<typeof Button>['color'] = isInVRExperiment ? 'red' : 'white';
 
-  let secondaryColor = isInVRExperiment ? 'white' : 'transparent';
+  let secondaryColor: 'white' | 'transparent' | 'gray'  = isInVRExperiment ? 'white' : 'transparent';
 
   if (type === 'default') {
     secondaryColor = 'gray';
   }
 
-  const color = level === 'primary' ? primaryColor : secondaryColor;
+  const color: ComponentProps<typeof Button>['color'] =
+    level === 'primary' ? primaryColor : secondaryColor;
 
   const { accessibilityLabel, disabled, label } = data;
 
