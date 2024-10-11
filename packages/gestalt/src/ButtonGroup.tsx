@@ -1,4 +1,5 @@
 import { Children, ReactNode } from 'react';
+import { Flex } from '.';
 import Box from './Box';
 import useInExperiment from './useInExperiment';
 
@@ -25,18 +26,18 @@ function ButtonGroup({ children }: Props) {
   if (Children.count(children) === 0) {
     return null;
   }
-
+  if (isInVRExperiment) {
+    return (
+      <Flex gap={1} wrap>
+        {children}
+      </Flex>
+    );
+  }
   return (
     <Box display="flex" margin={-1} wrap>
-      {isInVRExperiment
-        ? Children.map(children, (child) =>
-            child !== null && child !== undefined ? (
-              <div style={{ padding: 2 }}>{child}</div>
-            ) : null,
-          )
-        : Children.map(children, (child) =>
-            child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
-          )}
+      {Children.map(children, (child) =>
+        child !== null && child !== undefined ? <Box padding={1}>{child}</Box> : null,
+      )}
     </Box>
   );
 }
