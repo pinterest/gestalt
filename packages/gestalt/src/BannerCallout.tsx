@@ -104,7 +104,7 @@ type Props = {
   /**
    * The category of BannerCallout. See [Variants](https://gestalt.pinterest.systems/web/bannercallout#Variants) to learn more.
    */
-  type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
+  type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
   /**
    * Brief title summarizing BannerCallout. Content should be [localized](https://gestalt.pinterest.systems/web/bannercallout#Localization).
    */
@@ -114,11 +114,13 @@ type Props = {
 function BannerCalloutAction({
   data,
   stacked,
+  level,
   type,
 }: {
   data: ActionDataType;
   stacked?: boolean;
-  type: string;
+  level: string;
+  type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
 }) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -127,9 +129,13 @@ function BannerCalloutAction({
 
   const primaryColor: ComponentProps<typeof Button>['color'] = isInVRExperiment ? 'red' : 'white';
 
-  const secondaryColor = isInVRExperiment ? 'white' : 'transparent';
+  let secondaryColor = isInVRExperiment ? 'white' : 'transparent';
 
-  const color = type === 'primary' ? primaryColor : secondaryColor;
+  if (type === 'default') {
+    secondaryColor = 'gray';
+  }
+
+  const color = level === 'primary' ? primaryColor : secondaryColor;
 
   const { accessibilityLabel, disabled, label } = data;
 
@@ -138,7 +144,7 @@ function BannerCalloutAction({
       alignItems="center"
       display="block"
       justifyContent="center"
-      marginTop={type === 'secondary' && stacked ? 2 : undefined}
+      marginTop={level === 'secondary' && stacked ? 2 : undefined}
       paddingX={1}
       smDisplay="flex"
       smMarginBottom="auto"
@@ -224,6 +230,7 @@ export default function BannerCallout({
 
   return (
     <Box
+      borderStyle={type === 'default' ? 'sm' : undefined}
       // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
       color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
       dangerouslySetInlineStyle={
@@ -310,14 +317,17 @@ export default function BannerCallout({
         {(primaryAction || secondaryAction) && (
           <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <BannerCalloutAction data={secondaryAction} type="secondary" />
+              <BannerCalloutAction data={secondaryAction} level="secondary" type={type} />
             )}
-            {primaryAction && <BannerCalloutAction data={primaryAction} type="primary" />}
+            {primaryAction && (
+              <BannerCalloutAction data={primaryAction} level="primary" type={type} />
+            )}
             {secondaryAction && responsiveMinWidth === 'xs' && (
               <BannerCalloutAction
                 data={secondaryAction}
+                level="secondary"
                 stacked={!!secondaryAction}
-                type="secondary"
+                type={type}
               />
             )}
           </Box>

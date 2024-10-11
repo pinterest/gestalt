@@ -2,6 +2,12 @@ export default Object.freeze({
   neutral: {
     backgroundColor: 'secondary',
   },
+  default: {
+    icon: 'pinterest',
+    iconColor: 'default',
+    color: 'white',
+    backgroundColor: 'white',
+  },
   success: {
     icon: 'check-circle',
     iconColor: 'success',
