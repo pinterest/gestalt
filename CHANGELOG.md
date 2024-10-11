@@ -1,3 +1,9 @@
+## 162.1.2 (Oct 11, 2024)
+
+### Patch
+
+- SearchGuide: Fixing issue with selected/focus and shrinking image ([#3799](https://github.com/pinterest/gestalt/pull/3799)) - [Preview link](https://deploy-preview-3799--gestalt.netlify.app?devexample=true)
+
 ## 162.1.1 (Oct 9, 2024)
 
 ### Patch
