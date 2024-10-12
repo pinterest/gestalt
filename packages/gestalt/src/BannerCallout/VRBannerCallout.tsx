@@ -231,8 +231,8 @@ export default function BannerCallout({
   };
 
   const content = (
-    <Fragment>
-      <Flex direction="column" gap={4}>
+    <Flex alignItems="center" width="100%" wrap>
+      <Flex.Item minWidth={0}>
         <Flex gap={3}>
           <Icon
             accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
@@ -258,9 +258,11 @@ export default function BannerCallout({
             )}
           </Box>
         </Flex>
+      </Flex.Item>
 
-        {(primaryAction || secondaryAction) && (
-          <Flex gap={2} justifyContent="end" wrap>
+      {(primaryAction || secondaryAction) && (
+        <Flex.Item flex="grow">
+          <Flex gap={2} height="100%" justifyContent="end" wrap>
             {secondaryAction && (
               <VRBannerCalloutAction data={secondaryAction} level="secondary" type={type} />
             )}
@@ -268,8 +270,9 @@ export default function BannerCallout({
               <VRBannerCalloutAction data={primaryAction} level="primary" type={type} />
             )}
           </Flex>
-        )}
-      </Flex>
+        </Flex.Item>
+      )}
+
       {dismissButton && (
         <div className={classnames(styles.dismissButton, styles.rtlVRPos)}>
           <IconButton
@@ -281,7 +284,7 @@ export default function BannerCallout({
           />
         </div>
       )}
-    </Fragment>
+    </Flex>
   );
 
   return (
@@ -291,10 +294,11 @@ export default function BannerCallout({
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
         color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
         display="block"
+        lgDisplay="none"
+        mdDisplay="none"
         padding={6}
         position="relative"
         rounding={4}
-        smDisplay="none"
         width="100%"
       >
         {content}
@@ -309,10 +313,29 @@ export default function BannerCallout({
             : { paddingRight: SEMA_SPACE_1200, paddingLeft: SEMA_SPACE_800 },
         }}
         display="none"
+        lgDisplay="none"
+        mdDisplay="block"
         paddingY={8}
         position="relative"
         rounding={4}
-        smDisplay="block"
+        width="100%"
+      >
+        {content}
+      </Box>
+      <Box
+        borderStyle={type === 'default' ? 'sm' : undefined}
+        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
+        color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
+        dangerouslySetInlineStyle={{
+          __style: isRtl
+            ? { paddingRight: SEMA_SPACE_800, paddingLeft: SEMA_SPACE_1200 }
+            : { paddingRight: SEMA_SPACE_1200, paddingLeft: SEMA_SPACE_800 },
+        }}
+        display="none"
+        lgDisplay="flex"
+        paddingY={8}
+        position="relative"
+        rounding={4}
         width="100%"
       >
         {content}
