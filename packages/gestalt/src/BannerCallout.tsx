@@ -235,8 +235,7 @@ export default function BannerCallout({
   return (
     <Box
       borderStyle={type === 'default' ? 'sm' : undefined}
-      // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
-      color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
+      color={MESSAGING_TYPE_ATTRIBUTES[type]?.backgroundColor}
       direction="column"
       display="flex"
       paddingX={6}
@@ -260,10 +259,8 @@ export default function BannerCallout({
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
-              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
-              color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
-              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 318 more ... | undefined'.
-              icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
+              color={MESSAGING_TYPE_ATTRIBUTES[type]?.iconColor}
+              icon={MESSAGING_TYPE_ATTRIBUTES[type]?.icon}
               size={32}
             />
           </Box>
