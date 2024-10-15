@@ -92,12 +92,10 @@ type Props = {
 
 function BannerCalloutAction({
   data,
-  stacked,
   level,
   type,
 }: {
   data: ActionDataType;
-  stacked?: boolean;
   level: string;
   type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
 }) {
@@ -119,7 +117,6 @@ function BannerCalloutAction({
       alignItems="center"
       display="block"
       justifyContent="center"
-      marginTop={level === 'secondary' && stacked ? 2 : undefined}
       paddingX={1}
       smDisplay="flex"
       smMarginBottom="auto"
@@ -260,6 +257,8 @@ export default function BannerCallout({
     };
   }, [checkWrappedButton]);
 
+console.log(isWrapped)
+
   return (
     <Box width="100%">
       {/*
@@ -284,7 +283,7 @@ export default function BannerCallout({
                   accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
                   color={MESSAGING_TYPE_ATTRIBUTES[type]?.iconColor}
                   icon={MESSAGING_TYPE_ATTRIBUTES[type]?.icon}
-                  size={32}
+                  size={24}
                 />
 
                 <Box maxWidth={648}>
@@ -306,31 +305,31 @@ export default function BannerCallout({
           </Flex.Item>
 
           {(primaryAction || secondaryAction) && (
-            <Box position="relative">
-              <Flex gap={2} justifyContent="end" wrap>
-                {secondaryAction && (
-                  <Flex.Item flex={isWrapped ? 'grow' : undefined}>
-                    <VRBannerCalloutAction
-                      data={secondaryAction}
-                      level="secondary"
-                      size="md"
-                      type={type}
-                    />
-                  </Flex.Item>
-                )}
-                {primaryAction && (
-                  <Flex.Item flex={isWrapped ? 'grow' : undefined}>
-                    <Box ref={wrappedRef} width="100%">
+            <Box marginTop={4} position="relative">
+                <Flex gap={2} justifyContent="end" wrap>
+                  {secondaryAction && (
+                    <Flex.Item flex={isWrapped ? 'grow' : undefined}>
                       <VRBannerCalloutAction
-                        data={primaryAction}
-                        level="primary"
+                        data={secondaryAction}
+                        level="secondary"
                         size="md"
                         type={type}
                       />
-                    </Box>{' '}
-                  </Flex.Item>
-                )}
-              </Flex>
+                    </Flex.Item>
+                  )}
+                  {primaryAction && (
+                    <Flex.Item flex={isWrapped ? 'grow' : undefined}>
+                      <Box ref={wrappedRef} width="100%">
+                        <VRBannerCalloutAction
+                          data={primaryAction}
+                          level="primary"
+                          size="md"
+                          type={type}
+                        />
+                      </Box>
+                    </Flex.Item>
+                  )}
+                </Flex>
             </Box>
           )}
 
@@ -370,7 +369,7 @@ export default function BannerCallout({
       >
         <Flex direction="column" width="100%">
           <Flex.Item minWidth={0}>
-            <Flex gap={3}>
+            <Flex gap={6}>
               <Icon
                 accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
                 color={MESSAGING_TYPE_ATTRIBUTES[type]?.iconColor}
@@ -446,7 +445,7 @@ export default function BannerCallout({
       >
         <Flex alignItems="center" width="100%" wrap>
           <Flex.Item minWidth={0}>
-            <Flex gap={3}>
+            <Flex gap={6}>
               <Icon
                 accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
                 color={MESSAGING_TYPE_ATTRIBUTES[type]?.iconColor}
