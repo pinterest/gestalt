@@ -257,7 +257,6 @@ export default function BannerCallout({
     };
   }, [checkWrappedButton]);
 
-console.log(isWrapped)
 
   return (
     <Box width="100%">
@@ -306,30 +305,30 @@ console.log(isWrapped)
 
           {(primaryAction || secondaryAction) && (
             <Box marginTop={4} position="relative">
-                <Flex gap={2} justifyContent="end" wrap>
-                  {secondaryAction && (
-                    <Flex.Item flex={isWrapped ? 'grow' : undefined}>
+              <Flex gap={2} justifyContent="end" wrap>
+                {secondaryAction && (
+                  <Flex.Item flex={isWrapped ? 'grow' : undefined}>
+                    <VRBannerCalloutAction
+                      data={secondaryAction}
+                      level="secondary"
+                      size="md"
+                      type={type}
+                    />
+                  </Flex.Item>
+                )}
+                {primaryAction && (
+                  <Flex.Item flex={isWrapped ? 'grow' : undefined}>
+                    <Box ref={wrappedRef} width="100%">
                       <VRBannerCalloutAction
-                        data={secondaryAction}
-                        level="secondary"
+                        data={primaryAction}
+                        level="primary"
                         size="md"
                         type={type}
                       />
-                    </Flex.Item>
-                  )}
-                  {primaryAction && (
-                    <Flex.Item flex={isWrapped ? 'grow' : undefined}>
-                      <Box ref={wrappedRef} width="100%">
-                        <VRBannerCalloutAction
-                          data={primaryAction}
-                          level="primary"
-                          size="md"
-                          type={type}
-                        />
-                      </Box>
-                    </Flex.Item>
-                  )}
-                </Flex>
+                    </Box>
+                  </Flex.Item>
+                )}
+              </Flex>
             </Box>
           )}
 
