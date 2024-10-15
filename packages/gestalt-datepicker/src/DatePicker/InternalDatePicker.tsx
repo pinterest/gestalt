@@ -12,10 +12,24 @@ import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
-const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
+type InternalProps = Props & {
+  inline?: boolean;
+  inputOnly?: boolean;
+  onFocus?: () => void;
+  onSelect?: () => void;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function MyNoContainer({ className, children }: { className: string; children: ReactElement }) {
+  return <div />;
+}
+
+const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalProps>(
   function InternalDatePicker(
     {
       disabled,
+      inline = false,
+      inputOnly = false,
       errorMessage,
       excludeDates,
       helperText,
@@ -29,6 +43,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       name,
       nextRef,
       onChange,
+      onFocus,
+      onSelect,
       placeholder,
       rangeEndDate,
       rangeSelector,
@@ -36,7 +52,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
       readOnly,
       selectLists,
       value: controlledValue,
-    }: Props,
+    }: InternalProps,
     ref,
   ): ReactElement {
     const innerRef = useRef<null | HTMLInputElement>(null);
@@ -88,7 +104,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
 
     return (
       <div className="_gestalt">
-        {label && !isInVRExperiment && (
+        {label && !isInVRExperiment && !inline && (
           <Label htmlFor={id}>
             <Box marginBottom={2}>
               <Text size="100">{label}</Text>
@@ -97,7 +113,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
         )}
         {/* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
         <ReactDatePicker
-          calendarClassName={styles['react-datepicker']}
+          calendarClassName={
+            inline ? styles['react-datepicker-inline'] : styles['react-datepicker']
+          }
+          calendarContainer={inputOnly ? MyNoContainer : undefined}
           customInput={
             <DateInput
               ref={innerRef}
@@ -106,6 +125,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
               id={id}
               label={label}
               name={name}
+              onPassthroughFocus={inputOnly ? onFocus : undefined}
               readOnly={readOnly}
             />
           }
@@ -118,6 +138,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
           highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
           id={id}
           includeDates={includeDates && [...includeDates]}
+          inline={inline}
           locale={updatedLocale}
           maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
           minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
@@ -129,6 +150,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(
             onChange({ event, value });
             if (event.type === 'click') {
               nextRef?.current?.focus();
+              onSelect?.();
             }
           }}
           onKeyDown={(event) => {

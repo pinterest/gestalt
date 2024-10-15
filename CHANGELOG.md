@@ -1,3 +1,15 @@
+## 162.2.0 (Oct 11, 2024)
+
+### Minor
+
+- DatePicker: support SheetMobile for mobile ([#3798](https://github.com/pinterest/gestalt/pull/3798)) - [Preview link](https://deploy-preview-3798--gestalt.netlify.app?devexample=true)
+
+## 162.1.2 (Oct 11, 2024)
+
+### Patch
+
+- SearchGuide: Fixing issue with selected/focus and shrinking image ([#3799](https://github.com/pinterest/gestalt/pull/3799)) - [Preview link](https://deploy-preview-3799--gestalt.netlify.app?devexample=true)
+
 ## 162.1.1 (Oct 9, 2024)
 
 ### Patch
