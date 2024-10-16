@@ -8,30 +8,28 @@ import compactChevronLeft from './ic_compact-chevron-left_gestalt.svg';
 import compactChevronRight from './ic_compact-chevron-right_gestalt.svg';
 import compactChevronUp from './ic_compact-chevron-up_gestalt.svg';
 import compactDash from './ic_compact-dash_gestalt.svg';
+import compactInfoCircleFill from './ic_compact-info-circle-fill_gestalt.svg';
 import compactLock from './ic_compact-lock_gestalt.svg';
 import compactSparkle from './ic_compact-sparkle_gestalt.svg';
 import compactWorkflowStatusProblem from './ic_compact-workflow-status-problem_gestalt.svg';
 import compactWorkflowStatusWarning from './ic_compact-workflow-status-warning_gestalt.svg';
-import conpactInfoCircleFill from './ic_conpact-info-circle-fill_gestalt.svg';
-
-
 
 const icons = Object.freeze({
-    'compact-add': compactAdd,
-	'compact-arrow-up-right': compactArrowUpRight,
-	'compact-cancel': compactCancel,
-	'compact-check': compactCheck,
-	'compact-check-circle-fill': compactCheckCircleFill,
-	'compact-chevron-down': compactChevronDown,
-	'compact-chevron-left': compactChevronLeft,
-	'compact-chevron-right': compactChevronRight,
-	'compact-chevron-up': compactChevronUp,
-	'compact-dash': compactDash,
-	'compact-lock': compactLock,
-	'compact-sparkle': compactSparkle,
-	'compact-workflow-status-problem': compactWorkflowStatusProblem,
-	'compact-workflow-status-warning': compactWorkflowStatusWarning,
-	'conpact-info-circle-fill': conpactInfoCircleFill,
+  'compact-add': compactAdd,
+  'compact-arrow-up-right': compactArrowUpRight,
+  'compact-cancel': compactCancel,
+  'compact-check': compactCheck,
+  'compact-check-circle-fill': compactCheckCircleFill,
+  'compact-chevron-down': compactChevronDown,
+  'compact-chevron-left': compactChevronLeft,
+  'compact-chevron-right': compactChevronRight,
+  'compact-chevron-up': compactChevronUp,
+  'compact-dash': compactDash,
+  'compact-lock': compactLock,
+  'compact-sparkle': compactSparkle,
+  'compact-workflow-status-problem': compactWorkflowStatusProblem,
+  'compact-workflow-status-warning': compactWorkflowStatusWarning,
+  'compact-info-circle-fill': compactInfoCircleFill,
 });
 
 export default icons;

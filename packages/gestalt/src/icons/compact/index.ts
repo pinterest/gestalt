@@ -8,30 +8,28 @@ import compactChevronLeft from './compact-chevron-left.svg';
 import compactChevronRight from './compact-chevron-right.svg';
 import compactChevronUp from './compact-chevron-up.svg';
 import compactDash from './compact-dash.svg';
+import compactInfoCircleFill from './compact-info-circle-fill.svg';
 import compactLock from './compact-lock.svg';
 import compactSparkle from './compact-sparkle.svg';
 import compactWorkflowStatusProblem from './compact-workflow-status-problem.svg';
 import compactWorkflowStatusWarning from './compact-workflow-status-warning.svg';
-import conpactInfoCircleFill from './conpact-info-circle-fill.svg';
-
-
 
 const icons = Object.freeze({
-    'compact-add': compactAdd,
-	'compact-arrow-up-right': compactArrowUpRight,
-	'compact-cancel': compactCancel,
-	'compact-check': compactCheck,
-	'compact-check-circle-fill': compactCheckCircleFill,
-	'compact-chevron-down': compactChevronDown,
-	'compact-chevron-left': compactChevronLeft,
-	'compact-chevron-right': compactChevronRight,
-	'compact-chevron-up': compactChevronUp,
-	'compact-dash': compactDash,
-	'compact-lock': compactLock,
-	'compact-sparkle': compactSparkle,
-	'compact-workflow-status-problem': compactWorkflowStatusProblem,
-	'compact-workflow-status-warning': compactWorkflowStatusWarning,
-	'conpact-info-circle-fill': conpactInfoCircleFill,
+  'compact-add': compactAdd,
+  'compact-arrow-up-right': compactArrowUpRight,
+  'compact-cancel': compactCancel,
+  'compact-check': compactCheck,
+  'compact-check-circle-fill': compactCheckCircleFill,
+  'compact-chevron-down': compactChevronDown,
+  'compact-chevron-left': compactChevronLeft,
+  'compact-chevron-right': compactChevronRight,
+  'compact-chevron-up': compactChevronUp,
+  'compact-dash': compactDash,
+  'compact-lock': compactLock,
+  'compact-sparkle': compactSparkle,
+  'compact-workflow-status-problem': compactWorkflowStatusProblem,
+  'compact-workflow-status-warning': compactWorkflowStatusWarning,
+  'compact-info-circle-fill': compactInfoCircleFill,
 });
 
 export default icons;
