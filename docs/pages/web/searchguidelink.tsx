@@ -8,7 +8,7 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import avatarExample from '../../examples/searchguidelink/avatarExample';
+import avatarExample from '../../examples/searchguidelink/avatar';
 import colors from '../../examples/searchguidelink/colors';
 import hideLowQualityDo from '../../examples/searchguidelink/hideLowQualityDo';
 import main from '../../examples/searchguidelink/main';

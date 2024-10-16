@@ -1,3 +1,51 @@
+## 162.4.2 (Oct 16, 2024)
+
+### Patch
+
+- Internal: Bump next from 12.3.0 to 14.2.10 #3803 ([#3807](https://github.com/pinterest/gestalt/pull/3807)) - [Preview link](https://deploy-preview-3807--gestalt.netlify.app?devexample=true)
+
+## 162.4.1 (Oct 16, 2024)
+
+### Patch
+
+- DateRange: add example for secondary date errors (web) ([#3806](https://github.com/pinterest/gestalt/pull/3806)) - [Preview link](https://deploy-preview-3806--gestalt.netlify.app?devexample=true)
+
+## 162.4.0 (Oct 16, 2024)
+
+### Minor
+
+- BannerCallout: VR Implementation Changes ([#3804](https://github.com/pinterest/gestalt/pull/3804)) - [Preview link](https://deploy-preview-3804--gestalt.netlify.app?devexample=true)
+
+## 162.3.0 (Oct 16, 2024)
+
+### Minor
+
+- SearchGuide: Fixes and docs improvements ([#3801](https://github.com/pinterest/gestalt/pull/3801)) - [Preview link](https://deploy-preview-3801--gestalt.netlify.app?devexample=true)
+
+## 162.2.0 (Oct 11, 2024)
+
+### Minor
+
+- DatePicker: support SheetMobile for mobile ([#3798](https://github.com/pinterest/gestalt/pull/3798)) - [Preview link](https://deploy-preview-3798--gestalt.netlify.app?devexample=true)
+
+## 162.1.2 (Oct 11, 2024)
+
+### Patch
+
+- SearchGuide: Fixing issue with selected/focus and shrinking image ([#3799](https://github.com/pinterest/gestalt/pull/3799)) - [Preview link](https://deploy-preview-3799--gestalt.netlify.app?devexample=true)
+
+## 162.1.1 (Oct 9, 2024)
+
+### Patch
+
+- SearchGuide: Renaming Examples ([#3800](https://github.com/pinterest/gestalt/pull/3800)) - [Preview link](https://deploy-preview-3800--gestalt.netlify.app?devexample=true)
+
+## 162.1.0 (Oct 9, 2024)
+
+### Minor
+
+- RadioGroupButton: VR motion implementation ([#3797](https://github.com/pinterest/gestalt/pull/3797)) - [Preview link](https://deploy-preview-3797--gestalt.netlify.app?devexample=true)
+
 ## 162.0.0 (Oct 8, 2024)
 
 ### Major

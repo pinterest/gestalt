@@ -102,7 +102,7 @@ type Props = {
    */
   dateValue: { startDate: Date | null; endDate: Date | null };
   /**
-   * DateRange is a controlled component. `dateValue` sets the value of the start date and end date.  See the [secondary date range variant](https://gestalt.pinterest.systems/web/daterange#Secondary-date-range) to learn more.
+   * DateRange is a controlled component. `secondaryDateValue` sets the value of the start date and end date.  See the [secondary date range variant](https://gestalt.pinterest.systems/web/daterange#Secondary-date-range) to learn more.
    */
   secondaryDateValue?: { startDate: Date | null; endDate: Date | null };
   /**

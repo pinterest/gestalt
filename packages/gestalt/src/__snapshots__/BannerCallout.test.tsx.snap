@@ -297,7 +297,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
     </div>
   </div>
   <div
-    className="rtlPos"
+    className="dismissButton rtlPos"
   >
     <button
       aria-label="Dismiss this banner"
@@ -452,7 +452,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
     </div>
   </div>
   <div
-    className="rtlPos"
+    className="dismissButton rtlPos"
   >
     <button
       aria-label="Dismiss banner"

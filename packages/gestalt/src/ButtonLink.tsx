@@ -1,6 +1,7 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { ComponentProps, forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Button from './Button';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
@@ -35,14 +36,7 @@ type ButtonProps = {
   /**
    * The background color of ButtonLink.
    */
-  color?:
-    | 'gray'
-    | 'red'
-    | 'blue'
-    | 'transparent'
-    | 'semiTransparentWhite'
-    | 'transparentWhiteText'
-    | 'white';
+  color?: ComponentProps<typeof Button>['color'];
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
