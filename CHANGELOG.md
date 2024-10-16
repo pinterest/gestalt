@@ -1,3 +1,9 @@
+## 162.3.0 (Oct 16, 2024)
+
+### Minor
+
+- SearchGuide: Fixes and docs improvements ([#3801](https://github.com/pinterest/gestalt/pull/3801)) - [Preview link](https://deploy-preview-3801--gestalt.netlify.app?devexample=true)
+
 ## 162.2.0 (Oct 11, 2024)
 
 ### Minor
