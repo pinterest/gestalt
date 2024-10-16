@@ -1,16 +1,21 @@
-import { forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, Fragment, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Badge from './Badge';
+import borderStyles from './Borders.css';
 import Box from './Box';
+import boxStyles from './Box.css';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Label from './Label';
+import layoutStyles from './Layout.css';
 import styles from './RadioButton.css';
 import controlStyles from './RadioButtonCheckbox.css';
 import { useRadioGroupContext } from './RadioGroup/Context';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
+import useTapScaleAnimation from './utils/useTapScaleAnimation';
 
 type BadgeType = {
   text: string;
@@ -100,6 +105,11 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
 
@@ -112,13 +122,13 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
   const handleHover: (isHovered: boolean) => void = (isHovered: boolean) => setHover(isHovered);
 
-  let borderStyle = styles.Border;
+  let borderColor = styles.Border;
   if (disabled && checked) {
-    borderStyle = styles.BorderDisabledChecked;
+    borderColor = styles.BorderDisabledChecked;
   } else if (!disabled && checked) {
-    borderStyle = styles.BorderSelected;
+    borderColor = styles.BorderSelected;
   } else if (!disabled && hovered) {
-    borderStyle = styles.BorderHovered;
+    borderColor = styles.BorderHovered;
   }
 
   let borderWidth = styles.BorderUnchecked;
@@ -130,6 +140,8 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderWidth = styles.BorderCheckedMd;
   }
 
+  const uncheckedBorderWidth = disabled ? styles.BorderDisabled : styles.BorderUnchecked;
+
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
   const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
@@ -137,20 +149,60 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   const { isFocusVisible } = useFocusVisible();
 
   const { parentName } = useRadioGroupContext();
+
+  const tapScaleAnimation = useTapScaleAnimation();
+
   if (parentName !== 'RadioGroup') {
     throw new Error(
       `RadioGroup.RadioButton must be used within a [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup).`,
     );
   }
 
+  const radioButtonStyles = isInVRExperiment
+    ? classnames(styleSize, layoutStyles.relative, borderStyles.circle, tapScaleAnimation.classes, {
+        [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+      })
+    : classnames(bgStyle, borderColor, borderWidth, styleSize, styles.RadioButton, {
+        [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+      });
+
+  const sharedBorderStyles = classnames(styles.VRRadioButton, borderColor, bgStyle, styleSize);
+
+  const checkedBorderStyles = classnames(sharedBorderStyles, styles.checked, borderWidth, {
+    [styles.noTransitionDelay]: checked,
+  });
+
+  const uncheckedBorderStyles = classnames(
+    sharedBorderStyles,
+    styles.unchecked,
+    uncheckedBorderWidth,
+    {
+      [boxStyles.opacity0]: checked || disabled,
+      [styles.noTransition]: checked,
+    },
+  );
+
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
       <Box paddingX={1}>
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
-          className={classnames(bgStyle, borderStyle, borderWidth, styleSize, styles.RadioButton, {
-            [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
-          })}
+          ref={tapScaleAnimation.elementRef}
+          className={radioButtonStyles}
+          onMouseDown={() => {
+            if (isInVRExperiment) tapScaleAnimation.handleMouseDown();
+          }}
+          onMouseUp={() => {
+            if (isInVRExperiment) tapScaleAnimation.handleMouseUp();
+          }}
         >
+          {isInVRExperiment && (
+            <Fragment>
+              <div className={checkedBorderStyles} />
+              <div className={uncheckedBorderStyles} />
+            </Fragment>
+          )}
+
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
             ref={ref}

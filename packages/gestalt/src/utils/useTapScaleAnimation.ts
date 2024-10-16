@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
-import styles from './ButtonToggleAnimation.css';
+import styles from './tapScaleAnimation.css';
 
 const shouldKeyPressTriggerTap = (event: React.KeyboardEvent): boolean =>
   ['Space', 'Enter'].includes(event.code);
 
-export default function useButtonToggleAnimation() {
+export default function useTapScaleAnimation() {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [animatingScaleDown, setAnimatingScaleDown] = useState(false);
   const [animatingScaleUp, setAnimatingScaleUp] = useState(false);

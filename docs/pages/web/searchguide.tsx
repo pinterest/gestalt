@@ -8,13 +8,17 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import avatarExample from '../../examples/searchguide/avatarExample';
+import avatar from '../../examples/searchguide/avatar';
+import avatarGroup from '../../examples/searchguide/avatargroup';
 import colors from '../../examples/searchguide/colors';
-import expandableExample from '../../examples/searchguide/expandableExample';
+import expandable from '../../examples/searchguide/expandable';
+import expandableVariants from '../../examples/searchguide/expandableVariants';
 import hideLowQualityDo from '../../examples/searchguide/hideLowQualityDo';
+import icon from '../../examples/searchguide/icon';
+import image from '../../examples/searchguide/image';
 import main from '../../examples/searchguide/main';
 import noScrollDo from '../../examples/searchguide/noScrollDo';
-import selectedStateExample from '../../examples/searchguide/selectedStateExample';
+import selectedState from '../../examples/searchguide/selectedState';
 import serialDo from '../../examples/searchguide/serialDo';
 import showLowQualityDont from '../../examples/searchguide/showLowQualityDont';
 import singleDont from '../../examples/searchguide/singleDont';
@@ -262,15 +266,25 @@ Also consider:
   `}
           title="Thumbnail"
         >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={avatarExample}
-                name="Searchguide example with avatar."
-                previewHeight={PREVIEW_HEIGHT}
-              />
-            }
+          <SandpackExample
+            code={icon}
+            name="Searchguide example with icon."
+            previewHeight={PREVIEW_HEIGHT}
+          />
+          <SandpackExample
+            code={image}
+            name="Searchguide example with image."
+            previewHeight={PREVIEW_HEIGHT}
+          />
+          <SandpackExample
+            code={avatar}
+            name="Searchguide example with avatar."
+            previewHeight={PREVIEW_HEIGHT}
+          />
+          <SandpackExample
+            code={avatarGroup}
+            name="Searchguide example with avatarGroup."
+            previewHeight={PREVIEW_HEIGHT}
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -284,23 +298,23 @@ Use the \`selected\` prop to indicate that the SearchGuide is in a selected stat
             cardSize="md"
             sandpackExample={
               <SandpackExample
-                code={selectedStateExample}
+                code={selectedState}
                 name="Selected state searchguide example."
                 previewHeight={150}
               />
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection columns={2} title="Expandable">
-          <MainSection.Card
-            cardSize="md"
-            sandpackExample={
-              <SandpackExample
-                code={expandableExample}
-                name="Expandable searchguide example."
-                previewHeight={150}
-              />
-            }
+        <MainSection.Subsection columns={1} title="Expandable">
+          <SandpackExample
+            code={expandable}
+            name="Expandable searchguide example."
+            previewHeight={150}
+          />
+          <SandpackExample
+            code={expandableVariants}
+            name="Expandable searchguide example variants."
+            previewHeight={150}
           />
         </MainSection.Subsection>
       </MainSection>

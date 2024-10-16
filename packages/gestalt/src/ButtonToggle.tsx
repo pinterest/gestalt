@@ -4,7 +4,6 @@ import borderStyles from './Borders.css';
 import styles from './ButtonToggle.css';
 import ColorPicker, { SkinColor } from './ButtonToggle/ColorPicker';
 import LabeledThumbnail from './ButtonToggle/LabeledThumbnail';
-import useButtonToggleAnimation from './ButtonToggle/useButtonToggleAnimation';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
 import Flex from './Flex';
@@ -18,6 +17,7 @@ import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
 import useInteractiveStates from './utils/useInteractiveStates';
+import useTapScaleAnimation from './utils/useTapScaleAnimation';
 
 const DEFAULT_TEXT_COLORS = {
   red: 'inverse',
@@ -186,7 +186,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const isDarkModeRed = isDarkMode && color === 'red';
   const { isFocusVisible } = useFocusVisible();
 
-  const buttonToggleAnimation = useButtonToggleAnimation();
+  const buttonToggleAnimation = useTapScaleAnimation();
 
   const borderClasses = isInVRExperiment
     ? {

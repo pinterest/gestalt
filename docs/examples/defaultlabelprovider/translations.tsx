@@ -23,6 +23,8 @@ const labels = {
     iconAccessibilityLabelSuccess: myI18nTranslator('Success'),
   },
   DatePicker: {
+    accessibilityDismissButtonLabel: myI18nTranslator('Dismiss date picker'),
+    dismissButton: myI18nTranslator('Close'),
     openCalendar: myI18nTranslator('Open calendar'),
     previousMonth: myI18nTranslator('Navigate to previou month'),
     nextMonth: myI18nTranslator('Navigate to next month'),

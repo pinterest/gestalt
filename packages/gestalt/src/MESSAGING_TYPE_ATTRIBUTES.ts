@@ -1,6 +1,23 @@
-export default Object.freeze({
+import { ComponentProps } from 'react';
+import Box from './Box';
+import Icon from './Icon';
+
+const MESSAGING_ATTRIBUTES: {
+  [status: string]: {
+    icon?: ComponentProps<typeof Icon>['icon'];
+    iconColor?: ComponentProps<typeof Icon>['color'];
+    color?: string;
+    backgroundColor?: ComponentProps<typeof Box>['color'];
+  };
+} = Object.freeze({
   neutral: {
     backgroundColor: 'secondary',
+  },
+  default: {
+    icon: 'pinterest',
+    iconColor: 'default',
+    color: 'white',
+    backgroundColor: 'default',
   },
   success: {
     icon: 'check-circle',
@@ -33,3 +50,5 @@ export default Object.freeze({
     backgroundColor: 'recommendationWeak',
   },
 });
+
+export default MESSAGING_ATTRIBUTES;
