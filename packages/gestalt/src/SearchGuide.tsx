@@ -173,7 +173,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         )}
         {text.length > 0 && textComponent}
         {expandable ? (
-          <Icon accessibilityLabel="" color="dark" icon="arrow-down" size={12} />
+          <Icon
+            accessibilityLabel=""
+            color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+            icon="arrow-down"
+            size={12}
+          />
         ) : null}
       </Flex>
     </Box>
