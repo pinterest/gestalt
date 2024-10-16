@@ -1,3 +1,9 @@
+## 162.4.0 (Oct 16, 2024)
+
+### Minor
+
+- BannerCallout: VR Implementation Changes ([#3804](https://github.com/pinterest/gestalt/pull/3804)) - [Preview link](https://deploy-preview-3804--gestalt.netlify.app?devexample=true)
+
 ## 162.3.0 (Oct 16, 2024)
 
 ### Minor
