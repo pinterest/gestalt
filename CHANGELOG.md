@@ -1,3 +1,9 @@
+## 162.4.1 (Oct 16, 2024)
+
+### Patch
+
+- DateRange: add example for secondary date errors (web) ([#3806](https://github.com/pinterest/gestalt/pull/3806)) - [Preview link](https://deploy-preview-3806--gestalt.netlify.app?devexample=true)
+
 ## 162.4.0 (Oct 16, 2024)
 
 ### Minor
