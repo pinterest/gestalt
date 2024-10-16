@@ -1,3 +1,9 @@
+## 162.4.2 (Oct 16, 2024)
+
+### Patch
+
+- Internal: Bump next from 12.3.0 to 14.2.10 #3803 ([#3807](https://github.com/pinterest/gestalt/pull/3807)) - [Preview link](https://deploy-preview-3807--gestalt.netlify.app?devexample=true)
+
 ## 162.4.1 (Oct 16, 2024)
 
 ### Patch
