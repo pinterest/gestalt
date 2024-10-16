@@ -1,3 +1,9 @@
+## 162.5.0 (Oct 16, 2024)
+
+### Minor
+
+- Tokens: Add XFN Component Tokens ([#3793](https://github.com/pinterest/gestalt/pull/3793)) - [Preview link](https://deploy-preview-3793--gestalt.netlify.app?devexample=true)
+
 ## 162.4.2 (Oct 16, 2024)
 
 ### Patch
