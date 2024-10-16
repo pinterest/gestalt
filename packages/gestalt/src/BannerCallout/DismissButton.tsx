@@ -15,7 +15,12 @@ export default function DismissButton({ dismissButton, size = 'lg' }: Props) {
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerCallout');
 
   return (
-    <div className={classnames(styles.dismissButton, size === 'lg' ? styles.lgRtlVRPos : styles.smRtlVRPos )}>
+    <div
+      className={classnames(
+        styles.dismissButton,
+        size === 'lg' ? styles.lgRtlVRPos : styles.smRtlVRPos,
+      )}
+    >
       <IconButton
         accessibilityLabel={dismissButton?.accessibilityLabel ?? accessibilityDismissButtonLabel}
         icon="cancel"
