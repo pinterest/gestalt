@@ -16,6 +16,7 @@ import localizationLabels from '../../examples/bannercallout/localizationLabels'
 import main from '../../examples/bannercallout/main';
 import placeAtTop from '../../examples/bannercallout/placeAtTop';
 import productMessages from '../../examples/bannercallout/productMessages';
+import variantDefault from '../../examples/bannercallout/variantDefault';
 import variantError from '../../examples/bannercallout/variantError';
 import variantInfo from '../../examples/bannercallout/variantInfo';
 import variantMessage from '../../examples/bannercallout/variantMessage';
@@ -146,7 +147,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={accessibilityExample}
                 layout="column"
                 name="BannerCallout labels"
-                // hideEditor
               />
             }
           />
@@ -160,6 +160,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       />
 
       <MainSection name="Variants">
+        <MainSection.Subsection title="Default">
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={variantDefault} layout="column" name="Variants - Default" />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           description="Info BannerCallouts communicate helpful messages to users about the product. In most cases, they should provide an action for users to take."
           title="Info"
@@ -167,12 +176,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantInfo}
-                layout="column"
-                name="Variants - Info"
-                // hideEditor
-              />
+              <SandpackExample code={variantInfo} layout="column" name="Variants - Info" />
             }
           />
         </MainSection.Subsection>
@@ -188,7 +192,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={variantRecommendation}
                 layout="column"
                 name="Variants - Recommendation"
-                // hideEditor
               />
             }
           />
@@ -200,12 +203,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={variantSuccess}
-                layout="column"
-                name="Variants - Success"
-                // hideEditor
-              />
+              <SandpackExample code={variantSuccess} layout="column" name="Variants - Success" />
             }
           />
         </MainSection.Subsection>
@@ -221,7 +219,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={variantWarning}
                 layout="column"
                 name="Variants - Warning"
-                // hideEditor
                 previewHeight={460}
               />
             }
@@ -239,7 +236,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={variantError}
                 layout="column"
                 name="Variants - Error"
-                // hideEditor
                 previewHeight={380}
               />
             }
@@ -262,12 +258,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
-              <SandpackExample
-                code={actionsExample}
-                layout="column"
-                name="BannerCallout actions"
-                // hideEditor
-              />
+              <SandpackExample code={actionsExample} layout="column" name="BannerCallout actions" />
             }
           />
         </MainSection.Subsection>
@@ -289,7 +280,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={dismissibleExample}
                 layout="column"
                 name="Dismissable BannerCallout"
-                // hideEditor
               />
             }
           />

@@ -4,7 +4,7 @@ import { BannerCallout, Box, Flex } from 'gestalt';
 export default function ResponsiveExample() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
-      <Box paddingX={8} paddingY={8}>
+      <Box padding={8} width="100%">
         <BannerCallout
           dismissButton={{
             accessibilityLabel: 'Dismiss this banner',
