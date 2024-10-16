@@ -17,11 +17,16 @@ export default function Example() {
       width="100%"
     >
       <SearchGuide
-        accessibilityLabel="Alberto"
+        accessibilityLabel="Fatima"
         color="02"
-        text="Alberto"
+        text="Fatima"
         thumbnail={{
-          avatar: <Avatar name="Alberto" src="https://i.ibb.co/NsK2w5y/Alberto.jpg" />,
+          avatar: (
+            <Avatar
+              name="Fatima"
+              src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
+            />
+          ),
         }}
       />
       <SearchGuide
@@ -29,14 +34,19 @@ export default function Example() {
         accessibilityControls="popover"
         accessibilityExpanded={showEnio}
         accessibilityHaspopup
-        accessibilityLabel="Enio"
+        accessibilityLabel="Sora"
         color="03"
         expandable
         onClick={() => setShowEnio((showing) => !showing)}
         selected={showEnio}
-        text="Enio"
+        text="Sora"
         thumbnail={{
-          avatar: <Avatar name="Enio" src="https://i.ibb.co/r7hRdgc/1727060847006.jpg" />,
+          avatar: (
+            <Avatar
+              name="Sora"
+              src="https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg"
+            />
+          ),
         }}
       />
       {showEnio && (
@@ -60,14 +70,19 @@ export default function Example() {
         accessibilityControls="popover"
         accessibilityExpanded={showKeerthi}
         accessibilityHaspopup
-        accessibilityLabel="Keerthi"
+        accessibilityLabel="Ayesha"
         color="04"
         expandable
         onClick={() => setShowKeerthi((showing) => !showing)}
         selected={showKeerthi}
         text=""
         thumbnail={{
-          avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+          avatar: (
+            <Avatar
+              name="Ayesha"
+              src="https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg"
+            />
+          ),
         }}
       />
       {showKeerthi && (
