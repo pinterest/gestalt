@@ -145,7 +145,7 @@ export default function BannerSlim({
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
 
-  const status = {
+  const status = Object.freeze({
     'neutral': 'neutral',
     'success': 'success',
     'successBare': 'success',
@@ -157,7 +157,7 @@ export default function BannerSlim({
     'warningBare': 'warning',
     'error': 'error',
     'errorBare': 'error',
-  };
+  });
 
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerSlim');
   const {
