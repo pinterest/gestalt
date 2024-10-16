@@ -12,12 +12,22 @@ html:not([dir="rtl"]) .rtlPos {
   top: 0;
 }
 
-html[dir="rtl"] .rtlVRPos {
+html[dir="rtl"] .smRtlVRPos {
+  left: var(--sema-space-300);
+  top: var(--sema-space-500);
+}
+
+html:not([dir="rtl"]) .smRtlVRPos {
+  right: var(--sema-space-300);
+  top: var(--sema-space-500);
+}
+
+html[dir="rtl"] .lgRtlVRPos {
   left: var(--sema-space-400);
   top: var(--sema-space-400);
 }
 
-html:not([dir="rtl"]) .rtlVRPos {
+html:not([dir="rtl"]) .lgRtlVRPos {
   right: var(--sema-space-400);
   top: var(--sema-space-400);
 }

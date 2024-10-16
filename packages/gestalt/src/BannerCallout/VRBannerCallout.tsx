@@ -116,7 +116,7 @@ export default function BannerCallout({
             />
           )}
 
-          {dismissButton && <DismissButton dismissButton={dismissButton} />}
+          {dismissButton && <DismissButton dismissButton={dismissButton} size="sm" />}
         </Flex>
       </Box>
       {/*
