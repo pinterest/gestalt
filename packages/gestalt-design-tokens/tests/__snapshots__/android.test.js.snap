@@ -755,6 +755,16 @@ Object {
 
   </resources>
 ",
+  "dist/android/vr-theme/component/radiogroupbutton.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+
+<resources>
+  <dimen name=\\"comp_radiogroupbutton_motion_border_scale_easing\\">@dimen/base_motion_easing_bounce</dimen>
+  <dimen name=\\"comp_radiogroupbutton_motion_border_scale_duration\\">@dimen/base_motion_duration_150</dimen>
+  <dimen name=\\"comp_radiogroupbutton_motion_border_fade_easing\\">@dimen/base_motion_easing_exit</dimen>
+  <dimen name=\\"comp_radiogroupbutton_motion_border_fade_duration\\">@dimen/base_motion_duration_150</dimen>
+
+  </resources>
+",
   "dist/android/vr-theme/component/spinner.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>

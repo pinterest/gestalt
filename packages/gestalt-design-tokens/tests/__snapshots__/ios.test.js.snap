@@ -1295,6 +1295,19 @@ public enum GestaltTokensSpaceVR {
     public static let baseUnit = 4px
 }
 ",
+  "dist/ios-swift/vr-theme/components/GestaltTokensRadiogroupbutton.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensRadiogroupbutton {
+    public static let compMotionBorderFadeDuration = baseDuration150
+    public static let compMotionBorderFadeEasing = baseEasingExit
+    public static let compMotionBorderScaleDuration = baseDuration150
+    public static let compMotionBorderScaleEasing = baseEasingBounce
+}
+",
   "dist/ios-swift/vr-theme/components/GestaltTokensSpinner.swift": "
 
 
