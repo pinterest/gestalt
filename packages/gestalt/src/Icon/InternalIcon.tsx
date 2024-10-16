@@ -1,7 +1,8 @@
 import classnames from 'classnames';
 import styles from '../Icon.css';
+import compactIconsClassic from '../icons/compact/index';
 import icons from '../icons/index';
-import componentIcons from '../icons-vr-theme/components/index';
+import compactIconsVR from '../icons-vr-theme/compact/index';
 import vrIcons from '../icons-vr-theme/index';
 import useInExperiment from '../useInExperiment';
 
@@ -20,7 +21,7 @@ export type IconColor =
   | 'light'
   | 'dark';
 
-type IconName = keyof typeof icons | keyof typeof componentIcons;
+type IconName = keyof typeof icons | keyof typeof compactIconsVR | keyof typeof compactIconsClassic;
 type Props = {
   accessibilityLabel: string;
   color?: IconColor;
@@ -76,7 +77,6 @@ const flipOnRtlIconNames = [
  * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.ts-snapshots/Icon-list-dark-chromium-darwin.png)
  *
  */
-
 function InternalIcon({
   accessibilityLabel,
   color = 'subtle',
@@ -99,16 +99,24 @@ function InternalIcon({
   });
 
   const getIconPath = (iconToUse?: IconName) => {
-    let iconName = iconToUse;
+    const iconName = iconToUse;
 
-    if (icon && isInExperiment) {
-      iconName = icon as keyof typeof vrIcons;
-      return vrIcons[iconName];
+    if (!iconName) return undefined;
+
+    if (isInExperiment) {
+      if (iconName in vrIcons) {
+        return vrIcons[iconName as keyof typeof vrIcons];
+      }
+
+      if (iconName in compactIconsVR) {
+        return compactIconsVR[iconName as keyof typeof compactIconsVR];
+      }
     }
-    if (icon && icon in componentIcons) {
-      iconName = icon as keyof typeof componentIcons;
-      return componentIcons[iconName];
+
+    if (iconName in compactIconsClassic) {
+      return compactIconsClassic[iconName as keyof typeof compactIconsClassic];
     }
+
     return icons[iconName as keyof typeof icons];
   };
 
@@ -149,7 +157,7 @@ function InternalIcon({
   let viewBox = '0 0 24 24';
 
   // if it's a component icon use a 16x16 view box
-  if (iconToUse && iconToUse in componentIcons) {
+  if (iconToUse && iconToUse in compactIconsVR) {
     viewBox = '0 0 16 16';
   }
 

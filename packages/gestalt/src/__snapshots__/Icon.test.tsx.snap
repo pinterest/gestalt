@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Compact Icons Component supports 16x16 1`] = `
+<svg
+  aria-hidden={null}
+  aria-label="check-circle-icon"
+  className="subtle icon iconBlock"
+  height={16}
+  role="img"
+  viewBox="0 0 16 16"
+  width={16}
+>
+  <path
+    d="test-file-stub"
+  />
+</svg>
+`;
+
 exports[`Icon flipped if its in the flip on rtl list 1`] = `
 <svg
   aria-hidden={null}
@@ -60,22 +76,6 @@ exports[`Icon uses the dangerouslySetSvgPath prop when icon path is not specifie
 >
   <path
     d="M13.00,20.00"
-  />
-</svg>
-`;
-
-exports[`Internal Icons Component supports 16x16 and private icons 1`] = `
-<svg
-  aria-hidden={null}
-  aria-label="check-circle-icon"
-  className="subtle icon iconBlock"
-  height={16}
-  role="img"
-  viewBox="0 0 16 16"
-  width={16}
->
-  <path
-    d="test-file-stub"
   />
 </svg>
 `;

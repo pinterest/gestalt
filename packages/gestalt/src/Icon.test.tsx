@@ -1,6 +1,6 @@
 import { create } from 'react-test-renderer';
 import Icon from './Icon';
-import InternalIcon from './Icon/InternalIcon';
+import IconCompact from './IconCompact';
 
 test('Icon renders', () => {
   const tree = create(<Icon accessibilityLabel="Add" icon="add" />).toJSON();
@@ -24,9 +24,9 @@ test('Icon flipped if its in the flip on rtl list', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Internal Icons Component supports 16x16 and private icons', () => {
+test('Compact Icons Component supports 16x16', () => {
   const tree = create(
-    <InternalIcon accessibilityLabel="check-circle-icon" icon="badge-check-circle-fill" />,
+    <IconCompact accessibilityLabel="check-circle-icon" icon="compact-check-circle-fill" />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });

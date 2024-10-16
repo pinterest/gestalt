@@ -36,6 +36,7 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import IconButtonFloating from './IconButtonFloating';
 import IconButtonLink from './IconButtonLink';
+import IconCompact from './IconCompact';
 import Image from './Image';
 import Label from './Label';
 import Layer from './Layer';
@@ -129,6 +130,7 @@ export {
   IconButton,
   IconButtonFloating,
   IconButtonLink,
+  IconCompact,
   Image,
   Label,
   Layer,
