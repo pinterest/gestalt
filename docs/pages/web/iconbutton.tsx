@@ -1,4 +1,4 @@
-import disabledStateExample from 'docs/examples/iconbutton/diabled';
+import disabledStateExample from 'docs/examples/iconbutton/disabled';
 import defaultStateExample from 'docs/examples/iconbutton/enabled';
 import focusOnDarkBackground from 'docs/examples/iconbutton/focusOnDarkBackground';
 import selectedStateExample from 'docs/examples/iconbutton/selectedStateExample';
