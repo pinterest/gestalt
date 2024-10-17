@@ -1,5 +1,5 @@
 import InternalIcon from './Icon/InternalIcon';
-import icons from './icons/index';
+import compactIconsVR from './icons-vr-theme/compact/index';
 
 export type IconColor =
   | 'default'
@@ -38,7 +38,7 @@ type Props = {
    *
    * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
    */
-  icon?: keyof typeof icons;
+  icon?: keyof typeof compactIconsVR;
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    *
@@ -60,7 +60,7 @@ type Props = {
 };
 
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
-const IconNames: ReadonlyArray<keyof typeof icons> = Object.keys(icons);
+const IconNames: ReadonlyArray<keyof typeof compactIconsVR> = Object.keys(compactIconsVR);
 
 /**
  * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
@@ -72,7 +72,7 @@ const IconNames: ReadonlyArray<keyof typeof icons> = Object.keys(icons);
  *
  */
 
-function Icon({
+function IconCompact({
   accessibilityLabel,
   color = 'subtle',
   dangerouslySetSvgPath,
@@ -94,8 +94,8 @@ function Icon({
   );
 }
 
-Icon.icons = IconNames;
+IconCompact.icons = IconNames;
 
-Icon.displayName = 'Icon';
+IconCompact.displayName = 'IconCompact';
 
-export default Icon;
+export default IconCompact;

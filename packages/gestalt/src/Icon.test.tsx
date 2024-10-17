@@ -1,5 +1,6 @@
 import { create } from 'react-test-renderer';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 
 test('Icon renders', () => {
   const tree = create(<Icon accessibilityLabel="Add" icon="add" />).toJSON();
@@ -20,6 +21,13 @@ test('Icon uses the dangerouslySetSvgPath prop when icon path is not specified',
 
 test('Icon flipped if its in the flip on rtl list', () => {
   const tree = create(<Icon accessibilityLabel="send" icon="send" />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Compact Icons Component supports 16x16', () => {
+  const tree = create(
+    <IconCompact accessibilityLabel="check-circle-icon" icon="compact-check-circle-fill" />,
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
