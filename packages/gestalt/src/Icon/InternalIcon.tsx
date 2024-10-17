@@ -21,7 +21,7 @@ export type IconColor =
   | 'light'
   | 'dark';
 
-type IconName = keyof typeof icons | keyof typeof compactIconsVR | keyof typeof compactIconsClassic;
+type IconName = keyof typeof icons | keyof typeof compactIconsVR;
 type Props = {
   accessibilityLabel: string;
   color?: IconColor;
