@@ -13,23 +13,21 @@ import compactLock from './ic_vr_compact-lock_gestalt.svg';
 import compactWorkflowStatusProblem from './ic_vr_compact-workflow-status-problem_gestalt.svg';
 import compactWorkflowStatusWarning from './ic_vr_compact-workflow-status-warning_gestalt.svg';
 
-
-
 const icons = Object.freeze({
-    'compact-add': compactAdd,
-	'compact-arrow-up-right': compactArrowUpRight,
-	'compact-cancel': compactCancel,
-	'compact-check': compactCheck,
-	'compact-check-circle-fill': compactCheckCircleFill,
-	'compact-chevron-down': compactChevronDown,
-	'compact-chevron-left': compactChevronLeft,
-	'compact-chevron-right': compactChevronRight,
-	'compact-chevron-up': compactChevronUp,
-	'compact-dash': compactDash,
-	'compact-info-circle-fill': compactInfoCircleFill,
-	'compact-lock': compactLock,
-	'compact-workflow-status-problem': compactWorkflowStatusProblem,
-	'compact-workflow-status-warning': compactWorkflowStatusWarning,
+  'compact-add': compactAdd,
+  'compact-arrow-up-right': compactArrowUpRight,
+  'compact-cancel': compactCancel,
+  'compact-check': compactCheck,
+  'compact-check-circle-fill': compactCheckCircleFill,
+  'compact-chevron-down': compactChevronDown,
+  'compact-chevron-left': compactChevronLeft,
+  'compact-chevron-right': compactChevronRight,
+  'compact-chevron-up': compactChevronUp,
+  'compact-dash': compactDash,
+  'compact-info-circle-fill': compactInfoCircleFill,
+  'compact-lock': compactLock,
+  'compact-workflow-status-problem': compactWorkflowStatusProblem,
+  'compact-workflow-status-warning': compactWorkflowStatusWarning,
 });
 
 export default icons;
