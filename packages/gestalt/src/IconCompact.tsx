@@ -51,6 +51,12 @@ type Props = {
    * Properly positions Icon relative to an inline element, such as Text using the inline property.
    */
   inline?: boolean;
+  /**
+   * Use a number for pixel sizes or a string for percentage based sizes.
+   *
+   * See the [size](https://gestalt.pinterest.systems/web/icon#Size) variant to learn more.
+   */
+  size?: number | string;
 };
 
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
@@ -73,6 +79,7 @@ function IconCompact({
   dataTestId,
   icon,
   inline = false,
+  size = 16,
 }: Props) {
   return (
     <InternalIcon
@@ -82,7 +89,7 @@ function IconCompact({
       dataTestId={dataTestId}
       icon={icon}
       inline={inline}
-      size={16}
+      size={size}
     />
   );
 }

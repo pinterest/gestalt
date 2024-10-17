@@ -1,4 +1,5 @@
 import classnames from 'classnames';
+import { flipOnRtlIconNames, swapOnRtlIconNames } from './RTLIconList';
 import styles from '../Icon.css';
 import compactIconsClassic from '../icons/compact/index';
 import icons from '../icons/index';
@@ -36,37 +37,6 @@ type Props = {
 
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
 const IconNames: ReadonlyArray<IconName> = Object.keys(icons);
-const swapOnRtlIconNames: ReadonlyArray<IconName> = ['list-numbered'];
-
-const flipOnRtlIconNames = [
-  'ads-stats',
-  'ads-overview',
-  'arrow-back',
-  'arrow-circle-forward',
-  'arrow-end',
-  'arrow-forward',
-  'arrow-start',
-  'arrow-up-right',
-  'compose',
-  'chevron-small-left',
-  'chevron-small-right',
-  'chevron-left-circle',
-  'chevron-right-circle',
-  'directional-arrow-left',
-  'directional-arrow-right',
-  'flipVertical',
-  'hand-pointing',
-  'link',
-  'mute',
-  'reorder-images',
-  'send',
-  'sound',
-  'speech',
-  'speech-ellipsis',
-  'switch-account',
-  'text-size',
-  'visit',
-];
 
 /**
  * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
@@ -87,7 +57,6 @@ function InternalIcon({
   size = 16,
 }: Props) {
   const cs = classnames(
-    // @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
     flipOnRtlIconNames.includes(icon) && styles.rtlSupport,
     styles[color],
     styles.icon,
