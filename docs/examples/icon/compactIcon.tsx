@@ -14,7 +14,7 @@ export default function Example() {
             setSelectedValue(value);
           }}
         >
-          {compactIconsList.map((value) => (
+          {compactIconsList.map((value: string) => (
             <SelectList.Option key={value} label={value} value={value} />
           ))}
         </SelectList>
