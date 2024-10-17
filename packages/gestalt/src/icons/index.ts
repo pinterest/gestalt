@@ -9,7 +9,6 @@ import addCircle from './add-circle.svg';
 import addLayout from './add-layout.svg';
 import addPin from './add-pin.svg';
 import addSection from './add-section.svg';
-import addSmall from './add-small.svg';
 import adsOverview from './ads-overview.svg';
 import adsStats from './ads-stats.svg';
 import alert from './alert.svg';
@@ -42,14 +41,11 @@ import arrowDown from './arrow-down.svg';
 import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowLeftCurved from './arrow-left-curved.svg';
-import arrowNested from './arrow-nested.svg';
-import arrowSmallUpRight from './arrow-small-up-right.svg';
 import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpLeft from './arrow-up-left.svg';
 import arrowUpRight from './arrow-up-right.svg';
 import arrowsVertical from './arrows-vertical.svg';
-import aspectRatio from './aspect-ratio.svg';
 import audioBars from './audio-bars.svg';
 import audioMix from './audio-mix.svg';
 import audioPlaying from './audio-playing.svg';
@@ -70,7 +66,6 @@ import camera from './camera.svg';
 import cameraFlip from './camera-flip.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
-import cancelSmall from './cancel-small.svg';
 import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
@@ -78,14 +73,9 @@ import cardStack from './card-stack.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
-import checkSmall from './check-small.svg';
 import chevronDownCircle from './chevron-down-circle.svg';
 import chevronLeftCircle from './chevron-left-circle.svg';
 import chevronRightCircle from './chevron-right-circle.svg';
-import chevronSmallDown from './chevron-small-down.svg';
-import chevronSmallLeft from './chevron-small-left.svg';
-import chevronSmallRight from './chevron-small-right.svg';
-import chevronSmallUp from './chevron-small-up.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
 import circle from './circle.svg';
 import circleEllipsis from './circle-ellipsis.svg';
@@ -106,16 +96,13 @@ import colorPalette from './color-palette.svg';
 import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
-import compass from './compass.svg';
 import compose from './compose.svg';
-import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import cutout from './cutout.svg';
 import dash from './dash.svg';
-import dashSmall from './dash-small.svg';
 import dataSource from './data-source.svg';
 import design from './design.svg';
 import desktop from './desktop.svg';
@@ -159,9 +146,11 @@ import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
 import flipVertical from './flip-vertical.svg';
 import folder from './folder.svg';
+import folderFill from './folder-fill.svg';
 import forward from './forward.svg';
 import gauge from './gauge.svg';
 import ghost from './ghost.svg';
+import ghostFill from './ghost-fill.svg';
 import gif from './gif.svg';
 import gifVisual from './gif-visual.svg';
 import gift from './gift.svg';
@@ -252,7 +241,6 @@ import pinHide from './pin-hide.svg';
 import pincode from './pincode.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
-import protect from './protect.svg';
 import questionMark from './question-mark.svg';
 import recordLimit from './record-limit.svg';
 import recordLimit5 from './record-limit-5.svg';
@@ -389,7 +377,6 @@ const icons = Object.freeze({
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
-  'add-small': addSmall,
   'ads-overview': adsOverview,
   'ads-stats': adsStats,
   'alert': alert,
@@ -422,14 +409,11 @@ const icons = Object.freeze({
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
-  'arrow-nested': arrowNested,
-  'arrow-small-up-right': arrowSmallUpRight,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
   'arrow-up-right': arrowUpRight,
   'arrows-vertical': arrowsVertical,
-  'aspect-ratio': aspectRatio,
   'audio-bars': audioBars,
   'audio-mix': audioMix,
   'audio-playing': audioPlaying,
@@ -450,7 +434,6 @@ const icons = Object.freeze({
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
   'cancel': cancel,
-  'cancel-small': cancelSmall,
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
@@ -458,14 +441,9 @@ const icons = Object.freeze({
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
-  'check-small': checkSmall,
   'chevron-down-circle': chevronDownCircle,
   'chevron-left-circle': chevronLeftCircle,
   'chevron-right-circle': chevronRightCircle,
-  'chevron-small-down': chevronSmallDown,
-  'chevron-small-left': chevronSmallLeft,
-  'chevron-small-right': chevronSmallRight,
-  'chevron-small-up': chevronSmallUp,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
@@ -486,16 +464,13 @@ const icons = Object.freeze({
   'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
-  'compass': compass,
   'compose': compose,
-  'contrast': contrast,
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
   'crop': crop,
   'cutout': cutout,
   'dash': dash,
-  'dash-small': dashSmall,
   'data-source': dataSource,
   'design': design,
   'desktop': desktop,
@@ -539,9 +514,11 @@ const icons = Object.freeze({
   'flip-horizontal': flipHorizontal,
   'flip-vertical': flipVertical,
   'folder': folder,
+  'folder-fill': folderFill,
   'forward': forward,
   'gauge': gauge,
   'ghost': ghost,
+  'ghost-fill': ghostFill,
   'gif': gif,
   'gif-visual': gifVisual,
   'gift': gift,
@@ -632,7 +609,6 @@ const icons = Object.freeze({
   'pincode': pincode,
   'pinterest': pinterest,
   'play': play,
-  'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,

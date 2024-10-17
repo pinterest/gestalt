@@ -9,7 +9,6 @@ import addCircle from './ic_add-circle_gestalt.svg';
 import addLayout from './ic_add-layout_gestalt.svg';
 import addPin from './ic_add-pin_gestalt.svg';
 import addSection from './ic_add-section_gestalt.svg';
-import addSmall from './ic_add-small_gestalt.svg';
 import adsOverview from './ic_ads-overview_gestalt.svg';
 import adsStats from './ic_ads-stats_gestalt.svg';
 import alert from './ic_alert_gestalt.svg';
@@ -42,14 +41,11 @@ import arrowDown from './ic_arrow-down_gestalt.svg';
 import arrowEnd from './ic_arrow-end_gestalt.svg';
 import arrowForward from './ic_arrow-forward_gestalt.svg';
 import arrowLeftCurved from './ic_arrow-left-curved_gestalt.svg';
-import arrowNested from './ic_arrow-nested_gestalt.svg';
-import arrowSmallUpRight from './ic_arrow-small-up-right_gestalt.svg';
 import arrowStart from './ic_arrow-start_gestalt.svg';
 import arrowUp from './ic_arrow-up_gestalt.svg';
 import arrowUpLeft from './ic_arrow-up-left_gestalt.svg';
 import arrowUpRight from './ic_arrow-up-right_gestalt.svg';
 import arrowsVertical from './ic_arrows-vertical_gestalt.svg';
-import aspectRatio from './ic_aspect-ratio_gestalt.svg';
 import audioBars from './ic_audio-bars_gestalt.svg';
 import audioMix from './ic_audio-mix_gestalt.svg';
 import audioPlaying from './ic_audio-playing_gestalt.svg';
@@ -70,7 +66,6 @@ import camera from './ic_camera_gestalt.svg';
 import cameraFlip from './ic_camera-flip_gestalt.svg';
 import cameraRoll from './ic_camera-roll_gestalt.svg';
 import cancel from './ic_cancel_gestalt.svg';
-import cancelSmall from './ic_cancel-small_gestalt.svg';
 import canonicalPin from './ic_canonical-pin_gestalt.svg';
 import captions from './ic_captions_gestalt.svg';
 import captionsOutline from './ic_captions-outline_gestalt.svg';
@@ -78,14 +73,9 @@ import cardStack from './ic_card-stack_gestalt.svg';
 import check from './ic_check_gestalt.svg';
 import checkCircle from './ic_check-circle_gestalt.svg';
 import checkCircleFill from './ic_check-circle-fill_gestalt.svg';
-import checkSmall from './ic_check-small_gestalt.svg';
 import chevronDownCircle from './ic_chevron-down-circle_gestalt.svg';
 import chevronLeftCircle from './ic_chevron-left-circle_gestalt.svg';
 import chevronRightCircle from './ic_chevron-right-circle_gestalt.svg';
-import chevronSmallDown from './ic_chevron-small-down_gestalt.svg';
-import chevronSmallLeft from './ic_chevron-small-left_gestalt.svg';
-import chevronSmallRight from './ic_chevron-small-right_gestalt.svg';
-import chevronSmallUp from './ic_chevron-small-up_gestalt.svg';
 import chevronUpCircle from './ic_chevron-up-circle_gestalt.svg';
 import circle from './ic_circle_gestalt.svg';
 import circleEllipsis from './ic_circle-ellipsis_gestalt.svg';
@@ -106,16 +96,13 @@ import colorPalette from './ic_color-palette_gestalt.svg';
 import colorPicker from './ic_color-picker_gestalt.svg';
 import colorSolid from './ic_color-solid_gestalt.svg';
 import colorSplit from './ic_color-split_gestalt.svg';
-import compass from './ic_compass_gestalt.svg';
 import compose from './ic_compose_gestalt.svg';
-import contrast from './ic_contrast_gestalt.svg';
 import conversionTag from './ic_conversion-tag_gestalt.svg';
 import copyToClipboard from './ic_copy-to-clipboard_gestalt.svg';
 import creditCard from './ic_credit-card_gestalt.svg';
 import crop from './ic_crop_gestalt.svg';
 import cutout from './ic_cutout_gestalt.svg';
 import dash from './ic_dash_gestalt.svg';
-import dashSmall from './ic_dash-small_gestalt.svg';
 import dataSource from './ic_data-source_gestalt.svg';
 import design from './ic_design_gestalt.svg';
 import desktop from './ic_desktop_gestalt.svg';
@@ -159,9 +146,11 @@ import flashlight from './ic_flashlight_gestalt.svg';
 import flipHorizontal from './ic_flip-horizontal_gestalt.svg';
 import flipVertical from './ic_flip-vertical_gestalt.svg';
 import folder from './ic_folder_gestalt.svg';
+import folderFill from './ic_folder-fill_gestalt.svg';
 import forward from './ic_forward_gestalt.svg';
 import gauge from './ic_gauge_gestalt.svg';
 import ghost from './ic_ghost_gestalt.svg';
+import ghostFill from './ic_ghost-fill_gestalt.svg';
 import gif from './ic_gif_gestalt.svg';
 import gifVisual from './ic_gif-visual_gestalt.svg';
 import gift from './ic_gift_gestalt.svg';
@@ -252,7 +241,6 @@ import pinHide from './ic_pin-hide_gestalt.svg';
 import pincode from './ic_pincode_gestalt.svg';
 import pinterest from './ic_pinterest_gestalt.svg';
 import play from './ic_play_gestalt.svg';
-import protect from './ic_protect_gestalt.svg';
 import questionMark from './ic_question-mark_gestalt.svg';
 import recordLimit from './ic_record-limit_gestalt.svg';
 import recordLimit5 from './ic_record-limit-5_gestalt.svg';
@@ -389,7 +377,6 @@ const icons = Object.freeze({
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
-  'add-small': addSmall,
   'ads-overview': adsOverview,
   'ads-stats': adsStats,
   'alert': alert,
@@ -422,14 +409,11 @@ const icons = Object.freeze({
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
-  'arrow-nested': arrowNested,
-  'arrow-small-up-right': arrowSmallUpRight,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
   'arrow-up-right': arrowUpRight,
   'arrows-vertical': arrowsVertical,
-  'aspect-ratio': aspectRatio,
   'audio-bars': audioBars,
   'audio-mix': audioMix,
   'audio-playing': audioPlaying,
@@ -450,7 +434,6 @@ const icons = Object.freeze({
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
   'cancel': cancel,
-  'cancel-small': cancelSmall,
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
@@ -458,14 +441,9 @@ const icons = Object.freeze({
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
-  'check-small': checkSmall,
   'chevron-down-circle': chevronDownCircle,
   'chevron-left-circle': chevronLeftCircle,
   'chevron-right-circle': chevronRightCircle,
-  'chevron-small-down': chevronSmallDown,
-  'chevron-small-left': chevronSmallLeft,
-  'chevron-small-right': chevronSmallRight,
-  'chevron-small-up': chevronSmallUp,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
@@ -486,16 +464,13 @@ const icons = Object.freeze({
   'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
-  'compass': compass,
   'compose': compose,
-  'contrast': contrast,
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
   'crop': crop,
   'cutout': cutout,
   'dash': dash,
-  'dash-small': dashSmall,
   'data-source': dataSource,
   'design': design,
   'desktop': desktop,
@@ -539,9 +514,11 @@ const icons = Object.freeze({
   'flip-horizontal': flipHorizontal,
   'flip-vertical': flipVertical,
   'folder': folder,
+  'folder-fill': folderFill,
   'forward': forward,
   'gauge': gauge,
   'ghost': ghost,
+  'ghost-fill': ghostFill,
   'gif': gif,
   'gif-visual': gifVisual,
   'gift': gift,
@@ -632,7 +609,6 @@ const icons = Object.freeze({
   'pincode': pincode,
   'pinterest': pinterest,
   'play': play,
-  'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
