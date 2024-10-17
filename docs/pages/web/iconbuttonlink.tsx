@@ -11,10 +11,10 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import active from '../../examples/iconbuttonlink/active';
+import disabled from '../../examples/iconbuttonlink/disabled';
+import enabled from '../../examples/iconbuttonlink/enabled';
 import localizationLabels from '../../examples/iconbuttonlink/localizationLabels';
 import main from '../../examples/iconbuttonlink/main';
-import enabled from '../../examples/iconbuttonlink/enabled';
-import disabled from '../../examples/iconbuttonlink/disabled';
 
 export default function DocsPage({ generatedDocGen }: DocType) {
   return (
