@@ -1,3 +1,6 @@
+import classnames from 'classnames';
+import styles from '../SelectList.css';
+
 type Props = {
   /**
    * Used to disable the option.
@@ -18,7 +21,7 @@ type Props = {
  */
 export default function SelectListOption({ disabled, label, value }: Props) {
   return (
-    <option disabled={disabled} value={value}>
+    <option className={classnames(styles.option)} disabled={disabled} value={value}>
       {label}
     </option>
   );

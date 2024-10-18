@@ -133,10 +133,10 @@ function SelectList({
     formElement.base,
     size === 'md' ? layout.medium : layout.large,
     {
+      [styles.enabled]: !disabled,
       [formElement.md]: size === 'md',
       [formElement.lg]: size === 'lg',
       [formElement.normal]: !errorMessage,
-      [formElement.enabledTransparent]: !disabled,
       [formElement.disabled]: disabled,
       [formElement.errored]: !disabled && !!errorMessage,
     },
@@ -223,7 +223,7 @@ function SelectList({
           value={showPlaceholder ? placeholder : value}
         >
           {showPlaceholder && (
-            <option disabled hidden value={placeholder}>
+            <option className={classnames(styles.option)} disabled hidden value={placeholder}>
               {placeholder}
             </option>
           )}
