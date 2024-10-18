@@ -35,7 +35,7 @@ type Props = {
   /**
    * Callback triggered when the user clicks the Cancel button to not persist the selected dates. It should be used to close DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
-  onCancel: () => void;
+  onCancel?: () => void;
   /**
    * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
@@ -92,7 +92,7 @@ type Props = {
   /**
    * Callback triggered when the user clicks the Apply button to persist the selected dates. It should be used to persist the dates selected and close the DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
-  onSubmit: () => void;
+  onSubmit?: () => void;
   /**
    * An optional RadioGroup to provide preestablished date range options. See the [with RadioGroup variant](https://gestalt.pinterest.systems/web/daterange#With-RadioGroup) to learn more.
    */
@@ -364,25 +364,27 @@ function DateRange({
                 }
               />
             </Box>
-            <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
-              <Box marginBottom={4} marginEnd={4}>
-                <ButtonGroup>
-                  <Button color="gray" onClick={() => onCancel()} text={cancelText} />
+            {onSubmit && onCancel ? (
+              <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
+                <Box marginBottom={4} marginEnd={4}>
+                  <ButtonGroup>
+                    <Button color="gray" onClick={() => onCancel()} text={cancelText} />
 
-                  <Button
-                    color="red"
-                    disabled={
-                      !!dateErrorMessage?.startDate ||
-                      !!dateErrorMessage?.endDate ||
-                      !dateValue.startDate ||
-                      !dateValue.endDate
-                    }
-                    onClick={() => onSubmit()}
-                    text={applyText}
-                  />
-                </ButtonGroup>
-              </Box>
-            </Flex.Item>
+                    <Button
+                      color="red"
+                      disabled={
+                        !!dateErrorMessage?.startDate ||
+                        !!dateErrorMessage?.endDate ||
+                        !dateValue.startDate ||
+                        !dateValue.endDate
+                      }
+                      onClick={() => onSubmit()}
+                      text={applyText}
+                    />
+                  </ButtonGroup>
+                </Box>
+              </Flex.Item>
+            ) : null}
           </Flex>
         </Box>
       </Flex>
