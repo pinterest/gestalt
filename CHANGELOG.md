@@ -1,3 +1,9 @@
+## 162.5.1 (Oct 18, 2024)
+
+### Patch
+
+- ButtonToggle: Fix VR scale animation ([#3810](https://github.com/pinterest/gestalt/pull/3810)) - [Preview link](https://deploy-preview-3810--gestalt.netlify.app?devexample=true)
+
 ## 162.5.0 (Oct 16, 2024)
 
 ### Minor
