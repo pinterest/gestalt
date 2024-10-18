@@ -1,3 +1,9 @@
+## 162.6.0 (Oct 18, 2024)
+
+### Minor
+
+- IconButtonLink: support active state ([#3809](https://github.com/pinterest/gestalt/pull/3809)) - [Preview link](https://deploy-preview-3809--gestalt.netlify.app?devexample=true)
+
 ## 162.5.1 (Oct 18, 2024)
 
 ### Patch
