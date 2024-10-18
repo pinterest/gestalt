@@ -1,5 +1,5 @@
-import defaultStateExample from 'docs/examples/iconbutton/defaultStateExample';
-import disabledStateExample from 'docs/examples/iconbutton/disabledStateExample';
+import disabledStateExample from 'docs/examples/iconbutton/disabled';
+import defaultStateExample from 'docs/examples/iconbutton/enabled';
 import focusOnDarkBackground from 'docs/examples/iconbutton/focusOnDarkBackground';
 import selectedStateExample from 'docs/examples/iconbutton/selectedStateExample';
 import { IconButton, Pog } from 'gestalt';
@@ -158,6 +158,15 @@ If IconButton is disabled, it's also unreachable from keyboard navigation.`}
             sandpackExample={
               <SandpackExample code={keyboard} name="Keyboard interaction example" />
             }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`IconButton has a \`selected\` state to visually indicate that the element is selected, open, and/or active. If the selected state  controls the display of a Popover-based component (open/closed), use \`accessibilityExpanded\` to inform screen reader users. See the [Accessibility](#Keyboard-interaction) guidelines to learn more.`}
+          title="Selected state"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={selectedState} name="Selected state example" />}
           />
         </MainSection.Subsection>
       </AccessibilitySection>
@@ -328,15 +337,6 @@ Follow these guidelines for \`bgColor\`
             cardSize="lg"
             sandpackExample={<SandpackExample code={customIcon} name="Custom icon example" />}
             title="Custom SVG icon"
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`IconButton has a \`selected\` state to visually indicate that the element is selected, open, and/or active. If the selected state  controls the display of a Popover-based component (open/closed), use \`accessibilityExpanded\` to inform screen reader users. See the [Accessibility](#Keyboard-interaction) guidelines to learn more.`}
-          title="Selected state"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={<SandpackExample code={selectedState} name="Selected state example" />}
           />
         </MainSection.Subsection>
       </MainSection>

@@ -16,6 +16,10 @@ type Props = {
    */
   accessibilityLabel: string;
   /**
+   * When set to 'page' or 'section', it displays the item in "active" state. See the [active state](https://gestalt.pinterest.systems/web/iconbuttonlink#Active-state) guidelines to learn more.
+   */
+  active?: 'page' | 'section';
+  /**
    * Primary colors to apply to the IconButtonLink background.
    */
   bgColor?: 'transparent' | 'transparentDarkGray' | 'gray' | 'lightGray' | 'white' | 'red';
@@ -101,6 +105,7 @@ type Props = {
 
 const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function IconButtonLink(
   {
+    active,
     href,
     rel,
     target,
@@ -148,6 +153,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   const buttonComponent = (
     <InternalLink
       ref={innerRef}
+      accessibilityCurrent={active}
       accessibilityLabel={getAriaLabel({
         target,
         accessibilityLabel,
@@ -183,6 +189,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         icon={icon}
         iconColor={iconColor}
         padding={padding}
+        selected={active && ['page', 'section'].includes(active)}
         size={size}
       />
       <NewTabAccessibilityLabel target={target} />

@@ -107,7 +107,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
     return (
       <li ref={ref} className={classnames(styles.liItem)}>
         <TapAreaLink
-          accessibilityCurrent={active === 'page' ? active : undefined}
+          accessibilityCurrent={active}
           href={href}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
