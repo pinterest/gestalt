@@ -308,30 +308,26 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     );
   }
 
-  const childrenDivClasses = classnames(
-    sharedTypeClasses,
-    touchableStyles.tapTransition,
-    sizeStyles,
-    styles.childrenDiv,
-    {
-      [styles.compact]: text.length === 0,
-      [styles.disabled]: disabled && (color !== 'red' || selected),
-      [styles.disabledRed]: disabled && color === 'red' && !selected,
-      [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
-      [styles.enabled]: !disabled,
-      [borderStyles.noBorder]: color === 'red' && !selected,
-      [styles.selected]: !disabled && selected,
-      [styles.selectedDisabled]: disabled && selected,
-      [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
-      [styles.thumbnailDisabled]: graphicSrc && disabled,
-      [styles.thumbnailLg]: size === 'lg' && graphicSrc,
-      [styles.thumbnailMd]: size === 'md' && graphicSrc,
-      [styles.thumbnailSm]: size === 'sm' && graphicSrc,
-      [styles[color]]: !disabled && !selected,
-      [styles.interactiveBorder]:
-        !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
-    },
-  );
+  const childrenDivClasses = classnames(sharedTypeClasses, sizeStyles, styles.childrenDiv, {
+    [buttonToggleAnimation.classes]: isInVRExperiment,
+    [touchableStyles.tapTransition]: !isInVRExperiment,
+    [styles.compact]: text.length === 0,
+    [styles.disabled]: disabled && (color !== 'red' || selected),
+    [styles.disabledRed]: disabled && color === 'red' && !selected,
+    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
+    [styles.enabled]: !disabled,
+    [borderStyles.noBorder]: color === 'red' && !selected,
+    [styles.selected]: !disabled && selected,
+    [styles.selectedDisabled]: disabled && selected,
+    [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
+    [styles.thumbnailDisabled]: graphicSrc && disabled,
+    [styles.thumbnailLg]: size === 'lg' && graphicSrc,
+    [styles.thumbnailMd]: size === 'md' && graphicSrc,
+    [styles.thumbnailSm]: size === 'sm' && graphicSrc,
+    [styles[color]]: !disabled && !selected,
+    [styles.interactiveBorder]:
+      !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
+  });
 
   const textColor =
     (disabled && 'disabled') ||
