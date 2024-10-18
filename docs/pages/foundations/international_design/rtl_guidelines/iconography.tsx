@@ -19,8 +19,6 @@ export default function FormsLayoutOverview() {
     'arrow-left-curved',
     'chevron-down-circle',
     'chevron-left-circle',
-    'chevron-small-left',
-    'chevron-small-right',
     'directional-arrow-left',
     'directional-arrow-right',
     'list-numbered',

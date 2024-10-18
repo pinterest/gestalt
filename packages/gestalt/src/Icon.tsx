@@ -76,8 +76,6 @@ const flipOnRtlIconNames: ReadonlyArray<keyof typeof icons> = [
   'arrow-start',
   'arrow-up-right',
   'compose',
-  'chevron-small-left',
-  'chevron-small-right',
   'chevron-left-circle',
   'chevron-right-circle',
   'directional-arrow-left',
