@@ -152,7 +152,9 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage ? 'true' : 'false'}
           className={classnames(styles.input, typographyStyle.truncate, {
-            [styles.enabledText]: !disabled,
+            [styles.placeholderText]: !disabled && placeholder && !value,
+            [styles.enabledText]:
+              (!disabled && placeholder && value) || (!disabled && !placeholder),
             [styles.enabledBorder]: !disabled && !hasErrorMessage,
             [styles.errorBorder]: !disabled && hasErrorMessage,
             [styles.disabledText]: disabled,

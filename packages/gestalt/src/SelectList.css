@@ -8,6 +8,18 @@
   padding: 0 35px 0 16px; /* right padding prevents it from running into arrow */
 }
 
+.placeholder {
+  color: var(--color-text-formfield-placeholder);
+}
+
+.selected {
+  color: var(--color-text-formfield-default);
+}
+
+.enabled {
+  background-color: var(--color-transparent);
+}
+
 .select::-ms-expand {
   display: none;
 }
