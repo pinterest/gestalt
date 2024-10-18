@@ -7,7 +7,7 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButtonLink
-        accessibilityLabel=""
+        accessibilityLabel="Visit the Gestalt documentation"
         disabled
         href="https://gestalt.pinterest.systems/web/iconbuttonlink#Active-item"
         icon="visit"
@@ -18,7 +18,7 @@ export default function Example() {
         target="blank"
       />
       <IconButtonLink
-        accessibilityLabel=""
+        accessibilityLabel="Visit the Gestalt documentation"
         active={reactRouterPath === '/iconbuttonlink' ? 'page' : undefined}
         disabled
         href="https://gestalt.pinterest.systems/web/iconbuttonlink#Active-item"

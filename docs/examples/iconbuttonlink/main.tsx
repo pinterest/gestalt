@@ -4,8 +4,8 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <IconButtonLink
-        accessibilityLabel=""
-        href="#"
+        accessibilityLabel="Visit the Gestalt documentation"
+        href="https://gestalt.pinterest.systems"
         icon="visit"
         onClick={({ event, dangerouslyDisableOnNavigation }) => {
           event.preventDefault();
