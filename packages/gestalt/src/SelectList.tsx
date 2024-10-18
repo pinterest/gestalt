@@ -133,8 +133,8 @@ function SelectList({
     formElement.base,
     size === 'md' ? layout.medium : layout.large,
     {
-      [styles.placeholder]: !disabled && !value,
-      [styles.selected]: !disabled && !!value,
+      [styles.placeholder]: !disabled && placeholder && !value,
+      [styles.selected]: (!disabled && placeholder && value) || (!disabled && !placeholder),
       [styles.enabled]: !disabled,
       [formElement.md]: size === 'md',
       [formElement.lg]: size === 'lg',
