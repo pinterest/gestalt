@@ -1,3 +1,9 @@
+## 162.7.0 (Oct 21, 2024)
+
+### Minor
+
+- Checkbox: VR motion ([#3814](https://github.com/pinterest/gestalt/pull/3814)) - [Preview link](https://deploy-preview-3814--gestalt.netlify.app?devexample=true)
+
 ## 162.6.1 (Oct 21, 2024)
 
 ### Patch
