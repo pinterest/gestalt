@@ -1,3 +1,9 @@
+## 162.7.1 (Oct 21, 2024)
+
+### Patch
+
+- Internal: Revert "Internal: Bump next from 12.3.0 to 14.2.10 #3803 ([#3807](https://github.com/pinterest/gestalt/pull/3807)) - [Preview link](https://deploy-preview-3807--gestalt.netlify.app?devexample=true)" ([#3815](https://github.com/pinterest/gestalt/pull/3815)) - [Preview link](https://deploy-preview-3815--gestalt.netlify.app?devexample=true)
+
 ## 162.7.0 (Oct 21, 2024)
 
 ### Minor
