@@ -3,7 +3,7 @@ import { Flex, IconCompact, SelectList } from 'gestalt';
 
 export default function Example() {
   const compactIconsList = IconCompact.icons;
-  const [selectedValue, setSelectedValue] = useState(compactIconsList[0]);
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(compactIconsList[0]);
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
@@ -19,7 +19,11 @@ export default function Example() {
           ))}
         </SelectList>
 
-        <IconCompact accessibilityLabel="Add a new item" color="default" icon={selectedValue} />
+        <IconCompact
+          accessibilityLabel="Add a new item"
+          color="default"
+          icon={selectedValue as typeof compactIconsList[0]}
+        />
       </Flex>
     </Flex>
   );
