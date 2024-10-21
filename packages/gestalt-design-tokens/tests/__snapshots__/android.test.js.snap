@@ -755,6 +755,18 @@ Object {
 
   </resources>
 ",
+  "dist/android/vr-theme/component/checkbox.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+
+<resources>
+  <dimen name=\\"comp_checkbox_motion_background_colorchange_easing\\">@dimen/base_motion_easing_linear</dimen>
+  <dimen name=\\"comp_checkbox_motion_background_colorchange_duration\\">@dimen/base_motion_duration_150</dimen>
+  <dimen name=\\"comp_checkbox_icon_motion_collapse_in_easing\\">@dimen/base_motion_easing_linear</dimen>
+  <dimen name=\\"comp_checkbox_icon_motion_collapse_in_duration\\">@dimen/base_motion_duration_150</dimen>
+  <dimen name=\\"comp_checkbox_icon_motion_collapse_out_easing\\">@dimen/base_motion_easing_exit</dimen>
+  <dimen name=\\"comp_checkbox_icon_motion_collapse_out_duration\\">@dimen/base_motion_duration_150</dimen>
+
+  </resources>
+",
   "dist/android/vr-theme/component/radiogroupbutton.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
