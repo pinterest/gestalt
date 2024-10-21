@@ -1304,8 +1304,8 @@ import SwiftUI
 public enum GestaltTokensCheckbox {
     public static let compIconMotionCollapseOutDuration = baseDuration150
     public static let compIconMotionCollapseOutEasing = baseEasingExit
-    public static let compIconMotionCollapseInDuration = baseDuration150
-    public static let compIconMotionCollapseInEasing = baseEasingLinear
+    public static let compIconMotionCollapseInDuration = baseDuration200
+    public static let compIconMotionCollapseInEasing = baseEasingExpressive
     public static let compMotionBackgroundColorchangeDuration = baseDuration150
     public static let compMotionBackgroundColorchangeEasing = baseEasingLinear
 }

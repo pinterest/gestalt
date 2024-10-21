@@ -3064,8 +3064,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
@@ -4057,8 +4057,8 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
@@ -5047,8 +5047,8 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
@@ -6037,8 +6037,8 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
@@ -7027,8 +7027,8 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
@@ -8017,8 +8017,8 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
@@ -9007,8 +9007,8 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --sema-motion-opacity-easing-instant: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-easing: cubic-bezier(0, 0, 1, 1);
   --comp-checkbox-motion-background-colorchange-duration: 150ms;
-  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0, 0, 1, 1);
-  --comp-checkbox-icon-motion-collapse-in-duration: 150ms;
+  --comp-checkbox-icon-motion-collapse-in-easing: cubic-bezier(0.55, 0, 0, 1);
+  --comp-checkbox-icon-motion-collapse-in-duration: 200ms;
   --comp-checkbox-icon-motion-collapse-out-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-checkbox-icon-motion-collapse-out-duration: 150ms;
   --comp-radiogroupbutton-motion-border-scale-easing: cubic-bezier(0, 0.35, 0, 1.25);
