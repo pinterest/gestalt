@@ -1,3 +1,45 @@
+## 163.0.0 (Oct 21, 2024)
+
+### Major
+
+- Icon: Update Icons [GESTALT-8450] ([#3808](https://github.com/pinterest/gestalt/pull/3808)) - [Preview link](https://deploy-preview-3808--gestalt.netlify.app?devexample=true)
+
+## 162.7.1 (Oct 21, 2024)
+
+### Patch
+
+- Internal: Revert "Internal: Bump next from 12.3.0 to 14.2.10 #3803 ([#3807](https://github.com/pinterest/gestalt/pull/3807)) - [Preview link](https://deploy-preview-3807--gestalt.netlify.app?devexample=true)" ([#3815](https://github.com/pinterest/gestalt/pull/3815)) - [Preview link](https://deploy-preview-3815--gestalt.netlify.app?devexample=true)
+
+## 162.7.0 (Oct 21, 2024)
+
+### Minor
+
+- Checkbox: VR motion ([#3814](https://github.com/pinterest/gestalt/pull/3814)) - [Preview link](https://deploy-preview-3814--gestalt.netlify.app?devexample=true)
+
+## 162.6.1 (Oct 21, 2024)
+
+### Patch
+
+- SelectList: fix placeholder color ([#3813](https://github.com/pinterest/gestalt/pull/3813)) - [Preview link](https://deploy-preview-3813--gestalt.netlify.app?devexample=true)
+
+## 162.6.0 (Oct 18, 2024)
+
+### Minor
+
+- IconButtonLink: support active state ([#3809](https://github.com/pinterest/gestalt/pull/3809)) - [Preview link](https://deploy-preview-3809--gestalt.netlify.app?devexample=true)
+
+## 162.5.1 (Oct 18, 2024)
+
+### Patch
+
+- ButtonToggle: Fix VR scale animation ([#3810](https://github.com/pinterest/gestalt/pull/3810)) - [Preview link](https://deploy-preview-3810--gestalt.netlify.app?devexample=true)
+
+## 162.5.0 (Oct 16, 2024)
+
+### Minor
+
+- Tokens: Add XFN Component Tokens ([#3793](https://github.com/pinterest/gestalt/pull/3793)) - [Preview link](https://deploy-preview-3793--gestalt.netlify.app?devexample=true)
+
 ## 162.4.2 (Oct 16, 2024)
 
 ### Patch

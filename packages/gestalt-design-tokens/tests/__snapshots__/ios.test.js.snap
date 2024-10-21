@@ -1295,5 +1295,45 @@ public enum GestaltTokensSpaceVR {
     public static let baseUnit = 4px
 }
 ",
+  "dist/ios-swift/vr-theme/components/GestaltTokensCheckbox.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensCheckbox {
+    public static let compIconMotionCollapseOutDuration = baseDuration150
+    public static let compIconMotionCollapseOutEasing = baseEasingExit
+    public static let compIconMotionCollapseInDuration = baseDuration200
+    public static let compIconMotionCollapseInEasing = baseEasingExpressive
+    public static let compMotionBackgroundColorchangeDuration = baseDuration150
+    public static let compMotionBackgroundColorchangeEasing = baseEasingLinear
+}
+",
+  "dist/ios-swift/vr-theme/components/GestaltTokensRadiogroupbutton.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensRadiogroupbutton {
+    public static let compMotionBorderFadeDuration = baseDuration150
+    public static let compMotionBorderFadeEasing = baseEasingExit
+    public static let compMotionBorderScaleDuration = baseDuration150
+    public static let compMotionBorderScaleEasing = baseEasingBounce
+}
+",
+  "dist/ios-swift/vr-theme/components/GestaltTokensSpinner.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensSpinner {
+    public static let compColorBackgroundBlue = #24ccb0
+    public static let compColorBackgroundOrange = #ff7c36
+    public static let compColorBackgroundPink = #d452d1
+}
+",
 }
 `;

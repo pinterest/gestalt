@@ -108,11 +108,11 @@ const components = {
       <Box as="figure" width={400}>
         <Image
           alt="image"
-          height="100"
+          height="100%"
           layout="responsive"
           objectFit="contain"
           src={src}
-          width="100"
+          width="100%"
         />
         <Text align="center" size="100">
           <Box as="figcaption" marginTop={3}>
@@ -214,11 +214,11 @@ const components = {
   img: (props: { src: string }) => (
     <Image
       alt="image"
-      height="100"
+      height="100%"
       layout="responsive"
       objectFit="contain"
       src={props.src}
-      width="100"
+      width="100%"
     />
   ),
   IllustrationCard,
@@ -262,7 +262,9 @@ const components = {
     height: number;
     alt: string;
   }) => (
-    <div style={{ aspectRatio: `${width}/${height}`, width: '100%' }}>
+    // @ts-expect-error - TS2322 - Type '{ children: Element; style: { aspectRatio: `${number}/${number}`; }; width: string; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+    <div style={{ aspectRatio: `${width}/${height}` }} width="100%">
+      {/* @ts-expect-error - TS2322 - Type '{ alt: string; fill: true; height: number; src: string; width: number; }' is not assignable to type 'IntrinsicAttributes & Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, "ref" | ... 4 more ... | "loading"> & { ...; }'. */}
       <Image alt={alt} fill height={height} src={src} width={width} />
     </div>
   ),
@@ -277,8 +279,8 @@ const components = {
   }: {
     src: string;
     caption?: string;
-    alt: string;
-    width?: number | `${number}` | undefined;
+    alt?: string;
+    width?: number;
     height?: number;
     padding?: 'standard' | 'none';
     shaded?: boolean;
@@ -314,11 +316,11 @@ const components = {
           >
             <Image
               alt={alt}
-              height={layout === 'fill' ? undefined : height}
+              height={layout === 'fill' ? undefined : height || '100%'}
               layout={layout}
               objectFit="contain"
               src={src}
-              width={layout === 'fill' ? undefined : width}
+              width={layout === 'fill' ? undefined : width || '100%'}
             />
           </Box>
         </Box>
