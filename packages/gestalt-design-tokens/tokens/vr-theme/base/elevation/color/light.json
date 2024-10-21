@@ -1,0 +1,36 @@
+{
+  "base": {
+    "elevation": {
+      "color": {
+        "perimeter": {
+          "surface": {
+            "value": "rgba(0,0,0,0.08)",
+            "type": "color"
+          },
+          "raised": {
+            "value": "rgba(0,0,0,0.2)",
+            "type": "color"
+          },
+          "floating": {
+            "value": "rgba(0,0,0,0.08)",
+            "type": "color"
+          }
+        },
+        "ambient": {
+          "surface": {
+            "value": "rgba(0,0,0,0.1)",
+            "type": "color"
+          },
+          "raised": {
+            "value": "rgba(0,0,0,0.12)",
+            "type": "color"
+          },
+          "raised-copy": {
+            "value": "rgba(0,0,0,0.1)",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}

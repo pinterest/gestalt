@@ -1,0 +1,126 @@
+{
+  "base": {
+    "elevation": {
+      "x": {
+        "perimeter": {
+          "surface": {
+            "value": "0px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "0px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "0px",
+            "type": "other"
+          }
+        },
+        "ambient": {
+          "surface": {
+            "value": "0px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "0px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "0px",
+            "type": "other"
+          }
+        }
+      },
+      "y": {
+        "perimeter": {
+          "surface": {
+            "value": "0px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "0px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "0px",
+            "type": "other"
+          }
+        },
+        "ambient": {
+          "surface": {
+            "value": "1px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "2px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "4px",
+            "type": "other"
+          }
+        }
+      },
+      "blur": {
+        "perimeter": {
+          "surface": {
+            "value": "1px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "1px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "4px",
+            "type": "other"
+          }
+        },
+        "ambient": {
+          "surface": {
+            "value": "2px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "8px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "16px",
+            "type": "other"
+          }
+        }
+      },
+      "spread": {
+        "perimeter": {
+          "surface": {
+            "value": "0px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "0px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "0px",
+            "type": "other"
+          }
+        },
+        "ambient": {
+          "surface": {
+            "value": "0px",
+            "type": "other"
+          },
+          "raised": {
+            "value": "0px",
+            "type": "other"
+          },
+          "floating": {
+            "value": "0px",
+            "type": "other"
+          }
+        }
+      }
+    }
+  }
+}
