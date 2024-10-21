@@ -212,9 +212,9 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               (checked || indeterminate) && (
                 <Icon
                   accessibilityLabel=""
-                  color={isInVRExperiment ? vrIconColor : 'inverse'}
+                  color="inverse"
                   icon={indeterminate ? 'dash' : 'check'}
-                  size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
+                  size={iconSizes[size]}
                 />
               )
             )}
