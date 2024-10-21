@@ -99,6 +99,7 @@ declare const icons: Readonly<{
     'color-picker': any;
     'color-solid': any;
     'color-split': any;
+    compass: any;
     compose: any;
     contrast: any;
     'conversion-tag': any;

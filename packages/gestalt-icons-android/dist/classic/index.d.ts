@@ -42,11 +42,13 @@ declare const icons: Readonly<{
     'arrow-end': any;
     'arrow-forward': any;
     'arrow-left-curved': any;
+    'arrow-nested': any;
     'arrow-start': any;
     'arrow-up': any;
     'arrow-up-left': any;
     'arrow-up-right': any;
     'arrows-vertical': any;
+    'aspect-ratio': any;
     'audio-bars': any;
     'audio-mix': any;
     'audio-playing': any;
@@ -97,7 +99,9 @@ declare const icons: Readonly<{
     'color-picker': any;
     'color-solid': any;
     'color-split': any;
+    compass: any;
     compose: any;
+    contrast: any;
     'conversion-tag': any;
     'copy-to-clipboard': any;
     'credit-card': any;
@@ -242,6 +246,7 @@ declare const icons: Readonly<{
     pincode: any;
     pinterest: any;
     play: any;
+    protect: any;
     'question-mark': any;
     'record-limit': any;
     'record-limit-10': any;
