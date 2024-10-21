@@ -9,8 +9,7 @@
       "base/space": "source",
       "base/rounding": "source",
       "base/motion": "enabled",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/dimension/default": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4995:2",
     "$figmaModeId": "7410:0",
@@ -88,8 +87,8 @@
     "selectedTokenSets": {
       "base/color/hover": "enabled",
       "base/color/pressed": "enabled",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6:2",
     "$figmaModeId": "6:0",
@@ -172,25 +171,31 @@
     "group": "Base (ext.)"
   },
   {
+    "id": "4c0a0ee316ceb856e6d89fa6a0d8f8d8ce3d216a",
+    "name": "Light",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "base/elevation/color/light": "enabled"
+    },
+    "group": "Base elevation"
+  },
+  {
     "id": "3b4d116e636294819da8d101249348f7e4a960ae",
     "name": "Light",
     "$figmaStyleReferences": {
       "sema.elevation.surface": "S:393711008ada0e8d3b06f09ddb247555ec2a5f2d,",
       "sema.elevation.floating": "S:9d839d0439492eef25db12ebaf3442366529c6e9,",
-      "sema.elevation.raised.default": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,",
-      "sema.elevation.raised.top": "S:de2a01e00e68fba6d6f250f9637e1015a8f3be90,",
-      "sema.elevation.raised.bottom": "S:61ae764e22d913e3f5d32cfdec613e4eb224548e,",
       "sema.color.background.gradient.darken.bottom.weak": "S:65c39b954d23d1ca0897379fd35ff89859445782,",
       "sema.color.background.gradient.darken.bottom.strong": "S:eee8537fe49a19f346098a4199f8eb491fbaf760,",
       "sema.color.background.gradient.darken.top.weak": "S:24d018e1ac6a24aa31482f1e2034f278c2d4ff33,",
-      "sema.color.background.gradient.darken.top.strong": "S:e21132a594e8b422b311aa4668a2b4010eb183c5,"
+      "sema.color.background.gradient.darken.top.strong": "S:e21132a594e8b422b311aa4668a2b4010eb183c5,",
+      "sema.elevation.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,"
     },
     "selectedTokenSets": {
       "sema/color/light/default": "enabled",
-      "sema/elevation/light": "enabled",
       "base/color/default": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:265:2989",
     "$figmaModeId": "265:0",
@@ -289,10 +294,9 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "sema/color/dark/default": "enabled",
-      "sema/elevation/dark": "enabled",
       "base/color/default": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:265:2989",
     "$figmaModeId": "265:1",
@@ -395,8 +399,8 @@
       "base/color/default": "source",
       "base/color/hover": "source",
       "base/color/pressed": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:2:3",
     "$figmaModeId": "2:1",
@@ -534,8 +538,8 @@
       "base/color/default": "source",
       "base/color/hover": "source",
       "base/color/pressed": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:2:3",
     "$figmaModeId": "2:2",
@@ -664,13 +668,50 @@
     "group": "Semantic colors (ext.)"
   },
   {
+    "id": "95e163a80ee404a647d227303776f903358103a9",
+    "name": "Default",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "base/motion": "source",
+      "sema/motion": "enabled"
+    },
+    "group": "Semantic motion"
+  },
+  {
+    "id": "4e3675ba68076d2ae3fab505c188f8a9225da118",
+    "name": "Light",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "base/color/default": "source",
+      "base/color/hover": "source",
+      "base/color/pressed": "source",
+      "base/text/font": "source",
+      "base/elevation/dimension/default": "enabled",
+      "base/rounding": "source",
+      "base/space": "source",
+      "base/motion": "source",
+      "sema/color/light/default": "enabled",
+      "sema/color/light/hover": "enabled",
+      "sema/color/light/pressed": "enabled",
+      "sema/elevation": "enabled",
+      "sema/opacity": "enabled",
+      "sema/rounding": "enabled",
+      "sema/space": "enabled",
+      "sema/text/language/default": "enabled",
+      "sema/text/font": "enabled",
+      "sema/text/typography": "enabled",
+      "sema/motion": "enabled"
+    },
+    "group": "Semantic elevation"
+  },
+  {
     "id": "0bc9f36551f3e69ee20037add2e7ab0567bc46e9",
     "name": "Default",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "sema/opacity": "enabled",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:7410:220",
     "$figmaModeId": "7410:1",
@@ -687,26 +728,14 @@
     "group": "Semantic opacity"
   },
   {
-    "id": "95e163a80ee404a647d227303776f903358103a9",
-    "name": "Default",
-    "$figmaStyleReferences": {},
-    "selectedTokenSets": {
-      "base/motion": "source",
-      "sema/motion": "enabled",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
-    },
-    "group": "Semantic motion"
-  },
-  {
     "id": "e409f598b2932c533467fc79cbf9ca6734be7493",
     "name": "Default",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "sema/rounding": "enabled",
       "base/rounding": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:701:7994",
     "$figmaModeId": "7410:2",
@@ -732,8 +761,8 @@
     "selectedTokenSets": {
       "sema/space": "enabled",
       "base/space": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:733:939",
     "$figmaModeId": "7410:3",
@@ -835,8 +864,8 @@
       "sema/text/typography": "enabled",
       "sema/text/language/default": "enabled",
       "base/text/font": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "disabled"
     },
     "$figmaCollectionId": "VariableCollectionId:7410:221",
     "$figmaModeId": "7410:4",
@@ -901,7 +930,6 @@
       "sema/color/light/default": "source",
       "sema/color/light/hover": "source",
       "sema/color/light/pressed": "source",
-      "sema/elevation/light": "source",
       "sema/opacity": "source",
       "sema/rounding": "source",
       "sema/space": "source",
@@ -909,8 +937,8 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "source"
     },
     "group": "Component"
   },
@@ -929,7 +957,6 @@
       "sema/color/light/default": "source",
       "sema/color/light/hover": "source",
       "sema/color/light/pressed": "source",
-      "sema/elevation/light": "source",
       "sema/opacity": "source",
       "sema/rounding": "source",
       "sema/space": "source",
@@ -937,8 +964,8 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "source"
     },
     "group": "Component"
   },
@@ -957,7 +984,6 @@
       "sema/color/light/default": "source",
       "sema/color/light/hover": "source",
       "sema/color/light/pressed": "source",
-      "sema/elevation/light": "source",
       "sema/opacity": "source",
       "sema/rounding": "source",
       "sema/space": "source",
@@ -965,8 +991,8 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "source"
     },
     "group": "Component"
   },
@@ -985,7 +1011,6 @@
       "sema/color/light/default": "source",
       "sema/color/light/hover": "source",
       "sema/color/light/pressed": "source",
-      "sema/elevation/light": "source",
       "sema/opacity": "source",
       "sema/rounding": "source",
       "sema/space": "source",
@@ -993,9 +1018,18 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "base/elevation/dimension/default": "disabled",
-      "base/elevation/color/light": "disabled"
+      "base/elevation/color/dark": "disabled",
+      "sema/elevation": "source"
     },
     "group": "Component"
+  },
+  {
+    "id": "fc59eb588b538aefaa10b68dd0027e9b87637700",
+    "name": "Dark",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "base/elevation/color/dark": "enabled"
+    },
+    "group": "Base elevation"
   }
 ]

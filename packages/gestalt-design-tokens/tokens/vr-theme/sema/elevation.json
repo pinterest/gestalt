@@ -1,0 +1,69 @@
+{
+  "sema": {
+    "elevation": {
+      "surface": {
+        "type": "boxShadow",
+        "value": [
+          {
+            "x": "{base.elevation.x.perimeter.surface}",
+            "y": "{base.elevation.y.perimeter.surface}",
+            "blur": "{base.elevation.blur.perimeter.surface}",
+            "spread": "{base.elevation.spread.perimeter.surface}",
+            "color": "{base.elevation.color.perimeter.surface}",
+            "type": "dropShadow"
+          },
+          {
+            "x": "{base.elevation.x.ambient.surface}",
+            "y": "{base.elevation.y.ambient.surface}",
+            "blur": "{base.elevation.blur.ambient.surface}",
+            "spread": "{base.elevation.spread.ambient.surface}",
+            "color": "{base.elevation.color.ambient.surface}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "raised": {
+        "type": "boxShadow",
+        "value": [
+          {
+            "x": "{base.elevation.x.perimeter.raised}",
+            "y": "{base.elevation.y.perimeter.raised}",
+            "blur": "{base.elevation.blur.perimeter.raised}",
+            "spread": "{base.elevation.spread.perimeter.raised}",
+            "color": "{base.elevation.color.perimeter.raised}",
+            "type": "dropShadow"
+          },
+          {
+            "x": "{base.elevation.x.ambient.raised}",
+            "y": "{base.elevation.y.ambient.raised}",
+            "blur": "{base.elevation.blur.ambient.raised}",
+            "spread": "{base.elevation.spread.ambient.raised}",
+            "color": "{base.elevation.color.ambient.raised}",
+            "type": "dropShadow"
+          }
+        ]
+      },
+      "floating": {
+        "type": "boxShadow",
+        "value": [
+          {
+            "x": "{base.elevation.x.perimeter.floating}",
+            "y": "{base.elevation.y.perimeter.floating}",
+            "blur": "{base.elevation.blur.perimeter.floating}",
+            "spread": "{base.elevation.spread.perimeter.floating}",
+            "color": "{base.elevation.color.perimeter.floating}",
+            "type": "dropShadow"
+          },
+          {
+            "x": "{base.elevation.x.ambient.floating}",
+            "y": "{base.elevation.y.ambient.floating}",
+            "blur": "{base.elevation.blur.ambient.floating}",
+            "spread": "{base.elevation.spread.ambient.floating}",
+            "color": "{base.elevation.color.ambient.floating}",
+            "type": "dropShadow"
+          }
+        ]
+      }
+    }
+  }
+}

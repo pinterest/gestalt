@@ -68,7 +68,7 @@
             "type": "other"
           },
           "raised": {
-            "value": "1px",
+            "value": "2px",
             "type": "other"
           },
           "floating": {
@@ -82,11 +82,11 @@
             "type": "other"
           },
           "raised": {
-            "value": "8px",
+            "value": "4px",
             "type": "other"
           },
           "floating": {
-            "value": "16px",
+            "value": "8px",
             "type": "other"
           }
         }
