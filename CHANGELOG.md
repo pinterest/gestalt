@@ -1,3 +1,9 @@
+## 162.6.1 (Oct 21, 2024)
+
+### Patch
+
+- SelectList: fix placeholder color ([#3813](https://github.com/pinterest/gestalt/pull/3813)) - [Preview link](https://deploy-preview-3813--gestalt.netlify.app?devexample=true)
+
 ## 162.6.0 (Oct 18, 2024)
 
 ### Minor
