@@ -1295,6 +1295,21 @@ public enum GestaltTokensSpaceVR {
     public static let baseUnit = 4px
 }
 ",
+  "dist/ios-swift/vr-theme/components/GestaltTokensCheckbox.swift": "
+
+
+
+import SwiftUI
+
+public enum GestaltTokensCheckbox {
+    public static let compIconMotionCollapseOutDuration = baseDuration150
+    public static let compIconMotionCollapseOutEasing = baseEasingExit
+    public static let compIconMotionCollapseInDuration = baseDuration200
+    public static let compIconMotionCollapseInEasing = baseEasingExpressive
+    public static let compMotionBackgroundColorchangeDuration = baseDuration150
+    public static let compMotionBackgroundColorchangeEasing = baseEasingLinear
+}
+",
   "dist/ios-swift/vr-theme/components/GestaltTokensRadiogroupbutton.swift": "
 
 

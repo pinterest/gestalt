@@ -1,0 +1,46 @@
+{
+  "comp": {
+    "checkbox": {
+      "motion": {
+        "background": {
+          "colorchange": {
+            "easing": {
+              "type": "other",
+              "value": "{base.motion.easing.linear}"
+            },
+            "duration": {
+              "type": "color",
+              "value": "{base.motion.duration.150}"
+            }
+          }
+        }
+      },
+      "icon": {
+        "motion": {
+          "collapse": {
+            "in": {
+              "easing": {
+                "type": "other",
+                "value": "{base.motion.easing.expressive}"
+              },
+              "duration": {
+                "type": "color",
+                "value": "{base.motion.duration.200}"
+              }
+            },
+            "out": {
+              "easing": {
+                "type": "other",
+                "value": "{base.motion.easing.exit}"
+              },
+              "duration": {
+                "type": "color",
+                "value": "{base.motion.duration.150}"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

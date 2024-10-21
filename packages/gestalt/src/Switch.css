@@ -89,7 +89,7 @@ html[dir="rtl"] .switch {
   composes: borderBox absolute from "./Layout.css";
   composes: circle from "./Borders.css";
   left: 0;
-  transition-property: transform width height background-color;
+  transition-property: transform, width, height, background-color;
 }
 
 .sliderVrOn {

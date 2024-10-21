@@ -122,6 +122,36 @@
   composes: solid from "../Borders.css";
 }
 
+.vrCheckBackground {
+  transition-duration: var(
+    --comp-checkbox-motion-background-colorchange-duration
+  );
+  transition-property: background-color, border-color;
+  transition-timing-function: var(
+    --comp-checkbox-motion-background-colorchange-easing
+  );
+}
+
+.vrCheckBackground.focus,
+.vrCheckBackground:not(.checked) {
+  /* Don't animate border-color when focused or not checked  */
+  transition-property: background-color;
+}
+
+.vrCheckIconWrapper {
+  composes: overflowHidden from "../Layout.css";
+}
+
+.vrCheckIconEnterTransition {
+  transition: width var(--comp-checkbox-icon-motion-collapse-in-duration)
+    var(--comp-checkbox-icon-motion-collapse-in-easing);
+}
+
+.vrCheckIconExitTransition {
+  transition: width var(--comp-checkbox-icon-motion-collapse-out-duration)
+    var(--comp-checkbox-icon-motion-collapse-out-easing);
+}
+
 .sizeLg {
   height: var(--space-600);
   width: var(--space-600);
@@ -145,6 +175,7 @@
 
 .input {
   composes: absolute from "../Layout.css";
+  composes: top0 from "../Layout.css";
   composes: m0 from "../Whitespace.css";
   appearance: none;
   opacity: var(--opacity-0);
