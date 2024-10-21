@@ -98,6 +98,7 @@ import colorPalette from './ic_vr_color-palette_gestalt.svg';
 import colorPicker from './ic_vr_color-picker_gestalt.svg';
 import colorSolid from './ic_vr_color-solid_gestalt.svg';
 import colorSplit from './ic_vr_color-split_gestalt.svg';
+import compass from './ic_vr_compass_gestalt.svg';
 import compose from './ic_vr_compose_gestalt.svg';
 import contrast from './ic_vr_contrast_gestalt.svg';
 import conversionTag from './ic_vr_conversion-tag_gestalt.svg';
@@ -470,6 +471,7 @@ const icons = Object.freeze({
   'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
+  'compass': compass,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,

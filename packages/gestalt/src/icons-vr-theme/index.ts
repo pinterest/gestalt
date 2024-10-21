@@ -98,6 +98,7 @@ import colorPalette from './color-palette.svg';
 import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
+import compass from './compass.svg';
 import compose from './compose.svg';
 import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
@@ -470,6 +471,7 @@ const icons = Object.freeze({
   'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
+  'compass': compass,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,

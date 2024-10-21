@@ -41,11 +41,13 @@ import arrowDown from './ic_arrow-down_gestalt.svg';
 import arrowEnd from './ic_arrow-end_gestalt.svg';
 import arrowForward from './ic_arrow-forward_gestalt.svg';
 import arrowLeftCurved from './ic_arrow-left-curved_gestalt.svg';
+import arrowNested from './ic_arrow-nested_gestalt.svg';
 import arrowStart from './ic_arrow-start_gestalt.svg';
 import arrowUp from './ic_arrow-up_gestalt.svg';
 import arrowUpLeft from './ic_arrow-up-left_gestalt.svg';
 import arrowUpRight from './ic_arrow-up-right_gestalt.svg';
 import arrowsVertical from './ic_arrows-vertical_gestalt.svg';
+import aspectRatio from './ic_aspect-ratio_gestalt.svg';
 import audioBars from './ic_audio-bars_gestalt.svg';
 import audioMix from './ic_audio-mix_gestalt.svg';
 import audioPlaying from './ic_audio-playing_gestalt.svg';
@@ -96,7 +98,9 @@ import colorPalette from './ic_color-palette_gestalt.svg';
 import colorPicker from './ic_color-picker_gestalt.svg';
 import colorSolid from './ic_color-solid_gestalt.svg';
 import colorSplit from './ic_color-split_gestalt.svg';
+import compass from './ic_compass_gestalt.svg';
 import compose from './ic_compose_gestalt.svg';
+import contrast from './ic_contrast_gestalt.svg';
 import conversionTag from './ic_conversion-tag_gestalt.svg';
 import copyToClipboard from './ic_copy-to-clipboard_gestalt.svg';
 import creditCard from './ic_credit-card_gestalt.svg';
@@ -241,6 +245,7 @@ import pinHide from './ic_pin-hide_gestalt.svg';
 import pincode from './ic_pincode_gestalt.svg';
 import pinterest from './ic_pinterest_gestalt.svg';
 import play from './ic_play_gestalt.svg';
+import protect from './ic_protect_gestalt.svg';
 import questionMark from './ic_question-mark_gestalt.svg';
 import recordLimit from './ic_record-limit_gestalt.svg';
 import recordLimit5 from './ic_record-limit-5_gestalt.svg';
@@ -409,11 +414,13 @@ const icons = Object.freeze({
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
+  'arrow-nested': arrowNested,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
   'arrow-up-right': arrowUpRight,
   'arrows-vertical': arrowsVertical,
+  'aspect-ratio': aspectRatio,
   'audio-bars': audioBars,
   'audio-mix': audioMix,
   'audio-playing': audioPlaying,
@@ -464,7 +471,9 @@ const icons = Object.freeze({
   'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
+  'compass': compass,
   'compose': compose,
+  'contrast': contrast,
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
@@ -609,6 +618,7 @@ const icons = Object.freeze({
   'pincode': pincode,
   'pinterest': pinterest,
   'play': play,
+  'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,

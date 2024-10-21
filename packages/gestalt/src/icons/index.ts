@@ -41,11 +41,13 @@ import arrowDown from './arrow-down.svg';
 import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowLeftCurved from './arrow-left-curved.svg';
+import arrowNested from './arrow-nested.svg';
 import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpLeft from './arrow-up-left.svg';
 import arrowUpRight from './arrow-up-right.svg';
 import arrowsVertical from './arrows-vertical.svg';
+import aspectRatio from './aspect-ratio.svg';
 import audioBars from './audio-bars.svg';
 import audioMix from './audio-mix.svg';
 import audioPlaying from './audio-playing.svg';
@@ -96,7 +98,9 @@ import colorPalette from './color-palette.svg';
 import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
+import compass from './compass.svg';
 import compose from './compose.svg';
+import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
@@ -241,6 +245,7 @@ import pinHide from './pin-hide.svg';
 import pincode from './pincode.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
+import protect from './protect.svg';
 import questionMark from './question-mark.svg';
 import recordLimit from './record-limit.svg';
 import recordLimit5 from './record-limit-5.svg';
@@ -409,11 +414,13 @@ const icons = Object.freeze({
   'arrow-end': arrowEnd,
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
+  'arrow-nested': arrowNested,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
   'arrow-up-right': arrowUpRight,
   'arrows-vertical': arrowsVertical,
+  'aspect-ratio': aspectRatio,
   'audio-bars': audioBars,
   'audio-mix': audioMix,
   'audio-playing': audioPlaying,
@@ -464,7 +471,9 @@ const icons = Object.freeze({
   'color-picker': colorPicker,
   'color-solid': colorSolid,
   'color-split': colorSplit,
+  'compass': compass,
   'compose': compose,
+  'contrast': contrast,
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
@@ -609,6 +618,7 @@ const icons = Object.freeze({
   'pincode': pincode,
   'pinterest': pinterest,
   'play': play,
+  'protect': protect,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
