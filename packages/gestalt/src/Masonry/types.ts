@@ -17,7 +17,7 @@ export type NodeData<T> = {
 export type GetGraphPositionsReturn<T> = {
   winningNode: NodeData<T>;
   numberOfIterations: number;
-}
+};
 
 export type Align = 'start' | 'center' | 'end';
 

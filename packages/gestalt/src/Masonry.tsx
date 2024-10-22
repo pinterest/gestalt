@@ -118,7 +118,11 @@ type Props<T> = {
    *
    * This is an experimental prop and may be removed in the future.
    */
-  _logTwoColWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
+  _logTwoColWhitespace?: (
+    additionalWhitespace: ReadonlyArray<number>,
+    numberOfIterations: number,
+    columnSpan: number,
+  ) => void;
   /**
    * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
    * _getColumnSpanConfig is a function that takes an individual grid item as an input and returns a ColumnSpanConfig. ColumnSpanConfig can be one of two things:

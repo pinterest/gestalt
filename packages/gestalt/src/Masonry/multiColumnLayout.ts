@@ -488,7 +488,11 @@ function getPositionsWithMultiColumnItem<T>({
     position: Position;
   }>;
   whitespaceThreshold?: number;
-  logWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
+  logWhitespace?: (
+    additionalWhitespace: ReadonlyArray<number>,
+    numberOfIterations: number,
+    columnSpan: number,
+  ) => void;
   columnCount: number;
   centerOffset: number;
   columnWidth: number;
@@ -604,7 +608,7 @@ function getPositionsWithMultiColumnItem<T>({
   // Log additional whitespace shown above the multi column module
   // This may need to be tweaked or removed if pin leveling is implemented
   if (additionalWhitespace) {
-    logWhitespace?.(additionalWhitespace, numberOfIterations);
+    logWhitespace?.(additionalWhitespace, numberOfIterations, multiColumnItemColumnSpan);
   }
 
   finalPositions.forEach(({ item, position }) => {
@@ -636,7 +640,11 @@ const multiColumnLayout = <T>({
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
   whitespaceThreshold?: number;
-  logWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
+  logWhitespace?: (
+    additionalWhitespace: ReadonlyArray<number>,
+    numberOfIterations: number,
+    columnSpan: number,
+  ) => void;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<Position> => {
   if (!items.every((item) => measurementCache.has(item))) {
