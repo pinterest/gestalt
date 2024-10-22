@@ -15,8 +15,6 @@ const flipOnRtlIconNames: ReadonlyArray<IconName | undefined> = Object.freeze([
   'arrow-start',
   'arrow-up-right',
   'compose',
-  'chevron-small-left',
-  'chevron-small-right',
   'chevron-left-circle',
   'chevron-right-circle',
   'directional-arrow-left',
