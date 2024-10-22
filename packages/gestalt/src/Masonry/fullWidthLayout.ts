@@ -23,7 +23,7 @@ const fullWidthLayout = <T>({
   measurementCache: Cache<T, number>;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   whitespaceThreshold?: number;
-  logWhitespace?: (arg1: ReadonlyArray<number>) => void;
+  logWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
   renderLoadingState?: boolean;
 }): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) => {
   if (width == null) {

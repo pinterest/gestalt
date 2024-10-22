@@ -2,7 +2,7 @@ import { Cache } from './Cache';
 import Graph from './Graph';
 import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import mindex from './mindex';
-import { NodeData, Position } from './types';
+import { GetGraphPositionsReturn, NodeData, Position } from './types';
 
 // When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
@@ -350,10 +350,12 @@ function getGraphPositions<T>({
   gutter: number;
   measurementCache: Cache<T, number>;
   positionCache?: Cache<T, Position>;
-}): NodeData<T> {
+}): GetGraphPositionsReturn<T> {
   // When whitespace threshold is set this variables store the score and node if found
   let bailoutScore;
   let bailoutNode: NodeData<T> | undefined;
+
+  let numberOfIterations = 0; // For logging purposes
 
   // Initialize the graph
   const graph = new Graph<T>();
@@ -411,6 +413,8 @@ function getGraphPositions<T>({
     graph.addNode(paintedItemData);
     graph.addEdge(prevNode, paintedItemData, lowestAdjacentColumnHeightDelta);
 
+    numberOfIterations += 1;
+
     if (
       typeof whitespaceThreshold === 'number' &&
       lowestAdjacentColumnHeightDelta < whitespaceThreshold
@@ -457,9 +461,12 @@ function getGraphPositions<T>({
   // const { lowestScoreNode, lowestScore } = graph.findLowestScore(startNodeData);
 
   // The best solution may be "no solution", i.e. laying out the multi column item first
-  return lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
-    ? lowestScoreNode
-    : startNodeData;
+  const winningNode =
+    lowestScore === null || lowestScore < startingLowestAdjacentColumnHeightDelta
+      ? lowestScoreNode
+      : startNodeData;
+
+  return { winningNode, numberOfIterations };
 }
 
 function getPositionsWithMultiColumnItem<T>({
@@ -481,7 +488,7 @@ function getPositionsWithMultiColumnItem<T>({
     position: Position;
   }>;
   whitespaceThreshold?: number;
-  logWhitespace?: (arg1: ReadonlyArray<number>) => void;
+  logWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
   columnCount: number;
   centerOffset: number;
   columnWidth: number;
@@ -553,7 +560,7 @@ function getPositionsWithMultiColumnItem<T>({
   });
 
   // Get a node with the required whitespace
-  const winningNode = getGraphPositions({
+  const { winningNode, numberOfIterations } = getGraphPositions({
     items: graphBatch,
     positions: paintedItemPositions,
     heights: paintedItemHeights,
@@ -597,7 +604,7 @@ function getPositionsWithMultiColumnItem<T>({
   // Log additional whitespace shown above the multi column module
   // This may need to be tweaked or removed if pin leveling is implemented
   if (additionalWhitespace) {
-    logWhitespace?.(additionalWhitespace);
+    logWhitespace?.(additionalWhitespace, numberOfIterations);
   }
 
   finalPositions.forEach(({ item, position }) => {
@@ -629,7 +636,7 @@ const multiColumnLayout = <T>({
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
   whitespaceThreshold?: number;
-  logWhitespace?: (arg1: ReadonlyArray<number>) => void;
+  logWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<Position> => {
   if (!items.every((item) => measurementCache.has(item))) {

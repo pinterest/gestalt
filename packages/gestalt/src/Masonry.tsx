@@ -114,11 +114,11 @@ type Props<T> = {
    */
   virtualize?: boolean;
   /**
-   * Experimental prop to log the additional whitespace shown above two-column items.
+   * Experimental prop to log the additional whitespace shown above multicolumn items and the number of iterations it took to position it.
    *
    * This is an experimental prop and may be removed in the future.
    */
-  _logTwoColWhitespace?: (arg1: ReadonlyArray<number>) => void;
+  _logTwoColWhitespace?: (additionalWhitespace: ReadonlyArray<number>, numberOfIterations: number) => void;
   /**
    * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
    * _getColumnSpanConfig is a function that takes an individual grid item as an input and returns a ColumnSpanConfig. ColumnSpanConfig can be one of two things:
