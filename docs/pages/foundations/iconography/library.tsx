@@ -4,6 +4,7 @@ import {
   Flex,
   Heading,
   Icon,
+  IconCompact,
   Layer,
   Link,
   Pog,
@@ -18,7 +19,11 @@ import iconCategoryData from './ICON_DATA.json';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
 
-const { icons } = Icon;
+const { icons: regularIcons } = Icon;
+const { icons: compactIcons } = IconCompact;
+
+const icons = [...compactIcons, ...regularIcons];
+
 const CATEGORIES = [
   'Add',
   'Ads and measurement',
@@ -40,7 +45,7 @@ function IconTile({
   iconDescription = 'Description coming soon',
   onTap,
 }: {
-  iconName: NonNullable<ComponentProps<typeof Icon>['icon']>;
+  iconName: NonNullable<ComponentProps<typeof Icon | typeof IconCompact>['icon']>;
   iconDescription: string;
   onTap: () => void;
 }) {
@@ -77,6 +82,7 @@ function IconTile({
             <Icon
               accessibilityLabel=""
               color={hovered ? 'inverse' : 'default'}
+              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Icons'.
               icon={iconName}
               size="24"
             />
@@ -112,8 +118,12 @@ function findIconByCategory(icon: string | null | undefined, category: string) {
   // so we don't accidentally show icons that are only in Figma.
   const iconComponentName = icons.find((name) => name === icon);
 
+  // if the name is prefixed by 'compact', we need to remove it to match the icon name in the JSON
+  const isCompactIcon = (name: string) => name === iconComponentName?.replace('compact-', '');
+
   return iconCategoryData.icons.find(
-    ({ name, categories }) => name === iconComponentName && categories.includes(category),
+    ({ name, categories }) =>
+      (name === iconComponentName && categories.includes(category)) || isCompactIcon(name),
   );
 }
 
@@ -171,7 +181,9 @@ export default function IconPage() {
     sortedAlphabetical ? (
       <Flex gap={3} wrap>
         {(suggestedOptions || iconOptions).map(({ label: iconName }) => {
-          const filteredIconData = iconCategoryData.icons.find((icon) => icon.name === iconName);
+          const filteredIconData = iconCategoryData.icons.find(
+            (icon) => icon.name === iconName || icon.name === `${iconName.replace('compact-', '')}`,
+          );
 
           return (
             <IconTile
