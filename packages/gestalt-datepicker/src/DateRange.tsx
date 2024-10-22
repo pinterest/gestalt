@@ -37,14 +37,14 @@ type Props = {
    */
   onCancel?: () => void;
   /**
-   * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the start date or end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onDateBlur?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
     endDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   };
   /**
-   * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the start date or end date secondary input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onSecondaryDateBlur?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
@@ -62,28 +62,28 @@ type Props = {
     endDate: { value: Date | null },
   ) => void;
   /**
-   * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the start date or end date values entered are invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onDateError?: {
     startDate: (args: { errorMessage: string; value: Date | null }) => void;
     endDate: (args: { errorMessage: string; value: Date | null }) => void;
   };
   /**
-   * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the secondary start date or secondary end date values entered are invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onSecondaryDateError?: {
     startDate: (args: { errorMessage: string; value: Date | null }) => void;
     endDate: (args: { errorMessage: string; value: Date | null }) => void;
   };
   /**
-   * Callback triggered when the user focus on the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the user focus on the start date or end date input DateFields. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onDateFocus?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
     endDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   };
   /**
-   * Callback triggered when the user focus on the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the user focus on the start date or end date secondary input DateFields. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onSecondaryDateFocus?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
@@ -106,11 +106,11 @@ type Props = {
    */
   secondaryDateValue?: { startDate: Date | null; endDate: Date | null };
   /**
-   * Customize your error message for the cases the user enters invalid start dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Customize your error message for the cases the user enters invalid dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   dateErrorMessage?: { startDate: string | null; endDate: string | null };
   /**
-   * Customize your error message for the cases the user enters invalid start dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Customize your error message for the cases the user enters invalid dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   secondaryDateErrorMessage?: { startDate: string | null; endDate: string | null };
 };
