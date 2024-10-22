@@ -1,3 +1,9 @@
+## 163.1.0 (Oct 22, 2024)
+
+### Minor
+
+- Icon: Add Compact Icons ([#3771](https://github.com/pinterest/gestalt/pull/3771)) - [Preview link](https://deploy-preview-3771--gestalt.netlify.app?devexample=true)
+
 ## 163.0.0 (Oct 21, 2024)
 
 ### Major
