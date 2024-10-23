@@ -13,7 +13,7 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
         for="fake_id"
       >
         <div
-          class="VxL zI7 iyn Hsu"
+          class="u8x zI7 iyn Hsu"
         >
           <div
             class="X8m zDA IZT tBJ dyH iFc dR0 swG"
@@ -29,10 +29,10 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
           class="react-datepicker__input-container"
         >
           <div
-            class="Jea KS5 XiG ujU xcv L4E zI7 iyn Hsu"
+            class="Jea KS5 XiG ujU zI7 iyn Hsu "
           >
             <div
-              class="ujU xcv L4E zI7 iyn Hsu"
+              class="ujU zI7 iyn Hsu "
             >
               <span>
                 <div
@@ -54,7 +54,7 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
               class="calendarIcon"
             >
               <div
-                class="Jea KS5 XiG wzk zI7 iyn Hsu"
+                class="Jea KS5 NyI XiG zI7 iyn Hsu"
                 style="min-height: 48px;"
               >
                 <div
@@ -131,30 +131,30 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
             style="width: 100%;"
           >
             <div
-              class="XiG fZz qDf xuU zI7 iyn Hsu"
+              class="Kzl XiG i1W xuU zI7 iyn Hsu"
             >
               <div
                 class="hs0 mQ8 un8 C9i TB_"
               >
                 <div
-                  class="VxL zI7 iyn Hsu"
+                  class="u8x zI7 iyn Hsu"
                 >
                   <div
                     aria-disabled="false"
                     aria-label="Grabber"
-                    class="S9z v_3 iyn e8F BG7"
+                    class="S9z iyn e8F BG7"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="haa v_3 zI7 iyn Hsu"
+                      class="haa zI7 iyn Hsu "
                       style="height: 5px; width: 37px;"
                     />
                   </div>
                 </div>
               </div>
               <div
-                class="KS5 hs0 mQ8 un8 HOt BxF"
+                class="KS5 hs0 mQ8 un8 a1C qQp"
               >
                 <div
                   class="ujU xuA"
@@ -162,10 +162,10 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
               </div>
             </div>
             <div
-              class="XbT hA- lnZ ujU zI7 iyn Hsu"
+              class="XbT _co lnZ ujU zI7 iyn Hsu"
             >
               <div
-                class="KS5 jzS mQ8 un8 HOt BxF"
+                class="KS5 jzS mQ8 un8 a1C qQp"
                 style="width: 100%;"
               >
                 <div
@@ -796,10 +796,10 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
               class="XiG xuU zI7 iyn Hsu"
             >
               <div
-                class="fZz qDf zI7 iyn Hsu"
+                class="Kzl i1W zI7 iyn Hsu"
               >
                 <div
-                  class="KS5 jzS mQ8 un8 HOt BxF"
+                  class="KS5 jzS mQ8 un8 a1C qQp"
                   style="width: 100%;"
                 >
                   <div
@@ -812,7 +812,7 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
                       type="button"
                     >
                       <div
-                        class="RCK Hsu USg adn NTm KhY iyn S9z F10 xD4 fZz hUC a_A hNT BG7 hDj _O1 KS5 mQ8 Tbt L4E"
+                        class="RCK Hsu USg adn NTm KhY iyn S9z F10 xD4 i1W V92 a_A hNT BG7 hDj _O1 KS5 mQ8 Tbt L4E"
                       >
                         <div
                           class="X8m tg7 tBJ dyH iFc sAJ H2s"

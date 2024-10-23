@@ -38,7 +38,7 @@ exports[`external link with nofollow 1`] = `
 >
   Link
   <div
-    className="box marginStart1 xsDisplayInlineBlock"
+    className="box marginStart100 xsDisplayInlineBlock"
   >
     <svg
       className="rtlSupport inherit icon"

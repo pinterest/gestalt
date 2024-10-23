@@ -64,7 +64,7 @@ exports[`TextArea TextArea with error 1`] = `
           role="alert"
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -172,7 +172,7 @@ exports[`TextArea TextField with maxLength character counter 1`] = `
     id="test-helperText"
   >
     <div
-      className="Flex rowGap4 columnGap4 xsDirectionRow"
+      className="Flex rowGap400 columnGap400 xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
@@ -195,7 +195,7 @@ exports[`TextArea TextField with maxLength character counter 1`] = `
           </div>
         </div>
         <div
-          className="Flex rowGap1 columnGap1 justifyCenter xsDirectionRow"
+          className="Flex rowGap100 columnGap100 justifyCenter xsDirectionRow"
         >
           <div
             className="FlexItem"
@@ -251,11 +251,11 @@ exports[`TextArea renders tags when supplied 1`] = `
     }
   >
     <div
-      className="box marginBottom1 marginEnd1"
+      className="box marginBottom100 marginEnd100"
     >
       <div
         aria-disabled={false}
-        className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX200 paddingY100 relative rounding200 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -264,7 +264,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+          className="box marginEnd500 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -319,11 +319,11 @@ exports[`TextArea renders tags when supplied 1`] = `
       </div>
     </div>
     <div
-      className="box marginBottom1 marginEnd1"
+      className="box marginBottom100 marginEnd100"
     >
       <div
         aria-disabled={false}
-        className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX200 paddingY100 relative rounding200 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -332,7 +332,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+          className="box marginEnd500 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -387,11 +387,11 @@ exports[`TextArea renders tags when supplied 1`] = `
       </div>
     </div>
     <div
-      className="box marginBottom1 marginEnd1"
+      className="box marginBottom100 marginEnd100"
     >
       <div
         aria-disabled={false}
-        className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+        className="box paddingX200 paddingY100 relative rounding200 secondary xsDisplayInlineBlock"
         style={
           Object {
             "height": 32,
@@ -400,7 +400,7 @@ exports[`TextArea renders tags when supplied 1`] = `
         }
       >
         <div
-          className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+          className="box marginEnd500 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",

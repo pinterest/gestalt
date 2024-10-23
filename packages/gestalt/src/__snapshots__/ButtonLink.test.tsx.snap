@@ -22,7 +22,7 @@ exports[`ButtonLink renders 1`] = `
   target="_blank"
 >
   <div
-    className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -71,7 +71,7 @@ exports[`ButtonLink renders disabled 1`] = `
   target="_blank"
 >
   <div
-    className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -122,7 +122,7 @@ exports[`ButtonLink renders with icon on the right 1`] = `
   target="_blank"
 >
   <div
-    className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"

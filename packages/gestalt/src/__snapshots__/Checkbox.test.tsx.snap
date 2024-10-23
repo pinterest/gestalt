@@ -5,10 +5,10 @@ exports[`Checkbox 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="enabled border borderRadiusMd sizeMd check thickBorder"
@@ -43,7 +43,7 @@ exports[`Checkbox 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -53,7 +53,7 @@ exports[`Checkbox 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -65,10 +65,10 @@ exports[`Checkbox checked 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="checked borderSelected borderRadiusMd sizeMd check thickBorder"
@@ -117,7 +117,7 @@ exports[`Checkbox checked 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -127,7 +127,7 @@ exports[`Checkbox checked 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -139,10 +139,10 @@ exports[`Checkbox disabled & checked 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
@@ -191,7 +191,7 @@ exports[`Checkbox disabled & checked 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -201,7 +201,7 @@ exports[`Checkbox disabled & checked 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -213,10 +213,10 @@ exports[`Checkbox disabled 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
@@ -251,7 +251,7 @@ exports[`Checkbox disabled 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -261,7 +261,7 @@ exports[`Checkbox disabled 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -273,10 +273,10 @@ exports[`Checkbox indeterminate 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="checked borderSelected borderRadiusMd sizeMd check thickBorder"
@@ -325,7 +325,7 @@ exports[`Checkbox indeterminate 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -335,7 +335,7 @@ exports[`Checkbox indeterminate 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -347,10 +347,10 @@ exports[`Checkbox small 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="enabled border borderRadiusSm sizeSm check thickBorder"
@@ -385,7 +385,7 @@ exports[`Checkbox small 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -395,7 +395,7 @@ exports[`Checkbox small 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -407,10 +407,10 @@ exports[`Checkbox with an image 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="enabled border borderRadiusSm sizeSm check thickBorder"
@@ -433,7 +433,7 @@ exports[`Checkbox with an image 1`] = `
       />
     </div>
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="box"
@@ -472,7 +472,7 @@ exports[`Checkbox with an image 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -482,7 +482,7 @@ exports[`Checkbox with an image 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -494,10 +494,10 @@ exports[`Checkbox with error 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="enabled borderErrorUnchecked borderRadiusSm sizeSm check thickBorder"
@@ -532,7 +532,7 @@ exports[`Checkbox with error 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -542,7 +542,7 @@ exports[`Checkbox with error 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       >
         <div
           className="noStartPadding sm_topPadding"
@@ -560,7 +560,7 @@ exports[`Checkbox with error 1`] = `
                 role="alert"
               >
                 <div
-                  className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -604,10 +604,10 @@ exports[`Checkbox with helperText 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="enabled border borderRadiusSm sizeSm check thickBorder"
@@ -642,7 +642,7 @@ exports[`Checkbox with helperText 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -652,14 +652,14 @@ exports[`Checkbox with helperText 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       >
         <div
           className="noStartPadding sm_topPadding"
           id="id-helperText"
         >
           <div
-            className="Flex rowGap4 columnGap4 xsDirectionRow"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
           >
             <div
               className="FlexItem flexGrow"
@@ -683,10 +683,10 @@ exports[`Checkbox without label 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
       <div
         className="enabled border borderRadiusMd sizeMd check thickBorder"

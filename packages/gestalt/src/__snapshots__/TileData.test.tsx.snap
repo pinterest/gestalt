@@ -2,7 +2,7 @@
 
 exports[`TileData TileData renders all colors as expected 1`] = `
 <div
-  className="Flex rowGap2 columnGap2 xsDirectionRow"
+  className="Flex rowGap200 columnGap200 xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -23,7 +23,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -49,19 +49,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -113,7 +113,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -168,7 +168,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -194,19 +194,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -258,7 +258,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -313,7 +313,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -339,19 +339,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -403,7 +403,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -458,7 +458,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -484,19 +484,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -548,7 +548,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -603,7 +603,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -629,19 +629,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -693,7 +693,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -748,7 +748,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -774,19 +774,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -838,7 +838,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -893,7 +893,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -919,19 +919,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -983,7 +983,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -1038,7 +1038,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1064,19 +1064,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -1128,7 +1128,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -1183,7 +1183,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1209,19 +1209,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -1273,7 +1273,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -1328,7 +1328,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1354,19 +1354,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -1418,7 +1418,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -1473,7 +1473,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1499,19 +1499,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -1563,7 +1563,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -1618,7 +1618,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1644,19 +1644,19 @@ exports[`TileData TileData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -1708,7 +1708,7 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -1764,7 +1764,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
     >
       <div
         aria-disabled={false}
-        className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+        className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1790,19 +1790,19 @@ exports[`TileData TileData renders with tooltip 1`] = `
           }
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                className="Flex rowGap0 columnGap100 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                    className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 24,
@@ -1854,7 +1854,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                    className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                   >
                     <div
                       className="FlexItem"
@@ -1893,7 +1893,7 @@ exports[`TileData TileData renders with tooltip 1`] = `
 
 exports[`TileData TileData shows readonly checkboxes 1`] = `
 <div
-  className="Flex rowGap2 columnGap2 xsDirectionRow"
+  className="Flex rowGap200 columnGap200 xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -1914,7 +1914,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1940,19 +1940,19 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -2003,7 +2003,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -2039,10 +2039,10 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                     className="box"
                   >
                     <div
-                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="box paddingX1 relative"
+                        className="box paddingX100 relative"
                       >
                         <div
                           className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
@@ -2114,7 +2114,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2140,19 +2140,19 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -2203,7 +2203,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -2239,10 +2239,10 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                     className="box"
                   >
                     <div
-                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="box paddingX1 relative"
+                        className="box paddingX100 relative"
                       >
                         <div
                           className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
@@ -2314,7 +2314,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+            className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -2340,19 +2340,19 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
               }
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow"
+                className="Flex rowGap200 columnGap200 xsDirectionRow"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
                   >
                     <div
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "minHeight": 24,
@@ -2403,7 +2403,7 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                       className="FlexItem"
                     >
                       <div
-                        className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -2439,10 +2439,10 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                     className="box"
                   >
                     <div
-                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="box paddingX1 relative"
+                        className="box paddingX100 relative"
                       >
                         <div
                           className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
@@ -2515,7 +2515,7 @@ exports[`TileData TileData title truncates when really long 1`] = `
     >
       <div
         aria-disabled={false}
-        className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+        className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -2541,19 +2541,19 @@ exports[`TileData TileData title truncates when really long 1`] = `
           }
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                className="Flex rowGap0 columnGap100 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                    className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 24,
@@ -2605,7 +2605,7 @@ exports[`TileData TileData title truncates when really long 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                    className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                   >
                     <div
                       className="FlexItem"
@@ -2659,7 +2659,7 @@ exports[`TileData Tiledata is disabled 1`] = `
     >
       <div
         aria-disabled={true}
-        className="tapTransition rounding4 fullWidth"
+        className="tapTransition rounding400 fullWidth"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -2681,19 +2681,19 @@ exports[`TileData Tiledata is disabled 1`] = `
           style={Object {}}
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                className="Flex rowGap0 columnGap100 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                    className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                     style={
                       Object {
                         "minHeight": 24,
@@ -2745,7 +2745,7 @@ exports[`TileData Tiledata is disabled 1`] = `
                   className="FlexItem"
                 >
                   <div
-                    className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                    className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                   >
                     <div
                       className="FlexItem"
@@ -2781,10 +2781,10 @@ exports[`TileData Tiledata is disabled 1`] = `
                 className="box"
               >
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                 >
                   <div
-                    className="box paddingX1 relative"
+                    className="box paddingX100 relative"
                   >
                     <div
                       className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
@@ -2844,7 +2844,7 @@ exports[`TileData renders 1`] = `
 >
   <div
     aria-disabled={false}
-    className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
+    className="tapTransition rounding400 accessibilityOutline fullWidth pointer"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -2870,19 +2870,19 @@ exports[`TileData renders 1`] = `
       }
     >
       <div
-        className="Flex rowGap2 columnGap2 xsDirectionRow"
+        className="Flex rowGap200 columnGap200 xsDirectionRow"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="Flex rowGap0 columnGap1 xsDirectionColumn"
+            className="Flex rowGap0 columnGap100 xsDirectionColumn"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                 style={
                   Object {
                     "minHeight": 24,
@@ -2934,7 +2934,7 @@ exports[`TileData renders 1`] = `
               className="FlexItem"
             >
               <div
-                className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"

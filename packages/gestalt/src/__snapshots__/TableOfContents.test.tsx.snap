@@ -7,7 +7,7 @@ exports[`TableOfContents renders 1`] = `
   role="navigation"
 >
   <div
-    className="box marginBottom3 paddingX3"
+    className="box marginBottom300 paddingX300"
   >
     <h3
       className="Heading fontSize400 default alignStart breakWord"
@@ -22,7 +22,7 @@ exports[`TableOfContents renders 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -74,7 +74,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
   role="navigation"
 >
   <div
-    className="box marginBottom3 paddingX3"
+    className="box marginBottom300 paddingX300"
   >
     <h3
       className="Heading fontSize400 default alignStart breakWord"
@@ -89,7 +89,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -147,7 +147,7 @@ exports[`TableOfContents renders nested items 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -194,7 +194,7 @@ exports[`TableOfContents renders nested items 1`] = `
           className="noStyle marginTop1"
         >
           <a
-            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+            className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
             href="#"
             onBlur={[Function]}
             onClick={[Function]}
@@ -239,7 +239,7 @@ exports[`TableOfContents renders nested items 1`] = `
           className="noStyle marginTop1"
         >
           <a
-            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+            className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
             href="#"
             onBlur={[Function]}
             onClick={[Function]}
@@ -299,7 +299,7 @@ exports[`TableOfContents renders without title 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -344,7 +344,7 @@ exports[`TableOfContents renders without title 1`] = `
       className="noStyle marginTop1"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}

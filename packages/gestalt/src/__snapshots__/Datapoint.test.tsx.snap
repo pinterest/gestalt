@@ -2,13 +2,13 @@
 
 exports[`Datapoint renders 1`] = `
 <div
-  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+  className="Flex rowGap0 columnGap100 xsDirectionColumn"
 >
   <div
     className="FlexItem"
   >
     <div
-      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
       style={
         Object {
           "minHeight": 24,
@@ -44,7 +44,7 @@ exports[`Datapoint renders 1`] = `
     className="FlexItem"
   >
     <div
-      className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem"
@@ -73,7 +73,7 @@ exports[`Datapoint renders 1`] = `
         className="FlexItem"
       >
         <div
-          className="Flex rowGap1 columnGap0 xsDirectionRow"
+          className="Flex rowGap100 columnGap0 xsDirectionRow"
         >
           <div
             className="FlexItem"
@@ -110,13 +110,13 @@ exports[`Datapoint renders 1`] = `
 
 exports[`Datapoint renders a badge 1`] = `
 <div
-  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+  className="Flex rowGap0 columnGap100 xsDirectionColumn"
 >
   <div
     className="FlexItem"
   >
     <div
-      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
       style={
         Object {
           "minHeight": 24,
@@ -153,7 +153,7 @@ exports[`Datapoint renders a badge 1`] = `
           className="badge info middle"
         >
           <div
-            className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -178,7 +178,7 @@ exports[`Datapoint renders a badge 1`] = `
     className="FlexItem"
   >
     <div
-      className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem"
@@ -207,7 +207,7 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="Flex rowGap1 columnGap0 xsDirectionRow"
+          className="Flex rowGap100 columnGap0 xsDirectionRow"
         >
           <div
             className="FlexItem"
@@ -244,13 +244,13 @@ exports[`Datapoint renders a badge 1`] = `
 
 exports[`Datapoint renders a tooltip 1`] = `
 <div
-  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+  className="Flex rowGap0 columnGap100 xsDirectionColumn"
 >
   <div
     className="FlexItem"
   >
     <div
-      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
       style={
         Object {
           "minHeight": 24,
@@ -337,7 +337,7 @@ exports[`Datapoint renders a tooltip 1`] = `
     className="FlexItem"
   >
     <div
-      className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem"
@@ -366,7 +366,7 @@ exports[`Datapoint renders a tooltip 1`] = `
         className="FlexItem"
       >
         <div
-          className="Flex rowGap1 columnGap0 xsDirectionRow"
+          className="Flex rowGap100 columnGap0 xsDirectionRow"
         >
           <div
             className="FlexItem"
@@ -403,13 +403,13 @@ exports[`Datapoint renders a tooltip 1`] = `
 
 exports[`Datapoint renders an accessibility label 1`] = `
 <div
-  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+  className="Flex rowGap0 columnGap100 xsDirectionColumn"
 >
   <div
     className="FlexItem"
   >
     <div
-      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
       style={
         Object {
           "minHeight": 24,
@@ -445,7 +445,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
     className="FlexItem"
   >
     <div
-      className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
     >
       <div
         className="FlexItem"
@@ -474,7 +474,7 @@ exports[`Datapoint renders an accessibility label 1`] = `
         className="FlexItem"
       >
         <div
-          className="Flex rowGap1 columnGap0 xsDirectionRow"
+          className="Flex rowGap100 columnGap0 xsDirectionRow"
         >
           <div
             className="FlexItem"

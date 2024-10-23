@@ -28,7 +28,7 @@ exports[`VideoPlayhead 1`] = `
     tabIndex="-1"
   >
     <div
-      className="absolute box left0 right0 rounding2 secondary xsDisplayFlex"
+      className="absolute box left0 right0 rounding200 secondary xsDisplayFlex"
       style={
         Object {
           "height": 4,
@@ -36,7 +36,7 @@ exports[`VideoPlayhead 1`] = `
       }
     >
       <div
-        className="box light rounding2"
+        className="box light rounding200"
         style={
           Object {
             "height": "100%",
@@ -45,7 +45,7 @@ exports[`VideoPlayhead 1`] = `
         }
       />
       <div
-        className="box circle light marginStartN2"
+        className="box circle light marginStartN200"
         style={
           Object {
             "height": 16,

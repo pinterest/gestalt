@@ -2,13 +2,13 @@
 
 exports[`Module Expandable renders correctly with multiple items 1`] = `
 <div
-  className="box default rounding4 shadow"
+  className="box default rounding400 shadow"
 >
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -39,13 +39,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol6"
+                className="box xsCol600"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -70,10 +70,10 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 </div>
               </div>
               <div
-                className="box marginStart6 xsCol6"
+                className="box marginStart600 xsCol600"
               >
                 <div
-                  className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap200 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -94,7 +94,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-0"
               style={
                 Object {
@@ -125,10 +125,10 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
     className="divider"
   />
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -159,13 +159,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol6"
+                className="box xsCol600"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -190,10 +190,10 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 </div>
               </div>
               <div
-                className="box marginStart6 xsCol6"
+                className="box marginStart600 xsCol600"
               >
                 <div
-                  className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap200 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -214,7 +214,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-1"
               style={
                 Object {
@@ -245,10 +245,10 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
     className="divider"
   />
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -279,13 +279,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol6"
+                className="box xsCol600"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -332,10 +332,10 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                 </div>
               </div>
               <div
-                className="box marginStart6 xsCol6"
+                className="box marginStart600 xsCol600"
               >
                 <div
-                  className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap200 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -356,7 +356,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-2"
               style={
                 Object {
@@ -388,13 +388,13 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
 
 exports[`Module Expandable renders correctly with one item 1`] = `
 <div
-  className="box default rounding4 shadow"
+  className="box default rounding400 shadow"
 >
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -425,13 +425,13 @@ exports[`Module Expandable renders correctly with one item 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol6"
+                className="box xsCol600"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -456,10 +456,10 @@ exports[`Module Expandable renders correctly with one item 1`] = `
                 </div>
               </div>
               <div
-                className="box marginStart6 xsCol6"
+                className="box marginStart600 xsCol600"
               >
                 <div
-                  className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap200 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -510,7 +510,7 @@ exports[`Module Expandable renders correctly with one item 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-0"
               style={
                 Object {
@@ -542,13 +542,13 @@ exports[`Module Expandable renders correctly with one item 1`] = `
 
 exports[`renders correctly with multiple items with expandedId 1`] = `
 <div
-  className="box default rounding4 shadow"
+  className="box default rounding400 shadow"
 >
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -579,13 +579,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol12"
+                className="box xsCol1200"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -611,7 +611,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-0"
               style={
                 Object {
@@ -647,10 +647,10 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
     className="divider"
   />
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -681,13 +681,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol6"
+                className="box xsCol600"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -712,10 +712,10 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 </div>
               </div>
               <div
-                className="box marginStart6 xsCol6"
+                className="box marginStart600 xsCol600"
               >
                 <div
-                  className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap200 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -736,7 +736,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-1"
               style={
                 Object {
@@ -767,10 +767,10 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
     className="divider"
   />
   <div
-    className="box paddingX6 paddingY6"
+    className="box paddingX600 paddingY600"
   >
     <div
-      className="Flex rowGap0 columnGap6 xsDirectionColumn"
+      className="Flex rowGap0 columnGap600 xsDirectionColumn"
     >
       <div
         className="FlexItem"
@@ -801,13 +801,13 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
             className="Flex rowGap0 columnGap0 xsDirectionRow"
           >
             <div
-              className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+              className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
             >
               <div
-                className="box xsCol6"
+                className="box xsCol600"
               >
                 <div
-                  className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -854,10 +854,10 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                 </div>
               </div>
               <div
-                className="box marginStart6 xsCol6"
+                className="box marginStart600 xsCol600"
               >
                 <div
-                  className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap200 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -878,7 +878,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
               </div>
             </div>
             <div
-              className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+              className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
               id="uniqueTestID-2"
               style={
                 Object {

@@ -2,10 +2,10 @@
 
 exports[`AccordionExpandableItem renders correctly 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -36,13 +36,13 @@ exports[`AccordionExpandableItem renders correctly 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -76,10 +76,10 @@ exports[`AccordionExpandableItem renders correctly 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with badge 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -110,13 +110,13 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -158,7 +158,7 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
                       className="badge info middle"
                     >
                       <div
-                        className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                       >
                         <div
                           className="FlexItem"
@@ -190,10 +190,10 @@ exports[`AccordionExpandableItem renders correctly with badge 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with children 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -224,13 +224,13 @@ exports[`AccordionExpandableItem renders correctly with children 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -264,10 +264,10 @@ exports[`AccordionExpandableItem renders correctly with children 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with error 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -298,13 +298,13 @@ exports[`AccordionExpandableItem renders correctly with error 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -360,10 +360,10 @@ exports[`AccordionExpandableItem renders correctly with error 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with icon 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -394,13 +394,13 @@ exports[`AccordionExpandableItem renders correctly with icon 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -456,10 +456,10 @@ exports[`AccordionExpandableItem renders correctly with icon 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -490,13 +490,13 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -584,10 +584,10 @@ exports[`AccordionExpandableItem renders correctly with icon button 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with summary 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -618,13 +618,13 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol6"
+              className="box xsCol600"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -649,10 +649,10 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
               </div>
             </div>
             <div
-              className="box marginStart6 xsCol6"
+              className="box marginStart600 xsCol600"
             >
               <div
-                className="Flex rowGap0 columnGap2 xsDirectionColumn"
+                className="Flex rowGap0 columnGap200 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
@@ -711,10 +711,10 @@ exports[`AccordionExpandableItem renders correctly with summary 1`] = `
 
 exports[`AccordionExpandableItem renders correctly with when expanded 1`] = `
 <div
-  className="box paddingX6 paddingY6"
+  className="box paddingX600 paddingY600"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -745,13 +745,13 @@ exports[`AccordionExpandableItem renders correctly with when expanded 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionRow"
         >
           <div
-            className="box flexGrow marginEnd6 xsDisplayFlex xsItemsBaseline"
+            className="box flexGrow marginEnd600 xsDisplayFlex xsItemsBaseline"
           >
             <div
-              className="box xsCol12"
+              className="box xsCol1200"
             >
               <div
-                className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -777,7 +777,7 @@ exports[`AccordionExpandableItem renders correctly with when expanded 1`] = `
             </div>
           </div>
           <div
-            className="box paddingX1 paddingY1 xsDisplayFlex xsItemsCenter"
+            className="box paddingX100 paddingY100 xsDisplayFlex xsItemsCenter"
             id="uniqueTestID"
             style={
               Object {

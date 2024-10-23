@@ -3,7 +3,7 @@
 exports[`Tag clips long strings 1`] = `
 <div
   aria-disabled={false}
-  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX200 paddingY100 relative rounding200 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -12,7 +12,7 @@ exports[`Tag clips long strings 1`] = `
   }
 >
   <div
-    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+    className="box marginEnd500 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -70,7 +70,7 @@ exports[`Tag clips long strings 1`] = `
 exports[`Tag renders 1`] = `
 <div
   aria-disabled={false}
-  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX200 paddingY100 relative rounding200 secondary xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -79,7 +79,7 @@ exports[`Tag renders 1`] = `
   }
 >
   <div
-    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+    className="box marginEnd500 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -137,7 +137,7 @@ exports[`Tag renders 1`] = `
 exports[`Tag renders a disabled tag 1`] = `
 <div
   aria-disabled={true}
-  className="box paddingX2 paddingY1 relative rounding2 secondary xsDisplayInlineBlock"
+  className="box paddingX200 paddingY100 relative rounding200 secondary xsDisplayInlineBlock"
   style={
     Object {
       "border": "solid 1px var(--color-border-tag-disabled)",
@@ -175,7 +175,7 @@ exports[`Tag renders a disabled tag 1`] = `
 exports[`Tag renders a tag with a warning state 1`] = `
 <div
   aria-disabled={false}
-  className="box paddingX2 paddingY1 relative rounding2 warningBase xsDisplayInlineBlock"
+  className="box paddingX200 paddingY100 relative rounding200 warningBase xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -184,7 +184,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
   }
 >
   <div
-    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+    className="box marginEnd500 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -192,7 +192,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
     }
   >
     <div
-      className="box marginEnd1 marginStart1"
+      className="box marginEnd100 marginStart100"
     >
       <svg
         aria-hidden={null}
@@ -259,7 +259,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
 exports[`Tag renders a tag with an error state 1`] = `
 <div
   aria-disabled={false}
-  className="box errorBase paddingX2 paddingY1 relative rounding2 xsDisplayInlineBlock"
+  className="box errorBase paddingX200 paddingY100 relative rounding200 xsDisplayInlineBlock"
   style={
     Object {
       "height": 32,
@@ -268,7 +268,7 @@ exports[`Tag renders a tag with an error state 1`] = `
   }
 >
   <div
-    className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+    className="box marginEnd500 xsDisplayFlex xsItemsCenter"
     style={
       Object {
         "height": "100%",
@@ -276,7 +276,7 @@ exports[`Tag renders a tag with an error state 1`] = `
     }
   >
     <div
-      className="box marginEnd1 marginStart1"
+      className="box marginEnd100 marginStart100"
     >
       <svg
         aria-hidden={null}

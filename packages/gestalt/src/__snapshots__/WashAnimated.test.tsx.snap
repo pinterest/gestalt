@@ -7,7 +7,7 @@ exports[`renders a WashAnimated with an image 1`] = `
   onMouseLeave={[Function]}
 >
   <div
-    className="box marginBottom1"
+    className="box marginBottom100"
   >
     Avatar
   </div>

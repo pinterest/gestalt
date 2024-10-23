@@ -49,19 +49,19 @@ exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] 
 
 exports[`Box has correct class when opacity is 0.5 1`] = `
 <div
-  className="box opacity05"
+  className="box opacity0500"
 />
 `;
 
 exports[`Box has correct class when opacity is 1 1`] = `
 <div
-  className="box opacity1"
+  className="box opacity100"
 />
 `;
 
 exports[`Box has correct class when rounding is 1 1`] = `
 <div
-  className="box rounding1"
+  className="box rounding100"
 />
 `;
 
@@ -97,13 +97,13 @@ exports[`Box has correct classes when display is flex 1`] = `
 
 exports[`Box has correct marginStart and marginEnd when marginStart and marginEnd are negative 1`] = `
 <div
-  className="box marginEndN3 marginStartN1"
+  className="box marginEndN300 marginStartN100"
 />
 `;
 
 exports[`Box has correct marginStart and marginEnd when marginStart equals 1 and marginEnd equals 2 1`] = `
 <div
-  className="box marginEnd2 marginStart1"
+  className="box marginEnd200 marginStart100"
 />
 `;
 
