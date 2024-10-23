@@ -1,3 +1,9 @@
+## 163.3.0 (Oct 23, 2024)
+
+### Minor
+
+- PopoverEducational: Add Experimental Prop for Notification (background color change) ([#3818](https://github.com/pinterest/gestalt/pull/3818)) - [Preview link](https://deploy-preview-3818--gestalt.netlify.app?devexample=true)
+
 ## 163.2.0 (Oct 23, 2024)
 
 ### Minor
