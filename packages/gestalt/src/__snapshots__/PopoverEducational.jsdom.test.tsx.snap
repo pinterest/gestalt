@@ -42,7 +42,7 @@ exports[`PopoverEducational renders 1`] = `
                 class="FlexItem"
               >
                 <div
-                  class="light alignStart breakWord Text fontSize300 fontWeightNormal"
+                  class="inverse alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   text
                 </div>
