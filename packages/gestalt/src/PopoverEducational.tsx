@@ -24,7 +24,7 @@ type PrimaryActionType =
       role: 'link';
       target?: null | 'self' | 'blank';
       text: string;
-  }
+    }
   | {
       accessibilityLabel?: string;
       onClick?: (arg1: {
@@ -32,7 +32,7 @@ type PrimaryActionType =
       }) => void;
       role?: 'button';
       text: string;
-  };
+    };
 
 function PrimaryAction(props: PrimaryActionType) {
   if (props.role === 'link') {
