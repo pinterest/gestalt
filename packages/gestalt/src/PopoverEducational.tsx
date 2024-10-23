@@ -176,7 +176,7 @@ export default function PopoverEducational({
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        color={isInAddNotifVariantExperiment && _experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
+        color={_experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
         disableFocusTrap
         disablePortal
         forceDirection={forceDirection}
