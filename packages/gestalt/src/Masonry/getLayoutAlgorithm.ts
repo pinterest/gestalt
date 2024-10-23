@@ -37,7 +37,7 @@ export default function getLayoutAlgorithm<T>({
   ) => void;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   renderLoadingState?: boolean;
-}): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) {
+}): (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
       gutter,

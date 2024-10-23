@@ -429,7 +429,8 @@ function useLayout<T>({
   const hasPendingMeasurements = itemMeasurementsCount < items.length;
   const canPerformLayout = width != null;
 
-  const loadingStatePositions = canPerformLayout && renderLoadingState ? layoutFunction(_loadingStateItems) : [];
+  const loadingStatePositions =
+    canPerformLayout && renderLoadingState ? layoutFunction(_loadingStateItems) : [];
 
   const itemPositions: ReadonlyArray<Position | null | undefined> = useMemo(() => {
     if (!canPerformLayout) {
@@ -554,7 +555,7 @@ function MasonryLoadingStateItem<T>({
   left,
   renderItem,
   top,
-  width
+  width,
 }: {
   height: number;
   idx: number;
@@ -572,10 +573,8 @@ function MasonryLoadingStateItem<T>({
       style={{
         top,
         left,
-        // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
-        width: layoutNumberToCssDimension(width),
-        // @ts-expect-error - TS2322 - Type '{ visibility: string; position: string; top: number | null | undefined; left: number | null | undefined; width: number | null | undefined; height: number | null | undefined; } | { transform: string; ... 7 more ...; left?: undefined; } | { ...; }' is not assignable to type 'CSSProperties | undefined'.
-        height: layoutNumberToCssDimension(height),
+        width: layoutNumberToCssDimension(width) ?? 0,
+        height: layoutNumberToCssDimension(height) ?? 0,
       }}
     >
       {renderItem?.({ data: item, itemIdx: idx }) ?? null}
@@ -798,24 +797,25 @@ function Masonry<T>(
     [_dynamicHeights, items, measurementStore, positionStore],
   );
 
-  const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } = useLayout<T>({
-    align,
-    columnWidth,
-    gutter,
-    items,
-    layout,
-    measurementStore,
-    minCols,
-    positionStore,
-    width,
-    heightUpdateTrigger,
-    _logTwoColWhitespace,
-    _measureAll,
-    _useRAF,
-    _getColumnSpanConfig,
-    _loadingStateItems,
-    _renderLoadingStateItems,
-  });
+  const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } =
+    useLayout<T>({
+      align,
+      columnWidth,
+      gutter,
+      items,
+      layout,
+      measurementStore,
+      minCols,
+      positionStore,
+      width,
+      heightUpdateTrigger,
+      _logTwoColWhitespace,
+      _measureAll,
+      _useRAF,
+      _getColumnSpanConfig,
+      _loadingStateItems,
+      _renderLoadingStateItems,
+    });
 
   useFetchOnScroll({
     containerHeight,
@@ -875,10 +875,7 @@ function Masonry<T>(
       const isVisible =
         isServerRenderOrHydration || isMeasurement
           ? true
-          : !(
-              position.top + (position.height ?? 0) < viewportTop ||
-              position.top > viewportBottom
-            );
+          : !(position.top + (position.height ?? 0) < viewportTop || position.top > viewportBottom);
 
       const serializedColumnSpanConfig =
         typeof columnSpanConfig === 'number'
@@ -903,7 +900,7 @@ function Masonry<T>(
           width={position.width}
         />
       ) : null;
-    })
+    });
   } else if (renderLoadingState) {
     gridBody = _loadingStateItems.map((item, i) => {
       const key = `item-${i}`;
@@ -923,7 +920,7 @@ function Masonry<T>(
           top={position.top}
           width={position.width}
         />
-      )
+      );
     });
   }
 
