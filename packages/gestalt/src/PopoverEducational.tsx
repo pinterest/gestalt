@@ -14,24 +14,24 @@ type Size = 'sm' | 'flexible';
 type Role = 'dialog' | 'tooltip';
 type PrimaryActionType =
   | {
-    accessibilityLabel?: string;
-    href: string;
-    onClick?: (arg1: {
-      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
-      dangerouslyDisableOnNavigation: () => void;
-    }) => void;
-    rel?: 'none' | 'nofollow';
-    role: 'link';
-    target?: null | 'self' | 'blank';
-    text: string;
+      accessibilityLabel?: string;
+      href: string;
+      onClick?: (arg1: {
+        event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+        dangerouslyDisableOnNavigation: () => void;
+      }) => void;
+      rel?: 'none' | 'nofollow';
+      role: 'link';
+      target?: null | 'self' | 'blank';
+      text: string;
   }
   | {
-    accessibilityLabel?: string;
-    onClick?: (arg1: {
-      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
-    }) => void;
-    role?: 'button';
-    text: string;
+      accessibilityLabel?: string;
+      onClick?: (arg1: {
+        event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+      }) => void;
+      role?: 'button';
+      text: string;
   };
 
 function PrimaryAction(props: PrimaryActionType) {
@@ -118,7 +118,7 @@ type Props = {
    */
   zIndex?: Indexable;
   /**
-   * This is an experimental prop that defines what background color is used for the popover. 
+   * This is an experimental prop that defines what background color is used for the popover.
    * If set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.
    */
   _experimentalVariant?: 'notification' | 'education';
