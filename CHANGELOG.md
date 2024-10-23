@@ -1,3 +1,9 @@
+## 163.2.0 (Oct 23, 2024)
+
+### Minor
+
+- DateRange: make onCancel and onSubmit events optional (web) ([#3812](https://github.com/pinterest/gestalt/pull/3812)) - [Preview link](https://deploy-preview-3812--gestalt.netlify.app?devexample=true)
+
 ## 163.1.0 (Oct 22, 2024)
 
 ### Minor
