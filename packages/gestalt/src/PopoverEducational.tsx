@@ -8,7 +8,6 @@ import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
 import Text from './Text';
 import { Indexable } from './zIndex';
-import useInExperiment from './useInExperiment';
 
 type Size = 'sm' | 'flexible';
 type Role = 'dialog' | 'tooltip';
@@ -171,11 +170,6 @@ export default function PopoverEducational({
 
     textElement = <span className={textColorOverrideStyles}>{message}</span>;
   }
-
-  const isInAddNotifVariantExperiment = _experimentalVariant ? useInExperiment({
-    webExperimentName: 'gestalt_popover_educational_dark_color',
-    mwebExperimentName: 'gestalt_popover_educational_dark_color',
-  }) : false;
 
   return (
     <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
