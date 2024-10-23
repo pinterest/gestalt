@@ -225,6 +225,8 @@ Use \`dateValue\`, \`onDateChange\`, \`onDateError\`, \`onSubmit\` and \`onCance
 Follow the implementation in the example to implement a controlled DateRange correctly.
 
 When there’s not a date range selected, the call-to-action is disabled to prevent user errors.
+
+\`onSubmit\` and \`onCancel\` are optional props. When not used, make sure DateRange is accessible implementing Popover's onDismiss correctly, as shown in the example. Otherwise, DateRange might not be able to be dismissed if the user performs no changes in the data.
           `}
           title="Controlled component"
         >

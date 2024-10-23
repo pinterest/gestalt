@@ -258,4 +258,30 @@ describe('DateRange', () => {
     await userEvent.click(secondaryEndDateButton);
     expect(screen.getByDisplayValue('10 / 09 / 2024')).toBeInTheDocument();
   });
+
+  it('renders apply and cancel buttons', () => {
+    render(
+      <DateRange
+        dateValue={{ startDate: new Date(), endDate: new Date() }}
+        onCancel={() => {}}
+        onDateChange={() => {}}
+        onDateError={{ startDate: () => {}, endDate: () => {} }}
+        onSubmit={() => {}}
+      />,
+    );
+    expect(screen.getByRole('button', { name: /cancel/i })).toBeVisible();
+    expect(screen.getByRole('button', { name: /apply/i })).toBeVisible();
+  });
+
+  it('not renders apply and cancel buttons if event handlers are not present', () => {
+    render(
+      <DateRange
+        dateValue={{ startDate: new Date(), endDate: new Date() }}
+        onDateChange={() => {}}
+        onDateError={{ startDate: () => {}, endDate: () => {} }}
+      />,
+    );
+    expect(screen.queryByRole('button', { name: /cancel/i })).toBeNull();
+    expect(screen.queryByRole('button', { name: /apply/i })).toBeNull();
+  });
 });
