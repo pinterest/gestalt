@@ -366,7 +366,11 @@ function useLayout<T>({
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
   heightUpdateTrigger: number;
-  _logTwoColWhitespace?: (arg1: ReadonlyArray<number>) => void;
+  _logTwoColWhitespace?: (
+    additionalWhitespace: ReadonlyArray<number>,
+    numberOfIterations: number,
+    columnSpan: number,
+  ) => void;
   _measureAll?: boolean;
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
