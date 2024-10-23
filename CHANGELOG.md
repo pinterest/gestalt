@@ -1,3 +1,9 @@
+## 163.4.1 (Oct 23, 2024)
+
+### Patch
+
+- PopoverEducational: fix to color text ([#3820](https://github.com/pinterest/gestalt/pull/3820)) - [Preview link](https://deploy-preview-3820--gestalt.netlify.app?devexample=true)
+
 ## 163.4.0 (Oct 23, 2024)
 
 ### Minor
