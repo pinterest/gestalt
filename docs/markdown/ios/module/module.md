@@ -4,7 +4,7 @@ description: Module is a semi-modular container used to house Module.Header and 
 fullwidth: true
 ---
 
-<ImgContainer src="https://i.pinimg.com/originals/fb/df/a0/fbdfa01750ca4951fde9da763052c9de.png" alt="Example of a Module container with an area to show where images are placed." noPadding color="background-elevation-accent"/>
+<ImgContainer src="https://www.pinterest-assets.com/AssetLink/lt8ck5f8xibkk8mjk28vjpr2u2wahv4q/module-preview-imageCard-png.png" alt="Example of a Module container with an area to show where images are placed." noPadding color="background-elevation-accent"/>
 
 ## Usage guidelines
 
