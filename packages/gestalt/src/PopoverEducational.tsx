@@ -154,7 +154,7 @@ export default function PopoverEducational({
   let textElement: ReactElement | undefined;
 
   if (typeof message === 'string') {
-    textElement = <Text color="light">{message}</Text>;
+    textElement = <Text color="inverse">{message}</Text>;
   }
 
   // If `message` is a Text component, we need to override any text colors within to ensure they all match
@@ -164,11 +164,7 @@ export default function PopoverEducational({
     // @ts-expect-error - TS2339
     Children.only<ReactElement>(message).type.displayName === 'Text'
   ) {
-    const textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDark
-      : styles.textColorOverrideLight;
-
-    textElement = <span className={textColorOverrideStyles}>{message}</span>;
+    textElement = <span className={styles.textColorOverride}>{message}</span>;
   }
 
   return (
