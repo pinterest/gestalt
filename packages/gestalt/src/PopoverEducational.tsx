@@ -116,6 +116,11 @@ type Props = {
    * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable;
+  /**
+   * This is an experimental prop that defines what background color is used for the popover.
+   * If set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.
+   */
+  _experimentalVariant?: 'notification' | 'education';
 };
 
 /**
@@ -137,6 +142,7 @@ export default function PopoverEducational({
   shouldFocus = false,
   size = 'sm',
   zIndex,
+  _experimentalVariant,
 }: Props) {
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -170,7 +176,7 @@ export default function PopoverEducational({
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        color="blue"
+        color={_experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
         disableFocusTrap
         disablePortal
         forceDirection={forceDirection}
