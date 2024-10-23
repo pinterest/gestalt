@@ -2,7 +2,6 @@ import { Children, ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
@@ -144,9 +143,6 @@ export default function PopoverEducational({
   zIndex,
   _experimentalVariant,
 }: Props) {
-  const { colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-
   if (!anchor) {
     return null;
   }
