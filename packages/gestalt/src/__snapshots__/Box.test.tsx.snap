@@ -49,7 +49,7 @@ exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] 
 
 exports[`Box has correct class when opacity is 0.5 1`] = `
 <div
-  className="box opacity0500"
+  className="box opacity05"
 />
 `;
 
