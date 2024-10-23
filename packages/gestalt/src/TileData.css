@@ -1,7 +1,7 @@
 .baseTile {
   composes: flex from "./Layout.css";
-  composes: paddingX4 from "./boxWhitespace.css";
-  composes: paddingY4 from "./boxWhitespace.css";
+  composes: paddingX400 from "./boxWhitespace.css";
+  composes: paddingY400 from "./boxWhitespace.css";
   composes: rounding4 from "./Borders.css";
   composes: borderBox from "./Layout.css";
   composes: sizeLg from "./Borders.css";

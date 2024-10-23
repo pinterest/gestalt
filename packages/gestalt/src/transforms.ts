@@ -31,7 +31,7 @@ export const mapping =
 export const range =
   (scale: string): ((n: number) => Style) =>
   (n): Style =>
-    fromClassName(`${scale}${n < 0 ? `N${Math.abs(n)}` : n}`);
+    fromClassName(`${scale}${n < 0 ? `N${Math.abs(n * 100)}` : n * 100}`);
 
 export const rangeWithZero =
   (scale: string): ((n: number) => Style) =>

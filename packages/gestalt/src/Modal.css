@@ -13,7 +13,7 @@
 .wrapper {
   composes: relative overflowAuto flex from "./Layout.css";
   composes: rounding4 from "./Borders.css";
-  composes: marginStart4 marginEnd4 from "./boxWhitespace.css";
+  composes: marginStart400 marginEnd400 from "./boxWhitespace.css";
   background-color: var(--color-background-overlay);
   max-height: calc(100vh - 32px);
 }
