@@ -2,7 +2,6 @@ import { Children, ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
@@ -144,9 +143,6 @@ export default function PopoverEducational({
   zIndex,
   _experimentalVariant,
 }: Props) {
-  const { colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-
   if (!anchor) {
     return null;
   }
@@ -154,7 +150,7 @@ export default function PopoverEducational({
   let textElement: ReactElement | undefined;
 
   if (typeof message === 'string') {
-    textElement = <Text color="light">{message}</Text>;
+    textElement = <Text color="inverse">{message}</Text>;
   }
 
   // If `message` is a Text component, we need to override any text colors within to ensure they all match
@@ -164,11 +160,7 @@ export default function PopoverEducational({
     // @ts-expect-error - TS2339
     Children.only<ReactElement>(message).type.displayName === 'Text'
   ) {
-    const textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDark
-      : styles.textColorOverrideLight;
-
-    textElement = <span className={textColorOverrideStyles}>{message}</span>;
+    textElement = <span className={styles.textColorOverride}>{message}</span>;
   }
 
   return (
