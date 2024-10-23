@@ -1,3 +1,9 @@
+## 163.4.0 (Oct 23, 2024)
+
+### Minor
+
+- Masonry: Log number of iterations it takes to find optimal whitespace ([#3817](https://github.com/pinterest/gestalt/pull/3817)) - [Preview link](https://deploy-preview-3817--gestalt.netlify.app?devexample=true)
+
 ## 163.3.1 (Oct 23, 2024)
 
 ### Patch
