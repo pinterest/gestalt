@@ -1,3 +1,9 @@
+## 163.3.1 (Oct 23, 2024)
+
+### Patch
+
+- Docs: Card.iOS renamed to Module and Figma embeds relinked. ([#3819](https://github.com/pinterest/gestalt/pull/3819)) - [Preview link](https://deploy-preview-3819--gestalt.netlify.app?devexample=true)
+
 ## 163.3.0 (Oct 23, 2024)
 
 ### Minor
