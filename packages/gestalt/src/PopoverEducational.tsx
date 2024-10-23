@@ -8,30 +8,31 @@ import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
 import Text from './Text';
 import { Indexable } from './zIndex';
+import useInExperiment from './useInExperiment';
 
 type Size = 'sm' | 'flexible';
 type Role = 'dialog' | 'tooltip';
 type PrimaryActionType =
   | {
-      accessibilityLabel?: string;
-      href: string;
-      onClick?: (arg1: {
-        event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
-        dangerouslyDisableOnNavigation: () => void;
-      }) => void;
-      rel?: 'none' | 'nofollow';
-      role: 'link';
-      target?: null | 'self' | 'blank';
-      text: string;
-    }
+    accessibilityLabel?: string;
+    href: string;
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
+      dangerouslyDisableOnNavigation: () => void;
+    }) => void;
+    rel?: 'none' | 'nofollow';
+    role: 'link';
+    target?: null | 'self' | 'blank';
+    text: string;
+  }
   | {
-      accessibilityLabel?: string;
-      onClick?: (arg1: {
-        event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
-      }) => void;
-      role?: 'button';
-      text: string;
-    };
+    accessibilityLabel?: string;
+    onClick?: (arg1: {
+      event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
+    }) => void;
+    role?: 'button';
+    text: string;
+  };
 
 function PrimaryAction(props: PrimaryActionType) {
   if (props.role === 'link') {
@@ -116,6 +117,11 @@ type Props = {
    * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable;
+  /**
+   * This is an experimental prop that defines what background color is used for the popover. 
+   * If set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.
+   */
+  _experimentalVariant?: 'notification' | 'education';
 };
 
 /**
@@ -137,6 +143,7 @@ export default function PopoverEducational({
   shouldFocus = false,
   size = 'sm',
   zIndex,
+  _experimentalVariant,
 }: Props) {
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -165,12 +172,17 @@ export default function PopoverEducational({
     textElement = <span className={textColorOverrideStyles}>{message}</span>;
   }
 
+  const isInAddNotifVariantExperiment = _experimentalVariant ? useInExperiment({
+    webExperimentName: 'gestalt_popover_educational_dark_color',
+    mwebExperimentName: 'gestalt_popover_educational_dark_color',
+  }) : false;
+
   return (
     <Box position={zIndex ? 'relative' : undefined} zIndex={zIndex}>
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        color="blue"
+        color={isInAddNotifVariantExperiment && _experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
         disableFocusTrap
         disablePortal
         forceDirection={forceDirection}
