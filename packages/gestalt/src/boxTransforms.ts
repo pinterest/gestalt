@@ -219,7 +219,7 @@ const transformNumberOrPassthrough =
   (selector: string): MarginFunctorType =>
   (m) => {
     if (typeof m === 'number') {
-      return bind(rangeWithZero(selector), whitespace)(m);
+      return bind(rangeWithZero(selector), whitespace)(m * 100);
     }
 
     if (m === 'auto') {
@@ -266,7 +266,7 @@ const minWidth: Functor<Dimension> = (d) => fromInlineStyle({ minWidth: d });
 const opacityMap = mapClassName((name) => styles[name]);
 const opacity: Functor<Opacity> = (val) => {
   if (val > 0 && val < 1) {
-    return opacityMap(range('opacity0')(val * 0.1));
+    return opacityMap(range('opacity0')(val * 10));
   }
   return opacityMap(range('opacity')(val));
 };
