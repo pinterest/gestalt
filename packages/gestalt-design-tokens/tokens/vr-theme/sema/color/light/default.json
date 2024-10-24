@@ -140,30 +140,36 @@
         "wash": {
           "default": {
             "type": "color",
-            "value": "rgba({base.color.grayscale.0}, 0.9)"
+            "value": "rgba({base.color.grayscale.0}, 0.9)",
+            "description": "A partially transparent background color used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "dark": {
             "type": "color",
-            "value": "rgba({base.color.grayscale.500}, 0.8)"
+            "value": "rgba({base.color.grayscale.500}, 0.8)",
+            "description": "A partially transparent background color that remains black across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "light": {
             "type": "color",
-            "value": "rgba({base.color.grayscale.0}, 0.9)"
+            "value": "rgba({base.color.grayscale.0}, 0.9)",
+            "description": "A partially transparent background color that remains white across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "image": {
             "tint": {
               "type": "color",
-              "value": "rgba({base.color.grayscale.500}, 0.04)"
+              "value": "rgba({base.color.grayscale.500}, 0.04)",
+              "description": "A subtle tint placed on top of most images, helpful for distinguishing images with solid white or black backgrounds from their surroundings"
             }
           },
           "scrims": {
             "default": {
               "type": "color",
-              "value": "rgba({base.color.grayscale.250}, 0.4)"
+              "value": "rgba({base.color.grayscale.250}, 0.4)",
+              "description": "A partially transparent background color used as an overlay, hiding most content on the screen while a modal, sheet, or alert is visible"
             },
             "opaque": {
               "type": "color",
-              "value": "rgba({base.color.grayscale.50}, 0.8)"
+              "value": "rgba({base.color.grayscale.50}, 0.8)",
+              "description": "More opaque than the default scrim background color, useful for providing even more distinction from the content beneath a modal, sheet, or alert"
             }
           }
         },
@@ -172,21 +178,25 @@
             "bottom": {
               "weak": {
                 "type": "color",
-                "value": "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.4))"
+                "value": "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.4))",
+                "description": "A subtle gradient used to darken the bottom of an image when interactions are overlaid atop it"
               },
               "strong": {
                 "type": "color",
-                "value": "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.8))"
+                "value": "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.8))",
+                "description": "A more prominent gradient used to darken the bottom of an image when text or interactions are overlaid atop it"
               }
             },
             "top": {
               "weak": {
                 "type": "color",
-                "value": "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.4))"
+                "value": "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.4))",
+                "description": "A subtle gradient used to darken the top of an image when interactions are overlaid atop it"
               },
               "strong": {
                 "type": "color",
-                "value": "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.8))"
+                "value": "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.8))",
+                "description": "A more prominent gradient used to darken the top of an image when text or interactions are overlaid atop it"
               }
             }
           }
@@ -195,19 +205,23 @@
       "border": {
         "decorative": {
           "type": "color",
-          "value": "{base.color.grayscale.150}"
+          "value": "{base.color.grayscale.150}",
+          "description": "Used as a border or divider on non-interactive elements"
         },
         "interactive": {
           "type": "color",
-          "value": "{base.color.grayscale.250}"
+          "value": "{base.color.grayscale.250}",
+          "description": "Used as a border on interactive elements"
         },
-        "selected ": {
+        "selected": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Used as a border on currently selected (not focused) elements"
         },
         "disabled": {
           "type": "color",
-          "value": "{base.color.grayscale.150}"
+          "value": "{base.color.grayscale.150}",
+          "description": "Used as a border on currently disabled elements"
         },
         "success": {
           "type": "color",
