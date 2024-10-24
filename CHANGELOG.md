@@ -1,3 +1,9 @@
+## 163.6.1 (Oct 24, 2024)
+
+### Patch
+
+- Icon: VR error color fix ([#3824](https://github.com/pinterest/gestalt/pull/3824)) - [Preview link](https://deploy-preview-3824--gestalt.netlify.app?devexample=true)
+
 ## 163.6.0 (Oct 24, 2024)
 
 ### Minor
