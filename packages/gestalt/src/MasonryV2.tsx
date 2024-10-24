@@ -161,6 +161,12 @@ type Props<T> = {
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
   _dynamicHeights?: boolean;
+  /**
+   * Experimental prop to define how much whitespace is good enough to position multicolumn modules
+   *
+   * This is an experimental prop and may be removed or changed in the future
+   */
+  _whitespaceThreshold?: number;
 };
 
 type MasonryRef = {
@@ -370,6 +376,7 @@ function useLayout<T>({
   _getColumnSpanConfig,
   _loadingStateItems = [],
   _renderLoadingStateItems,
+  _whitespaceThreshold,
 }: {
   align: Align;
   columnWidth: number;
@@ -391,6 +398,7 @@ function useLayout<T>({
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   _renderLoadingStateItems?: Props<T>['_renderLoadingStateItems'];
+  _whitespaceThreshold?: number;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -416,6 +424,7 @@ function useLayout<T>({
     _logTwoColWhitespace,
     _loadingStateItems,
     renderLoadingState,
+    _whitespaceThreshold,
   });
 
   const hasMultiColumnItems =
@@ -692,6 +701,7 @@ function Masonry<T>(
     _dynamicHeights,
     _loadingStateItems = [],
     _renderLoadingStateItems,
+    _whitespaceThreshold,
   }: Props<T>,
   ref:
     | {
@@ -815,6 +825,7 @@ function Masonry<T>(
       _getColumnSpanConfig,
       _loadingStateItems,
       _renderLoadingStateItems,
+      _whitespaceThreshold,
     });
 
   useFetchOnScroll({

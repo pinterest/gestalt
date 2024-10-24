@@ -149,6 +149,12 @@ type Props<T> = {
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
   _dynamicHeights?: boolean;
+  /**
+   * Experimental prop to define how much whitespace is good enough to position multicolumn modules
+   *
+   * This is an experimental prop and may be removed or changed in the future
+   */
+  _whitespaceThreshold?: number;
 };
 
 type State<T> = {
@@ -585,6 +591,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _loadingStateItems = [],
       _renderLoadingStateItems,
+      _whitespaceThreshold,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -607,6 +614,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
         renderLoadingState,
+        whitespaceThreshold: _whitespaceThreshold,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -631,6 +639,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
         renderLoadingState,
+        whitespaceThreshold: _whitespaceThreshold,
       });
     }
 
