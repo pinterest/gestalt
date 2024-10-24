@@ -21,7 +21,7 @@ import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, Position } from './Masonry/types';
+import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
 import throttle from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
@@ -144,6 +144,19 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
+   */
+  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
+  /**
+   * Experimental prop to render a loading state
+   *
+   * A function that renders the loading state items you would like displayed in the grid. This function is passed two props: the item's data and the item's index in the grid.
+   */
+  _renderLoadingStateItems?: (arg1: {
+    readonly data: LoadingStateItem;
+    readonly itemIdx: number;
+  }) => ReactNode;
   /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
@@ -355,6 +368,8 @@ function useLayout<T>({
   _measureAll,
   _useRAF,
   _getColumnSpanConfig,
+  _loadingStateItems = [],
+  _renderLoadingStateItems,
 }: {
   align: Align;
   columnWidth: number;
@@ -374,18 +389,19 @@ function useLayout<T>({
   _measureAll?: boolean;
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
+  _renderLoadingStateItems?: Props<T>['_renderLoadingStateItems'];
 }): {
   height: number;
   hasPendingMeasurements: boolean;
   positions: ReadonlyArray<Position | null | undefined>;
   updateMeasurement: (arg1: T, arg2: number) => void;
+  renderLoadingState: boolean;
 } {
-  const hasMultiColumnItems =
-    _getColumnSpanConfig &&
-    items
-      .filter((item) => item && !positionStore.has(item))
-      .some((item) => _getColumnSpanConfig(item) !== 1);
-  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
+  const renderLoadingState = Boolean(
+    items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
+  );
+
   const layoutFunction = getLayoutAlgorithm({
     align,
     columnWidth,
@@ -398,17 +414,29 @@ function useLayout<T>({
     width,
     _getColumnSpanConfig,
     _logTwoColWhitespace,
+    _loadingStateItems,
+    renderLoadingState,
   });
 
+  const hasMultiColumnItems =
+    _getColumnSpanConfig &&
+    items
+      .filter((item) => item && !positionStore.has(item))
+      .some((item) => _getColumnSpanConfig(item) !== 1);
+  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
   const itemMeasurementsCount = itemMeasurements.length;
   const hasPendingMeasurements = itemMeasurementsCount < items.length;
   const canPerformLayout = width != null;
 
-  const positions: ReadonlyArray<Position | null | undefined> = useMemo(() => {
+  const loadingStatePositions =
+    canPerformLayout && renderLoadingState ? layoutFunction(_loadingStateItems) : [];
+
+  const itemPositions: ReadonlyArray<Position | null | undefined> = useMemo(() => {
     if (!canPerformLayout) {
       return [];
     }
+
     // we currently calculate positions separately for items that have been measured and items that haven't
     // maintain this paradigm for now for parity but ideally we should just able to pass all items to the layout function
     const itemsWithMeasurements = items.filter((item) => measurementStore.has(item));
@@ -435,7 +463,7 @@ function useLayout<T>({
       return acc;
     }, []);
     // only recalculate positions when certain things change
-    // - items: if we get new items, we should always recalculate positions
+    // - itemsToPosition: if we get new items, we should always recalculate positions
     // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
 
@@ -464,6 +492,8 @@ function useLayout<T>({
     [measurementStore, forceUpdate, _useRAF],
   );
 
+  const positions = renderLoadingState ? loadingStatePositions : itemPositions;
+
   // Math.max() === -Infinity when there are no positions
   const height = positions.length
     ? Math.max(...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)))
@@ -473,6 +503,7 @@ function useLayout<T>({
     hasPendingMeasurements,
     height,
     positions,
+    renderLoadingState,
     updateMeasurement,
   };
 }
@@ -515,6 +546,40 @@ function useViewport({
     viewportTop: -Infinity,
     viewportBottom: Infinity,
   };
+}
+
+function MasonryLoadingStateItem<T>({
+  height,
+  idx,
+  item,
+  left,
+  renderItem,
+  top,
+  width,
+}: {
+  height: number;
+  idx: number;
+  item: LoadingStateItem;
+  left: number;
+  renderItem: Props<T>['_renderLoadingStateItems'];
+  top: number;
+  width: number;
+}) {
+  return (
+    <div
+      className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
+      data-grid-item
+      role="listitem"
+      style={{
+        top,
+        left,
+        width: layoutNumberToCssDimension(width) ?? 0,
+        height: layoutNumberToCssDimension(height) ?? 0,
+      }}
+    >
+      {renderItem?.({ data: item, itemIdx: idx }) ?? null}
+    </div>
+  );
 }
 
 function MasonryItem<T>({
@@ -600,6 +665,7 @@ function MasonryItem<T>({
   );
 }
 
+const MasonryLoadingStateItemMemo = memo(MasonryLoadingStateItem) as typeof MasonryLoadingStateItem;
 const MasonryItemMemo = memo(MasonryItem) as typeof MasonryItem;
 
 function Masonry<T>(
@@ -624,6 +690,8 @@ function Masonry<T>(
     _useRAF,
     _getColumnSpanConfig,
     _dynamicHeights,
+    _loadingStateItems = [],
+    _renderLoadingStateItems,
   }: Props<T>,
   ref:
     | {
@@ -729,22 +797,25 @@ function Masonry<T>(
     [_dynamicHeights, items, measurementStore, positionStore],
   );
 
-  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
-    align,
-    columnWidth,
-    gutter,
-    items,
-    layout,
-    measurementStore,
-    minCols,
-    positionStore,
-    width,
-    heightUpdateTrigger,
-    _logTwoColWhitespace,
-    _measureAll,
-    _useRAF,
-    _getColumnSpanConfig,
-  });
+  const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } =
+    useLayout<T>({
+      align,
+      columnWidth,
+      gutter,
+      items,
+      layout,
+      measurementStore,
+      minCols,
+      positionStore,
+      width,
+      heightUpdateTrigger,
+      _logTwoColWhitespace,
+      _measureAll,
+      _useRAF,
+      _getColumnSpanConfig,
+      _loadingStateItems,
+      _renderLoadingStateItems,
+    });
 
   useFetchOnScroll({
     containerHeight,
@@ -759,7 +830,7 @@ function Masonry<T>(
   });
 
   const isServerRenderOrHydration = width == null && hasPendingMeasurements;
-  const canPerformFullLayout = width != null;
+  const canPerformFullLayout = width != null && !renderLoadingState;
 
   const { viewportTop, viewportBottom } = useViewport({
     containerHeight,
@@ -772,67 +843,86 @@ function Masonry<T>(
     virtualize,
   });
 
-  const gridBody =
-    isServerRenderOrHydration || canPerformFullLayout
-      ? items.filter(Boolean).map((item, i) => {
-          const key = `item-${i}`;
-          const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
-          const position = canPerformFullLayout
-            ? positions[i]
-            : {
-                top: 0,
-                left: 0,
-                // we don't know the height yet when server rendering or hydrating
-                height: undefined,
-                width:
-                  // eslint-disable-next-line no-nested-ternary
-                  layout === 'flexible' ||
-                  layout === 'serverRenderedFlexible' ||
-                  typeof columnSpanConfig === 'object'
-                    ? undefined // we can't set a width for server rendered flexible items
-                    : typeof columnSpanConfig === 'number' && columnWidth != null && gutter != null
-                    ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
-                    : columnWidth,
-              };
+  let gridBody = null;
 
-          if (!position) {
-            return null;
-          }
+  if (isServerRenderOrHydration || canPerformFullLayout) {
+    gridBody = items.filter(Boolean).map((item, i) => {
+      const key = `item-${i}`;
+      const columnSpanConfig = _getColumnSpanConfig?.(item) ?? 1;
+      const position = canPerformFullLayout
+        ? positions[i]
+        : {
+            top: 0,
+            left: 0,
+            // we don't know the height yet when server rendering or hydrating
+            height: undefined,
+            width:
+              // eslint-disable-next-line no-nested-ternary
+              layout === 'flexible' ||
+              layout === 'serverRenderedFlexible' ||
+              typeof columnSpanConfig === 'object'
+                ? undefined // we can't set a width for server rendered flexible items
+                : typeof columnSpanConfig === 'number' && columnWidth != null && gutter != null
+                ? columnWidth * columnSpanConfig + gutter * (columnSpanConfig - 1)
+                : columnWidth,
+          };
 
-          const isMeasurement = canPerformFullLayout ? !measurementStore.has(item) : false;
-          const isVisible =
-            isServerRenderOrHydration || isMeasurement
-              ? true
-              : !(
-                  position.top + (position.height ?? 0) < viewportTop ||
-                  position.top > viewportBottom
-                );
+      if (!position) {
+        return null;
+      }
 
-          const serializedColumnSpanConfig =
-            typeof columnSpanConfig === 'number'
-              ? columnSpanConfig
-              : btoa(JSON.stringify(columnSpanConfig));
+      const isMeasurement = canPerformFullLayout ? !measurementStore.has(item) : false;
+      const isVisible =
+        isServerRenderOrHydration || isMeasurement
+          ? true
+          : !(position.top + (position.height ?? 0) < viewportTop || position.top > viewportBottom);
 
-          return isVisible ? (
-            <MasonryItemMemo
-              key={key}
-              height={position.height}
-              idx={i}
-              isMeasurement={isMeasurement}
-              isServerRenderOrHydration={isServerRenderOrHydration}
-              item={item}
-              layout={layout}
-              left={position.left}
-              renderItem={renderItem}
-              resizeObserver={resizeObserver}
-              serializedColumnSpanConfig={serializedColumnSpanConfig}
-              top={position.top}
-              updateMeasurement={updateMeasurement}
-              width={position.width}
-            />
-          ) : null;
-        })
-      : null;
+      const serializedColumnSpanConfig =
+        typeof columnSpanConfig === 'number'
+          ? columnSpanConfig
+          : btoa(JSON.stringify(columnSpanConfig));
+
+      return isVisible ? (
+        <MasonryItemMemo
+          key={key}
+          height={position.height}
+          idx={i}
+          isMeasurement={isMeasurement}
+          isServerRenderOrHydration={isServerRenderOrHydration}
+          item={item}
+          layout={layout}
+          left={position.left}
+          renderItem={renderItem}
+          resizeObserver={resizeObserver}
+          serializedColumnSpanConfig={serializedColumnSpanConfig}
+          top={position.top}
+          updateMeasurement={updateMeasurement}
+          width={position.width}
+        />
+      ) : null;
+    });
+  } else if (renderLoadingState) {
+    gridBody = _loadingStateItems.map((item, i) => {
+      const key = `item-${i}`;
+      const position = positions[i];
+      if (!position) {
+        return null;
+      }
+
+      return (
+        <MasonryLoadingStateItemMemo
+          key={key}
+          height={position.top}
+          idx={i}
+          item={item}
+          left={position.left}
+          renderItem={_renderLoadingStateItems}
+          top={position.top}
+          width={position.width}
+        />
+      );
+    });
+  }
 
   return (
     <div ref={gridWrapperRef} style={{ width: '100%' }}>

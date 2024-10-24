@@ -2,7 +2,7 @@ import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
 import { ColumnSpanConfig } from './multiColumnLayout';
-import { Align, Layout, Position } from './types';
+import { Align, Layout, LoadingStateItem, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
 export default function getLayoutAlgorithm<T>({
@@ -17,6 +17,8 @@ export default function getLayoutAlgorithm<T>({
   width,
   _getColumnSpanConfig,
   _logTwoColWhitespace,
+  _loadingStateItems = [],
+  renderLoadingState,
 }: {
   align: Align;
   columnWidth: number;
@@ -33,7 +35,9 @@ export default function getLayoutAlgorithm<T>({
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
-}): (forItems: ReadonlyArray<T>) => ReadonlyArray<Position> {
+  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
+  renderLoadingState?: boolean;
+}): (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
       gutter,
@@ -44,6 +48,7 @@ export default function getLayoutAlgorithm<T>({
       width,
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
+      renderLoadingState,
     });
   }
   if (layout === 'uniformRow') {
@@ -53,6 +58,7 @@ export default function getLayoutAlgorithm<T>({
       gutter,
       minCols,
       width,
+      renderLoadingState,
     });
   }
   return defaultLayout({
@@ -64,8 +70,9 @@ export default function getLayoutAlgorithm<T>({
     layout,
     logWhitespace: _logTwoColWhitespace,
     minCols,
-    rawItemCount: items.length,
+    rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
     width,
     _getColumnSpanConfig,
+    renderLoadingState,
   });
 }
