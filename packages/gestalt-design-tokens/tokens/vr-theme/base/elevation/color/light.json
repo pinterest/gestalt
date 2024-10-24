@@ -4,15 +4,15 @@
       "color": {
         "perimeter": {
           "surface": {
-            "value": "rgba(0,0,0,0.1)",
+            "value": "rgba(0,0,0,0.16)",
             "type": "color"
           },
           "raised": {
-            "value": "rgba(0,0,0,0.1)",
+            "value": "rgba(0,0,0,0.16)",
             "type": "color"
           },
           "floating": {
-            "value": "rgba(0,0,0,0.1)",
+            "value": "rgba(0,0,0,0.16)",
             "type": "color"
           }
         },
