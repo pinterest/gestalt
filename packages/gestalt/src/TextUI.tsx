@@ -74,7 +74,7 @@ type Props = {
 };
 
 /**
- * [TextUI](https://gestalt.pinterest.systems/web/textui) component is used inside of UI components.
+ * [TextUI](https://gestalt.pinterest.systems/web/textui) component is meant to be used when text is interactive, such as a Button text or TextField labels. Compared to the Text component, TextUI is bolder and has a tighter line height.
  *
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextUI.spec.ts-snapshots/TextUI-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextUI-dark.spec.ts-snapshots/TextUI-dark-chromium-darwin.png)
