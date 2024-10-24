@@ -1,3 +1,9 @@
+## 163.6.0 (Oct 24, 2024)
+
+### Minor
+
+- Box, Flex: extended margin/padding range with 0.25, 0.5 and 1.5 ([#3822](https://github.com/pinterest/gestalt/pull/3822)) - [Preview link](https://deploy-preview-3822--gestalt.netlify.app?devexample=true)
+
 ## 163.5.2 (Oct 24, 2024)
 
 ### Patch
