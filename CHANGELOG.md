@@ -1,3 +1,9 @@
+## 163.5.0 (Oct 24, 2024)
+
+### Minor
+
+- Masonry: Add support for loading states to v2 ([#3821](https://github.com/pinterest/gestalt/pull/3821)) - [Preview link](https://deploy-preview-3821--gestalt.netlify.app?devexample=true)
+
 ## 163.4.1 (Oct 23, 2024)
 
 ### Patch
