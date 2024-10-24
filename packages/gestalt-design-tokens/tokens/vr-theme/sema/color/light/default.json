@@ -4,64 +4,79 @@
       "background": {
         "default": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Used for surface level elements"
         },
         "primary": {
           "type": "color",
-          "value": "{base.color.red.300}"
+          "value": "{base.color.red.300}",
+          "description": "Pinterest's brand color, also used for the most prominent action on a page"
         },
         "secondary": {
           "type": "color",
-          "value": "{base.color.grayscale.50}"
+          "value": "{base.color.grayscale.50}",
+          "description": "Used for non-primary interactive and non-interactive elements"
         },
         "tertiary": {
           "type": "color",
-          "value": "{base.color.grayscale.250}"
+          "value": "{base.color.grayscale.250}",
+          "description": "Used for inessential interactive and non-interactive elements"
         },
         "selected": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Used to denote a selected state for most elements, not including elements using \"light\" and \"dark\" background colors"
         },
         "education": {
           "type": "color",
-          "value": "{base.color.blue.400}"
+          "value": "{base.color.blue.400}",
+          "description": "Used for elements that teach the user about how to use Pinterest"
         },
         "elevation": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Used for elements that float above other elements, such as modals or alerts, and only distinct from the default background color in dark mode"
         },
         "scrim": {
           "type": "color",
-          "value": "{base.color.grayscale.50}"
+          "value": "{base.color.grayscale.50}",
+          "description": "Used as an opqaue background color placed behind an elevated element, not to be confused with partially transparent wash colors"
         },
         "inverse": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Represents the inverse of the default background color"
         },
         "light": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Used for elements that remain white across both light and dark modes"
         },
         "dark": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Used for elements that remain black across both light and dark modes"
         },
         "disabled": {
           "type": "color",
-          "value": "{base.color.grayscale.100}"
+          "value": "{base.color.grayscale.100}",
+          "description": "Used for interactive elements that are temporarily non-interactive"
         },
         "transparent": {
           "type": "color",
-          "value": "rgba(255,255,255,0)"
+          "value": "rgba(255,255,255,0)",
+          "description": "A fully transparent background color, often used as a gradient step"
         },
         "info": {
           "default": {
             "type": "color",
-            "value": "{base.color.blue.400}"
+            "value": "{base.color.blue.400}",
+            "description": "Used to present helpful messages or guidance"
           },
           "weak": {
             "type": "color",
-            "value": "{base.color.blue.100}"
+            "value": "{base.color.blue.100}",
+            "description": "Used to present helpful messages or guidance"
           }
         },
         "neutral": {
@@ -77,41 +92,49 @@
         "recommendation": {
           "default": {
             "type": "color",
-            "value": "{base.color.purple.400}"
+            "value": "{base.color.purple.400}",
+            "description": "Used to present suggestions - most frequently with monetization"
           },
           "weak": {
             "type": "color",
-            "value": "{base.color.purple.100}"
+            "value": "{base.color.purple.100}",
+            "description": "Used to present suggestions - most frequently with monetization"
           }
         },
         "success": {
           "default": {
             "type": "color",
-            "value": "{base.color.green.400}"
+            "value": "{base.color.green.400}",
+            "description": "Used to positively convey the completion of an interaction or flow"
           },
           "weak": {
             "type": "color",
-            "value": "{base.color.green.100}"
+            "value": "{base.color.green.100}",
+            "description": "Used to positively convey the completion of an interaction or flow"
           }
         },
         "warning": {
           "default": {
             "type": "color",
-            "value": "{base.color.orange.500}"
+            "value": "{base.color.orange.500}",
+            "description": "Used to present negative, non-blocking information"
           },
           "weak": {
             "type": "color",
-            "value": "{base.color.orange.100}"
+            "value": "{base.color.orange.100}",
+            "description": "Used to present negative, non-blocking information"
           }
         },
         "error": {
           "default": {
             "type": "color",
-            "value": "{base.color.red.400}"
+            "value": "{base.color.red.400}",
+            "description": "Used to present negative, blocking information"
           },
           "weak": {
             "type": "color",
-            "value": "{base.color.red.100}"
+            "value": "{base.color.red.100}",
+            "description": "Used to present negative, blocking information"
           }
         },
         "wash": {
