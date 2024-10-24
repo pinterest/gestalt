@@ -1,3 +1,9 @@
+## 163.5.2 (Oct 24, 2024)
+
+### Patch
+
+- Masonry: Enable whitespaceThreshold prop ([#3825](https://github.com/pinterest/gestalt/pull/3825)) - [Preview link](https://deploy-preview-3825--gestalt.netlify.app?devexample=true)
+
 ## 163.5.1 (Oct 24, 2024)
 
 ### Patch
