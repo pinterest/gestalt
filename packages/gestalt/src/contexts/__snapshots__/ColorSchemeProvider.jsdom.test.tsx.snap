@@ -3217,7 +3217,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-icon-subtle-accent: #969292;
   --color-icon-success: #d0e2a8;
   --color-icon-disabled: #4c4c4a;
-  --color-icon-error: #e60023;
+  --color-icon-error: #ffd3d1;
   --color-icon-warning: #fde7c9;
   --color-icon-info: #c5eaf7;
   --color-icon-recommendation: #fcd8fc;
@@ -4210,7 +4210,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
-  --color-icon-error: #e60023;
+  --color-icon-error: #8a0f0f;
   --color-icon-warning: #9b4b1c;
   --color-icon-info: #215d82;
   --color-icon-recommendation: #6d4270;
@@ -5200,7 +5200,7 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
-  --color-icon-error: #e60023;
+  --color-icon-error: #8a0f0f;
   --color-icon-warning: #9b4b1c;
   --color-icon-info: #215d82;
   --color-icon-recommendation: #6d4270;
@@ -6190,7 +6190,7 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
-  --color-icon-error: #e60023;
+  --color-icon-error: #8a0f0f;
   --color-icon-warning: #9b4b1c;
   --color-icon-info: #215d82;
   --color-icon-recommendation: #6d4270;
@@ -7180,7 +7180,7 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
-  --color-icon-error: #e60023;
+  --color-icon-error: #8a0f0f;
   --color-icon-warning: #9b4b1c;
   --color-icon-info: #215d82;
   --color-icon-recommendation: #6d4270;
@@ -8170,7 +8170,7 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
-  --color-icon-error: #e60023;
+  --color-icon-error: #8a0f0f;
   --color-icon-warning: #9b4b1c;
   --color-icon-info: #215d82;
   --color-icon-recommendation: #6d4270;
@@ -9160,7 +9160,7 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-icon-subtle-accent: #636361;
   --color-icon-success: #265926;
   --color-icon-disabled: #969292;
-  --color-icon-error: #e60023;
+  --color-icon-error: #8a0f0f;
   --color-icon-warning: #9b4b1c;
   --color-icon-info: #215d82;
   --color-icon-recommendation: #6d4270;
