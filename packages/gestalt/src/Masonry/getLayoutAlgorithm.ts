@@ -19,6 +19,7 @@ export default function getLayoutAlgorithm<T>({
   _logTwoColWhitespace,
   _loadingStateItems = [],
   renderLoadingState,
+  _whitespaceThreshold,
 }: {
   align: Align;
   columnWidth: number;
@@ -37,6 +38,7 @@ export default function getLayoutAlgorithm<T>({
   ) => void;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   renderLoadingState?: boolean;
+  _whitespaceThreshold?: number;
 }): (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
@@ -49,6 +51,7 @@ export default function getLayoutAlgorithm<T>({
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
       renderLoadingState,
+      whitespaceThreshold: _whitespaceThreshold,
     });
   }
   if (layout === 'uniformRow') {
@@ -74,5 +77,6 @@ export default function getLayoutAlgorithm<T>({
     width,
     _getColumnSpanConfig,
     renderLoadingState,
+    whitespaceThreshold: _whitespaceThreshold,
   });
 }
