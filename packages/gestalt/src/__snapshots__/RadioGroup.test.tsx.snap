@@ -14,16 +14,16 @@ exports[`RadioGroup renders 1`] = `
     </div>
   </legend>
   <div
-    className="Flex rowGap0 columnGap2 xsDirectionColumn"
+    className="Flex rowGap0 columnGap200 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+        className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
@@ -73,16 +73,16 @@ exports[`RadioGroup renders a hidden legend 1`] = `
     </div>
   </legend>
   <div
-    className="Flex rowGap0 columnGap2 xsDirectionColumn"
+    className="Flex rowGap0 columnGap200 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+        className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
@@ -133,16 +133,16 @@ exports[`RadioGroup renders an error 1`] = `
     </div>
   </legend>
   <div
-    className="Flex rowGap0 columnGap2 xsDirectionColumn"
+    className="Flex rowGap0 columnGap200 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+        className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
@@ -191,7 +191,7 @@ exports[`RadioGroup renders an error 1`] = `
           role="alert"
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -241,16 +241,16 @@ exports[`RadioGroup renders in different direction 1`] = `
     </div>
   </legend>
   <div
-    className="Flex rowGap4 columnGap0 xsDirectionRow"
+    className="Flex rowGap400 columnGap0 xsDirectionRow"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+        className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"

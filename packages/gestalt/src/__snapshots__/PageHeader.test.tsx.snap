@@ -5,7 +5,7 @@ exports[`PageHeader renders 1`] = `
   className="pageHeader"
 >
   <div
-    className="box default paddingX8 paddingY4"
+    className="box default paddingX800 paddingY400"
     style={
       Object {
         "width": "100%",
@@ -37,16 +37,16 @@ exports[`PageHeader renders 1`] = `
           }
         >
           <div
-            className="box marginEnd6"
+            className="box marginEnd600"
           >
             <div
-              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+              className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -85,10 +85,10 @@ exports[`PageHeader renders 1`] = `
                         </h1>
                       </div>
                       <div
-                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                        className="box marginStart300 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                          className="Flex rowGap300 columnGap0 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -107,7 +107,7 @@ exports[`PageHeader renders 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap800 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -126,7 +126,7 @@ exports[`PageHeader renders badge with type 1`] = `
   className="pageHeader"
 >
   <div
-    className="box default paddingX8 paddingY4"
+    className="box default paddingX800 paddingY400"
     style={
       Object {
         "width": "100%",
@@ -158,16 +158,16 @@ exports[`PageHeader renders badge with type 1`] = `
           }
         >
           <div
-            className="box marginEnd6"
+            className="box marginEnd600"
           >
             <div
-              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+              className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -206,10 +206,10 @@ exports[`PageHeader renders badge with type 1`] = `
                         </h1>
                       </div>
                       <div
-                        className="box marginStart1 smDisplayBlock xsDisplayNone"
+                        className="box marginStart100 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                          className="Flex rowGap300 columnGap0 xsDirectionRow"
                         >
                           <div
                             className="FlexItem"
@@ -218,7 +218,7 @@ exports[`PageHeader renders badge with type 1`] = `
                               className="badge warning middle"
                             >
                               <div
-                                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                               >
                                 <div
                                   className="FlexItem"
@@ -255,7 +255,7 @@ exports[`PageHeader renders badge with type 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap800 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -274,7 +274,7 @@ exports[`PageHeader renders primary action 1`] = `
   className="pageHeader"
 >
   <div
-    className="box default paddingX8 paddingY4"
+    className="box default paddingX800 paddingY400"
     style={
       Object {
         "width": "100%",
@@ -306,16 +306,16 @@ exports[`PageHeader renders primary action 1`] = `
           }
         >
           <div
-            className="box marginEnd6"
+            className="box marginEnd600"
           >
             <div
-              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+              className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -354,10 +354,10 @@ exports[`PageHeader renders primary action 1`] = `
                         </h1>
                       </div>
                       <div
-                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                        className="box marginStart300 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                          className="Flex rowGap300 columnGap0 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -376,7 +376,7 @@ exports[`PageHeader renders primary action 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap800 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -390,7 +390,7 @@ exports[`PageHeader renders primary action 1`] = `
                 className="box mdDisplayBlock xsDisplayNone"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 xsDirectionRow"
+                  className="Flex rowGap200 columnGap0 xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -497,7 +497,7 @@ exports[`PageHeader renders secondary action 1`] = `
   className="pageHeader"
 >
   <div
-    className="box default paddingX8 paddingY4"
+    className="box default paddingX800 paddingY400"
     style={
       Object {
         "width": "100%",
@@ -529,16 +529,16 @@ exports[`PageHeader renders secondary action 1`] = `
           }
         >
           <div
-            className="box marginEnd6"
+            className="box marginEnd600"
           >
             <div
-              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+              className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -577,10 +577,10 @@ exports[`PageHeader renders secondary action 1`] = `
                         </h1>
                       </div>
                       <div
-                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                        className="box marginStart300 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                          className="Flex rowGap300 columnGap0 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -599,7 +599,7 @@ exports[`PageHeader renders secondary action 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap800 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -613,7 +613,7 @@ exports[`PageHeader renders secondary action 1`] = `
                 className="box mdDisplayBlock xsDisplayNone"
               >
                 <div
-                  className="Flex rowGap2 columnGap0 xsDirectionRow"
+                  className="Flex rowGap200 columnGap0 xsDirectionRow"
                 >
                   <div
                     className="FlexItem"
@@ -750,7 +750,7 @@ exports[`PageHeader renders subtext 1`] = `
   className="pageHeader"
 >
   <div
-    className="box default paddingX8 paddingY4"
+    className="box default paddingX800 paddingY400"
     style={
       Object {
         "width": "100%",
@@ -782,16 +782,16 @@ exports[`PageHeader renders subtext 1`] = `
           }
         >
           <div
-            className="box marginEnd6"
+            className="box marginEnd600"
           >
             <div
-              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+              className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -830,10 +830,10 @@ exports[`PageHeader renders subtext 1`] = `
                         </h1>
                       </div>
                       <div
-                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                        className="box marginStart300 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                          className="Flex rowGap300 columnGap0 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -865,7 +865,7 @@ exports[`PageHeader renders subtext 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap800 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -884,7 +884,7 @@ exports[`PageHeader renders within a max width 1`] = `
   className="pageHeader"
 >
   <div
-    className="box default paddingX8 paddingY4"
+    className="box default paddingX800 paddingY400"
     style={
       Object {
         "width": "100%",
@@ -916,16 +916,16 @@ exports[`PageHeader renders within a max width 1`] = `
           }
         >
           <div
-            className="box marginEnd6"
+            className="box marginEnd600"
           >
             <div
-              className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+              className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
             >
               <div
                 className="FlexItem"
               >
                 <div
-                  className="Flex rowGap0 columnGap1 xsDirectionColumn"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
                     className="FlexItem"
@@ -964,10 +964,10 @@ exports[`PageHeader renders within a max width 1`] = `
                         </h1>
                       </div>
                       <div
-                        className="box marginStart3 smDisplayBlock xsDisplayNone"
+                        className="box marginStart300 smDisplayBlock xsDisplayNone"
                       >
                         <div
-                          className="Flex rowGap3 columnGap0 xsDirectionRow"
+                          className="Flex rowGap300 columnGap0 xsDirectionRow"
                         />
                       </div>
                     </div>
@@ -999,7 +999,7 @@ exports[`PageHeader renders within a max width 1`] = `
           }
         >
           <div
-            className="Flex rowGap8 columnGap0 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap800 columnGap0 xsDirectionRow xsItemsCenter"
             style={
               Object {
                 "height": "100%",

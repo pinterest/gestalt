@@ -1,5 +1,5 @@
 .item {
-  composes: paddingY3 from "../boxWhitespace.css";
+  composes: paddingY300 from "../boxWhitespace.css";
   composes: flexGrow from "../Layout.css";
   background-color: var(--color-background-tableofcontents-item-default);
 }

@@ -46,7 +46,7 @@ exports[`Flex renders with direction: column 1`] = `
 
 exports[`Flex renders with specified gap 1`] = `
 <div
-  className="Flex rowGap8 columnGap8 xsDirectionRow"
+  className="Flex rowGap800 columnGap800 xsDirectionRow"
 >
   <div
     className="FlexItem"

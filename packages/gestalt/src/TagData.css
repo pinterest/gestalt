@@ -7,13 +7,13 @@
 
 .tagMedium {
   composes: borderBox from "./Layout.css";
-  composes: paddingY3 from "./boxWhitespace.css";
+  composes: paddingY300 from "./boxWhitespace.css";
   height: 40px;
 }
 
 .tagSmall {
   composes: borderBox from "./Layout.css";
-  composes: paddingY2 from "./boxWhitespace.css";
+  composes: paddingY200 from "./boxWhitespace.css";
   height: 32px;
 }
 

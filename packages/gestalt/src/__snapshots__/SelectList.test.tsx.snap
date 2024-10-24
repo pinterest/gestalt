@@ -19,7 +19,7 @@ exports[`SelectList renders an option group 1`] = `
     </div>
   </label>
   <div
-    className="box relative rounding4 xsDisplayFlex"
+    className="box relative rounding400 xsDisplayFlex"
     style={
       Object {
         "backgroundColor": "var(--color-background-formfield-primary)",
@@ -112,7 +112,7 @@ exports[`SelectList renders with a hidden label 1`] = `
     </div>
   </label>
   <div
-    className="box relative rounding4 xsDisplayFlex"
+    className="box relative rounding400 xsDisplayFlex"
     style={
       Object {
         "backgroundColor": "var(--color-background-formfield-primary)",
@@ -177,7 +177,7 @@ exports[`SelectList renders with typical props 1`] = `
   className="box"
 >
   <div
-    className="box relative rounding4 xsDisplayFlex"
+    className="box relative rounding400 xsDisplayFlex"
     style={
       Object {
         "backgroundColor": "var(--color-background-formfield-primary)",

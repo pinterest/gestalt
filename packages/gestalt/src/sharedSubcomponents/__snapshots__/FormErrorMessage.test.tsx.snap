@@ -17,7 +17,7 @@ exports[`FormErrorMessage with errorMessage 1`] = `
         role="alert"
       >
         <div
-          className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+          className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
         >
           <div
             className="FlexItem"
@@ -69,7 +69,7 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
         role="alert"
       >
         <div
-          className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+          className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
         >
           <div
             className="FlexItem"

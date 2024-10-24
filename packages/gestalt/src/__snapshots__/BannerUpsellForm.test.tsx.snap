@@ -10,13 +10,13 @@ exports[`BannerUpsellForm renders 1`] = `
   }
 >
   <div
-    className="Flex rowGap2 columnGap0 flexWrap justifyEnd xsDirectionRow"
+    className="Flex rowGap200 columnGap0 flexWrap justifyEnd xsDirectionRow"
   >
     <div
       className="FlexItem flexGrow"
     >
       <div
-        className="box marginBottom0 smMarginBottom2"
+        className="box marginBottom0 smMarginBottom200"
       >
         <span>
           <div
@@ -59,7 +59,7 @@ exports[`BannerUpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+          className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
         >
           <div
             className="FlexItem"
