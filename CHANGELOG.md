@@ -1,3 +1,9 @@
+## 163.6.2 (Oct 24, 2024)
+
+### Patch
+
+- Link: fix aria-selected values for accessibility ([#3826](https://github.com/pinterest/gestalt/pull/3826)) - [Preview link](https://deploy-preview-3826--gestalt.netlify.app?devexample=true)
+
 ## 163.6.1 (Oct 24, 2024)
 
 ### Patch
