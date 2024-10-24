@@ -247,7 +247,6 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     }
   };
   return (
-    // @ts-expect-error TS2322 Types of property '"aria-selected"' are incompatible. Type '"section" | undefined' is not assignable to type 'Booleanish | undefined'
     <a
       ref={innerRef}
       aria-current={
@@ -256,11 +255,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           : undefined
       }
       aria-label={accessibilityLabel}
-      aria-selected={
-        accessibilityCurrent && accessibilityCurrent === 'section'
-          ? accessibilityCurrent
-          : undefined
-      }
+      aria-selected={accessibilityCurrent && accessibilityCurrent === 'section' ? true : undefined}
       className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
