@@ -13,7 +13,7 @@
           },
           "secondary": {
             "type": "color",
-            "value": "{base.color.pressed.grayscale.100}"
+            "value": "{base.color.pressed.grayscale.50}"
           },
           "tertiary": {
             "type": "color",
