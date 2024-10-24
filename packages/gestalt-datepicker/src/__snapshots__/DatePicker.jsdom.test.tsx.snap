@@ -29,10 +29,10 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
           class="react-datepicker__input-container"
         >
           <div
-            class="Jea KS5 XiG ujU zI7 iyn Hsu "
+            class="Jea KS5 XiG ujU xcv L4E zI7 iyn Hsu"
           >
             <div
-              class="ujU zI7 iyn Hsu "
+              class="ujU xcv L4E zI7 iyn Hsu"
             >
               <span>
                 <div
@@ -142,12 +142,12 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
                   <div
                     aria-disabled="false"
                     aria-label="Grabber"
-                    class="S9z iyn e8F BG7"
+                    class="S9z v_3 iyn e8F BG7"
                     role="button"
                     tabindex="0"
                   >
                     <div
-                      class="haa zI7 iyn Hsu "
+                      class="haa v_3 zI7 iyn Hsu"
                       style="height: 5px; width: 37px;"
                     />
                   </div>

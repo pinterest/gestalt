@@ -118,7 +118,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -166,7 +166,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -214,7 +214,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -262,7 +262,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -310,7 +310,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -358,7 +358,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -406,7 +406,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -454,7 +454,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
@@ -502,7 +502,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             >
               <div
                 aria-disabled="false"
-                class="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div

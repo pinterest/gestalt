@@ -266,7 +266,7 @@ const minWidth: Functor<Dimension> = (d) => fromInlineStyle({ minWidth: d });
 const opacityMap = mapClassName((name) => styles[name]);
 const opacity: Functor<Opacity> = (val) => {
   if (val > 0 && val < 1) {
-    return opacityMap(range('opacity0')(val * 0.1));
+    return opacityMap(range('opacity0')(val * 10));
   }
   return opacityMap(range('opacity')(val));
 };

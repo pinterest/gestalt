@@ -2,7 +2,7 @@
 
 exports[`TagData TagData has a tooltip 1`] = `
 <div
-  className="box relative rounding200 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
@@ -22,7 +22,7 @@ exports[`TagData TagData has a tooltip 1`] = `
     >
       <div
         aria-disabled={false}
-        className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+        className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -83,7 +83,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -103,7 +103,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -159,7 +159,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -179,7 +179,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -235,7 +235,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -255,7 +255,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -311,7 +311,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -331,7 +331,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -387,7 +387,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -407,7 +407,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -463,7 +463,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -483,7 +483,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -539,7 +539,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -559,7 +559,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -615,7 +615,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -635,7 +635,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -691,7 +691,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -711,7 +711,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -767,7 +767,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -787,7 +787,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -843,7 +843,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -863,7 +863,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -919,7 +919,7 @@ exports[`TagData renders all colors as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -939,7 +939,7 @@ exports[`TagData renders all colors as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1002,7 +1002,7 @@ exports[`TagData renders base color as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -1022,7 +1022,7 @@ exports[`TagData renders base color as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1134,7 +1134,7 @@ exports[`TagData renders base color as expected 1`] = `
     className="FlexItem"
   >
     <div
-      className="box relative rounding200 xsDisplayInlineBlock"
+      className="box relative rounding2 xsDisplayInlineBlock"
       style={
         Object {
           "maxWidth": 300,
@@ -1154,7 +1154,7 @@ exports[`TagData renders base color as expected 1`] = `
         >
           <div
             aria-disabled={false}
-            className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+            className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -1267,7 +1267,7 @@ exports[`TagData renders base color as expected 1`] = `
 
 exports[`TagData renders disabled selected state 1`] = `
 <div
-  className="box relative rounding200 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
@@ -1287,7 +1287,7 @@ exports[`TagData renders disabled selected state 1`] = `
     >
       <div
         aria-disabled={true}
-        className="tapTransition rounding200 fullHeight fullWidth"
+        className="tapTransition rounding2 fullHeight fullWidth"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1393,7 +1393,7 @@ exports[`TagData renders disabled selected state 1`] = `
 
 exports[`TagData renders disabled unselected state 1`] = `
 <div
-  className="box relative rounding200 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
@@ -1413,7 +1413,7 @@ exports[`TagData renders disabled unselected state 1`] = `
     >
       <div
         aria-disabled={true}
-        className="tapTransition rounding200 fullHeight fullWidth"
+        className="tapTransition rounding2 fullHeight fullWidth"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1505,7 +1505,7 @@ exports[`TagData renders disabled unselected state 1`] = `
 
 exports[`TagData renders dismisible button with color background 1`] = `
 <div
-  className="box relative rounding200 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
@@ -1525,7 +1525,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
     >
       <div
         aria-disabled={false}
-        className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+        className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1673,7 +1673,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
 
 exports[`TagData renders dismissable button 1`] = `
 <div
-  className="box relative rounding200 xsDisplayInlineBlock"
+  className="box relative rounding2 xsDisplayInlineBlock"
   style={
     Object {
       "maxWidth": 300,
@@ -1693,7 +1693,7 @@ exports[`TagData renders dismissable button 1`] = `
     >
       <div
         aria-disabled={false}
-        className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+        className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -1845,7 +1845,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
   lang="en"
 >
   <div
-    className="box relative rounding200 xsDisplayInlineBlock"
+    className="box relative rounding2 xsDisplayInlineBlock"
     style={
       Object {
         "maxWidth": 300,
@@ -1854,7 +1854,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
   >
     <div
       aria-disabled={false}
-      className="tapTransition rounding200 accessibilityOutline fullHeight fullWidth pointer"
+      className="tapTransition rounding2 accessibilityOutline fullHeight fullWidth pointer"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

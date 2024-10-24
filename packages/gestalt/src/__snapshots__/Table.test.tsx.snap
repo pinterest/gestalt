@@ -35,7 +35,7 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly with border 1`] = `
 <div
-  className="borderColorLightGray box overflowAuto rounding100 sizeSm solid"
+  className="borderColorLightGray box overflowAuto rounding1 sizeSm solid"
   style={
     Object {
       "maxHeight": undefined,

@@ -31,12 +31,12 @@ export const mapping =
 export const range =
   (scale: string): ((n: number) => Style) =>
   (n): Style =>
-    fromClassName(`${scale}${n < 0 ? `N${Math.abs(n * 100)}` : n * 100}`);
+    fromClassName(`${scale}${n < 0 ? `N${Math.abs(n)}` : n }`);
 
 export const rangeWithZero =
   (scale: string): ((n: number) => Style) =>
   (n): Style =>
-    range(scale)(n);
+    range(scale)(n * 100);
 
 // Binds a string classname to the value in an object. Useful when interacting
 // with ranges that need to come dynamically from a style object. This is

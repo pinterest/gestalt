@@ -2,7 +2,7 @@
 
 exports[`<BannerCallout /> Error BannerCallout 1`] = `
 <div
-  className="box errorWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box errorWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -57,7 +57,7 @@ exports[`<BannerCallout /> Error BannerCallout 1`] = `
 
 exports[`<BannerCallout /> Info BannerCallout 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -112,7 +112,7 @@ exports[`<BannerCallout /> Info BannerCallout 1`] = `
 
 exports[`<BannerCallout /> Warning BannerCallout 1`] = `
 <div
-  className="box paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 warningWeak xsDirectionColumn xsDisplayFlex"
+  className="box paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 warningWeak xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -167,7 +167,7 @@ exports[`<BannerCallout /> Warning BannerCallout 1`] = `
 
 exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -350,7 +350,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
 
 exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -505,7 +505,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
 
 exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -649,7 +649,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
 
 exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -755,7 +755,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
 
 exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -852,7 +852,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
 
 exports[`<BannerCallout /> message + title 1`] = `
 <div
-  className="box infoWeak paddingX600 paddingY600 relative rounding400 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
