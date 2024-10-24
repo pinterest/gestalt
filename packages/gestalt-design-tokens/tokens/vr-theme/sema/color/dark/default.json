@@ -48,7 +48,7 @@
         },
         "disabled": {
           "type": "color",
-          "value": "{base.color.grayscale.400}"
+          "value": "{base.color.grayscale.450}"
         },
         "transparent": {
           "type": "color",
@@ -292,7 +292,7 @@
         },
         "disabled": {
           "type": "color",
-          "value": "{base.color.grayscale.350}"
+          "value": "{base.color.grayscale.300}"
         }
       },
       "icon": {
