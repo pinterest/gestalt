@@ -1,5 +1,4 @@
 .input {
-  border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
   position: relative;
@@ -67,13 +66,15 @@
 
 .sm_input {
   composes: sm smDefault from "../Text.css";
+  border-radius: var(--sema-rounding-200);
   min-height: 28px;
   padding-bottom: var(--sema-space-100);
 }
 
 .sm_visibleLabel {
   padding-top: calc(
-    var(--sema-space-100) + (var(--sema-font-size-ui-sm) * 1.1)
+    var(--sema-space-100) + var(--sema-space-50) +
+      (var(--sema-font-size-ui-sm) * var(--sema-font-lineheight-ui-sm))
   );
 }
 
@@ -121,13 +122,15 @@ html[dir="rtl"] .sm_actionButton {
 
 .md_input {
   composes: md mdDefault from "../Text.css";
+  border-radius: var(--sema-rounding-300);
   min-height: 36px;
   padding-bottom: var(--sema-space-200);
 }
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-300) + var(--sema-space-50) +
+      (var(--sema-font-size-ui-md) * var(--sema-font-lineheight-ui-md))
   );
 }
 
@@ -171,13 +174,15 @@ html[dir="rtl"] .md_actionButton {
 
 .lg_input {
   composes: md mdDefault from "../Text.css";
+  border-radius: var(--sema-rounding-300);
   min-height: 48px;
   padding-bottom: var(--sema-space-300);
 }
 
 .lg_visibleLabel {
   padding-top: calc(
-    var(--sema-space-400) + (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-400) + var(--sema-space-100) +
+      (var(--sema-font-size-ui-md) * var(--sema-font-lineheight-ui-md))
   );
 }
 
