@@ -126,12 +126,12 @@ function InternalButtonWrapper({ children }: { children: ReactNode }) {
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-  return isInVRExperiment ? (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-      {children}
-    </div>
-  ) : (
-    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+  return (
+    <Flex
+      alignItems="center"
+      gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
+      justifyContent="center"
+    >
       {children}
     </Flex>
   );
