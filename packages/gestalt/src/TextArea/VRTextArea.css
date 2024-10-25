@@ -12,7 +12,6 @@
 }
 
 .inputParent {
-  border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
   isolation: isolate;
@@ -71,40 +70,42 @@
 }
 
 .md_input {
+  border-radius: var(--sema-rounding-400);
   min-height: 36px;
-  padding-bottom: var(--sema-space-200);
+  padding-bottom: var(--sema-space-400);
 }
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
+    var(--sema-space-400) + var(--sema-space-100) +
+      var(--sema-font-lineheight-ui-xs)
   );
 }
 
 .md_noLabel {
-  padding-top: var(--sema-space-200);
+  padding-top: var(--sema-space-400);
 }
 
 html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-200);
-  padding-right: var(--sema-space-300);
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-400);
 }
 
 html:not([dir="rtl"]) .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-300);
-  padding-right: var(--sema-space-200);
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-400);
 }
 
 html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-300));
-  right: calc(var(--sema-space-300) + 1px);
+  left: calc(var(--sema-space-400));
+  right: calc(var(--sema-space-400) + 1px);
 }
 
 html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-300) + 1px);
-  right: calc(var(--sema-space-300));
+  left: calc(var(--sema-space-400) + 1px);
+  right: calc(var(--sema-space-400));
 }
 
 .md_labelPos {
-  top: var(--sema-space-200);
+  top: var(--sema-space-400);
 }

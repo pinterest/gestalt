@@ -126,12 +126,13 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     onKeyDown,
     placeholder,
     readOnly = false,
-    rows = 3,
+    rows,
     tags,
     value,
   }: Props,
   ref,
 ) {
+
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
@@ -139,6 +140,10 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+    const defaultRows = isInVRExperiment ? 2 : 3;
+
+    const overridenRows = rows ?? defaultRows
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCurrentLength(event.currentTarget.value?.length ?? 0);
@@ -213,14 +218,14 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
       onKeyDown={handleKeyDown}
       placeholder={placeholder}
       readOnly={readOnly}
-      rows={tags ? undefined : rows}
+      rows={tags ? undefined : overridenRows}
       value={value}
     />
   );
 
   const tagsWrapperStyle = {
-    minHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
-    maxHeight: rows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
+    minHeight: overridenRows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
+    maxHeight: overridenRows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
   } as const;
 
   if (isInVRExperiment && !tags)
@@ -243,7 +248,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         onKeyDown={onKeyDown}
         placeholder={placeholder}
         readOnly={readOnly}
-        rows={rows}
+        rows={overridenRows}
         value={value}
       />
     );
@@ -272,7 +277,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
         onKeyDown={onKeyDown}
         placeholder={placeholder}
         readOnly={readOnly}
-        rows={rows}
+        rows={overridenRows}
         size="md"
         tags={tags}
         value={value}
