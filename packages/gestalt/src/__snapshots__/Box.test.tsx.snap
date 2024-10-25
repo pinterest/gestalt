@@ -55,13 +55,13 @@ exports[`Box has correct class when opacity is 0.5 1`] = `
 
 exports[`Box has correct class when opacity is 1 1`] = `
 <div
-  className="box opacity100"
+  className="box opacity1"
 />
 `;
 
 exports[`Box has correct class when rounding is 1 1`] = `
 <div
-  className="box rounding100"
+  className="box rounding1"
 />
 `;
 

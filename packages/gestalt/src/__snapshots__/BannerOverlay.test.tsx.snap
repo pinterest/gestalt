@@ -6,7 +6,7 @@ Array [
     className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -30,7 +30,7 @@ Array [
             className="box"
           >
             <div
-              className="Mask rounding200 willChangeTransform"
+              className="Mask rounding2 willChangeTransform"
               style={
                 Object {
                   "height": 32,
@@ -118,7 +118,7 @@ Array [
     className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -142,7 +142,7 @@ Array [
             className="box"
           >
             <div
-              className="Mask rounding200 willChangeTransform"
+              className="Mask rounding2 willChangeTransform"
               style={
                 Object {
                   "height": 32,
@@ -239,7 +239,7 @@ Array [
     className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -263,7 +263,7 @@ Array [
             className="box"
           >
             <div
-              className="Mask rounding200 willChangeTransform"
+              className="Mask rounding2 willChangeTransform"
               style={
                 Object {
                   "height": 32,
@@ -351,7 +351,7 @@ Array [
     className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -375,7 +375,7 @@ Array [
             className="box"
           >
             <div
-              className="Mask rounding200 willChangeTransform"
+              className="Mask rounding2 willChangeTransform"
               style={
                 Object {
                   "height": 32,
@@ -472,7 +472,7 @@ Array [
     className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -529,7 +529,7 @@ Array [
     className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -595,7 +595,7 @@ Array [
     className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -652,7 +652,7 @@ Array [
     className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -718,7 +718,7 @@ Array [
     className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
       style={
         Object {
           "bottom": 10,
@@ -775,7 +775,7 @@ Array [
     className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
       style={
         Object {
           "bottom": 10,
@@ -841,7 +841,7 @@ Array [
     className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",
@@ -898,7 +898,7 @@ Array [
     className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding400 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
       style={
         Object {
           "bottom": "unset",

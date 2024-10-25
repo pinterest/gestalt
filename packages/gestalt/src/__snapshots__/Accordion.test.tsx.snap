@@ -2,7 +2,7 @@
 
 exports[`Accordion renders a badge correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
@@ -91,7 +91,7 @@ exports[`Accordion renders a badge correctly 1`] = `
 
 exports[`Accordion renders a title correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
@@ -134,7 +134,7 @@ exports[`Accordion renders a title correctly 1`] = `
 
 exports[`Accordion renders an error correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
@@ -205,7 +205,7 @@ exports[`Accordion renders an error correctly 1`] = `
 
 exports[`Accordion renders an icon button correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
@@ -308,7 +308,7 @@ exports[`Accordion renders an icon button correctly 1`] = `
 
 exports[`Accordion renders an icon correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
@@ -379,7 +379,7 @@ exports[`Accordion renders an icon correctly 1`] = `
 
 exports[`Accordion renders content correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
@@ -400,7 +400,7 @@ exports[`Accordion renders content correctly 1`] = `
 
 exports[`Accordion renders the base correctly 1`] = `
 <div
-  className="box default paddingX600 paddingY600 rounding400 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div

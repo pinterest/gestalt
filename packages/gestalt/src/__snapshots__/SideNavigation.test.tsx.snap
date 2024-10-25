@@ -96,7 +96,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -115,7 +115,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -276,7 +276,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       className="liItem"
                     >
                       <a
-                        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -295,7 +295,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -409,7 +409,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                       className="liItem"
                     >
                       <a
-                        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -428,7 +428,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -620,7 +620,7 @@ exports[`SideNavigation renders Sections 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -639,7 +639,7 @@ exports[`SideNavigation renders Sections 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -743,7 +743,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -762,7 +762,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -864,7 +864,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -883,7 +883,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -942,7 +942,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem"
                 >
                   <a
-                    className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                     href="#"
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -961,7 +961,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -1042,7 +1042,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1061,7 +1061,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1123,7 +1123,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         aria-controls=":rd:"
                         aria-disabled={false}
                         aria-expanded={false}
-                        className="tapTransition rounding200 accessibilityOutline fullWidth pointer"
+                        className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -1141,7 +1141,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1241,7 +1241,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         aria-controls=":re:"
                         aria-disabled={false}
                         aria-expanded={false}
-                        className="tapTransition rounding200 accessibilityOutline fullWidth pointer"
+                        className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -1259,7 +1259,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1426,7 +1426,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                     aria-controls=":rm:"
                     aria-disabled={false}
                     aria-expanded={true}
-                    className="tapTransition rounding200 accessibilityOutline fullWidth pointer"
+                    className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                     onBlur={[Function]}
                     onClick={[Function]}
                     onFocus={[Function]}
@@ -1444,7 +1444,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -1544,7 +1544,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1563,7 +1563,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1603,7 +1603,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         aria-controls=":ro:"
                         aria-disabled={false}
                         aria-expanded={true}
-                        className="tapTransition rounding200 accessibilityOutline fullWidth pointer"
+                        className="tapTransition rounding2 accessibilityOutline fullWidth pointer"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onFocus={[Function]}
@@ -1621,7 +1621,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1699,7 +1699,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -1718,7 +1718,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -1755,7 +1755,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -1774,7 +1774,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -1880,7 +1880,7 @@ exports[`SideNavigation renders static group 1`] = `
                   className="liItem"
                 >
                   <div
-                    className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                    className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "height": undefined,
@@ -1941,7 +1941,7 @@ exports[`SideNavigation renders static group 1`] = `
                       className="liItem"
                     >
                       <a
-                        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                         href="#"
                         onBlur={[Function]}
                         onClick={[Function]}
@@ -1960,7 +1960,7 @@ exports[`SideNavigation renders static group 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1997,7 +1997,7 @@ exports[`SideNavigation renders static group 1`] = `
                       className="liItem"
                     >
                       <div
-                        className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                        className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "height": undefined,
@@ -2036,7 +2036,7 @@ exports[`SideNavigation renders static group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -2055,7 +2055,7 @@ exports[`SideNavigation renders static group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -2092,7 +2092,7 @@ exports[`SideNavigation renders static group 1`] = `
                           className="liItem"
                         >
                           <a
-                            className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+                            className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
                             href="#"
                             onBlur={[Function]}
                             onClick={[Function]}
@@ -2111,7 +2111,7 @@ exports[`SideNavigation renders static group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding200 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,

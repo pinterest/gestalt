@@ -12,7 +12,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
     >
       <a
         aria-current="page"
-        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -34,7 +34,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX200 paddingY200 relative rounding200 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -94,7 +94,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
       className="paddingY"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -116,7 +116,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX200 paddingY200 relative rounding200 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -162,7 +162,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
     >
       <a
         aria-current="page"
-        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -184,7 +184,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX200 paddingY200 relative rounding200 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -258,7 +258,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
       className="paddingY"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -280,7 +280,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX200 paddingY200 relative rounding200 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -340,7 +340,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
     >
       <a
         aria-current="page"
-        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -362,7 +362,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX200 paddingY200 relative rounding200 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -422,7 +422,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
       className="paddingY"
     >
       <a
-        className="noOutline inheritColor noUnderline tapTransition rounding200 accessibilityOutline block fullWidth pointer"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
         href="#"
         onBlur={[Function]}
         onClick={[Function]}
@@ -444,7 +444,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX200 paddingY200 relative rounding200 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",

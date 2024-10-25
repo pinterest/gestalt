@@ -160,7 +160,7 @@ exports[`Video with children 1`] = `
           />
         </svg>
         <div
-          className="absolute box light marginTop100 rounding400"
+          className="absolute box light marginTop100 rounding4"
           style={
             Object {
               "height": 2,
@@ -214,7 +214,7 @@ exports[`Video with children 1`] = `
           tabIndex="-1"
         >
           <div
-            className="absolute box left0 right0 rounding200 secondary xsDisplayFlex"
+            className="absolute box left0 right0 rounding2 secondary xsDisplayFlex"
             style={
               Object {
                 "height": 4,
@@ -222,7 +222,7 @@ exports[`Video with children 1`] = `
             }
           >
             <div
-              className="box light rounding200"
+              className="box light rounding2"
               style={
                 Object {
                   "height": "100%",

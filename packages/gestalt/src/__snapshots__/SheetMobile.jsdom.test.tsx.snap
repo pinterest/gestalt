@@ -44,7 +44,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
               <div
                 aria-disabled={false}
                 aria-label="Grabber"
-                className="tapTransition rounding700 accessibilityOutline pointer"
+                className="tapTransition rounding7 accessibilityOutline pointer"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -62,7 +62,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
                 tabIndex={0}
               >
                 <div
-                  className="box rounding700 secondary"
+                  className="box rounding7 secondary"
                   style={
                     Object {
                       "height": 5,
@@ -205,7 +205,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
               <div
                 aria-disabled={false}
                 aria-label="Grabber"
-                className="tapTransition rounding700 accessibilityOutline pointer"
+                className="tapTransition rounding7 accessibilityOutline pointer"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -223,7 +223,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
                 tabIndex={0}
               >
                 <div
-                  className="box rounding700 secondary"
+                  className="box rounding7 secondary"
                   style={
                     Object {
                       "height": 5,

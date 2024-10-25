@@ -177,7 +177,7 @@ exports[`renders correctly with drawer 1`] = `
             className="box paddingX200 paddingY200"
           >
             <div
-              className="box mdDirectionRow paddingX400 paddingY0 paddingY400 recommendationWeak rounding400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+              className="box mdDirectionRow paddingX400 paddingY0 paddingY400 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
               style={
                 Object {
                   "width": "100%",

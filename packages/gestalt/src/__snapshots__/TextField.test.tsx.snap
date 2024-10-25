@@ -340,7 +340,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+          className="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 24,
@@ -413,7 +413,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+          className="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 24,
@@ -486,7 +486,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box paddingX100 paddingYNaN relative rounding100 secondary xsDisplayInlineBlock"
+          className="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 24,

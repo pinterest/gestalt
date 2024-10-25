@@ -2,7 +2,7 @@
 
 exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -40,7 +40,7 @@ exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
 
 exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -251,7 +251,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
 
 exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + image 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -421,7 +421,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
 
 exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -559,7 +559,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
 
 exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -686,7 +686,7 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
 
 exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -775,7 +775,7 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
 
 exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
@@ -855,7 +855,7 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
 
 exports[`<BannerUpsell /> message + title 1`] = `
 <div
-  className="box default paddingX1200 paddingY600 relative rounding400 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
+  className="box default paddingX1200 paddingY600 relative rounding4 shadow smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
     className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
