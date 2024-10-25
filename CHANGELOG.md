@@ -1,3 +1,9 @@
+## 163.6.4 (Oct 25, 2024)
+
+### Patch
+
+- Link: fix link token for Link ([#3831](https://github.com/pinterest/gestalt/pull/3831)) - [Preview link](https://deploy-preview-3831--gestalt.netlify.app?devexample=true)
+
 ## 163.6.3 (Oct 25, 2024)
 
 ### Patch
