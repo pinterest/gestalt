@@ -119,7 +119,7 @@
 }
 
 a.standalone {
-  color: var(--sema-color-text-default);
+  color: var(--sema-color-text-link);
 }
 
 a.standalone:hover {
