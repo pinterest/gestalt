@@ -98,11 +98,11 @@ html:not([dir="rtl"]) .md_inputHorizontalPadding {
 
 html[dir="rtl"] .md_label {
   left: calc(var(--sema-space-400));
-  right: calc(var(--sema-space-400) + 1px);
+  right: calc(var(--sema-space-400) + var(--sema-space-25));
 }
 
 html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-400) + 1px);
+  left: calc(var(--sema-space-400) + var(--sema-space-25));
   right: calc(var(--sema-space-400));
 }
 
