@@ -1,3 +1,9 @@
+## 163.6.3 (Oct 25, 2024)
+
+### Patch
+
+- Box: fix rounding bug introduced in #3822 ([#3828](https://github.com/pinterest/gestalt/pull/3828)) - [Preview link](https://deploy-preview-3828--gestalt.netlify.app?devexample=true)
+
 ## 163.6.2 (Oct 24, 2024)
 
 ### Patch
