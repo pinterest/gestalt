@@ -73,7 +73,7 @@
 
 .sm_visibleLabel {
   padding-top: calc(
-    var(--sema-space-100) + var(--sema-space-50) +
+    var(--sema-space-100) + var(--sema-space-50) + var(--sema-space-negative-100) +
       var(--sema-font-lineheight-ui-xs)
   );
 }
@@ -174,7 +174,7 @@ html[dir="rtl"] .md_actionButton {
 
 .lg_input {
   composes: md mdDefault from "../Text.css";
-  border-radius: var(--sema-rounding-300);
+  border-radius: var(--sema-rounding-400);
   min-height: 48px;
   padding-bottom: var(--sema-space-300);
 }
