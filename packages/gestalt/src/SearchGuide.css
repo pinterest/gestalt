@@ -5,7 +5,7 @@
   composes: large from "./Layout.css";
   composes: paddingX100 from "./boxWhitespace.css";
   border-radius: var(--rounding-600);
-  display: inherit;
+  display: flex;
 }
 
 .searchguideVr {

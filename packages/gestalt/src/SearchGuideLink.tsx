@@ -99,6 +99,20 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
+  const colorClass: { [key: string]: keyof typeof styles } = {
+    '01': 'color01',
+    '02': 'color02',
+    '03': 'color03',
+    '04': 'color04',
+    '05': 'color05',
+    '06': 'color06',
+    '07': 'color07',
+    '08': 'color08',
+    '09': 'color09',
+    '10': 'color10',
+    '11': 'color11',
+  };
+
   const childrenDivClasses = classnames(
     styles.childrenDiv,
     isInVRExperiment && {
@@ -114,12 +128,12 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     <Box marginEnd={3}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {'avatar' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
         {'avatarGroup' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
         )}
@@ -165,6 +179,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     <InternalLink
       ref={innerRef}
       aria-label={accessibilityLabel}
+      colorClass={isInVRExperiment ? undefined : (colorClass[color] as string)}
       dataTestId={dataTestId}
       href={href}
       onClick={handleClick}

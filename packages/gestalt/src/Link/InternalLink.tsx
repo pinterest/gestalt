@@ -217,6 +217,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       : {},
     isSearchGuide && !isInVRExperiment
       ? {
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
           [searchGuideStyles.searchguide]: true,
           [focusStyles.hideOutline]: !isFocusVisible,
           [focusStyles.accessibilityOutline]: isFocusVisible,

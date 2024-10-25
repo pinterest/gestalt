@@ -150,12 +150,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     <Box marginEnd={3}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {'avatar' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
         {'avatarGroup' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
         )}
