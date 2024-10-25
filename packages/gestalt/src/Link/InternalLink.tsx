@@ -208,8 +208,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     styles.noUnderline,
     touchableStyles.tapTransition,
     isSearchGuide && isInVRExperiment
-      ? // TODO: Coalesce these two blocks
-        {
+      ? {
           [searchGuideStyles.searchguideVr]: true,
           [focusStyles.hideOutline]: !isFocusVisible,
           [searchGuideStyles.vrFocused]: isFocusVisible,
