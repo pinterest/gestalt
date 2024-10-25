@@ -8,16 +8,12 @@
   display: inherit;
 }
 
-a.searchguide,
-a.searchguideVr {
-  padding-bottom: var(--g-border-width-lg);
-  padding-top: var(--g-border-width-lg);
-}
-
 .searchguideVr {
   background: transparent;
   border-color: transparent;
   border-radius: calc(var(--rounding-400) + var(--g-border-width-lg));
+  border-style: solid;
+  border-width: 2px;
   box-sizing: border-box;
   display: inherit;
   padding: var(--space-0) var(--space-0);

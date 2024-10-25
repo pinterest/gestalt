@@ -41,7 +41,7 @@ export default function Example() {
         href="https://pinterest.com"
         text="Avatar"
         thumbnail={{
-          avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+          avatar: <Avatar name="Keerthi" outline src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
         }}
       />
       <SearchGuideLink

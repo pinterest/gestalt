@@ -98,33 +98,46 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   // that renders <SearchGuideLink ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
-  const childrenDivClasses = classnames(styles.childrenDiv);
 
+  const childrenDivClasses = classnames(
+    styles.childrenDiv,
+    isInVRExperiment && {
+      [styles[`color${color}`]]: true,
+    },
+  );
   const textComponent = (
     <TextUI align="center" color="dark" overflow="noWrap">
       {text}
     </TextUI>
   );
   const thumbnailVariant = thumbnail && (
-    <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-      {'avatar' in thumbnail && (
-        <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
-          {cloneElement(thumbnail.avatar, { size: 'fit' })}
-        </Box>
-      )}
-      {'avatarGroup' in thumbnail && (
-        <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={40}>
-          {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
-        </Box>
-      )}
-      {'image' in thumbnail && (
-        <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
-          {cloneElement(thumbnail.image, { fit: 'cover' })}
-        </div>
-      )}
-      {'icon' in thumbnail && <Box marginStart={3}>{cloneElement(thumbnail.icon)}</Box>}
-      <Box marginEnd={3}>{textComponent}</Box>
-    </Flex>
+    <Box marginEnd={3}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {'avatar' in thumbnail && (
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
+            {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
+          </Box>
+        )}
+        {'avatarGroup' in thumbnail && (
+          <Box aria-hidden marginStart={isInVRExperiment ? 2 : undefined} minWidth={32}>
+            {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
+          </Box>
+        )}
+        {'image' in thumbnail && (
+          <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
+            {cloneElement(thumbnail.image, { fit: 'cover' })}
+          </div>
+        )}
+        {'icon' in thumbnail && (
+          <Box marginStart={3}>
+            {cloneElement(thumbnail.icon, {
+              color: 'dark',
+            })}
+          </Box>
+        )}
+        {text.length > 0 && textComponent}
+      </Flex>
+    </Box>
   );
   const defaultVariant = (
     <Box paddingX={5}>
@@ -152,7 +165,6 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     <InternalLink
       ref={innerRef}
       aria-label={accessibilityLabel}
-      colorClass={`color${color}`}
       dataTestId={dataTestId}
       href={href}
       onClick={handleClick}
