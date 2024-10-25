@@ -74,7 +74,7 @@
 .sm_visibleLabel {
   padding-top: calc(
     var(--sema-space-100) + var(--sema-space-50) +
-      (var(--sema-font-size-ui-sm) * var(--sema-font-lineheight-ui-sm))
+      var(--sema-font-lineheight-ui-xs)
   );
 }
 
@@ -103,7 +103,7 @@ html:not([dir="rtl"]) .sm_label {
 }
 
 .sm_labelPos {
-  top: var(--sema-space-100);
+  top: calc(var(--sema-space-100) + var(--sema-space-50));
 }
 
 html:not([dir="rtl"]) .sm_actionButton {
@@ -129,8 +129,8 @@ html[dir="rtl"] .sm_actionButton {
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-300) + var(--sema-space-50) +
-      (var(--sema-font-size-ui-md) * var(--sema-font-lineheight-ui-md))
+    var(--sema-space-200) + var(--sema-space-50) +
+      var(--sema-font-lineheight-ui-xs)
   );
 }
 
@@ -159,7 +159,7 @@ html:not([dir="rtl"]) .md_label {
 }
 
 .md_labelPos {
-  top: var(--sema-space-200);
+  top: calc(var(--sema-space-200) + var(--sema-space-50));
 }
 
 html:not([dir="rtl"]) .md_actionButton {
@@ -181,8 +181,8 @@ html[dir="rtl"] .md_actionButton {
 
 .lg_visibleLabel {
   padding-top: calc(
-    var(--sema-space-400) + var(--sema-space-100) +
-      (var(--sema-font-size-ui-md) * var(--sema-font-lineheight-ui-md))
+    var(--sema-space-300) + var(--sema-space-100) + var(--sema-space-100) +
+      var(--sema-font-lineheight-ui-xs)
   );
 }
 
@@ -211,7 +211,7 @@ html:not([dir="rtl"]) .lg_label {
 }
 
 .lg_labelPos {
-  top: var(--sema-space-300);
+  top: calc(var(--sema-space-300) + var(--sema-space-100));
 }
 
 html:not([dir="rtl"]) .lg_actionButton {
