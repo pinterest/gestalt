@@ -2,7 +2,6 @@ import { Children, ReactElement, ReactNode } from 'react';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
@@ -116,6 +115,11 @@ type Props = {
    * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable;
+  /**
+   * This is an experimental prop that defines what background color is used for the popover.
+   * If set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.
+   */
+  _experimentalVariant?: 'notification' | 'education';
 };
 
 /**
@@ -137,10 +141,8 @@ export default function PopoverEducational({
   shouldFocus = false,
   size = 'sm',
   zIndex,
+  _experimentalVariant,
 }: Props) {
-  const { colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
-
   if (!anchor) {
     return null;
   }
@@ -148,7 +150,7 @@ export default function PopoverEducational({
   let textElement: ReactElement | undefined;
 
   if (typeof message === 'string') {
-    textElement = <Text color="light">{message}</Text>;
+    textElement = <Text color="inverse">{message}</Text>;
   }
 
   // If `message` is a Text component, we need to override any text colors within to ensure they all match
@@ -158,11 +160,7 @@ export default function PopoverEducational({
     // @ts-expect-error - TS2339
     Children.only<ReactElement>(message).type.displayName === 'Text'
   ) {
-    const textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideDark
-      : styles.textColorOverrideLight;
-
-    textElement = <span className={textColorOverrideStyles}>{message}</span>;
+    textElement = <span className={styles.textColorOverride}>{message}</span>;
   }
 
   return (
@@ -170,7 +168,7 @@ export default function PopoverEducational({
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        color="blue"
+        color={_experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
         disableFocusTrap
         disablePortal
         forceDirection={forceDirection}

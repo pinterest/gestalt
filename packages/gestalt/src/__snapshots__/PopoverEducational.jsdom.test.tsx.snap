@@ -32,17 +32,17 @@ exports[`PopoverEducational renders 1`] = `
           style="max-width: 230px; overflow: auto;"
         >
           <div
-            class="box paddingX4 paddingY4"
+            class="box paddingX400 paddingY400"
             tabindex="0"
           >
             <div
-              class="Flex rowGap3 columnGap3 xsDirectionColumn"
+              class="Flex rowGap300 columnGap300 xsDirectionColumn"
             >
               <div
                 class="FlexItem"
               >
                 <div
-                  class="light alignStart breakWord Text fontSize300 fontWeightNormal"
+                  class="inverse alignStart breakWord Text fontSize300 fontWeightNormal"
                 >
                   text
                 </div>

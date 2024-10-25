@@ -144,8 +144,21 @@ export default function BannerSlim({
 }: Props) {
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
-  // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'Readonly<{ neutral: { backgroundColor: string; }; success: { icon: string; iconColor: string; color: string; backgroundColor: string; }; info: { icon: string; iconColor: string; color: string; backgroundColor: string; }; warning: { ...; }; error: { ...; }; recommendation: { ...; }; }>'.
-  const { backgroundColor, iconColor, icon } = MESSAGING_TYPE_ATTRIBUTES[type.replace('Bare', '')];
+
+  const status = Object.freeze({
+    'neutral': 'neutral',
+    'success': 'success',
+    'successBare': 'success',
+    'info': 'info',
+    'infoBare': 'info',
+    'recommendation': 'recommendation',
+    'recommendationBare': 'recommendation',
+    'warning': 'warning',
+    'warningBare': 'warning',
+    'error': 'error',
+    'errorBare': 'error',
+  });
+
   const { accessibilityDismissButtonLabel } = useDefaultLabelContext('BannerSlim');
   const {
     iconAccessibilityLabelError,
@@ -183,7 +196,7 @@ export default function BannerSlim({
   return (
     <Box
       alignItems="center"
-      color={isBare ? 'transparent' : backgroundColor}
+      color={isBare ? 'transparent' : MESSAGING_TYPE_ATTRIBUTES[status[type]]?.backgroundColor}
       direction="column"
       display="flex"
       mdDirection="row"
@@ -203,8 +216,8 @@ export default function BannerSlim({
           <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
-              color={iconColor}
-              icon={icon}
+              color={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.iconColor}
+              icon={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.icon}
               size={16}
             />
           </Flex.Item>

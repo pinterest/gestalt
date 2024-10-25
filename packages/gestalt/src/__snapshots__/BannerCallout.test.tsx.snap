@@ -2,10 +2,10 @@
 
 exports[`<BannerCallout /> Error BannerCallout 1`] = `
 <div
-  className="box errorWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box errorWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -13,10 +13,10 @@ exports[`<BannerCallout /> Error BannerCallout 1`] = `
     }
   >
     <div
-      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter smDirectionRow smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -33,7 +33,7 @@ exports[`<BannerCallout /> Error BannerCallout 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -57,10 +57,10 @@ exports[`<BannerCallout /> Error BannerCallout 1`] = `
 
 exports[`<BannerCallout /> Info BannerCallout 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -68,10 +68,10 @@ exports[`<BannerCallout /> Info BannerCallout 1`] = `
     }
   >
     <div
-      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter smDirectionRow smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -88,7 +88,7 @@ exports[`<BannerCallout /> Info BannerCallout 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -112,10 +112,10 @@ exports[`<BannerCallout /> Info BannerCallout 1`] = `
 
 exports[`<BannerCallout /> Warning BannerCallout 1`] = `
 <div
-  className="box paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 warningWeak xsDirectionColumn xsDisplayFlex"
+  className="box paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 warningWeak xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -123,10 +123,10 @@ exports[`<BannerCallout /> Warning BannerCallout 1`] = `
     }
   >
     <div
-      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter smDirectionRow smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -143,7 +143,7 @@ exports[`<BannerCallout /> Warning BannerCallout 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -167,10 +167,10 @@ exports[`<BannerCallout /> Warning BannerCallout 1`] = `
 
 exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -178,10 +178,10 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
     }
   >
     <div
-      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter marginBottom400 smDirectionRow smMarginBottom0 smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -198,7 +198,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -209,7 +209,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="box marginBottom2"
+            className="box marginBottom200"
           >
             <div
               className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
@@ -234,10 +234,10 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd400 smPaddingY300"
     >
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <button
           aria-label="Cancel invite"
@@ -266,7 +266,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
         </button>
       </div>
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <button
           aria-label="Resend invite"
@@ -297,7 +297,7 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
     </div>
   </div>
   <div
-    className="rtlPos"
+    className="dismissButton rtlPos"
   >
     <button
       aria-label="Dismiss this banner"
@@ -350,10 +350,10 @@ exports[`<BannerCallout /> bannercallout with rich text message 1`] = `
 
 exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -361,10 +361,10 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
     }
   >
     <div
-      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter marginBottom400 smDirectionRow smMarginBottom0 smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -381,7 +381,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -392,7 +392,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="box marginBottom2"
+            className="box marginBottom200"
           >
             <div
               className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
@@ -409,10 +409,10 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
       </div>
     </div>
     <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd400 smPaddingY300"
     >
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
@@ -435,7 +435,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
           tabIndex={0}
         >
           <div
-            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -452,7 +452,7 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
     </div>
   </div>
   <div
-    className="rtlPos"
+    className="dismissButton rtlPos"
   >
     <button
       aria-label="Dismiss banner"
@@ -505,10 +505,10 @@ exports[`<BannerCallout /> message + title + primaryAction + dismissButton 1`] =
 
 exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -516,10 +516,10 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
     }
   >
     <div
-      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter marginBottom400 smDirectionRow smMarginBottom0 smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -536,7 +536,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -547,7 +547,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="box marginBottom2"
+            className="box marginBottom200"
           >
             <div
               className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
@@ -564,10 +564,10 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
       </div>
     </div>
     <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd400 smPaddingY300"
     >
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label="Learn more: bannercallout messages"
@@ -590,7 +590,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
           tabIndex={0}
         >
           <div
-            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -605,7 +605,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
         </a>
       </div>
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
@@ -628,7 +628,7 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
           tabIndex={0}
         >
           <div
-            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -649,10 +649,10 @@ exports[`<BannerCallout /> message + title + primaryAction + secondaryAction 1`]
 
 exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -660,10 +660,10 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
     }
   >
     <div
-      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter marginBottom400 smDirectionRow smMarginBottom0 smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -680,7 +680,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -691,7 +691,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="box marginBottom2"
+            className="box marginBottom200"
           >
             <div
               className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
@@ -708,10 +708,10 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd400 smPaddingY300"
     >
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <a
           aria-label=""
@@ -734,7 +734,7 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
           tabIndex={0}
         >
           <div
-            className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -755,10 +755,10 @@ exports[`<BannerCallout /> message + title + primaryAction with href 1`] = `
 
 exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -766,10 +766,10 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
     }
   >
     <div
-      className="box justifyCenter marginBottom4 smDirectionRow smMarginBottom0 smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter marginBottom400 smDirectionRow smMarginBottom0 smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -786,7 +786,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -797,7 +797,7 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="box marginBottom2"
+            className="box marginBottom200"
           >
             <div
               className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
@@ -814,10 +814,10 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
       </div>
     </div>
     <div
-      className="box marginStartAuto smDisplayFlex smMarginEnd4 smPaddingY3"
+      className="box marginStartAuto smDisplayFlex smMarginEnd400 smPaddingY300"
     >
       <div
-        className="box justifyCenter paddingX1 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
+        className="box justifyCenter paddingX100 smDisplayFlex smMarginBottomAuto smMarginTopAuto xsDisplayBlock xsItemsCenter"
       >
         <button
           aria-label=""
@@ -852,10 +852,10 @@ exports[`<BannerCallout /> message + title + primaryAction without href 1`] = `
 
 exports[`<BannerCallout /> message + title 1`] = `
 <div
-  className="box infoWeak paddingX6 paddingY6 relative rounding4 smDirectionRow smPaddingX8 smPaddingY8 xsDirectionColumn xsDisplayFlex"
+  className="box infoWeak paddingX600 paddingY600 relative rounding4 smDirectionRow smPaddingX800 smPaddingY800 xsDirectionColumn xsDisplayFlex"
 >
   <div
-    className="box flexWrap smDisplayFlex smMarginBottomN3 smMarginTopN3"
+    className="box flexWrap smDisplayFlex smMarginBottomN300 smMarginTopN300"
     style={
       Object {
         "width": "100%",
@@ -863,10 +863,10 @@ exports[`<BannerCallout /> message + title 1`] = `
     }
   >
     <div
-      className="box justifyCenter smDirectionRow smPaddingY3 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+      className="box justifyCenter smDirectionRow smPaddingY300 xsDirectionColumn xsDisplayFlex xsItemsCenter"
     >
       <div
-        className="box marginBottom4 marginTop0 smMarginBottomAuto smMarginTopAuto"
+        className="box marginBottom400 marginTop0 smMarginBottomAuto smMarginTopAuto"
       >
         <svg
           aria-hidden={null}
@@ -883,7 +883,7 @@ exports[`<BannerCallout /> message + title 1`] = `
         </svg>
       </div>
       <div
-        className="box marginBottomAuto marginTopAuto paddingX6"
+        className="box marginBottomAuto marginTopAuto paddingX600"
         style={
           Object {
             "maxWidth": 648,
@@ -894,7 +894,7 @@ exports[`<BannerCallout /> message + title 1`] = `
           className="box marginBottomAuto marginTopAuto smDisplayBlock xsDirectionColumn xsDisplayFlex xsItemsCenter"
         >
           <div
-            className="box marginBottom2"
+            className="box marginBottom200"
           >
             <div
               className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"

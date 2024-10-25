@@ -7,7 +7,7 @@ exports[`TableOfContents renders 1`] = `
   role="navigation"
 >
   <div
-    className="box marginBottom3 paddingX3"
+    className="box marginBottom300 paddingX300"
   >
     <h3
       className="Heading fontSize400 default alignStart breakWord"
@@ -74,7 +74,7 @@ exports[`TableOfContents renders an accessibility label 1`] = `
   role="navigation"
 >
   <div
-    className="box marginBottom3 paddingX3"
+    className="box marginBottom300 paddingX300"
   >
     <h3
       className="Heading fontSize400 default alignStart breakWord"

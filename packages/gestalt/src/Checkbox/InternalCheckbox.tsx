@@ -11,6 +11,7 @@ import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
 import useInExperiment from '../useInExperiment';
 import useInteractiveStates from '../utils/useInteractiveStates';
+import useTapScaleAnimation from '../utils/useTapScaleAnimation';
 
 type Props = {
   checked?: boolean;
@@ -93,6 +94,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     isActive,
   } = useInteractiveStates();
   const { isFocusVisible } = useFocusVisible();
+  const tapScaleAnimation = useTapScaleAnimation();
 
   let ariaDescribedby;
 
@@ -172,6 +174,8 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         !((isFocused && isFocusVisible) || isHovered || isActive || errorMessage),
       [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
       [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
+      [tapScaleAnimation.classes]: isInVRExperiment,
+      [styles.vrCheckBackground]: isInVRExperiment,
     },
   );
 
@@ -180,10 +184,41 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     [styles.readOnly]: readOnly,
   });
 
+  const iconWrapperStyles = classnames(styles.vrCheckIconWrapper, {
+    [styles.vrCheckIconEnterTransition]: !unchecked,
+    [styles.vrCheckIconExitTransition]: unchecked,
+  });
+
   return (
     <Box>
       <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
         <Box paddingX={1} position="relative">
+          <div ref={tapScaleAnimation.elementRef} className={divStyles} style={style}>
+            {isInVRExperiment ? (
+              <div style={{ width: vrIconSizes[size] }}>
+                <div
+                  className={iconWrapperStyles}
+                  style={{ width: checked || indeterminate ? vrIconSizes[size] : 0 }}
+                >
+                  <Icon
+                    accessibilityLabel=""
+                    color={isInVRExperiment ? vrIconColor : 'inverse'}
+                    icon={indeterminate ? 'dash' : 'check'}
+                    size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
+                  />
+                </div>
+              </div>
+            ) : (
+              (checked || indeterminate) && (
+                <Icon
+                  accessibilityLabel=""
+                  color="inverse"
+                  icon={indeterminate ? 'dash' : 'check'}
+                  size={iconSizes[size]}
+                />
+              )
+            )}
+          </div>
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
             ref={innerRef}
@@ -200,22 +235,18 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
             onClick={handleClick}
             onFocus={handleOnFocus}
-            onMouseDown={handleOnMouseDown}
+            onMouseDown={() => {
+              handleOnMouseDown();
+              if (isInVRExperiment) tapScaleAnimation.handleMouseDown();
+            }}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
-            onMouseUp={handleOnMouseUp}
+            onMouseUp={() => {
+              handleOnMouseUp();
+              if (isInVRExperiment) tapScaleAnimation.handleMouseUp();
+            }}
             type="checkbox"
           />
-          <div className={divStyles} style={style}>
-            {(checked || indeterminate) && (
-              <Icon
-                accessibilityLabel=""
-                color={isInVRExperiment ? vrIconColor : 'inverse'}
-                icon={indeterminate ? 'dash' : 'check'}
-                size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
-              />
-            )}
-          </div>
         </Box>
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (

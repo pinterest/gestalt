@@ -73,7 +73,7 @@ type Props = {
 };
 
 /**
- * [TextCompact](https://gestalt.pinterest.systems/web/textcompact) component is used for....
+ * [TextCompact](https://gestalt.pinterest.systems/web/textcompact) component is used for metadata, annotations, and other instances where text should be small and dense. Its line height is tighter than the Text component.
  *
  * ![Text light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextCompact.spec.ts-snapshots/TextCompact-chromium-darwin.png)
  * ![Text dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/TextUI-dark.spec.ts-snapshots/TextCompact-dark-chromium-darwin.png)

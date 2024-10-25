@@ -114,11 +114,15 @@ type Props<T> = {
    */
   virtualize?: boolean;
   /**
-   * Experimental prop to log the additional whitespace shown above two-column items.
+   * Experimental prop to log the additional whitespace shown above multicolumn items and the number of iterations it took to position it.
    *
    * This is an experimental prop and may be removed in the future.
    */
-  _logTwoColWhitespace?: (arg1: ReadonlyArray<number>) => void;
+  _logTwoColWhitespace?: (
+    additionalWhitespace: ReadonlyArray<number>,
+    numberOfIterations: number,
+    columnSpan: number,
+  ) => void;
   /**
    * Experimental prop to define how many columns a module should span. This is also used to enable multi-column support
    * _getColumnSpanConfig is a function that takes an individual grid item as an input and returns a ColumnSpanConfig. ColumnSpanConfig can be one of two things:
@@ -145,6 +149,12 @@ type Props<T> = {
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
   _dynamicHeights?: boolean;
+  /**
+   * Experimental prop to define how much whitespace is good enough to position multicolumn modules
+   *
+   * This is an experimental prop and may be removed or changed in the future
+   */
+  _whitespaceThreshold?: number;
 };
 
 type State<T> = {
@@ -581,6 +591,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _loadingStateItems = [],
       _renderLoadingStateItems,
+      _whitespaceThreshold,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -603,6 +614,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
         renderLoadingState,
+        whitespaceThreshold: _whitespaceThreshold,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -627,6 +639,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
         renderLoadingState,
+        whitespaceThreshold: _whitespaceThreshold,
       });
     }
 

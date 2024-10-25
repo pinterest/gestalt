@@ -64,17 +64,17 @@
 
 .sm {
   composes: small from "./Layout.css";
-  composes: paddingX3 paddingY1 from "./boxWhitespace.css";
+  composes: paddingX300 paddingY100 from "./boxWhitespace.css";
 }
 
 .md {
   composes: medium from "./Layout.css";
-  composes: paddingX3 paddingY2 from "./boxWhitespace.css";
+  composes: paddingX300 paddingY200 from "./boxWhitespace.css";
 }
 
 .lg {
   composes: large from "./Layout.css";
-  composes: paddingX4 paddingY3 from "./boxWhitespace.css";
+  composes: paddingX400 paddingY300 from "./boxWhitespace.css";
 }
 
 .smVr {
@@ -98,19 +98,19 @@
 
 .thumbnailSm {
   composes: small from "./Layout.css";
-  composes: paddingX1 from "./boxWhitespace.css";
+  composes: paddingX100 from "./boxWhitespace.css";
   padding-bottom: 2px;
   padding-top: var(--space-200);
 }
 
 .thumbnailMd {
   composes: medium from "./Layout.css";
-  composes: paddingX2 paddingY2 from "./boxWhitespace.css";
+  composes: paddingX200 paddingY200 from "./boxWhitespace.css";
 }
 
 .thumbnailLg {
   composes: large from "./Layout.css";
-  composes: paddingX3 paddingY2 from "./boxWhitespace.css";
+  composes: paddingX300 paddingY200 from "./boxWhitespace.css";
 }
 
 .enabled {

@@ -58,6 +58,7 @@ import main from '../../examples/daterange/main';
 import mobile from '../../examples/daterange/mobile';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup';
 import secondaryDateRange from '../../examples/daterange/secondaryDateRange';
+import secondaryErrorMessages from '../../examples/daterange/secondaryErrorMessages';
 
 const PREVIEW_HEIGHT = 600;
 
@@ -219,11 +220,13 @@ Use the SelectList to try out different locales by passing in the \`localeData\`
         <MainSection.Subsection
           description={`
 DateRange is a controlled component.
-Use \`endDateValue\`,  \`startDateValue\`,  \`onEndDateChange\`, \`onStartDateChange\`, \`onEndDateError\`, \`onStartDateError\`, \`onSubmit\` and \`onCancel\` to implement it correctly.
+Use \`dateValue\`, \`onDateChange\`, \`onDateError\`, \`onSubmit\` and \`onCancel\` to implement it correctly.
 
 Follow the implementation in the example to implement a controlled DateRange correctly.
 
 When there’s not a date range selected, the call-to-action is disabled to prevent user errors.
+
+\`onSubmit\` and \`onCancel\` are optional props. When not used, make sure DateRange is accessible implementing Popover's onDismiss correctly, as shown in the example. Otherwise, DateRange might not be able to be dismissed if the user performs no changes in the data.
           `}
           title="Controlled component"
         >
@@ -273,16 +276,16 @@ When there’s not a date range selected, the call-to-action is disabled to prev
 
         <MainSection.Subsection
           description={`
-DateRange can communicate errors when the user selects an invalid date. Use \`startDateErrorMessage\`, \`endDateErrorMessage\`, \`onEndDateError\`, \`onStartDateError\`, \`onStartDateBlur\`, \`onStartDateFocus\`, \`onEndDateBlur\`, \`onEndDateFocus\` to implement error messaging correctly.
+DateRange can communicate errors when the user selects an invalid date. Use \`dateErrorMessage\`, \`onDateError\`, \`onDateBlur\`, \`onDateFocus\`, to implement error messaging correctly.
 
 The following implementation shows how to use all required props for error messaging.
 
-The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date fields are not pre-populated, leverage \`onStartDateBlur\` and \`onEndDateBlur\` to validate the error state after the date fields lose focus. If the date fields are pre-populated leverage React's useEffect to validate the error state.
+The \`onDateError\` event are very noisy. If the date fields are not pre-populated, leverage \`onDateBlur\` to validate the error state after the date fields lose focus. If the date fields are pre-populated leverage React's useEffect to validate the error state.
           `}
           title="Error messaging"
         >
           <MainSection.Card
-            cardSize="md"
+            cardSize="lg"
             sandpackExample={
               <SandpackExample
                 code={errorMessaging}
@@ -291,6 +294,19 @@ The \`onEndDateError\`, \`onStartDateError\` event are very noisy. If the date f
                 previewHeight={PREVIEW_HEIGHT}
               />
             }
+          />
+          <MainSection.Card
+            cardSize="lg"
+            description={`The secondary input fields also support error messages, you can control them with the \`secondaryDateErrorMessage\` prop.`}
+            sandpackExample={
+              <SandpackExample
+                code={secondaryErrorMessages}
+                layout="column"
+                name="secondary errors example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="Secondary date errors"
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -354,7 +370,7 @@ On mobile devices, the \`radiogroup\` prop is not shown.
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`
-DateRange supports a secondary date range in case you need to handle more that one range, in order to enable it you just need to pass the props \`secondaryDateValue\` and \`onSecondaryDateChange\`.`}
+DateRange supports a secondary date range in case you need to handle more that one range, in order to enable it you just need to pass the props \`secondaryDateValue\` and \`onSecondaryDateChange\`. One scenario for this could be if you need to compare/monitor metrics of two periods of time when creating campaigns.`}
           title="Secondary date range"
         >
           <MainSection.Card

@@ -22,6 +22,7 @@ type InjectedProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: () => void;
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onPassthroughFocus?: () => void;
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   placeholder?: string;
   readOnly?: boolean;
@@ -44,6 +45,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
     onClick,
     onBlur,
     onFocus,
+    onPassthroughFocus,
     onKeyDown,
     placeholder,
     readOnly,
@@ -77,6 +79,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
         onBlur={(data) => onBlur?.(data.event)}
         onChange={(data) => onChange?.(data.event)}
         onFocus={(data) => {
+          onPassthroughFocus?.();
           onFocus?.(data.event);
           onClick?.();
         }}
@@ -109,6 +112,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
           onBlur={(data) => onBlur?.(data.event)}
           onChange={(data) => onChange?.(data.event)}
           onFocus={(data) => {
+            onPassthroughFocus?.();
             onFocus?.(data.event);
             onClick?.();
           }}

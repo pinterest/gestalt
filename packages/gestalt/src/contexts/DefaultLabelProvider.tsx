@@ -48,6 +48,8 @@ export type DefaultLabelContextType = {
     accessibilityClearButtonLabel: string;
   };
   DatePicker: {
+    accessibilityDismissButtonLabel: string;
+    dismissButton: string;
     openCalendar: string;
     previousMonth: string;
     nextMonth: string;
@@ -173,6 +175,8 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityClearButtonLabel: 'Clear input',
   },
   DatePicker: {
+    accessibilityDismissButtonLabel: 'Dismiss date picker',
+    dismissButton: 'Close',
     openCalendar: 'Open calendar',
     previousMonth: 'Navigate to previou month',
     nextMonth: 'Navigate to next month',

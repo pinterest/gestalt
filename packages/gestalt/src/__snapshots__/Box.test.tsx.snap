@@ -97,13 +97,13 @@ exports[`Box has correct classes when display is flex 1`] = `
 
 exports[`Box has correct marginStart and marginEnd when marginStart and marginEnd are negative 1`] = `
 <div
-  className="box marginEndN3 marginStartN1"
+  className="box marginEndN300 marginStartN100"
 />
 `;
 
 exports[`Box has correct marginStart and marginEnd when marginStart equals 1 and marginEnd equals 2 1`] = `
 <div
-  className="box marginEnd2 marginStart1"
+  className="box marginEnd200 marginStart100"
 />
 `;
 

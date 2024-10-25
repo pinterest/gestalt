@@ -88,7 +88,7 @@ exports[`Video with children 1`] = `
     className="controls"
   >
     <div
-      className="box paddingX2 paddingY2"
+      className="box paddingX200 paddingY200"
     >
       <div
         aria-disabled={false}
@@ -125,7 +125,7 @@ exports[`Video with children 1`] = `
       </div>
     </div>
     <div
-      className="box paddingX2 paddingY2"
+      className="box paddingX200 paddingY200"
     >
       <div
         aria-disabled={false}
@@ -160,7 +160,7 @@ exports[`Video with children 1`] = `
           />
         </svg>
         <div
-          className="absolute box light marginTop1 rounding4"
+          className="absolute box light marginTop100 rounding4"
           style={
             Object {
               "height": 2,
@@ -171,7 +171,7 @@ exports[`Video with children 1`] = `
       </div>
     </div>
     <div
-      className="box paddingX2 paddingY2"
+      className="box paddingX200 paddingY200"
       style={
         Object {
           "width": 50,
@@ -185,7 +185,7 @@ exports[`Video with children 1`] = `
       </div>
     </div>
     <div
-      className="box flexGrow paddingX2 paddingY2"
+      className="box flexGrow paddingX200 paddingY200"
     >
       <div
         className="box relative"
@@ -231,7 +231,7 @@ exports[`Video with children 1`] = `
               }
             />
             <div
-              className="box circle light marginStartN2"
+              className="box circle light marginStartN200"
               style={
                 Object {
                   "height": 16,
@@ -245,7 +245,7 @@ exports[`Video with children 1`] = `
       </div>
     </div>
     <div
-      className="box paddingX2 paddingY2"
+      className="box paddingX200 paddingY200"
       style={
         Object {
           "width": 50,
@@ -259,7 +259,7 @@ exports[`Video with children 1`] = `
       </div>
     </div>
     <div
-      className="box paddingX2 paddingY2"
+      className="box paddingX200 paddingY200"
     >
       <div
         aria-disabled={false}

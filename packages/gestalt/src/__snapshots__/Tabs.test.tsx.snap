@@ -2,7 +2,7 @@
 
 exports[`<Tabs /> matches snapshot with default props 1`] = `
 <div
-  className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+  className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
 >
   <div
     className="FlexItem"
@@ -34,7 +34,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -43,7 +43,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
               style={
                 Object {
                   "height": undefined,
@@ -116,7 +116,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -125,7 +125,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
               style={
                 Object {
                   "height": undefined,
@@ -152,7 +152,7 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
 
 exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 <div
-  className="Flex rowGap4 columnGap0 xsDirectionRow xsItemsCenter"
+  className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
 >
   <div
     className="FlexItem"
@@ -184,7 +184,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -193,7 +193,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
               style={
                 Object {
                   "height": undefined,
@@ -280,7 +280,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -289,7 +289,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
               style={
                 Object {
                   "height": undefined,
@@ -330,7 +330,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 
 exports[`<Tabs /> matches snapshot with wrap 1`] = `
 <div
-  className="Flex rowGap4 columnGap0 flexWrap xsDirectionRow xsItemsCenter"
+  className="Flex rowGap400 columnGap0 flexWrap xsDirectionRow xsItemsCenter"
 >
   <div
     className="FlexItem"
@@ -362,7 +362,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -371,7 +371,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
               style={
                 Object {
                   "height": undefined,
@@ -444,7 +444,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
           className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
         >
           <div
-            className="box paddingX2 paddingY2 relative rounding2 userSelectNone"
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
             style={
               Object {
                 "backgroundColor": "var(--color-background-tabs-default-base)",
@@ -453,7 +453,7 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             }
           >
             <div
-              className="Flex rowGap2 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
               style={
                 Object {
                   "height": undefined,

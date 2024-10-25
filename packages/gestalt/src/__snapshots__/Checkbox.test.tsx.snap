@@ -5,11 +5,14 @@ exports[`Checkbox 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="enabled border borderRadiusMd sizeMd check thickBorder"
+      />
       <input
         aria-invalid="false"
         checked={false}
@@ -26,9 +29,6 @@ exports[`Checkbox 1`] = `
         onMouseUp={[Function]}
         type="checkbox"
       />
-      <div
-        className="enabled border borderRadiusMd sizeMd check thickBorder"
-      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -43,7 +43,7 @@ exports[`Checkbox 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -53,7 +53,7 @@ exports[`Checkbox 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -65,27 +65,11 @@ exports[`Checkbox checked 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
-      <input
-        aria-invalid="false"
-        checked={true}
-        className="input sizeMd inputEnabled"
-        disabled={false}
-        id="id"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        type="checkbox"
-      />
       <div
         className="checked borderSelected borderRadiusMd sizeMd check thickBorder"
       >
@@ -103,6 +87,22 @@ exports[`Checkbox checked 1`] = `
           />
         </svg>
       </div>
+      <input
+        aria-invalid="false"
+        checked={true}
+        className="input sizeMd inputEnabled"
+        disabled={false}
+        id="id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        type="checkbox"
+      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -117,7 +117,7 @@ exports[`Checkbox checked 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -127,7 +127,7 @@ exports[`Checkbox checked 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -139,27 +139,11 @@ exports[`Checkbox disabled & checked 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
-      <input
-        aria-invalid="false"
-        checked={true}
-        className="input sizeSm"
-        disabled={true}
-        id="id"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        type="checkbox"
-      />
       <div
         className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
       >
@@ -177,6 +161,22 @@ exports[`Checkbox disabled & checked 1`] = `
           />
         </svg>
       </div>
+      <input
+        aria-invalid="false"
+        checked={true}
+        className="input sizeSm"
+        disabled={true}
+        id="id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        type="checkbox"
+      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -191,7 +191,7 @@ exports[`Checkbox disabled & checked 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -201,7 +201,7 @@ exports[`Checkbox disabled & checked 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -213,11 +213,14 @@ exports[`Checkbox disabled 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
+      />
       <input
         aria-invalid="false"
         checked={false}
@@ -234,9 +237,6 @@ exports[`Checkbox disabled 1`] = `
         onMouseUp={[Function]}
         type="checkbox"
       />
-      <div
-        className="disabled borderDisabled borderRadiusSm sizeSm check thickBorder"
-      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -251,7 +251,7 @@ exports[`Checkbox disabled 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -261,7 +261,7 @@ exports[`Checkbox disabled 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -273,27 +273,11 @@ exports[`Checkbox indeterminate 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
-      <input
-        aria-invalid="false"
-        checked={false}
-        className="input sizeMd inputEnabled"
-        disabled={false}
-        id="id"
-        onBlur={[Function]}
-        onChange={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        type="checkbox"
-      />
       <div
         className="checked borderSelected borderRadiusMd sizeMd check thickBorder"
       >
@@ -311,6 +295,22 @@ exports[`Checkbox indeterminate 1`] = `
           />
         </svg>
       </div>
+      <input
+        aria-invalid="false"
+        checked={false}
+        className="input sizeMd inputEnabled"
+        disabled={false}
+        id="id"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        type="checkbox"
+      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -325,7 +325,7 @@ exports[`Checkbox indeterminate 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -335,7 +335,7 @@ exports[`Checkbox indeterminate 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -347,11 +347,14 @@ exports[`Checkbox small 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="enabled border borderRadiusSm sizeSm check thickBorder"
+      />
       <input
         aria-invalid="false"
         checked={false}
@@ -367,9 +370,6 @@ exports[`Checkbox small 1`] = `
         onMouseLeave={[Function]}
         onMouseUp={[Function]}
         type="checkbox"
-      />
-      <div
-        className="enabled border borderRadiusSm sizeSm check thickBorder"
       />
     </div>
     <div
@@ -385,7 +385,7 @@ exports[`Checkbox small 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -395,7 +395,7 @@ exports[`Checkbox small 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -407,11 +407,14 @@ exports[`Checkbox with an image 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="enabled border borderRadiusSm sizeSm check thickBorder"
+      />
       <input
         aria-invalid="false"
         checked={false}
@@ -428,12 +431,9 @@ exports[`Checkbox with an image 1`] = `
         onMouseUp={[Function]}
         type="checkbox"
       />
-      <div
-        className="enabled border borderRadiusSm sizeSm check thickBorder"
-      />
     </div>
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="box"
@@ -472,7 +472,7 @@ exports[`Checkbox with an image 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -482,7 +482,7 @@ exports[`Checkbox with an image 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       />
     </div>
   </div>
@@ -494,11 +494,14 @@ exports[`Checkbox with error 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="enabled borderErrorUnchecked borderRadiusSm sizeSm check thickBorder"
+      />
       <input
         aria-invalid="true"
         checked={false}
@@ -515,9 +518,6 @@ exports[`Checkbox with error 1`] = `
         onMouseUp={[Function]}
         type="checkbox"
       />
-      <div
-        className="enabled borderErrorUnchecked borderRadiusSm sizeSm check thickBorder"
-      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -532,7 +532,7 @@ exports[`Checkbox with error 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -542,7 +542,7 @@ exports[`Checkbox with error 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       >
         <div
           className="noStartPadding sm_topPadding"
@@ -560,7 +560,7 @@ exports[`Checkbox with error 1`] = `
                 role="alert"
               >
                 <div
-                  className="Flex rowGap1 columnGap1 xsDirectionRow xsItemsCenter"
+                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
                 >
                   <div
                     className="FlexItem"
@@ -604,11 +604,14 @@ exports[`Checkbox with helperText 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="enabled border borderRadiusSm sizeSm check thickBorder"
+      />
       <input
         aria-invalid="false"
         checked={false}
@@ -625,9 +628,6 @@ exports[`Checkbox with helperText 1`] = `
         onMouseUp={[Function]}
         type="checkbox"
       />
-      <div
-        className="enabled border borderRadiusSm sizeSm check thickBorder"
-      />
     </div>
     <div
       className="box xsDisplayBlock"
@@ -642,7 +642,7 @@ exports[`Checkbox with helperText 1`] = `
         htmlFor="id"
       >
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         >
           <div
             className="default alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -652,14 +652,14 @@ exports[`Checkbox with helperText 1`] = `
         </div>
       </label>
       <div
-        className="box paddingX1"
+        className="box paddingX100"
       >
         <div
           className="noStartPadding sm_topPadding"
           id="id-helperText"
         >
           <div
-            className="Flex rowGap4 columnGap4 xsDirectionRow"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
           >
             <div
               className="FlexItem flexGrow"
@@ -683,11 +683,14 @@ exports[`Checkbox without label 1`] = `
   className="box"
 >
   <div
-    className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
   >
     <div
-      className="box paddingX1 relative"
+      className="box paddingX100 relative"
     >
+      <div
+        className="enabled border borderRadiusMd sizeMd check thickBorder"
+      />
       <input
         aria-invalid="false"
         checked={false}
@@ -703,9 +706,6 @@ exports[`Checkbox without label 1`] = `
         onMouseLeave={[Function]}
         onMouseUp={[Function]}
         type="checkbox"
-      />
-      <div
-        className="enabled border borderRadiusMd sizeMd check thickBorder"
       />
     </div>
   </div>

@@ -30,10 +30,10 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
+                  class="Flex rowGap400 columnGap400 flexGrow xsDirectionRow xsItemsCenter"
                 >
                   <div
                     class="FlexItem flexGrow"
@@ -48,7 +48,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
                     class="FlexItem"
                   >
                     <div
-                      class="box marginStart2"
+                      class="box marginStart200"
                     >
                       <button
                         aria-label="Dismiss modal"
@@ -85,7 +85,7 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               Modal content
@@ -95,10 +95,10 @@ exports[`ModalAlert Desktop ModalAlert renders (default) 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
+                  class="Flex rowGap200 columnGap200 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"
@@ -161,10 +161,10 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
+                  class="Flex rowGap400 columnGap400 flexGrow xsDirectionRow xsItemsCenter"
                 >
                   <div
                     class="FlexItem"
@@ -199,7 +199,7 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               Modal content
@@ -209,10 +209,10 @@ exports[`ModalAlert Desktop ModalAlert renders (error) 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
+                  class="Flex rowGap200 columnGap200 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"
@@ -275,10 +275,10 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
+                  class="Flex rowGap400 columnGap400 flexGrow xsDirectionRow xsItemsCenter"
                 >
                   <div
                     class="FlexItem"
@@ -313,7 +313,7 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               Modal content
@@ -323,10 +323,10 @@ exports[`ModalAlert Desktop ModalAlert renders (warning) 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
+                  class="Flex rowGap200 columnGap200 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"
@@ -389,10 +389,10 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap4 columnGap4 flexGrow xsDirectionRow xsItemsCenter"
+                  class="Flex rowGap400 columnGap400 flexGrow xsDirectionRow xsItemsCenter"
                 >
                   <div
                     class="FlexItem flexGrow"
@@ -407,7 +407,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
                     class="FlexItem"
                   >
                     <div
-                      class="box marginStart2"
+                      class="box marginStart200"
                     >
                       <button
                         aria-label="Dismiss modal"
@@ -444,7 +444,7 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               Modal content
@@ -454,10 +454,10 @@ exports[`ModalAlert Mobile Desktop ModalAlert renders 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
+                  class="Flex rowGap200 columnGap200 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"

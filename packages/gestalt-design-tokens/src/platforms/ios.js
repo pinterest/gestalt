@@ -1,8 +1,15 @@
 const { optionsFileHeader, optionsFileHeaderOutputReferences } = require('../headers/fileheader');
 
 const { getFilter } = require('../utils/getFilter');
-const { filterLineHeight, filterColor, filterElevation } = require('../filters');
-const { getSources } = require('../getSources');
+const {
+  filterLineHeight,
+  filterColor,
+  filterElevation,
+  filterComponentToken,
+} = require('../filters');
+const { getSources, getListOfComponents, getComponentTokenOverrides } = require('../getSources');
+
+const toPascal = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
 function getTheme(theme) {
   return theme === 'vr-theme' ? 'VR' : '';
@@ -137,6 +144,18 @@ function getFiles({ theme, modeTheme, language, fileType }) {
     });
   }
 
+  if (theme === 'vr-theme') {
+    iOSSwiftFiles.push(
+      ...getListOfComponents(theme).map((component) => ({
+        'destination': `components/GestaltTokens${toPascal(component)}.swift`,
+        ...iosSwiftEnumSwift,
+        'className': `GestaltTokens${toPascal(component)}`,
+        ...filterComponentToken(component),
+        fileHeader: `// ${language} specific tokens`,
+      })),
+    );
+  }
+
   if (fileType === 'swift') {
     if (modeTheme === 'dark') {
       return [
@@ -196,11 +215,20 @@ function getFiles({ theme, modeTheme, language, fileType }) {
   return [];
 }
 
+const getComponentTokenFiles = ({ theme }) => {
+  if (theme !== 'vr-theme') {
+    return [];
+  }
+
+  return getComponentTokenOverrides('ios');
+};
+
 function getIOSConfiguration({ theme, mode, language }) {
   const modeTheme = mode === 'dark' ? 'dark' : 'light';
 
   return {
-    'source': getSources({ theme, modeTheme, language }),
+    'include': getSources({ theme, modeTheme, language }),
+    'source': getComponentTokenFiles({ theme }),
     'platforms': {
       'ios': {
         ...iOSTransformGroup,

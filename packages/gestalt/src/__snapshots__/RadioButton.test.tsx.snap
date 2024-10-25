@@ -2,14 +2,14 @@
 
 exports[`RadioButton 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
@@ -38,7 +38,7 @@ exports[`RadioButton 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX100"
         style={
           Object {
             "marginTop": "2px",
@@ -58,14 +58,14 @@ exports[`RadioButton 1`] = `
 
 exports[`RadioButton checked 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgEnabled BorderSelected BorderCheckedMd sizeMd RadioButton"
@@ -94,14 +94,14 @@ exports[`RadioButton checked 1`] = `
 
 exports[`RadioButton disabled 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgDisabled Border BorderDisabled sizeMd RadioButton"
@@ -130,7 +130,7 @@ exports[`RadioButton disabled 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX100"
         style={
           Object {
             "marginTop": "2px",
@@ -150,14 +150,14 @@ exports[`RadioButton disabled 1`] = `
 
 exports[`RadioButton disabled small 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgDisabled Border BorderDisabled sizeSm RadioButton"
@@ -186,7 +186,7 @@ exports[`RadioButton disabled small 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX100"
         style={
           Object {
             "marginTop": "-1px",
@@ -206,14 +206,14 @@ exports[`RadioButton disabled small 1`] = `
 
 exports[`RadioButton small 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgEnabled Border BorderUnchecked sizeSm RadioButton"
@@ -242,7 +242,7 @@ exports[`RadioButton small 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX100"
         style={
           Object {
             "marginTop": "-1px",
@@ -262,14 +262,14 @@ exports[`RadioButton small 1`] = `
 
 exports[`RadioButton with image 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgEnabled Border BorderUnchecked sizeSm RadioButton"
@@ -291,7 +291,7 @@ exports[`RadioButton with image 1`] = `
     </div>
   </label>
   <div
-    className="box paddingX1"
+    className="box paddingX100"
   >
     <div
       className="box"
@@ -325,7 +325,7 @@ exports[`RadioButton with image 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX100"
         style={
           Object {
             "marginTop": "-1px",
@@ -345,14 +345,14 @@ exports[`RadioButton with image 1`] = `
 
 exports[`RadioButton with subtext 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgEnabled Border BorderUnchecked sizeSm RadioButton"
@@ -381,7 +381,7 @@ exports[`RadioButton with subtext 1`] = `
       htmlFor="id"
     >
       <div
-        className="box paddingX1"
+        className="box paddingX100"
         style={
           Object {
             "marginTop": "-1px",
@@ -396,7 +396,7 @@ exports[`RadioButton with subtext 1`] = `
       </div>
     </label>
     <div
-      className="box paddingX1 paddingY1"
+      className="box paddingX100 paddingY100"
     >
       <div
         className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"
@@ -410,14 +410,14 @@ exports[`RadioButton with subtext 1`] = `
 
 exports[`RadioButton without label 1`] = `
 <div
-  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
 >
   <label
     className="label"
     htmlFor="id"
   >
     <div
-      className="box paddingX1"
+      className="box paddingX100"
     >
       <div
         className="BgEnabled Border BorderUnchecked sizeMd RadioButton"

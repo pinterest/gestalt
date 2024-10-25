@@ -11,6 +11,9 @@ Array [
   "dist/android/classic/space.xml",
   "dist/android/vr-theme/color-dark.xml",
   "dist/android/vr-theme/colors-light.xml",
+  "dist/android/vr-theme/component/checkbox.xml",
+  "dist/android/vr-theme/component/radiogroupbutton.xml",
+  "dist/android/vr-theme/component/spinner.xml",
   "dist/android/vr-theme/font-lineheight-ck.xml",
   "dist/android/vr-theme/font-lineheight-default.xml",
   "dist/android/vr-theme/font-lineheight-ja.xml",
@@ -178,5 +181,8 @@ Array [
   "dist/ios-swift/vr-theme/GestaltTokensOpacityVR.swift",
   "dist/ios-swift/vr-theme/GestaltTokensRoundingVR.swift",
   "dist/ios-swift/vr-theme/GestaltTokensSpaceVR.swift",
+  "dist/ios-swift/vr-theme/components/GestaltTokensCheckbox.swift",
+  "dist/ios-swift/vr-theme/components/GestaltTokensRadiogroupbutton.swift",
+  "dist/ios-swift/vr-theme/components/GestaltTokensSpinner.swift",
 ]
 `;

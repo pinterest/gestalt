@@ -35,16 +35,16 @@ type Props = {
   /**
    * Callback triggered when the user clicks the Cancel button to not persist the selected dates. It should be used to close DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
-  onCancel: () => void;
+  onCancel?: () => void;
   /**
-   * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the start date or end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onDateBlur?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
     endDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   };
   /**
-   * Callback triggered when the end date input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the start date or end date secondary input loses focus. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onSecondaryDateBlur?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
@@ -62,28 +62,28 @@ type Props = {
     endDate: { value: Date | null },
   ) => void;
   /**
-   * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the start date or end date values entered are invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onDateError?: {
     startDate: (args: { errorMessage: string; value: Date | null }) => void;
     endDate: (args: { errorMessage: string; value: Date | null }) => void;
   };
   /**
-   * Callback triggered when the start date value entered is invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the secondary start date or secondary end date values entered are invalid. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onSecondaryDateError?: {
     startDate: (args: { errorMessage: string; value: Date | null }) => void;
     endDate: (args: { errorMessage: string; value: Date | null }) => void;
   };
   /**
-   * Callback triggered when the user focus on the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the user focus on the start date or end date input DateFields. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onDateFocus?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
     endDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   };
   /**
-   * Callback triggered when the user focus on the input of the start date DateField. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Callback triggered when the user focus on the start date or end date secondary input DateFields. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   onSecondaryDateFocus?: {
     startDate: (args: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
@@ -92,7 +92,7 @@ type Props = {
   /**
    * Callback triggered when the user clicks the Apply button to persist the selected dates. It should be used to persist the dates selected and close the DateRange. See the [controlled component variant](https://gestalt.pinterest.systems/web/daterange#Controlled-component) to learn more.
    */
-  onSubmit: () => void;
+  onSubmit?: () => void;
   /**
    * An optional RadioGroup to provide preestablished date range options. See the [with RadioGroup variant](https://gestalt.pinterest.systems/web/daterange#With-RadioGroup) to learn more.
    */
@@ -102,15 +102,15 @@ type Props = {
    */
   dateValue: { startDate: Date | null; endDate: Date | null };
   /**
-   * DateRange is a controlled component. `dateValue` sets the value of the start date and end date.  See the [secondary date range variant](https://gestalt.pinterest.systems/web/daterange#Secondary-date-range) to learn more.
+   * DateRange is a controlled component. `secondaryDateValue` sets the value of the start date and end date.  See the [secondary date range variant](https://gestalt.pinterest.systems/web/daterange#Secondary-date-range) to learn more.
    */
   secondaryDateValue?: { startDate: Date | null; endDate: Date | null };
   /**
-   * Customize your error message for the cases the user enters invalid start dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Customize your error message for the cases the user enters invalid dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   dateErrorMessage?: { startDate: string | null; endDate: string | null };
   /**
-   * Customize your error message for the cases the user enters invalid start dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
+   * Customize your error message for the cases the user enters invalid dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   secondaryDateErrorMessage?: { startDate: string | null; endDate: string | null };
 };
@@ -364,25 +364,27 @@ function DateRange({
                 }
               />
             </Box>
-            <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
-              <Box marginBottom={4} marginEnd={4}>
-                <ButtonGroup>
-                  <Button color="gray" onClick={() => onCancel()} text={cancelText} />
+            {onSubmit && onCancel ? (
+              <Flex.Item alignSelf={isMobile ? 'center' : 'end'}>
+                <Box marginBottom={4} marginEnd={4}>
+                  <ButtonGroup>
+                    <Button color="gray" onClick={() => onCancel()} text={cancelText} />
 
-                  <Button
-                    color="red"
-                    disabled={
-                      !!dateErrorMessage?.startDate ||
-                      !!dateErrorMessage?.endDate ||
-                      !dateValue.startDate ||
-                      !dateValue.endDate
-                    }
-                    onClick={() => onSubmit()}
-                    text={applyText}
-                  />
-                </ButtonGroup>
-              </Box>
-            </Flex.Item>
+                    <Button
+                      color="red"
+                      disabled={
+                        !!dateErrorMessage?.startDate ||
+                        !!dateErrorMessage?.endDate ||
+                        !dateValue.startDate ||
+                        !dateValue.endDate
+                      }
+                      onClick={() => onSubmit()}
+                      text={applyText}
+                    />
+                  </ButtonGroup>
+                </Box>
+              </Flex.Item>
+            ) : null}
           </Flex>
         </Box>
       </Flex>

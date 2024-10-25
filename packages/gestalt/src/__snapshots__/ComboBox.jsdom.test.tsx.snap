@@ -43,7 +43,7 @@ exports[`ComboBox Controlled ComboBox renders basic controlled components 1`] = 
           >
             <div
               aria-hidden="true"
-              class="box circle marginEnd2 xsDisplayFlex xsItemsCenter"
+              class="box circle marginEnd200 xsDisplayFlex xsItemsCenter"
               style="height: 100%;"
             >
               <div
@@ -113,16 +113,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="textField base enabled normal md medium actionButton md textFieldWrapper"
           >
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -161,16 +161,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -209,16 +209,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -257,16 +257,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -305,16 +305,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -353,16 +353,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -401,16 +401,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -449,16 +449,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -497,16 +497,16 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box marginEnd1"
+              class="box marginEnd100"
               style="margin-bottom: 2px;"
             >
               <div
                 aria-disabled="false"
-                class="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+                class="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
                 style="height: 24px; max-width: 300px;"
               >
                 <div
-                  class="box marginEnd5 xsDisplayFlex xsItemsCenter"
+                  class="box marginEnd500 xsDisplayFlex xsItemsCenter"
                   style="height: 100%;"
                 >
                   <span
@@ -545,7 +545,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow marginEnd2 relative"
+              class="box flexGrow marginEnd200 relative"
               style="max-width: 100%;"
             >
               <div
@@ -567,7 +567,7 @@ exports[`ComboBox Controlled ComboBox with Tags renders with tags 1`] = `
             class="actionButtonContainer"
           >
             <div
-              class="box circle marginEnd2 xsDisplayFlex xsItemsCenter"
+              class="box circle marginEnd200 xsDisplayFlex xsItemsCenter"
               style="height: 100%;"
             >
               <div
@@ -648,7 +648,7 @@ exports[`ComboBox Uncontrolled ComboBox renders default 1`] = `
           >
             <div
               aria-hidden="true"
-              class="box circle marginEnd2 xsDisplayFlex xsItemsCenter"
+              class="box circle marginEnd200 xsDisplayFlex xsItemsCenter"
               style="height: 100%;"
             >
               <div

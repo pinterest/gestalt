@@ -49,7 +49,7 @@ exports[`TagData TagData has a tooltip 1`] = `
           }
         >
           <div
-            className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -77,7 +77,7 @@ exports[`TagData TagData has a tooltip 1`] = `
 
 exports[`TagData renders all colors as expected 1`] = `
 <div
-  className="Flex rowGap2 columnGap2 xsDirectionRow"
+  className="Flex rowGap200 columnGap200 xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -130,7 +130,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -206,7 +206,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -282,7 +282,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -358,7 +358,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -434,7 +434,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -510,7 +510,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -586,7 +586,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -662,7 +662,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -738,7 +738,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -814,7 +814,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -890,7 +890,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -966,7 +966,7 @@ exports[`TagData renders all colors as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -996,7 +996,7 @@ exports[`TagData renders all colors as expected 1`] = `
 
 exports[`TagData renders base color as expected 1`] = `
 <div
-  className="Flex rowGap2 columnGap2 xsDirectionRow"
+  className="Flex rowGap200 columnGap200 xsDirectionRow"
 >
   <div
     className="FlexItem"
@@ -1049,7 +1049,7 @@ exports[`TagData renders base color as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -1057,34 +1057,17 @@ exports[`TagData renders base color as expected 1`] = `
                 }
               >
                 <div
-                  className="box marginEnd1"
+                  className="box marginEnd100"
                 >
                   <div
                     className="box"
                   >
                     <div
-                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="box paddingX1 relative"
+                        className="box paddingX100 relative"
                       >
-                        <input
-                          aria-hidden={true}
-                          aria-invalid="false"
-                          checked={true}
-                          className="input sizeSm inputEnabled readOnly"
-                          disabled={true}
-                          id="readonly-checkbox-:r2:"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          type="checkbox"
-                        />
                         <div
                           className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                           style={
@@ -1108,6 +1091,23 @@ exports[`TagData renders base color as expected 1`] = `
                             />
                           </svg>
                         </div>
+                        <input
+                          aria-hidden={true}
+                          aria-invalid="false"
+                          checked={true}
+                          className="input sizeSm inputEnabled readOnly"
+                          disabled={true}
+                          id="readonly-checkbox-:r2:"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          type="checkbox"
+                        />
                       </div>
                     </div>
                   </div>
@@ -1181,7 +1181,7 @@ exports[`TagData renders base color as expected 1`] = `
               }
             >
               <div
-                className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+                className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
                 style={
                   Object {
                     "height": "100%",
@@ -1189,34 +1189,17 @@ exports[`TagData renders base color as expected 1`] = `
                 }
               >
                 <div
-                  className="box marginEnd1"
+                  className="box marginEnd100"
                 >
                   <div
                     className="box"
                   >
                     <div
-                      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                     >
                       <div
-                        className="box paddingX1 relative"
+                        className="box paddingX100 relative"
                       >
-                        <input
-                          aria-hidden={true}
-                          aria-invalid="false"
-                          checked={true}
-                          className="input sizeSm inputEnabled readOnly"
-                          disabled={true}
-                          id="readonly-checkbox-:r3:"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          type="checkbox"
-                        />
                         <div
                           className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                           style={
@@ -1240,6 +1223,23 @@ exports[`TagData renders base color as expected 1`] = `
                             />
                           </svg>
                         </div>
+                        <input
+                          aria-hidden={true}
+                          aria-invalid="false"
+                          checked={true}
+                          className="input sizeSm inputEnabled readOnly"
+                          disabled={true}
+                          id="readonly-checkbox-:r3:"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          onFocus={[Function]}
+                          onMouseDown={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          onMouseUp={[Function]}
+                          type="checkbox"
+                        />
                       </div>
                     </div>
                   </div>
@@ -1309,7 +1309,7 @@ exports[`TagData renders disabled selected state 1`] = `
           style={Object {}}
         >
           <div
-            className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -1317,34 +1317,17 @@ exports[`TagData renders disabled selected state 1`] = `
             }
           >
             <div
-              className="box marginEnd1"
+              className="box marginEnd100"
             >
               <div
                 className="box"
               >
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                 >
                   <div
-                    className="box paddingX1 relative"
+                    className="box paddingX100 relative"
                   >
-                    <input
-                      aria-hidden={true}
-                      aria-invalid="false"
-                      checked={true}
-                      className="input sizeSm inputEnabled readOnly"
-                      disabled={true}
-                      id="readonly-checkbox-:rg:"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      type="checkbox"
-                    />
                     <div
                       className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                       style={
@@ -1368,6 +1351,23 @@ exports[`TagData renders disabled selected state 1`] = `
                         />
                       </svg>
                     </div>
+                    <input
+                      aria-hidden={true}
+                      aria-invalid="false"
+                      checked={true}
+                      className="input sizeSm inputEnabled readOnly"
+                      disabled={true}
+                      id="readonly-checkbox-:rg:"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      type="checkbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1435,7 +1435,7 @@ exports[`TagData renders disabled unselected state 1`] = `
           style={Object {}}
         >
           <div
-            className="box marginEnd0 paddingX2 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd0 paddingX200 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -1443,17 +1443,26 @@ exports[`TagData renders disabled unselected state 1`] = `
             }
           >
             <div
-              className="box marginEnd1"
+              className="box marginEnd100"
             >
               <div
                 className="box"
               >
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                 >
                   <div
-                    className="box paddingX1 relative"
+                    className="box paddingX100 relative"
                   >
+                    <div
+                      className="enabled border borderRadiusSm sizeSm check thickBorder"
+                      style={
+                        Object {
+                          "backgroundColor": "var(--color-gray-roboflow-300)",
+                          "borderColor": "var(--color-transparent)",
+                        }
+                      }
+                    />
                     <input
                       aria-hidden={true}
                       aria-invalid="false"
@@ -1470,15 +1479,6 @@ exports[`TagData renders disabled unselected state 1`] = `
                       onMouseLeave={[Function]}
                       onMouseUp={[Function]}
                       type="checkbox"
-                    />
-                    <div
-                      className="enabled border borderRadiusSm sizeSm check thickBorder"
-                      style={
-                        Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "var(--color-transparent)",
-                        }
-                      }
                     />
                   </div>
                 </div>
@@ -1552,7 +1552,7 @@ exports[`TagData renders dismisible button with color background 1`] = `
           }
         >
           <div
-            className="box marginEnd4 paddingX2 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd400 paddingX200 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -1560,34 +1560,17 @@ exports[`TagData renders dismisible button with color background 1`] = `
             }
           >
             <div
-              className="box marginEnd1"
+              className="box marginEnd100"
             >
               <div
                 className="box"
               >
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                 >
                   <div
-                    className="box paddingX1 relative"
+                    className="box paddingX100 relative"
                   >
-                    <input
-                      aria-hidden={true}
-                      aria-invalid="false"
-                      checked={true}
-                      className="input sizeSm inputEnabled readOnly"
-                      disabled={true}
-                      id="readonly-checkbox-:rj:"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      type="checkbox"
-                    />
                     <div
                       className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                       style={
@@ -1611,6 +1594,23 @@ exports[`TagData renders dismisible button with color background 1`] = `
                         />
                       </svg>
                     </div>
+                    <input
+                      aria-hidden={true}
+                      aria-invalid="false"
+                      checked={true}
+                      className="input sizeSm inputEnabled readOnly"
+                      disabled={true}
+                      id="readonly-checkbox-:rj:"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      type="checkbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1720,7 +1720,7 @@ exports[`TagData renders dismissable button 1`] = `
           }
         >
           <div
-            className="box marginEnd4 paddingX2 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd400 paddingX200 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -1728,34 +1728,17 @@ exports[`TagData renders dismissable button 1`] = `
             }
           >
             <div
-              className="box marginEnd1"
+              className="box marginEnd100"
             >
               <div
                 className="box"
               >
                 <div
-                  className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
                 >
                   <div
-                    className="box paddingX1 relative"
+                    className="box paddingX100 relative"
                   >
-                    <input
-                      aria-hidden={true}
-                      aria-invalid="false"
-                      checked={true}
-                      className="input sizeSm inputEnabled readOnly"
-                      disabled={true}
-                      id="readonly-checkbox-:ri:"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      type="checkbox"
-                    />
                     <div
                       className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
                       style={
@@ -1779,6 +1762,23 @@ exports[`TagData renders dismissable button 1`] = `
                         />
                       </svg>
                     </div>
+                    <input
+                      aria-hidden={true}
+                      aria-invalid="false"
+                      checked={true}
+                      className="input sizeSm inputEnabled readOnly"
+                      disabled={true}
+                      id="readonly-checkbox-:ri:"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onClick={[Function]}
+                      onFocus={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseEnter={[Function]}
+                      onMouseLeave={[Function]}
+                      onMouseUp={[Function]}
+                      type="checkbox"
+                    />
                   </div>
                 </div>
               </div>
@@ -1876,7 +1876,7 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
         style={Object {}}
       >
         <div
-          className="box marginEnd4 paddingX2 xsDisplayFlex xsItemsCenter"
+          className="box marginEnd400 paddingX200 xsDisplayFlex xsItemsCenter"
           style={
             Object {
               "height": "100%",
@@ -1884,17 +1884,26 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
           }
         >
           <div
-            className="box marginEnd1"
+            className="box marginEnd100"
           >
             <div
               className="box"
             >
               <div
-                className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+                className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
               >
                 <div
-                  className="box paddingX1 relative"
+                  className="box paddingX100 relative"
                 >
+                  <div
+                    className="enabled border borderRadiusSm sizeSm check thickBorder"
+                    style={
+                      Object {
+                        "backgroundColor": "var(--color-background-formfield-primary)",
+                        "borderColor": "var(--color-border-default)",
+                      }
+                    }
+                  />
                   <input
                     aria-hidden={true}
                     aria-invalid="false"
@@ -1911,15 +1920,6 @@ exports[`TagData renders tagdata in RTL mode as expected 1`] = `
                     onMouseLeave={[Function]}
                     onMouseUp={[Function]}
                     type="checkbox"
-                  />
-                  <div
-                    className="enabled border borderRadiusSm sizeSm check thickBorder"
-                    style={
-                      Object {
-                        "backgroundColor": "var(--color-background-formfield-primary)",
-                        "borderColor": "var(--color-border-default)",
-                      }
-                    }
                   />
                 </div>
               </div>

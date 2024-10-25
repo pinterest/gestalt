@@ -804,10 +804,22 @@
       "keywords": ["files", "projects"]
     },
     {
+      "name": "folder-fill",
+      "categories": ["File"],
+      "description": "Indicates a folder storage.",
+      "keywords": ["files", "projects"]
+    },
+    {
       "name": "forward",
       "categories": ["Media controls"],
       "description": "Indicates a forward movement in a video context",
       "keywords": ["advance"]
+    },
+    {
+      "name": "ghost-fill",
+      "categories": ["Creation"],
+      "description": "Indicates a ghosted image effect.",
+      "keywords": ["image", "create", "effect"]
     },
     {
       "name": "gif",

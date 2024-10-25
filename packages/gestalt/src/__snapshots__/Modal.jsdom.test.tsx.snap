@@ -30,7 +30,7 @@ exports[`Modal Desktop Modal renders 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box justifyCenter paddingX6 paddingY6"
+                class="box justifyCenter paddingX600 paddingY600"
               >
                 <h1
                   class="Heading fontSize500 default alignCenter breakWord"
@@ -38,7 +38,7 @@ exports[`Modal Desktop Modal renders 1`] = `
                   Heading
                 </h1>
                 <div
-                  class="box marginTop1"
+                  class="box marginTop100"
                 >
                   <div
                     class="default alignCenter breakWord Text fontSize300 fontWeightNormal"
@@ -49,7 +49,7 @@ exports[`Modal Desktop Modal renders 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               Modal content
@@ -59,10 +59,10 @@ exports[`Modal Desktop Modal renders 1`] = `
               style="z-index: 1;"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <div
-                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
+                  class="Flex rowGap200 columnGap200 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"
@@ -140,10 +140,10 @@ exports[`Modal Mobile Modal renders 1`] = `
             style="width: 100%;"
           >
             <div
-              class="box fit paddingX4 paddingY4 relative"
+              class="box fit paddingX400 paddingY400 relative"
             >
               <div
-                class="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+                class="Flex rowGap400 columnGap400 justifyCenter xsDirectionRow xsItemsCenter"
               >
                 <div
                   class="FlexItem flexNone"
@@ -200,7 +200,7 @@ exports[`Modal Mobile Modal renders 1`] = `
               </div>
             </div>
             <div
-              class="box flexGrow overflowAuto paddingX4 paddingY2"
+              class="box flexGrow overflowAuto paddingX400 paddingY200"
             >
               Modal content
             </div>
@@ -208,10 +208,10 @@ exports[`Modal Mobile Modal renders 1`] = `
               class="box fit relative"
             >
               <div
-                class="box paddingX4 paddingY4"
+                class="box paddingX400 paddingY400"
               >
                 <div
-                  class="Flex rowGap2 columnGap2 justifyEnd xsDirectionRow"
+                  class="Flex rowGap200 columnGap200 justifyEnd xsDirectionRow"
                 >
                   <div
                     class="FlexItem"

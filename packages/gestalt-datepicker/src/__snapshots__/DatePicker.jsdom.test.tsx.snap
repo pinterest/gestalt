@@ -1,0 +1,834 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker Mobile Datepicker renders 1`] = `
+<body
+  style="overflow: hidden;"
+>
+  <div>
+    <div
+      class="_gestalt"
+    >
+      <label
+        class="LTD kVc BG7"
+        for="fake_id"
+      >
+        <div
+          class="u8x zI7 iyn Hsu"
+        >
+          <div
+            class="X8m zDA IZT tBJ dyH iFc dR0 swG"
+          >
+            select
+          </div>
+        </div>
+      </label>
+      <div
+        class="react-datepicker-wrapper"
+      >
+        <div
+          class="react-datepicker__input-container"
+        >
+          <div
+            class="Jea KS5 XiG ujU xcv L4E zI7 iyn Hsu"
+          >
+            <div
+              class="ujU xcv L4E zI7 iyn Hsu"
+            >
+              <span>
+                <div
+                  class="XiG zI7 iyn Hsu"
+                >
+                  <input
+                    aria-invalid="false"
+                    autocomplete="off"
+                    class="D8X Hsu tBJ dyH iFc L4E mbr iyn fSK Et3 LJB oVz xD4 ybQ z-6"
+                    id="fake_id"
+                    inputmode="none"
+                    type="text"
+                    value="12/14/2018"
+                  />
+                </div>
+              </span>
+            </div>
+            <div
+              class="calendarIcon"
+            >
+              <div
+                class="Jea KS5 NyI XiG zI7 iyn Hsu"
+                style="min-height: 48px;"
+              >
+                <div
+                  aria-disabled="false"
+                  class="S9z INd iyn"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-label="Open calendar"
+                    class="Uvi gUZ U9O kVc"
+                    height="16"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="16"
+                  >
+                    <path
+                      d="M11 11H6v5h5zm9-7h-2.5V2.5a1.5 1.5 0 1 0-3 0V4h-5V2.5a1.5 1.5 0 1 0-3 0V4H4a3 3 0 0 0-3 3v13a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3M4 9h16v11H4z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="react-datepicker__tab-loop"
+      >
+        <div
+          class="react-datepicker__tab-loop__start"
+          tabindex="0"
+        />
+        <div
+          class="react-datepicker-popper react-datepicker-popper"
+          data-placement="bottom"
+          style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
+        >
+          <div
+            style="display: contents;"
+          >
+            <div />
+          </div>
+        </div>
+        <div
+          class="react-datepicker__tab-loop__end"
+          tabindex="0"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class=""
+  >
+    <div
+      name="trap-focus"
+    >
+      <div
+        class="aQn _he Hsu _O1 mQ8 Rym QLY L4E I4V iJk"
+      >
+        <div
+          class="JJV MIw Rym QLY p6V ojN Cii UxA kOw Smz"
+        />
+        <div
+          aria-label="Bottom sheet"
+          class="A2V XiG XbT _O1 CCY pZq D_U"
+          id=":r6:"
+          role="dialog"
+          style="width: 100%;"
+          tabindex="-1"
+        >
+          <div
+            class="Jea XiG jzS zI7 iyn Hsu"
+            style="width: 100%;"
+          >
+            <div
+              class="Kzl XiG i1W xuU zI7 iyn Hsu"
+            >
+              <div
+                class="hs0 mQ8 un8 C9i TB_"
+              >
+                <div
+                  class="u8x zI7 iyn Hsu"
+                >
+                  <div
+                    aria-disabled="false"
+                    aria-label="Grabber"
+                    class="S9z v_3 iyn e8F BG7"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="haa v_3 zI7 iyn Hsu"
+                      style="height: 5px; width: 37px;"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="KS5 hs0 mQ8 un8 a1C qQp"
+              >
+                <div
+                  class="ujU xuA"
+                />
+              </div>
+            </div>
+            <div
+              class="XbT _co lnZ ujU zI7 iyn Hsu"
+            >
+              <div
+                class="KS5 jzS mQ8 un8 a1C qQp"
+                style="width: 100%;"
+              >
+                <div
+                  class="xuA"
+                >
+                  <div
+                    class="_gestalt"
+                  >
+                    <div
+                      style="display: contents;"
+                    >
+                      <div
+                        aria-label="Choose Date"
+                        aria-modal="true"
+                        class="react-datepicker react-datepicker-inline"
+                        role="dialog"
+                      >
+                        <span
+                          aria-live="polite"
+                          class="react-datepicker__aria-live"
+                          role="alert"
+                        />
+                        <button
+                          aria-label="Previous Month"
+                          class="react-datepicker__navigation react-datepicker__navigation--previous"
+                          type="button"
+                        >
+                          <span
+                            class="react-datepicker__navigation-icon react-datepicker__navigation-icon--previous"
+                          >
+                            <svg
+                              aria-label="Navigate to previou month"
+                              class="Hn_ Uvi gUZ U9O kVc"
+                              height="16"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="16"
+                            >
+                              <path
+                                d="M15.78 24a2.2 2.2 0 0 1-1.58-.66L3 12 14.2.66a2.2 2.2 0 0 1 3.15 0c.87.88.87 2.3 0 3.18L9.29 12l8.06 8.16c.87.88.87 2.3 0 3.18-.44.44-1 .66-1.57.66"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                        <button
+                          aria-label="Next Month"
+                          class="react-datepicker__navigation react-datepicker__navigation--next"
+                          type="button"
+                        >
+                          <span
+                            class="react-datepicker__navigation-icon react-datepicker__navigation-icon--next"
+                          >
+                            <svg
+                              aria-label="Navigate to next month"
+                              class="Hn_ Uvi gUZ U9O kVc"
+                              height="16"
+                              role="img"
+                              viewBox="0 0 24 24"
+                              width="16"
+                            >
+                              <path
+                                d="M6.65.66c-.87.88-.87 2.3 0 3.18L14.71 12l-8.06 8.16c-.87.88-.87 2.3 0 3.18a2.2 2.2 0 0 0 3.14 0L21 12 9.8.66a2.2 2.2 0 0 0-3.15 0"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                        <div
+                          class="react-datepicker__month-container"
+                        >
+                          <div
+                            class="react-datepicker__header "
+                          >
+                            <div
+                              class="react-datepicker__current-month"
+                            >
+                              December 2018
+                            </div>
+                            <div
+                              class="react-datepicker__header__dropdown react-datepicker__header__dropdown--select"
+                            />
+                            <div
+                              class="react-datepicker__day-names"
+                            >
+                              <div
+                                aria-label="Sunday"
+                                class="react-datepicker__day-name"
+                              >
+                                Su
+                              </div>
+                              <div
+                                aria-label="Monday"
+                                class="react-datepicker__day-name"
+                              >
+                                Mo
+                              </div>
+                              <div
+                                aria-label="Tuesday"
+                                class="react-datepicker__day-name"
+                              >
+                                Tu
+                              </div>
+                              <div
+                                aria-label="Wednesday"
+                                class="react-datepicker__day-name"
+                              >
+                                We
+                              </div>
+                              <div
+                                aria-label="Thursday"
+                                class="react-datepicker__day-name"
+                              >
+                                Th
+                              </div>
+                              <div
+                                aria-label="Friday"
+                                class="react-datepicker__day-name"
+                              >
+                                Fr
+                              </div>
+                              <div
+                                aria-label="Saturday"
+                                class="react-datepicker__day-name"
+                              >
+                                Sa
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            aria-label="Month December, 2018"
+                            class="react-datepicker__month"
+                            role="listbox"
+                          >
+                            <div
+                              class="react-datepicker__week"
+                            >
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Sunday, November 25th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--025 react-datepicker__day--weekend react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                25
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Monday, November 26th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--026 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                26
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Tuesday, November 27th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--027 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                27
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Wednesday, November 28th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--028 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                28
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Thursday, November 29th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--029 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                29
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Friday, November 30th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--030 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                30
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Saturday, December 1st, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--001 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                1
+                              </div>
+                            </div>
+                            <div
+                              class="react-datepicker__week"
+                            >
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Sunday, December 2nd, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--002 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                2
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Monday, December 3rd, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--003"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                3
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Tuesday, December 4th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--004"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                4
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Wednesday, December 5th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--005"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                5
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Thursday, December 6th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--006"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                6
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Friday, December 7th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--007"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                7
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Saturday, December 8th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--008 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                8
+                              </div>
+                            </div>
+                            <div
+                              class="react-datepicker__week"
+                            >
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Sunday, December 9th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--009 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                9
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Monday, December 10th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--010"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                10
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Tuesday, December 11th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--011"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                11
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Wednesday, December 12th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--012"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                12
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Thursday, December 13th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--013"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                13
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Friday, December 14th, 2018"
+                                aria-selected="true"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--014 react-datepicker__day--selected"
+                                role="option"
+                                tabindex="0"
+                                title=""
+                              >
+                                14
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Saturday, December 15th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--015 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                15
+                              </div>
+                            </div>
+                            <div
+                              class="react-datepicker__week"
+                            >
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Sunday, December 16th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--016 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                16
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Monday, December 17th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--017"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                17
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Tuesday, December 18th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--018"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                18
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Wednesday, December 19th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--019"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                19
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Thursday, December 20th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--020"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                20
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Friday, December 21st, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--021"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                21
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Saturday, December 22nd, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--022 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                22
+                              </div>
+                            </div>
+                            <div
+                              class="react-datepicker__week"
+                            >
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Sunday, December 23rd, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--023 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                23
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Monday, December 24th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--024"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                24
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Tuesday, December 25th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--025"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                25
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Wednesday, December 26th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--026"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                26
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Thursday, December 27th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--027"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                27
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Friday, December 28th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--028"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                28
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Saturday, December 29th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--029 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                29
+                              </div>
+                            </div>
+                            <div
+                              class="react-datepicker__week"
+                            >
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Sunday, December 30th, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--030 react-datepicker__day--weekend"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                30
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Monday, December 31st, 2018"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--031"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                31
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Tuesday, January 1st, 2019"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--001 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                1
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Wednesday, January 2nd, 2019"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--002 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                2
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Thursday, January 3rd, 2019"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--003 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                3
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Friday, January 4th, 2019"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--004 react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                4
+                              </div>
+                              <div
+                                aria-disabled="false"
+                                aria-label="Choose Saturday, January 5th, 2019"
+                                aria-selected="false"
+                                class="react-datepicker__day react-datepicker__days react-datepicker__day--005 react-datepicker__day--weekend react-datepicker__day--outside-month"
+                                role="option"
+                                tabindex="-1"
+                                title=""
+                              >
+                                5
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="XiG xuU zI7 iyn Hsu"
+            >
+              <div
+                class="Kzl i1W zI7 iyn Hsu"
+              >
+                <div
+                  class="KS5 jzS mQ8 un8 a1C qQp"
+                  style="width: 100%;"
+                >
+                  <div
+                    class="xuA"
+                  >
+                    <button
+                      aria-label="Dismiss date picker"
+                      class="RCK Hsu USg adn NTm KhY iyn oRi lnZ wsz"
+                      tabindex="0"
+                      type="button"
+                    >
+                      <div
+                        class="RCK Hsu USg adn NTm KhY iyn S9z F10 xD4 i1W V92 a_A hNT BG7 hDj _O1 KS5 mQ8 Tbt L4E"
+                      >
+                        <div
+                          class="X8m tg7 tBJ dyH iFc sAJ H2s"
+                        >
+                          Close
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

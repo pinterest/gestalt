@@ -5,7 +5,27 @@ import FlexItem from './FlexItem';
 import wrapWithComponent from './utils/wrapWithComponent';
 
 type Dimension = number | string;
-type Gap = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
+type Gap =
+  | 0
+  | 0.25
+  | 0.5
+  | 1
+  | 1.5
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16;
 
 type Props = {
   /**
@@ -159,8 +179,8 @@ const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(
         }).filter(Boolean)
       : childrenProp;
 
-    const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap : gap.row}`]} ${
-      styles[`columnGap${typeof gap === 'number' ? gap : gap.column}`]
+    const gapStyles = `${styles[`rowGap${typeof gap === 'number' ? gap * 100 : gap.row * 100}`]} ${
+      styles[`columnGap${typeof gap === 'number' ? gap * 100 : gap.column * 100}`]
     }`;
 
     const { passthroughProps, propsStyles } = buildStyles<Props>({

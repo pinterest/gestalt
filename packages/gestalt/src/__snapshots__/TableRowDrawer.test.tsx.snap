@@ -174,10 +174,10 @@ exports[`renders correctly with drawer 1`] = `
           colSpan={4}
         >
           <div
-            className="box paddingX2 paddingY2"
+            className="box paddingX200 paddingY200"
           >
             <div
-              className="box mdDirectionRow paddingX4 paddingY0 paddingY4 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+              className="box mdDirectionRow paddingX400 paddingY0 paddingY400 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
               style={
                 Object {
                   "width": "100%",
@@ -185,7 +185,7 @@ exports[`renders correctly with drawer 1`] = `
               }
             >
               <div
-                className="Flex rowGap4 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
+                className="Flex rowGap400 columnGap0 flexGrow mdItemsCenter xsDirectionRow xsItemsStart"
                 style={
                   Object {
                     "width": "100%",

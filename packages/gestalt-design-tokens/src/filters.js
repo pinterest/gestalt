@@ -21,6 +21,14 @@ const filterColor = {
   },
 };
 
+const filterComponentToken = (component) => ({
+  'filter': {
+    'attributes': {
+      'category': `${component}`,
+    },
+  },
+});
+
 const filterRounding = {
   'filter': {
     'attributes': {
@@ -176,4 +184,5 @@ module.exports = {
   filterLineHeight,
   filterMotionDuration,
   filterMotionEasing,
+  filterComponentToken,
 };

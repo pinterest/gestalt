@@ -1,6 +1,7 @@
 import { Children, ComponentProps, ReactElement } from 'react';
 import classnames from 'classnames';
 import styles from './BannerCallout.css';
+import VRBannerCallout from './BannerCallout/VRBannerCallout';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -9,6 +10,7 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 export type ActionDataType =
@@ -98,7 +100,7 @@ type Props = {
   /**
    * The category of BannerCallout. See [Variants](https://gestalt.pinterest.systems/web/bannercallout#Variants) to learn more.
    */
-  type: 'error' | 'info' | 'recommendation' | 'success' | 'warning';
+  type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
   /**
    * Brief title summarizing BannerCallout. Content should be [localized](https://gestalt.pinterest.systems/web/bannercallout#Localization).
    */
@@ -108,13 +110,24 @@ type Props = {
 function BannerCalloutAction({
   data,
   stacked,
+  level,
   type,
 }: {
   data: ActionDataType;
   stacked?: boolean;
-  type: string;
+  level: string;
+  type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
 }) {
-  const color = type === 'primary' ? 'white' : 'transparent';
+  const primaryColor: ComponentProps<typeof Button>['color'] = 'white';
+
+  let secondaryColor: 'white' | 'transparent' | 'gray' = 'transparent';
+
+  if (type === 'default') {
+    secondaryColor = 'gray';
+  }
+
+  const color: ComponentProps<typeof Button>['color'] =
+    level === 'primary' ? primaryColor : secondaryColor;
 
   const { accessibilityLabel, disabled, label } = data;
 
@@ -123,7 +136,7 @@ function BannerCalloutAction({
       alignItems="center"
       display="block"
       justifyContent="center"
-      marginTop={type === 'secondary' && stacked ? 2 : undefined}
+      marginTop={level === 'secondary' && stacked ? 2 : undefined}
       paddingX={1}
       smDisplay="flex"
       smMarginBottom="auto"
@@ -183,6 +196,11 @@ export default function BannerCallout({
     iconAccessibilityLabelWarning,
   } = useDefaultLabelContext('BannerCallout');
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const getDefaultIconAccessibilityLabel = () => {
     switch (type) {
       case 'success':
@@ -200,13 +218,28 @@ export default function BannerCallout({
     }
   };
 
+  if (isInVRExperiment) {
+    return (
+      <VRBannerCallout
+        dismissButton={dismissButton}
+        iconAccessibilityLabel={iconAccessibilityLabel}
+        message={message}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
+        title={title}
+        type={type}
+      />
+    );
+  }
+
   return (
     <Box
-      // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"selected" | "default" | "shopping" | "inverse" | "light" | "dark" | "darkWash" | "lightWash" | "transparent" | "transparentDarkGray" | "infoBase" | "infoWeak" | "errorBase" | ... 15 more ... | undefined'.
-      color={MESSAGING_TYPE_ATTRIBUTES[type].backgroundColor}
+      borderStyle={type === 'default' ? 'sm' : undefined}
+      color={MESSAGING_TYPE_ATTRIBUTES[type]?.backgroundColor}
       direction="column"
       display="flex"
-      padding={6}
+      paddingX={6}
+      paddingY={6}
       position="relative"
       rounding={4}
       smDirection="row"
@@ -226,10 +259,8 @@ export default function BannerCallout({
           <Box marginBottom={4} marginTop={0} smMarginBottom="auto" smMarginTop="auto">
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
-              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'IconColor | undefined'.
-              color={MESSAGING_TYPE_ATTRIBUTES[type].iconColor}
-              // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 318 more ... | undefined'.
-              icon={MESSAGING_TYPE_ATTRIBUTES[type].icon}
+              color={MESSAGING_TYPE_ATTRIBUTES[type]?.iconColor}
+              icon={MESSAGING_TYPE_ATTRIBUTES[type]?.icon}
               size={32}
             />
           </Box>
@@ -253,9 +284,9 @@ export default function BannerCallout({
                   </Text>
                 </Box>
               )}
-              {typeof message === 'string' ? (
+              {typeof message === 'string' && (
                 <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
-              ) : null}
+              )}
               {typeof message !== 'string' &&
               // @ts-expect-error - TS2339
               Children.only<ReactElement>(message).type.displayName === 'Text'
@@ -267,21 +298,24 @@ export default function BannerCallout({
         {(primaryAction || secondaryAction) && (
           <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <BannerCalloutAction data={secondaryAction} type="secondary" />
+              <BannerCalloutAction data={secondaryAction} level="secondary" type={type} />
             )}
-            {primaryAction && <BannerCalloutAction data={primaryAction} type="primary" />}
+            {primaryAction && (
+              <BannerCalloutAction data={primaryAction} level="primary" type={type} />
+            )}
             {secondaryAction && responsiveMinWidth === 'xs' && (
               <BannerCalloutAction
                 data={secondaryAction}
+                level="secondary"
                 stacked={!!secondaryAction}
-                type="secondary"
+                type={type}
               />
             )}
           </Box>
         )}
       </Box>
       {dismissButton && (
-        <div className={classnames(styles.rtlPos)}>
+        <div className={classnames(styles.dismissButton, styles.rtlPos)}>
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"

@@ -17,11 +17,14 @@ exports[`Fieldset renders 1`] = `
     className="box"
   >
     <div
-      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
     >
       <div
-        className="box paddingX1 relative"
+        className="box paddingX100 relative"
       >
+        <div
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
+        />
         <input
           aria-invalid="false"
           checked={false}
@@ -38,9 +41,6 @@ exports[`Fieldset renders 1`] = `
           onMouseUp={[Function]}
           type="checkbox"
         />
-        <div
-          className="enabled border borderRadiusMd sizeMd check thickBorder"
-        />
       </div>
       <div
         className="box xsDisplayBlock"
@@ -55,7 +55,7 @@ exports[`Fieldset renders 1`] = `
           htmlFor="Schnauzer"
         >
           <div
-            className="box paddingX1"
+            className="box paddingX100"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -65,7 +65,7 @@ exports[`Fieldset renders 1`] = `
           </div>
         </label>
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         />
       </div>
     </div>
@@ -74,11 +74,14 @@ exports[`Fieldset renders 1`] = `
     className="box"
   >
     <div
-      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
     >
       <div
-        className="box paddingX1 relative"
+        className="box paddingX100 relative"
       >
+        <div
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
+        />
         <input
           aria-invalid="false"
           checked={false}
@@ -95,9 +98,6 @@ exports[`Fieldset renders 1`] = `
           onMouseUp={[Function]}
           type="checkbox"
         />
-        <div
-          className="enabled border borderRadiusMd sizeMd check thickBorder"
-        />
       </div>
       <div
         className="box xsDisplayBlock"
@@ -112,7 +112,7 @@ exports[`Fieldset renders 1`] = `
           htmlFor="Aussie"
         >
           <div
-            className="box paddingX1"
+            className="box paddingX100"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -122,7 +122,7 @@ exports[`Fieldset renders 1`] = `
           </div>
         </label>
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         />
       </div>
     </div>
@@ -147,11 +147,14 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="box"
   >
     <div
-      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
     >
       <div
-        className="box paddingX1 relative"
+        className="box paddingX100 relative"
       >
+        <div
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
+        />
         <input
           aria-invalid="false"
           checked={false}
@@ -168,9 +171,6 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           onMouseUp={[Function]}
           type="checkbox"
         />
-        <div
-          className="enabled border borderRadiusMd sizeMd check thickBorder"
-        />
       </div>
       <div
         className="box xsDisplayBlock"
@@ -185,7 +185,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           htmlFor="Schnauzer"
         >
           <div
-            className="box paddingX1"
+            className="box paddingX100"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -195,7 +195,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           </div>
         </label>
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         />
       </div>
     </div>
@@ -204,11 +204,14 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
     className="box"
   >
     <div
-      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
     >
       <div
-        className="box paddingX1 relative"
+        className="box paddingX100 relative"
       >
+        <div
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
+        />
         <input
           aria-invalid="false"
           checked={false}
@@ -225,9 +228,6 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           onMouseUp={[Function]}
           type="checkbox"
         />
-        <div
-          className="enabled border borderRadiusMd sizeMd check thickBorder"
-        />
       </div>
       <div
         className="box xsDisplayBlock"
@@ -242,7 +242,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           htmlFor="Aussie"
         >
           <div
-            className="box paddingX1"
+            className="box paddingX100"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -252,7 +252,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
           </div>
         </label>
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         />
       </div>
     </div>
@@ -278,11 +278,14 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="box"
   >
     <div
-      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
     >
       <div
-        className="box paddingX1 relative"
+        className="box paddingX100 relative"
       >
+        <div
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
+        />
         <input
           aria-invalid="false"
           checked={false}
@@ -299,9 +302,6 @@ exports[`Fieldset renders with errorMessage 1`] = `
           onMouseUp={[Function]}
           type="checkbox"
         />
-        <div
-          className="enabled border borderRadiusMd sizeMd check thickBorder"
-        />
       </div>
       <div
         className="box xsDisplayBlock"
@@ -316,7 +316,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           htmlFor="Schnauzer"
         >
           <div
-            className="box paddingX1"
+            className="box paddingX100"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -326,7 +326,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           </div>
         </label>
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         />
       </div>
     </div>
@@ -335,11 +335,14 @@ exports[`Fieldset renders with errorMessage 1`] = `
     className="box"
   >
     <div
-      className="box marginEndN1 marginStartN1 xsDisplayFlex xsItemsStart"
+      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
     >
       <div
-        className="box paddingX1 relative"
+        className="box paddingX100 relative"
       >
+        <div
+          className="enabled border borderRadiusMd sizeMd check thickBorder"
+        />
         <input
           aria-invalid="false"
           checked={false}
@@ -356,9 +359,6 @@ exports[`Fieldset renders with errorMessage 1`] = `
           onMouseUp={[Function]}
           type="checkbox"
         />
-        <div
-          className="enabled border borderRadiusMd sizeMd check thickBorder"
-        />
       </div>
       <div
         className="box xsDisplayBlock"
@@ -373,7 +373,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           htmlFor="Aussie"
         >
           <div
-            className="box paddingX1"
+            className="box paddingX100"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
@@ -383,7 +383,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           </div>
         </label>
         <div
-          className="box paddingX1"
+          className="box paddingX100"
         />
       </div>
     </div>
@@ -404,7 +404,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
           role="alert"
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
