@@ -179,12 +179,12 @@
     "$figmaCollectionId": "VariableCollectionId:9730:142",
     "$figmaModeId": "9730:1",
     "$figmaVariableReferences": {
-      "base.elevation.color.perimeter.surface": "982be39638776eb80e7874a2765833e0d49260b9",
-      "base.elevation.color.perimeter.raised": "b56e8056ee91a5cd497b178ec382e1cf570f3644",
-      "base.elevation.color.perimeter.floating": "5403255cbd167b03afdd7050fe048433ddd33745",
-      "base.elevation.color.ambient.surface": "8bed0b55d2ba7afa03806532bb6352e4261e35bc",
-      "base.elevation.color.ambient.raised": "64e6c96155cd146dab81f15d42c99508fd921d9b",
-      "base.elevation.color.ambient.floating": "1a4f563e2668586eebc137b983283899c60710e4"
+      "base.elevation.shadow.color.perimeter.surface": "58318e7d8bbe1c09a72118b5f199486ffc4be34b",
+      "base.elevation.shadow.color.perimeter.raised": "a8d213dfbd61140fdfb3d78fc78366a1c5925df3",
+      "base.elevation.shadow.color.perimeter.floating": "3b97e5427e9a95221a2300e3d9ad57996ada840a",
+      "base.elevation.shadow.color.ambient.surface": "51a05cd0c8f4e23c3a8da86766094ba2f357b53a",
+      "base.elevation.shadow.color.ambient.raised": "ca6e78c5c6496472dc0bf1193edc5cc1ed5b77b4",
+      "base.elevation.shadow.color.ambient.floating": "42d12d91b5a0c75f10c062da854f79ee34f2b351"
     }
   },
   {
@@ -197,7 +197,10 @@
       "sema.color.background.gradient.darken.bottom.strong": "S:eee8537fe49a19f346098a4199f8eb491fbaf760,",
       "sema.color.background.gradient.darken.top.weak": "S:24d018e1ac6a24aa31482f1e2034f278c2d4ff33,",
       "sema.color.background.gradient.darken.top.strong": "S:e21132a594e8b422b311aa4668a2b4010eb183c5,",
-      "sema.elevation.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,"
+      "sema.elevation.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,",
+      "sema.elevation.shadow.surface": "S:393711008ada0e8d3b06f09ddb247555ec2a5f2d,",
+      "sema.elevation.shadow.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,",
+      "sema.elevation.shadow.floating": "S:9d839d0439492eef25db12ebaf3442366529c6e9,"
     },
     "selectedTokenSets": {
       "sema/color/light/default": "enabled",
@@ -240,6 +243,7 @@
       "sema.color.background.wash.scrims.opaque": "d61a7ab6a6b07e1591dee33c735e5800f45c2d9d",
       "sema.color.border.decorative": "891e2067a922b06dacb518c32e18b2d1ee17936c",
       "sema.color.border.interactive": "e7f760dde7c28739333fa0fc42d73477415ced97",
+      "sema.color.border.selected": "7a1edcd1db6b726eef2872c4e75d967bffe219e6",
       "sema.color.border.disabled": "1b83a7c41507bea621cad55ff406b9acfb692ead",
       "sema.color.border.success": "8f29d38db82975fafefd3bba0e23d6b9f8efb205",
       "sema.color.border.error": "eff4749c44d5c3b5018f346f5f1cc698226ac377",
@@ -291,8 +295,7 @@
       "sema.color.dataviz.06": "fda06ead6f68632956ad1bdc0a04e98ed77becee",
       "sema.color.dataviz.07": "2a8e8bdf01178dda2a89feb366cb6e282f70a1ab",
       "sema.color.dataviz.08": "e9b7271103cd577a26860e3b6d1b26ebe6783536",
-      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e",
-      "sema.color.border.selected ": "2957cd92002f741fd01dd17b07df7e341542a6e0"
+      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e"
     },
     "group": "Semantic colors"
   },
@@ -340,6 +343,7 @@
       "sema.color.background.wash.scrims.opaque": "d61a7ab6a6b07e1591dee33c735e5800f45c2d9d",
       "sema.color.border.decorative": "891e2067a922b06dacb518c32e18b2d1ee17936c",
       "sema.color.border.interactive": "e7f760dde7c28739333fa0fc42d73477415ced97",
+      "sema.color.border.selected": "7a1edcd1db6b726eef2872c4e75d967bffe219e6",
       "sema.color.border.disabled": "1b83a7c41507bea621cad55ff406b9acfb692ead",
       "sema.color.border.success": "8f29d38db82975fafefd3bba0e23d6b9f8efb205",
       "sema.color.border.error": "eff4749c44d5c3b5018f346f5f1cc698226ac377",
@@ -391,8 +395,7 @@
       "sema.color.dataviz.06": "fda06ead6f68632956ad1bdc0a04e98ed77becee",
       "sema.color.dataviz.07": "2a8e8bdf01178dda2a89feb366cb6e282f70a1ab",
       "sema.color.dataviz.08": "e9b7271103cd577a26860e3b6d1b26ebe6783536",
-      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e",
-      "sema.color.border.selected": "7a1edcd1db6b726eef2872c4e75d967bffe219e6"
+      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e"
     },
     "group": "Semantic colors"
   },
@@ -693,12 +696,12 @@
     "$figmaCollectionId": "VariableCollectionId:9730:145",
     "$figmaModeId": "9730:5",
     "$figmaVariableReferences": {
-      "base.elevation.color.perimeter.surface": "468429b876145f9735902471e412e8dff9215b5f",
-      "base.elevation.color.perimeter.raised": "81aee67e6c183e96d79701108eaf88b61ce84e86",
-      "base.elevation.color.perimeter.floating": "c9651612443dfa3ca9e6fc3b5979cf70751d5827",
-      "base.elevation.color.ambient.surface": "15036a1809c36b0d54fe5ff9f8cca2323876f785",
-      "base.elevation.color.ambient.raised": "ec3ee518c6a7ab9fff353f288d27d01cf21ad746",
-      "base.elevation.color.ambient.floating": "aa5b7e8e191464c4eccd3f09356d919f858f26ec"
+      "base.elevation.shadow.color.perimeter.surface": "9dc0ea15d342de2cfd469bb4f84d62c653488f93",
+      "base.elevation.shadow.color.perimeter.raised": "986e806d1e60f28aeb5eff253138a1c27b4c7cfb",
+      "base.elevation.shadow.color.perimeter.floating": "f2ba31414ee085d30dd00f3671294317cfa342f4",
+      "base.elevation.shadow.color.ambient.surface": "af653d96194083d284110cb43f8e9613c4b581f3",
+      "base.elevation.shadow.color.ambient.raised": "9e3539d3c8a7c2ea6fc6eb69ec2bcdde8a103014",
+      "base.elevation.shadow.color.ambient.floating": "3afa99358a34edaaf95db823c09c86470cec6e8b"
     }
   },
   {
@@ -1024,12 +1027,12 @@
     "$figmaCollectionId": "VariableCollectionId:9730:142",
     "$figmaModeId": "9730:6",
     "$figmaVariableReferences": {
-      "base.elevation.color.perimeter.surface": "982be39638776eb80e7874a2765833e0d49260b9",
-      "base.elevation.color.perimeter.raised": "b56e8056ee91a5cd497b178ec382e1cf570f3644",
-      "base.elevation.color.perimeter.floating": "5403255cbd167b03afdd7050fe048433ddd33745",
-      "base.elevation.color.ambient.surface": "8bed0b55d2ba7afa03806532bb6352e4261e35bc",
-      "base.elevation.color.ambient.raised": "64e6c96155cd146dab81f15d42c99508fd921d9b",
-      "base.elevation.color.ambient.floating": "1a4f563e2668586eebc137b983283899c60710e4"
+      "base.elevation.shadow.color.perimeter.surface": "58318e7d8bbe1c09a72118b5f199486ffc4be34b",
+      "base.elevation.shadow.color.perimeter.raised": "a8d213dfbd61140fdfb3d78fc78366a1c5925df3",
+      "base.elevation.shadow.color.perimeter.floating": "3b97e5427e9a95221a2300e3d9ad57996ada840a",
+      "base.elevation.shadow.color.ambient.surface": "51a05cd0c8f4e23c3a8da86766094ba2f357b53a",
+      "base.elevation.shadow.color.ambient.raised": "ca6e78c5c6496472dc0bf1193edc5cc1ed5b77b4",
+      "base.elevation.shadow.color.ambient.floating": "42d12d91b5a0c75f10c062da854f79ee34f2b351"
     }
   }
 ]

@@ -65,12 +65,6 @@
             }
           ]
         }
-      },
-      "background-blur": {
-        "value": {
-          "backgroundBlur": "{base.elevation.background-blur}"
-        },
-        "type": "composition"
       }
     }
   }
