@@ -16,7 +16,7 @@ import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import TextUI from '../TextUI';
 import typographyStyle from '../Typography.css';
 
-type SizeType = 'sm' | 'md' | 'lg';
+type SizeType = 'md' | 'lg';
 
 type Props = {
   dataTestId?: string;
@@ -67,7 +67,6 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
   const isLabelVisible = labelDisplay === 'visible';
   const showPlaceholder = placeholder && !value;
 
-  const isSM = size === 'sm';
   const isMD = size === 'md';
   const isLG = size === 'lg';
 
@@ -121,17 +120,13 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
         {label && (
           <label
             className={classnames(styles.label, {
-              // sm
-              [styles.sm_label]: isSM,
-              [styles.sm_labelPos]: isSM,
+              [boxStyles.visuallyHidden]: !isLabelVisible,
               // md
               [styles.md_label]: isMD,
-              [styles.md_labelPos]: isMD,
+              [styles.md_labelPadding]: isMD,
               // lg
               [styles.lg_label]: isLG,
-              [styles.lg_labelPos]: isLG,
-
-              [boxStyles.visuallyHidden]: !isLabelVisible,
+              [styles.lg_labelPadding]: isLG,
             })}
             htmlFor={id}
             title={ellipsisActive ? label : ''}
@@ -147,7 +142,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             </TextUI>
           </label>
         )}
-        {!disabled && <IconEnd disabled={disabled} />}
+        {!disabled && <IconEnd disabled={disabled} size={size} />}
         <select
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage ? 'true' : 'false'}
@@ -159,24 +154,16 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             [styles.errorBorder]: !disabled && hasErrorMessage,
             [styles.disabledText]: disabled,
             [styles.disabledBorder]: disabled,
-            // sm
-            [styles.sm_input]: isSM,
-            [styles.sm_inputHorizontalPadding]: isSM,
-            [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
-            [styles.sm_noLabel]: isSM && (!label || (label && !isLabelVisible)),
-            [styles.sm_actionButton]: isSM,
             // md
             [styles.md_input]: isMD,
-            [styles.md_inputHorizontalPadding]: isMD,
-            [styles.md_visibleLabel]: isMD && label && isLabelVisible,
-            [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
-            [styles.md_actionButton]: isMD,
+            [styles.md_inputPadding]: isMD,
+            [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
+            [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
             // lg
             [styles.lg_input]: isLG,
-            [styles.lg_inputHorizontalPadding]: isLG,
-            [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
-            [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
-            [styles.lg_actionButton]: isLG,
+            [styles.lg_inputPadding]: isLG,
+            [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
+            [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
           })}
           data-test-id={dataTestId}
           disabled={disabled}
