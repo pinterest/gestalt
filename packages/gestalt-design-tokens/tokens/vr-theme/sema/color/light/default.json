@@ -5,62 +5,62 @@
         "default": {
           "type": "color",
           "value": "{base.color.grayscale.0}",
-          "description": "Used for surface level elements"
+          "description": "Background color used with surface level elements"
         },
         "primary": {
           "type": "color",
           "value": "{base.color.red.300}",
-          "description": "Pinterest's brand color, also used for the most prominent action on a page"
+          "description": "Pinterest's brand color, also used with the most prominent action on a page"
         },
         "secondary": {
           "type": "color",
           "value": "{base.color.grayscale.50}",
-          "description": "Used for non-primary interactive and non-interactive elements"
+          "description": "Background color used with non-primary interactive and non-interactive elements"
         },
         "tertiary": {
           "type": "color",
           "value": "{base.color.grayscale.250}",
-          "description": "Used for inessential interactive and non-interactive elements"
+          "description": "Background color used with de-emphasized interactive and non-interactive elements"
         },
         "selected": {
           "type": "color",
           "value": "{base.color.grayscale.500}",
-          "description": "Used to denote a selected state for most elements, not including elements using \"light\" and \"dark\" background colors"
+          "description": "Background color used to denote a selected state for most elements, not including elements using \"light\" and \"dark\" background colors"
         },
         "education": {
           "type": "color",
           "value": "{base.color.blue.400}",
-          "description": "Used for elements that teach the user about how to use Pinterest"
+          "description": "Background color used with elements that teach the user about how to use Pinterest"
         },
         "elevation": {
           "type": "color",
           "value": "{base.color.grayscale.0}",
-          "description": "Used for elements that float above other elements, such as modals or alerts, and only distinct from the default background color in dark mode"
+          "description": "Background color used with elements that float above other elements, such as modals or alerts, and only distinct from the default background color in dark mode"
         },
         "scrim": {
           "type": "color",
           "value": "{base.color.grayscale.50}",
-          "description": "Used as an opqaue background color placed behind an elevated element, not to be confused with partially transparent wash colors"
+          "description": "Background color used as an opqaue overlay placed behind an elevated element, not to be confused with partially transparent wash colors"
         },
         "inverse": {
           "type": "color",
           "value": "{base.color.grayscale.500}",
-          "description": "Represents the inverse of the default background color"
+          "description": "Background color that represents the inverse of the default background color, appearing black in light mode and white in dark mode"
         },
         "light": {
           "type": "color",
           "value": "{base.color.grayscale.0}",
-          "description": "Used for elements that remain white across both light and dark modes"
+          "description": "Background color that remains white across both light and dark modes"
         },
         "dark": {
           "type": "color",
           "value": "{base.color.grayscale.500}",
-          "description": "Used for elements that remain black across both light and dark modes"
+          "description": "Background color that remains black across both light and dark modes"
         },
         "disabled": {
           "type": "color",
           "value": "{base.color.grayscale.100}",
-          "description": "Used for interactive elements that are temporarily non-interactive"
+          "description": "Background color used with interactive elements that are temporarily non-interactive"
         },
         "transparent": {
           "type": "color",
@@ -71,12 +71,12 @@
           "default": {
             "type": "color",
             "value": "{base.color.blue.400}",
-            "description": "Used to present helpful messages or guidance"
+            "description": "Background color used to present helpful messages or guidance"
           },
           "weak": {
             "type": "color",
             "value": "{base.color.blue.100}",
-            "description": "Used to present helpful messages or guidance"
+            "description": "Background color used to present helpful messages or guidance"
           }
         },
         "neutral": {
@@ -93,65 +93,65 @@
           "default": {
             "type": "color",
             "value": "{base.color.purple.400}",
-            "description": "Used to present suggestions - most frequently with monetization"
+            "description": "Background color used to present suggestions - most frequently with monetization"
           },
           "weak": {
             "type": "color",
             "value": "{base.color.purple.100}",
-            "description": "Used to present suggestions - most frequently with monetization"
+            "description": "Background color used to present suggestions - most frequently with monetization"
           }
         },
         "success": {
           "default": {
             "type": "color",
             "value": "{base.color.green.400}",
-            "description": "Used to positively convey the completion of an interaction or flow"
+            "description": "Background color used to positively convey the completion of an interaction or flow"
           },
           "weak": {
             "type": "color",
             "value": "{base.color.green.100}",
-            "description": "Used to positively convey the completion of an interaction or flow"
+            "description": "Background color used to positively convey the completion of an interaction or flow"
           }
         },
         "warning": {
           "default": {
             "type": "color",
             "value": "{base.color.orange.500}",
-            "description": "Used to present negative, non-blocking information"
+            "description": "Background color used to present negative, non-blocking information"
           },
           "weak": {
             "type": "color",
             "value": "{base.color.orange.100}",
-            "description": "Used to present negative, non-blocking information"
+            "description": "Background color used to present negative, non-blocking information"
           }
         },
         "error": {
           "default": {
             "type": "color",
             "value": "{base.color.red.400}",
-            "description": "Used to present negative, blocking information"
+            "description": "Background color used to present negative, blocking information"
           },
           "weak": {
             "type": "color",
             "value": "{base.color.red.100}",
-            "description": "Used to present negative, blocking information"
+            "description": "Background color used to present negative, blocking information"
           }
         },
         "wash": {
           "default": {
             "type": "color",
             "value": "rgba({base.color.grayscale.0}, 0.9)",
-            "description": "A partially transparent background color used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
+            "description": "Partially transparent background color used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "dark": {
             "type": "color",
             "value": "rgba({base.color.grayscale.500}, 0.8)",
-            "description": "A partially transparent background color that remains black across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
+            "description": "Partially transparent background color that remains black across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "light": {
             "type": "color",
             "value": "rgba({base.color.grayscale.0}, 0.9)",
-            "description": "A partially transparent background color that remains white across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
+            "description": "Partially transparent background color that remains white across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "image": {
             "tint": {
@@ -179,24 +179,24 @@
               "weak": {
                 "type": "color",
                 "value": "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.4))",
-                "description": "A subtle gradient used to darken the bottom of an image when interactions are overlaid atop it"
+                "description": "Subtle gradient used to darken the bottom of an image when interactions are overlaid atop it"
               },
               "strong": {
                 "type": "color",
                 "value": "linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.8))",
-                "description": "A more prominent gradient used to darken the bottom of an image when text or interactions are overlaid atop it"
+                "description": "More prominent gradient used to darken the bottom of an image when text or interactions are overlaid atop it"
               }
             },
             "top": {
               "weak": {
                 "type": "color",
                 "value": "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.4))",
-                "description": "A subtle gradient used to darken the top of an image when interactions are overlaid atop it"
+                "description": "Subtle gradient used to darken the top of an image when interactions are overlaid atop it"
               },
               "strong": {
                 "type": "color",
                 "value": "linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.8))",
-                "description": "A more prominent gradient used to darken the top of an image when text or interactions are overlaid atop it"
+                "description": "More prominent gradient used to darken the top of an image when text or interactions are overlaid atop it"
               }
             }
           }
@@ -206,34 +206,37 @@
         "decorative": {
           "type": "color",
           "value": "{base.color.grayscale.150}",
-          "description": "Used as a border or divider on non-interactive elements"
+          "description": "Border color used with non-interactive elements"
         },
         "interactive": {
           "type": "color",
           "value": "{base.color.grayscale.250}",
-          "description": "Used as a border on interactive elements"
+          "description": "Border color used with interactive elements"
         },
         "selected": {
           "type": "color",
           "value": "{base.color.grayscale.500}",
-          "description": "Used as a border on currently selected (not focused) elements"
+          "description": "Border color used with currently selected (not focused) elements"
         },
         "disabled": {
           "type": "color",
           "value": "{base.color.grayscale.150}",
-          "description": "Used as a border on currently disabled elements"
+          "description": "Border color used with currently disabled elements"
         },
         "success": {
           "type": "color",
-          "value": "{base.color.green.400}"
+          "value": "{base.color.green.400}",
+          "description": "Border color used with elements that positively convey the completion of an interaction or flow"
         },
         "error": {
           "type": "color",
-          "value": "{base.color.red.400}"
+          "value": "{base.color.red.400}",
+          "description": "Border color used with elements that convey negative, blocking information"
         },
         "inverse": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Border color that represents the inverse of the interactive border color, appearing white in light mode and black in dark mode"
         },
         "focus": {
           "outer": {
@@ -277,7 +280,8 @@
       "text": {
         "default": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Text color used for most non-interactive text elements"
         },
         "neutral": {
           "type": "color",
@@ -285,31 +289,38 @@
         },
         "subtle": {
           "type": "color",
-          "value": "{base.color.grayscale.300}"
+          "value": "{base.color.grayscale.300}",
+          "description": "Text color used for non-interactive and de-emphasized text elements"
         },
         "link": {
           "type": "color",
-          "value": "{base.color.blue.500}"
+          "value": "{base.color.blue.500}",
+          "description": "Text color used for standalone links or other interactive text-only elements"
         },
         "info": {
           "type": "color",
-          "value": "{base.color.blue.500}"
+          "value": "{base.color.blue.500}",
+          "description": "Text color used to present helpful messages or guidance"
         },
         "recommendation": {
           "type": "color",
-          "value": "{base.color.purple.500}"
+          "value": "{base.color.purple.500}",
+          "description": "Text color used to present suggestions - most frequently with monetization"
         },
         "success": {
           "type": "color",
-          "value": "{base.color.green.500}"
+          "value": "{base.color.green.500}",
+          "description": "Text color used to positively convey the completion of an interaction or flow"
         },
         "warning": {
           "type": "color",
-          "value": "{base.color.orange.500}"
+          "value": "{base.color.orange.500}",
+          "description": "Text color used to present negative, non-blocking information"
         },
         "error": {
           "type": "color",
-          "value": "{base.color.red.500}"
+          "value": "{base.color.red.500}",
+          "description": "Text color used to present negative, blocking information"
         },
         "primary": {
           "type": "color",
@@ -317,15 +328,18 @@
         },
         "inverse": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Text color represents the inverse of the default text color, appearing white in light mode and black in dark mode"
         },
         "light": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Text color that remains white across both light and dark modes"
         },
         "dark": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Text color that remains black across both light and dark modes"
         },
         "disabled": {
           "type": "color",
@@ -351,11 +365,13 @@
         },
         "info": {
           "type": "color",
-          "value": "{base.color.blue.500}"
+          "value": "{base.color.blue.500}",
+          "description": "Icon color used to present helpful messages or guidance"
         },
         "recommendation": {
           "type": "color",
-          "value": "{base.color.purple.500}"
+          "value": "{base.color.purple.500}",
+          "description": "Icon color used to present suggestions - most frequently with monetization"
         },
         "success": {
           "type": "color",
@@ -363,11 +379,13 @@
         },
         "warning": {
           "type": "color",
-          "value": "{base.color.orange.500}"
+          "value": "{base.color.orange.500}",
+          "description": "Icon color used to present negative, non-blocking information"
         },
         "error": {
           "type": "color",
-          "value": "{base.color.red.500}"
+          "value": "{base.color.red.500}",
+          "description": "Icon color used to present negative, blocking information"
         },
         "primary": {
           "type": "color",
@@ -375,15 +393,18 @@
         },
         "inverse": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Icon color that represents the inverse of the default icon color, appearing white in light mode and black in dark mode"
         },
         "light": {
           "type": "color",
-          "value": "{base.color.grayscale.0}"
+          "value": "{base.color.grayscale.0}",
+          "description": "Icon color that remains white across both light and dark modes"
         },
         "dark": {
           "type": "color",
-          "value": "{base.color.grayscale.500}"
+          "value": "{base.color.grayscale.500}",
+          "description": "Icon color that remains black across both light and dark modes"
         },
         "disabled": {
           "type": "color",
@@ -393,51 +414,63 @@
       "dataviz": {
         "10": {
           "type": "color",
-          "value": "#005062"
+          "value": "#005062",
+          "description": "Used for the tenth option in a chart or graph"
         },
         "11": {
           "type": "color",
-          "value": "#DE2C62"
+          "value": "#DE2C62",
+          "description": "Used for the eleventh option in a chart or graph"
         },
         "12": {
           "type": "color",
-          "value": "#660E00"
+          "value": "#660E00",
+          "description": "Used for the twelfth option in a chart or graph"
         },
         "01": {
           "type": "color",
-          "value": "#003C96"
+          "value": "#003C96",
+          "description": "Used for the first option in a chart or graph"
         },
         "02": {
           "type": "color",
-          "value": "#11A69C"
+          "value": "#11A69C",
+          "description": "Used for the second option in a chart or graph"
         },
         "03": {
           "type": "color",
-          "value": "#924AF7"
+          "value": "#924AF7",
+          "description": "Used for the third option in a chart or graph"
         },
         "04": {
           "type": "color",
-          "value": "#D17711"
+          "value": "#D17711",
+          "description": "Used for the fourth option in a chart or graph"
         },
         "05": {
           "type": "color",
-          "value": "#0081FE"
+          "value": "#0081FE",
+          "description": "Used for the fifth option in a chart or graph"
         },
         "06": {
           "type": "color",
-          "value": "#FF5383"
+          "value": "#FF5383",
+          "description": "Used for the sixth option in a chart or graph"
         },
         "07": {
           "type": "color",
-          "value": "#00AB55"
+          "value": "#00AB55",
+          "description": "Used for the seventh option in a chart or graph"
         },
         "08": {
           "type": "color",
-          "value": "#400387"
+          "value": "#400387",
+          "description": "Used for the eighth option in a chart or graph"
         },
         "09": {
           "type": "color",
-          "value": "#F2681F"
+          "value": "#F2681F",
+          "description": "Used for the ninth option in a chart or graph"
         }
       }
     }
