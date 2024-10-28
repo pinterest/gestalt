@@ -132,7 +132,6 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   }: Props,
   ref,
 ) {
-
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
@@ -141,9 +140,9 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-    const defaultRows = isInVRExperiment ? 2 : 3;
+  const defaultRows = isInVRExperiment ? 2 : 3;
 
-    const overridenRows = rows ?? defaultRows
+  const overridenRows = rows ?? defaultRows;
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCurrentLength(event.currentTarget.value?.length ?? 0);
