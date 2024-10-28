@@ -6,29 +6,29 @@
           "perimeter": {
             "surface": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             }
           },
           "ambient": {
             "surface": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             }
           }
         },
@@ -36,29 +36,29 @@
           "perimeter": {
             "surface": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             }
           },
           "ambient": {
             "surface": {
               "value": "1px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "2px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "4px",
-              "type": "other"
+              "type": "dimension"
             }
           }
         },
@@ -66,29 +66,29 @@
           "perimeter": {
             "surface": {
               "value": "1px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "2px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "4px",
-              "type": "other"
+              "type": "dimension"
             }
           },
           "ambient": {
             "surface": {
               "value": "2px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "6px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "12px",
-              "type": "other"
+              "type": "dimension"
             }
           }
         },
@@ -96,36 +96,32 @@
           "perimeter": {
             "surface": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             }
           },
           "ambient": {
             "surface": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "raised": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             },
             "floating": {
               "value": "0px",
-              "type": "other"
+              "type": "dimension"
             }
           }
         }
-      },
-      "background-blur": {
-        "value": "16px",
-        "type": "other"
       }
     }
   }
