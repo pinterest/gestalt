@@ -1,33 +1,35 @@
 {
   "base": {
     "elevation": {
-      "color": {
-        "perimeter": {
-          "surface": {
-            "value": "rgba(0,0,0,0.16)",
-            "type": "color"
+      "shadow": {
+        "color": {
+          "perimeter": {
+            "surface": {
+              "value": "rgba(0,0,0,0.16)",
+              "type": "color"
+            },
+            "raised": {
+              "value": "rgba(0,0,0,0.16)",
+              "type": "color"
+            },
+            "floating": {
+              "value": "rgba(0,0,0,0.16)",
+              "type": "color"
+            }
           },
-          "raised": {
-            "value": "rgba(0,0,0,0.16)",
-            "type": "color"
-          },
-          "floating": {
-            "value": "rgba(0,0,0,0.16)",
-            "type": "color"
-          }
-        },
-        "ambient": {
-          "surface": {
-            "value": "rgba(0,0,0,0.1)",
-            "type": "color"
-          },
-          "raised": {
-            "value": "rgba(0,0,0,0.1)",
-            "type": "color"
-          },
-          "floating": {
-            "value": "rgba(0,0,0,0.1)",
-            "type": "color"
+          "ambient": {
+            "surface": {
+              "value": "rgba(0,0,0,0.1)",
+              "type": "color"
+            },
+            "raised": {
+              "value": "rgba(0,0,0,0.1)",
+              "type": "color"
+            },
+            "floating": {
+              "value": "rgba(0,0,0,0.1)",
+              "type": "color"
+            }
           }
         }
       }
