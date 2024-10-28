@@ -19,7 +19,14 @@ export default function IconEnd({ disabled, size }: Props) {
         [styles.lg_iconEnd]: isLG,
       })}
     >
-      <Box alignItems="center" aria-hidden display="flex" height="100%" marginEnd={2} rounding="circle">
+      <Box
+        alignItems="center"
+        aria-hidden
+        display="flex"
+        height="100%"
+        marginEnd={2}
+        rounding="circle"
+      >
         <Icon
           accessibilityLabel=""
           color={disabled ? 'subtle' : 'default'}
