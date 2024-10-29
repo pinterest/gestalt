@@ -59,7 +59,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     onKeyDown,
     placeholder,
     readOnly,
-    rows = 3,
+    rows = 2,
     value,
   }: Props,
   ref,
@@ -202,7 +202,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
           disabled={disabled}
           id={`${id}-helperText`}
           maxLength={maxLength}
-          size="md"
+          size="lg"
           text={helperText}
         />
       ) : null}
