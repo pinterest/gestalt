@@ -1,10 +1,9 @@
 .input {
+  composes: md mdDefault from "../Text.css";
   appearance: none;
   background-color: var(--base-color-transparent);
-  border-radius: var(--sema-rounding-300);
   box-sizing: border-box;
   display: block;
-  margin-right: 10px;
   position: relative;
   width: 100%;
 }
@@ -66,173 +65,115 @@
 }
 
 .label {
-  padding: 0;
+  padding: var(--sema-space-0);
   position: absolute;
   z-index: 1;
 }
 
-/* sm */
-
-.sm_input {
-  composes: sm smDefault from "../Text.css";
-  min-height: 28px;
-  padding-bottom: var(--sema-space-100);
-}
-
-.sm_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-100) + (var(--sema-font-size-ui-sm) * 1.1)
-  );
-}
-
-.sm_noLabel {
-  padding-top: var(--sema-space-100);
-}
-
-html[dir="rtl"] .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-100);
-  padding-right: var(--sema-space-200);
-}
-
-html:not([dir="rtl"]) .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-200);
-  padding-right: var(--sema-space-100);
-}
-
-html[dir="rtl"] .sm_label {
-  left: calc(var(--sema-space-200));
-  right: calc(var(--sema-space-200) + 1px);
-}
-
-html:not([dir="rtl"]) .sm_label {
-  left: calc(var(--sema-space-200) + 1px);
-  right: calc(var(--sema-space-200));
-}
-
-.sm_labelPos {
-  top: var(--sema-space-100);
-}
-
-html:not([dir="rtl"]) .sm_actionButton {
-  padding-right: var(--space-800);
-}
-
-html[dir="rtl"] .sm_actionButton {
-  padding-left: var(--space-800);
-}
-
-/* md */
-
-.md_input {
-  composes: md mdDefault from "../Text.css";
-  min-height: 36px;
-  padding-bottom: var(--sema-space-200);
-}
-
-.md_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-300) + (var(--sema-font-size-ui-md) * 1.1)
-  );
-}
-
-.md_noLabel {
-  padding-top: var(--sema-space-200);
-}
-
-html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-200);
-  padding-right: var(--sema-space-300);
-}
-
-html:not([dir="rtl"]) .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-300);
-  padding-right: var(--sema-space-200);
-}
-
-html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-300));
-  right: calc(var(--sema-space-300) + 1px);
-}
-
-html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-300) + 1px);
-  right: calc(var(--sema-space-300));
-}
-
-.md_labelPos {
-  top: var(--sema-space-200);
-}
-
-html:not([dir="rtl"]) .md_actionButton {
-  padding-right: var(--space-800);
-}
-
-html[dir="rtl"] .md_actionButton {
-  padding-left: var(--space-800);
-}
-
-/* lg */
-
-.lg_input {
-  composes: md mdDefault from "../Text.css";
-  min-height: 48px;
-  padding-bottom: var(--sema-space-300);
-}
-
-.lg_visibleLabel {
-  padding-top: calc(
-    var(--sema-space-400) + (var(--sema-font-size-ui-md) * 1.1)
-  );
-}
-
-.lg_noLabel {
-  padding-top: var(--sema-space-300);
-}
-
-html[dir="rtl"] .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-300);
-  padding-right: var(--sema-space-400);
-}
-
-html:not([dir="rtl"]) .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-400);
-  padding-right: var(--sema-space-300);
-}
-
-html[dir="rtl"] .lg_label {
-  left: calc(var(--sema-space-400));
-  right: calc(var(--sema-space-400) + 1px);
-}
-
-html:not([dir="rtl"]) .lg_label {
-  left: calc(var(--sema-space-400) + 1px);
-  right: calc(var(--sema-space-400));
-}
-
-.lg_labelPos {
-  top: var(--sema-space-300);
-}
-
-html:not([dir="rtl"]) .lg_actionButton {
-  padding-right: var(--space-800);
-}
-
-html[dir="rtl"] .lg_actionButton {
-  padding-left: var(--space-800);
-}
-
-.vr_actionButtonContainer {
+.iconEnd {
   bottom: var(--sema-space-0);
   position: absolute;
   top: var(--sema-space-0);
 }
 
-html:not([dir="rtl"]) .actionButtonContainer,
-html:not([dir="rtl"]) .vr_actionButtonContainer {
-  right: var(--space-0);
+/* md */
+
+.md_input {
+  border-radius: var(--sema-rounding-300);
+  min-height: 36px;
+  padding-bottom: var(--sema-space-200);
 }
 
-html[dir="rtl"] .actionButtonContainer,
-html[dir="rtl"] .vr_actionButtonContainer {
-  left: var(--space-0);
+.md_label {
+  top: calc(var(--sema-space-200) + var(--sema-space-50));
+}
+
+.md_inputLabelPadding {
+  padding-top: calc(
+    var(--sema-space-200) + var(--sema-space-50) +
+      var(--sema-font-lineheight-ui-xs)
+  );
+}
+
+.md_inputNoLabelPadding {
+  padding-top: var(--sema-space-200);
+}
+
+html[dir="rtl"] .md_inputPadding {
+  padding-left: var(--sema-space-900);
+  padding-right: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .md_inputPadding {
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-900);
+}
+
+html:not([dir="rtl"]) .md_labelPadding {
+  padding-left: var(--sema-space-300);
+  padding-right: var(--sema-space-900);
+}
+
+html[dir="rtl"] .md_labelPadding {
+  padding-left: var(--sema-space-900);
+  padding-right: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .md_iconEnd {
+  right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .md_iconEnd {
+  left: var(--sema-space-300);
+}
+
+/* lg */
+
+.lg_input {
+  border-radius: var(--sema-rounding-400);
+  min-height: 48px;
+  padding-bottom: var(--sema-space-300);
+}
+
+.lg_label {
+  top: calc(var(--sema-space-300) + var(--sema-space-100));
+}
+
+.lg_inputLabelPadding {
+  padding-top: calc(
+    var(--sema-space-300) + var(--sema-space-100) + var(--sema-space-100) +
+      var(--sema-font-lineheight-ui-xs)
+  );
+}
+
+.lg_inputNoLabelPadding {
+  padding-top: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_inputPadding {
+  padding-left: var(--sema-space-1000);
+  padding-right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .lg_inputPadding {
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-1000);
+}
+
+html:not([dir="rtl"]) .lg_labelPadding {
+  padding-left: var(--sema-space-400);
+  padding-right: var(--sema-space-1000);
+}
+
+html[dir="rtl"] .lg_labelPadding {
+  padding-left: var(--sema-space-1000);
+  padding-right: var(--sema-space-400);
+}
+
+html:not([dir="rtl"]) .lg_iconEnd {
+  right: var(--sema-space-400);
+}
+
+html[dir="rtl"] .lg_iconEnd {
+  left: var(--sema-space-400);
 }
