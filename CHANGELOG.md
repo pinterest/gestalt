@@ -1,3 +1,9 @@
+## 163.6.8 (Oct 29, 2024)
+
+### Patch
+
+- SearchField: fix VR issues ([#3834](https://github.com/pinterest/gestalt/pull/3834)) - [Preview link](https://deploy-preview-3834--gestalt.netlify.app?devexample=true)
+
 ## 163.6.7 (Oct 29, 2024)
 
 ### Patch
