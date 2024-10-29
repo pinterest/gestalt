@@ -1,3 +1,9 @@
+## 163.6.6 (Oct 29, 2024)
+
+### Patch
+
+- TextArea: fixes VR ([#3832](https://github.com/pinterest/gestalt/pull/3832)) - [Preview link](https://deploy-preview-3832--gestalt.netlify.app?devexample=true)
+
 ## 163.6.5 (Oct 25, 2024)
 
 ### Patch
