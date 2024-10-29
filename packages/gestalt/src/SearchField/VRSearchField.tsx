@@ -148,9 +148,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             [styles.startIconNoLabelWrapper]: !label || !isLabelVisible,
           })}
         >
-          <div
-            className={styles.startIcon}
-          >
+          <div className={styles.startIcon}>
             <Icon accessibilityLabel="" color="default" icon="search" size={16} />
           </div>
         </div>
@@ -244,7 +242,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
       </div>
 
       {hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} topPadding='200'/>
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} topPadding="200" />
       ) : null}
     </div>
   );
