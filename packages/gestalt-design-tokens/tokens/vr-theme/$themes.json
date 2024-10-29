@@ -712,11 +712,11 @@
     "name": "Default",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
-      "base/elevation/dimension/default": "enabled",
-      "base/elevation/color/light": "enabled",
-      "base/elevation/color/dark": "enabled"
+      "base/elevation/dimension/default": "source",
+      "base/elevation/color/light": "source",
+      "base/elevation/color/dark": "source",
+      "sema/elevation": "enabled"
     },
-    "group": "Semantic elevation",
     "$figmaCollectionId": "VariableCollectionId:9730:145",
     "$figmaModeId": "9730:5",
     "$figmaVariableReferences": {
@@ -750,7 +750,8 @@
       "base.elevation.shadow.color.ambient.surface": "af653d96194083d284110cb43f8e9613c4b581f3",
       "base.elevation.shadow.color.ambient.raised": "9e3539d3c8a7c2ea6fc6eb69ec2bcdde8a103014",
       "base.elevation.shadow.color.ambient.floating": "3afa99358a34edaaf95db823c09c86470cec6e8b"
-    }
+    },
+    "group": "Semantic elevation"
   },
   {
     "id": "0bc9f36551f3e69ee20037add2e7ab0567bc46e9",
