@@ -123,6 +123,10 @@ export type Props = {
    */
   selectLists?: ReadonlyArray<'month' | 'year'>;
   /**
+   * Defines the height of the Datepicker:  md: 40px (default), lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/datepicker#Size) for more details.
+   */
+  size?: 'md' | 'lg';
+  /**
    * DatePicker can be a controlled component. `value` sets the current value of the input. See the [controlled component date example](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) to learn more.
    */
   value?: Date | null;
@@ -161,6 +165,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     rangeStartDate,
     readOnly,
     selectLists,
+    size,
     value,
   }: Props,
   ref,
@@ -212,6 +217,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
           rangeStartDate={rangeStartDate}
           readOnly={readOnly}
           selectLists={selectLists}
+          size={size}
           value={value}
         />
         {showMobileCalendar ? (
@@ -271,6 +277,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                       rangeSelector={rangeSelector}
                       rangeStartDate={rangeStartDate}
                       selectLists={selectLists}
+                      size={size}
                       value={value}
                     />
                   </Flex>
@@ -306,6 +313,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
       rangeStartDate={rangeStartDate}
       readOnly={readOnly}
       selectLists={selectLists}
+      size={size}
       value={value}
     />
   );
