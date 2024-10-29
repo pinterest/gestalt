@@ -189,6 +189,7 @@ import key from './key.svg';
 import knoop from './knoop.svg';
 import labFlask from './lab-flask.svg';
 import lassoMagic from './lasso-magic.svg';
+import layersStack from './layers-stack.svg';
 import layout from './layout.svg';
 import lightbulb from './lightbulb.svg';
 import lightningBoltCircle from './lightning-bolt-circle.svg';
@@ -204,6 +205,7 @@ import logoSmall from './logo-small.svg';
 import logout from './logout.svg';
 import magicPen from './magic-pen.svg';
 import magicWand from './magic-wand.svg';
+import magnifyingGlassSparkle from './magnifying-glass-sparkle.svg';
 import manageAccess from './manage-access.svg';
 import marginsLarge from './margins-large.svg';
 import marginsMedium from './margins-medium.svg';
@@ -562,6 +564,7 @@ const icons = Object.freeze({
   'knoop': knoop,
   'lab-flask': labFlask,
   'lasso-magic': lassoMagic,
+  'layers-stack': layersStack,
   'layout': layout,
   'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
@@ -577,6 +580,7 @@ const icons = Object.freeze({
   'logout': logout,
   'magic-pen': magicPen,
   'magic-wand': magicWand,
+  'magnifying-glass-sparkle': magnifyingGlassSparkle,
   'manage-access': manageAccess,
   'margins-large': marginsLarge,
   'margins-medium': marginsMedium,

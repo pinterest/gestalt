@@ -189,6 +189,7 @@ import key from './ic_key_gestalt.svg';
 import knoop from './ic_knoop_gestalt.svg';
 import labFlask from './ic_lab-flask_gestalt.svg';
 import lassoMagic from './ic_lasso-magic_gestalt.svg';
+import layersStack from './ic_layers-stack_gestalt.svg';
 import layout from './ic_layout_gestalt.svg';
 import lightbulb from './ic_lightbulb_gestalt.svg';
 import lightningBoltCircle from './ic_lightning-bolt-circle_gestalt.svg';
@@ -204,6 +205,7 @@ import logoSmall from './ic_logo-small_gestalt.svg';
 import logout from './ic_logout_gestalt.svg';
 import magicPen from './ic_magic-pen_gestalt.svg';
 import magicWand from './ic_magic-wand_gestalt.svg';
+import magnifyingGlassSparkle from './ic_magnifying-glass-sparkle_gestalt.svg';
 import manageAccess from './ic_manage-access_gestalt.svg';
 import marginsLarge from './ic_margins-large_gestalt.svg';
 import marginsMedium from './ic_margins-medium_gestalt.svg';
@@ -562,6 +564,7 @@ const icons = Object.freeze({
   'knoop': knoop,
   'lab-flask': labFlask,
   'lasso-magic': lassoMagic,
+  'layers-stack': layersStack,
   'layout': layout,
   'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
@@ -577,6 +580,7 @@ const icons = Object.freeze({
   'logout': logout,
   'magic-pen': magicPen,
   'magic-wand': magicWand,
+  'magnifying-glass-sparkle': magnifyingGlassSparkle,
   'manage-access': manageAccess,
   'margins-large': marginsLarge,
   'margins-medium': marginsMedium,
