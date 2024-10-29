@@ -1,3 +1,9 @@
+## 163.6.9 (Oct 29, 2024)
+
+### Patch
+
+- ComboBox: completed examples for testing ([#3835](https://github.com/pinterest/gestalt/pull/3835)) - [Preview link](https://deploy-preview-3835--gestalt.netlify.app?devexample=true)
+
 ## 163.6.8 (Oct 29, 2024)
 
 ### Patch
