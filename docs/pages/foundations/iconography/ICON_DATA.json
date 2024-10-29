@@ -1025,6 +1025,12 @@
       "keywords": ["loading", "button", "spinner"]
     },
     {
+      "name": "layers-stack",
+      "categories": ["Creation"],
+      "description": "indicates a stack of layers in order",
+      "keywords": ["order"]
+    },
+    {
       "name": "layout",
       "categories": ["Utility and tools"],
       "description": "Indicates a layout setting",
@@ -1119,6 +1125,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to select an object or an entire area of an image",
       "keywords": ["wand"]
+    },
+    {
+      "name": "magnifying-glass-sparkle",
+      "categories": ["Object"],
+      "description": "specialized search symbol for visual search",
+      "keywords": ["visual", "search", "image"]
     },
     {
       "name": "manage-access",
