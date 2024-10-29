@@ -1,3 +1,9 @@
+## 163.6.7 (Oct 29, 2024)
+
+### Patch
+
+- SelectList: fixes VR ([#3833](https://github.com/pinterest/gestalt/pull/3833)) - [Preview link](https://deploy-preview-3833--gestalt.netlify.app?devexample=true)
+
 ## 163.6.6 (Oct 29, 2024)
 
 ### Patch
