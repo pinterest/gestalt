@@ -62,7 +62,7 @@
             }
           }
         },
-        "blur": {
+        "radius": {
           "perimeter": {
             "surface": {
               "value": "1px",
@@ -120,6 +120,20 @@
               "value": "0px",
               "type": "dimension"
             }
+          }
+        }
+      },
+      "background-blur": {
+        "weak": {
+          "radius": {
+            "value": "8px",
+            "type": "dimension"
+          }
+        },
+        "strong": {
+          "radius": {
+            "value": "24px",
+            "type": "dimension"
           }
         }
       }
