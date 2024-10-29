@@ -9,7 +9,6 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import styles from './VRSearchField.css';
-import Box from '../Box';
 import boxStyles from '../Box.css';
 import Icon from '../Icon';
 import Pog from '../Pog';
@@ -245,7 +244,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
       </div>
 
       {hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} topPadding='200'/>
       ) : null}
     </div>
   );
