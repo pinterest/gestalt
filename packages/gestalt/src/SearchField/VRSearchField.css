@@ -87,12 +87,18 @@
   top: var(--space-0);
 }
 
-html:not([dir="rtl"]) .clearButtonWrapper {
-  right: var(--space-0);
+html:not([dir="rtl"]) .endClearButtonWrapper {
+  right: calc(var(--sema-space-400) - var(--sema-space-150));
 }
 
-html[dir="rtl"] .clearButtonWrapper {
-  left: var(--space-0);
+html[dir="rtl"] .endClearButtonWrapper {
+  left: calc(var(--sema-space-400) - var(--sema-space-150));
+}
+
+.endClearButton {
+  align-items: center;
+  display: flex;
+  height: 100%;
 }
 
 /* md */

@@ -150,9 +150,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           })}
         >
           <div
-            className={classnames({
-              [styles.startIcon]: true,
-            })}
+            className={styles.startIcon}
           >
             <Icon accessibilityLabel="" color="default" icon="search" size={16} />
           </div>
@@ -205,8 +203,12 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           value={value}
         />
         {isClearIconButtonVisible ? (
-          <div className={classnames(styles.endClearButtonWrapper, styles.clearButtonWrapper)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding={1}>
+          <div className={classnames(styles.endClearButtonWrapper)}>
+            <div
+              className={classnames({
+                [styles.endClearButton]: true,
+              })}
+            >
               <TapArea
                 accessibilityLabel="Clear date"
                 onBlur={() => setIconFocused(false)}
@@ -226,7 +228,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                   // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                   onChange({ value: '', event });
                 }}
-                rounding={1}
+                rounding={2}
                 tapStyle="compress"
               >
                 <Pog
@@ -234,10 +236,10 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                   bgColor={iconFocused ? 'lightGray' : 'transparent'}
                   icon="clear"
                   iconColor="darkGray"
-                  size="xs"
+                  size="sm"
                 />
               </TapArea>
-            </Box>
+            </div>
           </div>
         ) : null}
       </div>
