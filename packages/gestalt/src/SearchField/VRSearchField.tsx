@@ -9,7 +9,6 @@ import {
 } from 'react';
 import classnames from 'classnames';
 import styles from './VRSearchField.css';
-import Box from '../Box';
 import boxStyles from '../Box.css';
 import Icon from '../Icon';
 import Pog from '../Pog';
@@ -119,10 +118,8 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             className={classnames(styles.label, {
               // md
               [styles.md_label]: isMD,
-              [styles.md_labelPos]: isMD,
               // lg
               [styles.lg_label]: isLG,
-              [styles.lg_labelPos]: isLG,
 
               [boxStyles.visuallyHidden]: !isLabelVisible,
             })}
@@ -142,14 +139,18 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
 
         <div
           aria-hidden
-          className={classnames(styles.searchIconWrapper, {
-            [styles.mdSearchIcon]: isMD,
-            [styles.lgSearchIcon]: isLG,
-            [styles.searchIconVisibleLabel]: label && isLabelVisible,
-            [styles.searchIconNoLabel]: !label || (label && !isLabelVisible),
+          className={classnames({
+            [styles.startIconLabelWrapper]: label,
+            [styles.md_startIcon]: isMD,
+            [styles.lg_startIcon]: isLG,
+            [styles.md_startIconLabel]: label && isMD,
+            [styles.lg_startIconLabel]: label && isLG,
+            [styles.startIconNoLabelWrapper]: !label || !isLabelVisible,
           })}
         >
-          <Icon accessibilityLabel="" color="default" icon="search" size={16} />
+          <div className={styles.startIcon}>
+            <Icon accessibilityLabel="" color="default" icon="search" size={16} />
+          </div>
         </div>
 
         <input
@@ -166,18 +167,16 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             {
               [styles.enabledBorder]: !hasErrorMessage,
               [styles.errorBorder]: hasErrorMessage,
-              [styles.inputHorizontalPaddingNoLabel]: !label || (label && !isLabelVisible),
-              [styles.inputHorizontalPaddingVisibleLabel]: label && isLabelVisible,
               // md
               [styles.md_input]: isMD,
-              [styles.md_visibleLabel]: isMD && label && isLabelVisible,
-              [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
-              [styles.md_actionButton]: isMD && isClearIconButtonVisible,
+              [styles.md_inputHorizontalPadding]: isMD,
+              [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
+              [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
               // lg
               [styles.lg_input]: isLG,
-              [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
-              [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
-              [styles.lg_actionButton]: isLG && isClearIconButtonVisible,
+              [styles.lg_inputHorizontalPadding]: isLG,
+              [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
+              [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
             },
           )}
           data-test-id={dataTestId}
@@ -201,8 +200,12 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           value={value}
         />
         {isClearIconButtonVisible ? (
-          <div className={classnames(styles.actionButtonWrapper)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding={1}>
+          <div className={classnames(styles.endClearButtonWrapper)}>
+            <div
+              className={classnames({
+                [styles.endClearButton]: true,
+              })}
+            >
               <TapArea
                 accessibilityLabel="Clear date"
                 onBlur={() => setIconFocused(false)}
@@ -222,24 +225,24 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                   // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                   onChange({ value: '', event });
                 }}
-                rounding={1}
+                rounding={2}
                 tapStyle="compress"
               >
                 <Pog
                   accessibilityLabel=""
                   bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                  icon="cancel"
+                  icon="clear"
                   iconColor="darkGray"
-                  size="xs"
+                  size="sm"
                 />
               </TapArea>
-            </Box>
+            </div>
           </div>
         ) : null}
       </div>
 
       {hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} topPadding="200" />
       ) : null}
     </div>
   );

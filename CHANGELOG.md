@@ -1,3 +1,45 @@
+## 163.7.0 (Oct 29, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8491] ([#3836](https://github.com/pinterest/gestalt/pull/3836)) - [Preview link](https://deploy-preview-3836--gestalt.netlify.app?devexample=true)
+
+## 163.6.9 (Oct 29, 2024)
+
+### Patch
+
+- ComboBox: completed examples for testing ([#3835](https://github.com/pinterest/gestalt/pull/3835)) - [Preview link](https://deploy-preview-3835--gestalt.netlify.app?devexample=true)
+
+## 163.6.8 (Oct 29, 2024)
+
+### Patch
+
+- SearchField: fix VR issues ([#3834](https://github.com/pinterest/gestalt/pull/3834)) - [Preview link](https://deploy-preview-3834--gestalt.netlify.app?devexample=true)
+
+## 163.6.7 (Oct 29, 2024)
+
+### Patch
+
+- SelectList: fixes VR ([#3833](https://github.com/pinterest/gestalt/pull/3833)) - [Preview link](https://deploy-preview-3833--gestalt.netlify.app?devexample=true)
+
+## 163.6.6 (Oct 29, 2024)
+
+### Patch
+
+- TextArea: fixes VR ([#3832](https://github.com/pinterest/gestalt/pull/3832)) - [Preview link](https://deploy-preview-3832--gestalt.netlify.app?devexample=true)
+
+## 163.6.5 (Oct 25, 2024)
+
+### Patch
+
+- TextField: TextField VR adjusments ([#3829](https://github.com/pinterest/gestalt/pull/3829)) - [Preview link](https://deploy-preview-3829--gestalt.netlify.app?devexample=true)
+
+## 163.6.4 (Oct 25, 2024)
+
+### Patch
+
+- Link: fix link token for Link ([#3831](https://github.com/pinterest/gestalt/pull/3831)) - [Preview link](https://deploy-preview-3831--gestalt.netlify.app?devexample=true)
+
 ## 163.6.3 (Oct 25, 2024)
 
 ### Patch
