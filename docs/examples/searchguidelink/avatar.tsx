@@ -1,74 +1,60 @@
-import { Avatar, AvatarGroup, Flex, Icon, Image, SearchGuideLink } from 'gestalt';
+import { Avatar, AvatarGroup, Flex, Icon, SearchGuideLink } from 'gestalt';
 
 export default function Example() {
   return (
     <Flex
       alignItems="center"
-      direction="column"
+      direction="row"
       gap={4}
       height="100%"
       justifyContent="center"
       width="100%"
     >
       <SearchGuideLink
-        accessibilityLabel="Image"
-        color="01"
+        accessibilityLabel="Fatima"
+        color="02"
         href="https://pinterest.com"
-        text="Image"
+        text="Fatima"
         thumbnail={{
-          image: (
-            <Image
-              alt="Image"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/bBXC23j/fashion.jpg"
+          avatar: (
+            <Avatar
+              name="Fatima"
+              src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
             />
           ),
         }}
       />
       <SearchGuideLink
-        accessibilityLabel="Icon"
-        color="02"
-        href="https://pinterest.com"
-        text="Icon"
-        thumbnail={{
-          icon: <Icon accessibilityLabel="" icon="sparkle" />,
-        }}
-      />
-      <SearchGuideLink
-        accessibilityLabel="Avatar"
+        accessibilityLabel="Ayesha and Sora"
         color="03"
         href="https://pinterest.com"
-        text="Avatar"
-        thumbnail={{
-          avatar: <Avatar name="Keerthi" outline src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
-        }}
-      />
-      <SearchGuideLink
-        accessibilityLabel="AvatarGroup"
-        color="04"
-        href="https://pinterest.com"
-        text="AvatarGroup"
+        text="Ayesha and Sora"
         thumbnail={{
           avatarGroup: (
             <AvatarGroup
-              accessibilityLabel="Collaborators: Keerthi, Alberto, Enio."
+              accessibilityLabel="Pins: Ayesha, Sora."
               collaborators={[
                 {
-                  name: 'Keerthi',
-                  src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+                  name: 'Ayesha',
+                  src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
                 },
                 {
-                  name: 'Alberto',
-                  src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
-                },
-                {
-                  name: 'Enio',
+                  name: 'Sora',
+                  src: 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg',
                 },
               ]}
               size="md"
             />
           ),
+        }}
+      />
+      <SearchGuideLink
+        accessibilityLabel="Search"
+        color="04"
+        href="https://pinterest.com"
+        text="Search"
+        thumbnail={{
+          icon: <Icon accessibilityLabel="search" icon="search" />,
         }}
       />
     </Flex>
