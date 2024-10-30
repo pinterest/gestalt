@@ -1,3 +1,9 @@
+## 163.8.1 (Oct 30, 2024)
+
+### Patch
+
+- DateField: VR fixes ([#3839](https://github.com/pinterest/gestalt/pull/3839)) - [Preview link](https://deploy-preview-3839--gestalt.netlify.app?devexample=true)
+
 ## 163.8.0 (Oct 30, 2024)
 
 ### Minor
