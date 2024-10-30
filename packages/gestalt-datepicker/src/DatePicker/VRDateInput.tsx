@@ -216,7 +216,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         <HelperText disabled={disabled} id={`${id}-helperText`} size={size} text={helperText} />
       ) : null}
       {!disabled && hasErrorMessage ? (
-        <ErrorMessage id={`${id}-error`} size={size}  text={errorMessage} />
+        <ErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
     </div>
   );
