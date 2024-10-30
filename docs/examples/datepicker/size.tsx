@@ -11,6 +11,18 @@ export default function Example() {
       <Flex direction="column" gap={4}>
         <DatePicker
           id="example-errorMessage-md"
+          onChange={({ value }) => setDateValueMd(value)}
+          size="md"
+          value={dateValueMd}
+        />
+        <DatePicker
+          id="example-errorMessage-md"
+          onChange={({ value }) => setDateValueLg(value)}
+          size="lg"
+          value={dateValueLg}
+        />
+        <DatePicker
+          id="example-errorMessage-md"
           label="Schedule your training"
           onChange={({ value }) => setDateValueMd(value)}
           size="md"
