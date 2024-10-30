@@ -10,13 +10,13 @@ export default function Example() {
     <Box padding={8} width="100%">
       <Flex direction="column" gap={4}>
         <DatePicker
-          id="example-errorMessage-md"
+          id="example-errorMessage-md-nolabel"
           onChange={({ value }) => setDateValueMd(value)}
           size="md"
           value={dateValueMd}
         />
         <DatePicker
-          id="example-errorMessage-md"
+          id="example-errorMessage-md-nolabel"
           onChange={({ value }) => setDateValueLg(value)}
           size="lg"
           value={dateValueLg}
