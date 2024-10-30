@@ -12,7 +12,6 @@ import classnames from 'classnames';
 import { Locale } from 'date-fns/locale';
 import { Box, Pog, TapArea, TextUI } from 'gestalt';
 import stylesTextfield from './VRInternalDateField.css';
-import styles from '../DateField.css';
 import ErrorMessage from '../subcomponents/ErrorMessage';
 import HelperText from '../subcomponents/HelperText';
 
@@ -44,12 +43,6 @@ const TRANSLATIONS_MAP = {
 
 type CustomTextFieldProps = {
   disabled: boolean;
-  // InputProps: {
-  //   ref: {
-  //     current: HTMLElement | null | undefined;
-  //   };
-  // };
-  // focused: boolean;
   placeholder: string;
   value: string;
   readOnly: boolean;
@@ -80,8 +73,6 @@ const CustomTextField = forwardRef(
   (
     {
       disabled,
-      // InputProps: { ref: containerRef } = { ref: { current: undefined } },
-      // focused,
       placeholder,
       value,
       readOnly,
@@ -103,22 +94,20 @@ const CustomTextField = forwardRef(
     const isLabelVisible = ownerState?.passthroughProps?.labelDisplay === 'visible';
     const hasErrorMessage = Boolean(ownerState?.passthroughProps?.errorMessage);
 
-    const isMD = ownerState?.passthroughProps?.size === 'md';
-    const isLG = ownerState?.passthroughProps?.size === 'lg';
+    const isMd = ownerState?.passthroughProps?.size === 'md';
+    const isLg = ownerState?.passthroughProps?.size === 'lg';
 
     return (
       <div className={classnames(stylesTextfield.inputParent)}>
         {ownerState?.passthroughProps?.label && (
           <label
             className={classnames(stylesTextfield.label, {
-              // md
-              [stylesTextfield.md_label]: isMD,
-              [stylesTextfield.md_labelPos]: isMD,
-              // lg
-              [stylesTextfield.lg_label]: isLG,
-              [stylesTextfield.lg_labelPos]: isLG,
-
               [stylesTextfield.visuallyHidden]: !isLabelVisible,
+
+              // md
+              [stylesTextfield.md_label]: isMd,
+              // lg
+              [stylesTextfield.lg_label]: isLg,
             })}
             htmlFor={ownerState?.passthroughProps?.id}
           >
@@ -130,40 +119,32 @@ const CustomTextField = forwardRef(
         <input
           ref={inputRef}
           autoComplete={ownerState?.passthroughProps?.autoComplete ?? 'off'}
-          className={classnames(
-            stylesTextfield.input,
-            stylesTextfield.md,
-            stylesTextfield.mdDefault,
-            {
-              [stylesTextfield.enabled]: !disabled,
-              [stylesTextfield.enabledText]: !disabled,
-              [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
-              [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
-              [stylesTextfield.disabled]: disabled,
-              [stylesTextfield.disabledText]: disabled,
-              [stylesTextfield.disabledBorder]: disabled,
-              // md
-              [stylesTextfield.md_input]: isMD,
-              [stylesTextfield.md_inputHorizontalPadding]: isMD,
-              [stylesTextfield.md_visibleLabel]:
-                isMD && ownerState?.passthroughProps?.label && isLabelVisible,
-              [stylesTextfield.md_noLabel]:
-                isMD &&
-                (!ownerState?.passthroughProps?.label ||
-                  (ownerState?.passthroughProps?.label && !isLabelVisible)),
-              [stylesTextfield.md_actionButton]: isMD && ownerState?.passthroughProps?.onClearInput,
-              // lg
-              [stylesTextfield.lg_input]: isLG,
-              [stylesTextfield.lg_inputHorizontalPadding]: isLG,
-              [stylesTextfield.lg_visibleLabel]:
-                isLG && ownerState?.passthroughProps?.label && isLabelVisible,
-              [stylesTextfield.lg_noLabel]:
-                isLG &&
-                (!ownerState?.passthroughProps?.label ||
-                  (ownerState?.passthroughProps?.label && !isLabelVisible)),
-              [stylesTextfield.lg_actionButton]: isLG && ownerState?.passthroughProps?.onClearInput,
-            },
-          )}
+          className={classnames(stylesTextfield.input, {
+            [stylesTextfield.enabled]: !disabled,
+            [stylesTextfield.enabledText]: !disabled,
+            [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
+            [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
+            [stylesTextfield.disabled]: disabled,
+            [stylesTextfield.disabledText]: disabled,
+            [stylesTextfield.disabledBorder]: disabled,
+            // md
+            [stylesTextfield.md_input]: isMd,
+            [stylesTextfield.md_inputHorizontalPadding]: isMd,
+            [stylesTextfield.md_inputLabelPadding]:
+              isMd && ownerState?.passthroughProps?.label && isLabelVisible,
+            [stylesTextfield.md_inputNoLabelPadding]:
+              isMd &&
+              (!ownerState?.passthroughProps?.label ||
+                (ownerState?.passthroughProps?.label && !isLabelVisible)),
+            [stylesTextfield.lg_input]: isLg,
+            [stylesTextfield.lg_inputHorizontalPadding]: isLg,
+            [stylesTextfield.lg_inputLabelPadding]:
+              isLg && ownerState?.passthroughProps?.label && isLabelVisible,
+            [stylesTextfield.lg_inputNoLabelPadding]:
+              isLg &&
+              (!ownerState?.passthroughProps?.label ||
+                (ownerState?.passthroughProps?.label && !isLabelVisible)),
+          })}
           disabled={disabled}
           enterKeyHint={ownerState?.passthroughProps?.enterKeyHint}
           id={ownerState?.passthroughProps?.id}
@@ -180,32 +161,37 @@ const CustomTextField = forwardRef(
           value={value}
         />
         {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
-          <div className={classnames(styles.actionButtonWrapper)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
-              <TapArea
-                accessibilityLabel="Clear date"
-                onBlur={() => setIconFocused(false)}
-                onFocus={() => setIconFocused(true)}
-                onKeyDown={({ event }) => {
-                  if ([ENTER, SPACE].includes(event.keyCode))
-                    ownerState?.passthroughProps?.onClearInput();
-                  if (event.keyCode !== TAB) event.preventDefault();
-                }}
-                onMouseEnter={() => setIconFocused(true)}
-                onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState.passthroughProps.onClearInput()}
-                rounding="circle"
-                tapStyle="compress"
-              >
-                <Pog
-                  accessibilityLabel=""
-                  bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                  icon="cancel"
-                  iconColor="darkGray"
-                  size="xs"
-                />
-              </TapArea>
-            </Box>
+          <div
+            className={classnames(stylesTextfield.clearButtonContainer, {
+              [stylesTextfield.md_clearButtonContainer]: isMd,
+              [stylesTextfield.lg_clearButtonContainer]: isLg,
+            })}
+          >
+            <TapArea
+              accessibilityLabel="Clear date"
+              fullHeight={false}
+              fullWidth={false}
+              onBlur={() => setIconFocused(false)}
+              onFocus={() => setIconFocused(true)}
+              onKeyDown={({ event }) => {
+                if ([ENTER, SPACE].includes(event.keyCode))
+                  ownerState?.passthroughProps?.onClearInput();
+                if (event.keyCode !== TAB) event.preventDefault();
+              }}
+              onMouseEnter={() => setIconFocused(true)}
+              onMouseLeave={() => setIconFocused(false)}
+              onTap={() => ownerState.passthroughProps.onClearInput()}
+              rounding={2}
+              tapStyle="none"
+            >
+              <Pog
+                accessibilityLabel=""
+                bgColor={iconFocused ? 'lightGray' : 'transparent'}
+                icon="cancel"
+                iconColor="darkGray"
+                size="xs"
+              />
+            </TapArea>
           </div>
         ) : null}
       </div>
@@ -384,10 +370,10 @@ function InternalDateField({
             />
           </Box>
           {helperText && !hasErrorMessage ? (
-            <HelperText disabled={disabled} id={`${id}-helperText`} size="lg" text={helperText} />
+            <HelperText disabled={disabled} id={`${id}-helperText`} size={size} text={helperText} />
           ) : null}
           {!disabled && hasErrorMessage ? (
-            <ErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
+            <ErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
           ) : null}
         </div>
       </LocalizationProvider>
