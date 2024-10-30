@@ -120,23 +120,6 @@ type Props = {
   type?: 'button' | 'submit';
 };
 
-function InternalButtonWrapper({ children }: { children: ReactNode }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-
-  return (
-    <Flex
-      alignItems="center"
-      gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
-      justifyContent="center"
-    >
-      {children}
-    </Flex>
-  );
-}
-
 function InternalButtonContent({
   target,
   text,
@@ -152,9 +135,18 @@ function InternalButtonContent({
   iconEnd?: keyof typeof icons;
   size: string;
 }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Fragment>
-      <InternalButtonWrapper>
+      <Flex
+        alignItems="center"
+        gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
+        justifyContent="center"
+      >
         {iconStart && (
           <Icon
             accessibilityLabel=""
@@ -174,7 +166,7 @@ function InternalButtonContent({
             size={SIZE_NAME_TO_PIXEL[size]}
           />
         ) : null}
-      </InternalButtonWrapper>
+      </Flex>
       <NewTabAccessibilityLabel target={target} />
     </Fragment>
   );

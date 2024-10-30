@@ -1,7 +1,5 @@
 import { Children, ReactNode } from 'react';
-import { Flex } from '.';
 import Box from './Box';
-import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -18,21 +16,10 @@ type Props = {
  *
  */
 function ButtonGroup({ children }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
-
   if (Children.count(children) === 0) {
     return null;
   }
-  if (isInVRExperiment) {
-    return (
-      <Flex gap={1} wrap>
-        {children}
-      </Flex>
-    );
-  }
+
   return (
     <Box display="flex" margin={-1} wrap>
       {Children.map(children, (child) =>

@@ -54,11 +54,13 @@
 }
 
 a.smVr:focus {
-  padding: var(--sema-space-100) calc(var(--sema-space-200) + 2px);
+  padding: var(--sema-space-100)
+    calc(var(--sema-space-200) + var(--g-border-width-lg));
 }
 
 a.lgVr:focus {
-  padding: var(--sema-space-150) calc(var(--sema-space-300) + 2px);
+  padding: var(--sema-space-150)
+    calc(var(--sema-space-300) + var(--g-border-width-lg));
 }
 
 .lgVr {
@@ -93,8 +95,8 @@ a.lgVr:focus {
 }
 
 .vrFocused:focus {
-  border: 2px solid;
-  outline: 2px solid;
+  border: var(--g-border-width-lg) solid;
+  outline: var(--g-border-width-lg) solid;
   outline-offset: 0;
 }
 
