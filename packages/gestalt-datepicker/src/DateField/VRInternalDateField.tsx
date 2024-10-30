@@ -335,8 +335,8 @@ function InternalDateField({
         // @ts-expect-error - TS2322 - Type '{ fieldYearPlaceholder: (params: { digitAmount: number; }) => string; fieldMonthPlaceholder: (params: { contentType: string; }) => string; fieldDayPlaceholder: () => string; } | null | undefined' is not assignable to type 'Partial<PickersLocaleText<Date>> | undefined'.
         localeText={translations}
       >
-        <div>
-          <Box alignItems="center" display="flex" position="relative">
+        <div className={classnames(stylesTextfield.outerWrapper)}>
+          <Box alignItems="center" display="flex" position="relative" width="100%">
             <MUIDatePicker
               disabled={disabled}
               disableFuture={disableRange === 'disableFuture'}

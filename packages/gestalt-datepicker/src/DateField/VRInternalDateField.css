@@ -1,3 +1,13 @@
+.outerWrapper {
+  width: 100%;
+}
+
+.inputParent {
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+}
+
 .input {
   box-sizing: border-box;
   display: block;
@@ -51,11 +61,6 @@
 
 .disabledBorder {
   border: 1px solid var(--sema-color-border-disabled);
-}
-
-.inputParent {
-  isolation: isolate;
-  position: relative;
 }
 
 .visuallyHidden {
