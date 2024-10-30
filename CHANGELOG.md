@@ -1,3 +1,9 @@
+## 163.8.0 (Oct 30, 2024)
+
+### Minor
+
+- ButtonGroup: VR Implementation ([#3840](https://github.com/pinterest/gestalt/pull/3840)) - [Preview link](https://deploy-preview-3840--gestalt.netlify.app?devexample=true)
+
 ## 163.7.0 (Oct 29, 2024)
 
 ### Minor
