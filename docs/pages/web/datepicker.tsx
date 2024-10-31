@@ -63,6 +63,7 @@ import preselected from '../../examples/datepicker/preselected';
 import range from '../../examples/datepicker/range';
 import readOnly from '../../examples/datepicker/readOnly';
 import selectLists from '../../examples/datepicker/selectLists';
+import size from '../../examples/datepicker/size';
 
 const localeMap = {
   af: { localeData: af, lang: 'Afrikaans' },
@@ -242,6 +243,15 @@ DatePicker is controlled when \`value\` is not "undefined". When \`value\` is "u
             title="Pre-selected date values"
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection title="Size">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={size} name="size variant" previewHeight={PREVIEW_HEIGHT} />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           columns={2}
           description={`
