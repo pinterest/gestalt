@@ -1,3 +1,9 @@
+## 163.8.4 (Oct 31, 2024)
+
+### Patch
+
+- SelectList, DatePicker, DateField: fix min heights in VR ([#3841](https://github.com/pinterest/gestalt/pull/3841)) - [Preview link](https://deploy-preview-3841--gestalt.netlify.app?devexample=true)
+
 ## 163.8.3 (Oct 31, 2024)
 
 ### Patch
