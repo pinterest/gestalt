@@ -309,13 +309,13 @@
         },
         "range": {
           "default": {
-              "value": "rgba(250, 250, 250, 0.5)"
+            "value": "rgba(250, 250, 250, 0.5)"
           },
           "hover": {
-              "value": "rgba(250, 250, 250, 0.5)"
+            "value": "rgba(250, 250, 250, 0.5)"
           },
           "active": {
-              "value": "rgba(250, 250, 250, 0.5)"
+            "value": "rgba(250, 250, 250, 0.5)"
           }
         },
         "button": {
