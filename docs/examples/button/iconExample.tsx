@@ -4,11 +4,11 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Button
-        accessibilityLabel="AI Options"
+        accessibilityLabel="Notifications"
         iconEnd="arrow-down"
-        iconStart="sparkle"
+        iconStart="bell"
         size="lg"
-        text="AI Options"
+        text="Notifications"
       />
     </Flex>
   );
