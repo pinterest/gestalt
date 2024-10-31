@@ -42,17 +42,17 @@ to prevent conflict with another CSS module */
 }
 
 .react-datepicker__days:focus-visible {
-  background-color: var(--color-background-datepicker-button-hover);
+  background-color: var(--color-background-datepicker-button-unselected-hover);
   outline: 4px solid var(--color-border-focus);
 }
 
 .react-datepicker__days:hover {
-  background-color: var(--color-background-datepicker-button-hover);
+  background-color: var(--color-background-datepicker-button-unselected-hover);
   color: var(--color-text-default);
 }
 
 .react-datepicker__days:active {
-  background-color: var(--color-background-datepicker-button-active);
+  background-color: var(--color-background-datepicker-button-unselected-active);
   color: var(--color-text-default);
 }
 
@@ -61,7 +61,7 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--highlighted {
-  background-color: var(--color-background-datepicker-button-selected);
+  background-color: var(--color-background-datepicker-button-selected-default);
   color: var(--color-text-inverse);
 }
 
@@ -75,13 +75,18 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--selected {
-  background-color: var(--color-background-datepicker-button-selected);
+  background-color: var(--color-background-datepicker-button-selected-default);
   color: var(--color-text-inverse);
 }
 
 :global ._gestalt .react-datepicker__day--selected:hover {
-  background-color: var(--color-background-datepicker-button-hover);
-  color: var(--color-text-dark);
+  background-color: var(--color-background-datepicker-button-selected-hover);
+  color: var(--color-text-inverse);
+}
+
+:global ._gestalt .react-datepicker__day--selected:active {
+  background-color: var(--color-background-datepicker-button-selected-active);
+  color: var(--color-text-inverse);
 }
 
 :global ._gestalt .react-datepicker__day--in-range {
@@ -143,7 +148,7 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--range-start {
-  background-color: var(--color-background-datepicker-button-selected);
+  background-color: var(--color-background-datepicker-button-selected-default);
   border-radius: var(--rounding-datepicker-days);
   color: var(--color-text-inverse);
   position: relative;
@@ -170,12 +175,12 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__day--range-start:hover {
   background-color: inherit;
   border-radius: var(--rounding-datepicker-days);
-  color: var(--color-text-default);
+  color: var(--color-text-inverse);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-start:hover::after {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-button-selected-hover);
   border-radius: var(--rounding-datepicker-days);
   content: "";
   display: block;
@@ -189,7 +194,7 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__day--range-end {
-  background-color: var(--color-background-datepicker-button-selected);
+  background-color: var(--color-background-datepicker-button-selected-default);
   border-radius: var(--rounding-datepicker-days);
   color: var(--color-text-inverse);
   position: relative;
@@ -216,14 +221,14 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__day--range-end:hover {
   background-color: inherit;
   border-radius: var(--rounding-datepicker-days);
-  color: var(--color-text-default);
+  color: var(--color-text-inverse);
   position: relative;
 }
 
 :global ._gestalt .react-datepicker__day--range-end:hover::after {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-button-selected-hover);
   border-radius: var(--rounding-datepicker-days);
-  color: var(--color-text-default);
+  color: var(--color-text-inverse);
   content: "";
   display: block;
   height: 100%;
@@ -245,7 +250,8 @@ to prevent conflict with another CSS module */
   .react-datepicker__day--selecting-range-end:not(
     .react-datepicker__day--in-range
   ):not(.react-datepicker__day--highlighted) {
-  background-color: var(--color-background-datepicker-button-hover);
+  background-color: var(--color-background-datepicker-button-selected-hover);
+  color: var(--color-text-inverse);
 }
 
 :global ._gestalt .react-datepicker__day--outside-month {
@@ -323,7 +329,7 @@ to prevent conflict with another CSS module */
 :global ._gestalt .react-datepicker__navigation {
   background: none;
   border: none;
-  border-radius: var(--rounding-datepicker-days);
+  border-radius: var(--rounding-datepicker-navigation);
   cursor: pointer;
   height: auto;
   outline: none;
@@ -336,21 +342,21 @@ to prevent conflict with another CSS module */
 }
 
 :global ._gestalt .react-datepicker__navigation:focus-visible {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-button-unselected-default);
   outline: 4px solid var(--color-border-focus);
 }
 
 :global ._gestalt .react-datepicker__navigation:hover {
-  background: var(--color-background-datepicker-button-hover);
+  background: var(--color-background-datepicker-button-unselected-hover);
 }
 
 :global ._gestalt .react-datepicker__navigation:active {
-  background: var(--color-background-datepicker-button-active);
+  background: var(--color-background-datepicker-button-unselected-active);
 }
 
 :global ._gestalt .react-datepicker__navigation:active::before {
   background: transparent;
-  border-radius: var(--rounding-datepicker-days);
+  border-radius: var(--rounding-datepicker-navigation);
   content: "";
   display: block;
   height: 100%;
