@@ -1,3 +1,9 @@
+## 163.8.3 (Oct 31, 2024)
+
+### Patch
+
+- Button: VR Certification Fixes ([#3802](https://github.com/pinterest/gestalt/pull/3802)) - [Preview link](https://deploy-preview-3802--gestalt.netlify.app?devexample=true)
+
 ## 163.8.2 (Oct 31, 2024)
 
 ### Patch
