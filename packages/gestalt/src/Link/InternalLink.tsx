@@ -210,20 +210,15 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     isSearchGuide && isInVRExperiment
       ? {
           [searchGuideStyles.searchguideVr]: true,
-          [touchableStyles.tapTransition]: true,
-          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: !selected,
           [focusStyles.hideOutline]: !isFocusVisible,
           [searchGuideStyles.vrFocused]: isFocusVisible,
-          [searchGuideStyles.selectedVr]: selected,
         }
       : {},
     isSearchGuide && !isInVRExperiment
       ? {
-          [searchGuideStyles.searchguide]: true,
-          [touchableStyles.tapTransition]: true,
           [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
-          [searchGuideStyles.selected]: selected,
-          [focusStyles.hideOutline]: !isFocusVisible && !selected,
+          [searchGuideStyles.searchguide]: true,
+          [focusStyles.hideOutline]: !isFocusVisible,
           [focusStyles.accessibilityOutline]: isFocusVisible,
         }
       : {},

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { Box, Flex, Image, Popover, SearchGuide } from 'gestalt';
 
 export default function Example() {
@@ -8,51 +8,76 @@ export default function Example() {
   const [showOutfit, setShowOutfit] = useState(false);
 
   return (
-    <Flex
-      alignItems="center"
-      direction="row"
-      gap={4}
-      height="100%"
-      justifyContent="center"
-      width="100%"
-    >
-      <SearchGuide
-        accessibilityLabel="Design"
-        color="01"
-        text="Design"
-        thumbnail={{
-          image: (
-            <Image
-              alt="Design"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/3CT3Xnp/image.png"
-            />
-          ),
-        }}
-      />
-      <SearchGuide
-        ref={vintageRef}
-        accessibilityControls="popover"
-        accessibilityExpanded={showVintage}
-        accessibilityHaspopup
-        accessibilityLabel="Vintage"
-        color="02"
-        expandable
-        onClick={() => setShowVintage((showing) => !showing)}
-        selected={showVintage}
-        text="Vintage"
-        thumbnail={{
-          image: (
-            <Image
-              alt="Vintage"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/dWQ7HHg/image.png"
-            />
-          ),
-        }}
-      />
+    <Fragment>
+      <Flex
+        alignItems="center"
+        direction="row"
+        gap={4}
+        height="100%"
+        justifyContent="center"
+        width="100%"
+      >
+        <SearchGuide
+          accessibilityLabel="Design"
+          color="01"
+          text="Design"
+          thumbnail={{
+            image: (
+              <Image
+                alt="Design"
+                naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/3CT3Xnp/image.png"
+              />
+            ),
+          }}
+        />
+        <SearchGuide
+          ref={vintageRef}
+          accessibilityControls="popover"
+          accessibilityExpanded={showVintage}
+          accessibilityHaspopup
+          accessibilityLabel="Vintage"
+          color="02"
+          expandable
+          onClick={() => setShowVintage((showing) => !showing)}
+          selected={showVintage}
+          text="Vintage"
+          thumbnail={{
+            image: (
+              <Image
+                alt="Vintage"
+                naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/dWQ7HHg/image.png"
+              />
+            ),
+          }}
+        />
+
+        <SearchGuide
+          ref={outfitRef}
+          accessibilityControls="popover"
+          accessibilityExpanded={showOutfit}
+          accessibilityHaspopup
+          accessibilityLabel="Outfit"
+          color="03"
+          expandable
+          onClick={() => setShowOutfit((showing) => !showing)}
+          selected={showOutfit}
+          text="Outfit"
+          thumbnail={{
+            image: (
+              <Image
+                alt="Outfit"
+                naturalHeight={1}
+                naturalWidth={1}
+                src="https://i.ibb.co/bBXC23j/fashion.jpg"
+              />
+            ),
+          }}
+        />
+      </Flex>
       {showVintage && (
         <Popover
           anchor={vintageRef.current}
@@ -69,28 +94,6 @@ export default function Example() {
           </Box>
         </Popover>
       )}
-      <SearchGuide
-        ref={outfitRef}
-        accessibilityControls="popover"
-        accessibilityExpanded={showOutfit}
-        accessibilityHaspopup
-        accessibilityLabel="Outfit"
-        color="03"
-        expandable
-        onClick={() => setShowOutfit((showing) => !showing)}
-        selected={showOutfit}
-        text="Outfit"
-        thumbnail={{
-          image: (
-            <Image
-              alt="Outfit"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/bBXC23j/fashion.jpg"
-            />
-          ),
-        }}
-      />
       {showOutfit && (
         <Popover
           anchor={outfitRef.current}
@@ -108,6 +111,6 @@ export default function Example() {
           </Box>
         </Popover>
       )}
-    </Flex>
+    </Fragment>
   );
 }
