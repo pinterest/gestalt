@@ -355,17 +355,27 @@
           }
         },
         "button": {
-          "default": {
-            "value": "#fff"
-          },
-          "hover": {
-            "value": "rgba(0, 0, 0, 0.06)"
-          },
-          "active": {
-            "value": "rgba(0, 0, 0, 0.06)"
+          "unselected": {
+            "default": {
+              "value": "#fff"
+            },
+            "hover": {
+              "value": "rgba(0, 0, 0, 0.06)"
+            },
+            "active": {
+              "value": "rgba(0, 0, 0, 0.06)"
+            }
           },
           "selected": {
-            "value": "#111"
+            "default": {
+              "value": "#111"
+            },
+            "hover": {
+              "value": "#111"
+            },
+            "active": {
+              "value": "#111"
+            }
           }
         }
       },

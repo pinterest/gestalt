@@ -7,6 +7,9 @@
       "days": {
         "value": "{sema.rounding.400.value}"
       },
+      "navigation": {
+        "value": "{sema.rounding.300.value}"
+      },
       "range": {
         "start": {
           "value": "{sema.rounding.400.value} {sema.rounding.0.value} {sema.rounding.0.value} {sema.rounding.400.value}"
