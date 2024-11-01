@@ -1,3 +1,9 @@
+## 163.8.5 (Nov 1, 2024)
+
+### Patch
+
+- Tabs: fixes VR ([#3843](https://github.com/pinterest/gestalt/pull/3843)) - [Preview link](https://deploy-preview-3843--gestalt.netlify.app?devexample=true)
+
 ## 163.8.4 (Oct 31, 2024)
 
 ### Patch
