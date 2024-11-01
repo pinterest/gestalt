@@ -1,3 +1,9 @@
+## 163.9.1 (Nov 1, 2024)
+
+### Patch
+
+- Icon: Update android dist files ([#3838](https://github.com/pinterest/gestalt/pull/3838)) - [Preview link](https://deploy-preview-3838--gestalt.netlify.app?devexample=true)
+
 ## 163.9.0 (Nov 1, 2024)
 
 ### Minor
