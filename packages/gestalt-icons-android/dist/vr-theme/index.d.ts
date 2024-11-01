@@ -190,6 +190,7 @@ declare const icons: Readonly<{
     knoop: any;
     'lab-flask': any;
     'lasso-magic': any;
+    'layers-stack': any;
     layout: any;
     lightbulb: any;
     'lightning-bolt-circle': any;
@@ -205,6 +206,7 @@ declare const icons: Readonly<{
     logout: any;
     'magic-pen': any;
     'magic-wand': any;
+    'magnifying-glass-sparkle': any;
     'manage-access': any;
     'margins-large': any;
     'margins-medium': any;
