@@ -1,3 +1,39 @@
+## 163.8.5 (Nov 1, 2024)
+
+### Patch
+
+- Tabs: fixes VR ([#3843](https://github.com/pinterest/gestalt/pull/3843)) - [Preview link](https://deploy-preview-3843--gestalt.netlify.app?devexample=true)
+
+## 163.8.4 (Oct 31, 2024)
+
+### Patch
+
+- SelectList, DatePicker, DateField: fix min heights in VR ([#3841](https://github.com/pinterest/gestalt/pull/3841)) - [Preview link](https://deploy-preview-3841--gestalt.netlify.app?devexample=true)
+
+## 163.8.3 (Oct 31, 2024)
+
+### Patch
+
+- Button: VR Certification Fixes ([#3802](https://github.com/pinterest/gestalt/pull/3802)) - [Preview link](https://deploy-preview-3802--gestalt.netlify.app?devexample=true)
+
+## 163.8.2 (Oct 31, 2024)
+
+### Patch
+
+- DatePicker: VR fixes ([#3837](https://github.com/pinterest/gestalt/pull/3837)) - [Preview link](https://deploy-preview-3837--gestalt.netlify.app?devexample=true)
+
+## 163.8.1 (Oct 30, 2024)
+
+### Patch
+
+- DateField: VR fixes ([#3839](https://github.com/pinterest/gestalt/pull/3839)) - [Preview link](https://deploy-preview-3839--gestalt.netlify.app?devexample=true)
+
+## 163.8.0 (Oct 30, 2024)
+
+### Minor
+
+- ButtonGroup: VR Implementation ([#3840](https://github.com/pinterest/gestalt/pull/3840)) - [Preview link](https://deploy-preview-3840--gestalt.netlify.app?devexample=true)
+
 ## 163.7.0 (Oct 29, 2024)
 
 ### Minor

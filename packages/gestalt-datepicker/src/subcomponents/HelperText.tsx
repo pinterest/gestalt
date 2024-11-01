@@ -19,20 +19,24 @@ export default function FormHelperText({
   size,
   noPadding: noStartPadding,
 }: Props) {
+  const isSm = size === 'sm';
+  const isMd = size === 'md';
+  const isLg = size === 'lg';
+
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
 
     <div
       className={classnames({
         // sm
-        [styles.vr_sm_startPadding]: size === 'sm' && !noStartPadding,
-        [styles.vr_sm_topPadding]: size === 'sm',
+        [styles.vr_sm_startPadding]: isSm && !noStartPadding,
+        [styles.vr_sm_topPadding]: isSm,
         // md
-        [styles.vr_md_startPadding]: size === 'md' && !noStartPadding,
-        [styles.vr_md_topPadding]: size === 'md',
+        [styles.vr_md_startPadding]: isMd && !noStartPadding,
+        [styles.vr_md_topPadding]: isMd,
         // lg
-        [styles.vr_lg_startPadding]: size === 'lg' && !noStartPadding,
-        [styles.vr_lg_topPadding]: size === 'lg',
+        [styles.vr_lg_startPadding]: isLg && !noStartPadding,
+        [styles.vr_lg_topPadding]: isLg,
       })}
       id={id}
     >

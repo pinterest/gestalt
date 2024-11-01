@@ -135,9 +135,18 @@ function InternalButtonContent({
   iconEnd?: keyof typeof icons;
   size: string;
 }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Fragment>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+      <Flex
+        alignItems="center"
+        gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
+        justifyContent="center"
+      >
         {iconStart && (
           <Icon
             accessibilityLabel=""
@@ -364,6 +373,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       onTouchMove={handleTouchMove}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
+      style={isInVRExperiment ? compressStyle || undefined : undefined}
       // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       type="button"

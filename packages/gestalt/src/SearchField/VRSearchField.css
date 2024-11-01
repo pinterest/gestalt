@@ -105,7 +105,7 @@ html[dir="rtl"] .endClearButtonWrapper {
 
 .md_input {
   border-radius: var(--sema-rounding-300);
-  min-height: 40px;
+  min-height: 36px;
 }
 
 .md_label {
