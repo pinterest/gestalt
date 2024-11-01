@@ -1,11 +1,11 @@
-import { Avatar, AvatarGroup, Flex, Icon, SearchGuideLink } from 'gestalt';
+import { Avatar, AvatarGroup, Flex, Icon, Image, SearchGuideLink } from 'gestalt';
 
 export default function Example() {
   return (
     <Flex
       alignItems="center"
       direction="row"
-      gap={4}
+      gap={2}
       height="100%"
       justifyContent="center"
       width="100%"
@@ -14,6 +14,10 @@ export default function Example() {
         accessibilityLabel="Fatima"
         color="02"
         href="https://pinterest.com"
+        onClick={({ event, dangerouslyDisableOnNavigation }) => {
+          event.preventDefault();
+          dangerouslyDisableOnNavigation();
+        }}
         text="Fatima"
         thumbnail={{
           avatar: (
@@ -28,6 +32,10 @@ export default function Example() {
         accessibilityLabel="Ayesha and Sora"
         color="03"
         href="https://pinterest.com"
+        onClick={({ event, dangerouslyDisableOnNavigation }) => {
+          event.preventDefault();
+          dangerouslyDisableOnNavigation();
+        }}
         text="Ayesha and Sora"
         thumbnail={{
           avatarGroup: (
@@ -52,9 +60,33 @@ export default function Example() {
         accessibilityLabel="Search"
         color="04"
         href="https://pinterest.com"
+        onClick={({ event, dangerouslyDisableOnNavigation }) => {
+          event.preventDefault();
+          dangerouslyDisableOnNavigation();
+        }}
         text="Search"
         thumbnail={{
           icon: <Icon accessibilityLabel="search" icon="search" />,
+        }}
+      />
+      <SearchGuideLink
+        accessibilityLabel="Design"
+        color="01"
+        href="https://pinterest.com"
+        onClick={({ event, dangerouslyDisableOnNavigation }) => {
+          event.preventDefault();
+          dangerouslyDisableOnNavigation();
+        }}
+        text="Design"
+        thumbnail={{
+          image: (
+            <Image
+              alt="Design"
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.ibb.co/3CT3Xnp/image.png"
+            />
+          ),
         }}
       />
     </Flex>
