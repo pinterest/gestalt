@@ -68,18 +68,19 @@
   composes: sm smDefault from "../Text.css";
   border-radius: var(--sema-rounding-200);
   min-height: 28px;
-  padding-bottom: var(--sema-space-100);
+  padding-bottom: calc(var(--sema-space-100) - var(--sema-space-25));
 }
 
 .sm_visibleLabel {
   padding-top: calc(
     var(--sema-space-100) + var(--sema-space-50) +
-      var(--sema-space-negative-100) + var(--sema-font-lineheight-ui-xs)
+      var(--sema-font-lineheight-ui-xs) - var(--sema-space-50) -
+      var(--sema-space-25)
   );
 }
 
 .sm_noLabel {
-  padding-top: var(--sema-space-100);
+  padding-top: var(--sema-space-100) - var(--sema-space-25);
 }
 
 html[dir="rtl"] .sm_inputHorizontalPadding {
@@ -93,17 +94,19 @@ html:not([dir="rtl"]) .sm_inputHorizontalPadding {
 }
 
 html[dir="rtl"] .sm_label {
-  left: calc(var(--sema-space-200));
-  right: calc(var(--sema-space-200) + 1px);
+  left: calc(var(--sema-space-200) + var(--sema-space-25) + var(--sema-space-600));
+  right: calc(var(--sema-space-200) + var(--sema-space-25));
 }
 
 html:not([dir="rtl"]) .sm_label {
-  left: calc(var(--sema-space-200) + 1px);
-  right: calc(var(--sema-space-200));
+  left: calc(var(--sema-space-200) + var(--sema-space-25));
+  right: calc(var(--sema-space-200) + var(--sema-space-25) + var(--sema-space-600));
 }
 
 .sm_labelPos {
-  top: calc(var(--sema-space-100) + var(--sema-space-50));
+  top: calc(
+    var(--sema-space-100) + var(--sema-space-50) - var(--sema-space-25)
+  );
 }
 
 html:not([dir="rtl"]) .sm_actionButton {
@@ -124,18 +127,18 @@ html[dir="rtl"] .sm_actionButton {
   composes: md mdDefault from "../Text.css";
   border-radius: var(--sema-rounding-300);
   min-height: 36px;
-  padding-bottom: var(--sema-space-200);
+  padding-bottom: calc(var(--sema-space-200) - var(--sema-space-25));
 }
 
 .md_visibleLabel {
   padding-top: calc(
-    var(--sema-space-200) + var(--sema-space-50) +
-      var(--sema-font-lineheight-ui-xs)
+    var(--sema-space-100) + var(--sema-space-150) +
+      var(--sema-font-lineheight-ui-xs) - var(--sema-space-25)
   );
 }
 
 .md_noLabel {
-  padding-top: var(--sema-space-200);
+  padding-top: var(--sema-space-200) - var(--sema-space-25);
 }
 
 html[dir="rtl"] .md_inputHorizontalPadding {
@@ -149,17 +152,19 @@ html:not([dir="rtl"]) .md_inputHorizontalPadding {
 }
 
 html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-300));
-  right: calc(var(--sema-space-300) + 1px);
+  left: calc(var(--sema-space-300) + var(--sema-space-25) + var(--sema-space-600));
+  right: calc(var(--sema-space-300) + var(--sema-space-25));
 }
 
 html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-300) + 1px);
-  right: calc(var(--sema-space-300));
+  left: calc(var(--sema-space-300) + var(--sema-space-25));
+  right: calc(var(--sema-space-300) + var(--sema-space-25) + var(--sema-space-600));
 }
 
 .md_labelPos {
-  top: calc(var(--sema-space-200) + var(--sema-space-50));
+  top: calc(
+    var(--sema-space-100) + var(--sema-space-150) - var(--sema-space-25)
+  );
 }
 
 html:not([dir="rtl"]) .md_actionButton {
@@ -176,18 +181,21 @@ html[dir="rtl"] .md_actionButton {
   composes: md mdDefault from "../Text.css";
   border-radius: var(--sema-rounding-400);
   min-height: 48px;
-  padding-bottom: var(--sema-space-300);
+  padding-bottom: calc(
+    var(--sema-space-300) + var(--sema-space-50) - var(--sema-space-25)
+  );
 }
 
 .lg_visibleLabel {
   padding-top: calc(
-    var(--sema-space-300) + var(--sema-space-100) + var(--sema-space-100) +
-      var(--sema-font-lineheight-ui-xs)
+    var(--sema-space-300) + var(--sema-space-100) +
+      var(--sema-font-lineheight-ui-xs) + var(--sema-space-100) -
+      var(--sema-space-25)
   );
 }
 
 .lg_noLabel {
-  padding-top: var(--sema-space-300);
+  padding-top: var(--sema-space-300) - var(--sema-space-25);
 }
 
 html[dir="rtl"] .lg_inputHorizontalPadding {
@@ -201,23 +209,25 @@ html:not([dir="rtl"]) .lg_inputHorizontalPadding {
 }
 
 html[dir="rtl"] .lg_label {
-  left: calc(var(--sema-space-400));
-  right: calc(var(--sema-space-400) + 1px);
+  left: calc(var(--sema-space-400) + var(--sema-space-25) + var(--sema-space-600));
+  right: calc(var(--sema-space-400) + var(--sema-space-25));
 }
 
 html:not([dir="rtl"]) .lg_label {
-  left: calc(var(--sema-space-400) + 1px);
-  right: calc(var(--sema-space-400));
+  left: calc(var(--sema-space-400) + var(--sema-space-25));
+  right: calc(var(--sema-space-400) + var(--sema-space-25) + var(--sema-space-600));
 }
 
 .lg_labelPos {
-  top: calc(var(--sema-space-300) + var(--sema-space-100));
+  top: calc(
+    var(--sema-space-300) + var(--sema-space-100) - var(--sema-space-25)
+  );
 }
 
 html:not([dir="rtl"]) .lg_actionButton {
-  padding-right: var(--space-800);
+  padding-right: calc(var(--sema-space-400) + var(--sema-space-600));
 }
 
 html[dir="rtl"] .lg_actionButton {
-  padding-left: var(--space-800);
+  padding-left: calc(var(--sema-space-400) + var(--sema-space-600));
 }
