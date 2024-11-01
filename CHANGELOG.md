@@ -1,3 +1,9 @@
+## 163.8.6 (Nov 1, 2024)
+
+### Patch
+
+- DatePicker: VR fixes ([#3842](https://github.com/pinterest/gestalt/pull/3842)) - [Preview link](https://deploy-preview-3842--gestalt.netlify.app?devexample=true)
+
 ## 163.8.5 (Nov 1, 2024)
 
 ### Patch
