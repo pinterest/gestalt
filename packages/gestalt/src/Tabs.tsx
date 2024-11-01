@@ -65,7 +65,7 @@ export default function Tabs({
   return (
     <Flex
       alignItems="center"
-      gap={isInVRExperiment ? 1 : { row: 4, column: 0 }}
+      gap={isInVRExperiment ? undefined : { row: 4, column: 0 }}
       justifyContent="start"
       wrap={wrap}
     >
