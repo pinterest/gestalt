@@ -1,3 +1,9 @@
+## 163.9.0 (Nov 1, 2024)
+
+### Minor
+
+- SearchGuideLink: Style discrepancy fixes ([#3830](https://github.com/pinterest/gestalt/pull/3830)) - [Preview link](https://deploy-preview-3830--gestalt.netlify.app?devexample=true)
+
 ## 163.8.6 (Nov 1, 2024)
 
 ### Patch
