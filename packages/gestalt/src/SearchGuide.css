@@ -35,6 +35,7 @@
 }
 
 .imageDiv {
+  background-color: var(--opacity-100);
   border-radius: 99px;
   height: 40px;
   overflow: hidden;
@@ -47,6 +48,17 @@
   height: 44px;
   overflow: hidden;
   width: 44px;
+}
+
+.imageDivVr::before {
+  background-color: var(--sema-color-background-wash-image-tint);
+  content: "";
+  display: block;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 /* STATES */
