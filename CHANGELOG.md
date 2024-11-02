@@ -1,3 +1,9 @@
+## 163.9.2 (Nov 2, 2024)
+
+### Patch
+
+- SearchGuide, SearchGuideLink: docs ([#3844](https://github.com/pinterest/gestalt/pull/3844)) - [Preview link](https://deploy-preview-3844--gestalt.netlify.app?devexample=true)
+
 ## 163.9.1 (Nov 1, 2024)
 
 ### Patch
