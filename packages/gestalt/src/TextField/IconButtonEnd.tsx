@@ -80,7 +80,7 @@ export default function IconButtonEnd({
             onMouseLeave={() => setFocused(false)}
             onTap={onClick}
             role={role}
-            rounding={isInVRExperiment ? 1 : "circle"}
+            rounding={isInVRExperiment ? 1 : 'circle'}
             tabIndex={accessibilityHidden ? -1 : 0}
             tapStyle={tapStyle}
           >
@@ -90,7 +90,7 @@ export default function IconButtonEnd({
               icon={icon}
               iconColor="darkGray"
               padding={pogPadding}
-              size="xs"
+              size={isInVRExperiment ? 'sm' : 'xs'}
             />
           </TapArea>
         </MaybeTooltip>
