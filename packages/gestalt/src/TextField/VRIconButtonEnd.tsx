@@ -1,7 +1,6 @@
 import { ComponentProps, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import styles from './VRInternalTextField.css';
-import Box from '../Box';
 import { ENTER, SPACE, TAB } from '../keyCodes';
 import Pog from '../Pog';
 import TapArea from '../TapArea';
