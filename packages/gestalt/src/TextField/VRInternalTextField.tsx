@@ -195,24 +195,27 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
             // sm
             [styles.sm_input]: isSM,
             [styles.sm_inputPadding]: isSM,
-            [styles.sm_inputStartPadding]: isSM,
             [styles.sm_inputLabelPadding]: isSM && label && isLabelVisible,
             [styles.sm_inputNoLabelPadding]: isSM && (!label || (label && !isLabelVisible)),
+            [styles.sm_inputStartPadding]: isSM,
             [styles.sm_inputEndButtonEndPadding]: isSM && iconButton,
             [styles.sm_inputNoEndButtonEndPadding]: isSM && !iconButton,
-
             // md
             [styles.md_input]: isMD,
             [styles.md_inputPadding]: isMD,
             [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
             [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
+            [styles.md_inputStartPadding]: isMD,
             [styles.md_inputEndButtonEndPadding]: isMD && iconButton,
+            [styles.sm_inputNoEndButtonEndPadding]: isMD && !iconButton,
             // lg
             [styles.lg_input]: isLG,
             [styles.lg_inputPadding]: isLG,
             [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
             [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
+            [styles.lg_inputStartPadding]: isLG,
             [styles.lg_inputEndButtonEndPadding]: isLG && iconButton,
+            [styles.lg_inputNoEndButtonEndPadding]: isLG && !iconButton,
           })}
           data-test-id={dataTestId}
           disabled={disabled}

@@ -163,22 +163,28 @@ html:not([dir="rtl"]) .sm_labelPosition {
   );
 }
 
-html[dir="rtl"] .md_inputPadding {
-  padding-left: var(--sema-space-200);
+html[dir="rtl"] .md_inputStartPadding {
   padding-right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .md_inputPadding {
+html:not([dir="rtl"]) .md_inputStartPadding {
   padding-left: var(--sema-space-300);
-  padding-right: var(--sema-space-200);
 }
 
-html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
-  padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
+html[dir="rtl"] .md_inputNoEndButtonEndPadding {
+  padding-left: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .md_inputNoEndButtonEndPadding {
+  padding-right: var(--sema-space-200);
 }
 
 html[dir="rtl"] .md_inputEndButtonEndPadding {
   padding-left: calc(var(--sema-space-200) + var(--sema-space-600));
+}
+
+html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
 }
 
 /* md label */
@@ -233,22 +239,28 @@ html:not([dir="rtl"]) .md_labelPosition {
   );
 }
 
-html[dir="rtl"] .lg_inputPadding {
-  padding-left: var(--sema-space-300);
+html[dir="rtl"] .lg_inputStartPadding {
   padding-right: var(--sema-space-400);
 }
 
-html:not([dir="rtl"]) .lg_inputPadding {
+html:not([dir="rtl"]) .lg_inputStartPadding {
   padding-left: var(--sema-space-400);
-  padding-right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .lg_inputEndButtonEndPadding {
-  padding-right: calc(var(--sema-space-300) + var(--sema-space-600));
+html[dir="rtl"] .lg_inputNoEndButtonEndPadding {
+  padding-left: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .lg_inputNoEndButtonEndPadding {
+  padding-right: var(--sema-space-300);
 }
 
 html[dir="rtl"] .lg_inputEndButtonEndPadding {
   padding-left: calc(var(--sema-space-300) + var(--sema-space-600));
+}
+
+html:not([dir="rtl"]) .lg_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-300) + var(--sema-space-600));
 }
 
 /* lg label */
