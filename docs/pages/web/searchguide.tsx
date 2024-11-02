@@ -261,30 +261,59 @@ Also consider:
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          columns={2}
           description={`
             Use the \`thumbnail\` prop to display an image to the left of the text. The \`thumbnail\` prop can be an [Avatar](/web/avatar), [AvatarGroup](/web/avatargroup), [Image](/web/image), or [Icon](/web/icon).
   `}
           title="Thumbnail"
         >
-          <SandpackExample
-            code={icon}
-            name="Searchguide example with icon."
-            previewHeight={PREVIEW_HEIGHT}
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={icon}
+                layout="column"
+                name="Searchguide example with icon."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="Icon"
           />
-          <SandpackExample
-            code={image}
-            name="Searchguide example with image."
-            previewHeight={PREVIEW_HEIGHT}
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={image}
+                layout="column"
+                name="Searchguide example with image."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="Image"
           />
-          <SandpackExample
-            code={avatar}
-            name="Searchguide example with avatar."
-            previewHeight={PREVIEW_HEIGHT}
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={avatarGroup}
+                layout="column"
+                name="Searchguide example with avatarGroup."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="AvatarGroup"
           />
-          <SandpackExample
-            code={avatarGroup}
-            name="Searchguide example with avatarGroup."
-            previewHeight={PREVIEW_HEIGHT}
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={avatar}
+                layout="column"
+                name="Searchguide example with avatar."
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+            title="Avatar"
           />
         </MainSection.Subsection>
         <MainSection.Subsection

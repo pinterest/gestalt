@@ -8,7 +8,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import avatarExample from '../../examples/searchguidelink/avatar';
 import colors from '../../examples/searchguidelink/colors';
 import hideLowQualityDo from '../../examples/searchguidelink/hideLowQualityDo';
 import main from '../../examples/searchguidelink/main';
@@ -17,6 +16,7 @@ import serialDo from '../../examples/searchguidelink/serialDo';
 import showLowQualityDont from '../../examples/searchguidelink/showLowQualityDont';
 import singleDont from '../../examples/searchguidelink/singleDont';
 import startOfScreenDo from '../../examples/searchguidelink/startOfScreenDo';
+import thumbnail from '../../examples/searchguidelink/thumbnail';
 import truncateSearchQueriesDont from '../../examples/searchguidelink/truncateSearchQueriesDont';
 import upToNineDo from '../../examples/searchguidelink/upToNineDo';
 import upToNineDont from '../../examples/searchguidelink/upToNineDont';
@@ -264,8 +264,8 @@ Also consider:
             cardSize="lg"
             sandpackExample={
               <SandpackExample
-                code={avatarExample}
-                name="Searchguide example with avatar."
+                code={thumbnail}
+                name="Searchguide example with Avatar, AvatarGroup, Icon, Image"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }

@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Box, Flex, Image, Popover, SearchGuide } from 'gestalt';
 
 export default function Example() {
@@ -8,15 +8,8 @@ export default function Example() {
   const [showOutfit, setShowOutfit] = useState(false);
 
   return (
-    <Fragment>
-      <Flex
-        alignItems="center"
-        direction="row"
-        gap={4}
-        height="100%"
-        justifyContent="center"
-        width="100%"
-      >
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Flex gap={2} width="100%" wrap>
         <SearchGuide
           accessibilityLabel="Design"
           color="01"
@@ -54,7 +47,6 @@ export default function Example() {
             ),
           }}
         />
-
         <SearchGuide
           ref={outfitRef}
           accessibilityControls="popover"
@@ -65,7 +57,7 @@ export default function Example() {
           expandable
           onClick={() => setShowOutfit((showing) => !showing)}
           selected={showOutfit}
-          text="Outfit"
+          text=""
           thumbnail={{
             image: (
               <Image
@@ -111,6 +103,6 @@ export default function Example() {
           </Box>
         </Popover>
       )}
-    </Fragment>
+    </Flex>
   );
 }

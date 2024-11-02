@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Box, Flex, Icon, Popover, SearchGuide } from 'gestalt';
 
 export default function Example() {
@@ -8,15 +8,8 @@ export default function Example() {
   const [showBoards, setshowBoards] = useState(false);
 
   return (
-    <Fragment>
-      <Flex
-        alignItems="center"
-        direction="row"
-        gap={4}
-        height="100%"
-        justifyContent="center"
-        width="100%"
-      >
+    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+      <Flex gap={2} width="100%" wrap>
         <SearchGuide
           accessibilityLabel="Search"
           color="02"
@@ -85,6 +78,6 @@ export default function Example() {
           </Box>
         </Popover>
       )}
-    </Fragment>
+    </Flex>
   );
 }
