@@ -6,7 +6,6 @@ import { ENTER, SPACE, TAB } from '../keyCodes';
 import Pog from '../Pog';
 import TapArea from '../TapArea';
 import Tooltip from '../Tooltip';
-import useInExperiment from '../useInExperiment';
 
 function MaybeTooltip({
   children,
@@ -50,10 +49,6 @@ export default function IconButtonEnd({
   tooltipText,
 }: Props) {
   const [focused, setFocused] = useState(false);
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
 
   return (
     // styles.actionButtonContainer is required for RTL positioning
@@ -80,7 +75,7 @@ export default function IconButtonEnd({
             onMouseLeave={() => setFocused(false)}
             onTap={onClick}
             role={role}
-            rounding={isInVRExperiment ? 1 : 'circle'}
+            rounding="circle"
             tabIndex={accessibilityHidden ? -1 : 0}
             tapStyle={tapStyle}
           >
@@ -90,7 +85,7 @@ export default function IconButtonEnd({
               icon={icon}
               iconColor="darkGray"
               padding={pogPadding}
-              size={isInVRExperiment ? 'sm' : 'xs'}
+              size="xs"
             />
           </TapArea>
         </MaybeTooltip>

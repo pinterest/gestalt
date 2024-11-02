@@ -1,8 +1,9 @@
 import { forwardRef, ReactElement, ReactNode, useEffect, useState } from 'react';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import TagArea from './TagArea/TagArea';
-import PasswordIconButton from './TextField/IconButtonEnd';
+import IconButtonEnd from './TextField/IconButtonEnd';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
+import VRIconButtonEnd from './TextField/VRIconButtonEnd';
 import VRInternalTextField from './TextField/VRInternalTextField';
 import useInExperiment from './useInExperiment';
 
@@ -168,27 +169,6 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useDefaultLabelContext('TextField');
 
-  const iconButton = isPasswordField ? (
-    <PasswordIconButton
-      accessibilityChecked={!isCurrentlyPasswordType}
-      accessibilityLabel={
-        isCurrentlyPasswordType
-          ? accessibilityShowPasswordLabel ?? ''
-          : accessibilityHidePasswordLabel ?? ''
-      }
-      icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
-      onClick={() => {
-        setType(isCurrentlyPasswordType ? 'text' : 'password');
-      }}
-      role="switch"
-      tooltipText={
-        isCurrentlyPasswordType
-          ? accessibilityShowPasswordLabel ?? ''
-          : accessibilityHidePasswordLabel ?? ''
-      }
-    />
-  ) : undefined;
-
   if (isInVRExperiment && !tags) {
     return (
       <VRInternalTextField
@@ -199,7 +179,29 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
         errorMessage={errorMessage}
         hasError={hasError}
         helperText={helperText}
-        iconButton={iconButton}
+        iconButton={
+          isPasswordField ? (
+            <VRIconButtonEnd
+              accessibilityChecked={!isCurrentlyPasswordType}
+              accessibilityLabel={
+                isCurrentlyPasswordType
+                  ? accessibilityShowPasswordLabel ?? ''
+                  : accessibilityHidePasswordLabel ?? ''
+              }
+              icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+              onClick={() => {
+                setType(isCurrentlyPasswordType ? 'text' : 'password');
+              }}
+              role="switch"
+              size={size}
+              tooltipText={
+                isCurrentlyPasswordType
+                  ? accessibilityShowPasswordLabel ?? ''
+                  : accessibilityHidePasswordLabel ?? ''
+              }
+            />
+          ) : undefined
+        }
         id={id}
         label={label}
         labelDisplay={labelDisplay}
@@ -257,7 +259,28 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
       errorMessage={errorMessage}
       hasError={hasError}
       helperText={helperText}
-      iconButton={iconButton}
+      iconButton={
+        isPasswordField ? (
+          <IconButtonEnd
+            accessibilityChecked={!isCurrentlyPasswordType}
+            accessibilityLabel={
+              isCurrentlyPasswordType
+                ? accessibilityShowPasswordLabel ?? ''
+                : accessibilityHidePasswordLabel ?? ''
+            }
+            icon={isCurrentlyPasswordType ? 'eye' : 'eye-hide'}
+            onClick={() => {
+              setType(isCurrentlyPasswordType ? 'text' : 'password');
+            }}
+            role="switch"
+            tooltipText={
+              isCurrentlyPasswordType
+                ? accessibilityShowPasswordLabel ?? ''
+                : accessibilityHidePasswordLabel ?? ''
+            }
+          />
+        ) : undefined
+      }
       id={id}
       label={label}
       labelDisplay={labelDisplay}

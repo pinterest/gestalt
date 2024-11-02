@@ -42,7 +42,7 @@
   border: 1px solid var(--sema-color-border-disabled);
 }
 
-/* input / label positioning */
+/* input / label / end icon positioning */
 
 .inputParent {
   isolation: isolate;
@@ -64,6 +64,15 @@
 
 .visuallyHidden {
   position: relative;
+}
+
+.endIconContainer {
+  align-items: center;
+  bottom: var(--sema-space-0);
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: var(--sema-space-0);
 }
 
 /* sm */
@@ -136,6 +145,16 @@ html:not([dir="rtl"]) .sm_labelPosition {
   );
 }
 
+/* sm icon end */
+
+html:not([dir="rtl"]) .sm_endIconContainer {
+  right: var(--sema-space-200);
+}
+
+html[dir="rtl"] .sm_endIconContainer {
+  left: var(--sema-space-200);
+}
+
 /* md */
 
 /* md input */
@@ -185,6 +204,16 @@ html[dir="rtl"] .md_inputEndButtonEndPadding {
 
 html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
   padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
+}
+
+/* md icon end */
+
+html:not([dir="rtl"]) .md_endIconContainer {
+  right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .md_endIconContainer {
+  left: var(--sema-space-300);
 }
 
 /* md label */
@@ -261,6 +290,16 @@ html[dir="rtl"] .lg_inputEndButtonEndPadding {
 
 html:not([dir="rtl"]) .lg_inputEndButtonEndPadding {
   padding-right: calc(var(--sema-space-300) + var(--sema-space-600));
+}
+
+/* lg icon end */
+
+html:not([dir="rtl"]) .lg_endIconContainer {
+  right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_endIconContainer {
+  left: var(--sema-space-300);
 }
 
 /* lg label */
