@@ -1,9 +1,4 @@
-.input {
-  box-sizing: border-box;
-  display: block;
-  position: relative;
-  width: 100%;
-}
+/* style */
 
 .enabledText {
   color: var(--sema-color-text-default);
@@ -47,19 +42,28 @@
   border: 1px solid var(--sema-color-border-disabled);
 }
 
+/* input / label positioning */
+
 .inputParent {
   isolation: isolate;
   position: relative;
 }
 
-.visuallyHidden {
+.input {
+  box-sizing: border-box;
+  display: block;
   position: relative;
+  width: 100%;
 }
 
 .label {
   padding: 0;
   position: absolute;
   z-index: 1;
+}
+
+.visuallyHidden {
+  position: relative;
 }
 
 /* sm */
