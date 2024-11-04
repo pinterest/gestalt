@@ -886,8 +886,7 @@
       "sema/text/language/default": "source",
       "sema/text/font": "source",
       "sema/text/typography": "source",
-      "sema/motion": "source",
-      "comp/badge/default": "source"
+      "sema/motion": "source"
     },
     "group": "Component"
   },
@@ -913,9 +912,7 @@
       "sema/text/language/default": "source",
       "sema/text/font": "source",
       "sema/text/typography": "source",
-      "sema/motion": "source",
-      "comp/badge/default": "enabled",
-      "comp/badge/web": "enabled"
+      "sema/motion": "source"
     },
     "group": "Component"
   },
@@ -941,10 +938,7 @@
       "sema/text/language/default": "source",
       "sema/text/font": "source",
       "sema/text/typography": "source",
-      "sema/motion": "source",
-      "comp/badge/default": "enabled",
-      "comp/badge/mobile": "enabled",
-      "comp/badge/ios": "enabled"
+      "sema/motion": "source"
     },
     "group": "Component"
   },
@@ -970,10 +964,7 @@
       "sema/text/language/default": "source",
       "sema/text/font": "source",
       "sema/text/typography": "source",
-      "sema/motion": "source",
-      "comp/badge/default": "enabled",
-      "comp/badge/mobile": "enabled",
-      "comp/badge/android": "enabled"
+      "sema/motion": "source"
     },
     "group": "Component"
   }
