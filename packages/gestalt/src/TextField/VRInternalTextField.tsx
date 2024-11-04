@@ -153,17 +153,16 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         {label && (
           <label
             className={classnames(styles.label, {
-              // sm
-              [styles.sm_label]: isSM,
-              [styles.sm_labelPos]: isSM,
-              // md
-              [styles.md_label]: isMD,
-              [styles.md_labelPos]: isMD,
-              // lg
-              [styles.lg_label]: isLG,
-              [styles.lg_labelPos]: isLG,
-
               [boxStyles.visuallyHidden]: !isLabelVisible,
+              // sm
+              [styles.sm_labelTopPosition]: isSM,
+              [styles.sm_labelPosition]: isSM,
+              // md
+              [styles.md_labelTopPosition]: isMD,
+              [styles.md_labelPosition]: isMD,
+              // lg
+              [styles.lg_labelTopPosition]: isLG,
+              [styles.lg_labelPosition]: isLG,
             })}
             htmlFor={id}
           >
@@ -195,22 +194,28 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
             [styles.disabledBorder]: disabled,
             // sm
             [styles.sm_input]: isSM,
-            [styles.sm_inputHorizontalPadding]: isSM,
-            [styles.sm_visibleLabel]: isSM && label && isLabelVisible,
-            [styles.sm_noLabel]: isSM && (!label || (label && !isLabelVisible)),
-            [styles.sm_actionButton]: isSM && iconButton,
+            [styles.sm_inputPadding]: isSM,
+            [styles.sm_inputLabelPadding]: isSM && label && isLabelVisible,
+            [styles.sm_inputNoLabelPadding]: isSM && (!label || (label && !isLabelVisible)),
+            [styles.sm_inputStartPadding]: isSM,
+            [styles.sm_inputEndButtonEndPadding]: isSM && iconButton,
+            [styles.sm_inputNoEndButtonEndPadding]: isSM && !iconButton,
             // md
             [styles.md_input]: isMD,
-            [styles.md_inputHorizontalPadding]: isMD,
-            [styles.md_visibleLabel]: isMD && label && isLabelVisible,
-            [styles.md_noLabel]: isMD && (!label || (label && !isLabelVisible)),
-            [styles.md_actionButton]: isMD && iconButton,
+            [styles.md_inputPadding]: isMD,
+            [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
+            [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
+            [styles.md_inputStartPadding]: isMD,
+            [styles.md_inputEndButtonEndPadding]: isMD && iconButton,
+            [styles.sm_inputNoEndButtonEndPadding]: isMD && !iconButton,
             // lg
             [styles.lg_input]: isLG,
-            [styles.lg_inputHorizontalPadding]: isLG,
-            [styles.lg_visibleLabel]: isLG && label && isLabelVisible,
-            [styles.lg_noLabel]: isLG && (!label || (label && !isLabelVisible)),
-            [styles.lg_actionButton]: isLG && iconButton,
+            [styles.lg_inputPadding]: isLG,
+            [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
+            [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
+            [styles.lg_inputStartPadding]: isLG,
+            [styles.lg_inputEndButtonEndPadding]: isLG && iconButton,
+            [styles.lg_inputNoEndButtonEndPadding]: isLG && !iconButton,
           })}
           data-test-id={dataTestId}
           disabled={disabled}
