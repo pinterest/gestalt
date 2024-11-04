@@ -45,7 +45,7 @@ exports[`VideoPlayhead 1`] = `
         }
       />
       <div
-        className="box circle light marginStartN2"
+        className="box circle light marginStartN200"
         style={
           Object {
             "height": 16,

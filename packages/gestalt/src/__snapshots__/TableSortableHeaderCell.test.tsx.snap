@@ -43,7 +43,7 @@ exports[`renders correctly when active 1`] = `
       >
         column name
         <div
-          className="box marginStart2"
+          className="box marginStart200"
           style={
             Object {
               "visibility": "visible",
@@ -113,7 +113,7 @@ exports[`renders correctly when inactive 1`] = `
       >
         column name
         <div
-          className="box marginStart2"
+          className="box marginStart200"
           style={
             Object {
               "visibility": "hidden",
@@ -182,7 +182,7 @@ exports[`sortable cell has end align 1`] = `
         className="box justifyEnd xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box marginEnd2"
+          className="box marginEnd200"
           style={
             Object {
               "visibility": "visible",

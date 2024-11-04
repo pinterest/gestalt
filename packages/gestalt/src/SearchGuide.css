@@ -3,21 +3,17 @@
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
   composes: large from "./Layout.css";
-  composes: paddingX1 from "./boxWhitespace.css";
+  composes: paddingX100 from "./boxWhitespace.css";
   border-radius: var(--rounding-600);
-  display: inherit;
-}
-
-a.searchguide,
-a.searchguideVr {
-  padding-bottom: var(--g-border-width-lg);
-  padding-top: var(--g-border-width-lg);
+  display: flex;
 }
 
 .searchguideVr {
   background: transparent;
   border-color: transparent;
   border-radius: calc(var(--rounding-400) + var(--g-border-width-lg));
+  border-style: solid;
+  border-width: 2px;
   box-sizing: border-box;
   display: inherit;
   padding: var(--space-0) var(--space-0);
@@ -39,6 +35,7 @@ a.searchguideVr {
 }
 
 .imageDiv {
+  background-color: var(--opacity-100);
   border-radius: 99px;
   height: 40px;
   overflow: hidden;
@@ -46,13 +43,22 @@ a.searchguideVr {
 }
 
 .imageDivVr {
-  border-end-start-radius: calc(var(--rounding-400) - var(--g-border-width-lg));
-  border-start-start-radius: calc(
-    var(--rounding-400) - var(--g-border-width-lg)
-  );
+  border-end-start-radius: calc(var(--rounding-400));
+  border-start-start-radius: calc(var(--rounding-400));
   height: 44px;
   overflow: hidden;
+  position: relative;
   width: 44px;
+}
+
+.imageDivVr::before {
+  background-color: var(--sema-color-background-wash-image-tint);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }
 
 /* STATES */

@@ -1,3 +1,189 @@
+## 163.9.2 (Nov 2, 2024)
+
+### Patch
+
+- SearchGuide, SearchGuideLink: docs ([#3844](https://github.com/pinterest/gestalt/pull/3844)) - [Preview link](https://deploy-preview-3844--gestalt.netlify.app?devexample=true)
+
+## 163.9.1 (Nov 1, 2024)
+
+### Patch
+
+- Icon: Update android dist files ([#3838](https://github.com/pinterest/gestalt/pull/3838)) - [Preview link](https://deploy-preview-3838--gestalt.netlify.app?devexample=true)
+
+## 163.9.0 (Nov 1, 2024)
+
+### Minor
+
+- SearchGuideLink: Style discrepancy fixes ([#3830](https://github.com/pinterest/gestalt/pull/3830)) - [Preview link](https://deploy-preview-3830--gestalt.netlify.app?devexample=true)
+
+## 163.8.6 (Nov 1, 2024)
+
+### Patch
+
+- DatePicker: VR fixes ([#3842](https://github.com/pinterest/gestalt/pull/3842)) - [Preview link](https://deploy-preview-3842--gestalt.netlify.app?devexample=true)
+
+## 163.8.5 (Nov 1, 2024)
+
+### Patch
+
+- Tabs: fixes VR ([#3843](https://github.com/pinterest/gestalt/pull/3843)) - [Preview link](https://deploy-preview-3843--gestalt.netlify.app?devexample=true)
+
+## 163.8.4 (Oct 31, 2024)
+
+### Patch
+
+- SelectList, DatePicker, DateField: fix min heights in VR ([#3841](https://github.com/pinterest/gestalt/pull/3841)) - [Preview link](https://deploy-preview-3841--gestalt.netlify.app?devexample=true)
+
+## 163.8.3 (Oct 31, 2024)
+
+### Patch
+
+- Button: VR Certification Fixes ([#3802](https://github.com/pinterest/gestalt/pull/3802)) - [Preview link](https://deploy-preview-3802--gestalt.netlify.app?devexample=true)
+
+## 163.8.2 (Oct 31, 2024)
+
+### Patch
+
+- DatePicker: VR fixes ([#3837](https://github.com/pinterest/gestalt/pull/3837)) - [Preview link](https://deploy-preview-3837--gestalt.netlify.app?devexample=true)
+
+## 163.8.1 (Oct 30, 2024)
+
+### Patch
+
+- DateField: VR fixes ([#3839](https://github.com/pinterest/gestalt/pull/3839)) - [Preview link](https://deploy-preview-3839--gestalt.netlify.app?devexample=true)
+
+## 163.8.0 (Oct 30, 2024)
+
+### Minor
+
+- ButtonGroup: VR Implementation ([#3840](https://github.com/pinterest/gestalt/pull/3840)) - [Preview link](https://deploy-preview-3840--gestalt.netlify.app?devexample=true)
+
+## 163.7.0 (Oct 29, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8491] ([#3836](https://github.com/pinterest/gestalt/pull/3836)) - [Preview link](https://deploy-preview-3836--gestalt.netlify.app?devexample=true)
+
+## 163.6.9 (Oct 29, 2024)
+
+### Patch
+
+- ComboBox: completed examples for testing ([#3835](https://github.com/pinterest/gestalt/pull/3835)) - [Preview link](https://deploy-preview-3835--gestalt.netlify.app?devexample=true)
+
+## 163.6.8 (Oct 29, 2024)
+
+### Patch
+
+- SearchField: fix VR issues ([#3834](https://github.com/pinterest/gestalt/pull/3834)) - [Preview link](https://deploy-preview-3834--gestalt.netlify.app?devexample=true)
+
+## 163.6.7 (Oct 29, 2024)
+
+### Patch
+
+- SelectList: fixes VR ([#3833](https://github.com/pinterest/gestalt/pull/3833)) - [Preview link](https://deploy-preview-3833--gestalt.netlify.app?devexample=true)
+
+## 163.6.6 (Oct 29, 2024)
+
+### Patch
+
+- TextArea: fixes VR ([#3832](https://github.com/pinterest/gestalt/pull/3832)) - [Preview link](https://deploy-preview-3832--gestalt.netlify.app?devexample=true)
+
+## 163.6.5 (Oct 25, 2024)
+
+### Patch
+
+- TextField: TextField VR adjusments ([#3829](https://github.com/pinterest/gestalt/pull/3829)) - [Preview link](https://deploy-preview-3829--gestalt.netlify.app?devexample=true)
+
+## 163.6.4 (Oct 25, 2024)
+
+### Patch
+
+- Link: fix link token for Link ([#3831](https://github.com/pinterest/gestalt/pull/3831)) - [Preview link](https://deploy-preview-3831--gestalt.netlify.app?devexample=true)
+
+## 163.6.3 (Oct 25, 2024)
+
+### Patch
+
+- Box: fix rounding bug introduced in #3822 ([#3828](https://github.com/pinterest/gestalt/pull/3828)) - [Preview link](https://deploy-preview-3828--gestalt.netlify.app?devexample=true)
+
+## 163.6.2 (Oct 24, 2024)
+
+### Patch
+
+- Link: fix aria-selected values for accessibility ([#3826](https://github.com/pinterest/gestalt/pull/3826)) - [Preview link](https://deploy-preview-3826--gestalt.netlify.app?devexample=true)
+
+## 163.6.1 (Oct 24, 2024)
+
+### Patch
+
+- Icon: VR error color fix ([#3824](https://github.com/pinterest/gestalt/pull/3824)) - [Preview link](https://deploy-preview-3824--gestalt.netlify.app?devexample=true)
+
+## 163.6.0 (Oct 24, 2024)
+
+### Minor
+
+- Box, Flex: extended margin/padding range with 0.25, 0.5 and 1.5 ([#3822](https://github.com/pinterest/gestalt/pull/3822)) - [Preview link](https://deploy-preview-3822--gestalt.netlify.app?devexample=true)
+
+## 163.5.2 (Oct 24, 2024)
+
+### Patch
+
+- Masonry: Enable whitespaceThreshold prop ([#3825](https://github.com/pinterest/gestalt/pull/3825)) - [Preview link](https://deploy-preview-3825--gestalt.netlify.app?devexample=true)
+
+## 163.5.1 (Oct 24, 2024)
+
+### Patch
+
+- Docs: updated TextUI TextCompact descriptions ([#3823](https://github.com/pinterest/gestalt/pull/3823)) - [Preview link](https://deploy-preview-3823--gestalt.netlify.app?devexample=true)
+
+## 163.5.0 (Oct 24, 2024)
+
+### Minor
+
+- Masonry: Add support for loading states to v2 ([#3821](https://github.com/pinterest/gestalt/pull/3821)) - [Preview link](https://deploy-preview-3821--gestalt.netlify.app?devexample=true)
+
+## 163.4.1 (Oct 23, 2024)
+
+### Patch
+
+- PopoverEducational: fix to color text ([#3820](https://github.com/pinterest/gestalt/pull/3820)) - [Preview link](https://deploy-preview-3820--gestalt.netlify.app?devexample=true)
+
+## 163.4.0 (Oct 23, 2024)
+
+### Minor
+
+- Masonry: Log number of iterations it takes to find optimal whitespace ([#3817](https://github.com/pinterest/gestalt/pull/3817)) - [Preview link](https://deploy-preview-3817--gestalt.netlify.app?devexample=true)
+
+## 163.3.1 (Oct 23, 2024)
+
+### Patch
+
+- Docs: Card.iOS renamed to Module and Figma embeds relinked. ([#3819](https://github.com/pinterest/gestalt/pull/3819)) - [Preview link](https://deploy-preview-3819--gestalt.netlify.app?devexample=true)
+
+## 163.3.0 (Oct 23, 2024)
+
+### Minor
+
+- PopoverEducational: Add Experimental Prop for Notification (background color change) ([#3818](https://github.com/pinterest/gestalt/pull/3818)) - [Preview link](https://deploy-preview-3818--gestalt.netlify.app?devexample=true)
+
+## 163.2.0 (Oct 23, 2024)
+
+### Minor
+
+- DateRange: make onCancel and onSubmit events optional (web) ([#3812](https://github.com/pinterest/gestalt/pull/3812)) - [Preview link](https://deploy-preview-3812--gestalt.netlify.app?devexample=true)
+
+## 163.1.0 (Oct 22, 2024)
+
+### Minor
+
+- Icon: Add Compact Icons ([#3771](https://github.com/pinterest/gestalt/pull/3771)) - [Preview link](https://deploy-preview-3771--gestalt.netlify.app?devexample=true)
+
+## 163.0.0 (Oct 21, 2024)
+
+### Major
+
+- Icon: Update Icons [GESTALT-8450] ([#3808](https://github.com/pinterest/gestalt/pull/3808)) - [Preview link](https://deploy-preview-3808--gestalt.netlify.app?devexample=true)
+
 ## 162.7.1 (Oct 21, 2024)
 
 ### Patch

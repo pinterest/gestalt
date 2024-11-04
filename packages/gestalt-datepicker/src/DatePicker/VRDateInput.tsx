@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 import classnames from 'classnames';
-import { Box, Icon, TapArea, TextUI, useDefaultLabel } from 'gestalt';
+import { Icon, TapArea, TextUI, useDefaultLabel } from 'gestalt';
 import styles from './VRDateInput.css';
 import ErrorMessage from '../subcomponents/ErrorMessage';
 import HelperText from '../subcomponents/HelperText';
@@ -31,6 +31,7 @@ type Props = {
   placeholder?: string;
   readOnly?: boolean;
   value?: string;
+  size?: 'md' | 'lg';
 };
 
 const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
@@ -51,6 +52,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     onKeyDown,
     placeholder,
     readOnly,
+    size = 'lg',
     value,
   }: Props,
   ref,
@@ -106,13 +108,20 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     };
   }, [label, checkEllipsisActive]);
 
+  const isMd = size === 'md';
+  const isLg = size === 'lg';
+
   return (
     <div>
       <div className={classnames(styles.inputParent)}>
         {label && (
           <label
-            className={classnames(styles.label, styles.lg_label, styles.lg_labelPos, {
+            className={classnames(styles.label, {
               [styles.visuallyHidden]: !isLabelVisible,
+              // md
+              [styles.md_label]: isMd,
+              // lg
+              [styles.lg_label]: isLg,
             })}
             htmlFor={id}
           >
@@ -133,23 +142,25 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage ? 'true' : 'false'}
           autoComplete="off"
-          className={classnames(
-            styles.input,
-            styles.lg_input,
-            styles.lg_inputHorizontalPadding,
-            styles.lg_actionButton,
-            {
-              [styles.enabled]: !disabled,
-              [styles.enabledText]: !disabled,
-              [styles.enabledBorder]: !disabled && !hasErrorMessage,
-              [styles.errorBorder]: !disabled && hasErrorMessage,
-              [styles.disabled]: disabled,
-              [styles.disabledText]: disabled,
-              [styles.disabledBorder]: disabled,
-              [styles.lg_visibleLabel]: label && isLabelVisible,
-              [styles.lg_noLabel]: !label || (label && !isLabelVisible),
-            },
-          )}
+          className={classnames(styles.input, {
+            [styles.enabled]: !disabled,
+            [styles.enabledText]: !disabled,
+            [styles.enabledBorder]: !disabled && !hasErrorMessage,
+            [styles.errorBorder]: !disabled && hasErrorMessage,
+            [styles.disabled]: disabled,
+            [styles.disabledText]: disabled,
+            [styles.disabledBorder]: disabled,
+            // md
+            [styles.md_input]: isMd,
+            [styles.md_inputHorizontalPadding]: isMd,
+            [styles.md_inputLabelPadding]: isMd && label && isLabelVisible,
+            [styles.md_inputNoLabelPadding]: isMd && (!label || (label && !isLabelVisible)),
+            // lg
+            [styles.lg_input]: isLg,
+            [styles.lg_inputHorizontalPadding]: isLg,
+            [styles.lg_inputLabelPadding]: isLg && label && isLabelVisible,
+            [styles.lg_inputNoLabelPadding]: isLg && (!label || (label && !isLabelVisible)),
+          })}
           data-test-id={dataTestId}
           disabled={disabled}
           id={id}
@@ -174,41 +185,38 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         />
 
         {!disabled && (
-          <div className={classnames(styles.vr_lg_actionButtonContainer)}>
-            <Box
-              alignItems="center"
-              aria-hidden
-              display="flex"
-              height="100%"
-              marginEnd={3}
+          <div
+            aria-hidden
+            className={classnames(styles.calendarButtonContainer, {
+              [styles.md_calendarButtonContainer]: isMd,
+              [styles.lg_calendarButtonContainer]: isLg,
+            })}
+          >
+            <TapArea
+              fullHeight={false}
+              fullWidth={false}
+              mouseCursor="default"
+              onTap={() => {
+                innerRef.current?.focus();
+              }}
               rounding="circle"
+              tabIndex={-1}
+              tapStyle="none"
             >
-              <TapArea
-                fullHeight={false}
-                fullWidth={false}
-                mouseCursor="default"
-                onTap={() => {
-                  innerRef.current?.focus();
-                }}
-                rounding="circle"
-                tabIndex={-1}
-                tapStyle="none"
-              >
-                <Icon
-                  accessibilityLabel={openCalendar}
-                  color={disabled ? 'disabled' : 'default'}
-                  icon="calendar"
-                />
-              </TapArea>
-            </Box>
+              <Icon
+                accessibilityLabel={openCalendar}
+                color={disabled ? 'disabled' : 'default'}
+                icon="calendar"
+              />
+            </TapArea>
           </div>
         )}
       </div>
       {helperText && !hasErrorMessage ? (
-        <HelperText disabled={disabled} id={`${id}-helperText`} size="lg" text={helperText} />
+        <HelperText disabled={disabled} id={`${id}-helperText`} size={size} text={helperText} />
       ) : null}
       {!disabled && hasErrorMessage ? (
-        <ErrorMessage id={`${id}-error`} size="lg" text={errorMessage} />
+        <ErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
     </div>
   );

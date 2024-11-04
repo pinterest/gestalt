@@ -3,20 +3,31 @@ import { Box, Flex } from 'gestalt';
 import { DatePicker } from 'gestalt-datepicker';
 
 export default function Example() {
-  const [dateValue, setDateValue] = useState<Date | null>(null);
+  const [dateValueMd, setDateValueMd] = useState<Date | null>(null);
+  const [dateValueLg, setDateValueLg] = useState<Date | null>(null);
 
   return (
-    <Flex alignItems="start" height="100%" justifyContent="center" width="100%">
-      <Box padding={2}>
+    <Box padding={8} width="100%">
+      <Flex direction="column" gap={4}>
         <DatePicker
           helperText="Select from the next available dateValueDisablePast"
           id="heleprText"
           label="Customer service appointment"
           minDate={new Date()}
-          onChange={({ value }) => setDateValue(value)}
-          value={dateValue}
+          onChange={({ value }) => setDateValueMd(value)}
+          size="md"
+          value={dateValueMd}
         />
-      </Box>
-    </Flex>
+        <DatePicker
+          helperText="Select from the next available dateValueDisablePast"
+          id="heleprText"
+          label="Customer service appointment"
+          minDate={new Date()}
+          onChange={({ value }) => setDateValueLg(value)}
+          size="lg"
+          value={dateValueLg}
+        />
+      </Flex>
+    </Box>
   );
 }

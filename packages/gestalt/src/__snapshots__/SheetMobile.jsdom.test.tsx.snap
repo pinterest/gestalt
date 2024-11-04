@@ -33,13 +33,13 @@ exports[`SheetMobile renders correctly auto size 1`] = `
         }
       >
         <div
-          className="box fit paddingX4 paddingY4 relative"
+          className="box fit paddingX400 paddingY400 relative"
         >
           <div
             className="Flex rowGap0 columnGap0 justifyCenter xsDirectionRow"
           >
             <div
-              className="box marginBottom2"
+              className="box marginBottom200"
             >
               <div
                 aria-disabled={false}
@@ -74,7 +74,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
             </div>
           </div>
           <div
-            className="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap400 columnGap400 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem flexNone"
@@ -152,7 +152,7 @@ exports[`SheetMobile renders correctly auto size 1`] = `
           </div>
         </div>
         <div
-          className="box flexGrow overflowAuto paddingX4 paddingY2"
+          className="box flexGrow overflowAuto paddingX400 paddingY200"
           onScroll={[Function]}
         />
       </div>
@@ -194,13 +194,13 @@ exports[`SheetMobile renders correctly default size 1`] = `
         }
       >
         <div
-          className="box fit paddingX4 paddingY4 relative"
+          className="box fit paddingX400 paddingY400 relative"
         >
           <div
             className="Flex rowGap0 columnGap0 justifyCenter xsDirectionRow"
           >
             <div
-              className="box marginBottom2"
+              className="box marginBottom200"
             >
               <div
                 aria-disabled={false}
@@ -235,7 +235,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
             </div>
           </div>
           <div
-            className="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap400 columnGap400 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem flexNone"
@@ -313,7 +313,7 @@ exports[`SheetMobile renders correctly default size 1`] = `
           </div>
         </div>
         <div
-          className="box flexGrow overflowAuto paddingX4 paddingY2"
+          className="box flexGrow overflowAuto paddingX400 paddingY200"
           onScroll={[Function]}
         />
       </div>
@@ -354,10 +354,10 @@ exports[`SheetMobile renders correctly full size 1`] = `
         }
       >
         <div
-          className="box fit paddingX4 paddingY4 relative"
+          className="box fit paddingX400 paddingY400 relative"
         >
           <div
-            className="Flex rowGap4 columnGap4 justifyCenter xsDirectionRow xsItemsCenter"
+            className="Flex rowGap400 columnGap400 justifyCenter xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem flexNone"
@@ -435,7 +435,7 @@ exports[`SheetMobile renders correctly full size 1`] = `
           </div>
         </div>
         <div
-          className="box flexGrow overflowAuto paddingX4 paddingY2"
+          className="box flexGrow overflowAuto paddingX400 paddingY200"
           onScroll={[Function]}
         />
       </div>

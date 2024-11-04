@@ -38,7 +38,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -47,13 +47,13 @@ exports[`SideNavigation renders Header + Footer 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
             >
               <div
-                className="Flex rowGap0 columnGap4 xsDirectionColumn"
+                className="Flex rowGap0 columnGap400 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
@@ -115,7 +115,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -128,7 +128,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
@@ -154,7 +154,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
               className="FlexItem"
             >
               <div
-                className="Flex rowGap0 columnGap4 xsDirectionColumn"
+                className="Flex rowGap0 columnGap400 xsDirectionColumn"
               >
                 <div
                   className="FlexItem"
@@ -233,7 +233,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -242,7 +242,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -254,7 +254,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                   className="liItem section"
                 >
                   <div
-                    className="box marginBottom2 paddingX4"
+                    className="box marginBottom200 paddingX400"
                     role="presentation"
                   >
                     <div
@@ -295,7 +295,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -308,7 +308,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -345,7 +345,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               >
                                 test
                                 <div
-                                  className="box marginStart1 xsDisplayInlineBlock"
+                                  className="box marginStart100 xsDisplayInlineBlock"
                                   style={
                                     Object {
                                       "height": "100%",
@@ -361,7 +361,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                     className="badge info middle"
                                   >
                                     <div
-                                      className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                                     >
                                       <div
                                         className="FlexItem"
@@ -428,7 +428,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -441,7 +441,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -478,7 +478,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               >
                                 test
                                 <div
-                                  className="box marginStart1 xsDisplayInlineBlock"
+                                  className="box marginStart100 xsDisplayInlineBlock"
                                   style={
                                     Object {
                                       "height": "100%",
@@ -577,7 +577,7 @@ exports[`SideNavigation renders Sections 1`] = `
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -586,7 +586,7 @@ exports[`SideNavigation renders Sections 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -598,7 +598,7 @@ exports[`SideNavigation renders Sections 1`] = `
                   className="liItem section"
                 >
                   <div
-                    className="box marginBottom2 paddingX4"
+                    className="box marginBottom200 paddingX400"
                     role="presentation"
                   >
                     <div
@@ -639,7 +639,7 @@ exports[`SideNavigation renders Sections 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -652,7 +652,7 @@ exports[`SideNavigation renders Sections 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -722,7 +722,7 @@ exports[`SideNavigation renders basic Item 1`] = `
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -731,7 +731,7 @@ exports[`SideNavigation renders basic Item 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -762,7 +762,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -775,7 +775,7 @@ exports[`SideNavigation renders basic Item 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
@@ -843,7 +843,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -852,7 +852,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -883,7 +883,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -896,7 +896,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
@@ -961,7 +961,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -974,7 +974,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
@@ -1020,7 +1020,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                   className="liItem section"
                 >
                   <div
-                    className="box marginBottom2 paddingX4"
+                    className="box marginBottom200 paddingX400"
                     role="presentation"
                   >
                     <div
@@ -1061,7 +1061,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1074,7 +1074,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -1141,7 +1141,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1154,7 +1154,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -1196,7 +1196,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexNone"
                             >
                               <div
-                                className="box circle marginEndN2"
+                                className="box circle marginEndN200"
                                 style={
                                   Object {
                                     "width": 24,
@@ -1205,7 +1205,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               >
                                 <div
                                   aria-hidden={true}
-                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  className="box circle justifyCenter marginEndN200 xsDisplayFlex xsItemsCenter"
                                   style={
                                     Object {
                                       "height": 24,
@@ -1259,7 +1259,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1272,7 +1272,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -1314,7 +1314,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               className="FlexItem flexNone"
                             >
                               <div
-                                className="box circle marginEndN2"
+                                className="box circle marginEndN200"
                                 style={
                                   Object {
                                     "width": 24,
@@ -1323,7 +1323,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               >
                                 <div
                                   aria-hidden={true}
-                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  className="box circle justifyCenter marginEndN200 xsDisplayFlex xsItemsCenter"
                                   style={
                                     Object {
                                       "height": 24,
@@ -1402,7 +1402,7 @@ exports[`SideNavigation renders expanded group 1`] = `
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -1411,7 +1411,7 @@ exports[`SideNavigation renders expanded group 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -1444,7 +1444,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                     tabIndex={0}
                   >
                     <div
-                      className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                       style={
                         Object {
                           "height": undefined,
@@ -1457,7 +1457,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                       }
                     >
                       <div
-                        className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                         style={
                           Object {
                             "height": "100%",
@@ -1499,7 +1499,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           className="FlexItem flexNone"
                         >
                           <div
-                            className="box circle marginEndN2"
+                            className="box circle marginEndN200"
                             style={
                               Object {
                                 "width": 24,
@@ -1508,7 +1508,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           >
                             <div
                               aria-hidden={true}
-                              className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                              className="box circle justifyCenter marginEndN200 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": 24,
@@ -1563,7 +1563,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1576,7 +1576,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -1621,7 +1621,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1634,7 +1634,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -1654,7 +1654,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               className="FlexItem flexNone"
                             >
                               <div
-                                className="box circle marginEndN2"
+                                className="box circle marginEndN200"
                                 style={
                                   Object {
                                     "width": 24,
@@ -1663,7 +1663,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               >
                                 <div
                                   aria-hidden={true}
-                                  className="box circle justifyCenter marginEndN2 xsDisplayFlex xsItemsCenter"
+                                  className="box circle justifyCenter marginEndN200 xsDisplayFlex xsItemsCenter"
                                   style={
                                     Object {
                                       "height": 24,
@@ -1718,7 +1718,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -1731,7 +1731,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               }
                             >
                               <div
-                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                                 style={
                                   Object {
                                     "height": "100%",
@@ -1774,7 +1774,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -1787,7 +1787,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                               }
                             >
                               <div
-                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                                 style={
                                   Object {
                                     "height": "100%",
@@ -1859,7 +1859,7 @@ exports[`SideNavigation renders static group 1`] = `
         }
       >
         <div
-          className="box paddingX2 paddingY2"
+          className="box paddingX200 paddingY200"
           style={
             Object {
               "paddingBottom": 24,
@@ -1868,7 +1868,7 @@ exports[`SideNavigation renders static group 1`] = `
           }
         >
           <div
-            className="Flex rowGap0 columnGap4 xsDirectionColumn"
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
           >
             <div
               className="FlexItem"
@@ -1880,7 +1880,7 @@ exports[`SideNavigation renders static group 1`] = `
                   className="liItem"
                 >
                   <div
-                    className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                    className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                     style={
                       Object {
                         "height": undefined,
@@ -1893,7 +1893,7 @@ exports[`SideNavigation renders static group 1`] = `
                     }
                   >
                     <div
-                      className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                      className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                       style={
                         Object {
                           "height": "100%",
@@ -1960,7 +1960,7 @@ exports[`SideNavigation renders static group 1`] = `
                         tabIndex={0}
                       >
                         <div
-                          className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                          className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                           style={
                             Object {
                               "height": undefined,
@@ -1973,7 +1973,7 @@ exports[`SideNavigation renders static group 1`] = `
                           }
                         >
                           <div
-                            className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                            className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                             style={
                               Object {
                                 "height": "100%",
@@ -1997,7 +1997,7 @@ exports[`SideNavigation renders static group 1`] = `
                       className="liItem"
                     >
                       <div
-                        className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                        className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                         style={
                           Object {
                             "height": undefined,
@@ -2010,7 +2010,7 @@ exports[`SideNavigation renders static group 1`] = `
                         }
                       >
                         <div
-                          className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                          className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                           style={
                             Object {
                               "height": "100%",
@@ -2055,7 +2055,7 @@ exports[`SideNavigation renders static group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -2068,7 +2068,7 @@ exports[`SideNavigation renders static group 1`] = `
                               }
                             >
                               <div
-                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                                 style={
                                   Object {
                                     "height": "100%",
@@ -2111,7 +2111,7 @@ exports[`SideNavigation renders static group 1`] = `
                             tabIndex={0}
                           >
                             <div
-                              className="box paddingXundefined paddingY2 paddingYundefined relative rounding2 xsDisplayFlex xsItemsCenter"
+                              className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
                               style={
                                 Object {
                                   "height": undefined,
@@ -2124,7 +2124,7 @@ exports[`SideNavigation renders static group 1`] = `
                               }
                             >
                               <div
-                                className="Flex rowGap2 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                                className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
                                 style={
                                   Object {
                                     "height": "100%",

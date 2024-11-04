@@ -25,20 +25,20 @@
 
 .sm {
   composes: small from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
-  composes: paddingY1 from "./boxWhitespace.css";
+  composes: paddingX300 from "./boxWhitespace.css";
+  composes: paddingY100 from "./boxWhitespace.css";
 }
 
 .md {
   composes: medium from "./Layout.css";
-  composes: paddingX3 from "./boxWhitespace.css";
-  composes: paddingY2 from "./boxWhitespace.css";
+  composes: paddingX300 from "./boxWhitespace.css";
+  composes: paddingY200 from "./boxWhitespace.css";
 }
 
 .lg {
   composes: large from "./Layout.css";
-  composes: paddingX4 from "./boxWhitespace.css";
-  composes: paddingY3 from "./boxWhitespace.css";
+  composes: paddingX400 from "./boxWhitespace.css";
+  composes: paddingY300 from "./boxWhitespace.css";
 }
 
 .smVr {
@@ -51,6 +51,16 @@
   border-radius: var(--rounding-300);
   min-height: 36px;
   padding: var(--sema-space-150) var(--sema-space-300);
+}
+
+a.smVr:focus {
+  padding: var(--sema-space-100)
+    calc(var(--sema-space-200) + var(--g-border-width-lg));
+}
+
+a.lgVr:focus {
+  padding: var(--sema-space-150)
+    calc(var(--sema-space-300) + var(--g-border-width-lg));
 }
 
 .lgVr {
@@ -85,8 +95,8 @@
 }
 
 .vrFocused:focus {
-  border: 2px solid;
-  outline: 2px solid;
+  border: var(--g-border-width-lg) solid;
+  outline: var(--g-border-width-lg) solid;
   outline-offset: 0;
 }
 

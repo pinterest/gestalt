@@ -126,7 +126,7 @@ exports[`TextField TextField with error 1`] = `
           role="alert"
         >
           <div
-            className="Flex rowGap2 columnGap2 xsDirectionRow xsItemsCenter"
+            className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
           >
             <div
               className="FlexItem"
@@ -210,7 +210,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
     id="test-helperText"
   >
     <div
-      className="Flex rowGap4 columnGap4 xsDirectionRow"
+      className="Flex rowGap400 columnGap400 xsDirectionRow"
     >
       <div
         className="FlexItem flexGrow"
@@ -233,7 +233,7 @@ exports[`TextField TextField with maxLength character counter 1`] = `
           </div>
         </div>
         <div
-          className="Flex rowGap1 columnGap1 justifyCenter xsDirectionRow"
+          className="Flex rowGap100 columnGap100 justifyCenter xsDirectionRow"
         >
           <div
             className="FlexItem"
@@ -331,7 +331,7 @@ exports[`TextField TextField with tags 1`] = `
       className="textField base enabled normal md medium md textFieldWrapper"
     >
       <div
-        className="box marginEnd1"
+        className="box marginEnd100"
         style={
           Object {
             "marginBottom": "2px",
@@ -340,7 +340,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+          className="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 24,
@@ -349,7 +349,7 @@ exports[`TextField TextField with tags 1`] = `
           }
         >
           <div
-            className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd500 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -404,7 +404,7 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box marginEnd1"
+        className="box marginEnd100"
         style={
           Object {
             "marginBottom": "2px",
@@ -413,7 +413,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+          className="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 24,
@@ -422,7 +422,7 @@ exports[`TextField TextField with tags 1`] = `
           }
         >
           <div
-            className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd500 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -477,7 +477,7 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box marginEnd1"
+        className="box marginEnd100"
         style={
           Object {
             "marginBottom": "2px",
@@ -486,7 +486,7 @@ exports[`TextField TextField with tags 1`] = `
       >
         <div
           aria-disabled={false}
-          className="box paddingX1 paddingYundefined relative rounding1 secondary xsDisplayInlineBlock"
+          className="box paddingX100 paddingYNaN relative rounding1 secondary xsDisplayInlineBlock"
           style={
             Object {
               "height": 24,
@@ -495,7 +495,7 @@ exports[`TextField TextField with tags 1`] = `
           }
         >
           <div
-            className="box marginEnd5 xsDisplayFlex xsItemsCenter"
+            className="box marginEnd500 xsDisplayFlex xsItemsCenter"
             style={
               Object {
                 "height": "100%",
@@ -550,7 +550,7 @@ exports[`TextField TextField with tags 1`] = `
         </div>
       </div>
       <div
-        className="box flexGrow marginEnd2 relative"
+        className="box flexGrow marginEnd200 relative"
         style={
           Object {
             "maxWidth": "100%",

@@ -36,7 +36,7 @@ export const range =
 export const rangeWithZero =
   (scale: string): ((n: number) => Style) =>
   (n): Style =>
-    range(scale)(n);
+    range(scale)(n * 100);
 
 // Binds a string classname to the value in an object. Useful when interacting
 // with ranges that need to come dynamically from a style object. This is

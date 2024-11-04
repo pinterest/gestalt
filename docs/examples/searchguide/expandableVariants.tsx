@@ -21,12 +21,12 @@ export default function Example() {
           ref={defaultRef}
           accessibilityControls="popover"
           accessibilityExpanded={showDefault}
-          accessibilityLabel="Default"
+          accessibilityLabel="SearchGuide with text"
           color="01"
           expandable
           onClick={() => setShowDefault((showing) => !showing)}
           selected={showDefault}
-          text="Default"
+          text="Text"
         />
 
         <SearchGuide
@@ -34,12 +34,12 @@ export default function Example() {
           ref={textlessRef}
           accessibilityControls="popover"
           accessibilityExpanded={showTextless}
-          accessibilityLabel="Textless"
+          accessibilityLabel="SearchGuide with Icon"
           color="02"
           expandable
           onClick={() => setShowTextless((showing) => !showing)}
           selected={showTextless}
-          text=""
+          text="Icon"
           thumbnail={{ icon: <Icon accessibilityLabel="Icon" icon="sparkle" /> }}
         />
 
@@ -48,7 +48,7 @@ export default function Example() {
           ref={imageRef}
           accessibilityControls="popover"
           accessibilityExpanded={showImage}
-          accessibilityLabel="Image"
+          accessibilityLabel="SearchGuide with Image"
           color="03"
           expandable
           onClick={() => setShowImage((showing) => !showing)}
@@ -70,7 +70,7 @@ export default function Example() {
           ref={avatarRef}
           accessibilityControls="popover"
           accessibilityExpanded={showAvatar}
-          accessibilityLabel="Avatar"
+          accessibilityLabel="SearchGuide with Avatar"
           color="04"
           expandable
           onClick={() => setShowAvatar((showing) => !showing)}
@@ -85,7 +85,7 @@ export default function Example() {
           ref={avatarGroupRef}
           accessibilityControls="popover"
           accessibilityExpanded={showAvatarGroup}
-          accessibilityLabel="AvatarGroup"
+          accessibilityLabel="SearchGuide with AvatarGroup"
           color="05"
           expandable
           onClick={() => setShowAvatarGroup((showing) => !showing)}

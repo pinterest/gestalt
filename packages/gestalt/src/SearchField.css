@@ -45,9 +45,9 @@ html[dir="rtl"] .inputActive {
 }
 
 .clear {
-  composes: marginEnd2 from "./boxWhitespace.css";
-  composes: paddingX1 from "./boxWhitespace.css";
-  composes: paddingY1 from "./boxWhitespace.css";
+  composes: marginEnd200 from "./boxWhitespace.css";
+  composes: paddingX100 from "./boxWhitespace.css";
+  composes: paddingY100 from "./boxWhitespace.css";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

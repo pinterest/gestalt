@@ -245,17 +245,27 @@
           }
         },
         "button": {
-          "default": {
-            "value": "{sema.color.background.elevation.value}"
-          },
-          "hover": {
-            "value": "{sema.color.hover.background.default.value}"
-          },
-          "active": {
-            "value": "{sema.color.pressed.background.default.value}"
+          "unselected": {
+            "default": {
+              "value": "{sema.color.background.elevation.value}"
+            },
+            "hover": {
+              "value": "{sema.color.hover.background.default.value}"
+            },
+            "active": {
+              "value": "{sema.color.pressed.background.default.value}"
+            }
           },
           "selected": {
-            "value": "{sema.color.background.selected.value}"
+            "default": {
+              "value": "{sema.color.background.selected.value}"
+            },
+            "hover": {
+              "value": "{sema.color.hover.background.selected.value}"
+            },
+            "active": {
+              "value": "{sema.color.pressed.background.selected.value}"
+            }
           }
         }
       },

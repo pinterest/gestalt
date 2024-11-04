@@ -51,6 +51,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       rangeStartDate,
       readOnly,
       selectLists,
+      size,
       value: controlledValue,
     }: InternalProps,
     ref,
@@ -127,6 +128,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
               name={name}
               onPassthroughFocus={inputOnly ? onFocus : undefined}
               readOnly={readOnly}
+              size={size}
             />
           }
           dateFormat={format}

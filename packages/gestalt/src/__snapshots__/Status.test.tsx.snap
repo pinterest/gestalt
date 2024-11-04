@@ -5,7 +5,7 @@ exports[`Status renders with accessibilityLabel 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -33,7 +33,7 @@ exports[`Status renders with basic title 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -70,7 +70,7 @@ exports[`Status renders with rich title 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -128,7 +128,7 @@ exports[`Status renders with title and subtext 1`] = `
   className="Flex rowGap0 columnGap0 xsDirectionColumn"
 >
   <div
-    className="Flex rowGap2 columnGap0 xsDirectionRow xsItemsCenter"
+    className="Flex rowGap200 columnGap0 xsDirectionRow xsItemsCenter"
   >
     <div
       className="FlexItem"
@@ -158,7 +158,7 @@ exports[`Status renders with title and subtext 1`] = `
     </div>
   </div>
   <div
-    className="box marginStart6"
+    className="box marginStart600"
   >
     <div
       className="subtle alignStart breakWord Text fontSize200 fontWeightNormal"

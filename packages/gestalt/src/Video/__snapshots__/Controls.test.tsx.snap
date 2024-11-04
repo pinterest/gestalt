@@ -5,7 +5,7 @@ exports[`VideoControls for double digit minutes 1`] = `
   className="controls"
 >
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -42,7 +42,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -56,7 +56,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box flexGrow paddingX2 paddingY2"
+    className="box flexGrow paddingX200 paddingY200"
   >
     <div
       className="box relative"
@@ -102,7 +102,7 @@ exports[`VideoControls for double digit minutes 1`] = `
             }
           />
           <div
-            className="box circle light marginStartN2"
+            className="box circle light marginStartN200"
             style={
               Object {
                 "height": 16,
@@ -116,7 +116,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -130,7 +130,7 @@ exports[`VideoControls for double digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -174,7 +174,7 @@ exports[`VideoControls for double digit seconds 1`] = `
   className="controls"
 >
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -211,7 +211,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -225,7 +225,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box flexGrow paddingX2 paddingY2"
+    className="box flexGrow paddingX200 paddingY200"
   >
     <div
       className="box relative"
@@ -271,7 +271,7 @@ exports[`VideoControls for double digit seconds 1`] = `
             }
           />
           <div
-            className="box circle light marginStartN2"
+            className="box circle light marginStartN200"
             style={
               Object {
                 "height": 16,
@@ -285,7 +285,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -299,7 +299,7 @@ exports[`VideoControls for double digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -343,7 +343,7 @@ exports[`VideoControls for single digit minutes 1`] = `
   className="controls"
 >
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -380,7 +380,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -394,7 +394,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box flexGrow paddingX2 paddingY2"
+    className="box flexGrow paddingX200 paddingY200"
   >
     <div
       className="box relative"
@@ -440,7 +440,7 @@ exports[`VideoControls for single digit minutes 1`] = `
             }
           />
           <div
-            className="box circle light marginStartN2"
+            className="box circle light marginStartN200"
             style={
               Object {
                 "height": 16,
@@ -454,7 +454,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -468,7 +468,7 @@ exports[`VideoControls for single digit minutes 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -512,7 +512,7 @@ exports[`VideoControls for single digit seconds 1`] = `
   className="controls"
 >
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -549,7 +549,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -563,7 +563,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box flexGrow paddingX2 paddingY2"
+    className="box flexGrow paddingX200 paddingY200"
   >
     <div
       className="box relative"
@@ -609,7 +609,7 @@ exports[`VideoControls for single digit seconds 1`] = `
             }
           />
           <div
-            className="box circle light marginStartN2"
+            className="box circle light marginStartN200"
             style={
               Object {
                 "height": 16,
@@ -623,7 +623,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -637,7 +637,7 @@ exports[`VideoControls for single digit seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -681,7 +681,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
   className="controls"
 >
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}
@@ -718,7 +718,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -732,7 +732,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     </div>
   </div>
   <div
-    className="box flexGrow paddingX2 paddingY2"
+    className="box flexGrow paddingX200 paddingY200"
   >
     <div
       className="box relative"
@@ -778,7 +778,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
             }
           />
           <div
-            className="box circle light marginStartN2"
+            className="box circle light marginStartN200"
             style={
               Object {
                 "height": 16,
@@ -792,7 +792,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
     style={
       Object {
         "width": 50,
@@ -806,7 +806,7 @@ exports[`VideoControls rounds for partial seconds 1`] = `
     </div>
   </div>
   <div
-    className="box paddingX2 paddingY2"
+    className="box paddingX200 paddingY200"
   >
     <div
       aria-disabled={false}

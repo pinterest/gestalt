@@ -67,12 +67,6 @@
       "keywords": ["plus", "create", "new", "section", "board"]
     },
     {
-      "name": "add-small",
-      "categories": ["add"],
-      "description": "Indicates the ability to create or add content.",
-      "keywords": ["plus", "create", "new"]
-    },
-    {
       "name": "ads-overview",
       "categories": ["Ads and measurement"],
       "description": "Indicates ads overview",
@@ -242,12 +236,6 @@
       "keywords": ["back", "left", "previous", "angle"]
     },
     {
-      "name": "arrow-small-up-right ",
-      "categories": ["Arrows"],
-      "description": "Indicates going to a different content/page when inside of a dropdown list.",
-      "keywords": ["angled"]
-    },
-    {
       "name": "arrow-start",
       "categories": ["Arrows"],
       "description": "Indicates the beginning of a sequence in a list of items or pages",
@@ -350,12 +338,6 @@
       "keywords": ["close", "dismiss", "back", "x"]
     },
     {
-      "name": "cancel-small",
-      "categories": ["Utility and tools"],
-      "description": "Indicates closing or dismissing a message.",
-      "keywords": ["close", "dismiss", "back", "x"]
-    },
-    {
       "name": "canonical-pin",
       "categories": ["Utility and tools"],
       "description": "Indicates a list/sequence of saved Pins",
@@ -412,12 +394,6 @@
       ]
     },
     {
-      "name": "check-small",
-      "categories": ["Status"],
-      "description": "Instead of a radio button on iOS, use the check icon. ",
-      "keywords": ["done", "completed", "success", "selected"]
-    },
-    {
       "name": "chevron-down-circle",
       "categories": ["arrows"],
       "description": "Indicates ability to expand selection or navigate down.",
@@ -434,30 +410,6 @@
       "categories": ["arrows"],
       "description": "Indicates the ability to open something to the right.",
       "keywords": ["expand"]
-    },
-    {
-      "name": "chevron-small-down",
-      "categories": ["Arrows"],
-      "description": "Indicates ability to expand selection or navigate down.",
-      "keywords": ["expand"]
-    },
-    {
-      "name": "chevron-small-left",
-      "categories": ["Arrows"],
-      "description": "Navigate backwards or left, or to collapse something to the left.",
-      "keywords": ["back", "close", "collapse"]
-    },
-    {
-      "name": "chevron-small-right",
-      "categories": ["Arrows"],
-      "description": "Indicates the ability to open something to the right.",
-      "keywords": ["expand"]
-    },
-    {
-      "name": "chevron-small-up",
-      "categories": ["Arrows"],
-      "description": "Indicates an expanded content is being displayed.",
-      "keywords": ["collapse"]
     },
     {
       "name": "chevron-up-circle",
@@ -578,12 +530,6 @@
       "name": "dash",
       "categories": ["Utility and tools"],
       "description": "Indicates there isn't data/numbers to show",
-      "keywords": ["minus", "empty", "remove"]
-    },
-    {
-      "name": "dash-small",
-      "categories": ["Utility and tools"],
-      "description": "Indicates there isn't data/numbers to show.",
       "keywords": ["minus", "empty", "remove"]
     },
     {
@@ -804,10 +750,22 @@
       "keywords": ["files", "projects"]
     },
     {
+      "name": "folder-fill",
+      "categories": ["File"],
+      "description": "Indicates a folder storage.",
+      "keywords": ["files", "projects"]
+    },
+    {
       "name": "forward",
       "categories": ["Media controls"],
       "description": "Indicates a forward movement in a video context",
       "keywords": ["advance"]
+    },
+    {
+      "name": "ghost-fill",
+      "categories": ["Creation"],
+      "description": "Indicates a ghosted image effect.",
+      "keywords": ["image", "create", "effect"]
     },
     {
       "name": "gif",
@@ -1013,6 +971,12 @@
       "keywords": ["loading", "button", "spinner"]
     },
     {
+      "name": "layers-stack",
+      "categories": ["Creation"],
+      "description": "indicates a stack of layers in order",
+      "keywords": ["order"]
+    },
+    {
       "name": "layout",
       "categories": ["Utility and tools"],
       "description": "Indicates a layout setting",
@@ -1107,6 +1071,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to select an object or an entire area of an image",
       "keywords": ["wand"]
+    },
+    {
+      "name": "magnifying-glass-sparkle",
+      "categories": ["Object"],
+      "description": "specialized search symbol for visual search",
+      "keywords": ["visual", "search", "image"]
     },
     {
       "name": "manage-access",

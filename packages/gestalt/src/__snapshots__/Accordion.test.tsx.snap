@@ -2,17 +2,17 @@
 
 exports[`Accordion renders a badge correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -54,7 +54,7 @@ exports[`Accordion renders a badge correctly 1`] = `
               className="badge info middle"
             >
               <div
-                className="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
               >
                 <div
                   className="FlexItem"
@@ -91,17 +91,17 @@ exports[`Accordion renders a badge correctly 1`] = `
 
 exports[`Accordion renders a title correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -134,17 +134,17 @@ exports[`Accordion renders a title correctly 1`] = `
 
 exports[`Accordion renders an error correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -205,17 +205,17 @@ exports[`Accordion renders an error correctly 1`] = `
 
 exports[`Accordion renders an icon button correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -308,17 +308,17 @@ exports[`Accordion renders an icon button correctly 1`] = `
 
 exports[`Accordion renders an icon correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
     >
       <div
-        className="Flex rowGap3 columnGap0 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap300 columnGap0 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -379,11 +379,11 @@ exports[`Accordion renders an icon correctly 1`] = `
 
 exports[`Accordion renders content correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"
@@ -400,11 +400,11 @@ exports[`Accordion renders content correctly 1`] = `
 
 exports[`Accordion renders the base correctly 1`] = `
 <div
-  className="box default paddingX6 paddingY6 rounding4 shadow"
+  className="box default paddingX600 paddingY600 rounding4 shadow"
   id="accordion-test"
 >
   <div
-    className="Flex rowGap0 columnGap6 xsDirectionColumn"
+    className="Flex rowGap0 columnGap600 xsDirectionColumn"
   >
     <div
       className="FlexItem"

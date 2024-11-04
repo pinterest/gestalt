@@ -27,11 +27,11 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
         >
           <div
             aria-hidden="true"
-            class="box flexGrow justifyEnd marginBottom8 xsDisplayFlex"
+            class="box flexGrow justifyEnd marginBottom800 xsDisplayFlex"
             data-floating-ui-inert=""
           >
             <div
-              class="absolute box flexNone paddingX6 paddingY7"
+              class="absolute box flexNone paddingX600 paddingY700"
               style="z-index: 1;"
             >
               <button
@@ -72,7 +72,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               <section />
@@ -103,11 +103,11 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                   name="trap-focus"
                 >
                   <div
-                    class="box paddingX3 paddingY3"
+                    class="box paddingX300 paddingY300"
                     style="width: 100%;"
                   >
                     <div
-                      class="Flex rowGap4 columnGap4 xsDirectionColumn"
+                      class="Flex rowGap400 columnGap400 xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
@@ -117,7 +117,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                           role="alert"
                         >
                           <div
-                            class="Flex rowGap2 columnGap2 xsDirectionColumn xsItemsCenter"
+                            class="Flex rowGap200 columnGap200 xsDirectionColumn xsItemsCenter"
                             style="width: 100%;"
                           >
                             <div
@@ -145,7 +145,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
                         class="FlexItem"
                       >
                         <div
-                          class="Flex rowGap2 columnGap2 justifyCenter xsDirectionRow"
+                          class="Flex rowGap200 columnGap200 justifyCenter xsDirectionRow"
                         >
                           <div
                             class="FlexItem"
@@ -242,7 +242,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
               class="Flex rowGap0 columnGap0 flexGrow justifyBetween xsDirectionRow xsItemsCenter"
             >
               <div
-                class="box flexGrow paddingX6 paddingY6 xsDisplayFlex"
+                class="box flexGrow paddingX600 paddingY600 xsDisplayFlex"
               >
                 <h1
                   class="Heading fontSize500 default alignStart breakWord"
@@ -251,7 +251,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
                 </h1>
               </div>
               <div
-                class="box flexNone paddingX6 paddingY7"
+                class="box flexNone paddingX600 paddingY700"
               >
                 <button
                   aria-controls=":r0:"
@@ -291,7 +291,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               <section />
@@ -300,7 +300,7 @@ exports[`OverlayPanel should render all props with nodes 1`] = `
               class="box fit relative"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <footer />
               </div>
@@ -344,7 +344,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
               class="Flex rowGap0 columnGap0 flexGrow justifyBetween xsDirectionRow xsItemsCenter"
             >
               <div
-                class="box flexGrow paddingX6 paddingY6 xsDisplayFlex"
+                class="box flexGrow paddingX600 paddingY600 xsDisplayFlex"
               >
                 <h1
                   class="Heading fontSize500 default alignStart breakWord"
@@ -353,7 +353,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
                 </h1>
               </div>
               <div
-                class="box flexNone paddingX6 paddingY7"
+                class="box flexNone paddingX600 paddingY700"
               >
                 <button
                   aria-controls=":r1:"
@@ -395,7 +395,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               <button
@@ -406,7 +406,7 @@ exports[`OverlayPanel should render all props with render props 1`] = `
               class="box fit relative"
             >
               <div
-                class="box paddingX6 paddingY6"
+                class="box paddingX600 paddingY600"
               >
                 <button
                   type="submit"
@@ -446,10 +446,10 @@ exports[`OverlayPanel should render animation in 1`] = `
           style="width: 100%;"
         >
           <div
-            class="box flexGrow justifyEnd marginBottom8 xsDisplayFlex"
+            class="box flexGrow justifyEnd marginBottom800 xsDisplayFlex"
           >
             <div
-              class="absolute box flexNone paddingX6 paddingY7"
+              class="absolute box flexNone paddingX600 paddingY700"
               style="z-index: 1;"
             >
               <button
@@ -488,7 +488,7 @@ exports[`OverlayPanel should render animation in 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               <section />
@@ -526,10 +526,10 @@ exports[`OverlayPanel should render animation out 1`] = `
           style="width: 100%;"
         >
           <div
-            class="box flexGrow justifyEnd marginBottom8 xsDisplayFlex"
+            class="box flexGrow justifyEnd marginBottom800 xsDisplayFlex"
           >
             <div
-              class="absolute box flexNone paddingX6 paddingY7"
+              class="absolute box flexNone paddingX600 paddingY700"
               style="z-index: 1;"
             >
               <button
@@ -568,7 +568,7 @@ exports[`OverlayPanel should render animation out 1`] = `
             style="height: 100%; width: 100%;"
           >
             <div
-              class="box flexGrow overflowAuto paddingX6 paddingY6 relative"
+              class="box flexGrow overflowAuto paddingX600 paddingY600 relative"
               style="height: 100%;"
             >
               <section />

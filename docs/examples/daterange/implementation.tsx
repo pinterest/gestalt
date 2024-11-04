@@ -49,7 +49,9 @@ export default function Example() {
           <Popover
             anchor={anchorRef.current}
             idealDirection="down"
-            onDismiss={() => {}}
+            onDismiss={() => {
+              setShowComponent(false);
+            }}
             positionRelativeToAnchor={false}
             size="flexible"
           >

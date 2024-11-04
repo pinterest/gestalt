@@ -11,8 +11,8 @@
 
 .th,
 .td {
-  composes: paddingY3 from "./boxWhitespace.css";
-  composes: paddingX3 from "./boxWhitespace.css";
+  composes: paddingY300 from "./boxWhitespace.css";
+  composes: paddingX300 from "./boxWhitespace.css";
 }
 
 .stickyHeader {

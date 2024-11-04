@@ -1,5 +1,5 @@
 .paddingY {
-  composes: paddingY3 from "./boxWhitespace.css";
+  composes: paddingY300 from "./boxWhitespace.css";
 }
 
 .focused {

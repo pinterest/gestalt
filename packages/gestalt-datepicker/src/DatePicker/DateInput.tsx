@@ -29,6 +29,7 @@ type InjectedProps = {
   value?: string;
   errorMessage?: string;
   helperText?: string;
+  size?: 'md' | 'lg';
 };
 
 type Props = {
@@ -52,6 +53,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
     value,
     errorMessage,
     helperText,
+    size,
   }: Props,
   ref,
 ) {
@@ -86,6 +88,7 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
         onKeyDown={(data) => onKeyDown?.(data.event)}
         placeholder={placeholder}
         readOnly={readOnly}
+        size={size}
         value={value}
       />
     );

@@ -32,7 +32,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
           style="max-width: 360px; overflow: auto;"
         >
           <div
-            class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+            class="box flexGrow marginBottom200 marginEnd200 marginStart200 marginTop200 xsDirectionColumn xsDisplayFlex xsItemsCenter"
           >
             <div
               class="rounding2 accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
@@ -42,13 +42,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 secondary xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -84,13 +84,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -126,13 +126,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -168,13 +168,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -210,13 +210,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -252,13 +252,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -294,13 +294,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -336,13 +336,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -378,13 +378,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -420,13 +420,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -462,13 +462,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -504,13 +504,13 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -587,7 +587,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
           style="max-width: 360px; overflow: auto;"
         >
           <div
-            class="box flexGrow marginBottom2 marginEnd2 marginStart2 marginTop2 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+            class="box flexGrow marginBottom200 marginEnd200 marginStart200 marginTop200 xsDirectionColumn xsDisplayFlex xsItemsCenter"
           >
             <div
               class="rounding2 accessibilityOutline accessibilityOutlineFocusWithin fullWidth pointer"
@@ -597,13 +597,13 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 secondary xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 secondary xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -639,13 +639,13 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -681,7 +681,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
                   class="noOutline inheritColor rounding0 block tapTransition noUnderline outlineFocus"
@@ -693,7 +693,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
@@ -719,7 +719,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
-                      class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
+                      class="box justifyCenter marginStart200 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
                         class="rtlSupport default icon"
@@ -749,13 +749,13 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <div
                   class="Flex rowGap0 columnGap0 xsDirectionRow"
                 >
                   <div
-                    class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                    class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                   >
                     <div
                       class="FlexItem"
@@ -770,7 +770,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                           Item 4
                         </span>
                         <div
-                          class="box marginStart2 marginTop1"
+                          class="box marginStart200 marginTop100"
                         >
                           <div
                             class="box xsDisplayVisuallyHidden"
@@ -781,7 +781,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             class="badge info middle"
                           >
                             <div
-                              class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                              class="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                             >
                               <div
                                 class="FlexItem"
@@ -822,7 +822,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
                   class="noOutline inheritColor rounding0 block tapTransition noUnderline outlineFocus"
@@ -834,7 +834,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
@@ -849,7 +849,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                             Item 5 with a really long, detailed name
                           </span>
                           <div
-                            class="box marginStart2 marginTop1"
+                            class="box marginStart200 marginTop100"
                           >
                             <div
                               class="box xsDisplayVisuallyHidden"
@@ -860,7 +860,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                               class="badge info middle"
                             >
                               <div
-                                class="Flex rowGap1 columnGap0 xsDirectionRow xsItemsCenter"
+                                class="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                               >
                                 <div
                                   class="FlexItem"
@@ -891,7 +891,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
-                      class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
+                      class="box justifyCenter marginStart200 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
                         class="rtlSupport default icon"
@@ -921,7 +921,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
               tabindex="-1"
             >
               <div
-                class="box paddingX2 paddingY2 rounding2 transparent xsDirectionColumn xsDisplayFlex"
+                class="box paddingX200 paddingY200 rounding2 transparent xsDirectionColumn xsDisplayFlex"
               >
                 <a
                   class="noOutline inheritColor rounding0 block tapTransition noUnderline outlineFocus"
@@ -933,7 +933,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     class="Flex rowGap0 columnGap0 xsDirectionRow"
                   >
                     <div
-                      class="Flex rowGap0 columnGap1 flexGrow xsDirectionColumn"
+                      class="Flex rowGap0 columnGap100 flexGrow xsDirectionColumn"
                     >
                       <div
                         class="FlexItem"
@@ -959,7 +959,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       />
                     </div>
                     <div
-                      class="box justifyCenter marginStart2 transparent xsDisplayFlex xsItemsCenter"
+                      class="box justifyCenter marginStart200 transparent xsDisplayFlex xsItemsCenter"
                     >
                       <svg
                         class="rtlSupport default icon"

@@ -9,7 +9,6 @@ import addCircle from './add-circle.svg';
 import addLayout from './add-layout.svg';
 import addPin from './add-pin.svg';
 import addSection from './add-section.svg';
-import addSmall from './add-small.svg';
 import adsOverview from './ads-overview.svg';
 import adsStats from './ads-stats.svg';
 import alert from './alert.svg';
@@ -43,7 +42,6 @@ import arrowEnd from './arrow-end.svg';
 import arrowForward from './arrow-forward.svg';
 import arrowLeftCurved from './arrow-left-curved.svg';
 import arrowNested from './arrow-nested.svg';
-import arrowSmallUpRight from './arrow-small-up-right.svg';
 import arrowStart from './arrow-start.svg';
 import arrowUp from './arrow-up.svg';
 import arrowUpLeft from './arrow-up-left.svg';
@@ -70,7 +68,6 @@ import camera from './camera.svg';
 import cameraFlip from './camera-flip.svg';
 import cameraRoll from './camera-roll.svg';
 import cancel from './cancel.svg';
-import cancelSmall from './cancel-small.svg';
 import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
@@ -78,14 +75,9 @@ import cardStack from './card-stack.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
-import checkSmall from './check-small.svg';
 import chevronDownCircle from './chevron-down-circle.svg';
 import chevronLeftCircle from './chevron-left-circle.svg';
 import chevronRightCircle from './chevron-right-circle.svg';
-import chevronSmallDown from './chevron-small-down.svg';
-import chevronSmallLeft from './chevron-small-left.svg';
-import chevronSmallRight from './chevron-small-right.svg';
-import chevronSmallUp from './chevron-small-up.svg';
 import chevronUpCircle from './chevron-up-circle.svg';
 import circle from './circle.svg';
 import circleEllipsis from './circle-ellipsis.svg';
@@ -115,7 +107,6 @@ import creditCard from './credit-card.svg';
 import crop from './crop.svg';
 import cutout from './cutout.svg';
 import dash from './dash.svg';
-import dashSmall from './dash-small.svg';
 import dataSource from './data-source.svg';
 import design from './design.svg';
 import desktop from './desktop.svg';
@@ -159,9 +150,11 @@ import flashlight from './flashlight.svg';
 import flipHorizontal from './flip-horizontal.svg';
 import flipVertical from './flip-vertical.svg';
 import folder from './folder.svg';
+import folderFill from './folder-fill.svg';
 import forward from './forward.svg';
 import gauge from './gauge.svg';
 import ghost from './ghost.svg';
+import ghostFill from './ghost-fill.svg';
 import gif from './gif.svg';
 import gifVisual from './gif-visual.svg';
 import gift from './gift.svg';
@@ -196,6 +189,7 @@ import key from './key.svg';
 import knoop from './knoop.svg';
 import labFlask from './lab-flask.svg';
 import lassoMagic from './lasso-magic.svg';
+import layersStack from './layers-stack.svg';
 import layout from './layout.svg';
 import lightbulb from './lightbulb.svg';
 import lightningBoltCircle from './lightning-bolt-circle.svg';
@@ -211,6 +205,7 @@ import logoSmall from './logo-small.svg';
 import logout from './logout.svg';
 import magicPen from './magic-pen.svg';
 import magicWand from './magic-wand.svg';
+import magnifyingGlassSparkle from './magnifying-glass-sparkle.svg';
 import manageAccess from './manage-access.svg';
 import marginsLarge from './margins-large.svg';
 import marginsMedium from './margins-medium.svg';
@@ -389,7 +384,6 @@ const icons = Object.freeze({
   'add-layout': addLayout,
   'add-pin': addPin,
   'add-section': addSection,
-  'add-small': addSmall,
   'ads-overview': adsOverview,
   'ads-stats': adsStats,
   'alert': alert,
@@ -423,7 +417,6 @@ const icons = Object.freeze({
   'arrow-forward': arrowForward,
   'arrow-left-curved': arrowLeftCurved,
   'arrow-nested': arrowNested,
-  'arrow-small-up-right': arrowSmallUpRight,
   'arrow-start': arrowStart,
   'arrow-up': arrowUp,
   'arrow-up-left': arrowUpLeft,
@@ -450,7 +443,6 @@ const icons = Object.freeze({
   'camera-flip': cameraFlip,
   'camera-roll': cameraRoll,
   'cancel': cancel,
-  'cancel-small': cancelSmall,
   'canonical-pin': canonicalPin,
   'captions': captions,
   'captions-outline': captionsOutline,
@@ -458,14 +450,9 @@ const icons = Object.freeze({
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
-  'check-small': checkSmall,
   'chevron-down-circle': chevronDownCircle,
   'chevron-left-circle': chevronLeftCircle,
   'chevron-right-circle': chevronRightCircle,
-  'chevron-small-down': chevronSmallDown,
-  'chevron-small-left': chevronSmallLeft,
-  'chevron-small-right': chevronSmallRight,
-  'chevron-small-up': chevronSmallUp,
   'chevron-up-circle': chevronUpCircle,
   'circle': circle,
   'circle-ellipsis': circleEllipsis,
@@ -495,7 +482,6 @@ const icons = Object.freeze({
   'crop': crop,
   'cutout': cutout,
   'dash': dash,
-  'dash-small': dashSmall,
   'data-source': dataSource,
   'design': design,
   'desktop': desktop,
@@ -539,9 +525,11 @@ const icons = Object.freeze({
   'flip-horizontal': flipHorizontal,
   'flip-vertical': flipVertical,
   'folder': folder,
+  'folder-fill': folderFill,
   'forward': forward,
   'gauge': gauge,
   'ghost': ghost,
+  'ghost-fill': ghostFill,
   'gif': gif,
   'gif-visual': gifVisual,
   'gift': gift,
@@ -576,6 +564,7 @@ const icons = Object.freeze({
   'knoop': knoop,
   'lab-flask': labFlask,
   'lasso-magic': lassoMagic,
+  'layers-stack': layersStack,
   'layout': layout,
   'lightbulb': lightbulb,
   'lightning-bolt-circle': lightningBoltCircle,
@@ -591,6 +580,7 @@ const icons = Object.freeze({
   'logout': logout,
   'magic-pen': magicPen,
   'magic-wand': magicWand,
+  'magnifying-glass-sparkle': magnifyingGlassSparkle,
   'manage-access': manageAccess,
   'margins-large': marginsLarge,
   'margins-medium': marginsMedium,
