@@ -1,3 +1,9 @@
+## 163.9.3 (Nov 4, 2024)
+
+### Patch
+
+- TextField: VR layout adjusments ([#3845](https://github.com/pinterest/gestalt/pull/3845)) - [Preview link](https://deploy-preview-3845--gestalt.netlify.app?devexample=true)
+
 ## 163.9.2 (Nov 2, 2024)
 
 ### Patch
