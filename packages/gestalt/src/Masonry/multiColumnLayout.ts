@@ -508,7 +508,7 @@ function getPositionsWithMultiColumnItem<T>({
   }>;
   heights: ReadonlyArray<number>;
 } {
-  const { positionCache, gutter } = commonGetPositionArgs;
+  const { positionCache } = commonGetPositionArgs;
 
   // This is the index inside the items to position array
   const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
