@@ -1,3 +1,9 @@
+## 163.10.0 (Nov 5, 2024)
+
+### Minor
+
+- Tokens: temporarily removing references from RGBA tokens ([#3849](https://github.com/pinterest/gestalt/pull/3849)) - [Preview link](https://deploy-preview-3849--gestalt.netlify.app?devexample=true)
+
 ## 163.9.6 (Nov 5, 2024)
 
 ### Patch
