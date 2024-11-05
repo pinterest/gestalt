@@ -1,3 +1,9 @@
+## 164.0.1 (Nov 5, 2024)
+
+### Patch
+
+- DatePicker: VR fixes to standardize form fields and match them to Figma spacing ([#3850](https://github.com/pinterest/gestalt/pull/3850)) - [Preview link](https://deploy-preview-3850--gestalt.netlify.app?devexample=true)
+
 ## 164.0.0 (Nov 5, 2024)
 
 ### Major
