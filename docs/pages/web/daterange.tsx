@@ -386,7 +386,10 @@ DateRange supports a secondary date range in case you need to handle more that o
             }
           />
         </MainSection.Subsection>
-        <MainSection.Subsection description="DateRange supports read-only date inputs, this option prevents the user from changing the date values from the date fields (not from interacting with the fields). " title="Read only">
+        <MainSection.Subsection
+          description="DateRange supports read-only date inputs, this option prevents the user from changing the date values from the date fields (not from interacting with the fields). "
+          title="Read only"
+        >
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
