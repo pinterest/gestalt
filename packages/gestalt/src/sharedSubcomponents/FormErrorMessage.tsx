@@ -15,7 +15,6 @@ type Props = {
   text?: ReactNode;
   size?: SizeType;
   noPadding?: boolean;
-  topPadding?: '200';
 };
 
 export default function FormErrorMessage({
@@ -23,7 +22,6 @@ export default function FormErrorMessage({
   size,
   text = '',
   noPadding: noStartPadding,
-  topPadding,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -39,18 +37,17 @@ export default function FormErrorMessage({
         [helperTextStyles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noStartPadding,
         [helperTextStyles.sm_topPadding]: !isInVRExperiment && size === 'sm',
         [helperTextStyles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noStartPadding,
-        [helperTextStyles.vr_sm_topPadding]: isInVRExperiment && !topPadding && size === 'sm',
+        [helperTextStyles.vr_sm_topPadding]: isInVRExperiment && size === 'sm',
         // md
         [helperTextStyles.md_startPadding]: !isInVRExperiment && size === 'md' && !noStartPadding,
         [helperTextStyles.md_topPadding]: !isInVRExperiment && size === 'md',
         [helperTextStyles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noStartPadding,
-        [helperTextStyles.vr_md_topPadding]: isInVRExperiment && !topPadding && size === 'md',
+        [helperTextStyles.vr_md_topPadding]: isInVRExperiment && size === 'md',
         // lg
         [helperTextStyles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noStartPadding,
         [helperTextStyles.lg_topPadding]: !isInVRExperiment && size === 'lg',
         [helperTextStyles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noStartPadding,
-        [helperTextStyles.vr_lg_topPadding]:
-          isInVRExperiment && ((!topPadding && size === 'lg') || topPadding === '200'),
+        [helperTextStyles.vr_lg_topPadding]: isInVRExperiment && size === 'lg',
       })}
       id={id}
     >
