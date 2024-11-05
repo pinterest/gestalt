@@ -59,7 +59,7 @@ const defaultLayout =
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-    whitespaceThreshold?: number;
+    earlyBailout?: boolean;
     logWhitespace?: (
       additionalWhitespace: ReadonlyArray<number>,
       numberOfIterations: number,
