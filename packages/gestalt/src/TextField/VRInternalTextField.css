@@ -206,8 +206,6 @@ html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
   padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
 }
 
-
-
 /* md label */
 
 .md_labelTopPosition {
@@ -325,4 +323,3 @@ html:not([dir="rtl"]) .lg_endIconContainer {
 html[dir="rtl"] .lg_endIconContainer {
   left: var(--sema-space-300);
 }
-
