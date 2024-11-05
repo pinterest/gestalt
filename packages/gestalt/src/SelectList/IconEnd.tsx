@@ -14,9 +14,9 @@ export default function IconEnd({ disabled, size }: Props) {
 
   return (
     <div
-      className={classnames(styles.iconEnd, {
-        [styles.md_iconEnd]: isMD,
-        [styles.lg_iconEnd]: isLG,
+      className={classnames(styles.endIconContainer, {
+        [styles.md_endIconContainer]: isMD,
+        [styles.lg_endIconContainer]: isLG,
       })}
     >
       <Box

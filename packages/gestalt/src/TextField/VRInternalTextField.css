@@ -206,16 +206,6 @@ html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
   padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
 }
 
-/* md icon end */
-
-html:not([dir="rtl"]) .md_endIconContainer {
-  right: var(--sema-space-300);
-}
-
-html[dir="rtl"] .md_endIconContainer {
-  left: var(--sema-space-300);
-}
-
 /* md label */
 
 .md_labelTopPosition {
@@ -236,6 +226,16 @@ html:not([dir="rtl"]) .md_labelPosition {
   right: calc(
     var(--sema-space-200) + var(--sema-space-600) + var(--sema-space-25)
   );
+}
+
+/* md icon end */
+
+html:not([dir="rtl"]) .md_endIconContainer {
+  right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .md_endIconContainer {
+  left: var(--sema-space-300);
 }
 
 /* lg */
@@ -292,16 +292,6 @@ html:not([dir="rtl"]) .lg_inputEndButtonEndPadding {
   padding-right: calc(var(--sema-space-300) + var(--sema-space-600));
 }
 
-/* lg icon end */
-
-html:not([dir="rtl"]) .lg_endIconContainer {
-  right: var(--sema-space-300);
-}
-
-html[dir="rtl"] .lg_endIconContainer {
-  left: var(--sema-space-300);
-}
-
 /* lg label */
 
 .lg_labelTopPosition {
@@ -322,4 +312,14 @@ html:not([dir="rtl"]) .lg_labelPosition {
   right: calc(
     var(--sema-space-300) + var(--sema-space-600) + var(--sema-space-25)
   );
+}
+
+/* lg icon end */
+
+html:not([dir="rtl"]) .lg_endIconContainer {
+  right: var(--sema-space-300);
+}
+
+html[dir="rtl"] .lg_endIconContainer {
+  left: var(--sema-space-300);
 }
