@@ -1,9 +1,4 @@
-.input {
-  box-sizing: border-box;
-  display: block;
-  position: relative;
-  width: 100%;
-}
+/* style */
 
 .enabledText {
   color: var(--sema-color-text-default);
@@ -47,13 +42,18 @@
   border: 1px solid var(--sema-color-border-disabled);
 }
 
+/* input / label / end icon positioning */
+
 .inputParent {
   isolation: isolate;
   position: relative;
 }
 
-.visuallyHidden {
+.input {
+  box-sizing: border-box;
+  display: block;
   position: relative;
+  width: 100%;
 }
 
 .label {
@@ -62,162 +62,264 @@
   z-index: 1;
 }
 
+.visuallyHidden {
+  position: relative;
+}
+
+.endIconContainer {
+  align-items: center;
+  bottom: var(--sema-space-0);
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: var(--sema-space-0);
+}
+
 /* sm */
+
+/* sm input */
 
 .sm_input {
   composes: sm smDefault from "../Text.css";
   border-radius: var(--sema-rounding-200);
   min-height: 28px;
-  padding-bottom: var(--sema-space-100);
 }
 
-.sm_visibleLabel {
+.sm_inputLabelPadding {
+  padding-bottom: calc(var(--sema-space-100) - var(--sema-space-25));
   padding-top: calc(
     var(--sema-space-100) + var(--sema-space-50) +
-      var(--sema-space-negative-100) + var(--sema-font-lineheight-ui-xs)
+      var(--sema-font-lineheight-ui-xs) - var(--sema-space-50) -
+      var(--sema-space-25)
   );
 }
 
-.sm_noLabel {
-  padding-top: var(--sema-space-100);
+.sm_inputNoLabelPadding {
+  padding-bottom: calc(var(--sema-space-100) - var(--sema-space-25));
+  padding-top: calc(var(--sema-space-100) - var(--sema-space-25));
 }
 
-html[dir="rtl"] .sm_inputHorizontalPadding {
-  padding-left: var(--sema-space-100);
+html[dir="rtl"] .sm_inputStartPadding {
   padding-right: var(--sema-space-200);
 }
 
-html:not([dir="rtl"]) .sm_inputHorizontalPadding {
+html:not([dir="rtl"]) .sm_inputStartPadding {
   padding-left: var(--sema-space-200);
+}
+
+html[dir="rtl"] .sm_inputNoEndButtonEndPadding {
+  padding-left: var(--sema-space-100);
+}
+
+html:not([dir="rtl"]) .sm_inputNoEndButtonEndPadding {
   padding-right: var(--sema-space-100);
 }
 
-html[dir="rtl"] .sm_label {
-  left: calc(var(--sema-space-200));
-  right: calc(var(--sema-space-200) + 1px);
+html[dir="rtl"] .sm_inputEndButtonEndPadding {
+  padding-left: calc(var(--sema-space-100) + var(--sema-space-600));
 }
 
-html:not([dir="rtl"]) .sm_label {
-  left: calc(var(--sema-space-200) + 1px);
-  right: calc(var(--sema-space-200));
+html:not([dir="rtl"]) .sm_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-100) + var(--sema-space-600));
 }
 
-.sm_labelPos {
-  top: calc(var(--sema-space-100) + var(--sema-space-50));
+/* sm label */
+
+.sm_labelTopPosition {
+  top: calc(
+    var(--sema-space-100) + var(--sema-space-50) - var(--sema-space-25)
+  );
 }
 
-html:not([dir="rtl"]) .sm_actionButton {
-  padding-right: var(--space-800);
+html[dir="rtl"] .sm_labelPosition {
+  left: calc(
+    var(--sema-space-100) + var(--sema-space-600) + var(--sema-space-25)
+  );
+  right: calc(var(--sema-space-200) + var(--sema-space-25));
 }
 
-html[dir="rtl"] .sm_actionButton {
-  padding-left: var(--space-800);
+html:not([dir="rtl"]) .sm_labelPosition {
+  left: calc(var(--sema-space-200) + var(--sema-space-25));
+  right: calc(
+    var(--sema-space-100) + var(--sema-space-600) + var(--sema-space-25)
+  );
 }
 
-.sm_actionButtonPaddingBottom {
-  padding-bottom: var(--sema-space-100);
+/* sm icon end */
+
+html:not([dir="rtl"]) .sm_endIconContainer {
+  right: var(--sema-space-200);
+}
+
+html[dir="rtl"] .sm_endIconContainer {
+  left: var(--sema-space-200);
 }
 
 /* md */
+
+/* md input */
 
 .md_input {
   composes: md mdDefault from "../Text.css";
   border-radius: var(--sema-rounding-300);
   min-height: 36px;
-  padding-bottom: var(--sema-space-200);
 }
 
-.md_visibleLabel {
+.md_inputLabelPadding {
+  padding-bottom: calc(var(--sema-space-200) - var(--sema-space-25));
   padding-top: calc(
-    var(--sema-space-200) + var(--sema-space-50) +
-      var(--sema-font-lineheight-ui-xs)
+    var(--sema-space-100) + var(--sema-space-150) +
+      var(--sema-font-lineheight-ui-xs) - var(--sema-space-25)
   );
 }
 
-.md_noLabel {
-  padding-top: var(--sema-space-200);
+.md_inputNoLabelPadding {
+  padding-bottom: calc(
+    var(--sema-space-100) + var(--sema-space-50) - var(--sema-space-25)
+  );
+  padding-top: calc(
+    var(--sema-space-100) + var(--sema-space-50) - var(--sema-space-25)
+  );
 }
 
-html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: var(--sema-space-200);
+html[dir="rtl"] .md_inputStartPadding {
   padding-right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .md_inputHorizontalPadding {
+html:not([dir="rtl"]) .md_inputStartPadding {
   padding-left: var(--sema-space-300);
+}
+
+html[dir="rtl"] .md_inputNoEndButtonEndPadding {
+  padding-left: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .md_inputNoEndButtonEndPadding {
   padding-right: var(--sema-space-200);
 }
 
-html[dir="rtl"] .md_label {
-  left: calc(var(--sema-space-300));
-  right: calc(var(--sema-space-300) + 1px);
+html[dir="rtl"] .md_inputEndButtonEndPadding {
+  padding-left: calc(var(--sema-space-200) + var(--sema-space-600));
 }
 
-html:not([dir="rtl"]) .md_label {
-  left: calc(var(--sema-space-300) + 1px);
-  right: calc(var(--sema-space-300));
+html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
 }
 
-.md_labelPos {
-  top: calc(var(--sema-space-200) + var(--sema-space-50));
+/* md icon end */
+
+html:not([dir="rtl"]) .md_endIconContainer {
+  right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .md_actionButton {
-  padding-right: var(--space-800);
+html[dir="rtl"] .md_endIconContainer {
+  left: var(--sema-space-300);
 }
 
-html[dir="rtl"] .md_actionButton {
-  padding-left: var(--space-800);
+/* md label */
+
+.md_labelTopPosition {
+  top: calc(
+    var(--sema-space-100) + var(--sema-space-150) - var(--sema-space-25)
+  );
+}
+
+html[dir="rtl"] .md_labelPosition {
+  left: calc(
+    var(--sema-space-200) + var(--sema-space-600) + var(--sema-space-25)
+  );
+  right: calc(var(--sema-space-300) + var(--sema-space-25));
+}
+
+html:not([dir="rtl"]) .md_labelPosition {
+  left: calc(var(--sema-space-300) + var(--sema-space-25));
+  right: calc(
+    var(--sema-space-200) + var(--sema-space-600) + var(--sema-space-25)
+  );
 }
 
 /* lg */
+
+/* lg input */
 
 .lg_input {
   composes: md mdDefault from "../Text.css";
   border-radius: var(--sema-rounding-400);
   min-height: 48px;
-  padding-bottom: var(--sema-space-300);
 }
 
-.lg_visibleLabel {
+.lg_inputLabelPadding {
+  padding-bottom: calc(
+    var(--sema-space-300) + var(--sema-space-50) - var(--sema-space-25)
+  );
   padding-top: calc(
-    var(--sema-space-300) + var(--sema-space-100) + var(--sema-space-100) +
-      var(--sema-font-lineheight-ui-xs)
+    var(--sema-space-300) + var(--sema-space-100) +
+      var(--sema-font-lineheight-ui-xs) + var(--sema-space-100) -
+      var(--sema-space-25)
   );
 }
 
-.lg_noLabel {
-  padding-top: var(--sema-space-300);
+.lg_inputNoLabelPadding {
+  padding-bottom: calc(
+    var(--sema-space-300) + var(--sema-space-25) - var(--sema-space-25)
+  );
+  padding-top: calc(
+    var(--sema-space-300) + var(--sema-space-25) - var(--sema-space-25)
+  );
 }
 
-html[dir="rtl"] .lg_inputHorizontalPadding {
-  padding-left: var(--sema-space-300);
+html[dir="rtl"] .lg_inputStartPadding {
   padding-right: var(--sema-space-400);
 }
 
-html:not([dir="rtl"]) .lg_inputHorizontalPadding {
+html:not([dir="rtl"]) .lg_inputStartPadding {
   padding-left: var(--sema-space-400);
+}
+
+html[dir="rtl"] .lg_inputNoEndButtonEndPadding {
+  padding-left: var(--sema-space-300);
+}
+
+html:not([dir="rtl"]) .lg_inputNoEndButtonEndPadding {
   padding-right: var(--sema-space-300);
 }
 
-html[dir="rtl"] .lg_label {
-  left: calc(var(--sema-space-400));
-  right: calc(var(--sema-space-400) + 1px);
+html[dir="rtl"] .lg_inputEndButtonEndPadding {
+  padding-left: calc(var(--sema-space-300) + var(--sema-space-600));
 }
 
-html:not([dir="rtl"]) .lg_label {
-  left: calc(var(--sema-space-400) + 1px);
-  right: calc(var(--sema-space-400));
+html:not([dir="rtl"]) .lg_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-300) + var(--sema-space-600));
 }
 
-.lg_labelPos {
-  top: calc(var(--sema-space-300) + var(--sema-space-100));
+/* lg icon end */
+
+html:not([dir="rtl"]) .lg_endIconContainer {
+  right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .lg_actionButton {
-  padding-right: var(--space-800);
+html[dir="rtl"] .lg_endIconContainer {
+  left: var(--sema-space-300);
 }
 
-html[dir="rtl"] .lg_actionButton {
-  padding-left: var(--space-800);
+/* lg label */
+
+.lg_labelTopPosition {
+  top: calc(
+    var(--sema-space-300) + var(--sema-space-100) - var(--sema-space-25)
+  );
+}
+
+html[dir="rtl"] .lg_labelPosition {
+  left: calc(
+    var(--sema-space-300) + var(--sema-space-600) + var(--sema-space-25)
+  );
+  right: calc(var(--sema-space-400) + var(--sema-space-25));
+}
+
+html:not([dir="rtl"]) .lg_labelPosition {
+  left: calc(var(--sema-space-400) + var(--sema-space-25));
+  right: calc(
+    var(--sema-space-300) + var(--sema-space-600) + var(--sema-space-25)
+  );
 }
