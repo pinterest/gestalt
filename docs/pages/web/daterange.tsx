@@ -57,6 +57,7 @@ import localizationLabels from '../../examples/daterange/localizationLabels';
 import main from '../../examples/daterange/main';
 import mobile from '../../examples/daterange/mobile';
 import pastRadiogroup from '../../examples/daterange/pastRadioGroup';
+import readOnly from '../../examples/daterange/readOnly';
 import secondaryDateRange from '../../examples/daterange/secondaryDateRange';
 import secondaryErrorMessages from '../../examples/daterange/secondaryErrorMessages';
 
@@ -380,6 +381,19 @@ DateRange supports a secondary date range in case you need to handle more that o
                 code={secondaryDateRange}
                 layout="column"
                 name="Secondary date range example"
+                previewHeight={PREVIEW_HEIGHT}
+              />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection description="DateRange supports read-only date inputs, this option prevents the user from changing the date values from the date fields (not from interacting with the fields). " title="Read only">
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={readOnly}
+                layout="column"
+                name="Read only example"
                 previewHeight={PREVIEW_HEIGHT}
               />
             }

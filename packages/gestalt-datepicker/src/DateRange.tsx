@@ -113,6 +113,9 @@ type Props = {
    * Customize your error message for the cases the user enters invalid dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   secondaryDateErrorMessage?: { startDate: string | null; endDate: string | null };
+  /**
+   * Prevents the user from changing the date values from the date fields (not from interacting with the fields).    */
+  readOnly?: boolean;
 };
 
 enum DateRangeType {
@@ -186,6 +189,7 @@ function DateRange({
   onSecondaryDateChange,
   onSecondaryDateError,
   onSecondaryDateFocus,
+  readOnly,
 }: Props) {
   const componentId = useId();
   const deviceType = useDeviceType();
@@ -300,6 +304,7 @@ function DateRange({
                             }}
                             onError={onDateErrorEvent?.startDate}
                             onFocus={onDateFocusEvent?.endDate}
+                            readOnly={readOnly}
                             value={startDate}
                           />
                         </Box>
@@ -324,6 +329,7 @@ function DateRange({
                             }}
                             onError={onDateErrorEvent?.endDate}
                             onFocus={onDateFocusEvent?.endDate}
+                            readOnly={readOnly}
                             value={endDate}
                           />
                         </Box>
