@@ -128,11 +128,11 @@
             },
             "scrims": {
               "default": {
-                "value": "rgba(117,117,112,0.5)",
+                "value": "rgba(88,88,86,0.5)",
                 "type": "color"
               },
               "opaque": {
-                "value": "rgba(76,76,74,0.9)",
+                "value": "rgba(49,49,48,0.9)",
                 "type": "color"
               }
             }
