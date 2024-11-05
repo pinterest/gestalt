@@ -1,3 +1,9 @@
+## 163.9.4 (Nov 5, 2024)
+
+### Patch
+
+- Masonry: Add fixed early bailout depending on column span ([#3846](https://github.com/pinterest/gestalt/pull/3846)) - [Preview link](https://deploy-preview-3846--gestalt.netlify.app?devexample=true)
+
 ## 163.9.3 (Nov 4, 2024)
 
 ### Patch
