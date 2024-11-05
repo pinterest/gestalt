@@ -184,7 +184,7 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
         src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
       },
       {
-        color: '08',
+        color: 8,
         name: 'Zola',
       },
       {
@@ -203,7 +203,7 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
     ],
     [
       {
-        color: '10',
+        color: 10,
         name: 'Benito',
       },
       {
@@ -214,19 +214,19 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
     ],
     [
       {
-        color: '04',
+        color: 4,
         name: 'Alanna',
       },
       {
-        color: '06',
+        color: 6,
         name: 'Elliot',
       },
       {
-        color: '08',
+        color: 8,
         name: 'Ricardo',
       },
       {
-        color: '10',
+        color: 10,
         name: 'Ricardo',
       },
       ...new Array(10),
