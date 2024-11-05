@@ -122,11 +122,11 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             className={classnames(styles.label, {
               [boxStyles.visuallyHidden]: !isLabelVisible,
               // md
-              [styles.md_label]: isMD,
-              [styles.md_labelPadding]: isMD,
+              [styles.md_labelTopPosition]: isMD,
+              [styles.md_labelPosition]: isMD,
               // lg
-              [styles.lg_label]: isLG,
-              [styles.lg_labelPadding]: isLG,
+              [styles.lg_labelTopPosition]: isLG,
+              [styles.lg_labelPosition]: isLG,
             })}
             htmlFor={id}
             title={ellipsisActive ? label : ''}
@@ -146,7 +146,7 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
         <select
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage ? 'true' : 'false'}
-          className={classnames(styles.input, typographyStyle.truncate, {
+          className={classnames(styles.input, styles.inputStyle, typographyStyle.truncate, {
             [styles.placeholderText]: !disabled && placeholder && !value,
             [styles.enabledText]:
               (!disabled && placeholder && value) || (!disabled && !placeholder),
@@ -157,11 +157,15 @@ const SelectListWithForwardRef = forwardRef<HTMLSelectElement, Props>(function I
             // md
             [styles.md_input]: isMD,
             [styles.md_inputPadding]: isMD,
+            [styles.md_inputStartPadding]: isMD,
+            [styles.md_inputEndButtonEndPadding]: isMD,
             [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
             [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
             // lg
             [styles.lg_input]: isLG,
             [styles.lg_inputPadding]: isLG,
+            [styles.lg_inputStartPadding]: isLG,
+            [styles.lg_inputEndButtonEndPadding]: isLG,
             [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
             [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
           })}
