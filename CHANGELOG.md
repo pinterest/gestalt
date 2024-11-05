@@ -1,3 +1,9 @@
+## 164.1.0 (Nov 5, 2024)
+
+### Minor
+
+- DateRange: add readonly optinal prop to DateRange component (web) ([#3851](https://github.com/pinterest/gestalt/pull/3851)) - [Preview link](https://deploy-preview-3851--gestalt.netlify.app?devexample=true)
+
 ## 164.0.1 (Nov 5, 2024)
 
 ### Patch
