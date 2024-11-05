@@ -332,16 +332,25 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
+    const gutter = 5;
+
+    const earlyBailout = (columnSpan: number) => {
+      if (columnSpan <= 3) {
+        return 2 * gutter;
+      }
+      return 3 * gutter;
+    };
+
     const layout = (itemsToLayout: readonly Item[]) =>
       multiColumnLayout({
         items: itemsToLayout,
-        gutter: 5,
+        gutter,
         columnWidth: 240,
         columnCount: 4,
         centerOffset: 20,
         measurementCache: measurementStore,
         positionCache,
-        earlyBailout: true,
+        earlyBailout,
         _getColumnSpanConfig: getColumnSpanConfig,
       });
 

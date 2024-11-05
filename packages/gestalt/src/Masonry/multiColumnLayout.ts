@@ -487,7 +487,7 @@ function getPositionsWithMultiColumnItem<T>({
     item: T;
     position: Position;
   }>;
-  earlyBailout?: boolean;
+  earlyBailout?: (columnSpan: number) => number;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
@@ -508,7 +508,7 @@ function getPositionsWithMultiColumnItem<T>({
   }>;
   heights: ReadonlyArray<number>;
 } {
-  const { positionCache, gutter } = commonGetPositionArgs;
+  const { positionCache } = commonGetPositionArgs;
 
   // This is the index inside the items to position array
   const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
@@ -563,12 +563,7 @@ function getPositionsWithMultiColumnItem<T>({
     positionCache.set(item, position);
   });
 
-  let whitespaceThreshold;
-  if (earlyBailout && multiColumnItemColumnSpan <= 3) {
-    whitespaceThreshold = 2 * gutter;
-  } else if (earlyBailout && multiColumnItemColumnSpan > 3) {
-    whitespaceThreshold = 3 * gutter;
-  }
+  const whitespaceThreshold = earlyBailout?.(multiColumnItemColumnSpan);
 
   // Get a node with the required whitespace
   const { winningNode, numberOfIterations } = getGraphPositions({
@@ -646,7 +641,7 @@ const multiColumnLayout = <T>({
   centerOffset?: number;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
-  earlyBailout?: boolean;
+  earlyBailout?: (columnSpan: number) => number;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,

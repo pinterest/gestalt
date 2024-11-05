@@ -166,7 +166,7 @@ type Props<T> = {
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: boolean;
+  _earlyBailout?: (columnSpan: number) => number;
 };
 
 type MasonryRef = {
@@ -398,7 +398,7 @@ function useLayout<T>({
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   _renderLoadingStateItems?: Props<T>['_renderLoadingStateItems'];
-  _earlyBailout?: boolean;
+  _earlyBailout?: (columnSpan: number) => number;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
