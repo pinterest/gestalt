@@ -166,7 +166,7 @@ type Props<T> = {
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: boolean;
+  _earlyBailout?: (columnSpan: number) => number;
 };
 
 type MasonryRef = {
