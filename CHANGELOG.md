@@ -1,3 +1,9 @@
+## 164.0.0 (Nov 5, 2024)
+
+### Major
+
+- Avatar,AvatarGroup: Update typing on color prop ([#3853](https://github.com/pinterest/gestalt/pull/3853)) - [Preview link](https://deploy-preview-3853--gestalt.netlify.app?devexample=true)
+
 ## 163.10.1 (Nov 5, 2024)
 
 ### Patch
