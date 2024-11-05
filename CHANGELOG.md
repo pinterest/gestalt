@@ -1,3 +1,9 @@
+## 163.10.1 (Nov 5, 2024)
+
+### Patch
+
+- Masonry: Add early bailout to be configurable from the outside ([#3852](https://github.com/pinterest/gestalt/pull/3852)) - [Preview link](https://deploy-preview-3852--gestalt.netlify.app?devexample=true)
+
 ## 163.10.0 (Nov 5, 2024)
 
 ### Minor
