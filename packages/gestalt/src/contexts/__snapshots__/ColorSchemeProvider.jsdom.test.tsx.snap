@@ -2790,8 +2790,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --sema-color-hover-background-wash-dark: rgba(36, 36, 35, 0.85);
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
-  --sema-color-hover-background-wash-scrims-default: rgba(117, 117, 112, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(76, 76, 74, 0.85);
+  --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(62, 62, 60, 0.85);
   --sema-color-hover-border-decorative: #626260;
   --sema-color-hover-border-interactive: #b2b0ae;
   --sema-color-hover-border-selected: #f8f7f2;
@@ -2851,8 +2851,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --sema-color-pressed-background-wash-dark: rgba(57, 57, 55, 0.9);
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
-  --sema-color-pressed-background-wash-scrims-default: rgba(117, 117, 112, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(76, 76, 74, 0.9);
+  --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(49, 49, 48, 0.9);
   --sema-color-pressed-border-decorative: #585856;
   --sema-color-pressed-border-interactive: #969292;
   --sema-color-pressed-border-selected: #ebebe5;
@@ -3787,7 +3787,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
   --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(245, 244, 237, 0.85);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(231, 230, 223, 0.85);
   --sema-color-hover-border-decorative: #b2b0ae;
   --sema-color-hover-border-interactive: #626260;
   --sema-color-hover-border-selected: #242423;
@@ -3848,7 +3848,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
   --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(245, 244, 237, 0.9);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(216, 215, 207, 0.9);
   --sema-color-pressed-border-decorative: #969292;
   --sema-color-pressed-border-interactive: #585856;
   --sema-color-pressed-border-selected: #393937;
@@ -4780,7 +4780,7 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
   --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(245, 244, 237, 0.85);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(231, 230, 223, 0.85);
   --sema-color-hover-border-decorative: #b2b0ae;
   --sema-color-hover-border-interactive: #626260;
   --sema-color-hover-border-selected: #242423;
@@ -4841,7 +4841,7 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
   --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(245, 244, 237, 0.9);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(216, 215, 207, 0.9);
   --sema-color-pressed-border-decorative: #969292;
   --sema-color-pressed-border-interactive: #585856;
   --sema-color-pressed-border-selected: #393937;
@@ -5773,7 +5773,7 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
   --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(245, 244, 237, 0.85);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(231, 230, 223, 0.85);
   --sema-color-hover-border-decorative: #b2b0ae;
   --sema-color-hover-border-interactive: #626260;
   --sema-color-hover-border-selected: #242423;
@@ -5834,7 +5834,7 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
   --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(245, 244, 237, 0.9);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(216, 215, 207, 0.9);
   --sema-color-pressed-border-decorative: #969292;
   --sema-color-pressed-border-interactive: #585856;
   --sema-color-pressed-border-selected: #393937;
@@ -6766,7 +6766,7 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
   --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(245, 244, 237, 0.85);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(231, 230, 223, 0.85);
   --sema-color-hover-border-decorative: #b2b0ae;
   --sema-color-hover-border-interactive: #626260;
   --sema-color-hover-border-selected: #242423;
@@ -6827,7 +6827,7 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
   --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(245, 244, 237, 0.9);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(216, 215, 207, 0.9);
   --sema-color-pressed-border-decorative: #969292;
   --sema-color-pressed-border-interactive: #585856;
   --sema-color-pressed-border-selected: #393937;
@@ -7759,7 +7759,7 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
   --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(245, 244, 237, 0.85);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(231, 230, 223, 0.85);
   --sema-color-hover-border-decorative: #b2b0ae;
   --sema-color-hover-border-interactive: #626260;
   --sema-color-hover-border-selected: #242423;
@@ -7820,7 +7820,7 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
   --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(245, 244, 237, 0.9);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(216, 215, 207, 0.9);
   --sema-color-pressed-border-decorative: #969292;
   --sema-color-pressed-border-interactive: #585856;
   --sema-color-pressed-border-selected: #393937;
@@ -8752,7 +8752,7 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --sema-color-hover-background-wash-light: rgba(248, 247, 242, 0.95);
   --sema-color-hover-background-wash-image-tint: rgba(36, 36, 35, 0.09);
   --sema-color-hover-background-wash-scrims-default: rgba(98, 98, 96, 0.45);
-  --sema-color-hover-background-wash-scrims-opaque: rgba(245, 244, 237, 0.85);
+  --sema-color-hover-background-wash-scrims-opaque: rgba(231, 230, 223, 0.85);
   --sema-color-hover-border-decorative: #b2b0ae;
   --sema-color-hover-border-interactive: #626260;
   --sema-color-hover-border-selected: #242423;
@@ -8813,7 +8813,7 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --sema-color-pressed-background-wash-light: #ebebe5;
   --sema-color-pressed-background-wash-image-tint: rgba(57, 57, 55, 0.14);
   --sema-color-pressed-background-wash-scrims-default: rgba(88, 88, 86, 0.5);
-  --sema-color-pressed-background-wash-scrims-opaque: rgba(245, 244, 237, 0.9);
+  --sema-color-pressed-background-wash-scrims-opaque: rgba(216, 215, 207, 0.9);
   --sema-color-pressed-border-decorative: #969292;
   --sema-color-pressed-border-interactive: #585856;
   --sema-color-pressed-border-selected: #393937;
