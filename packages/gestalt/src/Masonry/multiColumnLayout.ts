@@ -474,7 +474,7 @@ function getPositionsWithMultiColumnItem<T>({
   itemsToPosition,
   heights,
   prevPositions,
-  whitespaceThreshold,
+  earlyBailout,
   columnCount,
   logWhitespace,
   _getColumnSpanConfig,
@@ -487,7 +487,7 @@ function getPositionsWithMultiColumnItem<T>({
     item: T;
     position: Position;
   }>;
-  whitespaceThreshold?: number;
+  earlyBailout?: boolean;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
@@ -508,7 +508,7 @@ function getPositionsWithMultiColumnItem<T>({
   }>;
   heights: ReadonlyArray<number>;
 } {
-  const { positionCache } = commonGetPositionArgs;
+  const { positionCache, gutter } = commonGetPositionArgs;
 
   // This is the index inside the items to position array
   const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
@@ -562,6 +562,13 @@ function getPositionsWithMultiColumnItem<T>({
   paintedItemPositions.forEach(({ item, position }) => {
     positionCache.set(item, position);
   });
+
+  let whitespaceThreshold;
+  if (earlyBailout && multiColumnItemColumnSpan <= 3) {
+    whitespaceThreshold = 2 * gutter;
+  } else if (earlyBailout && multiColumnItemColumnSpan > 3) {
+    whitespaceThreshold = 3 * gutter;
+  }
 
   // Get a node with the required whitespace
   const { winningNode, numberOfIterations } = getGraphPositions({
@@ -629,7 +636,7 @@ const multiColumnLayout = <T>({
   logWhitespace,
   measurementCache,
   positionCache,
-  whitespaceThreshold,
+  earlyBailout,
   _getColumnSpanConfig,
 }: {
   items: ReadonlyArray<T>;
@@ -639,7 +646,7 @@ const multiColumnLayout = <T>({
   centerOffset?: number;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
-  whitespaceThreshold?: number;
+  earlyBailout?: boolean;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
@@ -721,7 +728,7 @@ const multiColumnLayout = <T>({
           itemsToPosition,
           heights: acc.heights,
           prevPositions: acc.positions,
-          whitespaceThreshold,
+          earlyBailout,
           logWhitespace,
           columnCount,
           _getColumnSpanConfig,
