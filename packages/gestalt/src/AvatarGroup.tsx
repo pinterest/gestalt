@@ -45,7 +45,7 @@ type Props = {
    * The user group data. See the [collaborators display](https://gestalt.pinterest.systems/web/avatargroup#Collaborators-display) variant to learn more.
    */
   collaborators: ReadonlyArray<{
-    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+    color?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
     name: string;
     src?: string;
   }>;
