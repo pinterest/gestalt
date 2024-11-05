@@ -1,3 +1,9 @@
+## 163.9.5 (Nov 5, 2024)
+
+### Patch
+
+- SelectList: VR fixes to standardize form fields and match them to Figma spacing ([#3847](https://github.com/pinterest/gestalt/pull/3847)) - [Preview link](https://deploy-preview-3847--gestalt.netlify.app?devexample=true)
+
 ## 163.9.4 (Nov 5, 2024)
 
 ### Patch
