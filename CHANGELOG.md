@@ -1,3 +1,9 @@
+## 163.9.6 (Nov 5, 2024)
+
+### Patch
+
+- SearchField: VR fixes to standardize form fields and match them to Figma spacing ([#3848](https://github.com/pinterest/gestalt/pull/3848)) - [Preview link](https://deploy-preview-3848--gestalt.netlify.app?devexample=true)
+
 ## 163.9.5 (Nov 5, 2024)
 
 ### Patch
