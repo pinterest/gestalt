@@ -1,3 +1,9 @@
+## 164.2.2 (Nov 6, 2024)
+
+### Patch
+
+- ComboBox: fix in padding after https://github.com/pinterest/gestalt/pull/3822 ([#3859](https://github.com/pinterest/gestalt/pull/3859)) - [Preview link](https://deploy-preview-3859--gestalt.netlify.app?devexample=true)
+
 ## 164.2.1 (Nov 6, 2024)
 
 ### Patch
