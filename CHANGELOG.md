@@ -1,3 +1,9 @@
+## 164.2.1 (Nov 6, 2024)
+
+### Patch
+
+- Pog, IconButton: add "transparentDarkBackground" value for `bgColor` ([#3856](https://github.com/pinterest/gestalt/pull/3856)) - [Preview link](https://deploy-preview-3856--gestalt.netlify.app?devexample=true)
+
 ## 164.2.0 (Nov 6, 2024)
 
 ### Minor
