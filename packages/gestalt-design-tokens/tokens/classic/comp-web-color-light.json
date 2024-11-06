@@ -305,7 +305,7 @@
             "value": "rgba(0, 0, 0, 0.1)"
           },
           "disabled": {
-            "value": "{color.transparent.value}"
+            "value": "{color.background.secondary.base.value}"
           }
         },
         "disabled": {

@@ -2,7 +2,7 @@ import disabledStateExample from 'docs/examples/iconbutton/disabled';
 import defaultStateExample from 'docs/examples/iconbutton/enabled';
 import focusOnDarkBackground from 'docs/examples/iconbutton/focusOnDarkBackground';
 import selectedStateExample from 'docs/examples/iconbutton/selectedStateExample';
-import { IconButton, Pog } from 'gestalt';
+import { Box, IconButton, Pog } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -293,6 +293,7 @@ Follow these guidelines for \`bgColor\`
             bgColor={[
               'red',
               'lightGray',
+              'transparentDarkBackground',
               'transparentDarkGray',
               'gray',
               'washLight',
