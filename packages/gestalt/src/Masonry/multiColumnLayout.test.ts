@@ -310,7 +310,7 @@ describe('multi column layout test cases', () => {
     });
   });
 
-  test('bails out graph when whitespace threshold is found', () => {
+  test('bails out graph when prop is found', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
 
@@ -332,16 +332,25 @@ describe('multi column layout test cases', () => {
       measurementStore.set(item, item.height);
     });
 
+    const gutter = 5;
+
+    const earlyBailout = (columnSpan: number) => {
+      if (columnSpan <= 3) {
+        return 2 * gutter;
+      }
+      return 3 * gutter;
+    };
+
     const layout = (itemsToLayout: readonly Item[]) =>
       multiColumnLayout({
         items: itemsToLayout,
-        gutter: 0,
+        gutter,
         columnWidth: 240,
         columnCount: 4,
         centerOffset: 20,
         measurementCache: measurementStore,
         positionCache,
-        whitespaceThreshold: 11,
+        earlyBailout,
         _getColumnSpanConfig: getColumnSpanConfig,
       });
 
@@ -352,9 +361,9 @@ describe('multi column layout test cases', () => {
 
     expect(positionCache.get(items[4])).toEqual({
       height: 200,
-      left: 500,
-      top: 350,
-      width: 480,
+      left: 510,
+      top: 355,
+      width: 485,
     });
   });
 

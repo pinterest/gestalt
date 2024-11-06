@@ -1,3 +1,69 @@
+## 164.1.2 (Nov 6, 2024)
+
+### Patch
+
+- ButtonToggle: VR Certification Fixes ([#3858](https://github.com/pinterest/gestalt/pull/3858)) - [Preview link](https://deploy-preview-3858--gestalt.netlify.app?devexample=true)
+
+## 164.1.1 (Nov 6, 2024)
+
+### Patch
+
+- DateField: VR fixes to standardize form fields and match them to Figma spacing ([#3855](https://github.com/pinterest/gestalt/pull/3855)) - [Preview link](https://deploy-preview-3855--gestalt.netlify.app?devexample=true)
+
+## 164.1.0 (Nov 5, 2024)
+
+### Minor
+
+- DateRange: add readonly optinal prop to DateRange component (web) ([#3851](https://github.com/pinterest/gestalt/pull/3851)) - [Preview link](https://deploy-preview-3851--gestalt.netlify.app?devexample=true)
+
+## 164.0.1 (Nov 5, 2024)
+
+### Patch
+
+- DatePicker: VR fixes to standardize form fields and match them to Figma spacing ([#3850](https://github.com/pinterest/gestalt/pull/3850)) - [Preview link](https://deploy-preview-3850--gestalt.netlify.app?devexample=true)
+
+## 164.0.0 (Nov 5, 2024)
+
+### Major
+
+- Avatar,AvatarGroup: Update typing on color prop ([#3853](https://github.com/pinterest/gestalt/pull/3853)) - [Preview link](https://deploy-preview-3853--gestalt.netlify.app?devexample=true)
+
+## 163.10.1 (Nov 5, 2024)
+
+### Patch
+
+- Masonry: Add early bailout to be configurable from the outside ([#3852](https://github.com/pinterest/gestalt/pull/3852)) - [Preview link](https://deploy-preview-3852--gestalt.netlify.app?devexample=true)
+
+## 163.10.0 (Nov 5, 2024)
+
+### Minor
+
+- Tokens: temporarily removing references from RGBA tokens ([#3849](https://github.com/pinterest/gestalt/pull/3849)) - [Preview link](https://deploy-preview-3849--gestalt.netlify.app?devexample=true)
+
+## 163.9.6 (Nov 5, 2024)
+
+### Patch
+
+- SearchField: VR fixes to standardize form fields and match them to Figma spacing ([#3848](https://github.com/pinterest/gestalt/pull/3848)) - [Preview link](https://deploy-preview-3848--gestalt.netlify.app?devexample=true)
+
+## 163.9.5 (Nov 5, 2024)
+
+### Patch
+
+- SelectList: VR fixes to standardize form fields and match them to Figma spacing ([#3847](https://github.com/pinterest/gestalt/pull/3847)) - [Preview link](https://deploy-preview-3847--gestalt.netlify.app?devexample=true)
+
+## 163.9.4 (Nov 5, 2024)
+
+### Patch
+
+- Masonry: Add fixed early bailout depending on column span ([#3846](https://github.com/pinterest/gestalt/pull/3846)) - [Preview link](https://deploy-preview-3846--gestalt.netlify.app?devexample=true)
+
+## 163.9.3 (Nov 4, 2024)
+
+### Patch
+
+- TextField: VR layout adjusments ([#3845](https://github.com/pinterest/gestalt/pull/3845)) - [Preview link](https://deploy-preview-3845--gestalt.netlify.app?devexample=true)
+
 ## 163.9.2 (Nov 2, 2024)
 
 ### Patch

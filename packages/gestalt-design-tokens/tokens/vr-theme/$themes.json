@@ -267,7 +267,6 @@
       "sema.color.background.wash.scrims.opaque": "d61a7ab6a6b07e1591dee33c735e5800f45c2d9d",
       "sema.color.border.decorative": "891e2067a922b06dacb518c32e18b2d1ee17936c",
       "sema.color.border.interactive": "e7f760dde7c28739333fa0fc42d73477415ced97",
-      "sema.color.border.selected": "7a1edcd1db6b726eef2872c4e75d967bffe219e6",
       "sema.color.border.disabled": "1b83a7c41507bea621cad55ff406b9acfb692ead",
       "sema.color.border.success": "8f29d38db82975fafefd3bba0e23d6b9f8efb205",
       "sema.color.border.error": "eff4749c44d5c3b5018f346f5f1cc698226ac377",
@@ -297,7 +296,7 @@
       "sema.color.icon.default": "6e5d19f1bdb0fe49edb0c22c42e7a0f51cccf881",
       "sema.color.icon.neutral": "9c6bac50e76ee7ea0167d4a18f09d65816c1c8a1",
       "sema.color.icon.subtle": "69d4cb65dad0a8b746c1767aabc12f0d15d14f6d",
-      "sema.color.icon.link": "82c58b0d57f524614dcb2e0290283e929f9210f4",
+      "sema.color.icon.link": "d20fcf1621e848ff2b933b3f7623ea029c185169",
       "sema.color.icon.info": "e7d822cf749c86f0b310dbdaf624b4ba4a032da5",
       "sema.color.icon.recommendation": "c9dc629793197a1048a548fa5b0b78b94a0ad524",
       "sema.color.icon.success": "7770c08349f1d4eb41332275b870759a47915417",
@@ -319,7 +318,8 @@
       "sema.color.dataviz.06": "fda06ead6f68632956ad1bdc0a04e98ed77becee",
       "sema.color.dataviz.07": "2a8e8bdf01178dda2a89feb366cb6e282f70a1ab",
       "sema.color.dataviz.08": "e9b7271103cd577a26860e3b6d1b26ebe6783536",
-      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e"
+      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e",
+      "sema.color.border.selected ": "da8a63de42afe02a1f555acb9c7df76075904bc7"
     },
     "group": "Semantic colors"
   },
@@ -367,7 +367,6 @@
       "sema.color.background.wash.scrims.opaque": "d61a7ab6a6b07e1591dee33c735e5800f45c2d9d",
       "sema.color.border.decorative": "891e2067a922b06dacb518c32e18b2d1ee17936c",
       "sema.color.border.interactive": "e7f760dde7c28739333fa0fc42d73477415ced97",
-      "sema.color.border.selected": "7a1edcd1db6b726eef2872c4e75d967bffe219e6",
       "sema.color.border.disabled": "1b83a7c41507bea621cad55ff406b9acfb692ead",
       "sema.color.border.success": "8f29d38db82975fafefd3bba0e23d6b9f8efb205",
       "sema.color.border.error": "eff4749c44d5c3b5018f346f5f1cc698226ac377",
@@ -397,7 +396,7 @@
       "sema.color.icon.default": "6e5d19f1bdb0fe49edb0c22c42e7a0f51cccf881",
       "sema.color.icon.neutral": "9c6bac50e76ee7ea0167d4a18f09d65816c1c8a1",
       "sema.color.icon.subtle": "69d4cb65dad0a8b746c1767aabc12f0d15d14f6d",
-      "sema.color.icon.link": "82c58b0d57f524614dcb2e0290283e929f9210f4",
+      "sema.color.icon.link": "d20fcf1621e848ff2b933b3f7623ea029c185169",
       "sema.color.icon.info": "e7d822cf749c86f0b310dbdaf624b4ba4a032da5",
       "sema.color.icon.recommendation": "c9dc629793197a1048a548fa5b0b78b94a0ad524",
       "sema.color.icon.success": "7770c08349f1d4eb41332275b870759a47915417",
@@ -419,7 +418,8 @@
       "sema.color.dataviz.06": "fda06ead6f68632956ad1bdc0a04e98ed77becee",
       "sema.color.dataviz.07": "2a8e8bdf01178dda2a89feb366cb6e282f70a1ab",
       "sema.color.dataviz.08": "e9b7271103cd577a26860e3b6d1b26ebe6783536",
-      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e"
+      "sema.color.dataviz.09": "3e15e1651561cf91f11a348f2c5830f4a89b4f3e",
+      "sema.color.border.selected": "372cc7f9913cd20ef22fb07609779b4ee70f405e"
     },
     "group": "Semantic colors"
   },

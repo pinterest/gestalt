@@ -117,9 +117,11 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           <label
             className={classnames(styles.label, {
               // md
-              [styles.md_label]: isMD,
+              [styles.md_labelTopPosition]: isMD,
+              [styles.md_labelPosition]: isMD,
               // lg
-              [styles.lg_label]: isLG,
+              [styles.lg_labelTopPosition]: isLG,
+              [styles.lg_labelPosition]: isLG,
 
               [boxStyles.visuallyHidden]: !isLabelVisible,
             })}
@@ -141,16 +143,14 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           aria-hidden
           className={classnames({
             [styles.startIconLabelWrapper]: label,
+            [styles.startIconNoLabelWrapper]: !label || !isLabelVisible,
             [styles.md_startIcon]: isMD,
             [styles.lg_startIcon]: isLG,
             [styles.md_startIconLabel]: label && isMD,
             [styles.lg_startIconLabel]: label && isLG,
-            [styles.startIconNoLabelWrapper]: !label || !isLabelVisible,
           })}
         >
-          <div className={styles.startIcon}>
-            <Icon accessibilityLabel="" color="default" icon="search" size={16} />
-          </div>
+          <Icon accessibilityLabel="" color="default" icon="search" size={16} />
         </div>
 
         <input
@@ -169,14 +169,20 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
               [styles.errorBorder]: hasErrorMessage,
               // md
               [styles.md_input]: isMD,
-              [styles.md_inputHorizontalPadding]: isMD,
+              [styles.md_inputPadding]: isMD,
               [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
               [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
+              [styles.md_inputStartPadding]: isMD,
+              [styles.md_inputEndButtonEndPadding]: isMD && isClearIconButtonVisible,
+              [styles.sm_inputNoEndButtonEndPadding]: isMD && !isClearIconButtonVisible,
               // lg
               [styles.lg_input]: isLG,
-              [styles.lg_inputHorizontalPadding]: isLG,
+              [styles.lg_inputPadding]: isLG,
               [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
               [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
+              [styles.lg_inputStartPadding]: isLG,
+              [styles.lg_inputEndButtonEndPadding]: isLG && isClearIconButtonVisible,
+              [styles.lg_inputNoEndButtonEndPadding]: isLG && !isClearIconButtonVisible,
             },
           )}
           data-test-id={dataTestId}
@@ -200,49 +206,48 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           value={value}
         />
         {isClearIconButtonVisible ? (
-          <div className={classnames(styles.endClearButtonWrapper)}>
-            <div
-              className={classnames({
-                [styles.endClearButton]: true,
-              })}
-            >
-              <TapArea
-                accessibilityLabel="Clear date"
-                onBlur={() => setIconFocused(false)}
-                onFocus={() => setIconFocused(true)}
-                onKeyDown={({ event }) => {
-                  if ([ENTER, SPACE].includes(event.keyCode)) {
-                    innerRef?.current?.focus();
-                    // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
-                    onChange({ value: '', event });
-                  }
-                  if (event.keyCode !== TAB) event.preventDefault();
-                }}
-                onMouseEnter={() => setIconFocused(true)}
-                onMouseLeave={() => setIconFocused(false)}
-                onTap={({ event }) => {
+          <div
+            className={classnames(styles.endClearButtonWrapper, {
+              [styles.md_endClearButtonWrapper]: isMD,
+              [styles.lg_endClearButtonWrapper]: isLG,
+            })}
+          >
+            <TapArea
+              accessibilityLabel="Clear date"
+              onBlur={() => setIconFocused(false)}
+              onFocus={() => setIconFocused(true)}
+              onKeyDown={({ event }) => {
+                if ([ENTER, SPACE].includes(event.keyCode)) {
                   innerRef?.current?.focus();
                   // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                   onChange({ value: '', event });
-                }}
-                rounding={2}
-                tapStyle="compress"
-              >
-                <Pog
-                  accessibilityLabel=""
-                  bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                  icon="clear"
-                  iconColor="darkGray"
-                  size="sm"
-                />
-              </TapArea>
-            </div>
+                }
+                if (event.keyCode !== TAB) event.preventDefault();
+              }}
+              onMouseEnter={() => setIconFocused(true)}
+              onMouseLeave={() => setIconFocused(false)}
+              onTap={({ event }) => {
+                innerRef?.current?.focus();
+                // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
+                onChange({ value: '', event });
+              }}
+              rounding={2}
+              tapStyle="compress"
+            >
+              <Pog
+                accessibilityLabel=""
+                bgColor={iconFocused ? 'lightGray' : 'transparent'}
+                icon="clear"
+                iconColor="darkGray"
+                size="sm"
+              />
+            </TapArea>
           </div>
         ) : null}
       </div>
 
       {hasErrorMessage ? (
-        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} topPadding="200" />
+        <FormErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
       ) : null}
     </div>
   );

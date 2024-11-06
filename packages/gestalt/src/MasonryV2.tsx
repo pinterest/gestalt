@@ -162,11 +162,11 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
-   * Experimental prop to define how much whitespace is good enough to position multicolumn modules
+   * Experimental prop to enable early bailout when positioning multicolumn modules
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _whitespaceThreshold?: number;
+  _earlyBailout?: (columnSpan: number) => number;
 };
 
 type MasonryRef = {
@@ -376,7 +376,7 @@ function useLayout<T>({
   _getColumnSpanConfig,
   _loadingStateItems = [],
   _renderLoadingStateItems,
-  _whitespaceThreshold,
+  _earlyBailout,
 }: {
   align: Align;
   columnWidth: number;
@@ -398,7 +398,7 @@ function useLayout<T>({
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   _renderLoadingStateItems?: Props<T>['_renderLoadingStateItems'];
-  _whitespaceThreshold?: number;
+  _earlyBailout?: (columnSpan: number) => number;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -424,7 +424,7 @@ function useLayout<T>({
     _logTwoColWhitespace,
     _loadingStateItems,
     renderLoadingState,
-    _whitespaceThreshold,
+    _earlyBailout,
   });
 
   const hasMultiColumnItems =
@@ -701,7 +701,7 @@ function Masonry<T>(
     _dynamicHeights,
     _loadingStateItems = [],
     _renderLoadingStateItems,
-    _whitespaceThreshold,
+    _earlyBailout,
   }: Props<T>,
   ref:
     | {
@@ -825,7 +825,7 @@ function Masonry<T>(
       _getColumnSpanConfig,
       _loadingStateItems,
       _renderLoadingStateItems,
-      _whitespaceThreshold,
+      _earlyBailout,
     });
 
   useFetchOnScroll({

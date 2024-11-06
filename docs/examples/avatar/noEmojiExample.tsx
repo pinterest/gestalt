@@ -9,7 +9,7 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <Avatar
-        color={isInVRExperiment ? '01' : undefined}
+        color={isInVRExperiment ? 1 : undefined}
         name={isInVRExperiment ? '🌹' : '😀'}
         size="lg"
       />

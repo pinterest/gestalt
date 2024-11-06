@@ -94,8 +94,8 @@ const CustomTextField = forwardRef(
     const isLabelVisible = ownerState?.passthroughProps?.labelDisplay === 'visible';
     const hasErrorMessage = Boolean(ownerState?.passthroughProps?.errorMessage);
 
-    const isMd = ownerState?.passthroughProps?.size === 'md';
-    const isLg = ownerState?.passthroughProps?.size === 'lg';
+    const isMD = ownerState?.passthroughProps?.size === 'md';
+    const isLG = ownerState?.passthroughProps?.size === 'lg';
 
     return (
       <div className={classnames(stylesTextfield.inputParent)}>
@@ -103,11 +103,12 @@ const CustomTextField = forwardRef(
           <label
             className={classnames(stylesTextfield.label, {
               [stylesTextfield.visuallyHidden]: !isLabelVisible,
-
               // md
-              [stylesTextfield.md_label]: isMd,
+              [stylesTextfield.md_labelTopPosition]: isMD,
+              [stylesTextfield.md_labelPosition]: isMD,
               // lg
-              [stylesTextfield.lg_label]: isLg,
+              [stylesTextfield.lg_labelTopPosition]: isLG,
+              [stylesTextfield.lg_labelPosition]: isLG,
             })}
             htmlFor={ownerState?.passthroughProps?.id}
           >
@@ -128,22 +129,25 @@ const CustomTextField = forwardRef(
             [stylesTextfield.disabledText]: disabled,
             [stylesTextfield.disabledBorder]: disabled,
             // md
-            [stylesTextfield.md_input]: isMd,
-            [stylesTextfield.md_inputHorizontalPadding]: isMd,
+            [stylesTextfield.md_input]: isMD,
+            [stylesTextfield.md_inputEndButtonEndPadding]: isMD,
             [stylesTextfield.md_inputLabelPadding]:
-              isMd && ownerState?.passthroughProps?.label && isLabelVisible,
+              isMD && ownerState?.passthroughProps?.label && isLabelVisible,
             [stylesTextfield.md_inputNoLabelPadding]:
-              isMd &&
+              isMD &&
               (!ownerState?.passthroughProps?.label ||
                 (ownerState?.passthroughProps?.label && !isLabelVisible)),
-            [stylesTextfield.lg_input]: isLg,
-            [stylesTextfield.lg_inputHorizontalPadding]: isLg,
+            [stylesTextfield.md_inputStartPadding]: isMD,
+            // lg
+            [stylesTextfield.lg_input]: isLG,
+            [stylesTextfield.lg_inputEndButtonEndPadding]: isLG,
             [stylesTextfield.lg_inputLabelPadding]:
-              isLg && ownerState?.passthroughProps?.label && isLabelVisible,
+              isLG && ownerState?.passthroughProps?.label && isLabelVisible,
             [stylesTextfield.lg_inputNoLabelPadding]:
-              isLg &&
+              isLG &&
               (!ownerState?.passthroughProps?.label ||
                 (ownerState?.passthroughProps?.label && !isLabelVisible)),
+            [stylesTextfield.lg_inputStartPadding]: isLG,
           })}
           disabled={disabled}
           enterKeyHint={ownerState?.passthroughProps?.enterKeyHint}
@@ -162,9 +166,9 @@ const CustomTextField = forwardRef(
         />
         {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
           <div
-            className={classnames(stylesTextfield.clearButtonContainer, {
-              [stylesTextfield.md_clearButtonContainer]: isMd,
-              [stylesTextfield.lg_clearButtonContainer]: isLg,
+            className={classnames(stylesTextfield.endIconContainer, {
+              [stylesTextfield.md_endIconContainer]: isMD,
+              [stylesTextfield.lg_endIconContainer]: isLG,
             })}
           >
             <TapArea

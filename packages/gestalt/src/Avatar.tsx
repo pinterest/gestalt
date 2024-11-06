@@ -8,7 +8,7 @@ type Props = {
   /**
    * The background color chosen by the user. A default color will be used if none is selected.
    */
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  color?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   /**
    * The name of the user. This is used for the placeholder treatment if an image is not available.
    */

@@ -150,11 +150,11 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
-   * Experimental prop to define how much whitespace is good enough to position multicolumn modules
+   * Experimental prop to enable early bailout when positioning multicolumn modules
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _whitespaceThreshold?: number;
+  _earlyBailout?: (columnSpan: number) => number;
 };
 
 type State<T> = {
@@ -591,7 +591,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _loadingStateItems = [],
       _renderLoadingStateItems,
-      _whitespaceThreshold,
+      _earlyBailout,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -614,7 +614,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
         renderLoadingState,
-        whitespaceThreshold: _whitespaceThreshold,
+        earlyBailout: _earlyBailout,
       });
     } else if (layout === 'uniformRow') {
       getPositions = uniformRowLayout({
@@ -639,7 +639,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         logWhitespace: _logTwoColWhitespace,
         _getColumnSpanConfig,
         renderLoadingState,
-        whitespaceThreshold: _whitespaceThreshold,
+        earlyBailout: _earlyBailout,
       });
     }
 
