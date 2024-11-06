@@ -1,3 +1,9 @@
+## 164.2.3 (Nov 6, 2024)
+
+### Patch
+
+- BannerUpsell: removed max witdh for message ([#3860](https://github.com/pinterest/gestalt/pull/3860)) - [Preview link](https://deploy-preview-3860--gestalt.netlify.app?devexample=true)
+
 ## 164.2.2 (Nov 6, 2024)
 
 ### Patch
