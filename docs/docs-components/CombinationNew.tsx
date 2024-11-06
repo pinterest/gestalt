@@ -83,7 +83,12 @@ export default function CombinationNew({
       cardShadeColor = 'tertiary';
     }
     if (
-      combinationTitles.some((title) => title.includes('"light"') || title.includes('"washLight"') || title.includes('"transparentDarkBackground"'))
+      combinationTitles.some(
+        (title) =>
+          title.includes('"light"') ||
+          title.includes('"washLight"') ||
+          title.includes('"transparentDarkBackground"'),
+      )
     ) {
       cardShadeColor = 'transparentDarkGray';
     }
