@@ -139,36 +139,36 @@
         },
         "wash": {
           "default": {
+            "value": "rgba(255,255,255,0.9)",
             "type": "color",
-            "value": "rgba({base.color.grayscale.0}, 0.9)",
             "description": "Partially transparent background color used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "dark": {
+            "value": "rgba(0,0,0,0.8)",
             "type": "color",
-            "value": "rgba({base.color.grayscale.500}, 0.8)",
             "description": "Partially transparent background color that remains black across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "light": {
+            "value": "rgba(255,255,255,0.9)",
             "type": "color",
-            "value": "rgba({base.color.grayscale.0}, 0.9)",
             "description": "Partially transparent background color that remains white across both light and dark modes, used to distinguish an elevated element from the content beneath it, optionally paired with a background blur effect"
           },
           "image": {
             "tint": {
+              "value": "rgba(0,0,0,0.04)",
               "type": "color",
-              "value": "rgba({base.color.grayscale.500}, 0.04)",
               "description": "A subtle tint placed on top of most images, helpful for distinguishing images with solid white or black backgrounds from their surroundings"
             }
           },
           "scrims": {
             "default": {
+              "value": "rgba(117,117,112,0.4)",
               "type": "color",
-              "value": "rgba({base.color.grayscale.250}, 0.4)",
               "description": "A partially transparent background color used as an overlay, hiding most content on the screen while a modal, sheet, or alert is visible"
             },
             "opaque": {
+              "value": "rgba(245,244,237,0.8)",
               "type": "color",
-              "value": "rgba({base.color.grayscale.50}, 0.8)",
               "description": "More opaque than the default scrim background color, useful for providing even more distinction from the content beneath a modal, sheet, or alert"
             }
           }

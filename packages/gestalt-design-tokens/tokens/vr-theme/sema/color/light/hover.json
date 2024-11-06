@@ -109,31 +109,31 @@
           },
           "wash": {
             "default": {
-              "type": "color",
-              "value": "rgba({base.color.hover.grayscale.0}, 0.95)"
+              "value": "rgba(248,247,242,0.95)",
+              "type": "color"
             },
             "dark": {
-              "type": "color",
-              "value": "rgba({base.color.hover.grayscale.500}, 0.85)"
+              "value": "rgba(36,36,35,0.85)",
+              "type": "color"
             },
             "light": {
-              "type": "color",
-              "value": "rgba({base.color.hover.grayscale.0}, 0.95)"
+              "value": "rgba(248,247,242,0.95)",
+              "type": "color"
             },
             "image": {
               "tint": {
-                "type": "color",
-                "value": "rgba({base.color.hover.grayscale.500}, 0.09)"
+                "value": "rgba(36,36,35,0.09)",
+                "type": "color"
               }
             },
             "scrims": {
               "default": {
-                "type": "color",
-                "value": "rgba({base.color.hover.grayscale.250}, 0.45)"
+                "value": "rgba(98,98,96,0.45)",
+                "type": "color"
               },
               "opaque": {
-                "type": "color",
-                "value": "rgba({base.color.hover.grayscale.50}, 0.85)"
+                "value": "rgba(231,230,223,0.85)",
+                "type": "color"
               }
             }
           }

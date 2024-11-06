@@ -113,8 +113,8 @@
               "value": "{base.color.pressed.grayscale.0}"
             },
             "dark": {
-              "type": "color",
-              "value": "rgba({base.color.pressed.grayscale.500}, 0.9)"
+              "value": "rgba(57,57,55,0.9)",
+              "type": "color"
             },
             "light": {
               "type": "color",
@@ -122,18 +122,18 @@
             },
             "image": {
               "tint": {
-                "type": "color",
-                "value": "rgba({base.color.pressed.grayscale.500}, 0.14)"
+                "value": "rgba(57,57,55,0.14)",
+                "type": "color"
               }
             },
             "scrims": {
               "default": {
-                "type": "color",
-                "value": "rgba({base.color.pressed.grayscale.250}, 0.5)"
+                "value": "rgba(88,88,86,0.5)",
+                "type": "color"
               },
               "opaque": {
-                "type": "color",
-                "value": "rgba({base.color.pressed.grayscale.50}, 0.9)"
+                "value": "rgba(216,215,207,0.9)",
+                "type": "color"
               }
             }
           }
