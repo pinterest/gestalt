@@ -4,7 +4,6 @@
 }
 
 .buttonVr {
-  border: 1px solid var(--sema-color-border-interactive);
   box-sizing: border-box;
   min-width: 60px;
 }
@@ -119,8 +118,20 @@
 
 /* STATES */
 
+.activeBorderVr {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.disabledBorderVr {
+  border: 1px solid var(--color-background-button-disabled-default);
+}
+
+.disabledTransparentBorderVr {
+  border: 1px solid var(--sema-color-border-disabled);
+}
+
 .disabled {
-  composes: borderColorLightGrayDisabled from "./Borders.css";
+  background-color: var(--color-background-button-disabled-default);
   cursor: default;
   pointer-events: none;
 }

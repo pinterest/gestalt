@@ -193,6 +193,9 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         [styles.rounding200]: size === 'sm',
         [styles.rounding300]: size === 'md',
         [styles.rounding400]: size === 'lg',
+        [styles.activeBorderVr]: !disabled,
+        [styles.disabledBorderVr]: disabled && (color !== 'transparent' || selected),
+        [styles.disabledTransparentBorderVr]: disabled && color === 'transparent' && !selected,
       }
     : {
         [styles.rounding600]: !graphicSrc,
@@ -341,7 +344,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   ) : (
     <Flex
       alignItems="center"
-      gap={{ row: text.length === 0 ? 1 : 2, column: 0 }}
+      gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
       justifyContent="center"
     >
       {iconStart && (
