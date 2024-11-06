@@ -48,8 +48,8 @@ function Header() {
   const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
 
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualRefreshA',
+    mwebExperimentName: 'web_gestalt_visualRefreshA',
   });
   const { setExperiments } = useAppContext();
 
@@ -198,7 +198,7 @@ function Header() {
             {showVRToggle && (
               <ButtonToggle
                 iconStart="sparkle"
-                onClick={() => setExperiments(isInVRExperiment ? '' : 'Tokens')}
+                onClick={() => setExperiments(isInVRExperiment ? '' : 'VR1')}
                 selected={isInVRExperiment}
                 size="sm"
                 text={isInVRExperiment ? 'VR on' : 'VR off'}

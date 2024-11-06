@@ -110,6 +110,12 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
+  const isInVRA = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefreshA',
+    mwebExperimentName: 'web_gestalt_visualRefreshA',
+  });
+
+  const isInVR = isInVRA || isInVRExperiment;
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
       return typographyStyle.breakAll;
@@ -124,6 +130,7 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   };
 
   const cs = cx(
+    'visualRefreshA',
     color && colorClass,
     align === 'center' && typographyStyle.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
@@ -138,29 +145,25 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     underline && styles.underline,
     isNotNullish(lineClamp) && typographyStyle.lineClamp,
     {
-      [styles.Text]: !isInVRExperiment,
-      [typographyStyle[`fontSize${size}`]]: !isInVRExperiment,
-      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment && weight === 'bold',
-      [typographyStyle.fontWeightNormal]: !isInVRExperiment && weight === 'normal',
-      [styles.TextBody]: isInVRExperiment,
-      [styles.lg]: isInVRExperiment && (size === '400' || size === '500' || size === '600'),
-      [styles.md]: isInVRExperiment && size === '300',
-      [styles.sm]: isInVRExperiment && size === '200',
-      [styles.xs]: isInVRExperiment && size === '100',
+      [styles.Text]: !isInVR,
+      [typographyStyle[`fontSize${size}`]]: !isInVR,
+      [typographyStyle.fontWeightSemiBold]: !isInVR && weight === 'bold',
+      [typographyStyle.fontWeightNormal]: !isInVR && weight === 'normal',
+      [styles.TextBody]: isInVR,
+      [styles.lg]: isInVR && (size === '400' || size === '500' || size === '600'),
+      [styles.md]: isInVR && size === '300',
+      [styles.sm]: isInVR && size === '200',
+      [styles.xs]: isInVR && size === '100',
       [styles.lgDefault]:
-        isInVRExperiment &&
-        (size === '400' || size === '500' || size === '600') &&
-        weight === 'normal',
-      [styles.mdDefault]: isInVRExperiment && size === '300' && weight === 'normal',
-      [styles.smDefault]: isInVRExperiment && size === '200' && weight === 'normal',
-      [styles.xsDefault]: isInVRExperiment && size === '100' && weight === 'normal',
+        isInVR && (size === '400' || size === '500' || size === '600') && weight === 'normal',
+      [styles.mdDefault]: isInVR && size === '300' && weight === 'normal',
+      [styles.smDefault]: isInVR && size === '200' && weight === 'normal',
+      [styles.xsDefault]: isInVR && size === '100' && weight === 'normal',
       [styles.lgEmphasis]:
-        isInVRExperiment &&
-        (size === '400' || size === '500' || size === '600') &&
-        weight === 'bold',
-      [styles.mdEmphasis]: isInVRExperiment && size === '300' && weight === 'bold',
-      [styles.smEmphasis]: isInVRExperiment && size === '200' && weight === 'bold',
-      [styles.xsEmphasis]: isInVRExperiment && size === '100' && weight === 'bold',
+        isInVR && (size === '400' || size === '500' || size === '600') && weight === 'bold',
+      [styles.mdEmphasis]: isInVR && size === '300' && weight === 'bold',
+      [styles.smEmphasis]: isInVR && size === '200' && weight === 'bold',
+      [styles.xsEmphasis]: isInVR && size === '100' && weight === 'bold',
     },
   );
 

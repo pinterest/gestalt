@@ -62,17 +62,25 @@ function InternalIcon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
-  const isInExperiment = useInExperiment({
+
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+  const isInVRA = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefreshA',
+    mwebExperimentName: 'web_gestalt_visualRefreshA',
+  });
+
+  const isInVR = isInVRA || isInVRExperiment;
 
   const getIconPath = (iconToUse?: IconName) => {
     const iconName = iconToUse;
 
     if (!iconName) return undefined;
 
-    if (isInExperiment) {
+    if (isInVR) {
       if (iconName in vrIcons) {
         return vrIcons[iconName as keyof typeof vrIcons];
       }

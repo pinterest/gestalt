@@ -75,13 +75,15 @@ export default function App({ children, files }: Props) {
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme}>
-              <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
-                <NavigationContextProvider>
-                  <LocalFilesProvider files={files}>
-                    <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
-                  </LocalFilesProvider>
-                </NavigationContextProvider>
-              </GlobalEventsHandlerProvider>
+              <ColorSchemeProvider _conditionallyInactive colorScheme={colorScheme} >
+                <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
+                  <NavigationContextProvider>
+                    <LocalFilesProvider files={files}>
+                      <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
+                    </LocalFilesProvider>
+                  </NavigationContextProvider>
+                </GlobalEventsHandlerProvider>
+              </ColorSchemeProvider>
             </ColorSchemeProvider>
           )}
         </AppContextConsumer>

@@ -8,7 +8,7 @@ export default function DesignTokensPage() {
       <PageHeader
         bannerSlimExperiment={
           <BannerSlimExperiment
-            componentName="Tokens"
+            componentName="VR1"
             description="enable a visual refresh in Gestalt. Typography and icons are also under the experiment"
             pullRequest={3616}
           />
