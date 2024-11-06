@@ -127,22 +127,29 @@
 }
 
 .transparentDarkBackground {
-  background-color: var(--color-background-button-transparentdarkbackground-default);
+  background-color: var(
+    --color-background-button-transparentdarkbackground-default
+  );
 }
 
 .transparentDarkBackground.hovered,
 .transparentDarkBackground.focused {
-  background-color: var(--color-background-button-transparentdarkbackground-hover);
+  background-color: var(
+    --color-background-button-transparentdarkbackground-hover
+  );
 }
 
 .transparentDarkBackground.active {
-  background-color: var(--color-background-button-transparentdarkbackground-active);
+  background-color: var(
+    --color-background-button-transparentdarkbackground-active
+  );
 }
 
 .transparentDarkBackground.disabled {
-  background-color: var(--color-background-button-transparentdarkbackground-disabled);
+  background-color: var(
+    --color-background-button-transparentdarkbackground-disabled
+  );
 }
-
 
 .washLight {
   background-color: var(--color-background-button-semitransparentwhite-default);

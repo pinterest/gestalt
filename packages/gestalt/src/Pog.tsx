@@ -193,7 +193,8 @@ export default function Pog({
     [styles.transparentInnerFocus]: focused && bgColor === 'transparent',
     [styles.lightOuterFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
-    [styles.inverseOuterFocus]: focused && iconColor === 'white' && bgColor === 'transparentDarkBackground',
+    [styles.inverseOuterFocus]:
+      focused && iconColor === 'white' && bgColor === 'transparentDarkBackground',
     [styles.darkInnerFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.hovered]: hovered && !active,
