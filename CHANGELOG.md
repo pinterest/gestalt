@@ -1,3 +1,9 @@
+## 164.2.0 (Nov 6, 2024)
+
+### Minor
+
+- Masonry: Support flexible for uniformRow layout ([#3857](https://github.com/pinterest/gestalt/pull/3857)) - [Preview link](https://deploy-preview-3857--gestalt.netlify.app?devexample=true)
+
 ## 164.1.2 (Nov 6, 2024)
 
 ### Patch
