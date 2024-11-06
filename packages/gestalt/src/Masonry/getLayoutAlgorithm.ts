@@ -22,7 +22,7 @@ export default function getLayoutAlgorithm<T>({
   _earlyBailout,
 }: {
   align: Align;
-  columnWidth: number;
+  columnWidth: number | undefined;
   gutter?: number;
   items: ReadonlyArray<T>;
   layout: Layout;
@@ -54,11 +54,12 @@ export default function getLayoutAlgorithm<T>({
       earlyBailout: _earlyBailout,
     });
   }
-  if (layout === 'uniformRow') {
+  if (layout.startsWith('uniformRow')) {
     return uniformRowLayout({
       cache: measurementStore,
       columnWidth,
       gutter,
+      flexible: layout === 'uniformRowFlexible',
       minCols,
       width,
       renderLoadingState,
