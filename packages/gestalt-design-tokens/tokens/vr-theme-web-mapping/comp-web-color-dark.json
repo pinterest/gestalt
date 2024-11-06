@@ -200,10 +200,10 @@
             "value": "{base.color.transparent.value}"
           },
           "hover": {
-            "value": "{sema.color.hover.background.wash.dark.value}"
+            "value": "{sema.color.hover.background.wash.light.value}"
           },
           "active": {
-            "value": "{sema.color.pressed.background.wash.dark.value}"
+            "value": "{sema.color.pressed.background.wash.light.value}"
           },
           "disabled": {
             "value": "{sema.color.background.disabled.value}"

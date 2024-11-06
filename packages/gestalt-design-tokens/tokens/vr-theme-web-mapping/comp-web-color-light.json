@@ -98,7 +98,7 @@
         },
         "tertiary": {
           "default": {
-            "value": "transparent"
+            "value": "{base.color.transparent.value}"
           },
           "hover": {
             "value": "{sema.color.hover.background.wash.default.value}"
@@ -107,7 +107,7 @@
             "value": "{sema.color.pressed.background.wash.default.value}"
           },
           "disabled": {
-            "value": "transparent"
+            "value": "{base.color.transparent.value}"
           }
         },
         "gray": {
