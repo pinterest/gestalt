@@ -1,3 +1,9 @@
+## 164.1.2 (Nov 6, 2024)
+
+### Patch
+
+- ButtonToggle: VR Certification Fixes ([#3858](https://github.com/pinterest/gestalt/pull/3858)) - [Preview link](https://deploy-preview-3858--gestalt.netlify.app?devexample=true)
+
 ## 164.1.1 (Nov 6, 2024)
 
 ### Patch
