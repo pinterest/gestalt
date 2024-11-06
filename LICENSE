@@ -2,25 +2,19 @@ Gestalt Software License
 
 Copyright Pinterest, Inc., 2024. All rights reserved.
 
-This software and associated documentation files (the "Software") are owned by Pinterest, Inc. ("Pinterest") and are intended solely for internal use by Pinterest.
+This software and associated documentation files (the "Software") are owned by Pinterest, Inc. ("Pinterest") and are intended exclusively for use by Pinterest.
 
-1. Permitted Use
-   Pinterest is allowed to use, copy, modify, and internally distribute the Software within its organization.
+1. Exclusive License
+   The Software is licensed solely to Pinterest. No other party or entity is granted any rights to use, copy, modify, or distribute the Software.
 
-2. Restrictions
-   The Software shall not be:
-   a. Distributed, sold, leased, sublicensed, or otherwise transferred to any third party;
-   b. Used for any commercial purposes outside of Pinterest's internal operations;
-   c. Reverse engineered, decompiled, or disassembled to extract any proprietary algorithms, except as permitted by applicable law.
+2. Internal Use
+   Pinterest is permitted to use, copy, modify, and internally distribute the Software within the organization.
 
 3. Ownership
    Pinterest retains all rights, title, and interest in and to the Software, including all intellectual property rights.
 
-4. Disclaimer of Warranties
-   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-
-5. Limitation of Liability
+4. Limitation of Liability
    IN NO EVENT SHALL PINTEREST BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING FROM THE USE OF THE SOFTWARE.
 
-6. Governing Law
+5. Governing Law
    This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law principles.
