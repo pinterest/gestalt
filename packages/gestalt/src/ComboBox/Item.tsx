@@ -76,8 +76,8 @@ const ComboBoxItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Pr
           className={classnames(
             flexStyles.Flex,
             bordersStyles.rounding2,
-            boxWhitespaceStyles.paddingX2,
-            boxWhitespaceStyles.paddingY2,
+            boxWhitespaceStyles.paddingX200,
+            boxWhitespaceStyles.paddingY200,
             {
               [styles.hoveredItem]: isHovered,
               [styles.item]: !isHovered,
