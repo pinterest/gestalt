@@ -24,14 +24,17 @@ function calculateColumnCountAndWidth({
 }) {
   if (flexible) {
     const colguess = Math.floor(width / idealColumnWidth);
-    const columnCount = Math.max(Math.floor((width - colguess * gutter) / idealColumnWidth), minCols);
+    const columnCount = Math.max(
+      Math.floor((width - colguess * gutter) / idealColumnWidth),
+      minCols,
+    );
     const columnWidth = Math.floor(width / columnCount) - gutter;
     const columnWidthAndGutter = columnWidth + gutter;
     return {
       columnCount,
       columnWidth,
       columnWidthAndGutter,
-    }
+    };
   }
 
   const columnWidthAndGutter = idealColumnWidth + gutter;
@@ -40,7 +43,7 @@ function calculateColumnCountAndWidth({
     columnCount,
     columnWidth: idealColumnWidth,
     columnWidthAndGutter,
-  }
+  };
 }
 
 const uniformRowLayout =
