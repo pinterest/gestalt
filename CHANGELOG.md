@@ -1,3 +1,9 @@
+## 164.1.1 (Nov 6, 2024)
+
+### Patch
+
+- DateField: VR fixes to standardize form fields and match them to Figma spacing ([#3855](https://github.com/pinterest/gestalt/pull/3855)) - [Preview link](https://deploy-preview-3855--gestalt.netlify.app?devexample=true)
+
 ## 164.1.0 (Nov 5, 2024)
 
 ### Minor
