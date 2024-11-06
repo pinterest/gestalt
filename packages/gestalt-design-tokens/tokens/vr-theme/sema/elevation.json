@@ -6,19 +6,11 @@
           "type": "boxShadow",
           "value": [
             {
-              "x": "{base.elevation.shadow.x.perimeter.surface}",
-              "y": "{base.elevation.shadow.y.perimeter.surface}",
-              "blur": "{base.elevation.shadow.radius.perimeter.surface}",
-              "spread": "{base.elevation.shadow.spread.perimeter.surface}",
-              "color": "{base.elevation.shadow.color.perimeter.surface}",
-              "type": "dropShadow"
-            },
-            {
-              "x": "{base.elevation.shadow.x.ambient.surface}",
-              "y": "{base.elevation.shadow.y.ambient.surface}",
-              "blur": "{base.elevation.shadow.radius.ambient.surface}",
-              "spread": "{base.elevation.shadow.spread.ambient.surface}",
-              "color": "{base.elevation.shadow.color.ambient.surface}",
+              "x": "{base.elevation.shadow.x.surface}",
+              "y": "{base.elevation.shadow.y.surface}",
+              "blur": "{base.elevation.shadow.radius.surface}",
+              "spread": "{base.elevation.shadow.spread.surface}",
+              "color": "{base.elevation.shadow.color.surface}",
               "type": "dropShadow"
             }
           ]
@@ -27,19 +19,11 @@
           "type": "boxShadow",
           "value": [
             {
-              "x": "{base.elevation.shadow.x.perimeter.raised}",
-              "y": "{base.elevation.shadow.y.perimeter.raised}",
-              "blur": "{base.elevation.shadow.radius.perimeter.raised}",
-              "spread": "{base.elevation.shadow.spread.perimeter.raised}",
-              "color": "{base.elevation.shadow.color.perimeter.raised}",
-              "type": "dropShadow"
-            },
-            {
-              "x": "{base.elevation.shadow.x.ambient.raised}",
-              "y": "{base.elevation.shadow.y.ambient.raised}",
-              "blur": "{base.elevation.shadow.radius.ambient.raised}",
-              "spread": "{base.elevation.shadow.spread.ambient.raised}",
-              "color": "{base.elevation.shadow.color.ambient.raised}",
+              "x": "{base.elevation.shadow.x.raised}",
+              "y": "{base.elevation.shadow.y.raised}",
+              "blur": "{base.elevation.shadow.radius.raised}",
+              "spread": "{base.elevation.shadow.spread.raised}",
+              "color": "{base.elevation.shadow.color.raised}",
               "type": "dropShadow"
             }
           ]
@@ -48,19 +32,11 @@
           "type": "boxShadow",
           "value": [
             {
-              "x": "{base.elevation.shadow.x.perimeter.floating}",
-              "y": "{base.elevation.shadow.y.perimeter.floating}",
-              "blur": "{base.elevation.shadow.radius.perimeter.floating}",
-              "spread": "{base.elevation.shadow.spread.perimeter.floating}",
-              "color": "{base.elevation.shadow.color.perimeter.floating}",
-              "type": "dropShadow"
-            },
-            {
-              "x": "{base.elevation.shadow.x.ambient.floating}",
-              "y": "{base.elevation.shadow.y.ambient.floating}",
-              "blur": "{base.elevation.shadow.radius.ambient.floating}",
-              "spread": "{base.elevation.shadow.spread.ambient.floating}",
-              "color": "{base.elevation.shadow.color.ambient.floating}",
+              "x": "{base.elevation.shadow.x.floating}",
+              "y": "{base.elevation.shadow.y.floating}",
+              "blur": "{base.elevation.shadow.radius.floating}",
+              "spread": "{base.elevation.shadow.spread.floating}",
+              "color": "{base.elevation.shadow.color.floating}",
               "type": "dropShadow"
             }
           ]
@@ -73,9 +49,9 @@
           },
           "type": "composition"
         },
-        "strong": {
+        "default": {
           "value": {
-            "backgroundBlur": "{base.elevation.background-blur.strong.radius}"
+            "backgroundBlur": "{base.elevation.background-blur.default.radius}"
           },
           "type": "composition"
         }
