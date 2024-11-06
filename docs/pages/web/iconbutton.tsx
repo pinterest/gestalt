@@ -293,6 +293,7 @@ Follow these guidelines for \`bgColor\`
             bgColor={[
               'red',
               'lightGray',
+              'transparentDarkBackground',
               'transparentDarkGray',
               'gray',
               'washLight',
