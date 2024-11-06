@@ -24,6 +24,7 @@ type Props = {
    */
   bgColor?:
     | 'transparent'
+    | 'transparentDarkBackground'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -144,6 +145,7 @@ export default function Pog({
     lightGray: 'darkGray',
     red: 'white',
     transparent: 'darkGray',
+    transparentDarkBackground: 'white',
     transparentDarkGray: isInVRExperiment ? 'light' : 'white',
     washLight: isInVRExperiment ? 'dark' : 'darkGray',
     white: 'darkGray',
@@ -191,7 +193,7 @@ export default function Pog({
     [styles.transparentInnerFocus]: focused && bgColor === 'transparent',
     [styles.lightOuterFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
-    [styles.inverseOuterFocus]: focused && iconColor === 'white' && bgColor === 'transparent',
+    [styles.inverseOuterFocus]: focused && iconColor === 'white' && bgColor === 'transparentDarkBackground',
     [styles.darkInnerFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.hovered]: hovered && !active,
