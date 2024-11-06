@@ -19,18 +19,9 @@ exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -89,27 +80,18 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
         className="box flexGrow marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart600 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
         <div
           className="box flexGrow justifyEnd smDisplayFlex smMarginEnd400 smPaddingY300"
@@ -300,27 +282,18 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart600 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -438,27 +411,18 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -576,27 +540,18 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -703,27 +658,18 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -792,27 +738,18 @@ exports[`<BannerUpsell /> message + title + primaryAction without href 1`] = `
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
@@ -872,27 +809,18 @@ exports[`<BannerUpsell /> message + title 1`] = `
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
-          className="box"
-          style={
-            Object {
-              "maxWidth": 648,
-            }
-          }
+          className="box marginBottom200"
         >
           <div
-            className="box marginBottom200"
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
           >
-            <div
-              className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-            >
-              A Title
-            </div>
+            A Title
           </div>
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            Insert a clever upsell message here
-          </div>
+        </div>
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          Insert a clever upsell message here
         </div>
       </div>
     </div>
