@@ -89,7 +89,7 @@ export default function CombinationNew({
     }
     if (
       combinationTitles.some(
-        (title) => title.includes('"dark"') || title.startsWith('"transparentDarkGray"'),
+        (title) => title.includes('"dark"') || title.includes('"transparentDarkGray"'),
       )
     ) {
       cardShadeColor = 'lightWash';
