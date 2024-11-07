@@ -13,6 +13,7 @@ import remarkGfm from 'remark-gfm';
 import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
+import { getAllPaths, getPosts } from '../utils/sanity';
 
 function getPlatform(pathName: string): 'android' | 'ios' | 'web' {
   if (pathName.startsWith('android')) return 'android';
@@ -92,6 +93,10 @@ export async function getStaticPaths(): Promise<{
   }>;
   fallback: boolean;
 }> {
+
+  const patahs = await getPosts();
+  console.log('paths', patahs); 
+
   // get all the possible paths that exist within ./markdown folder
   const paths = await getAllMarkdownPosts();
 

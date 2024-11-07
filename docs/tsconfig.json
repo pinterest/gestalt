@@ -16,6 +16,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
+      "sanity-gestalt-docs": ["../sanity"],
       "gestalt": ["../packages/gestalt"],
       "gestalt-charts": ["../packages/gestalt-charts"],
       "gestalt-datepicker": ["../packages/gestalt-datepicker"]
@@ -24,6 +25,7 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "references": [
+    { "path": "../sanity" },
     { "path": "../packages/gestalt" },
     { "path": "../packages/gestalt-charts" },
     { "path": "../packages/gestalt-datepicker" }
