@@ -176,7 +176,7 @@ export default function Toast({
             paddingInlineEnd: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
           },
         }}
-        display="flex"
+        display={isInExperiment ? 'flex' : undefined}
         minHeight={isInExperiment ? 60 : undefined}
         paddingY={3}
         rounding={4}
