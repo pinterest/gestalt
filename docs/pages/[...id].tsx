@@ -6,6 +6,7 @@ The getStaticPaths() will look at the files in the ./markdown folder and try to 
 We do this so we don't have to define each page, and can just define the pages in the markdown folder.
 */
 
+import {Text} from 'gestalt'
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';
@@ -13,7 +14,7 @@ import remarkGfm from 'remark-gfm';
 import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
-import { getAllPaths, getPosts } from '../utils/sanity';
+import {getSanityRoutes } from '../utils/sanity';
 
 function getPlatform(pathName: string): 'android' | 'ios' | 'web' {
   if (pathName.startsWith('android')) return 'android';
@@ -41,12 +42,14 @@ type Props = {
   platform: 'android' | 'ios' | 'web';
 };
 
-export default function DocumentPage({ content, meta, pageSourceUrl, platform }: Props) {
+export default function DocumentPage({ content, meta, pageSourceUrl, platform, sanity }: Props) {
   return (
     <ErrorBoundary>
+      {sanity ? <Text>omg we have this page in sanity :)</Text> : 
       <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl} platform={platform}>
         <MDXRemote {...content} />
       </MarkdownPage>
+      }
     </ErrorBoundary>
   );
 }
@@ -57,6 +60,7 @@ export async function getStaticProps(context: {
   };
 }): Promise<{
   props: {
+    sanity?: boolean;
     meta: {
       [key: string]: string;
     };
@@ -66,6 +70,12 @@ export async function getStaticProps(context: {
   };
 }> {
   const { id } = context.params;
+
+
+  if(id.includes('sanity')){
+      // if the content is from sanity, we can fetch the content from sanity and set it as the page content
+      return {props:{sanity: true}}
+  }
 
   const pathName = id.join('/');
   const { meta, content } = await getDocByRoute(pathName);
@@ -94,14 +104,15 @@ export async function getStaticPaths(): Promise<{
   fallback: boolean;
 }> {
 
-  const patahs = await getPosts();
-  console.log('paths', patahs); 
+  const sanityRoutes = await getSanityRoutes();
+  console.log(process.env.NEXT_PUBLIC_SANITY_PREVIEW_SECRET)
+  console.log('paths', sanityRoutes); 
 
   // get all the possible paths that exist within ./markdown folder
   const paths = await getAllMarkdownPosts();
 
   return {
-    paths: paths.map((name) => ({
+    paths: sanityRoutes.map((name) => ({
       params: {
         id: name,
       },
