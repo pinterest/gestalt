@@ -1,3 +1,9 @@
+## 164.2.4 (Nov 7, 2024)
+
+### Patch
+
+- Toast: VR Certification Fixes ([#3862](https://github.com/pinterest/gestalt/pull/3862)) - [Preview link](https://deploy-preview-3862--gestalt.netlify.app?devexample=true)
+
 ## 164.2.3 (Nov 6, 2024)
 
 ### Patch
