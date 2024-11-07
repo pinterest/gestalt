@@ -18,7 +18,6 @@ const colorNoGradientFilter = {
   '_filter_comment': 'Custom',
 };
 
-
 const filterColor = {
   'filter': {
     'attributes': {
@@ -126,15 +125,15 @@ function registerTokenFilters(sd) {
     },
   });
 
-
   // Filters colors tokens that are not gradient tokens
   sd.registerFilter({
     name: 'colorNoGradientFilter',
     matcher(token) {
-      return token.attributes.category === 'color' && !token.name.toLowerCase().includes('gradient');
+      return (
+        token.attributes.category === 'color' && !token.name.toLowerCase().includes('gradient')
+      );
     },
   });
-  
 
   // Filters only tokens with data-visualization
   sd.registerFilter({
