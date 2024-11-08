@@ -1,5 +1,6 @@
 import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import { limitShift, shift } from '@floating-ui/react';
 import {
   Box,
   Icon,
@@ -163,7 +164,15 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
           onMonthChange={(newMonth: Date) => setMonth(newMonth.getMonth())}
           placeholderText={placeholder ?? format?.toUpperCase()}
           popperClassName={styles['react-datepicker-popper']}
-          popperPlacement={popperPlacement[idealDirection]}
+          popperModifiers={[
+            shift({
+              padding: 8,
+              limiter: limitShift({
+                offset: 5,
+              }),
+            }),
+          ]}
+          popperPlacement={popperPlacement[idealDirection] ?? idealDirection}
           previousMonthButtonLabel={
             <Icon accessibilityLabel={previousMonth} color="default" icon="arrow-back" size={16} />
           }
