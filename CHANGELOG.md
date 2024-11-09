@@ -1,3 +1,9 @@
+## 164.2.5 (Nov 9, 2024)
+
+### Patch
+
+- DatePicker: fix for position at the edge ([#3865](https://github.com/pinterest/gestalt/pull/3865)) - [Preview link](https://deploy-preview-3865--gestalt.netlify.app?devexample=true)
+
 ## 164.2.4 (Nov 7, 2024)
 
 ### Patch
