@@ -31,6 +31,7 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
 const moduleExportFileHeader = ({ file, tokenArray, fileHeader }) =>
   `${fileHeader({ file, commentStyle: 'short' })} module.exports = [${tokenArray}]`;
 
+// register web formats
 function registerWebFormats(sd) {
   const { fileHeader } = sd.formatHelpers;
 
