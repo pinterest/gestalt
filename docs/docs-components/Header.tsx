@@ -40,17 +40,26 @@ function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
 }
 
 function Header() {
+  const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+
   const router = useRouter();
   const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
-  const [showVRToggle, setShowVRToggle] = useState(false);
 
-  const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
+  const [showVRToggle, setShowVRToggle] = useState(false);
 
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+  const [showVR1Toggle, setShowVR1Toggle] = useState(false);
+
+  const isInVR1Experiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh1',
+    mwebExperimentName: 'web_gestalt_visualRefresh1',
+  });
+
   const { setExperiments } = useAppContext();
 
   const mainNavigationTabs = useMemo(
@@ -85,8 +94,16 @@ function Header() {
   );
 
   useEffect(() => {
-    if (isInVRExperiment) setShowVRToggle(true);
-  }, [isInVRExperiment]);
+    if (isInVRExperiment) {
+      setShowVRToggle(true);
+      setShowVR1Toggle(false);
+    }
+
+    if (isInVR1Experiment) {
+      setShowVRToggle(false);
+      setShowVR1Toggle(true);
+    }
+  }, [isInVRExperiment, isInVR1Experiment]);
 
   useEffect(() => {
     const isDeployPreviewEnvironment =
@@ -202,6 +219,16 @@ function Header() {
                 selected={isInVRExperiment}
                 size="sm"
                 text={isInVRExperiment ? 'VR on' : 'VR off'}
+              />
+            )}
+
+            {showVR1Toggle && (
+              <ButtonToggle
+                iconStart="sparkle"
+                onClick={() => setExperiments(isInVR1Experiment ? '' : 'VR1')}
+                selected={isInVR1Experiment}
+                size="sm"
+                text={isInVR1Experiment ? 'VR1 on' : 'VR1 off'}
               />
             )}
 

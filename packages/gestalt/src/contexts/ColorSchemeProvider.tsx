@@ -137,6 +137,10 @@ type Props = {
    * Sets the line height for the selected language.
    */
   language?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
+  /**
+   * Undocumented prop to enable omitting provider unless second condition is met.
+   */
+  _conditionallyInactive?: boolean;
 };
 
 /**
@@ -148,17 +152,25 @@ export default function ColorSchemeProvider({
   fullDimensions = false,
   id,
   language = 'default',
+  _conditionallyInactive = false,
 }: Props) {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const [languageLineHeight, setLanguageLineHeight] = useState(language);
 
-  const className = id ? `__gestaltTheme${id}` : undefined;
-  const selector = className ? `.${className}` : ':root';
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
+  const isInExperiment1 = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh1',
+    mwebExperimentName: 'web_gestalt_visualRefresh1',
+  });
+
+  const className = id ? `__gestaltTheme${id}` : undefined;
+  const rootSelector =
+    isInExperiment1 && _conditionallyInactive ? ':root .visualRefreshA' : ':root';
+  const selector = className ? `.${className}` : rootSelector;
   const handlePrefChange = (event: MediaQueryList) => {
     setTheme(getTheme(event.matches ? 'dark' : 'light'));
   };
@@ -176,6 +188,8 @@ export default function ColorSchemeProvider({
     return undefined; // Flow doesn't like that only userPreference returns a clean up func
   }, [colorScheme, language]);
 
+  if (!isInExperiment1 && _conditionallyInactive) return children;
+
   return (
     <ThemeContext.Provider value={theme}>
       <style
@@ -185,10 +199,18 @@ export default function ColorSchemeProvider({
             colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
   ${selector} {
-${themeToStyles(darkModeTheme, isInExperiment, languageLineHeight)} }
+${themeToStyles(
+  darkModeTheme,
+  isInExperiment || (isInExperiment1 && _conditionallyInactive),
+  languageLineHeight,
+)} }
 }`
               : `${selector} {
-${themeToStyles(theme, isInExperiment, languageLineHeight)} }`,
+${themeToStyles(
+  theme,
+  isInExperiment || (isInExperiment1 && _conditionallyInactive),
+  languageLineHeight,
+)} }`,
         }}
       />
       <div
