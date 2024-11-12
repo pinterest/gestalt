@@ -1,3 +1,9 @@
+## 165.0.0 (Nov 12, 2024)
+
+### Major
+
+- Tokens: Remove Gradient tokens for Android ([#3863](https://github.com/pinterest/gestalt/pull/3863)) - [Preview link](https://deploy-preview-3863--gestalt.netlify.app?devexample=true)
+
 ## 164.2.5 (Nov 9, 2024)
 
 ### Patch
