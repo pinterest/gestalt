@@ -25,7 +25,6 @@ export async function getDocByRoute(route: string): Promise<{
 
     return { route, meta: data, content, isMDX: true };
   } catch (ex: any) {
-    logGAEvent('md-page-not-found', { route, error: ex.message });
     return { route, isMDX: false, meta: {} };
   }
 }

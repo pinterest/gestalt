@@ -59,7 +59,7 @@ export async function getStaticProps(context: {
     id: ReadonlyArray<string>;
   };
 }): Promise<{
-  props: {
+  props?: {
     sanity?: boolean;
     meta: {
       [key: string]: string;
@@ -68,18 +68,30 @@ export async function getStaticProps(context: {
     pageSourceUrl: string;
     platform: 'android' | 'ios' | 'web';
   };
+  notFound?: boolean;
 }> {
   const { id } = context.params;
 
 
   if(id.includes('sanity')){
       // if the content is from sanity, we can fetch the content from sanity and set it as the page content
-      return {props:{sanity: true}}
+      return {props:{
+        sanity: true,
+        meta: {},
+        content: {},
+        pageSourceUrl: '',
+        platform: 'android'
+      }}
   }
 
   const pathName = id.join('/');
-  const { meta, content } = await getDocByRoute(pathName);
+  const { meta, content, isMDX } = await getDocByRoute(pathName);
 
+  if (!isMDX) {
+    return {
+      notFound: true,
+    };
+  }
   // @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
   const mdxSource = await serialize(content, {
     mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: 'mdx' },
@@ -101,11 +113,13 @@ export async function getStaticPaths(): Promise<{
       id: string | ReadonlyArray<string>;
     };
   }>;
-  fallback: boolean;
+  fallback: boolean | 'blocking';
 }> {
 
+
+  // to-do: disable CDN cache on client
+
   const sanityRoutes = await getSanityRoutes();
-  console.log(process.env.NEXT_PUBLIC_SANITY_PREVIEW_SECRET)
   console.log('paths', sanityRoutes); 
 
   // get all the possible paths that exist within ./markdown folder
@@ -118,6 +132,6 @@ export async function getStaticPaths(): Promise<{
       },
     })),
 
-    fallback: false, // show 404 if not a valid path }
+    fallback: 'blocking', // show 404 if not a valid path }
   };
 }
