@@ -16,11 +16,11 @@ const commonJSFormatter = ({ token, darkTheme, isVR }) => {
     originalValue: isVR
       ? 'NA'
       : // eslint-disable-next-line no-nested-ternary
-        typeof token.original.value === 'string'
-        ? token.original.value.endsWith('}1A')
-          ? token.original.value?.replace(regex1A, '')
-          : token.original.value.replace(regex, '')
-        : token.value,
+      typeof token.original.value === 'string'
+      ? token.original.value.endsWith('}1A')
+        ? token.original.value?.replace(regex1A, '')
+        : token.original.value.replace(regex, '')
+      : token.value,
     // eslint-disable-next-line no-underscore-dangle
     ...(darkTheme ? { _darkModeSupport: !token._darkMode } : {}), // For dark mode we are adding this metadada to track unsupported tokens
     comment: token.comment,
