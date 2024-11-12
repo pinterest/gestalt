@@ -559,10 +559,6 @@ Object {
   <color name=\\"sema_color_background_wash_image_tint\\">#0a000000</color>
   <color name=\\"sema_color_background_wash_scrims_default\\">#66757570</color>
   <color name=\\"sema_color_background_wash_scrims_opaque\\">#cc4c4c4a</color>
-  <color name=\\"sema_color_background_gradient_darken_bottom_weak\\">#00000000</color>
-  <color name=\\"sema_color_background_gradient_darken_bottom_strong\\">#00000000</color>
-  <color name=\\"sema_color_background_gradient_darken_top_weak\\">#00000000</color>
-  <color name=\\"sema_color_background_gradient_darken_top_strong\\">#00000000</color>
   <color name=\\"sema_color_border_decorative\\">@color/base_color_grayscale_250</color>
   <color name=\\"sema_color_border_interactive\\">@color/base_color_grayscale_150</color>
   <color name=\\"sema_color_border_selected\\">@color/base_color_grayscale_0</color>
@@ -693,10 +689,6 @@ Object {
   <color name=\\"sema_color_background_wash_image_tint\\">#0a000000</color>
   <color name=\\"sema_color_background_wash_scrims_default\\">#66757570</color>
   <color name=\\"sema_color_background_wash_scrims_opaque\\">#ccf5f4ed</color>
-  <color name=\\"sema_color_background_gradient_darken_bottom_weak\\">#00000000</color>
-  <color name=\\"sema_color_background_gradient_darken_bottom_strong\\">#00000000</color>
-  <color name=\\"sema_color_background_gradient_darken_top_weak\\">#00000000</color>
-  <color name=\\"sema_color_background_gradient_darken_top_strong\\">#00000000</color>
   <color name=\\"sema_color_border_decorative\\">@color/base_color_grayscale_150</color>
   <color name=\\"sema_color_border_interactive\\">@color/base_color_grayscale_250</color>
   <color name=\\"sema_color_border_selected\\">@color/base_color_grayscale_500</color>
