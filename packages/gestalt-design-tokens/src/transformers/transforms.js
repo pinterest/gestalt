@@ -178,7 +178,6 @@ function registerTokenTransforms(sd) {
       return prop.attributes.category === 'rounding' && prop.value.endsWith('%');
     },
     transformer(prop) {
-      console.log('prop', prop);
       // change the value from  a percent to a number
       const percent = parseFloat(prop.value.replace('%', ''));
       // convert the percent to a decimal
