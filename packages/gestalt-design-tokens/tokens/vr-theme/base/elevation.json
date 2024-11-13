@@ -85,6 +85,12 @@
             "value": "24px",
             "type": "dimension"
           }
+        },
+        "strong": {
+          "radius": {
+            "value": "64px",
+            "type": "dimension"
+          }
         }
       }
     }
