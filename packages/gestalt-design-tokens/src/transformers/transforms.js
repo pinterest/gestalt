@@ -171,6 +171,23 @@ function registerTokenTransforms(sd) {
     },
   });
 
+  sd.registerTransform({
+    name: 'value/rounding/android',
+    type: 'value',
+    matcher(prop) {
+      return prop.attributes.category === 'rounding' && prop.value.endsWith('%');
+    },
+    transformer(prop) {
+      console.log('prop', prop);
+      // change the value from  a percent to a number
+      const percent = parseFloat(prop.value.replace('%', ''));
+      // convert the percent to a decimal
+      const decimal = percent * 0.01;
+      // return the decimal
+      return decimal;
+    },
+  });
+
   // #endregion
 
   // #region IOS PLATFORM
