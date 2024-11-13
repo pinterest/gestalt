@@ -90,16 +90,27 @@ export default function Badge({
 
   const shouldUseTooltip = tooltip?.text;
 
-  const ICON_MAP = Object.freeze({
-    'info': 'info-circle',
-    'error': 'workflow-status-problem',
-    'warning': 'workflow-status-warning',
-    'success': 'check-circle',
-    'neutral': 'lock',
-    'recommendation': 'sparkle',
-    'darkWash': 'info-circle',
-    'lightWash': 'info-circle',
-  });
+  const ICON_MAP = isInVRExperiment
+    ? Object.freeze({
+        'info': 'compact-info-circle-fill',
+        'error': 'compact-workflow-status-problem',
+        'warning': 'compact-workflow-status-warning',
+        'success': 'check-circle-fill',
+        'neutral': 'compact-lock',
+        'recommendation': 'performance-plus',
+        'darkWash': 'compact-info-circle-fill',
+        'lightWash': 'compact-info-circle-fill',
+      })
+    : Object.freeze({
+        'info': 'info-circle',
+        'error': 'workflow-status-problem',
+        'warning': 'workflow-status-warning',
+        'success': 'check-circle',
+        'neutral': 'lock',
+        'recommendation': 'sparkle',
+        'darkWash': 'info-circle',
+        'lightWash': 'info-circle',
+      });
 
   const COLOR_ICON_MAP = Object.freeze({
     'info': 'info',
@@ -133,6 +144,8 @@ export default function Badge({
     useInteractiveStates();
 
   const cxStyles = cx(styles.badge, styles[styleType], {
+    [styles.padding]: !isInVRExperiment,
+    [styles.paddingVR]: isInVRExperiment,
     [styles.middle]: !shouldUseTooltip && position === 'middle',
     [styles.top]: !shouldUseTooltip && position === 'top',
     [styles.focusInnerBorder]:
