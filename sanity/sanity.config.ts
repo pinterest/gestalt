@@ -1,7 +1,8 @@
 import {createAuthStore, defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import {structureTool, StructureToolOptions} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
+import {defaultDocumentNode} from './defaultDocumentNode'
 
 export default defineConfig({
   name: 'default',
@@ -10,7 +11,7 @@ export default defineConfig({
   projectId: 'k05lbr97',
   dataset: 'docs',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [structureTool({defaultDocumentNode}), visionTool()],
   auth: createAuthStore({
     projectId: 'k05lbr97',
     dataset: 'docs',
