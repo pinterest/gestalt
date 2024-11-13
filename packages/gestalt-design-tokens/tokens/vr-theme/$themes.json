@@ -6,8 +6,8 @@
     "selectedTokenSets": {
       "base/color/default": "enabled",
       "base/text/font": "enabled",
-      "base/space": "source",
-      "base/rounding": "source",
+      "base/space": "enabled",
+      "base/rounding": "enabled",
       "base/motion": "enabled",
       "base/elevation": "enabled"
     },
@@ -110,8 +110,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "base/color/hover": "enabled",
-      "base/color/pressed": "enabled",
-      "base/elevation": "disabled"
+      "base/color/pressed": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:6:2",
     "$figmaModeId": "6:0",
@@ -194,25 +193,6 @@
     "group": "Base (ext.)"
   },
   {
-    "id": "4c0a0ee316ceb856e6d89fa6a0d8f8d8ce3d216a",
-    "name": "Light",
-    "$figmaStyleReferences": {},
-    "selectedTokenSets": {
-      "base/elevation": "disabled"
-    },
-    "group": "Base elevation",
-    "$figmaCollectionId": "VariableCollectionId:9730:142",
-    "$figmaModeId": "9730:1",
-    "$figmaVariableReferences": {
-      "base.elevation.shadow.color.perimeter.surface": "58318e7d8bbe1c09a72118b5f199486ffc4be34b",
-      "base.elevation.shadow.color.perimeter.raised": "a8d213dfbd61140fdfb3d78fc78366a1c5925df3",
-      "base.elevation.shadow.color.perimeter.floating": "3b97e5427e9a95221a2300e3d9ad57996ada840a",
-      "base.elevation.shadow.color.ambient.surface": "51a05cd0c8f4e23c3a8da86766094ba2f357b53a",
-      "base.elevation.shadow.color.ambient.raised": "ca6e78c5c6496472dc0bf1193edc5cc1ed5b77b4",
-      "base.elevation.shadow.color.ambient.floating": "42d12d91b5a0c75f10c062da854f79ee34f2b351"
-    }
-  },
-  {
     "id": "3b4d116e636294819da8d101249348f7e4a960ae",
     "name": "Light",
     "$figmaStyleReferences": {
@@ -222,16 +202,18 @@
       "sema.color.background.gradient.darken.bottom.strong": "S:eee8537fe49a19f346098a4199f8eb491fbaf760,",
       "sema.color.background.gradient.darken.top.weak": "S:24d018e1ac6a24aa31482f1e2034f278c2d4ff33,",
       "sema.color.background.gradient.darken.top.strong": "S:e21132a594e8b422b311aa4668a2b4010eb183c5,",
-      "sema.elevation.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,",
-      "sema.elevation.shadow.surface": "S:393711008ada0e8d3b06f09ddb247555ec2a5f2d,",
-      "sema.elevation.shadow.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,",
-      "sema.elevation.shadow.floating": "S:9d839d0439492eef25db12ebaf3442366529c6e9,"
+      "sema.elevation.raised": "S:8894cf25e203a01d3a89f107f69fc80d000abf01,"
     },
     "selectedTokenSets": {
       "sema/color/light/default": "enabled",
       "base/color/default": "source",
-      "sema/elevation": "enabled",
-      "base/elevation": "disabled"
+      "base/color/hover": "source",
+      "base/color/pressed": "source",
+      "base/text/font": "source",
+      "base/elevation": "source",
+      "base/rounding": "source",
+      "base/space": "source",
+      "base/motion": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:265:2989",
     "$figmaModeId": "265:0",
@@ -332,7 +314,13 @@
     "selectedTokenSets": {
       "sema/color/dark/default": "enabled",
       "base/color/default": "source",
-      "base/elevation": "disabled"
+      "base/color/hover": "source",
+      "base/color/pressed": "source",
+      "base/text/font": "source",
+      "base/elevation": "source",
+      "base/rounding": "source",
+      "base/space": "source",
+      "base/motion": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:265:2989",
     "$figmaModeId": "265:1",
@@ -435,8 +423,7 @@
       "sema/color/light/pressed": "enabled",
       "base/color/default": "source",
       "base/color/hover": "source",
-      "base/color/pressed": "source",
-      "base/elevation": "disabled"
+      "base/color/pressed": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:2:3",
     "$figmaModeId": "2:1",
@@ -573,8 +560,7 @@
       "sema/color/dark/pressed": "enabled",
       "base/color/default": "source",
       "base/color/hover": "source",
-      "base/color/pressed": "source",
-      "base/elevation": "disabled"
+      "base/color/pressed": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:2:3",
     "$figmaModeId": "2:2",
@@ -708,8 +694,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "base/motion": "source",
-      "sema/motion": "enabled",
-      "base/elevation": "disabled"
+      "sema/motion": "enabled"
     },
     "group": "Semantic motion"
   },
@@ -719,7 +704,14 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "sema/elevation": "enabled",
-      "base/elevation": "source"
+      "base/elevation": "source",
+      "base/text/font": "source",
+      "base/color/pressed": "source",
+      "base/color/hover": "source",
+      "base/color/default": "source",
+      "base/rounding": "source",
+      "base/space": "source",
+      "base/motion": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:9730:145",
     "$figmaModeId": "9730:5",
@@ -762,8 +754,7 @@
     "name": "Default",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
-      "sema/opacity": "enabled",
-      "base/elevation": "disabled"
+      "sema/opacity": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:7410:220",
     "$figmaModeId": "7410:1",
@@ -785,8 +776,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "sema/rounding": "enabled",
-      "base/rounding": "source",
-      "base/elevation": "disabled"
+      "base/rounding": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:701:7994",
     "$figmaModeId": "7410:2",
@@ -811,8 +801,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "sema/space": "enabled",
-      "base/space": "source",
-      "base/elevation": "disabled"
+      "base/space": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:733:939",
     "$figmaModeId": "7410:3",
@@ -913,8 +902,7 @@
       "sema/text/font": "enabled",
       "sema/text/typography": "enabled",
       "sema/text/language/default": "enabled",
-      "base/text/font": "source",
-      "base/elevation": "disabled"
+      "base/text/font": "source"
     },
     "$figmaCollectionId": "VariableCollectionId:7410:221",
     "$figmaModeId": "7410:4",
@@ -991,8 +979,7 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "sema/elevation": "source",
-      "base/elevation": "disabled"
+      "sema/elevation": "source"
     },
     "group": "Component"
   },
@@ -1018,8 +1005,7 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "sema/elevation": "source",
-      "base/elevation": "disabled"
+      "sema/elevation": "source"
     },
     "group": "Component"
   },
@@ -1045,8 +1031,7 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "sema/elevation": "source",
-      "base/elevation": "disabled"
+      "sema/elevation": "source"
     },
     "group": "Component"
   },
@@ -1072,28 +1057,8 @@
       "sema/text/font": "source",
       "sema/text/typography": "source",
       "sema/motion": "source",
-      "sema/elevation": "source",
-      "base/elevation": "disabled"
+      "sema/elevation": "source"
     },
     "group": "Component"
-  },
-  {
-    "id": "fc59eb588b538aefaa10b68dd0027e9b87637700",
-    "name": "Dark",
-    "$figmaStyleReferences": {},
-    "selectedTokenSets": {
-      "base/elevation": "disabled"
-    },
-    "group": "Base elevation",
-    "$figmaCollectionId": "VariableCollectionId:9730:142",
-    "$figmaModeId": "9730:6",
-    "$figmaVariableReferences": {
-      "base.elevation.shadow.color.perimeter.surface": "58318e7d8bbe1c09a72118b5f199486ffc4be34b",
-      "base.elevation.shadow.color.perimeter.raised": "a8d213dfbd61140fdfb3d78fc78366a1c5925df3",
-      "base.elevation.shadow.color.perimeter.floating": "3b97e5427e9a95221a2300e3d9ad57996ada840a",
-      "base.elevation.shadow.color.ambient.surface": "51a05cd0c8f4e23c3a8da86766094ba2f357b53a",
-      "base.elevation.shadow.color.ambient.raised": "ca6e78c5c6496472dc0bf1193edc5cc1ed5b77b4",
-      "base.elevation.shadow.color.ambient.floating": "42d12d91b5a0c75f10c062da854f79ee34f2b351"
-    }
   }
 ]
