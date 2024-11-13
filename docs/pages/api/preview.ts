@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { slug, time, documentId, token } = req.query;
+  const { slug, time, token } = req.query;
 
-  if (token !== process.env.NEXT_PUBLIC_SANITY_PREVIEW_SECRET) {
-    res.status(401).json({ message: 'Invalid Request' });
+  if (token !== 'hello') {
+    res.status(401).json({ message: 'Invalid Viewer Token' });
     return;
   }
 
-  if (!slug || !time || !documentId) {
+  if (!slug) {
     res.status(400).json({ message: 'Missing params', arguments: req.query });
     return;
   }
@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     maxAge: 1 * 60, // The preview mode cookies expires in 1 minute
   });
   res.writeHead(307, {
-    Location: `/${slug}/${documentId}?time=${time}`,
+    Location: `/${slug}?time=${Date.now()}`,
   });
   res.end('preview mode');
 }
