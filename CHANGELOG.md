@@ -1,3 +1,9 @@
+## 165.0.1 (Nov 14, 2024)
+
+### Patch
+
+- Internal: updated yarn ([#3869](https://github.com/pinterest/gestalt/pull/3869)) - [Preview link](https://deploy-preview-3869--gestalt.netlify.app?devexample=true)
+
 ## 165.0.0 (Nov 12, 2024)
 
 ### Major
