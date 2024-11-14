@@ -39,6 +39,7 @@ export default function NavigationContent({
     setOverlayPreview,
     transitioning,
     setTransitioning,
+    disablePreview,
   } = useSideNavigation();
 
   const mainContainer = useRef<HTMLElement | null>(null);
@@ -65,7 +66,7 @@ export default function NavigationContent({
     const scrollHandler = () => setIsScrolled(!!element?.scrollTop);
 
     const mouseEnterHandler = () => {
-      if (sideNavigationCollapsed && !transitioning) {
+      if (sideNavigationCollapsed && !transitioning && !disablePreview) {
         // @ts-expect-error - TS2769 - No overload matches this call.
         clearTimeout(previewTimeoutRef.current);
         setCollapsedContainerWidth(mainContainer.current?.offsetWidth);
@@ -90,7 +91,7 @@ export default function NavigationContent({
       element?.removeEventListener('mouseenter', mouseEnterHandler);
       element?.removeEventListener('mouseleave', mouseLeaveHandler);
     };
-  }, [sideNavigationCollapsed, onCollapse, setOverlayPreview, transitioning]);
+  }, [sideNavigationCollapsed, onCollapse, setOverlayPreview, transitioning, disablePreview]);
 
   const isCollapsed = sideNavigationCollapsed && !overlayPreview;
 

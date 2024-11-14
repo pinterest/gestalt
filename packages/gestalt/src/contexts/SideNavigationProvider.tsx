@@ -15,6 +15,7 @@ type SideNavigationContextType = {
   setOverlayPreview: (arg1: boolean) => void;
   collapsible?: boolean;
   collapsed?: boolean;
+  disablePreview?: boolean;
   onCollapse?: (arg1: boolean) => void;
   transitioning?: boolean;
   setTransitioning: (arg1: boolean) => void;
@@ -34,6 +35,7 @@ type Props = {
   };
   collapsible?: boolean;
   collapsed?: boolean;
+  disablePreview?: boolean;
   onCollapse?: (arg1: boolean) => void;
   onPreview?: (arg1: boolean) => void;
 };
@@ -58,6 +60,7 @@ function SideNavigationProvider({
   dismissButton,
   collapsible,
   collapsed,
+  disablePreview,
   onCollapse: onCollapseProp,
   onPreview,
 }: Props) {
@@ -73,6 +76,8 @@ function SideNavigationProvider({
   };
 
   const setOverlayPreview = (state: boolean) => {
+    console.log('# overlayPreview: ', overlayPreview);
+    console.log('# state: ', state);
     if (overlayPreview !== state) setTransitioning(true);
     setOverlayPreviewCb(state);
     onPreview?.(state);
@@ -93,6 +98,7 @@ function SideNavigationProvider({
     onCollapse,
     transitioning,
     setTransitioning,
+    disablePreview,
   } as const;
 
   return <Provider value={sideNavigationContext}>{children}</Provider>;

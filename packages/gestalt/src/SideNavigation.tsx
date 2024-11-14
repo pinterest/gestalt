@@ -36,6 +36,10 @@ export type Props = {
     onDismiss: () => void;
   };
   /**
+   * When passed SideNavigation will have no preview when mouse over the component. If not passed, it stays with the preview mode. See the [disablePreview variant](https://gestalt.pinterest.systems/web/sidenavigation#DisablePreview) to learn more. This functionality is not supported in mobile.
+   */
+  disablePreview?: boolean;
+  /**
    * Displays a border in SideNavigation. See the [Border](https://gestalt.pinterest.systems/web/sidenavigation#Border) variant for more info.
    */
   showBorder?: boolean;
@@ -75,6 +79,7 @@ export default function SideNavigation({
   showBorder,
   mobileTitle,
   collapsed,
+  disablePreview,
   onCollapse,
   onPreview,
 }: Props) {
@@ -120,6 +125,7 @@ export default function SideNavigation({
     <SideNavigationProvider
       collapsed={collapsed}
       collapsible={collapsible}
+      disablePreview={disablePreview}
       onCollapse={onCollapse}
       onPreview={onPreview}
     >
