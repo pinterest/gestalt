@@ -50,7 +50,7 @@ export async function getDocByRoute(
   const sanityPost = await getPostBySlug(route, isDraftMode);
   if (sanityPost && sanityPost.markdown) {
     console.log('sanityPost', sanityPost);
-    // to-do: meta should align with the meta data from the markdown files
+    // to-do: meta/frontmatter {title, description, fullWidth} here should align with the meta data from the markdown files
     return { route, meta: sanityPost, content: sanityPost.markdown, isMDX: true };
   }
   return { route, meta: {}, isMDX: false };

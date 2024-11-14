@@ -114,8 +114,6 @@ export async function getStaticPaths(): Promise<{
   }>;
   fallback: boolean | 'blocking';
 }> {
-  // to-do: disable CDN cache on client
-
   const sanityRoutes = await getSanityRoutes();
   console.log('paths', sanityRoutes);
 

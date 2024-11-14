@@ -7,6 +7,8 @@ import { useNavigationContext } from './navigationContext';
 import newSidebarIndex, { siteIndexType } from './siteIndex';
 import useGetSideNavItems from './useGetSideNavItems';
 
+// to-do: pull the site index from Sanity CMS
+
 export const MIN_NAV_WIDTH_PX = 280;
 
 export function convertNamesForURL(name: string): string {
