@@ -18,29 +18,29 @@
         },
         "y": {
           "surface": {
-            "value": "0px",
+            "value": "0.5px",
             "type": "dimension"
           },
           "raised": {
-            "value": "0px",
+            "value": "1.5px",
             "type": "dimension"
           },
           "floating": {
-            "value": "0px",
+            "value": "3px",
             "type": "dimension"
           }
         },
         "radius": {
           "surface": {
-            "value": "1px",
+            "value": "3px",
             "type": "dimension"
           },
           "raised": {
-            "value": "2px",
+            "value": "6px",
             "type": "dimension"
           },
           "floating": {
-            "value": "4px",
+            "value": "12px",
             "type": "dimension"
           }
         },
@@ -60,15 +60,15 @@
         },
         "color": {
           "surface": {
-            "value": "rgba(0,0,0,0.16)",
+            "value": "rgba(0,0,0,0.2)",
             "type": "color"
           },
           "raised": {
-            "value": "rgba(0,0,0,0.16)",
+            "value": "rgba(0,0,0,0.2)",
             "type": "color"
           },
           "floating": {
-            "value": "rgba(0,0,0,0.16)",
+            "value": "rgba(0,0,0,0.2)",
             "type": "color"
           }
         }
