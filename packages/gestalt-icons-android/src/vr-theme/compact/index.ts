@@ -14,7 +14,6 @@ import compactSparkle from './ic_vr_compact-sparkle.svg';
 import compactWorkflowStatusProblem from './ic_vr_compact-workflow-status-problem_gestalt.svg';
 import compactWorkflowStatusWarning from './ic_vr_compact-workflow-status-warning_gestalt.svg';
 
-
 const icons = Object.freeze({
   'compact-add': compactAdd,
   'compact-arrow-up-right': compactArrowUpRight,
