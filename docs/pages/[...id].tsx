@@ -10,9 +10,11 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
+import { Text } from 'gestalt';
 import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
+import { getPostBySlug, getSanityRoutes } from '../utils/sanity';
 
 function getPlatform(pathName: string): 'android' | 'ios' | 'web' {
   if (pathName.startsWith('android')) return 'android';
@@ -54,8 +56,13 @@ export async function getStaticProps(context: {
   params: {
     id: ReadonlyArray<string>;
   };
+  preview?: boolean;
+  previewData?: {
+    [key: string]: string;
+  };
 }): Promise<{
-  props: {
+  props?: {
+    sanity?: boolean;
     meta: {
       [key: string]: string;
     };
@@ -63,11 +70,25 @@ export async function getStaticProps(context: {
     pageSourceUrl: string;
     platform: 'android' | 'ios' | 'web';
   };
+  notFound?: boolean;
 }> {
   const { id } = context.params;
 
+  if (context.preview) {
+    console.log('In Preview Mode.. Fetching the latest draft from Sanity....');
+  }
+
   const pathName = id.join('/');
-  const { meta, content } = await getDocByRoute(pathName);
+
+  const { meta, content, isMDX } = await getDocByRoute(pathName, context.preview);
+
+  if (!isMDX) {
+    return {
+      notFound: true,
+    };
+  }
+
+  console.log(content);
 
   // @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
   const mdxSource = await serialize(content, {
@@ -77,6 +98,7 @@ export async function getStaticProps(context: {
   return {
     props: {
       meta,
+      // if it's preview mode, (pass in the raw data from GetserverSideProps...) also pass the raw content to be rendered.. the client side will handle the rendering
       content: mdxSource,
       pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/markdown/${pathName}.md`,
       platform: getPlatform(pathName),
@@ -90,18 +112,21 @@ export async function getStaticPaths(): Promise<{
       id: string | ReadonlyArray<string>;
     };
   }>;
-  fallback: boolean;
+  fallback: boolean | 'blocking';
 }> {
+  const sanityRoutes = await getSanityRoutes();
+  console.log('paths', sanityRoutes);
+
   // get all the possible paths that exist within ./markdown folder
   const paths = await getAllMarkdownPosts();
 
   return {
-    paths: paths.map((name) => ({
+    paths: sanityRoutes.map((name) => ({
       params: {
         id: name,
       },
     })),
 
-    fallback: false, // show 404 if not a valid path }
+    fallback: 'blocking', // show 404 if not a valid path }
   };
 }
