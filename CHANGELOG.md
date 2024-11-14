@@ -1,3 +1,9 @@
+## 165.0.2 (Nov 14, 2024)
+
+### Patch
+
+- DateRange: replace width with minWidth in filter section ([#3870](https://github.com/pinterest/gestalt/pull/3870)) - [Preview link](https://deploy-preview-3870--gestalt.netlify.app?devexample=true)
+
 ## 165.0.1 (Nov 14, 2024)
 
 ### Patch
