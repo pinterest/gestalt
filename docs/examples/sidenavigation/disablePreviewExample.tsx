@@ -5,7 +5,7 @@ export default function Example() {
   const [page, setPage] = useState('');
   const [collapsed, setCollapsed] = useState(false);
   return (
-    <Box display="flex" height="100%" overflow="auto">
+    <Box display="flex" height="100%" overflow="auto" width="100%">
       {/* It is recommended the wrapper to be sticky. */}
       <div style={{ position: 'sticky', top: 0 }}>
         <SideNavigation
