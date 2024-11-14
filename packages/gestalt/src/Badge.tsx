@@ -98,7 +98,7 @@ export default function Badge({
         'warning': 'compact-workflow-status-warning',
         'success': 'compact-check-circle-fill',
         'neutral': 'compact-lock',
-        'recommendation': 'compact-info-circle-fill',
+        'recommendation': 'compact-sparkle',
         'darkWash': 'compact-info-circle-fill',
         'lightWash': 'compact-info-circle-fill',
       })
@@ -169,22 +169,25 @@ export default function Badge({
     <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
       {shouldUseTooltip ? (
         <Box alignContent="center" display="flex">
-          {isInVRExperiment ? <IconCompact
-            accessibilityLabel=""
-            color={COLOR_ICON_MAP[type]}
-            dataTestId={dataTestIdIcon}
-            icon={ICON_MAP[type] as ComponentProps<typeof IconCompact>['icon']}
-            inline
-            size="12"
-          /> : <Icon
-            accessibilityLabel=""
-            color={type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
-            dataTestId={dataTestIdIcon}
-            icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-            inline
-            size="14"
-          />
-          }
+          {isInVRExperiment ? (
+            <IconCompact
+              accessibilityLabel=""
+              color={COLOR_ICON_MAP[type]}
+              dataTestId={dataTestIdIcon}
+              icon={ICON_MAP[type] as ComponentProps<typeof IconCompact>['icon']}
+              inline
+              size="12"
+            />
+          ) : (
+            <Icon
+              accessibilityLabel=""
+              color={type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+              dataTestId={dataTestIdIcon}
+              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+              inline
+              size="14"
+            />
+          )}
         </Box>
       ) : null}
       <Box alignContent="center" display="flex">
