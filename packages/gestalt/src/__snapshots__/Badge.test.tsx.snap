@@ -2,7 +2,7 @@
 
 exports[`Badge renders 1`] = `
 <div
-  className="badge info middle"
+  className="badge info padding middle"
 >
   <div
     className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"

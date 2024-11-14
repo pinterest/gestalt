@@ -4,6 +4,7 @@ import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 import TapArea from './TapArea';
 import TextUI from './TextUI';
 import Tooltip from './Tooltip';
@@ -95,9 +96,9 @@ export default function Badge({
         'info': 'compact-info-circle-fill',
         'error': 'compact-workflow-status-problem',
         'warning': 'compact-workflow-status-warning',
-        'success': 'check-circle-fill',
+        'success': 'compact-check-circle-fill',
         'neutral': 'compact-lock',
-        'recommendation': 'performance-plus',
+        'recommendation': 'compact-info-circle-fill',
         'darkWash': 'compact-info-circle-fill',
         'lightWash': 'compact-info-circle-fill',
       })
@@ -168,14 +169,22 @@ export default function Badge({
     <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
       {shouldUseTooltip ? (
         <Box alignContent="center" display="flex">
-          <Icon
+          {isInVRExperiment ? <IconCompact
             accessibilityLabel=""
-            color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+            color={COLOR_ICON_MAP[type]}
+            dataTestId={dataTestIdIcon}
+            icon={ICON_MAP[type] as ComponentProps<typeof IconCompact>['icon']}
+            inline
+            size="12"
+          /> : <Icon
+            accessibilityLabel=""
+            color={type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
             dataTestId={dataTestIdIcon}
             icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
             inline
-            size={isInVRExperiment ? '12' : '14'}
+            size="14"
           />
+          }
         </Box>
       ) : null}
       <Box alignContent="center" display="flex">

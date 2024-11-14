@@ -150,7 +150,7 @@ exports[`Datapoint renders a badge 1`] = `
         className="FlexItem"
       >
         <div
-          className="badge info middle"
+          className="badge info padding middle"
         >
           <div
             className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
