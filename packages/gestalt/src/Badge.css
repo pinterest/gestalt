@@ -3,8 +3,15 @@
   composes: rounding1 from "./Borders.css";
   align-content: center;
   display: flex;
-  padding: var(--space-0) 6px;
   white-space: nowrap;
+}
+
+.padding {
+  padding: var(--space-0) 6px;
+}
+
+.paddingVR {
+  padding: var(--sema-space-0) var(--sema-space-100);
 }
 
 .focusInnerBorder {
@@ -25,14 +32,12 @@
 .middle {
   composes: inlineBlock from "./Layout.css";
   height: 20px;
-  min-height: 20px;
   vertical-align: middle;
 }
 
 .top {
   composes: inlineBlock from "./Layout.css";
   height: 20px;
-  min-height: 20px;
   vertical-align: super;
 }
 

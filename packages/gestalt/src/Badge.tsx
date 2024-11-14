@@ -4,6 +4,7 @@ import styles from './Badge.css';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 import TapArea from './TapArea';
 import TextUI from './TextUI';
 import Tooltip from './Tooltip';
@@ -90,16 +91,27 @@ export default function Badge({
 
   const shouldUseTooltip = tooltip?.text;
 
-  const ICON_MAP = Object.freeze({
-    'info': 'info-circle',
-    'error': 'workflow-status-problem',
-    'warning': 'workflow-status-warning',
-    'success': 'check-circle',
-    'neutral': 'lock',
-    'recommendation': 'sparkle',
-    'darkWash': 'info-circle',
-    'lightWash': 'info-circle',
-  });
+  const ICON_MAP = isInVRExperiment
+    ? Object.freeze({
+        'info': 'compact-info-circle-fill',
+        'error': 'compact-workflow-status-problem',
+        'warning': 'compact-workflow-status-warning',
+        'success': 'compact-check-circle-fill',
+        'neutral': 'compact-lock',
+        'recommendation': 'compact-sparkle',
+        'darkWash': 'compact-info-circle-fill',
+        'lightWash': 'compact-info-circle-fill',
+      })
+    : Object.freeze({
+        'info': 'info-circle',
+        'error': 'workflow-status-problem',
+        'warning': 'workflow-status-warning',
+        'success': 'check-circle',
+        'neutral': 'lock',
+        'recommendation': 'sparkle',
+        'darkWash': 'info-circle',
+        'lightWash': 'info-circle',
+      });
 
   const COLOR_ICON_MAP = Object.freeze({
     'info': 'info',
@@ -133,6 +145,8 @@ export default function Badge({
     useInteractiveStates();
 
   const cxStyles = cx(styles.badge, styles[styleType], {
+    [styles.padding]: !isInVRExperiment,
+    [styles.paddingVR]: isInVRExperiment,
     [styles.middle]: !shouldUseTooltip && position === 'middle',
     [styles.top]: !shouldUseTooltip && position === 'top',
     [styles.focusInnerBorder]:
@@ -155,14 +169,25 @@ export default function Badge({
     <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
       {shouldUseTooltip ? (
         <Box alignContent="center" display="flex">
-          <Icon
-            accessibilityLabel=""
-            color={isInVRExperiment || type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
-            dataTestId={dataTestIdIcon}
-            icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
-            inline
-            size={isInVRExperiment ? '12' : '14'}
-          />
+          {isInVRExperiment ? (
+            <IconCompact
+              accessibilityLabel=""
+              color={COLOR_ICON_MAP[type]}
+              dataTestId={dataTestIdIcon}
+              icon={ICON_MAP[type] as ComponentProps<typeof IconCompact>['icon']}
+              inline
+              size="12"
+            />
+          ) : (
+            <Icon
+              accessibilityLabel=""
+              color={type.endsWith('Wash') ? COLOR_ICON_MAP[type] : 'inverse'}
+              dataTestId={dataTestIdIcon}
+              icon={ICON_MAP[type] as ComponentProps<typeof Icon>['icon']}
+              inline
+              size="14"
+            />
+          )}
         </Box>
       ) : null}
       <Box alignContent="center" display="flex">

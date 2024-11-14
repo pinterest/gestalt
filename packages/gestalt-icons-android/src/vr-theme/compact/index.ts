@@ -10,6 +10,7 @@ import compactChevronUp from './ic_vr_compact-chevron-up_gestalt.svg';
 import compactDash from './ic_vr_compact-dash_gestalt.svg';
 import compactInfoCircleFill from './ic_vr_compact-info-circle-fill_gestalt.svg';
 import compactLock from './ic_vr_compact-lock_gestalt.svg';
+import compactSparkle from './ic_vr_compact-sparkle.svg';
 import compactWorkflowStatusProblem from './ic_vr_compact-workflow-status-problem_gestalt.svg';
 import compactWorkflowStatusWarning from './ic_vr_compact-workflow-status-warning_gestalt.svg';
 
@@ -28,6 +29,7 @@ const icons = Object.freeze({
   'compact-lock': compactLock,
   'compact-workflow-status-problem': compactWorkflowStatusProblem,
   'compact-workflow-status-warning': compactWorkflowStatusWarning,
+  'compact-sparkle': compactSparkle,
 });
 
 export default icons;
