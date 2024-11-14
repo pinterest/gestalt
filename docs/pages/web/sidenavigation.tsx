@@ -20,6 +20,7 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample';
 import counterExample from '../../examples/sidenavigation/counterExample';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample';
+import disablePreviewExample from '../../examples/sidenavigation/disablePreviewExample';
 import displayExpandable from '../../examples/sidenavigation/displayExpandable';
 import displayExpanded from '../../examples/sidenavigation/displayExpanded';
 import displayStatic from '../../examples/sidenavigation/displayStatic';
@@ -555,6 +556,18 @@ It is recommended the wrapper to be \`sticky\` (not \`fixed\`) so that it stays 
               />
             }
             title="Items without icons"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            description="If none of the SideNavigation items have icons, the component is collapsed only with expand icon button."
+            sandpackExample={
+              <SandpackExample
+                code={disablePreviewExample}
+                name="Collapsible without preview mode"
+                previewHeight={500}
+              />
+            }
+            title="Disable preview mode"
           />
         </MainSection.Subsection>
 

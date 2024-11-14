@@ -76,8 +76,6 @@ function SideNavigationProvider({
   };
 
   const setOverlayPreview = (state: boolean) => {
-    console.log('# overlayPreview: ', overlayPreview);
-    console.log('# state: ', state);
     if (overlayPreview !== state) setTransitioning(true);
     setOverlayPreviewCb(state);
     onPreview?.(state);
