@@ -1,3 +1,9 @@
+## 165.0.3 (Nov 14, 2024)
+
+### Patch
+
+- Badge: VR fixes ([#3872](https://github.com/pinterest/gestalt/pull/3872)) - [Preview link](https://deploy-preview-3872--gestalt.netlify.app?devexample=true)
+
 ## 165.0.2 (Nov 14, 2024)
 
 ### Patch
