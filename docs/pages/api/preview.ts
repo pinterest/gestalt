@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next/types';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { slug, time, token } = req.query;
+  const { slug, token } = req.query;
 
+  // to-do: replace with a more secure token
   if (token !== 'hello') {
     res.status(401).json({ message: 'Invalid Viewer Token' });
     return;

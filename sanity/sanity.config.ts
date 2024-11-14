@@ -1,8 +1,9 @@
 import {createAuthStore, defineConfig} from 'sanity'
-import {structureTool, StructureToolOptions} from 'sanity/structure'
+import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {defaultDocumentNode} from './defaultDocumentNode'
+import {markdownSchema} from 'sanity-plugin-markdown'
 
 export default defineConfig({
   name: 'default',
@@ -11,7 +12,7 @@ export default defineConfig({
   projectId: 'k05lbr97',
   dataset: 'docs',
 
-  plugins: [structureTool({defaultDocumentNode}), visionTool()],
+  plugins: [structureTool({defaultDocumentNode}), visionTool(), markdownSchema()],
   auth: createAuthStore({
     projectId: 'k05lbr97',
     dataset: 'docs',

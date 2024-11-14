@@ -101,50 +101,13 @@ export type BlockContent = Array<
     }
 >
 
-export type Category = {
+export type Related_Component = {
   _id: string
-  _type: 'category'
+  _type: 'Related_Component'
   _createdAt: string
   _updatedAt: string
   _rev: string
-  title?: string
-  description?: string
-}
-
-export type Post = {
-  _id: string
-  _type: 'post'
-  _createdAt: string
-  _updatedAt: string
-  _rev: string
-  title?: string
-  slug?: Slug
-  author?: {
-    _ref: string
-    _type: 'reference'
-    _weak?: boolean
-    [internalGroqTypeReferenceTo]?: 'author'
-  }
-  mainImage?: {
-    asset?: {
-      _ref: string
-      _type: 'reference'
-      _weak?: boolean
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
-    }
-    hotspot?: SanityImageHotspot
-    crop?: SanityImageCrop
-    _type: 'image'
-  }
-  categories?: Array<{
-    _ref: string
-    _type: 'reference'
-    _weak?: boolean
-    _key: string
-    [internalGroqTypeReferenceTo]?: 'category'
-  }>
-  publishedAt?: string
-  body?: BlockContent
+  related_components?: string
 }
 
 export type Author = {
@@ -184,6 +147,30 @@ export type Author = {
     _type: 'block'
     _key: string
   }>
+}
+
+export type Post = {
+  _id: string
+  _type: 'post'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  slug?: Slug
+  overview_thumbnail?: {
+    asset?: {
+      _ref: string
+      _type: 'reference'
+      _weak?: boolean
+      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+    }
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  also_known_as_components?: Array<string>
+  markdown?: string
+  updated_at?: string
 }
 
 export type SanityImageCrop = {
@@ -249,6 +236,8 @@ export type Slug = {
   source?: string
 }
 
+export type Markdown = string
+
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
   | SanityImagePalette
@@ -256,13 +245,14 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | BlockContent
-  | Category
-  | Post
+  | Related_Component
   | Author
+  | Post
   | SanityImageCrop
   | SanityImageHotspot
   | SanityImageAsset
   | SanityAssetSourceData
   | SanityImageMetadata
   | Slug
+  | Markdown
 export declare const internalGroqTypeReferenceTo: unique symbol

@@ -1,5 +1,5 @@
 {
-  "name": "sanity-gestalt-docs",
+  "name": "sanity-docs",
   "private": true,
   "version": "1.0.0",
   "license": "UNLICENSED",
@@ -16,10 +16,12 @@
   ],
   "dependencies": {
     "@sanity/vision": "^3.63.0",
-    "react": "^18.0",
-    "react-dom": "^18.0",
+    "easymde": "^2.18",
+    "react": "^18.3",
+    "react-dom": "^18.3",
     "sanity": "^3.63.0",
     "sanity-plugin-iframe-pane": "^3.1.6",
+    "sanity-plugin-markdown": "^5.0.0",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

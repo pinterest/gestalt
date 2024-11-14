@@ -1,10 +1,10 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import logGAEvent from './gAnalytics';
+import { getPostBySlug } from './sanity';
 import siteIndex, { siteIndexType } from '../docs-components/siteIndex';
 
-export async function getDocByRoute(route: string): Promise<{
+export async function getMarkdownFileContent(route: string): Promise<{
   content?: string;
   meta: {
     [key: string]: string;
@@ -27,6 +27,33 @@ export async function getDocByRoute(route: string): Promise<{
   } catch (ex: any) {
     return { route, isMDX: false, meta: {} };
   }
+}
+
+export async function getDocByRoute(
+  route: string,
+  isDraftMode?: boolean,
+): Promise<{
+  content?: string;
+  meta: {
+    [key: string]: string;
+  };
+  route: string;
+  isMDX: boolean;
+}> {
+  // check if the the route is available locally
+  const localMarkdownData = await getMarkdownFileContent(route);
+
+  if (localMarkdownData.isMDX) {
+    return localMarkdownData;
+  }
+
+  const sanityPost = await getPostBySlug(route, isDraftMode);
+  if (sanityPost && sanityPost.markdown) {
+    console.log('sanityPost', sanityPost);
+    // to-do: meta should align with the meta data from the markdown files
+    return { route, meta: sanityPost, content: sanityPost.markdown, isMDX: true };
+  }
+  return { route, meta: {}, isMDX: false };
 }
 
 export async function getAllMarkdownPosts(): Promise<ReadonlyArray<ReadonlyArray<string>>> {

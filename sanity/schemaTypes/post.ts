@@ -34,9 +34,11 @@ export default defineType({
       of: [{type: 'string'}],
     }),
     defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
+      name: 'markdown',
+      title: 'Markdown',
+      description:
+        'Take a look at our MDX documentation so you can see the components we have available in Markdown',
+      type: 'markdown',
     }),
     defineField({
       name: 'updated_at',

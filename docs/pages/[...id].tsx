@@ -14,7 +14,7 @@ import { Text } from 'gestalt';
 import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
-import { getSanityRoutes } from '../utils/sanity';
+import { getPostBySlug, getSanityRoutes } from '../utils/sanity';
 
 function getPlatform(pathName: string): 'android' | 'ios' | 'web' {
   if (pathName.startsWith('android')) return 'android';
@@ -42,16 +42,12 @@ type Props = {
   platform: 'android' | 'ios' | 'web';
 };
 
-export default function DocumentPage({ content, meta, pageSourceUrl, platform, sanity }: Props) {
+export default function DocumentPage({ content, meta, pageSourceUrl, platform }: Props) {
   return (
     <ErrorBoundary>
-      {sanity ? (
-        <Text>omg we have this page in sanity :)</Text>
-      ) : (
-        <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl} platform={platform}>
-          <MDXRemote {...content} />
-        </MarkdownPage>
-      )}
+      <MarkdownPage meta={meta} pageSourceUrl={pageSourceUrl} platform={platform}>
+        <MDXRemote {...content} />
+      </MarkdownPage>
     </ErrorBoundary>
   );
 }
@@ -59,6 +55,10 @@ export default function DocumentPage({ content, meta, pageSourceUrl, platform, s
 export async function getStaticProps(context: {
   params: {
     id: ReadonlyArray<string>;
+  };
+  preview?: boolean;
+  previewData?: {
+    [key: string]: string;
   };
 }): Promise<{
   props?: {
@@ -74,27 +74,22 @@ export async function getStaticProps(context: {
 }> {
   const { id } = context.params;
 
-  if (id.includes('sanity')) {
-    // if the content is from sanity, we can fetch the content from sanity and set it as the page content
-    return {
-      props: {
-        sanity: true,
-        meta: {},
-        content: {},
-        pageSourceUrl: '',
-        platform: 'android',
-      },
-    };
+  if (context.preview) {
+    console.log('In Preview Mode.. Fetching the latest draft from Sanity....');
   }
 
   const pathName = id.join('/');
-  const { meta, content, isMDX } = await getDocByRoute(pathName);
+
+  const { meta, content, isMDX } = await getDocByRoute(pathName, context.preview);
 
   if (!isMDX) {
     return {
       notFound: true,
     };
   }
+
+  console.log(content);
+
   // @ts-expect-error - TS2345 - Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
   const mdxSource = await serialize(content, {
     mdxOptions: { remarkPlugins: [remarkGfm, remarkBreaks], format: 'mdx' },
@@ -103,6 +98,7 @@ export async function getStaticProps(context: {
   return {
     props: {
       meta,
+      // if it's preview mode, (pass in the raw data from GetserverSideProps...) also pass the raw content to be rendered.. the client side will handle the rendering
       content: mdxSource,
       pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/markdown/${pathName}.md`,
       platform: getPlatform(pathName),
