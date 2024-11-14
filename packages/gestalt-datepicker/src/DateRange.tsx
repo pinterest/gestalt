@@ -252,7 +252,7 @@ function DateRange({
         Children.only<ReactElement>(radioGroup).type.displayName === 'RadioGroup' &&
         !isMobile ? (
           <div className={borderStyles.borderRight}>
-            <Box paddingX={6} paddingY={4} width={216}>
+            <Box minWidth={216} paddingX={6} paddingY={4}>
               {radioGroup}
             </Box>
           </div>
