@@ -412,6 +412,10 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
               const columnSpan = item.columnSpan as number | undefined;
               return columnSpan ?? 1;
             }}
+            _getModulePositioningConfig={() => ({
+              itemsBatchSize: 6,
+              whitespaceThreshold: 32,
+            })}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console

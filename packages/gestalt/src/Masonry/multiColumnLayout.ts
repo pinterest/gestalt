@@ -578,8 +578,6 @@ function getPositionsWithMultiColumnItem<T>({
     positionCache.set(item, position);
   });
 
-  const whitespaceThreshold = earlyBailout?.(multiColumnItemColumnSpan);
-
   // Get a node with the required whitespace
   const { winningNode, numberOfIterations } = getGraphPositions({
     items: graphBatch,
