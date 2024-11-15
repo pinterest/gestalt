@@ -44,15 +44,15 @@
       },
       "background-blur": {
         "weak": {
-          "value": "{base.elevation.background-blur.weak.radius}",
+          "value": "8px",
           "type": "dimension"
         },
         "default": {
-          "value": "{base.elevation.background-blur.default.radius}",
+          "value": "24px",
           "type": "dimension"
         },
         "strong": {
-          "value": "{base.elevation.background-blur.strong.radius}",
+          "value": "64px",
           "type": "dimension"
         }
       }

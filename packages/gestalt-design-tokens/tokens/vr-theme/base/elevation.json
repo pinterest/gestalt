@@ -72,26 +72,6 @@
             "type": "color"
           }
         }
-      },
-      "background-blur": {
-        "weak": {
-          "radius": {
-            "value": "8px",
-            "type": "dimension"
-          }
-        },
-        "default": {
-          "radius": {
-            "value": "24px",
-            "type": "dimension"
-          }
-        },
-        "strong": {
-          "radius": {
-            "value": "64px",
-            "type": "dimension"
-          }
-        }
       }
     }
   }
