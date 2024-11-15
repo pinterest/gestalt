@@ -194,7 +194,7 @@ export default function Badge({
       >
         <div
           aria-label={tooltip.accessibilityLabel}
-          className={cx(styles.badgeVR, styles[styleType], {
+          className={cx(styles.badgeVR, styles[styleType], styles.paddingInteractiveVR, {
             [styles.focusedDefaultOutline]:
               isFocused && isFocusVisible && type !== 'lightWash' && type !== 'darkWash',
             [styles.focusedDarkOutline]: isFocused && isFocusVisible && type === 'darkWash',

@@ -2,6 +2,7 @@
   composes: rounding1 from "./Borders.css";
   align-content: center;
   display: flex;
+  height: 20px;
   white-space: nowrap;
 }
 
@@ -33,7 +34,11 @@
 }
 
 .paddingVR {
-  padding: var(--space-0) var(--space-100);
+  padding: var(--space-0) var(--sema-space-100);
+}
+
+.paddingInteractiveVR {
+  padding: var(--space-0) calc(var(--sema-space-100) - var(--sema-space-50));
 }
 
 .focusedDefaultOutline {
