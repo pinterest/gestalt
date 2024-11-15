@@ -4,13 +4,18 @@ import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import mindex from './mindex';
 import { GetGraphPositionsReturn, NodeData, Position } from './types';
 
-// When there's a multi column item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the 2-col item
-// This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
+// When there's a multicolumn item in the most recently fetched batch of items, we need to measure more items to ensure we have enough possible layouts to minimize whitespace above the multicolumn item
+// This number can be dynamimcally set using _getModulePositioningConfig
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
 type GridSize = 'sm' | 'md' | 'lg' | 'xl';
 
 export type ColumnSpanConfig = number | { [Size in GridSize]: number };
+
+export type ModulePositioningConfig = {
+  itemsBatchSize: number; // Maximum number of items used to position a module
+  whitespaceThreshold: number; // "Good enough" whitespace number when positioning a module
+};
 
 // maps the number of columns to a grid breakpoint
 // sm: 2 columns
@@ -39,7 +44,7 @@ function getPositionsOnly<T>(
   return positions.map(({ position }) => position);
 }
 
-function calculateActualColumnSpan<T>(props: {
+export function calculateActualColumnSpan<T>(props: {
   columnCount: number;
   item: T;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
@@ -102,12 +107,14 @@ function calculateSplitIndex({
   emptyColumns,
   fitsFirstRow,
   replaceWithOneColItems,
+  itemsBatchSize,
 }: {
   oneColumnItemsLength: number;
   multiColumnIndex: number;
   emptyColumns: number;
   fitsFirstRow: boolean;
   replaceWithOneColItems: boolean;
+  itemsBatchSize: number;
 }): number {
   // multi column item is on its original position
   if (fitsFirstRow) {
@@ -121,9 +128,9 @@ function calculateSplitIndex({
 
   // If two column module is near the end of the batch
   // we move the index so it has enough items for the graph
-  if (multiColumnIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE > oneColumnItemsLength) {
+  if (multiColumnIndex + itemsBatchSize > oneColumnItemsLength) {
     return Math.max(
-      oneColumnItemsLength - MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+      oneColumnItemsLength - itemsBatchSize,
       // We have to keep at least the items for the empty columns to fill
       emptyColumns,
     );
@@ -474,10 +481,10 @@ function getPositionsWithMultiColumnItem<T>({
   itemsToPosition,
   heights,
   prevPositions,
-  earlyBailout,
   columnCount,
   logWhitespace,
   _getColumnSpanConfig,
+  _getModulePositioningConfig,
   ...commonGetPositionArgs
 }: {
   multiColumnItem: T;
@@ -487,7 +494,6 @@ function getPositionsWithMultiColumnItem<T>({
     item: T;
     position: Position;
   }>;
-  earlyBailout?: (columnSpan: number) => number;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
@@ -501,6 +507,7 @@ function getPositionsWithMultiColumnItem<T>({
   measurementCache: Cache<T, number>;
   positionCache: Cache<T, Position>;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
 }): {
   positions: ReadonlyArray<{
     item: T;
@@ -535,6 +542,13 @@ function getPositionsWithMultiColumnItem<T>({
   // we need to fill those spaces with one col items
   const replaceWithOneColItems = !fitsFirstRow && multiColumnIndex < emptyColumns;
 
+  const { itemsBatchSize, whitespaceThreshold } = _getModulePositioningConfig?.(
+    columnCount,
+    multiColumnItemColumnSpan,
+  ) || {
+    itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+  };
+
   // Calculate how many items are on pre array and how many on graphBatch
   // pre items are positioned before the two column item
   const splitIndex = calculateSplitIndex({
@@ -543,12 +557,13 @@ function getPositionsWithMultiColumnItem<T>({
     emptyColumns,
     fitsFirstRow,
     replaceWithOneColItems,
+    itemsBatchSize,
   });
 
   const pre = oneColumnItems.slice(0, splitIndex);
   const graphBatch = fitsFirstRow
     ? []
-    : oneColumnItems.slice(splitIndex, splitIndex + MULTI_COL_ITEMS_MEASURE_BATCH_SIZE);
+    : oneColumnItems.slice(splitIndex, splitIndex + itemsBatchSize);
 
   // Get positions and heights for painted items
   const { positions: paintedItemPositions, heights: paintedItemHeights } =
@@ -631,8 +646,8 @@ const multiColumnLayout = <T>({
   logWhitespace,
   measurementCache,
   positionCache,
-  earlyBailout,
   _getColumnSpanConfig,
+  _getModulePositioningConfig,
 }: {
   items: ReadonlyArray<T>;
   gutter?: number;
@@ -641,13 +656,13 @@ const multiColumnLayout = <T>({
   centerOffset?: number;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
-  earlyBailout?: (columnSpan: number) => number;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
 }): ReadonlyArray<Position> => {
   if (!items.every((item) => measurementCache.has(item))) {
     return items.map((item) => {
@@ -723,10 +738,10 @@ const multiColumnLayout = <T>({
           itemsToPosition,
           heights: acc.heights,
           prevPositions: acc.positions,
-          earlyBailout,
           logWhitespace,
           columnCount,
           _getColumnSpanConfig,
+          _getModulePositioningConfig,
           ...commonGetPositionArgs,
         }),
       { heights: paintedItemHeights, positions: paintedItemPositions },

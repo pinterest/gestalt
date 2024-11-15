@@ -16,10 +16,16 @@ import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
+import getColumnCount from './Masonry/getColumnCount';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  calculateActualColumnSpan,
+  ColumnSpanConfig,
+  ModulePositioningConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+} from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
 import throttle from './throttle';
@@ -162,11 +168,13 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
-   * Experimental prop to enable early bailout when positioning multicolumn modules
+   * Experimental prop to enable dynamic batch sizing and early bailout when positioning a module
+   * - Early bailout: How much whitespace is "good enough"
+   * - Dynamic batch sizing: How many items it can use. If this prop isn't used, it uses 5
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: (columnSpan: number) => number;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
 };
 
 type MasonryRef = {
@@ -376,7 +384,7 @@ function useLayout<T>({
   _getColumnSpanConfig,
   _loadingStateItems = [],
   _renderLoadingStateItems,
-  _earlyBailout,
+  _getModulePositioningConfig,
 }: {
   align: Align;
   columnWidth: number;
@@ -398,7 +406,7 @@ function useLayout<T>({
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   _renderLoadingStateItems?: Props<T>['_renderLoadingStateItems'];
-  _earlyBailout?: (columnSpan: number) => number;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -424,15 +432,33 @@ function useLayout<T>({
     _logTwoColWhitespace,
     _loadingStateItems,
     renderLoadingState,
-    _earlyBailout,
+    _getModulePositioningConfig,
   });
 
-  const hasMultiColumnItems =
-    _getColumnSpanConfig &&
-    items
-      .filter((item) => item && !positionStore.has(item))
-      .some((item) => _getColumnSpanConfig(item) !== 1);
-  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
+  const nextMultiColumnItem =
+    _getColumnSpanConfig && items.find((item) => _getColumnSpanConfig(item) !== 1);
+
+  let batchSize;
+  if (nextMultiColumnItem) {
+    if (width) {
+      const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
+
+      const moduleSize = calculateActualColumnSpan({
+        columnCount: gridSize,
+        item: nextMultiColumnItem,
+        _getColumnSpanConfig,
+      });
+
+      const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
+        itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+      };
+      batchSize = itemsBatchSize;
+    } else {
+      batchSize = MULTI_COL_ITEMS_MEASURE_BATCH_SIZE;
+    }
+  }
+
+  const itemToMeasureCount = batchSize ? batchSize + 1 : minCols;
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
   const itemMeasurementsCount = itemMeasurements.length;
   const hasPendingMeasurements = itemMeasurementsCount < items.length;
@@ -701,7 +727,7 @@ function Masonry<T>(
     _dynamicHeights,
     _loadingStateItems = [],
     _renderLoadingStateItems,
-    _earlyBailout,
+    _getModulePositioningConfig,
   }: Props<T>,
   ref:
     | {
@@ -825,7 +851,7 @@ function Masonry<T>(
       _getColumnSpanConfig,
       _loadingStateItems,
       _renderLoadingStateItems,
-      _earlyBailout,
+      _getModulePositioningConfig,
     });
 
   useFetchOnScroll({

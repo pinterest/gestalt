@@ -334,11 +334,13 @@ describe('multi column layout test cases', () => {
 
     const gutter = 5;
 
-    const earlyBailout = (columnSpan: number) => {
-      if (columnSpan <= 3) {
-        return 2 * gutter;
+    const getModulePositioningConfig = (_: number, moduleSize: number) => {
+      let whitespaceThreshold = 3 * gutter;
+      if (moduleSize <= 3) {
+        whitespaceThreshold = 2 * gutter;
       }
-      return 3 * gutter;
+
+      return { itemsBatchSize: 5, whitespaceThreshold };
     };
 
     const layout = (itemsToLayout: readonly Item[]) =>
@@ -350,7 +352,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 20,
         measurementCache: measurementStore,
         positionCache,
-        earlyBailout,
+        _getModulePositioningConfig: getModulePositioningConfig,
         _getColumnSpanConfig: getColumnSpanConfig,
       });
 

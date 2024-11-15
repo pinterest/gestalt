@@ -1,7 +1,7 @@
 import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
-import { ColumnSpanConfig } from './multiColumnLayout';
+import { ColumnSpanConfig, ModulePositioningConfig } from './multiColumnLayout';
 import { Align, Layout, LoadingStateItem, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
@@ -19,7 +19,7 @@ export default function getLayoutAlgorithm<T>({
   _logTwoColWhitespace,
   _loadingStateItems = [],
   renderLoadingState,
-  _earlyBailout,
+  _getModulePositioningConfig,
 }: {
   align: Align;
   columnWidth: number | undefined;
@@ -31,6 +31,7 @@ export default function getLayoutAlgorithm<T>({
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
   _logTwoColWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
@@ -38,11 +39,11 @@ export default function getLayoutAlgorithm<T>({
   ) => void;
   _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
   renderLoadingState?: boolean;
-  _earlyBailout?: (columnSpan: number) => number;
 }): (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
       gutter,
+      layout,
       measurementCache: measurementStore,
       positionCache: positionStore,
       minCols,
@@ -50,8 +51,8 @@ export default function getLayoutAlgorithm<T>({
       width,
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
+      _getModulePositioningConfig,
       renderLoadingState,
-      earlyBailout: _earlyBailout,
     });
   }
   if (layout.startsWith('uniformRow')) {
@@ -77,7 +78,7 @@ export default function getLayoutAlgorithm<T>({
     rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
     width,
     _getColumnSpanConfig,
+    _getModulePositioningConfig,
     renderLoadingState,
-    earlyBailout: _earlyBailout,
   });
 }

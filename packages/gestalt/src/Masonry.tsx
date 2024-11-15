@@ -4,10 +4,16 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
+import getColumnCount from './Masonry/getColumnCount';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  calculateActualColumnSpan,
+  ColumnSpanConfig,
+  ModulePositioningConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+} from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
@@ -148,11 +154,13 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
-   * Experimental prop to enable early bailout when positioning multicolumn modules
+   * Experimental prop to enable dynamic batch sizing and early bailout when positioning a module
+   * - Early bailout: How much whitespace is "good enough"
+   * - Dynamic batch sizing: How many items it can use. If this prop isn't used, it uses 5
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: (columnSpan: number) => number;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
 };
 
 type State<T> = {
@@ -589,7 +597,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _loadingStateItems = [],
       _renderLoadingStateItems,
-      _earlyBailout,
+      _getModulePositioningConfig,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -611,7 +619,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _logTwoColWhitespace,
       _loadingStateItems,
       renderLoadingState,
-      _earlyBailout,
+      _getModulePositioningConfig,
     });
 
     let gridBody;
@@ -701,15 +709,29 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
       const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
-      const hasMultiColumnItems =
+      const nextMultiColumnItem =
         _getColumnSpanConfig &&
-        itemsWithoutPositions.some((item) => _getColumnSpanConfig(item) !== 1);
+        itemsWithoutPositions.find((item) => _getColumnSpanConfig(item) !== 1);
 
-      // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-      // we need the batch size (number of one column items for the graph) + 1 (two column item)
-      const itemsToMeasureCount = hasMultiColumnItems
-        ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
-        : minCols;
+      let batchSize;
+      if (nextMultiColumnItem) {
+        const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
+
+        const moduleSize = calculateActualColumnSpan({
+          columnCount: gridSize,
+          item: nextMultiColumnItem,
+          _getColumnSpanConfig,
+        });
+
+        const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
+          itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+        };
+        batchSize = itemsBatchSize;
+      }
+
+      // If there are multicolumn items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
+      // we need the batch size (number of one column items for the graph) + 1 (multicolumn item)
+      const itemsToMeasureCount = batchSize ? batchSize + 1 : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
