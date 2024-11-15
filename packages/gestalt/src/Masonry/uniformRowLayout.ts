@@ -1,5 +1,5 @@
 import { Cache } from './Cache';
-import { isLoadingStateItem } from './loadingStateUtils';
+import { isLoadingStateItem, isSkeletonPin } from './loadingStateUtils';
 import { LoadingStateItem, Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
@@ -79,7 +79,10 @@ const uniformRowLayout =
 
     const heights: Array<number> = [];
     return items.map((item, i) => {
-      const height = isLoadingStateItem(item, renderLoadingState) ? item.height : cache.get(item);
+      const height =
+        isLoadingStateItem(item, renderLoadingState) || isSkeletonPin(item)
+          ? item.height
+          : cache.get(item);
 
       if (height == null) {
         return offscreen(columnWidth);

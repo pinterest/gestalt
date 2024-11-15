@@ -1,6 +1,6 @@
 import { Cache } from './Cache';
 import { getHeightAndGutter } from './layoutHelpers';
-import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
+import { isLoadingStateItem, isLoadingStateItems, isSkeletonPin } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { LoadingStateItem, Position } from './types';
@@ -64,9 +64,10 @@ const fullWidthLayout = <T>({
         })
       : items.reduce<Array<any>>((acc, item) => {
           const positions = acc;
-          const height = isLoadingStateItem(item, renderLoadingState)
-            ? item.height
-            : measurementCache.get(item);
+          const height =
+            isLoadingStateItem(item, renderLoadingState) || isSkeletonPin(item)
+              ? item.height
+              : measurementCache.get(item);
           let position;
 
           if (height == null) {

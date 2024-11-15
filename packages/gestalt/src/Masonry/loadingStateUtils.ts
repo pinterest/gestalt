@@ -13,3 +13,7 @@ export function isLoadingStateItems<T>(
 ): items is ReadonlyArray<LoadingStateItem> {
   return items.some((item) => isLoadingStateItem(item, renderLoadingState));
 }
+
+export function isSkeletonPin<T>(item: T | LoadingStateItem): item is LoadingStateItem {
+  return Boolean(item && typeof item === 'object' && 'height' in item && 'isSkeletonPin' in item);
+}
