@@ -444,7 +444,7 @@ Object {
   <dimen name=\\"rounding_700\\">28dp</dimen>
   <dimen name=\\"rounding_800\\">32dp</dimen>
   <dimen name=\\"rounding_pill\\">999dp</dimen>
-  <dimen name=\\"rounding_circle\\">50%</dimen>
+  <dimen name=\\"rounding_circle\\">0.5</dimen>
 
   </resources>
 ",
@@ -1118,7 +1118,7 @@ object GestaltInterpolators {
   <dimen name=\\"sema_rounding_700\\">28dp</dimen>
   <dimen name=\\"sema_rounding_800\\">32dp</dimen>
   <dimen name=\\"sema_rounding_pill\\">999dp</dimen>
-  <dimen name=\\"sema_rounding_circle\\">50%</dimen>
+  <dimen name=\\"sema_rounding_circle\\">0.5</dimen>
 
   </resources>
 ",
