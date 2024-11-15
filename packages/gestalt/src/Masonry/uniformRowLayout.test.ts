@@ -159,3 +159,27 @@ describe('loadingStateItems', () => {
     ]);
   });
 });
+
+describe('skeletonPins', () => {
+  test("uses the skeletonPin's height", () => {
+    const skeletonPins = [
+      { 'name': 'Pin 0', 'height': 100, isSkeletonPin: true },
+      { 'name': 'Pin 1', 'height': 120, isSkeletonPin: true },
+      { 'name': 'Pin 2', 'height': 80, isSkeletonPin: true },
+      { 'name': 'Pin 3', 'height': 100, isSkeletonPin: true },
+    ];
+
+    const layout = uniformRowLayout({
+      cache: stubCache(),
+      width: 500,
+      renderLoadingState: true,
+    });
+
+    expect(layout(skeletonPins)).toEqual([
+      { top: 0, height: 100, left: 0, width: 236 },
+      { top: 0, height: 120, left: 250, width: 236 },
+      { top: 0, height: 80, left: 500, width: 236 },
+      { top: 134, height: 100, left: 0, width: 236 },
+    ]);
+  });
+});
