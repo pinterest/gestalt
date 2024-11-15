@@ -65,7 +65,7 @@ type Props = {
   /**
    * See the [rounding](https://gestalt.pinterest.systems/web/pog#Rounding) variant for more info.
    */
-  rounding?: '0' | '100' | '200' | '300' | '400' | 'circle';
+  rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
   /**
    * Indicate if Pog is in a selected state. See [States](https://gestalt.pinterest.systems/web/pog#States) for more details.
    */
@@ -111,7 +111,7 @@ export default function Pog({
         xs: 6,
         sm: 6,
         md: 10,
-        lg: 14,
+        lg: 12,
         xl: 20,
       }
     : {
@@ -138,6 +138,7 @@ export default function Pog({
     light: 'light',
     red: 'error',
     white: 'inverse',
+    disabled: 'disabled',
   } as const;
 
   const defaultIconButtonIconColors = {
@@ -169,6 +170,7 @@ export default function Pog({
     [styles.rounding200]: rounding === '200',
     [styles.rounding300]: rounding === '300',
     [styles.rounding400]: rounding === '400',
+    [styles.rounding500]: rounding === '500',
     [styles.roundingCircle]: !rounding || rounding === 'circle',
     [styles[bgColor]]: !selected,
     [styles.selected]: selected,
@@ -177,12 +179,13 @@ export default function Pog({
     [styles.hovered]: hovered && !focused && !active,
   });
 
-  const vrClasses = classnames(styles.pog, styles[size], {
+  const vrClasses = classnames(styles.pog, styles[size as keyof typeof styles], {
     [styles.rounding0]: rounding === '0',
     [styles.rounding100]: (!rounding && size === 'xs') || rounding === '100',
     [styles.rounding200]: (!rounding && size === 'sm') || rounding === '200',
     [styles.rounding300]: (!rounding && size === 'md') || rounding === '300',
-    [styles.rounding400]: (!rounding && (size === 'lg' || size === 'xl')) || rounding === '400',
+    [styles.rounding400]: (!rounding && size === 'lg') || rounding === '400',
+    [styles.rounding500]: (!rounding && size === 'xl') || rounding === '500',
     [styles.roundingCircle]: rounding === 'circle',
     [styles[bgColor]]: !selected,
     [styles.disabled]: disabled && !selected,
@@ -198,13 +201,14 @@ export default function Pog({
     [styles.darkInnerFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.hovered]: hovered && !active,
+    [styles.semitransparent]: bgColor === 'transparentDarkGray' && disabled && !selected,
   });
 
   return (
     <div className={isInVRExperiment ? vrClasses : classes} style={inlineStyle}>
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
-        color={OLD_TO_NEW_COLOR_MAP[color]}
+        color={disabled && isInVRExperiment ? 'disabled' : OLD_TO_NEW_COLOR_MAP[color]}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
         size={iconSizeInPx}

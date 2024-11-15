@@ -28,6 +28,10 @@
   border-radius: var(--rounding-400);
 }
 
+.rounding500 {
+  border-radius: var(--rounding-500);
+}
+
 .roundingCircle {
   border-radius: var(--rounding-circle);
 }
@@ -74,6 +78,10 @@
 }
 
 /* COLORS */
+
+.semitransparent svg {
+  opacity: 0.4;
+}
 
 .red {
   background-color: var(--color-background-button-primary-default);
