@@ -10,6 +10,7 @@ import compactChevronUp from './compact-chevron-up.svg';
 import compactDash from './compact-dash.svg';
 import compactInfoCircleFill from './compact-info-circle-fill.svg';
 import compactLock from './compact-lock.svg';
+import compactSparkle from './compact-sparkle.svg';
 import compactWorkflowStatusProblem from './compact-workflow-status-problem.svg';
 import compactWorkflowStatusWarning from './compact-workflow-status-warning.svg';
 
@@ -26,6 +27,7 @@ const icons = Object.freeze({
   'compact-dash': compactDash,
   'compact-info-circle-fill': compactInfoCircleFill,
   'compact-lock': compactLock,
+  'compact-sparkle': compactSparkle,
   'compact-workflow-status-problem': compactWorkflowStatusProblem,
   'compact-workflow-status-warning': compactWorkflowStatusWarning,
 });

@@ -35,6 +35,7 @@ type Props = {
   bgColor?:
     | 'transparent'
     | 'transparentDarkGray'
+    | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
     | 'washLight'

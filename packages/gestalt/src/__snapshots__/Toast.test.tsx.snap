@@ -9,6 +9,7 @@ exports[`<Toast /> Error Toast 1`] = `
     className="box errorBase paddingY300 rounding4"
     style={
       Object {
+        "minHeight": undefined,
         "paddingInlineEnd": "var(--rounding-400)",
         "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
@@ -63,6 +64,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
     className="box inverse paddingY300 rounding4"
     style={
       Object {
+        "minHeight": undefined,
         "paddingInlineEnd": "var(--rounding-400)",
         "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
@@ -146,6 +148,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
     className="box inverse paddingY300 rounding4"
     style={
       Object {
+        "minHeight": undefined,
         "paddingInlineEnd": "var(--rounding-400)",
         "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
@@ -267,6 +270,7 @@ exports[`<Toast /> Text + Image 1`] = `
     className="box inverse paddingY300 rounding4"
     style={
       Object {
+        "minHeight": undefined,
         "paddingInlineEnd": "var(--rounding-400)",
         "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",
@@ -359,6 +363,7 @@ exports[`<Toast /> Text Only 1`] = `
     className="box inverse paddingY300 rounding4"
     style={
       Object {
+        "minHeight": undefined,
         "paddingInlineEnd": "var(--rounding-400)",
         "paddingInlineStart": "var(--rounding-400)",
         "width": "100%",

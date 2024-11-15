@@ -20,6 +20,7 @@ type Props = {
   focusColor?: 'lightBackground' | 'darkBackground';
   bgColor?:
     | 'transparent'
+    | 'transparentDarkBackground'
     | 'transparentDarkGray'
     | 'gray'
     | 'lightGray'
@@ -110,7 +111,7 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   let labelColor: 'default' | 'disabled' | 'inverse' = 'default';
   if (disabled) {
     labelColor = 'disabled';
-  } else if (bgColor === 'transparent' && iconColor === 'white') {
+  } else if (bgColor === 'transparentDarkBackground' && iconColor === 'white') {
     labelColor = 'inverse';
   }
 

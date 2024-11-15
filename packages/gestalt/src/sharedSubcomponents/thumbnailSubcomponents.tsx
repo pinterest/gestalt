@@ -72,8 +72,8 @@ export function Message({
     };
   }, [checkEllipsisActive]);
 
-  const isTruncated = !textElement && text && ellipsisActive;
-  const isTruncatedWithHelperLink = isTruncated && helperLink;
+  const isTruncated = !textElement && text && ellipsisActive && !isInExperiment;
+  const isTruncatedWithHelperLink = isTruncated && helperLink && !isInExperiment;
 
   return (
     <Fragment>
@@ -84,7 +84,7 @@ export function Message({
           align="start"
           color={textColor}
           inline
-          lineClamp={2}
+          lineClamp={isInExperiment ? undefined : 2}
           title={isTruncated && typeof text === 'string' ? text : undefined}
           // Set title prop manually if text is truncated
           weight={isError && !isInExperiment ? 'bold' : undefined}
@@ -114,7 +114,7 @@ export function Message({
       ) : null}
       {/* Should the helkper link */}
       {isTruncatedWithHelperLink ? (
-        <Text color={textColor} weight={isError && !isInExperiment ? 'bold' : undefined}>
+        <Text color={textColor} weight={isError ? 'bold' : undefined}>
           <Link
             accessibilityLabel={helperLink?.accessibilityLabel ?? ''}
             display="inlineBlock"

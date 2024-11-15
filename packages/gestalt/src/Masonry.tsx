@@ -3,16 +3,14 @@ import debounce, { DebounceReturn } from './debounce';
 import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
-import defaultLayout from './Masonry/defaultLayout';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
-import fullWidthLayout from './Masonry/fullWidthLayout';
+import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
-import uniformRowLayout from './Masonry/uniformRowLayout';
 import throttle, { ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
@@ -599,49 +597,22 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
     );
 
-    let getPositions: (
-      itemsToGetPosition: readonly T[] | readonly LoadingStateItem[],
-    ) => ReadonlyArray<Position>;
-
-    if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
-      getPositions = fullWidthLayout({
-        gutter,
-        measurementCache: measurementStore,
-        positionCache: positionStore,
-        minCols,
-        idealColumnWidth: columnWidth,
-        width,
-        logWhitespace: _logTwoColWhitespace,
-        _getColumnSpanConfig,
-        renderLoadingState,
-        earlyBailout: _earlyBailout,
-      });
-    } else if (layout === 'uniformRow') {
-      getPositions = uniformRowLayout({
-        cache: measurementStore,
-        columnWidth,
-        gutter,
-        minCols,
-        width,
-        renderLoadingState,
-      });
-    } else {
-      getPositions = defaultLayout({
-        align,
-        measurementCache: measurementStore,
-        positionCache: positionStore,
-        columnWidth,
-        gutter,
-        layout,
-        minCols,
-        rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
-        width,
-        logWhitespace: _logTwoColWhitespace,
-        _getColumnSpanConfig,
-        renderLoadingState,
-        earlyBailout: _earlyBailout,
-      });
-    }
+    const getPositions = getLayoutAlgorithm({
+      align,
+      columnWidth,
+      gutter,
+      items,
+      layout,
+      measurementStore,
+      positionStore,
+      minCols,
+      width,
+      _getColumnSpanConfig,
+      _logTwoColWhitespace,
+      _loadingStateItems,
+      renderLoadingState,
+      _earlyBailout,
+    });
 
     let gridBody;
 

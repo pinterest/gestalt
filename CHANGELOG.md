@@ -1,3 +1,69 @@
+## 165.0.4 (Nov 15, 2024)
+
+### Patch
+
+- Badge: Badge improves VR focus interaction ([#3873](https://github.com/pinterest/gestalt/pull/3873)) - [Preview link](https://deploy-preview-3873--gestalt.netlify.app?devexample=true)
+
+## 165.0.3 (Nov 14, 2024)
+
+### Patch
+
+- Badge: VR fixes ([#3872](https://github.com/pinterest/gestalt/pull/3872)) - [Preview link](https://deploy-preview-3872--gestalt.netlify.app?devexample=true)
+
+## 165.0.2 (Nov 14, 2024)
+
+### Patch
+
+- DateRange: replace width with minWidth in filter section ([#3870](https://github.com/pinterest/gestalt/pull/3870)) - [Preview link](https://deploy-preview-3870--gestalt.netlify.app?devexample=true)
+
+## 165.0.1 (Nov 14, 2024)
+
+### Patch
+
+- Internal: updated yarn ([#3869](https://github.com/pinterest/gestalt/pull/3869)) - [Preview link](https://deploy-preview-3869--gestalt.netlify.app?devexample=true)
+
+## 165.0.0 (Nov 12, 2024)
+
+### Major
+
+- Tokens: Remove Gradient tokens for Android ([#3863](https://github.com/pinterest/gestalt/pull/3863)) - [Preview link](https://deploy-preview-3863--gestalt.netlify.app?devexample=true)
+
+## 164.2.5 (Nov 9, 2024)
+
+### Patch
+
+- DatePicker: fix for position at the edge ([#3865](https://github.com/pinterest/gestalt/pull/3865)) - [Preview link](https://deploy-preview-3865--gestalt.netlify.app?devexample=true)
+
+## 164.2.4 (Nov 7, 2024)
+
+### Patch
+
+- Toast: VR Certification Fixes ([#3862](https://github.com/pinterest/gestalt/pull/3862)) - [Preview link](https://deploy-preview-3862--gestalt.netlify.app?devexample=true)
+
+## 164.2.3 (Nov 6, 2024)
+
+### Patch
+
+- BannerUpsell: removed max witdh for message ([#3860](https://github.com/pinterest/gestalt/pull/3860)) - [Preview link](https://deploy-preview-3860--gestalt.netlify.app?devexample=true)
+
+## 164.2.2 (Nov 6, 2024)
+
+### Patch
+
+- ComboBox: fix in padding after https://github.com/pinterest/gestalt/pull/3822 ([#3859](https://github.com/pinterest/gestalt/pull/3859)) - [Preview link](https://deploy-preview-3859--gestalt.netlify.app?devexample=true)
+
+## 164.2.1 (Nov 6, 2024)
+
+### Patch
+
+- Pog, IconButton: add "transparentDarkBackground" value for `bgColor` ([#3856](https://github.com/pinterest/gestalt/pull/3856)) - [Preview link](https://deploy-preview-3856--gestalt.netlify.app?devexample=true)
+
+## 164.2.0 (Nov 6, 2024)
+
+### Minor
+
+- Masonry: Support flexible for uniformRow layout ([#3857](https://github.com/pinterest/gestalt/pull/3857)) - [Preview link](https://deploy-preview-3857--gestalt.netlify.app?devexample=true)
+
 ## 164.1.2 (Nov 6, 2024)
 
 ### Patch

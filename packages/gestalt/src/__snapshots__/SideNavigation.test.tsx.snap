@@ -358,7 +358,7 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                     , 
                                   </div>
                                   <div
-                                    className="badge info middle"
+                                    className="badge info padding middle"
                                   >
                                     <div
                                       className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
@@ -377,7 +377,6 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                         </div>
                                       </div>
                                     </div>
-                                     
                                   </div>
                                 </div>
                               </span>
