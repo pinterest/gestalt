@@ -1,3 +1,9 @@
+## 165.1.0 (Nov 15, 2024)
+
+### Minor
+
+- Tokens: Remove percents from Android rounding ([#3868](https://github.com/pinterest/gestalt/pull/3868)) - [Preview link](https://deploy-preview-3868--gestalt.netlify.app?devexample=true)
+
 ## 165.0.6 (Nov 15, 2024)
 
 ### Patch
