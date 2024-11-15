@@ -1,4 +1,5 @@
 .badge {
+  composes: borderBox from "./Layout.css";
   composes: rounding1 from "./Borders.css";
   align-content: center;
   display: flex;
