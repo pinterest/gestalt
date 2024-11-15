@@ -248,6 +248,11 @@ function useScrollContainer({
   const containerOffset = useRef(0);
   const scrollPos = useRef(0);
 
+  useEffect(() => {
+    // reset scroll position whenever the scrollContainer changes
+    scrollPos.current = scrollContainer ? getScrollPos(scrollContainer) : 0;
+  }, [scrollContainer]);
+
   const measureContainer = useCallback(() => {
     if (scrollContainer) {
       containerHeight.current = getElementHeight(scrollContainer);
@@ -259,16 +264,21 @@ function useScrollContainer({
     }
   }, [gridWrapper, scrollContainer]);
 
+
+  useEffect(() => {
+    // measure the container whenever the gridWrapper or scrollContainer changes (we use the identity of the measureContainer function here as an indication of that)
+    measureContainer();
+  }, [measureContainer]);
+
   // created a debounced version of measureContainer to avoid measuring the container on every render
   // this is mostly because the calls to getBoundingClientRect are expensive and result in forced reflows
   const measureContainerAsync = useMemo(() => debounce(measureContainer, 100), [measureContainer]);
 
-  if (containerHeight.current === 0 && containerOffset.current === 0) {
-    // initialize value on first render
-    // doing this here vs in the `useRef` to avoid measureContainer always being called
-    // https://18.react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
-    measureContainer();
-  }
+  useEffect(() => {
+    // trigger an async measurement whenever an update occurs
+    // todo - followup on this and figure out a more ideal way to handle this.
+    measureContainerAsync();
+  });
 
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
@@ -290,12 +300,6 @@ function useScrollContainer({
     () => scrollPos.current,
     () => 0,
   );
-
-  useEffect(() => {
-    // trigger an async measurement whenever an update occurs
-    // todo - followup on this and figure out a more ideal way to handle this.
-    measureContainerAsync();
-  });
 
   return {
     containerHeight: containerHeight.current,
