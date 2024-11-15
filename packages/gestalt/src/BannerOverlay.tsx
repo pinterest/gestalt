@@ -9,6 +9,7 @@ import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
+import Heading from './Heading';
 import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import {
   AvatarThumbnail,
@@ -17,6 +18,7 @@ import {
   Message,
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
@@ -125,6 +127,11 @@ export default function BannerOverlay({
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   let messageTextElement: ReactElement | string | undefined;
 
   if (typeof message === 'string') {
@@ -232,23 +239,14 @@ export default function BannerOverlay({
             ) : null}
             <Flex.Item flex="grow">
               <Flex direction="row" justifyContent="between">
-                {title ? (
-                  <Text weight="bold">{title}</Text>
-                ) : (
-                  <Message
-                    text={isMessageTextNode ? undefined : messageTextElement}
-                    textColor={textColor}
-                    textElement={isMessageTextNode ? messageTextElement : undefined}
-                  />
-                )}
-              </Flex>
-              {title && (
+                {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
+                {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
                 <Message
                   text={isMessageTextNode ? undefined : messageTextElement}
                   textColor={textColor}
                   textElement={isMessageTextNode ? messageTextElement : undefined}
                 />
-              )}
+              </Flex>
             </Flex.Item>
           </Flex>
           <Flex alignSelf="center" direction="row" gap={4}>
@@ -264,7 +262,7 @@ export default function BannerOverlay({
                       onClick={secondaryAction.onClick}
                       rel={secondaryAction?.rel}
                       role="link"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                       target={secondaryAction?.target}
                     />
                   ) : (
@@ -274,7 +272,7 @@ export default function BannerOverlay({
                       label={secondaryAction.label}
                       onClick={secondaryAction.onClick}
                       role="button"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                     />
                   )}
                 </Flex.Item>
@@ -290,7 +288,7 @@ export default function BannerOverlay({
                       onClick={primaryAction.onClick}
                       rel={primaryAction?.rel}
                       role="link"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                       target={primaryAction?.target}
                     />
                   ) : (
@@ -300,7 +298,7 @@ export default function BannerOverlay({
                       label={primaryAction.label}
                       onClick={primaryAction.onClick}
                       role="button"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                     />
                   )}
                 </Flex.Item>
@@ -369,32 +367,21 @@ export default function BannerOverlay({
             ) : null}
             <Flex.Item flex="grow">
               <Flex direction="row" justifyContent="between">
-                {title ? (
-                  <Text weight="bold">{title}</Text>
-                ) : (
-                  <Box marginBottom={2}>
-                    <Message
-                      text={isMessageTextNode ? undefined : messageTextElement}
-                      textColor={textColor}
-                      textElement={isMessageTextNode ? messageTextElement : undefined}
-                    />
-                  </Box>
-                )}
+                {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
+                {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
                 {!!onDismiss && (
                   <Flex.Item alignSelf={title ? 'end' : 'start'}>
                     {dismissButtonComponent}
                   </Flex.Item>
                 )}
               </Flex>
-              {title && (
-                <Box marginBottom={2}>
-                  <Message
-                    text={isMessageTextNode ? undefined : messageTextElement}
-                    textColor={textColor}
-                    textElement={isMessageTextNode ? messageTextElement : undefined}
-                  />
-                </Box>
-              )}
+              <Box marginBottom={2}>
+                <Message
+                  text={isMessageTextNode ? undefined : messageTextElement}
+                  textColor={textColor}
+                  textElement={isMessageTextNode ? messageTextElement : undefined}
+                />
+              </Box>
             </Flex.Item>
           </Flex>
           <Flex alignSelf="end" direction="row" gap={4}>
@@ -410,7 +397,7 @@ export default function BannerOverlay({
                       onClick={secondaryAction.onClick}
                       rel={secondaryAction?.rel}
                       role="link"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                       target={secondaryAction?.target}
                     />
                   ) : (
@@ -420,7 +407,7 @@ export default function BannerOverlay({
                       label={secondaryAction.label}
                       onClick={secondaryAction.onClick}
                       role="button"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                     />
                   )}
                 </Flex.Item>
@@ -436,7 +423,7 @@ export default function BannerOverlay({
                       onClick={primaryAction.onClick}
                       rel={primaryAction?.rel}
                       role="link"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                       target={primaryAction?.target}
                     />
                   ) : (
@@ -446,7 +433,7 @@ export default function BannerOverlay({
                       label={primaryAction.label}
                       onClick={primaryAction.onClick}
                       role="button"
-                      size="sm"
+                      size={isInVRExperiment ? 'md' : 'sm'}
                     />
                   )}
                 </Flex.Item>

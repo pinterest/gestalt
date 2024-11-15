@@ -42,7 +42,7 @@ export function Message({
   };
   type?: 'default' | 'success' | 'error' | 'progress';
 }) {
-  const isInExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
@@ -72,8 +72,8 @@ export function Message({
     };
   }, [checkEllipsisActive]);
 
-  const isTruncated = !textElement && text && ellipsisActive && !isInExperiment;
-  const isTruncatedWithHelperLink = isTruncated && helperLink && !isInExperiment;
+  const isTruncated = !textElement && text && ellipsisActive && !isInVRExperiment;
+  const isTruncatedWithHelperLink = isTruncated && helperLink && !isInVRExperiment;
 
   return (
     <Fragment>
@@ -84,10 +84,11 @@ export function Message({
           align="start"
           color={textColor}
           inline
-          lineClamp={isInExperiment ? undefined : 2}
-          title={isTruncated && typeof text === 'string' ? text : undefined}
+          lineClamp={isInVRExperiment ? undefined : 2}
+          size="300"
           // Set title prop manually if text is truncated
-          weight={isError && !isInExperiment ? 'bold' : undefined}
+          title={isTruncated && typeof text === 'string' ? text : undefined}
+          weight={isError && !isInVRExperiment ? 'bold' : undefined}
         >
           {text}
           {helperLink ? (
@@ -96,7 +97,7 @@ export function Message({
               <Text
                 color={textColor}
                 inline
-                weight={isError && !isInExperiment ? 'bold' : undefined}
+                weight={isError && !isInVRExperiment ? 'bold' : undefined}
               >
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
