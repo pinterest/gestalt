@@ -144,31 +144,10 @@ export default function Badge({
   const { handleOnBlur, handleOnFocus, handleOnMouseEnter, handleOnMouseLeave, isFocused } =
     useInteractiveStates();
 
-  const cxStyles = cx(styles.badge, styles[styleType], {
-    [styles.padding]: !isInVRExperiment,
-    [styles.paddingVR]: isInVRExperiment,
-    [styles.middle]: !shouldUseTooltip && position === 'middle',
-    [styles.top]: !shouldUseTooltip && position === 'top',
-    [styles.focusInnerBorder]:
-      isInVRExperiment &&
-      isFocused &&
-      isFocusVisible &&
-      !['darkWash', 'lightWash'].some((color) => color === type),
-    [styles.focusInnerBorderLight]:
-      isInVRExperiment && isFocused && isFocusVisible && type === 'darkWash',
-    [styles.focusInnerBorderDark]:
-      isInVRExperiment && isFocused && isFocusVisible && type === 'lightWash',
-  });
-
-  const cxPositionStyles = cx({
-    [styles.middle]: position === 'middle',
-    [styles.top]: position === 'top',
-  });
-
   const badgeComponent = (
     <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
       {shouldUseTooltip ? (
-        <Box alignContent="center" display="flex">
+        <Box alignContent="center" display="flex" height="100%">
           {isInVRExperiment ? (
             <IconCompact
               accessibilityLabel=""
@@ -203,6 +182,46 @@ export default function Badge({
     </Flex>
   );
 
+  if (isInVRExperiment)
+    return shouldUseTooltip ? (
+      <Tooltip
+        accessibilityLabel=""
+        dataTestId={dataTestIdTooltip}
+        idealDirection={tooltip.idealDirection}
+        inline
+        text={tooltip.text}
+        zIndex={tooltip.zIndex}
+      >
+        <div
+          aria-label={tooltip.accessibilityLabel}
+          className={cx(styles.badgeVR, styles[styleType], {
+            [styles.focusedDefaultOutline]:
+              isFocused && isFocusVisible && type !== 'lightWash' && type !== 'darkWash',
+            [styles.focusedDarkOutline]: isFocused && isFocusVisible && type === 'darkWash',
+            [styles.focusedLightOutline]: isFocused && isFocusVisible && type === 'lightWash',
+            [styles.innerBorder]: !isFocused || !isFocusVisible,
+          })}
+          onBlur={handleOnBlur}
+          onFocus={handleOnFocus}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          role="button"
+          tabIndex={0}
+        >
+          {badgeComponent}
+        </div>
+      </Tooltip>
+    ) : (
+      <div
+        className={cx(styles.badgeVR, styles.paddingVR, styles[styleType], {
+          [styles.middle]: position === 'middle',
+          [styles.top]: position === 'top',
+        })}
+      >
+        {badgeComponent}
+      </div>
+    );
+
   return shouldUseTooltip ? (
     <Tooltip
       accessibilityLabel=""
@@ -212,26 +231,33 @@ export default function Badge({
       text={tooltip.text}
       zIndex={tooltip.zIndex}
     >
-      <div className={cxPositionStyles}>
-        <TapArea
-          accessibilityLabel={tooltip.accessibilityLabel}
-          fullHeight
-          mouseCursor="default"
-          onBlur={handleOnBlur}
-          onFocus={handleOnFocus}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-          rounding={1}
-          tapStyle="none"
-        >
-          <Box alignContent="center" display="flex" height="100%">
-            <div className={cxStyles}>{badgeComponent} </div>
-          </Box>
-        </TapArea>
-      </div>
+      <TapArea
+        accessibilityLabel={tooltip.accessibilityLabel}
+        fullHeight
+        mouseCursor="default"
+        onBlur={handleOnBlur}
+        onFocus={handleOnFocus}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        rounding={1}
+        tapStyle="none"
+      >
+        <Box alignContent="center" display="flex" height="100%">
+          <div className={cx(styles.badge, styles[styleType], styles.padding)}>
+            {badgeComponent}
+          </div>
+        </Box>
+      </TapArea>
     </Tooltip>
   ) : (
-    <div className={cxStyles}>{badgeComponent} </div>
+    <div
+      className={cx(styles.badge, styles[styleType], styles.padding, {
+        [styles.middle]: position === 'middle',
+        [styles.top]: position === 'top',
+      })}
+    >
+      {badgeComponent}
+    </div>
   );
 }
 

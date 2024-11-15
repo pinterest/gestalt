@@ -797,7 +797,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                 </div>
                               </div>
                             </div>
-                             
                           </div>
                         </div>
                       </div>
@@ -876,7 +875,6 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                                   </div>
                                 </div>
                               </div>
-                               
                             </div>
                           </div>
                         </div>
