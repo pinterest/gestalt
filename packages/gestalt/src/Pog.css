@@ -216,7 +216,13 @@
 
 .transparentDarkGray.disabled {
   background-color: var(
-    --color-background-iconbutton-semitransparentdark-disabled
+    --color-background-iconbutton-semitransparentdark-disabled-default
+  );
+}
+
+.transparentDarkGray.disabled.selected {
+  background-color: var(
+    --color-background-iconbutton-semitransparentdark-disabled-selected
   );
 }
 

@@ -201,14 +201,33 @@ export default function Pog({
     [styles.darkInnerFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.hovered]: hovered && !active,
-    [styles.semitransparent]: bgColor === 'transparentDarkGray' && disabled && !selected,
+    // Opacity of 40% should only apply to disabled unselected states, when the icon is white or light
+    [styles.semitransparent]:
+      (bgColor === 'transparentDarkGray' ||
+        bgColor === 'transparent' ||
+        bgColor === 'transparentDarkBackground' ||
+        bgColor === 'washLight') &&
+      (color === 'white' || color === 'light') &&
+      disabled &&
+      !selected,
   });
 
   return (
     <div className={isInVRExperiment ? vrClasses : classes} style={inlineStyle}>
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
-        color={disabled && isInVRExperiment ? 'disabled' : OLD_TO_NEW_COLOR_MAP[color]}
+        color={
+          isInVRExperiment &&
+          // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
+          disabled &&
+          !(
+            !selected &&
+            (bgColor === 'washLight' || bgColor === 'transparentDarkGray') &&
+            (color === 'white' || color === 'light')
+          )
+            ? 'disabled'
+            : OLD_TO_NEW_COLOR_MAP[color]
+        }
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
         size={iconSizeInPx}
