@@ -1,3 +1,9 @@
+## 165.0.5 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update container measurement logic for V2 ([#3876](https://github.com/pinterest/gestalt/pull/3876)) - [Preview link](https://deploy-preview-3876--gestalt.netlify.app?devexample=true)
+
 ## 165.0.4 (Nov 15, 2024)
 
 ### Patch
