@@ -70,7 +70,6 @@ exports[`Accordion renders a badge correctly 1`] = `
                   </div>
                 </div>
               </div>
-               
             </div>
           </div>
         </div>

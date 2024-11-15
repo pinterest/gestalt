@@ -21,6 +21,5 @@ exports[`Badge renders 1`] = `
       </div>
     </div>
   </div>
-   
 </div>
 `;
