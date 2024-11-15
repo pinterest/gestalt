@@ -264,7 +264,6 @@ function useScrollContainer({
     }
   }, [gridWrapper, scrollContainer]);
 
-
   useEffect(() => {
     // measure the container whenever the gridWrapper or scrollContainer changes (we use the identity of the measureContainer function here as an indication of that)
     measureContainer();
