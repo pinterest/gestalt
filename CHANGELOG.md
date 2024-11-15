@@ -1,3 +1,9 @@
+## 165.0.4 (Nov 15, 2024)
+
+### Patch
+
+- Badge: Badge improves VR focus interaction ([#3873](https://github.com/pinterest/gestalt/pull/3873)) - [Preview link](https://deploy-preview-3873--gestalt.netlify.app?devexample=true)
+
 ## 165.0.3 (Nov 14, 2024)
 
 ### Patch
