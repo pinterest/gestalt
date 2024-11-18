@@ -1,3 +1,9 @@
+## 165.1.1 (Nov 18, 2024)
+
+### Patch
+
+- Badge: fix VR size icon ([#3882](https://github.com/pinterest/gestalt/pull/3882)) - [Preview link](https://deploy-preview-3882--gestalt.netlify.app?devexample=true)
+
 ## 165.1.0 (Nov 15, 2024)
 
 ### Minor
