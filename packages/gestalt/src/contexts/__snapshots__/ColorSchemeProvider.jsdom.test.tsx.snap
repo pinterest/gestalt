@@ -3432,9 +3432,6 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-border-default: #c7c6c1;
   --color-border-error: #ff9494;
   --color-border-focus: #c5eaf7;
-  --color-border-badge-default: #000000;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #b2b0ae;
   --color-border-button-pressed: #969292;
   --color-border-checkbox-checked-default: #e8e7e1;
@@ -4429,9 +4426,6 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-border-default: #757570;
   --color-border-error: #b2001a;
   --color-border-focus: #007db8;
-  --color-border-badge-default: #ffffff;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
@@ -5427,9 +5421,6 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-border-default: #757570;
   --color-border-error: #b2001a;
   --color-border-focus: #007db8;
-  --color-border-badge-default: #ffffff;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
@@ -6425,9 +6416,6 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-border-default: #757570;
   --color-border-error: #b2001a;
   --color-border-focus: #007db8;
-  --color-border-badge-default: #ffffff;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
@@ -7423,9 +7411,6 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-border-default: #757570;
   --color-border-error: #b2001a;
   --color-border-focus: #007db8;
-  --color-border-badge-default: #ffffff;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
@@ -8421,9 +8406,6 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-border-default: #757570;
   --color-border-error: #b2001a;
   --color-border-focus: #007db8;
-  --color-border-badge-default: #ffffff;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
@@ -9419,9 +9401,6 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-border-default: #757570;
   --color-border-error: #b2001a;
   --color-border-focus: #007db8;
-  --color-border-badge-default: #ffffff;
-  --color-border-badge-light: #ffffff;
-  --color-border-badge-dark: #000000;
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;

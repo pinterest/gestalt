@@ -1,3 +1,51 @@
+## 165.1.0 (Nov 15, 2024)
+
+### Minor
+
+- Tokens: Remove percents from Android rounding ([#3868](https://github.com/pinterest/gestalt/pull/3868)) - [Preview link](https://deploy-preview-3868--gestalt.netlify.app?devexample=true)
+
+## 165.0.6 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update fullWidthLayout to not floor column widths ([#3874](https://github.com/pinterest/gestalt/pull/3874)) - [Preview link](https://deploy-preview-3874--gestalt.netlify.app?devexample=true)
+
+## 165.0.5 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update container measurement logic for V2 ([#3876](https://github.com/pinterest/gestalt/pull/3876)) - [Preview link](https://deploy-preview-3876--gestalt.netlify.app?devexample=true)
+
+## 165.0.4 (Nov 15, 2024)
+
+### Patch
+
+- Badge: Badge improves VR focus interaction ([#3873](https://github.com/pinterest/gestalt/pull/3873)) - [Preview link](https://deploy-preview-3873--gestalt.netlify.app?devexample=true)
+
+## 165.0.3 (Nov 14, 2024)
+
+### Patch
+
+- Badge: VR fixes ([#3872](https://github.com/pinterest/gestalt/pull/3872)) - [Preview link](https://deploy-preview-3872--gestalt.netlify.app?devexample=true)
+
+## 165.0.2 (Nov 14, 2024)
+
+### Patch
+
+- DateRange: replace width with minWidth in filter section ([#3870](https://github.com/pinterest/gestalt/pull/3870)) - [Preview link](https://deploy-preview-3870--gestalt.netlify.app?devexample=true)
+
+## 165.0.1 (Nov 14, 2024)
+
+### Patch
+
+- Internal: updated yarn ([#3869](https://github.com/pinterest/gestalt/pull/3869)) - [Preview link](https://deploy-preview-3869--gestalt.netlify.app?devexample=true)
+
+## 165.0.0 (Nov 12, 2024)
+
+### Major
+
+- Tokens: Remove Gradient tokens for Android ([#3863](https://github.com/pinterest/gestalt/pull/3863)) - [Preview link](https://deploy-preview-3863--gestalt.netlify.app?devexample=true)
+
 ## 164.2.5 (Nov 9, 2024)
 
 ### Patch
