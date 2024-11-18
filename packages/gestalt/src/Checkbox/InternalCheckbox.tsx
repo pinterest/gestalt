@@ -118,8 +118,8 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   };
 
   const vrIconSizes = {
-    sm: 12,
-    md: 16,
+    sm: 10,
+    md: 12,
   };
 
   const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
@@ -127,8 +127,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
   const vrTextColor = disabled ? 'disabled' : undefined;
   const textColor = disabled ? 'subtle' : undefined;
-  const vrIconColorEnabled = errorMessage ? 'error' : 'inverse';
-  const vrIconColor = disabled ? 'disabled' : vrIconColorEnabled;
+  const vrIconColor = disabled ? 'disabled' : 'inverse';
   const unchecked = !(checked || indeterminate);
 
   const bgStyle = classnames({
@@ -192,7 +191,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   return (
     <Box>
       <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
-        <Box paddingX={1} position="relative">
+        <Box paddingX={isInVRExperiment ? 0 : 1} position="relative">
           <div ref={tapScaleAnimation.elementRef} className={divStyles} style={style}>
             {isInVRExperiment ? (
               <div style={{ width: vrIconSizes[size] }}>
@@ -203,7 +202,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
                   <Icon
                     accessibilityLabel=""
                     color={isInVRExperiment ? vrIconColor : 'inverse'}
-                    icon={indeterminate ? 'dash' : 'check'}
+                    icon={indeterminate ? 'compact-dash' : 'compact-check'}
                     size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
                   />
                 </div>
@@ -212,7 +211,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               (checked || indeterminate) && (
                 <Icon
                   accessibilityLabel=""
-                  color="inverse"
+                  color={isInVRExperiment ? vrIconColor : 'inverse'}
                   icon={indeterminate ? 'dash' : 'check'}
                   size={iconSizes[size]}
                 />
