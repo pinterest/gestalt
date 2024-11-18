@@ -3,17 +3,39 @@
     "spinner": {
       "color": {
         "background": {
-          "pink": {
+          "purple": {
             "type": "color",
-            "value": "#d452d1"
+            "value": "#c85bd2"
           },
           "orange": {
             "type": "color",
-            "value": "#ff7c36"
+            "value": "#e57534"
           },
-          "blue": {
+          "teal": {
             "type": "color",
-            "value": "#24ccb0"
+            "value": "#22a596"
+          }
+        }
+      },
+      "motion": {
+        "enter": {
+          "duration": {
+            "type": "other",
+            "value": "{base.motion.duration.300}"
+          },
+          "easing": {
+            "type": "other",
+            "value": "{base.motion.easing.enter}"
+          }
+        },
+        "exit": {
+          "duration": {
+            "type": "other",
+            "value": "{base.motion.duration.150}"
+          },
+          "easing": {
+            "type": "other",
+            "value": "{base.motion.easing.enter}"
           }
         }
       }

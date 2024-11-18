@@ -1,73 +1,105 @@
 .spinner {
-  --g-size: 40px;
-  --g-dot-size: calc(var(--g-size) / 3);
-  --g-dot-space: calc(var(--g-dot-size) * 1.75);
+  /* The value may be set from `styles` attirbute. */
+  --g-enter-delay: 0ms;
 
+  /* Shorthand for long token name. */
+  --g-intro-duration: var(--comp-spinner-motion-enter-duration);
+
+  /* Declaration the variable. Actual value is read from `styles` attirbute. */
+  --g-size: 40px;
+
+  animation-composition: add;
+  animation-delay: var(--g-enter-delay), 0s;
+  animation-duration: 1s, var(--comp-spinner-motion-exit-duration);
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite, 1;
+  animation-name: spin;
+  animation-timing-function: linear, ease-out;
   height: var(--g-size);
   width: var(--g-size);
 }
 
-.spinnerFrame {
-  animation: spin 1500ms linear infinite;
-  box-sizing: border-box;
-  height: calc(var(--g-dot-space) * sqrt(3) / 2);
-  left: calc(var(--g-dot-size) * 0.625);
-  position: relative;
-  top: calc(var(--g-dot-size) / 2);
-  transform-origin: center calc(var(--g-dot-space) / sqrt(3));
-  width: var(--g-dot-space);
+.spinner.exit {
+  animation-name: spin, spinner-outro;
 }
 
-.spinnerFrame > div {
+svg * {
+  transform-box: fill-box;
+}
+
+.spinner g {
+  /* Declaration of variables. Actual values are read from `styles` attirbute. */
+  --g-start-x: 0;
+  --g-start-y: 0;
+
+  animation-duration: var(--g-intro-duration);
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-name: dot-intro;
+  animation-timing-function: ease-in-out;
+  transform-origin: center center;
+}
+
+.spinner g:nth-child(1) {
+  animation-delay: var(--g-enter-delay);
+}
+
+.spinner g:nth-child(2) {
+  animation-delay: calc(var(--g-enter-delay) + 50ms);
+}
+
+.spinner g:nth-child(3) {
+  animation-delay: calc(var(--g-enter-delay) + 100ms);
+}
+
+.spinner circle {
   animation-composition: add;
-  animation-duration: 800ms, 1.8s;
+  animation-duration: 1.8s, 800ms;
   animation-iteration-count: infinite;
-  animation-name: scale, colors;
+  animation-name: colors, scale;
   animation-timing-function: linear;
-  border-radius: 50%;
-  height: var(--g-dot-size);
-  position: absolute;
-  width: var(--g-dot-size);
+  transform-origin: center center;
 }
 
-.dot1 {
-  animation-delay: 0s;
-  left: 50%;
-  top: 0;
-  transform: translate3d(-50%, -50%, 0);
+.spinner g:nth-child(1) circle {
+  animation-delay: 0s, calc(var(--g-enter-delay) + var(--g-intro-duration));
 }
 
-.dot2 {
-  animation-delay: 100ms, 0s;
-  bottom: 0;
-  left: 0;
-  transform: translate3d(-50%, 50%, 0);
+.spinner g:nth-child(2) circle {
+  animation-delay: 0s,
+    calc(var(--g-enter-delay) + var(--g-intro-duration) + 100ms);
 }
 
-.dot3 {
-  animation-delay: 200ms, 0s;
-  bottom: 0;
-  right: 0;
-  transform: translate3d(50%, 50%, 0);
+.spinner g:nth-child(3) circle {
+  animation-delay: 0s,
+    calc(var(--g-enter-delay) + var(--g-intro-duration) + 200ms);
 }
 
-.spinner.delay .spinnerFrame > div {
-  animation-delay: 300ms;
+@keyframes dot-intro {
+  from {
+    transform: translate(var(--g-start-x), var(--g-start-y)) scale(0);
+  }
+
+  to {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
-.delay {
-  animation-delay: 300ms;
+@keyframes spinner-outro {
+  to {
+    transform: scale(0);
+  }
 }
 
 @keyframes spin {
   to {
-    transform: rotate(360deg);
+    transform: rotate(1turn);
   }
 }
 
 @keyframes scale {
   50% {
-    transform: scale(0.8);
+    transform: scale(0.666);
   }
 
   100% {
@@ -77,18 +109,18 @@
 
 @keyframes colors {
   0% {
-    background-color: var(--comp-spinner-color-background-pink);
+    fill: var(--comp-spinner-color-background-purple);
   }
 
   33.333% {
-    background-color: var(--comp-spinner-color-background-orange);
+    fill: var(--comp-spinner-color-background-orange);
   }
 
   66.666% {
-    background-color: var(--comp-spinner-color-background-blue);
+    fill: var(--comp-spinner-color-background-teal);
   }
 
   100% {
-    background-color: var(--comp-spinner-color-background-pink);
+    fill: var(--comp-spinner-color-background-purple);
   }
 }
