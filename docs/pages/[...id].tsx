@@ -115,13 +115,12 @@ export async function getStaticPaths(): Promise<{
   fallback: boolean | 'blocking';
 }> {
   const sanityRoutes = await getSanityRoutes();
-  console.log('paths', sanityRoutes);
 
   // get all the possible paths that exist within ./markdown folder
-  const paths = await getAllMarkdownPosts();
+  const mdPaths = await getAllMarkdownPosts();
 
   return {
-    paths: sanityRoutes.map((name) => ({
+    paths: [sanityRoutes, mdPaths].flat().map((name) => ({
       params: {
         id: name,
       },
