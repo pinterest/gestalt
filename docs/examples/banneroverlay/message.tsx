@@ -15,11 +15,11 @@ export default function Example() {
     <BannerOverlay
       message={
         <Text inline>
-          Discover {' '}
+          Discover{' '}
           <Link display="inlineBlock" href="#" target="self">
             trending fashion ideas
           </Link>{' '}
-           in the app!
+          in the app!
         </Text>
       }
       offset={{ top: 130, bottom: 24 }}

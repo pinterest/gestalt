@@ -186,7 +186,9 @@ export default function BannerOverlay({
       <Box display="flex" smDisplay="none">
         <Box
           borderStyle="shadow"
-          color={isDarkMode ? DEFAULT_COLORS.darkModeBackground : DEFAULT_COLORS.lightModeBackground}
+          color={
+            isDarkMode ? DEFAULT_COLORS.darkModeBackground : DEFAULT_COLORS.lightModeBackground
+          }
           dangerouslySetInlineStyle={{
             __style: {
               bottom: getPosition().bottom,
@@ -301,7 +303,9 @@ export default function BannerOverlay({
       <Box display="none" smDisplay="flex">
         <Box
           borderStyle="shadow"
-          color={isDarkMode ? DEFAULT_COLORS.darkModeBackground : DEFAULT_COLORS.lightModeBackground}
+          color={
+            isDarkMode ? DEFAULT_COLORS.darkModeBackground : DEFAULT_COLORS.lightModeBackground
+          }
           dangerouslySetInlineStyle={{
             __style: {
               bottom: getPosition().bottom,
