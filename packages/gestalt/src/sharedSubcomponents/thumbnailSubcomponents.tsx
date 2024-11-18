@@ -132,9 +132,18 @@ export function Message({
 }
 
 export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Box aria-hidden>
-      <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
+      <Mask
+        height={isInVRExperiment ? 40 : SIZE_THUMBNAIL}
+        rounding={2}
+        width={isInVRExperiment ? 40 : SIZE_THUMBNAIL}
+      >
         {thumbnail}
       </Mask>
     </Box>
@@ -148,10 +157,14 @@ export function IconThumbnail({
   thumbnail: ReactElement;
   overrideColor?: IconColor;
 }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   return (
     <Box aria-hidden>
       {cloneElement(thumbnail, {
-        size: SIZE_ICON,
+        size: isInVRExperiment ? 32 : SIZE_ICON,
         color: overrideColor ?? thumbnail.props.color,
       })}
     </Box>
