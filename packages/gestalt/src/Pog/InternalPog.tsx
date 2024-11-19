@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import styles from './Pog.css';
+import styles from './InternalPog.css';
 import Icon from '../Icon';
 import icons from '../icons/index';
 import useInExperiment from '../useInExperiment';
