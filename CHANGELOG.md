@@ -1,3 +1,9 @@
+## 165.1.3 (Nov 19, 2024)
+
+### Patch
+
+- Spinner: Remove Opacity Token ([#3884](https://github.com/pinterest/gestalt/pull/3884)) - [Preview link](https://deploy-preview-3884--gestalt.netlify.app?devexample=true)
+
 ## 165.1.2 (Nov 19, 2024)
 
 ### Patch
