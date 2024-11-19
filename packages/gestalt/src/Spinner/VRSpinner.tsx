@@ -1,4 +1,4 @@
-import { AnimationEventHandler, useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import classnames from 'classnames';
 import styles from './VRSpinner.css';
 import Box from '../Box';
