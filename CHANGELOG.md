@@ -1,3 +1,9 @@
+## 165.1.5 (Nov 19, 2024)
+
+### Patch
+
+- Icon: rename ios compact sparkle icon to adhere to naming pattern ([#3886](https://github.com/pinterest/gestalt/pull/3886)) - [Preview link](https://deploy-preview-3886--gestalt.netlify.app?devexample=true)
+
 ## 165.1.4 (Nov 19, 2024)
 
 ### Patch
