@@ -1330,9 +1330,13 @@ public enum GestaltTokensRadiogroupbutton {
 import SwiftUI
 
 public enum GestaltTokensSpinner {
-    public static let compColorBackgroundBlue = #24ccb0
-    public static let compColorBackgroundOrange = #ff7c36
-    public static let compColorBackgroundPink = #d452d1
+    public static let compColorBackgroundTeal = #22a596
+    public static let compColorBackgroundOrange = #e57534
+    public static let compColorBackgroundPurple = #c85bd2
+    public static let compMotionExitEasing = baseEasingEnter
+    public static let compMotionExitDuration = baseDuration150
+    public static let compMotionEnterEasing = baseEasingEnter
+    public static let compMotionEnterDuration = baseDuration300
 }
 ",
 }

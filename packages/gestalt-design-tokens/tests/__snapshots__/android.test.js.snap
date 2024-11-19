@@ -772,9 +772,13 @@ Object {
   "dist/android/vr-theme/component/spinner.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"comp_spinner_color_background_pink\\">#d452d1</dimen>
-  <dimen name=\\"comp_spinner_color_background_orange\\">#ff7c36</dimen>
-  <dimen name=\\"comp_spinner_color_background_blue\\">#24ccb0</dimen>
+  <dimen name=\\"comp_spinner_color_background_purple\\">#c85bd2</dimen>
+  <dimen name=\\"comp_spinner_color_background_orange\\">#e57534</dimen>
+  <dimen name=\\"comp_spinner_color_background_teal\\">#22a596</dimen>
+  <dimen name=\\"comp_spinner_motion_enter_duration\\">@dimen/base_motion_duration_300</dimen>
+  <dimen name=\\"comp_spinner_motion_enter_easing\\">@dimen/base_motion_easing_enter</dimen>
+  <dimen name=\\"comp_spinner_motion_exit_duration\\">@dimen/base_motion_duration_150</dimen>
+  <dimen name=\\"comp_spinner_motion_exit_easing\\">@dimen/base_motion_easing_enter</dimen>
 
   </resources>
 ",
