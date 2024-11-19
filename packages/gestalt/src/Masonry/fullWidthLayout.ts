@@ -1,6 +1,11 @@
 import { Cache } from './Cache';
 import { getHeightAndGutter } from './layoutHelpers';
-import { isLoadingStateItem, isLoadingStateItems, isSkeletonPin } from './loadingStateUtils';
+import {
+  areSkeletonPins,
+  isLoadingStateItem,
+  isLoadingStateItems,
+  isSkeletonPin,
+} from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { LoadingStateItem, Position } from './types';
@@ -51,7 +56,9 @@ const fullWidthLayout = <T>({
 
   return (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => {
     const heights = new Array<number>(columnCount).fill(0);
-    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
+    return _getColumnSpanConfig &&
+      !isLoadingStateItems(items, renderLoadingState) &&
+      !areSkeletonPins(items)
       ? multiColumnLayout({
           items,
           columnWidth,

@@ -372,7 +372,6 @@ describe('skeletonPins', () => {
       minCols: 2,
       rawItemCount: skeletonPins.length,
       width: 8000,
-      renderLoadingState: true,
     });
 
     expect(layout(skeletonPins)).toEqual([
@@ -395,7 +394,7 @@ describe('skeletonPins', () => {
     items.forEach((item: any) => {
       /**
        * Forcing the height to be different here since we always want to get the height from the measurement cache
-       * We only want to use the item's height if we are rendering loading state items
+       * We only want to use the item's height if we are rendering a skeleton pin
        */
       measurementStore.set(item, item.height + 1);
     });

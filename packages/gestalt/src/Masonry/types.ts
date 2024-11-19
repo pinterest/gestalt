@@ -30,3 +30,5 @@ export type Layout =
   | 'uniformRowFlexible';
 
 export type LoadingStateItem = { height: number };
+
+export type SkeletonPin = { height: number; isSkeletonPin: boolean };
