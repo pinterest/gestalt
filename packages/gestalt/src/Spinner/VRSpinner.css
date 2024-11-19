@@ -109,18 +109,18 @@ svg * {
 
 @keyframes colors {
   0% {
-    fill: var(--comp-spinner-color-background-purple);
+    fill: var(--comp-spinner-color-background-1);
   }
 
   33.333% {
-    fill: var(--comp-spinner-color-background-orange);
+    fill: var(--comp-spinner-color-background-2);
   }
 
   66.666% {
-    fill: var(--comp-spinner-color-background-teal);
+    fill: var(--comp-spinner-color-background-3);
   }
 
   100% {
-    fill: var(--comp-spinner-color-background-purple);
+    fill: var(--comp-spinner-color-background-1);
   }
 }

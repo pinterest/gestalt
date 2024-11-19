@@ -3,15 +3,15 @@
     "spinner": {
       "color": {
         "background": {
-          "purple": {
+          "1": {
             "type": "color",
             "value": "#c85bd2"
           },
-          "orange": {
+          "2": {
             "type": "color",
             "value": "#e57534"
           },
-          "teal": {
+          "3": {
             "type": "color",
             "value": "#22a596"
           }
