@@ -16,6 +16,7 @@
   animation-iteration-count: infinite;
   animation-name: spin;
   animation-timing-function: linear;
+  animation-composition: add;
 }
 
 .delay {
