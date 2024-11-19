@@ -1,3 +1,9 @@
+## 165.1.2 (Nov 19, 2024)
+
+### Patch
+
+- Revert "Masonry: Update fullWidthLayout to not floor column widths" ([#3885](https://github.com/pinterest/gestalt/pull/3885)) - [Preview link](https://deploy-preview-3885--gestalt.netlify.app?devexample=true)
+
 ## 165.1.1 (Nov 18, 2024)
 
 ### Patch
