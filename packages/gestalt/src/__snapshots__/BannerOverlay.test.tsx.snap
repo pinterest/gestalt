@@ -3,139 +3,145 @@
 exports[`BannerOverlay renders Text + Image + Button 1`] = `
 Array [
   <div
-    className="box smDisplayFlex xsDisplayNone"
+    className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow xsDirectionColumn"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 900,
-          "position": "fixed",
+          "maxWidth": 348,
           "top": 0,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
-      >
-        <div
-          className="FlexItem selfCenter"
-        >
-          <div
-            aria-hidden={true}
-            className="box"
-          >
-            <div
-              className="Mask rounding2 willChangeTransform"
-              style={
-                Object {
-                  "height": 32,
-                  "width": 32,
-                }
-              }
-            >
-              <div
-                className="box relative"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "paddingBottom": "100%",
-                  }
-                }
-              >
-                <img
-                  alt=""
-                  className="img"
-                  fetchpriority="auto"
-                  loading="auto"
-                  onError={[Function]}
-                  onLoad={[Function]}
-                  src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="FlexItem flexGrow"
-        >
-          <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
-          >
-            <div
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Text, image and button
-            </div>
-          </div>
-          <span
-            className="textColorOverrideLight"
-          >
-            <span
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Saved to
-               
-              <a
-                className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-              >
-                Home decor
-              </a>
-            </span>
-          </span>
-        </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfCenter xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                aria-hidden={true}
+                className="box"
+              >
+                <div
+                  className="Mask rounding2 willChangeTransform"
+                  style={
+                    Object {
+                      "height": 32,
+                      "width": 32,
+                    }
+                  }
+                >
+                  <div
+                    className="box relative"
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "paddingBottom": "100%",
+                      }
+                    }
+                  >
+                    <img
+                      alt=""
+                      className="img"
+                      fetchpriority="auto"
+                      loading="auto"
+                      onError={[Function]}
+                      onLoad={[Function]}
+                      src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap400 columnGap400 justifyBetween xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                  >
+                    Text, image and button
+                  </div>
+                </div>
+              </div>
+              <span
+                className="textColorOverrideLight"
+              >
+                <span
+                  className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                >
+                  Saved to
+                   
+                  <a
+                    className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
+                    href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchCancel={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    rel=""
+                  >
+                    Home decor
+                  </a>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem selfEnd"
+        >
+          <div
+            className="Flex rowGap200 columnGap200 flexWrap xsDirectionRow"
           />
         </div>
       </div>
     </div>
   </div>,
   <div
-    className="box smDisplayNone xsDisplayFlex"
+    className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 348,
-          "position": "fixed",
+          "maxWidth": 900,
           "top": 0,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap400 columnGap400 xsDirectionRow"
       >
         <div
-          className="FlexItem selfBaseline"
+          className="FlexItem"
         >
           <div
             aria-hidden={true}
@@ -176,17 +182,13 @@ Array [
           className="FlexItem flexGrow"
         >
           <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionColumn"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text, image and button
             </div>
-          </div>
-          <div
-            className="box marginBottom200"
-          >
             <span
               className="textColorOverrideLight"
             >
@@ -216,16 +218,17 @@ Array [
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfEnd xsDirectionRow"
-      >
         <div
-          className="FlexItem"
+          className="FlexItem flexNone selfCenter"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           />
+        </div>
+        <div
+          className="FlexItem selfCenter"
+        >
+           
         </div>
       </div>
     </div>
@@ -236,139 +239,145 @@ Array [
 exports[`BannerOverlay renders Text + Image 1`] = `
 Array [
   <div
-    className="box smDisplayFlex xsDisplayNone"
+    className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow xsDirectionColumn"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 900,
-          "position": "fixed",
+          "maxWidth": 348,
           "top": 0,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
-      >
-        <div
-          className="FlexItem selfCenter"
-        >
-          <div
-            aria-hidden={true}
-            className="box"
-          >
-            <div
-              className="Mask rounding2 willChangeTransform"
-              style={
-                Object {
-                  "height": 32,
-                  "width": 32,
-                }
-              }
-            >
-              <div
-                className="box relative"
-                style={
-                  Object {
-                    "backgroundColor": "transparent",
-                    "paddingBottom": "100%",
-                  }
-                }
-              >
-                <img
-                  alt=""
-                  className="img"
-                  fetchpriority="auto"
-                  loading="auto"
-                  onError={[Function]}
-                  onLoad={[Function]}
-                  src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          className="FlexItem flexGrow"
-        >
-          <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
-          >
-            <div
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Text and Image
-            </div>
-          </div>
-          <span
-            className="textColorOverrideLight"
-          >
-            <span
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Saved to
-               
-              <a
-                className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
-                href="https://www.pinterest.com/search/pins/?q=home%20decor"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-              >
-                Home decor
-              </a>
-            </span>
-          </span>
-        </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfCenter xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
+          >
+            <div
+              className="FlexItem"
+            >
+              <div
+                aria-hidden={true}
+                className="box"
+              >
+                <div
+                  className="Mask rounding2 willChangeTransform"
+                  style={
+                    Object {
+                      "height": 32,
+                      "width": 32,
+                    }
+                  }
+                >
+                  <div
+                    className="box relative"
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "paddingBottom": "100%",
+                      }
+                    }
+                  >
+                    <img
+                      alt=""
+                      className="img"
+                      fetchpriority="auto"
+                      loading="auto"
+                      onError={[Function]}
+                      onLoad={[Function]}
+                      src="https://i.pinimg.com/474x/b2/55/ed/b255edbf773ffb3985394e6efb9d2a49.jpg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap400 columnGap400 justifyBetween xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                  >
+                    Text and Image
+                  </div>
+                </div>
+              </div>
+              <span
+                className="textColorOverrideLight"
+              >
+                <span
+                  className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                >
+                  Saved to
+                   
+                  <a
+                    className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
+                    href="https://www.pinterest.com/search/pins/?q=home%20decor"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchCancel={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    rel=""
+                  >
+                    Home decor
+                  </a>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem selfEnd"
+        >
+          <div
+            className="Flex rowGap200 columnGap200 flexWrap xsDirectionRow"
           />
         </div>
       </div>
     </div>
   </div>,
   <div
-    className="box smDisplayNone xsDisplayFlex"
+    className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 348,
-          "position": "fixed",
+          "maxWidth": 900,
           "top": 0,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap400 columnGap400 xsDirectionRow"
       >
         <div
-          className="FlexItem selfBaseline"
+          className="FlexItem"
         >
           <div
             aria-hidden={true}
@@ -409,17 +418,13 @@ Array [
           className="FlexItem flexGrow"
         >
           <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionColumn"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
-          </div>
-          <div
-            className="box marginBottom200"
-          >
             <span
               className="textColorOverrideLight"
             >
@@ -449,16 +454,17 @@ Array [
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfEnd xsDirectionRow"
-      >
         <div
-          className="FlexItem"
+          className="FlexItem flexNone selfCenter"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           />
+        </div>
+        <div
+          className="FlexItem selfCenter"
+        >
+           
         </div>
       </div>
     </div>
@@ -469,97 +475,99 @@ Array [
 exports[`BannerOverlay renders Text only 1`] = `
 Array [
   <div
-    className="box smDisplayFlex xsDisplayNone"
+    className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow xsDirectionColumn"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 900,
-          "position": "fixed",
+          "maxWidth": 348,
           "top": 0,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
-      >
-        <div
-          className="FlexItem flexGrow"
-        >
-          <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
-          >
-            <div
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Profile
-            </div>
-          </div>
-          <span
-            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
-            style={
-              Object {
-                "WebkitLineClamp": 2,
-              }
-            }
-          >
-            Same great profile, slightly new look. Learn more?
-          </span>
-        </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfCenter xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
+          >
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap400 columnGap400 justifyBetween xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                  >
+                    Profile
+                  </div>
+                </div>
+              </div>
+              <span
+                className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
+                style={
+                  Object {
+                    "WebkitLineClamp": 2,
+                  }
+                }
+              >
+                Same great profile, slightly new look. Learn more?
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem selfEnd"
+        >
+          <div
+            className="Flex rowGap200 columnGap200 flexWrap xsDirectionRow"
           />
         </div>
       </div>
     </div>
   </div>,
   <div
-    className="box smDisplayNone xsDisplayFlex"
+    className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 348,
-          "position": "fixed",
+          "maxWidth": 900,
           "top": 0,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap400 columnGap400 xsDirectionRow"
       >
         <div
           className="FlexItem flexGrow"
         >
           <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionColumn"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Profile
             </div>
-          </div>
-          <div
-            className="box marginBottom200"
-          >
             <span
               className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
@@ -572,16 +580,17 @@ Array [
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfEnd xsDirectionRow"
-      >
         <div
-          className="FlexItem"
+          className="FlexItem flexNone selfCenter"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           />
+        </div>
+        <div
+          className="FlexItem selfCenter"
+        >
+           
         </div>
       </div>
     </div>
@@ -592,97 +601,99 @@ Array [
 exports[`BannerOverlay renders in desktop device 1`] = `
 Array [
   <div
-    className="box smDisplayFlex xsDisplayNone"
+    className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow xsDirectionColumn"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 900,
-          "position": "fixed",
+          "maxWidth": 348,
           "top": 15,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
-      >
-        <div
-          className="FlexItem flexGrow"
-        >
-          <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
-          >
-            <div
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Text and Image
-            </div>
-          </div>
-          <span
-            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
-            style={
-              Object {
-                "WebkitLineClamp": 2,
-              }
-            }
-          >
-            A description
-          </span>
-        </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfCenter xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
+          >
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap400 columnGap400 justifyBetween xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                  >
+                    Text and Image
+                  </div>
+                </div>
+              </div>
+              <span
+                className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
+                style={
+                  Object {
+                    "WebkitLineClamp": 2,
+                  }
+                }
+              >
+                A description
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem selfEnd"
+        >
+          <div
+            className="Flex rowGap200 columnGap200 flexWrap xsDirectionRow"
           />
         </div>
       </div>
     </div>
   </div>,
   <div
-    className="box smDisplayNone xsDisplayFlex"
+    className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 348,
-          "position": "fixed",
+          "maxWidth": 900,
           "top": 15,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap400 columnGap400 xsDirectionRow"
       >
         <div
           className="FlexItem flexGrow"
         >
           <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionColumn"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
-          </div>
-          <div
-            className="box marginBottom200"
-          >
             <span
               className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
@@ -695,16 +706,17 @@ Array [
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfEnd xsDirectionRow"
-      >
         <div
-          className="FlexItem"
+          className="FlexItem flexNone selfCenter"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           />
+        </div>
+        <div
+          className="FlexItem selfCenter"
+        >
+           
         </div>
       </div>
     </div>
@@ -715,97 +727,99 @@ Array [
 exports[`BannerOverlay renders in mobile device 1`] = `
 Array [
   <div
-    className="box smDisplayFlex xsDisplayNone"
+    className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow xsDirectionColumn"
       style={
         Object {
           "bottom": 10,
           "left": "50%",
-          "maxWidth": 900,
-          "position": "fixed",
+          "maxWidth": 348,
           "top": "unset",
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
-      >
-        <div
-          className="FlexItem flexGrow"
-        >
-          <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
-          >
-            <div
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Text and Image
-            </div>
-          </div>
-          <span
-            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
-            style={
-              Object {
-                "WebkitLineClamp": 2,
-              }
-            }
-          >
-            A description
-          </span>
-        </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfCenter xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
+          >
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap400 columnGap400 justifyBetween xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                  >
+                    Text and Image
+                  </div>
+                </div>
+              </div>
+              <span
+                className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
+                style={
+                  Object {
+                    "WebkitLineClamp": 2,
+                  }
+                }
+              >
+                A description
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem selfEnd"
+        >
+          <div
+            className="Flex rowGap200 columnGap200 flexWrap xsDirectionRow"
           />
         </div>
       </div>
     </div>
   </div>,
   <div
-    className="box smDisplayNone xsDisplayFlex"
+    className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow"
       style={
         Object {
           "bottom": 10,
           "left": "50%",
-          "maxWidth": 348,
-          "position": "fixed",
+          "maxWidth": 900,
           "top": "unset",
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap400 columnGap400 xsDirectionRow"
       >
         <div
           className="FlexItem flexGrow"
         >
           <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionColumn"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
-          </div>
-          <div
-            className="box marginBottom200"
-          >
             <span
               className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
@@ -818,16 +832,17 @@ Array [
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfEnd xsDirectionRow"
-      >
         <div
-          className="FlexItem"
+          className="FlexItem flexNone selfCenter"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           />
+        </div>
+        <div
+          className="FlexItem selfCenter"
+        >
+           
         </div>
       </div>
     </div>
@@ -838,97 +853,99 @@ Array [
 exports[`BannerOverlay renders in mobile device with reversed offset 1`] = `
 Array [
   <div
-    className="box smDisplayFlex xsDisplayNone"
+    className="box smDisplayNone xsDisplayFlex"
   >
     <div
-      className="box contentCenter default fit fixed justifyBetween paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionRow xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow xsDirectionColumn"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 900,
-          "position": "fixed",
+          "maxWidth": 348,
           "top": 15,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
-      >
-        <div
-          className="FlexItem flexGrow"
-        >
-          <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
-          >
-            <div
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Text and Image
-            </div>
-          </div>
-          <span
-            className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
-            style={
-              Object {
-                "WebkitLineClamp": 2,
-              }
-            }
-          >
-            A description
-          </span>
-        </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfCenter xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionColumn"
       >
         <div
           className="FlexItem"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap400 columnGap400 xsDirectionRow"
+          >
+            <div
+              className="FlexItem flexGrow"
+            >
+              <div
+                className="Flex rowGap400 columnGap400 justifyBetween xsDirectionRow"
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+                  >
+                    Text and Image
+                  </div>
+                </div>
+              </div>
+              <span
+                className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
+                style={
+                  Object {
+                    "WebkitLineClamp": 2,
+                  }
+                }
+              >
+                A description
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="FlexItem selfEnd"
+        >
+          <div
+            className="Flex rowGap200 columnGap200 flexWrap xsDirectionRow"
           />
         </div>
       </div>
     </div>
   </div>,
   <div
-    className="box smDisplayNone xsDisplayFlex"
+    className="box smDisplayFlex xsDisplayNone"
   >
     <div
-      className="box default fit fixed justifyCenter paddingX400 paddingY300 rounding4 shadow smPaddingY400 xsDirectionColumn xsDisplayFlex"
+      className="box default fixed paddingX400 paddingY400 rounding4 shadow"
       style={
         Object {
           "bottom": "unset",
           "left": "50%",
-          "maxWidth": 348,
-          "position": "fixed",
+          "maxWidth": 900,
           "top": 15,
           "transform": "translateX(-50%)",
-          "width": "calc(100% - 32px)",
+          "width": "calc(100% - var(--space-800)",
         }
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
+        className="Flex rowGap400 columnGap400 xsDirectionRow"
       >
         <div
           className="FlexItem flexGrow"
         >
           <div
-            className="Flex rowGap0 columnGap0 justifyBetween xsDirectionRow"
+            className="Flex rowGap0 columnGap0 xsDirectionColumn"
           >
             <div
               className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
             >
               Text and Image
             </div>
-          </div>
-          <div
-            className="box marginBottom200"
-          >
             <span
               className="default alignStart breakWord lineClamp Text fontSize300 fontWeightNormal"
               style={
@@ -941,16 +958,17 @@ Array [
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="Flex rowGap400 columnGap400 selfEnd xsDirectionRow"
-      >
         <div
-          className="FlexItem"
+          className="FlexItem flexNone selfCenter"
         >
           <div
-            className="box flexWrap marginBottomN100 marginEndN100 marginStartN100 marginTopN100 xsDisplayFlex"
+            className="Flex rowGap200 columnGap200 xsDirectionRow"
           />
+        </div>
+        <div
+          className="FlexItem selfCenter"
+        >
+           
         </div>
       </div>
     </div>
