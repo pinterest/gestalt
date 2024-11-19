@@ -1,3 +1,9 @@
+## 165.1.4 (Nov 19, 2024)
+
+### Patch
+
+- BannerOverlay: VR Certification Fixes ([#3878](https://github.com/pinterest/gestalt/pull/3878)) - [Preview link](https://deploy-preview-3878--gestalt.netlify.app?devexample=true)
+
 ## 165.1.3 (Nov 19, 2024)
 
 ### Patch
