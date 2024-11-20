@@ -1,3 +1,9 @@
+## 165.1.7 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: Opacity animation bug in Chrome ([#3888](https://github.com/pinterest/gestalt/pull/3888)) - [Preview link](https://deploy-preview-3888--gestalt.netlify.app?devexample=true)
+
 ## 165.1.6 (Nov 20, 2024)
 
 ### Patch
