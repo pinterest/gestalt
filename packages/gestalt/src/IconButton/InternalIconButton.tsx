@@ -8,6 +8,7 @@ import touchableStyles from '../TapArea.css';
 import TextUI from '../TextUI';
 import Tooltip from '../Tooltip';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 import useTapFeedback from '../useTapFeedback';
 import { Indexable } from '../zIndex';
 
@@ -86,6 +87,10 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const {
     compressStyle,
@@ -121,7 +126,8 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   });
 
   const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
-    [styles.disabled]: disabled,
+    [styles.disabled]: disabled && !isInVRExperiment,
+    [styles.disabledVr]: disabled && isInVRExperiment,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
@@ -172,6 +178,7 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
           active={!disabled && isActive}
           bgColor={bgColor}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
+          disabled={disabled}
           focusColor={focusColor}
           focused={!disabled && isFocusVisible && isFocused}
           hovered={!disabled && isHovered}

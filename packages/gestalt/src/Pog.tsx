@@ -62,7 +62,7 @@ type Props = {
   /**
    * See the [rounding](https://gestalt.pinterest.systems/web/pog#Rounding) variant for more info.
    */
-  rounding?: '0' | '100' | '200' | '300' | '400' | 'circle';
+  rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
   /**
    * Indicate if Pog is in a selected state. See [States](https://gestalt.pinterest.systems/web/pog#States) for more details.
    */
