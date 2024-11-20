@@ -1,14 +1,15 @@
 import { Children, ComponentProps, Fragment, ReactElement } from 'react';
+import { TOKEN_SPACE_800 } from 'gestalt-design-tokens';
 import styles from './BannerOverlay.css';
 import CallToAction from './BannerOverlay/CalltoAction';
 import Box from './Box';
 import Button from './Button';
-import ButtonGroup from './ButtonGroup';
 import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import { useDeviceType } from './contexts/DeviceTypeProvider';
 import Flex from './Flex';
+import Heading from './Heading';
 import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import {
   AvatarThumbnail,
@@ -17,6 +18,7 @@ import {
   Message,
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
@@ -93,7 +95,10 @@ type Props = {
   /**
    * An optional thumbnail to display next to the text.
    */
-  thumbnail?: { image: ReactElement } | { avatar: ReactElement } | { icon: ReactElement };
+  thumbnail?:
+    | { image: ReactElement; avatar?: never; icon?: never }
+    | { image?: never; avatar: ReactElement; icon?: never }
+    | { image?: never; avatar?: never; icon: ReactElement };
   /**
    *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
@@ -125,6 +130,14 @@ export default function BannerOverlay({
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
+    useDefaultLabelContext('BannerOverlay');
+
   let messageTextElement: ReactElement | string | undefined;
 
   if (typeof message === 'string') {
@@ -132,7 +145,7 @@ export default function BannerOverlay({
   }
 
   // If `message` is a Text component, we need to override any text colors within to ensure they all match
-  const checkTextNode = () => {
+  const checkTextIsNode = () => {
     const messageIsTextNode =
       typeof message !== 'string' &&
       // @ts-expect-error - TS2339
@@ -148,19 +161,7 @@ export default function BannerOverlay({
     return messageIsTextNode;
   };
 
-  const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
-    useDefaultLabelContext('BannerOverlay');
-
-  const { lightModeBackground, darkModeBackground, textColor } = DEFAULT_COLORS;
-
-  const dismissButtonComponent = (
-    <InternalDismissButton
-      accessibilityLabel={accessibilityDismissButtonLabelDefault}
-      iconColor="darkGray"
-      onClick={onDismiss}
-      size="xs"
-    />
-  );
+  const isMessageTextNode = checkTextIsNode();
 
   const getPosition: () => { bottom: number | 'unset'; top: number | 'unset' } = () => {
     if (!offset.reverseOffset && isMobileDevice) return { bottom: offset.bottom, top: 'unset' };
@@ -170,154 +171,26 @@ export default function BannerOverlay({
     return { bottom: 0, top: 0 };
   };
 
-  const isMessageTextNode = checkTextNode();
+  const checkDisplayName: (arg0: ReactElement, arg1: string) => boolean = (
+    thumbnailElement,
+    displayName,
+  ) =>
+    // @ts-expect-error - TS2339
+    Children.only<ReactElement>(thumbnailElement).type.displayName === displayName;
+
   return (
     <Fragment>
-      <Box display="none" smDisplay="flex">
-        <Box
-          alignContent="center"
-          borderStyle="shadow"
-          color={isDarkMode ? darkModeBackground : lightModeBackground}
-          dangerouslySetInlineStyle={{
-            __style: {
-              position: 'fixed',
-              bottom: getPosition().bottom,
-              top: getPosition().top,
-              left: '50%',
-              transform: 'translateX(-50%)',
-            },
-          }}
-          direction="row"
-          display="flex"
-          fit
-          justifyContent="between"
-          maxWidth={900}
-          paddingX={4}
-          paddingY={3}
-          position="fixed"
-          rounding={4}
-          smPaddingY={4}
-          width="calc(100% - 32px)"
-          zIndex={zIndex}
-        >
-          <Flex alignItems="center" gap={4}>
-            {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
-            {!!thumbnail?.image &&
-            // @ts-expect-error TS2339 - Property 'image' does not exist.
-            Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
-              <Flex.Item alignSelf="center">
-                {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
-                <ImageThumbnail thumbnail={thumbnail.image} />
-              </Flex.Item>
-            ) : null}
-
-            {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
-            {!!thumbnail?.icon &&
-            // @ts-expect-error TS2339 - Property 'icon' does not exist.
-            Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
-              <Flex.Item alignSelf="center">
-                {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
-                <IconThumbnail thumbnail={thumbnail.icon} />
-              </Flex.Item>
-            ) : null}
-
-            {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
-            {!!thumbnail?.avatar &&
-            // @ts-expect-error TS2339 - Property 'avatar' does not exist.
-            Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
-              <Flex.Item alignSelf="center">
-                {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
-                <AvatarThumbnail thumbnail={thumbnail.avatar} />
-              </Flex.Item>
-            ) : null}
-            <Flex.Item flex="grow">
-              <Flex direction="row" justifyContent="between">
-                {title ? (
-                  <Text weight="bold">{title}</Text>
-                ) : (
-                  <Message
-                    text={isMessageTextNode ? undefined : messageTextElement}
-                    textColor={textColor}
-                    textElement={isMessageTextNode ? messageTextElement : undefined}
-                  />
-                )}
-              </Flex>
-              {title && (
-                <Message
-                  text={isMessageTextNode ? undefined : messageTextElement}
-                  textColor={textColor}
-                  textElement={isMessageTextNode ? messageTextElement : undefined}
-                />
-              )}
-            </Flex.Item>
-          </Flex>
-          <Flex alignSelf="center" direction="row" gap={4}>
-            <ButtonGroup>
-              {secondaryAction && (
-                <Flex.Item>
-                  {secondaryAction.role === 'link' ? (
-                    <CallToAction
-                      accessibilityLabel={secondaryAction.accessibilityLabel}
-                      color="gray"
-                      href={secondaryAction.href}
-                      label={secondaryAction.label}
-                      onClick={secondaryAction.onClick}
-                      rel={secondaryAction?.rel}
-                      role="link"
-                      size="sm"
-                      target={secondaryAction?.target}
-                    />
-                  ) : (
-                    <CallToAction
-                      accessibilityLabel={secondaryAction.accessibilityLabel}
-                      color="gray"
-                      label={secondaryAction.label}
-                      onClick={secondaryAction.onClick}
-                      role="button"
-                      size="sm"
-                    />
-                  )}
-                </Flex.Item>
-              )}
-              {primaryAction && (
-                <Flex.Item>
-                  {primaryAction.role === 'link' ? (
-                    <CallToAction
-                      accessibilityLabel={primaryAction.accessibilityLabel}
-                      color="red"
-                      href={primaryAction.href}
-                      label={primaryAction.label}
-                      onClick={primaryAction.onClick}
-                      rel={primaryAction?.rel}
-                      role="link"
-                      size="sm"
-                      target={primaryAction?.target}
-                    />
-                  ) : (
-                    <CallToAction
-                      accessibilityLabel={primaryAction.accessibilityLabel}
-                      color="red"
-                      label={primaryAction.label}
-                      onClick={primaryAction.onClick}
-                      role="button"
-                      size="sm"
-                    />
-                  )}
-                </Flex.Item>
-              )}
-            </ButtonGroup>
-            {!!onDismiss && <Flex.Item alignSelf="center">{dismissButtonComponent}</Flex.Item>}
-          </Flex>
-        </Box>
-      </Box>
+      {/*
+            XS BREAKPOINT
+      */}
       <Box display="flex" smDisplay="none">
         <Box
-          alignContent="stretch"
           borderStyle="shadow"
-          color={isDarkMode ? darkModeBackground : lightModeBackground}
+          color={
+            isDarkMode ? DEFAULT_COLORS.darkModeBackground : DEFAULT_COLORS.lightModeBackground
+          }
           dangerouslySetInlineStyle={{
             __style: {
-              position: 'fixed',
               bottom: getPosition().bottom,
               top: getPosition().top,
               left: '50%',
@@ -325,133 +198,213 @@ export default function BannerOverlay({
             },
           }}
           direction="column"
-          display="flex"
-          fit
-          justifyContent="center"
           maxWidth={348}
-          paddingX={4}
-          paddingY={3}
+          padding={4}
           position="fixed"
           rounding={4}
-          smPaddingY={4}
-          width="calc(100% - 32px)"
+          width={`calc(100% - ${TOKEN_SPACE_800}`}
           zIndex={zIndex}
         >
-          <Flex alignItems="center" gap={4}>
-            {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
-            {!!thumbnail?.image &&
-            // @ts-expect-error - TS2339 - Property 'image' does not exist.
-            Children.only<ReactElement>(thumbnail.image).type.displayName === 'Image' ? (
-              <Flex.Item alignSelf="baseline">
-                {/* @ts-expect-error - TS2339 - Property 'image' does not exist. */}
+          <Flex direction="column" gap={4}>
+            <Flex gap={4}>
+              {thumbnail?.image && checkDisplayName(thumbnail.image, 'Image') ? (
                 <ImageThumbnail thumbnail={thumbnail.image} />
-              </Flex.Item>
-            ) : null}
-
-            {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
-            {!!thumbnail?.icon &&
-            // @ts-expect-error - TS2339 - Property 'icon' does not exist.
-            Children.only<ReactElement>(thumbnail.icon).type.displayName === 'Icon' ? (
-              <Flex.Item alignSelf="baseline">
-                {/* @ts-expect-error - TS2339 - Property 'icon' does not exist. */}
+              ) : null}
+              {thumbnail?.icon && checkDisplayName(thumbnail.icon, 'Icon') ? (
                 <IconThumbnail thumbnail={thumbnail.icon} />
-              </Flex.Item>
-            ) : null}
-
-            {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
-            {!!thumbnail?.avatar &&
-            // @ts-expect-error - TS2339 - Property 'avatar' does not exist.
-            Children.only<ReactElement>(thumbnail.avatar).type.displayName === 'Avatar' ? (
-              <Flex.Item alignSelf="baseline">
-                {/* @ts-expect-error - TS2339 - Property 'avatar' does not exist. */}
+              ) : null}
+              {thumbnail?.avatar && checkDisplayName(thumbnail.avatar, 'Avatar') ? (
                 <AvatarThumbnail thumbnail={thumbnail.avatar} />
+              ) : null}
+              <Flex.Item flex="grow">
+                <Flex direction="row" gap={4} justifyContent="between">
+                  {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
+                  {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
+                  {onDismiss && (
+                    <Flex.Item alignSelf={title ? 'end' : 'start'}>
+                      <InternalDismissButton
+                        accessibilityLabel={accessibilityDismissButtonLabelDefault}
+                        iconColor="darkGray"
+                        onClick={onDismiss}
+                        size="xs"
+                      />
+                    </Flex.Item>
+                  )}
+                </Flex>
+                <Message
+                  text={isMessageTextNode ? undefined : messageTextElement}
+                  textColor={DEFAULT_COLORS.textColor}
+                  textElement={isMessageTextNode ? messageTextElement : undefined}
+                />
               </Flex.Item>
-            ) : null}
-            <Flex.Item flex="grow">
-              <Flex direction="row" justifyContent="between">
-                {title ? (
-                  <Text weight="bold">{title}</Text>
-                ) : (
-                  <Box marginBottom={2}>
-                    <Message
-                      text={isMessageTextNode ? undefined : messageTextElement}
-                      textColor={textColor}
-                      textElement={isMessageTextNode ? messageTextElement : undefined}
-                    />
-                  </Box>
+            </Flex>
+            <Flex.Item alignSelf="end">
+              <Flex direction="row" gap={2} wrap>
+                {secondaryAction && (
+                  <Flex.Item>
+                    {secondaryAction.role === 'link' ? (
+                      <CallToAction
+                        accessibilityLabel={secondaryAction.accessibilityLabel}
+                        color="gray"
+                        href={secondaryAction.href}
+                        label={secondaryAction.label}
+                        onClick={secondaryAction.onClick}
+                        rel={secondaryAction?.rel}
+                        role="link"
+                        size="sm"
+                        target={secondaryAction?.target}
+                      />
+                    ) : (
+                      <CallToAction
+                        accessibilityLabel={secondaryAction.accessibilityLabel}
+                        color="gray"
+                        label={secondaryAction.label}
+                        onClick={secondaryAction.onClick}
+                        role="button"
+                        size="sm"
+                      />
+                    )}
+                  </Flex.Item>
                 )}
-                {!!onDismiss && (
-                  <Flex.Item alignSelf={title ? 'end' : 'start'}>
-                    {dismissButtonComponent}
+                {primaryAction && (
+                  <Flex.Item>
+                    {primaryAction.role === 'link' ? (
+                      <CallToAction
+                        accessibilityLabel={primaryAction.accessibilityLabel}
+                        color="red"
+                        href={primaryAction.href}
+                        label={primaryAction.label}
+                        onClick={primaryAction.onClick}
+                        rel={primaryAction?.rel}
+                        role="link"
+                        size="sm"
+                        target={primaryAction?.target}
+                      />
+                    ) : (
+                      <CallToAction
+                        accessibilityLabel={primaryAction.accessibilityLabel}
+                        color="red"
+                        label={primaryAction.label}
+                        onClick={primaryAction.onClick}
+                        role="button"
+                        size="sm"
+                      />
+                    )}
                   </Flex.Item>
                 )}
               </Flex>
-              {title && (
-                <Box marginBottom={2}>
-                  <Message
-                    text={isMessageTextNode ? undefined : messageTextElement}
-                    textColor={textColor}
-                    textElement={isMessageTextNode ? messageTextElement : undefined}
-                  />
-                </Box>
-              )}
             </Flex.Item>
           </Flex>
-          <Flex alignSelf="end" direction="row" gap={4}>
-            <ButtonGroup>
-              {secondaryAction && (
-                <Flex.Item>
-                  {secondaryAction.role === 'link' ? (
-                    <CallToAction
-                      accessibilityLabel={secondaryAction.accessibilityLabel}
-                      color="gray"
-                      href={secondaryAction.href}
-                      label={secondaryAction.label}
-                      onClick={secondaryAction.onClick}
-                      rel={secondaryAction?.rel}
-                      role="link"
-                      size="sm"
-                      target={secondaryAction?.target}
-                    />
-                  ) : (
-                    <CallToAction
-                      accessibilityLabel={secondaryAction.accessibilityLabel}
-                      color="gray"
-                      label={secondaryAction.label}
-                      onClick={secondaryAction.onClick}
-                      role="button"
-                      size="sm"
-                    />
-                  )}
-                </Flex.Item>
-              )}
-              {primaryAction && (
-                <Flex.Item>
-                  {primaryAction.role === 'link' ? (
-                    <CallToAction
-                      accessibilityLabel={primaryAction.accessibilityLabel}
-                      color="red"
-                      href={primaryAction.href}
-                      label={primaryAction.label}
-                      onClick={primaryAction.onClick}
-                      rel={primaryAction?.rel}
-                      role="link"
-                      size="sm"
-                      target={primaryAction?.target}
-                    />
-                  ) : (
-                    <CallToAction
-                      accessibilityLabel={primaryAction.accessibilityLabel}
-                      color="red"
-                      label={primaryAction.label}
-                      onClick={primaryAction.onClick}
-                      role="button"
-                      size="sm"
-                    />
-                  )}
-                </Flex.Item>
-              )}
-            </ButtonGroup>
+        </Box>
+      </Box>
+      {/*
+            SM BREAKPOINT
+      */}
+      <Box display="none" smDisplay="flex">
+        <Box
+          borderStyle="shadow"
+          color={
+            isDarkMode ? DEFAULT_COLORS.darkModeBackground : DEFAULT_COLORS.lightModeBackground
+          }
+          dangerouslySetInlineStyle={{
+            __style: {
+              bottom: getPosition().bottom,
+              top: getPosition().top,
+              left: '50%',
+              transform: 'translateX(-50%)',
+            },
+          }}
+          maxWidth={900}
+          padding={4}
+          position="fixed"
+          rounding={4}
+          width={`calc(100% - ${TOKEN_SPACE_800}`}
+          zIndex={zIndex}
+        >
+          <Flex gap={4}>
+            {thumbnail?.image && checkDisplayName(thumbnail.image, 'Image') ? (
+              <ImageThumbnail thumbnail={thumbnail.image} />
+            ) : null}
+            {thumbnail?.icon && checkDisplayName(thumbnail.icon, 'Icon') ? (
+              <IconThumbnail thumbnail={thumbnail.icon} />
+            ) : null}
+            {thumbnail?.avatar && checkDisplayName(thumbnail.avatar, 'Avatar') ? (
+              <AvatarThumbnail thumbnail={thumbnail.avatar} />
+            ) : null}
+            <Flex.Item flex="grow">
+              <Flex direction="column">
+                {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
+                {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
+                <Message
+                  text={isMessageTextNode ? undefined : messageTextElement}
+                  textColor={DEFAULT_COLORS.textColor}
+                  textElement={isMessageTextNode ? messageTextElement : undefined}
+                />
+              </Flex>
+            </Flex.Item>
+            <Flex.Item alignSelf="center" flex="none">
+              <Flex gap={2}>
+                {secondaryAction && secondaryAction.role === 'link' ? (
+                  <CallToAction
+                    accessibilityLabel={secondaryAction.accessibilityLabel}
+                    color="gray"
+                    href={secondaryAction.href}
+                    label={secondaryAction.label}
+                    onClick={secondaryAction.onClick}
+                    rel={secondaryAction?.rel}
+                    role="link"
+                    size={isInVRExperiment ? 'md' : 'sm'}
+                    target={secondaryAction?.target}
+                  />
+                ) : null}
+
+                {secondaryAction && secondaryAction.role === 'button' ? (
+                  <CallToAction
+                    accessibilityLabel={secondaryAction.accessibilityLabel}
+                    color="gray"
+                    label={secondaryAction.label}
+                    onClick={secondaryAction.onClick}
+                    role="button"
+                    size={isInVRExperiment ? 'md' : 'sm'}
+                  />
+                ) : null}
+
+                {primaryAction && primaryAction.role === 'link' ? (
+                  <CallToAction
+                    accessibilityLabel={primaryAction.accessibilityLabel}
+                    color="red"
+                    href={primaryAction.href}
+                    label={primaryAction.label}
+                    onClick={primaryAction.onClick}
+                    rel={primaryAction?.rel}
+                    role="link"
+                    size={isInVRExperiment ? 'md' : 'sm'}
+                    target={primaryAction?.target}
+                  />
+                ) : null}
+
+                {primaryAction && primaryAction.role === 'button' ? (
+                  <CallToAction
+                    accessibilityLabel={primaryAction.accessibilityLabel}
+                    color="red"
+                    label={primaryAction.label}
+                    onClick={primaryAction.onClick}
+                    role="button"
+                    size={isInVRExperiment ? 'md' : 'sm'}
+                  />
+                ) : null}
+              </Flex>
+            </Flex.Item>
+            <Flex.Item alignSelf="center">
+              {!!onDismiss && (
+                <InternalDismissButton
+                  accessibilityLabel={accessibilityDismissButtonLabelDefault}
+                  iconColor="darkGray"
+                  onClick={onDismiss}
+                  size="xs"
+                />
+              )}{' '}
+            </Flex.Item>
           </Flex>
         </Box>
       </Box>

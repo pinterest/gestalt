@@ -155,7 +155,7 @@ export default function Badge({
               dataTestId={dataTestIdIcon}
               icon={ICON_MAP[type] as ComponentProps<typeof IconCompact>['icon']}
               inline
-              size="12"
+              size="16"
             />
           ) : (
             <Icon

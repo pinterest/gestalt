@@ -1,3 +1,51 @@
+## 165.1.8 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: VR version intro & outro animation ([#3881](https://github.com/pinterest/gestalt/pull/3881)) - [Preview link](https://deploy-preview-3881--gestalt.netlify.app?devexample=true)
+
+## 165.1.7 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: Opacity animation bug in Chrome ([#3888](https://github.com/pinterest/gestalt/pull/3888)) - [Preview link](https://deploy-preview-3888--gestalt.netlify.app?devexample=true)
+
+## 165.1.6 (Nov 20, 2024)
+
+### Patch
+
+- Pog: implement InternalPog ([#3887](https://github.com/pinterest/gestalt/pull/3887)) - [Preview link](https://deploy-preview-3887--gestalt.netlify.app?devexample=true)
+
+## 165.1.5 (Nov 19, 2024)
+
+### Patch
+
+- Icon: rename ios compact sparkle icon to adhere to naming pattern ([#3886](https://github.com/pinterest/gestalt/pull/3886)) - [Preview link](https://deploy-preview-3886--gestalt.netlify.app?devexample=true)
+
+## 165.1.4 (Nov 19, 2024)
+
+### Patch
+
+- BannerOverlay: VR Certification Fixes ([#3878](https://github.com/pinterest/gestalt/pull/3878)) - [Preview link](https://deploy-preview-3878--gestalt.netlify.app?devexample=true)
+
+## 165.1.3 (Nov 19, 2024)
+
+### Patch
+
+- Spinner: Remove Opacity Token ([#3884](https://github.com/pinterest/gestalt/pull/3884)) - [Preview link](https://deploy-preview-3884--gestalt.netlify.app?devexample=true)
+
+## 165.1.2 (Nov 19, 2024)
+
+### Patch
+
+- Revert "Masonry: Update fullWidthLayout to not floor column widths" ([#3885](https://github.com/pinterest/gestalt/pull/3885)) - [Preview link](https://deploy-preview-3885--gestalt.netlify.app?devexample=true)
+
+## 165.1.1 (Nov 18, 2024)
+
+### Patch
+
+- Badge: fix VR size icon ([#3882](https://github.com/pinterest/gestalt/pull/3882)) - [Preview link](https://deploy-preview-3882--gestalt.netlify.app?devexample=true)
+
 ## 165.1.0 (Nov 15, 2024)
 
 ### Minor
