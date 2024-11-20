@@ -16,7 +16,8 @@ type Props = {
     | 'lightGray'
     | 'washLight'
     | 'white'
-    | 'red';
+    | 'red'
+    | 'elevation';
   disabled?: boolean;
   dangerouslySetSvgPath?: {
     __path: string;
@@ -53,22 +54,22 @@ export default function InternalPog({
   });
 
   const SIZE_NAME_TO_PADDING_PIXEL = isInVRExperiment
-    ? {
+    ? ({
         xs: 6,
         sm: 6,
         md: 10,
         lg: 12,
         xl: 20,
         56: 16,
-      }
-    : {
+      } as const)
+    : ({
         xs: 6,
         sm: 8,
         md: 11,
         lg: 14,
         xl: 16,
         56: 16,
-      };
+      } as const);
 
   const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
     xs: 12,
@@ -99,6 +100,7 @@ export default function InternalPog({
     transparentDarkGray: isInVRExperiment ? 'light' : 'white',
     washLight: isInVRExperiment ? 'dark' : 'darkGray',
     white: 'darkGray',
+    elevation: 'darkGray',
   } as const;
 
   const color = (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];

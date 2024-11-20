@@ -27,14 +27,15 @@ type Props = {
     | 'lightGray'
     | 'washLight'
     | 'white'
-    | 'red';
+    | 'red'
+    | 'elevation';
   dangerouslySetSvgPath?: {
     __path: string;
   };
   dataTestId?: string;
   disabled?: boolean;
   icon?: keyof typeof icons;
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark' | 'elevation';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   label?: string;
   name?: string;
   onClick?: (arg1: {
