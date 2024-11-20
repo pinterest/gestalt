@@ -104,7 +104,7 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
           icon={icon}
           onClick={onClick}
           selected={selected}
-          size="xl"
+          size={isInVRExperiment ? 56 : "xl"}
           tooltip={tooltip}
         />
       </Box>

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import styles from './InternalIconButton.css';
 import Flex from '../Flex';
 import icons from '../icons/index';
-import Pog from '../Pog';
+import InternalPog from '../Pog/InternalPog';
 import touchableStyles from '../TapArea.css';
 import TextUI from '../TextUI';
 import Tooltip from '../Tooltip';
@@ -34,7 +34,7 @@ type Props = {
   dataTestId?: string;
   disabled?: boolean;
   icon?: keyof typeof icons;
-  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
+  iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark' | 'elevation';
   label?: string;
   name?: string;
   onClick?: (arg1: {
@@ -44,7 +44,7 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   ref?: HTMLButtonElement;
   selected?: boolean;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 56;
   tabIndex?: -1 | 0;
   tooltip?: {
     accessibilityLabel?: string;
@@ -174,7 +174,7 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
       type={type === 'submit' ? 'submit' : 'button'}
     >
       <div className={divStyles} style={compressStyle || undefined}>
-        <Pog
+        <InternalPog
           active={!disabled && isActive}
           bgColor={bgColor}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
