@@ -25,7 +25,7 @@ type Props = {
    */
   delay?: boolean;
   /**
-   * Indicates if Spinner should be visible.
+   * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro aimation is not intended, prefer conditional rendering.
    */
   show: boolean;
   /**
