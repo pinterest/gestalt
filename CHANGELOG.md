@@ -1,3 +1,9 @@
+## 165.2.0 (Nov 20, 2024)
+
+### Minor
+
+- IconButton: VR Certification Fixes ([#3879](https://github.com/pinterest/gestalt/pull/3879)) - [Preview link](https://deploy-preview-3879--gestalt.netlify.app?devexample=true)
+
 ## 165.1.8 (Nov 20, 2024)
 
 ### Patch
