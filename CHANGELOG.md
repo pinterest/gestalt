@@ -1,3 +1,9 @@
+## 165.2.1 (Nov 20, 2024)
+
+### Patch
+
+- IconButtonFloating: VR fixes ([#3889](https://github.com/pinterest/gestalt/pull/3889)) - [Preview link](https://deploy-preview-3889--gestalt.netlify.app?devexample=true)
+
 ## 165.2.0 (Nov 20, 2024)
 
 ### Minor
