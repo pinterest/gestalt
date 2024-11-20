@@ -1,3 +1,9 @@
+## 165.1.8 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: VR version intro & outro animation ([#3881](https://github.com/pinterest/gestalt/pull/3881)) - [Preview link](https://deploy-preview-3881--gestalt.netlify.app?devexample=true)
+
 ## 165.1.7 (Nov 20, 2024)
 
 ### Patch
