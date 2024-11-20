@@ -1,3 +1,9 @@
+## 165.1.6 (Nov 20, 2024)
+
+### Patch
+
+- Pog: implement InternalPog ([#3887](https://github.com/pinterest/gestalt/pull/3887)) - [Preview link](https://deploy-preview-3887--gestalt.netlify.app?devexample=true)
+
 ## 165.1.5 (Nov 19, 2024)
 
 ### Patch
