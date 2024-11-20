@@ -16,7 +16,8 @@ type Props = {
     | 'lightGray'
     | 'washLight'
     | 'white'
-    | 'red';
+    | 'red'
+    | 'elevation';
   disabled?: boolean;
   dangerouslySetSvgPath?: {
     __path: string;
@@ -28,7 +29,7 @@ type Props = {
   padding?: 1 | 2 | 3 | 4 | 5;
   rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
   selected?: boolean;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 56;
 };
 
 export default function InternalPog({
@@ -53,20 +54,22 @@ export default function InternalPog({
   });
 
   const SIZE_NAME_TO_PADDING_PIXEL = isInVRExperiment
-    ? {
+    ? ({
         xs: 6,
         sm: 6,
         md: 10,
         lg: 12,
         xl: 20,
-      }
-    : {
+        56: 16,
+      } as const)
+    : ({
         xs: 6,
         sm: 8,
         md: 11,
         lg: 14,
         xl: 16,
-      };
+        56: 16,
+      } as const);
 
   const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
     xs: 12,
@@ -74,6 +77,7 @@ export default function InternalPog({
     md: isInVRExperiment ? 16 : 18,
     lg: isInVRExperiment ? 24 : 20,
     xl: 24,
+    56: 24,
   } as const;
 
   const OLD_TO_NEW_COLOR_MAP = {
@@ -96,6 +100,7 @@ export default function InternalPog({
     transparentDarkGray: isInVRExperiment ? 'light' : 'white',
     washLight: isInVRExperiment ? 'dark' : 'darkGray',
     white: 'darkGray',
+    elevation: 'darkGray',
   } as const;
 
   const color = (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
@@ -130,7 +135,7 @@ export default function InternalPog({
     [styles.rounding100]: (!rounding && size === 'xs') || rounding === '100',
     [styles.rounding200]: (!rounding && size === 'sm') || rounding === '200',
     [styles.rounding300]: (!rounding && size === 'md') || rounding === '300',
-    [styles.rounding400]: (!rounding && size === 'lg') || rounding === '400',
+    [styles.rounding400]: (!rounding && (size === 'lg' || size === 56)) || rounding === '400',
     [styles.rounding500]: (!rounding && size === 'xl') || rounding === '500',
     [styles.roundingCircle]: rounding === 'circle',
     [styles[bgColor]]: !selected,

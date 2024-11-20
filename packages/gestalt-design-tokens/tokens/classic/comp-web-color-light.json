@@ -216,6 +216,20 @@
             "value": "{color.background.secondary.base.value}"
           }
         },
+        "elevation": {
+          "default": {
+            "value": "{color.transparent.value}"
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.1)"
+          },
+          "disabled": {
+            "value": "{color.background.secondary.base.value}"
+          }
+        },
         "shopping": {
           "default": {
             "value": "{color.background.shopping.value}"

@@ -215,6 +215,18 @@
             "value": "rgba(250, 250, 250, 0.6)"
           }
         },
+        "elevation": {
+          "default": {
+            "value": "{color.transparent.value}",
+            "_darkMode": "Unsupported color"
+          },
+          "hover": {
+            "value": "rgba(250, 250, 250, 0.5)"
+          },
+          "active": {
+            "value": "rgba(250, 250, 250, 0.6)"
+          }
+        },
         "shopping": {
           "default": {
             "value": "{color.background.shopping.value}"

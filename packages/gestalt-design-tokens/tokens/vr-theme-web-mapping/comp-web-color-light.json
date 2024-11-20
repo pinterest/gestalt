@@ -110,6 +110,20 @@
             "value": "{base.color.transparent.value}"
           }
         },
+        "elevation": {
+          "default": {
+            "value": "{sema.color.background.elevation.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
         "gray": {
           "default": {
             "value": "{sema.color.background.tertiary.value}"
