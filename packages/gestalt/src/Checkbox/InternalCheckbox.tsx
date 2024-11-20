@@ -1,4 +1,12 @@
-import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
+import {
+  ComponentProps,
+  forwardRef,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
@@ -202,7 +210,11 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
                   <Icon
                     accessibilityLabel=""
                     color={isInVRExperiment ? vrIconColor : 'inverse'}
-                    icon={indeterminate ? 'compact-dash' : 'compact-check'}
+                    icon={
+                      indeterminate
+                        ? ('compact-dash' as ComponentProps<typeof Icon>['icon'])
+                        : ('compact-check' as ComponentProps<typeof Icon>['icon'])
+                    }
                     size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
                   />
                 </div>
