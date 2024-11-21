@@ -793,14 +793,21 @@ function Masonry<T>(
 
               if (typeof idx === 'number') {
                 const changedItem: T = items[idx]!;
+                const newHeight = contentRect.height;
+
+                let defaultGutter = 14;
+                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+                  defaultGutter = 0;
+                }
 
                 triggerUpdate =
                   recalcHeights({
                     items,
                     changedItem,
-                    newHeight: contentRect.height,
+                    newHeight,
                     positionStore,
                     measurementStore,
+                    gutterWidth: gutter ?? defaultGutter,
                   }) || triggerUpdate;
               }
             });
@@ -809,7 +816,7 @@ function Masonry<T>(
             }
           })
         : undefined,
-    [_dynamicHeights, items, measurementStore, positionStore],
+    [_dynamicHeights, items, measurementStore, positionStore, gutter, layout],
   );
 
   const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } =

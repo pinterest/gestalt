@@ -225,6 +225,12 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                 const changedItem: T = this.state.items[idx]!;
                 const newHeight = contentRect.height;
 
+                const { layout, gutterWidth } = this.props;
+                let defaultGutter = 14;
+                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+                  defaultGutter = 0;
+                }
+
                 triggerUpdate =
                   recalcHeights({
                     items: this.state.items,
@@ -232,6 +238,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                     newHeight,
                     positionStore: this.positionStore,
                     measurementStore: this.state.measurementStore,
+                    gutterWidth: gutterWidth ?? defaultGutter,
                   }) || triggerUpdate;
               }
             });
