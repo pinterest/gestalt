@@ -408,6 +408,8 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
         {mountGrid && (
           <MasonryComponent
             ref={this.gridRef}
+            _dynamicHeights
+            _dynamicHeightsV2Experiment
             _getColumnSpanConfig={(item) => {
               const columnSpan = item.columnSpan as number | undefined;
               return columnSpan ?? 1;
@@ -419,7 +421,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
                 : undefined
             }
             columnWidth={columnWidth}
-            gutterWidth={0}
+            gutterWidth={14}
             items={items}
             layout={flexible ? 'flexible' : undefined}
             measurementStore={externalCache ? measurementStore : undefined}

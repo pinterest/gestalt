@@ -1,5 +1,5 @@
 import defaultLayout from './defaultLayout';
-import recalcHeights from './dynamicHeightsUtils';
+import recalcHeights from './dynamicHeightsV2Utils';
 import MeasurementStore from './MeasurementStore';
 import { Position } from './types';
 

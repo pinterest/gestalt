@@ -8,89 +8,18 @@ function isBelowArea(area: { left: number; right: number }, position: Position) 
   return position.left < area.right && position.left + position.width > area.left;
 }
 
-function getColumnWidth<T>(items: ReadonlyArray<T>, positionStore: Cache<T, Position>): number {
-  let columnWidth = Infinity;
-  items.forEach((item) => {
-    const position = positionStore.get(item);
-    if (position) {
-      columnWidth = Math.min(columnWidth, position.width);
-    }
-  });
-  return columnWidth;
-}
-
-function getDelta(
-  deltasStack: Array<{
-    left: number;
-    right: number;
-    delta: number;
-  }>,
-  position: Position,
-): number {
-  for (let i = deltasStack.length - 1; i >= 0; i -= 1) {
-    const { left, right, delta } = deltasStack[i]!;
-    if (isBelowArea({ left, right }, position)) {
-      return delta;
-    }
-  }
-
-  return 0;
-}
-
-function getNewDelta<T>({
-  multicolumCurrentPosition,
-  allPreviousItems,
-  gutterWidth,
-}: {
-  multicolumCurrentPosition: Position;
-  allPreviousItems: ReadonlyArray<{ item: T; position: Position }>;
-  gutterWidth: number;
-}): number {
-  let closestItem: { item: T; position: Position };
-  allPreviousItems.forEach(({ item, position }) => {
-    const multiColumnLeftLimit = multicolumCurrentPosition.left;
-    const multiColumnRightLimit = multicolumCurrentPosition.left + multicolumCurrentPosition.width;
-    const currentItemLeftLimit = position.left;
-    const currentItemRightLimit = position.left + position.width;
-    const itemIsAboveMulticolumn =
-      multiColumnLeftLimit <= currentItemLeftLimit &&
-      multiColumnRightLimit >= currentItemRightLimit;
-
-    if (itemIsAboveMulticolumn) {
-      if (
-        (closestItem &&
-          position.top + position.height >
-            closestItem!.position.top + closestItem!.position.height) ||
-        !closestItem
-      ) {
-        closestItem = { item, position };
-      }
-    }
-
-    return itemIsAboveMulticolumn;
-  });
-  const actualDelta =
-    closestItem!.position.top +
-    closestItem!.position.height -
-    multicolumCurrentPosition.top +
-    gutterWidth;
-  return actualDelta;
-}
-
 function recalcHeights<T>({
   items,
   changedItem,
   newHeight,
   positionStore,
   measurementStore,
-  gutterWidth,
 }: {
   items: ReadonlyArray<T>;
   changedItem: T;
   newHeight: number;
   positionStore: Cache<T, Position>;
   measurementStore: Cache<T, number>;
-  gutterWidth: number;
 }): boolean {
   const changedItemPosition = positionStore.get(changedItem);
 
@@ -103,18 +32,9 @@ function recalcHeights<T>({
   }
 
   const { top, left, width, height } = changedItemPosition;
-  const oneColumnWidth = getColumnWidth(items.slice(0, 10), positionStore); // We don't need much items to know the column width
+  const heightDelta = newHeight - height;
 
-  // We use a stack in case we found multicolumn items that changes the deltas for their columns below
-  const deltasStack = [
-    {
-      left,
-      right: left + width,
-      delta: newHeight - height,
-    },
-  ];
-
-  const itemsFilteredAndSorted = items
+  items
     .map((item) => {
       const position = positionStore.get(item);
       return position && position.top >= changedItemPosition.top + changedItemPosition.height
@@ -122,52 +42,23 @@ function recalcHeights<T>({
         : undefined;
     })
     .filter((itemPosition) => !!itemPosition)
-    .sort((a, b) => a.position.top - b.position.top);
+    .sort((a, b) => a.position.top - b.position.top)
+    .reduce(
+      (area, { item, position }) => {
+        if (isBelowArea(area, position)) {
+          positionStore.set(item, { ...position, top: position.top + heightDelta });
+          return {
+            left: Math.min(area.left, position.left),
+            right: Math.max(area.right, position.left + position.width),
+          };
+        }
+        return area;
+      },
+      { left, right: left + width } as { left: number; right: number },
+    );
 
   measurementStore.set(changedItem, newHeight);
   positionStore.set(changedItem, { top, left, width, height: newHeight });
-
-  itemsFilteredAndSorted.reduce(
-    (area, { item, position }) => {
-      if (isBelowArea(area, position)) {
-        const itemIsMulticolumn = position.width > oneColumnWidth;
-        if (itemIsMulticolumn) {
-          const multicolumCurrentPosition = position;
-
-          // Check all items above to check if movement is necessary
-          const allPreviousItems = items
-            .map((i) => {
-              const p = positionStore.get(i);
-              return p && p.top < multicolumCurrentPosition.top
-                ? { item: i, position: p }
-                : undefined;
-            })
-            .filter((itemPosition) => !!itemPosition)
-            .sort((a, b) => a.position.top - b.position.top);
-
-          const newDelta = getNewDelta({
-            multicolumCurrentPosition,
-            allPreviousItems,
-            gutterWidth,
-          });
-          deltasStack.push({
-            left: position.left,
-            right: position.left + position.width,
-            delta: newDelta,
-          });
-        }
-
-        const currentDelta = getDelta(deltasStack, position);
-        positionStore.set(item, { ...position, top: position.top + currentDelta });
-        return {
-          left: Math.min(area.left, position.left),
-          right: Math.max(area.right, position.left + position.width),
-        };
-      }
-      return area;
-    },
-    { left, right: left + width } as { left: number; right: number },
-  );
 
   return true;
 }
