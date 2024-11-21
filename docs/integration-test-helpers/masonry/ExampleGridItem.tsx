@@ -23,12 +23,15 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
   const isTwoColItem = data.columnSpan === 2;
 
   return (
-    <div>
+    <div
+      style={{
+        padding: '0 7px 14px',
+      }}
+    >
       <div
-        className="grid-item-test"
         style={{
           height: expanded ? data.height + 100 : data.height,
-          boxSizing: 'border-box',
+          border: '1px solid #ff0000',
           background: isTwoColItem ? 'black' : data.color,
           color: isTwoColItem ? 'white' : undefined,
         }}
