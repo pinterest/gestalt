@@ -16,6 +16,7 @@ import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
+import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -161,6 +162,10 @@ type Props<T> = {
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
   _dynamicHeights?: boolean;
+  /**
+   * Experimental flag to enable an experiment to use a revamped version of dynamic heights (This needs _dynamicHeights enabled)
+   */
+  _dynamicHeightsV2Experiment?: boolean;
   /**
    * Experimental prop to enable early bailout when positioning multicolumn modules
    *
@@ -703,6 +708,7 @@ function Masonry<T>(
     _useRAF,
     _getColumnSpanConfig,
     _dynamicHeights,
+    _dynamicHeightsV2Experiment,
     _loadingStateItems = [],
     _renderLoadingStateItems,
     _earlyBailout,
@@ -793,15 +799,33 @@ function Masonry<T>(
 
               if (typeof idx === 'number') {
                 const changedItem: T = items[idx]!;
+                const newHeight = contentRect.height;
 
-                triggerUpdate =
-                  recalcHeights({
-                    items,
-                    changedItem,
-                    newHeight: contentRect.height,
-                    positionStore,
-                    measurementStore,
-                  }) || triggerUpdate;
+                let defaultGutter = 14;
+                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+                  defaultGutter = 0;
+                }
+
+                if (_dynamicHeightsV2Experiment) {
+                  triggerUpdate =
+                    recalcHeightsV2({
+                      items,
+                      changedItem,
+                      newHeight,
+                      positionStore,
+                      measurementStore,
+                      gutterWidth: gutter ?? defaultGutter,
+                    }) || triggerUpdate;
+                } else {
+                  triggerUpdate =
+                    recalcHeights({
+                      items,
+                      changedItem,
+                      newHeight,
+                      positionStore,
+                      measurementStore,
+                    }) || triggerUpdate;
+                }
               }
             });
             if (triggerUpdate) {
@@ -809,7 +833,15 @@ function Masonry<T>(
             }
           })
         : undefined,
-    [_dynamicHeights, items, measurementStore, positionStore],
+    [
+      _dynamicHeights,
+      _dynamicHeightsV2Experiment,
+      items,
+      measurementStore,
+      positionStore,
+      gutter,
+      layout,
+    ],
   );
 
   const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } =
