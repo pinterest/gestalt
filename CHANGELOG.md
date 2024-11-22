@@ -1,3 +1,9 @@
+## 165.2.2 (Nov 22, 2024)
+
+### Patch
+
+- Masonry: Revamp Dynamic Heights ([#3890](https://github.com/pinterest/gestalt/pull/3890)) - [Preview link](https://deploy-preview-3890--gestalt.netlify.app?devexample=true)
+
 ## 165.2.1 (Nov 20, 2024)
 
 ### Patch
