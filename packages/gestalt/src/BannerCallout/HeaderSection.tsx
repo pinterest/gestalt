@@ -61,7 +61,7 @@ export default function HeaderSection({
           size={iconSize}
         />
         <Flex.Item flex={fullWidth ? 'grow' : undefined}>
-          <Box maxWidth={648} width="100%">
+          <Box width="100%">
             {(title || message) && (
               <Flex direction="column" gap={2} width="100%">
                 {title && <Heading size="400">{title}</Heading>}
