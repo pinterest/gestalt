@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement } from 'react';
+import { ComponentProps, ReactElement, useRef } from 'react';
 import {
   SEMA_SPACE_800,
   SEMA_SPACE_1200,
@@ -6,6 +6,7 @@ import {
 import DismissButton from './DismissButton';
 import Footer from './Footer';
 import HeaderSection from './HeaderSection';
+import useIsWrappedContainer from './useIsWrappedContainer';
 import Box from '../Box';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
@@ -69,12 +70,15 @@ export default function BannerCallout({
   title,
 }: Props) {
   const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
-
   const largePadding = isRtl
     ? { paddingRight: SEMA_SPACE_800, paddingLeft: SEMA_SPACE_1200 }
     : { paddingRight: SEMA_SPACE_1200, paddingLeft: SEMA_SPACE_800 };
 
   const backgroundColor = MESSAGING_TYPE_ATTRIBUTES[type]?.backgroundColor;
+
+  const wrappedRef = useRef<null | HTMLDivElement>(null);
+  const isWrapped = useIsWrappedContainer(wrappedRef, true);
+  console.log(isWrapped);
 
   return (
     <Box width="100%">
@@ -135,16 +139,15 @@ export default function BannerCallout({
         width="100%"
       >
         <Flex direction="column" width="100%">
-          <Flex.Item minWidth={0}>
-            <HeaderSection
-              gap={6}
-              iconAccessibilityLabel={iconAccessibilityLabel}
-              iconSize={32}
-              message={message}
-              title={title}
-              type={type}
-            />
-          </Flex.Item>
+          <HeaderSection
+            fullWidth
+            gap={6}
+            iconAccessibilityLabel={iconAccessibilityLabel}
+            iconSize={32}
+            message={message}
+            title={title}
+            type={type}
+          />
 
           {(primaryAction || secondaryAction) && (
             <Flex.Item flex="grow">
@@ -176,32 +179,35 @@ export default function BannerCallout({
         smDisplay="none"
         width="100%"
       >
-        <Flex alignItems="center" width="100%" wrap>
-          <Flex.Item minWidth={0}>
-            <HeaderSection
-              gap={6}
-              iconAccessibilityLabel={iconAccessibilityLabel}
-              iconSize={32}
-              message={message}
-              title={title}
-              type={type}
-            />
-          </Flex.Item>
-
-          {(primaryAction || secondaryAction) && (
-            <Flex.Item flex="grow">
-              <Footer
-                buttonSize="lg"
-                marginTop={0}
-                primaryAction={primaryAction}
-                secondaryAction={secondaryAction}
+        <Box position="relative">
+          <Flex height="100%" width="100%" wrap>
+            <Flex.Item flex={isWrapped ? 'grow' : undefined} minWidth={isWrapped ? undefined : 0}>
+              <HeaderSection
+                fullWidth={isWrapped}
+                gap={6}
+                iconAccessibilityLabel={iconAccessibilityLabel}
+                iconSize={32}
+                message={message}
+                title={title}
                 type={type}
               />
             </Flex.Item>
-          )}
 
-          {dismissButton && <DismissButton dismissButton={dismissButton} />}
-        </Flex>
+            {(primaryAction || secondaryAction) && (
+              <Flex.Item ref={wrappedRef} flex="grow">
+                <Footer
+                  buttonSize="lg"
+                  fullHeight={isWrapped}
+                  marginTop={isWrapped ? 6 : 0}
+                  primaryAction={primaryAction}
+                  secondaryAction={secondaryAction}
+                  type={type}
+                />
+              </Flex.Item>
+            )}
+          </Flex>
+        </Box>
+        {dismissButton && <DismissButton dismissButton={dismissButton} />}
       </Box>
     </Box>
   );
