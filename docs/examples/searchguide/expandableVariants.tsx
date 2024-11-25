@@ -123,7 +123,7 @@ export default function Example() {
             onDismiss={() => setShowDefault(false)}
             size="flexible"
           >
-            <Box height={120} overflow="scrollX" padding={4}>
+            <Box overflow="scrollX" padding={4}>
               <Flex direction="row" gap={2} wrap>
                 <SearchGuide color="01" text="Default 1" />
                 <SearchGuide color="02" text="Default 2" />
@@ -140,7 +140,7 @@ export default function Example() {
             onDismiss={() => setShowTextless(false)}
             size="flexible"
           >
-            <Box height={120} overflow="scrollX" padding={4}>
+            <Box overflow="scrollX" padding={4}>
               <Flex direction="row" gap={2} wrap>
                 <SearchGuide color="01" text="Textless 1" />
                 <SearchGuide color="02" text="Textless 2" />
@@ -157,7 +157,7 @@ export default function Example() {
             onDismiss={() => setShowImage(false)}
             size="flexible"
           >
-            <Box height={120} overflow="scrollX" padding={4}>
+            <Box overflow="scrollX" padding={4}>
               <Flex direction="row" gap={2} wrap>
                 <SearchGuide color="01" text="Image 1" />
                 <SearchGuide color="02" text="Image 2" />
@@ -174,7 +174,7 @@ export default function Example() {
             onDismiss={() => setShowAvatar(false)}
             size="flexible"
           >
-            <Box height={120} overflow="scrollX" padding={4}>
+            <Box overflow="scrollX" padding={4}>
               <Flex direction="row" gap={2} wrap>
                 <SearchGuide color="01" text="Avatar 1" />
                 <SearchGuide color="02" text="Avatar 2" />
@@ -191,7 +191,7 @@ export default function Example() {
             onDismiss={() => setShowAvatarGroup(false)}
             size="flexible"
           >
-            <Box height={120} overflow="scrollX" padding={4}>
+            <Box overflow="scrollX" padding={4}>
               <Flex direction="row" gap={2} wrap>
                 <SearchGuide color="01" text="AvatarGroup 1" />
                 <SearchGuide color="02" text="AvatarGroup 2" />

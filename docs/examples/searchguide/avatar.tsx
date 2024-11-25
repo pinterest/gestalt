@@ -2,9 +2,9 @@ import { useRef, useState } from 'react';
 import { Avatar, Box, Flex, Popover, SearchGuide } from 'gestalt';
 
 export default function Example() {
-  const enioRef = useRef(null);
+  const soraRef = useRef(null);
   const keerthiRef = useRef(null);
-  const [showEnio, setShowEnio] = useState(false);
+  const [showSora, setShowSora] = useState(false);
   const [showKeerthi, setShowKeerthi] = useState(false);
 
   return (
@@ -24,15 +24,15 @@ export default function Example() {
           }}
         />
         <SearchGuide
-          ref={enioRef}
+          ref={soraRef}
           accessibilityControls="popover"
-          accessibilityExpanded={showEnio}
+          accessibilityExpanded={showSora}
           accessibilityHaspopup
           accessibilityLabel="Sora"
           color="03"
           expandable
-          onClick={() => setShowEnio((showing) => !showing)}
-          selected={showEnio}
+          onClick={() => setShowSora((showing) => !showing)}
+          selected={showSora}
           text="Sora"
           thumbnail={{
             avatar: (
@@ -64,15 +64,15 @@ export default function Example() {
           }}
         />
       </Flex>
-      {showEnio && (
+      {showSora && (
         <Popover
-          anchor={enioRef.current}
+          anchor={soraRef.current}
           id="popover"
           idealDirection="down"
-          onDismiss={() => setShowEnio(false)}
+          onDismiss={() => setShowSora(false)}
           size="flexible"
         >
-          <Box height={120} overflow="scrollX" padding={4}>
+          <Box overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuide color="01" text="Boards" />
               <SearchGuide color="02" text="Pins" />
@@ -88,7 +88,7 @@ export default function Example() {
           onDismiss={() => setShowKeerthi(false)}
           size="flexible"
         >
-          <Box height={120} overflow="scrollX" padding={4}>
+          <Box overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuide color="01" text="Boards" />
               <SearchGuide color="02" text="Pins" />

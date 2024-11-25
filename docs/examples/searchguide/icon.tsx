@@ -54,7 +54,7 @@ export default function Example() {
           onDismiss={() => setshowIdeas(false)}
           size="flexible"
         >
-          <Box height={120} overflow="scrollX" padding={4}>
+          <Box overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuide color="01" text="Boards" />
               <SearchGuide color="02" text="Pins" />
@@ -70,7 +70,7 @@ export default function Example() {
           onDismiss={() => setshowBoards(false)}
           size="flexible"
         >
-          <Box height={120} overflow="scrollX" padding={4}>
+          <Box overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuide color="01" text="Boards" />
               <SearchGuide color="02" text="Pins" />
