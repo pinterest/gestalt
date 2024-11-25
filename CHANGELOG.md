@@ -1,3 +1,9 @@
+## 165.3.0 (Nov 25, 2024)
+
+### Minor
+
+- SearchGuide: VR certification Fixes ([#3892](https://github.com/pinterest/gestalt/pull/3892)) - [Preview link](https://deploy-preview-3892--gestalt.netlify.app?devexample=true)
+
 ## 165.2.3 (Nov 25, 2024)
 
 ### Patch
