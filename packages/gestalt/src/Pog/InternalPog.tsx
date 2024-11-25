@@ -16,7 +16,8 @@ type Props = {
     | 'lightGray'
     | 'washLight'
     | 'white'
-    | 'red';
+    | 'red'
+    | 'elevation';
   disabled?: boolean;
   dangerouslySetSvgPath?: {
     __path: string;
@@ -26,9 +27,9 @@ type Props = {
   icon?: keyof typeof icons;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   padding?: 1 | 2 | 3 | 4 | 5;
-  rounding?: '0' | '100' | '200' | '300' | '400' | 'circle';
+  rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
   selected?: boolean;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 56;
 };
 
 export default function InternalPog({
@@ -53,20 +54,22 @@ export default function InternalPog({
   });
 
   const SIZE_NAME_TO_PADDING_PIXEL = isInVRExperiment
-    ? {
+    ? ({
         xs: 6,
         sm: 6,
         md: 10,
-        lg: 14,
+        lg: 12,
         xl: 20,
-      }
-    : {
+        56: 16,
+      } as const)
+    : ({
         xs: 6,
         sm: 8,
         md: 11,
         lg: 14,
         xl: 16,
-      };
+        56: 16,
+      } as const);
 
   const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
     xs: 12,
@@ -74,6 +77,7 @@ export default function InternalPog({
     md: isInVRExperiment ? 16 : 18,
     lg: isInVRExperiment ? 24 : 20,
     xl: 24,
+    56: 24,
   } as const;
 
   const OLD_TO_NEW_COLOR_MAP = {
@@ -84,6 +88,7 @@ export default function InternalPog({
     light: 'light',
     red: 'error',
     white: 'inverse',
+    disabled: 'disabled',
   } as const;
 
   const defaultIconButtonIconColors = {
@@ -95,6 +100,7 @@ export default function InternalPog({
     transparentDarkGray: isInVRExperiment ? 'light' : 'white',
     washLight: isInVRExperiment ? 'dark' : 'darkGray',
     white: 'darkGray',
+    elevation: 'darkGray',
   } as const;
 
   const color = (selected && 'white') || iconColor || defaultIconButtonIconColors[bgColor];
@@ -115,6 +121,7 @@ export default function InternalPog({
     [styles.rounding200]: rounding === '200',
     [styles.rounding300]: rounding === '300',
     [styles.rounding400]: rounding === '400',
+    [styles.rounding500]: rounding === '500',
     [styles.roundingCircle]: !rounding || rounding === 'circle',
     [styles[bgColor]]: !selected,
     [styles.selected]: selected,
@@ -123,12 +130,13 @@ export default function InternalPog({
     [styles.hovered]: hovered && !focused && !active,
   });
 
-  const vrClasses = classnames(styles.pog, styles[size], {
+  const vrClasses = classnames(styles.pog, styles[size as keyof typeof styles], {
     [styles.rounding0]: rounding === '0',
     [styles.rounding100]: (!rounding && size === 'xs') || rounding === '100',
     [styles.rounding200]: (!rounding && size === 'sm') || rounding === '200',
     [styles.rounding300]: (!rounding && size === 'md') || rounding === '300',
-    [styles.rounding400]: (!rounding && (size === 'lg' || size === 'xl')) || rounding === '400',
+    [styles.rounding400]: (!rounding && (size === 'lg' || size === 56)) || rounding === '400',
+    [styles.rounding500]: (!rounding && size === 'xl') || rounding === '500',
     [styles.roundingCircle]: rounding === 'circle',
     [styles[bgColor]]: !selected,
     [styles.disabled]: disabled && !selected,
@@ -144,13 +152,33 @@ export default function InternalPog({
     [styles.darkInnerFocus]:
       focused && (bgColor === 'washLight' || focusColor === 'darkBackground'),
     [styles.hovered]: hovered && !active,
+    // Opacity of 40% should only apply to disabled unselected states, when the icon is white or light
+    [styles.semitransparent]:
+      (bgColor === 'transparentDarkGray' ||
+        bgColor === 'transparent' ||
+        bgColor === 'transparentDarkBackground' ||
+        bgColor === 'washLight') &&
+      (color === 'white' || color === 'light') &&
+      disabled &&
+      !selected,
   });
 
   return (
     <div className={isInVRExperiment ? vrClasses : classes} style={inlineStyle}>
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
-        color={OLD_TO_NEW_COLOR_MAP[color]}
+        color={
+          isInVRExperiment &&
+          // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
+          disabled &&
+          !(
+            !selected &&
+            (bgColor === 'washLight' || bgColor === 'transparentDarkGray') &&
+            (color === 'white' || color === 'light')
+          )
+            ? 'disabled'
+            : OLD_TO_NEW_COLOR_MAP[color]
+        }
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         icon={icon}
         size={iconSizeInPx}

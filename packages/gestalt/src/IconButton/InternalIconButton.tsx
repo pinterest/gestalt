@@ -3,11 +3,12 @@ import classnames from 'classnames';
 import styles from './InternalIconButton.css';
 import Flex from '../Flex';
 import icons from '../icons/index';
-import Pog from '../Pog';
+import InternalPog from '../Pog/InternalPog';
 import touchableStyles from '../TapArea.css';
 import TextUI from '../TextUI';
 import Tooltip from '../Tooltip';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 import useTapFeedback from '../useTapFeedback';
 import { Indexable } from '../zIndex';
 
@@ -26,7 +27,8 @@ type Props = {
     | 'lightGray'
     | 'washLight'
     | 'white'
-    | 'red';
+    | 'red'
+    | 'elevation';
   dangerouslySetSvgPath?: {
     __path: string;
   };
@@ -43,7 +45,7 @@ type Props = {
   // eslint-disable-next-line react/no-unused-prop-types
   ref?: HTMLButtonElement;
   selected?: boolean;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 56;
   tabIndex?: -1 | 0;
   tooltip?: {
     accessibilityLabel?: string;
@@ -86,6 +88,10 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   const {
     compressStyle,
@@ -121,7 +127,8 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   });
 
   const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
-    [styles.disabled]: disabled,
+    [styles.disabled]: disabled && !isInVRExperiment,
+    [styles.disabledVr]: disabled && isInVRExperiment,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });
@@ -168,10 +175,11 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
       type={type === 'submit' ? 'submit' : 'button'}
     >
       <div className={divStyles} style={compressStyle || undefined}>
-        <Pog
+        <InternalPog
           active={!disabled && isActive}
           bgColor={bgColor}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
+          disabled={disabled}
           focusColor={focusColor}
           focused={!disabled && isFocusVisible && isFocused}
           hovered={!disabled && isHovered}
