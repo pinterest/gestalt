@@ -78,7 +78,6 @@ export default function BannerCallout({
 
   const wrappedRef = useRef<null | HTMLDivElement>(null);
   const isWrapped = useIsWrappedContainer(wrappedRef, true);
-  console.log(isWrapped);
 
   return (
     <Box width="100%">
@@ -102,7 +101,6 @@ export default function BannerCallout({
               gap={3}
               iconAccessibilityLabel={iconAccessibilityLabel}
               iconSize={24}
-              marginBottom={primaryAction || secondaryAction ? 4 : undefined}
               message={message}
               title={title}
               type={type}

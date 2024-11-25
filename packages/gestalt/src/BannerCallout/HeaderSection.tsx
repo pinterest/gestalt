@@ -13,7 +13,6 @@ type Props = {
   message: string | ReactElement;
   type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
   title?: string;
-  marginBottom?: 4;
   iconAccessibilityLabel?: string;
   fullWidth?: boolean;
 };
@@ -25,7 +24,6 @@ export default function HeaderSection({
   message,
   type,
   iconAccessibilityLabel,
-  marginBottom,
   fullWidth,
 }: Props) {
   const {
@@ -54,7 +52,7 @@ export default function HeaderSection({
   };
 
   return (
-    <Box marginBottom={marginBottom} width="100%">
+    <Box width="100%">
       <Flex gap={gap} width="100%">
         <Icon
           accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
