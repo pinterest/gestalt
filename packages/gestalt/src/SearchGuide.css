@@ -31,7 +31,7 @@
   composes: xsItemsCenter from "./Layout.css";
   composes: justifyCenter from "./Layout.css";
   border-radius: var(--rounding-400);
-  min-height: 44px;
+  min-height: 48px;
 }
 
 .imageDiv {
@@ -45,7 +45,7 @@
 .imageDivVr {
   border-end-start-radius: calc(var(--rounding-400));
   border-start-start-radius: calc(var(--rounding-400));
-  height: 44px;
+  height: 48px;
   overflow: hidden;
   position: relative;
   width: 44px;
@@ -72,6 +72,17 @@
 
 .selectedVr {
   background-color: var(--sema-color-background-selected);
+}
+
+.imageDivVr.selectedVr,
+.childrenDiv.selectedVr {
+  height: 44px;
+  min-height: 44px;
+}
+
+.searchguideVr.selectedVr {
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 
 .selectedVr:hover {
