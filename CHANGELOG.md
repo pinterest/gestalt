@@ -1,3 +1,9 @@
+## 165.2.3 (Nov 25, 2024)
+
+### Patch
+
+- BannerCallout: responsiveness fixes ([#3891](https://github.com/pinterest/gestalt/pull/3891)) - [Preview link](https://deploy-preview-3891--gestalt.netlify.app?devexample=true)
+
 ## 165.2.2 (Nov 22, 2024)
 
 ### Patch
