@@ -262,9 +262,13 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Box
-            dangerouslySetInlineStyle={{
-              __style: { marginTop: size === 'md' ? '2px' : '-1px' },
-            }}
+            dangerouslySetInlineStyle={
+              isInVRExperiment
+                ? undefined
+                : {
+                    __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+                  }
+            }
             //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
             display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
           >
