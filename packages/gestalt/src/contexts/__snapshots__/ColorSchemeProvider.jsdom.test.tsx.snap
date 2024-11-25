@@ -3363,7 +3363,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-button-selected-disabled: #2e2e2d;
   --color-background-button-disabled-default: #2e2e2d;
   --color-background-checkbox-checked-default: #e8e7e1;
-  --color-background-checkbox-checked-error: #8a0f0f;
+  --color-background-checkbox-checked-error-error: #ff9494;
   --color-background-checkbox-disabled: #2e2e2d;
   --color-background-checkbox-unchecked-default: #000000;
   --color-background-checkbox-unchecked-error: #000000;
@@ -3436,7 +3436,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-border-button-hover: #b2b0ae;
   --color-border-button-pressed: #969292;
   --color-border-checkbox-checked-default: #e8e7e1;
-  --color-border-checkbox-checked-error: #8a0f0f;
+  --color-border-checkbox-checked-error: #ff9494;
   --color-border-checkbox-disabled: #2e2e2d;
   --color-border-checkbox-unchecked-default: #c7c6c1;
   --color-border-checkbox-unchecked-error: #ff9494;
