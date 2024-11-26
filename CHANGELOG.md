@@ -1,3 +1,9 @@
+## 165.3.1 (Nov 26, 2024)
+
+### Patch
+
+- BannerCallout: implement internal IconCompactButton for dismiss button (VR only) ([#3893](https://github.com/pinterest/gestalt/pull/3893)) - [Preview link](https://deploy-preview-3893--gestalt.netlify.app?devexample=true)
+
 ## 165.3.0 (Nov 25, 2024)
 
 ### Minor
