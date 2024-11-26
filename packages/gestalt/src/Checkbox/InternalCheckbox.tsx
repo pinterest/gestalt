@@ -199,7 +199,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
   return (
     <Box>
       <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
-        <Box paddingX={isInVRExperiment ? 0 : 1} position="relative">
+        <Box alignSelf="center" paddingX={isInVRExperiment ? 0 : 1} position="relative">
           <div ref={tapScaleAnimation.elementRef} className={divStyles} style={style}>
             {isInVRExperiment ? (
               <div style={{ width: vrIconSizes[size] }}>
