@@ -8,13 +8,17 @@ import { GetGraphPositionsReturn, NodeData, Position } from './types';
 // This number can be dynamimcally set using _getModulePositioningConfig
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
+// We limit DAG iterations to 1MM to avoid running into obvious performance issues (or having the user waiting to much to see modules)
+const DAG_ITERATIONS_HARD_LIMIT = 1000;
+
 type GridSize = 'sm' | 'md' | 'lg' | 'xl';
 
 export type ColumnSpanConfig = number | { [Size in GridSize]: number };
 
 export type ModulePositioningConfig = {
   itemsBatchSize: number; // Maximum number of items used to position a module
-  whitespaceThreshold: number; // "Good enough" whitespace number when positioning a module
+  whitespaceThreshold?: number; // "Good enough" whitespace number when positioning a module
+  iterationsLimit?: number;
 };
 
 // maps the number of columns to a grid breakpoint
@@ -341,6 +345,7 @@ function getGraphPositions<T>({
   heights,
   whitespaceThreshold,
   columnSpan,
+  iterationsLimit = DAG_ITERATIONS_HARD_LIMIT,
   ...commonGetPositionArgs
 }: {
   items: ReadonlyArray<T>;
@@ -357,6 +362,7 @@ function getGraphPositions<T>({
   gutter: number;
   measurementCache: Cache<T, number>;
   positionCache?: Cache<T, Position>;
+  iterationsLimit?: number;
 }): GetGraphPositionsReturn<T> {
   // When whitespace threshold is set this variables store the score and node if found
   let bailoutScore;
@@ -393,7 +399,7 @@ function getGraphPositions<T>({
     heightsArr: ReadonlyArray<number>;
     itemsSoFar?: ReadonlyArray<T>;
   }) {
-    if (bailoutNode) {
+    if (bailoutNode || numberOfIterations === iterationsLimit) {
       return;
     }
 
@@ -542,7 +548,7 @@ function getPositionsWithMultiColumnItem<T>({
   // we need to fill those spaces with one col items
   const replaceWithOneColItems = !fitsFirstRow && multiColumnIndex < emptyColumns;
 
-  const { itemsBatchSize, whitespaceThreshold } = _getModulePositioningConfig?.(
+  const { itemsBatchSize, whitespaceThreshold, iterationsLimit } = _getModulePositioningConfig?.(
     columnCount,
     multiColumnItemColumnSpan,
   ) || {
@@ -583,8 +589,9 @@ function getPositionsWithMultiColumnItem<T>({
     items: graphBatch,
     positions: paintedItemPositions,
     heights: paintedItemHeights,
-    whitespaceThreshold,
     columnSpan: multiColumnItemColumnSpan,
+    iterationsLimit,
+    whitespaceThreshold,
     ...commonGetPositionArgs,
   });
 
