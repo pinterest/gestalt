@@ -13,5 +13,6 @@ declare const icons: Readonly<{
     'compact-lock': any;
     'compact-workflow-status-problem': any;
     'compact-workflow-status-warning': any;
+    'compact-sparkle': any;
 }>;
 export default icons;
