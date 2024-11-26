@@ -27,6 +27,10 @@ type Props<T> = {
   collage?: boolean;
   // Constrains the width of the grid rendering.
   constrained?: boolean;
+  // Enable DynamicHeights
+  dynamicHeights?: boolean;
+  // Enable DynamicHeights and their v2 version
+  dynamicHeightsV2?: boolean;
   // Whether or not to use an external cache
   externalCache?: boolean;
   // Does not allow infinite scroll.
@@ -326,6 +330,8 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
       MasonryComponent,
       collage,
       constrained,
+      dynamicHeights,
+      dynamicHeightsV2,
       externalCache,
       finiteLength,
       flexible,
@@ -408,6 +414,8 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
         {mountGrid && (
           <MasonryComponent
             ref={this.gridRef}
+            _dynamicHeights={dynamicHeights || dynamicHeightsV2}
+            _dynamicHeightsV2Experiment={dynamicHeightsV2}
             _getColumnSpanConfig={(item) => {
               const columnSpan = item.columnSpan as number | undefined;
               return columnSpan ?? 1;

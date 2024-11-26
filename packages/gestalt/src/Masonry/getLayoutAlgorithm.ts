@@ -23,7 +23,7 @@ export default function getLayoutAlgorithm<T>({
 }: {
   align: Align;
   columnWidth: number | undefined;
-  gutter?: number;
+  gutter: number;
   items: ReadonlyArray<T>;
   layout: Layout;
   measurementStore: Cache<T, number>;

@@ -1,3 +1,111 @@
+## 165.3.0 (Nov 25, 2024)
+
+### Minor
+
+- SearchGuide: VR certification Fixes ([#3892](https://github.com/pinterest/gestalt/pull/3892)) - [Preview link](https://deploy-preview-3892--gestalt.netlify.app?devexample=true)
+
+## 165.2.3 (Nov 25, 2024)
+
+### Patch
+
+- BannerCallout: responsiveness fixes ([#3891](https://github.com/pinterest/gestalt/pull/3891)) - [Preview link](https://deploy-preview-3891--gestalt.netlify.app?devexample=true)
+
+## 165.2.2 (Nov 22, 2024)
+
+### Patch
+
+- Masonry: Revamp Dynamic Heights ([#3890](https://github.com/pinterest/gestalt/pull/3890)) - [Preview link](https://deploy-preview-3890--gestalt.netlify.app?devexample=true)
+
+## 165.2.1 (Nov 20, 2024)
+
+### Patch
+
+- IconButtonFloating: VR fixes ([#3889](https://github.com/pinterest/gestalt/pull/3889)) - [Preview link](https://deploy-preview-3889--gestalt.netlify.app?devexample=true)
+
+## 165.2.0 (Nov 20, 2024)
+
+### Minor
+
+- IconButton: VR Certification Fixes ([#3879](https://github.com/pinterest/gestalt/pull/3879)) - [Preview link](https://deploy-preview-3879--gestalt.netlify.app?devexample=true)
+
+## 165.1.8 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: VR version intro & outro animation ([#3881](https://github.com/pinterest/gestalt/pull/3881)) - [Preview link](https://deploy-preview-3881--gestalt.netlify.app?devexample=true)
+
+## 165.1.7 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: Opacity animation bug in Chrome ([#3888](https://github.com/pinterest/gestalt/pull/3888)) - [Preview link](https://deploy-preview-3888--gestalt.netlify.app?devexample=true)
+
+## 165.1.6 (Nov 20, 2024)
+
+### Patch
+
+- Pog: implement InternalPog ([#3887](https://github.com/pinterest/gestalt/pull/3887)) - [Preview link](https://deploy-preview-3887--gestalt.netlify.app?devexample=true)
+
+## 165.1.5 (Nov 19, 2024)
+
+### Patch
+
+- Icon: rename ios compact sparkle icon to adhere to naming pattern ([#3886](https://github.com/pinterest/gestalt/pull/3886)) - [Preview link](https://deploy-preview-3886--gestalt.netlify.app?devexample=true)
+
+## 165.1.4 (Nov 19, 2024)
+
+### Patch
+
+- BannerOverlay: VR Certification Fixes ([#3878](https://github.com/pinterest/gestalt/pull/3878)) - [Preview link](https://deploy-preview-3878--gestalt.netlify.app?devexample=true)
+
+## 165.1.3 (Nov 19, 2024)
+
+### Patch
+
+- Spinner: Remove Opacity Token ([#3884](https://github.com/pinterest/gestalt/pull/3884)) - [Preview link](https://deploy-preview-3884--gestalt.netlify.app?devexample=true)
+
+## 165.1.2 (Nov 19, 2024)
+
+### Patch
+
+- Revert "Masonry: Update fullWidthLayout to not floor column widths" ([#3885](https://github.com/pinterest/gestalt/pull/3885)) - [Preview link](https://deploy-preview-3885--gestalt.netlify.app?devexample=true)
+
+## 165.1.1 (Nov 18, 2024)
+
+### Patch
+
+- Badge: fix VR size icon ([#3882](https://github.com/pinterest/gestalt/pull/3882)) - [Preview link](https://deploy-preview-3882--gestalt.netlify.app?devexample=true)
+
+## 165.1.0 (Nov 15, 2024)
+
+### Minor
+
+- Tokens: Remove percents from Android rounding ([#3868](https://github.com/pinterest/gestalt/pull/3868)) - [Preview link](https://deploy-preview-3868--gestalt.netlify.app?devexample=true)
+
+## 165.0.6 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update fullWidthLayout to not floor column widths ([#3874](https://github.com/pinterest/gestalt/pull/3874)) - [Preview link](https://deploy-preview-3874--gestalt.netlify.app?devexample=true)
+
+## 165.0.5 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update container measurement logic for V2 ([#3876](https://github.com/pinterest/gestalt/pull/3876)) - [Preview link](https://deploy-preview-3876--gestalt.netlify.app?devexample=true)
+
+## 165.0.4 (Nov 15, 2024)
+
+### Patch
+
+- Badge: Badge improves VR focus interaction ([#3873](https://github.com/pinterest/gestalt/pull/3873)) - [Preview link](https://deploy-preview-3873--gestalt.netlify.app?devexample=true)
+
+## 165.0.3 (Nov 14, 2024)
+
+### Patch
+
+- Badge: VR fixes ([#3872](https://github.com/pinterest/gestalt/pull/3872)) - [Preview link](https://deploy-preview-3872--gestalt.netlify.app?devexample=true)
+
 ## 165.0.2 (Nov 14, 2024)
 
 ### Patch

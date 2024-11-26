@@ -12,12 +12,13 @@ export default function getColumnCount({
   minCols,
   layout,
 }: {
-  gutter: number | undefined;
+  gutter: number;
   columnWidth: number | undefined;
   width: number;
   minCols: number;
   layout: Layout;
 }): number {
+  console.log({ gutter });
   if (layout === 'flexible' || (layout === 'serverRenderedFlexible' && width !== null)) {
     // "This is kind of crazy!" - you
     // Yes, indeed. The "guessing" here is meant to replicate the pass that the

@@ -51,7 +51,7 @@ const uniformRowLayout =
     cache,
     columnWidth: idealColumnWidth = 236,
     flexible = false,
-    gutter = 14,
+    gutter,
     width,
     minCols = 3,
     renderLoadingState,
@@ -59,7 +59,7 @@ const uniformRowLayout =
     cache: Cache<T, number>;
     columnWidth?: number;
     flexible?: boolean;
-    gutter?: number;
+    gutter: number;
     width?: number | null | undefined;
     minCols?: number;
     renderLoadingState?: boolean;

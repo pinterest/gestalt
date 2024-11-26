@@ -4,7 +4,11 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
-import getColumnCount from './Masonry/getColumnCount';
+import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
+import getColumnCount, {
+  DEFAULT_LAYOUT_DEFAULT_GUTTER,
+  FULL_WIDTH_DEFAULT_GUTTER,
+} from './Masonry/getColumnCount';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -154,6 +158,10 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
+   * Experimental flag to enable an experiment to use a revamped version of dynamic heights (This needs _dynamicHeights enabled)
+   */
+  _dynamicHeightsV2Experiment?: boolean;
+  /**
    * Experimental prop to enable dynamic batch sizing and early bailout when positioning a module
    * - Early bailout: How much whitespace is "good enough"
    * - Dynamic batch sizing: How many items it can use. If this prop isn't used, it uses 5
@@ -164,6 +172,7 @@ type Props<T> = {
 };
 
 type State<T> = {
+  gutter: number;
   hasPendingMeasurements: boolean;
   isFetching: boolean;
   items: ReadonlyArray<T>;
@@ -221,6 +230,13 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
 
+    const { layout, gutterWidth } = props;
+    let defaultGutter = DEFAULT_LAYOUT_DEFAULT_GUTTER;
+    if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+      defaultGutter = FULL_WIDTH_DEFAULT_GUTTER;
+    }
+    const gutter = gutterWidth ?? defaultGutter;
+
     this.resizeObserver =
       /* eslint-disable-next-line no-underscore-dangle */
       props._dynamicHeights && typeof window !== 'undefined' && this.positionStore
@@ -233,14 +249,27 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                 const changedItem: T = this.state.items[idx]!;
                 const newHeight = contentRect.height;
 
-                triggerUpdate =
-                  recalcHeights({
-                    items: this.state.items,
-                    changedItem,
-                    newHeight,
-                    positionStore: this.positionStore,
-                    measurementStore: this.state.measurementStore,
-                  }) || triggerUpdate;
+                /* eslint-disable-next-line no-underscore-dangle */
+                if (props._dynamicHeightsV2Experiment) {
+                  triggerUpdate =
+                    recalcHeightsV2({
+                      items: this.state.items,
+                      changedItem,
+                      newHeight,
+                      positionStore: this.positionStore,
+                      measurementStore: this.state.measurementStore,
+                      gutter,
+                    }) || triggerUpdate;
+                } else {
+                  triggerUpdate =
+                    recalcHeights({
+                      items: this.state.items,
+                      changedItem,
+                      newHeight,
+                      positionStore: this.positionStore,
+                      measurementStore: this.state.measurementStore,
+                    }) || triggerUpdate;
+                }
               }
             });
             if (triggerUpdate) {
@@ -250,6 +279,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         : undefined;
 
     this.state = {
+      gutter,
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
       isFetching: false,
       items: props.items,
@@ -587,7 +617,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     const {
       align = 'center',
       columnWidth,
-      gutterWidth: gutter,
       items,
       layout = 'basic',
       minCols,
@@ -599,7 +628,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _renderLoadingStateItems,
       _getModulePositioningConfig,
     } = this.props;
-    const { hasPendingMeasurements, measurementStore, width } = this.state;
+    const { gutter, hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
     const renderLoadingState = Boolean(
       items.length === 0 && _loadingStateItems && _renderLoadingStateItems,

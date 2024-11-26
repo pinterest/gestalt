@@ -1,8 +1,5 @@
 import { Cache } from './Cache';
-import getColumnCount, {
-  FULL_WIDTH_DEFAULT_GUTTER,
-  FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH,
-} from './getColumnCount';
+import getColumnCount, { FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH } from './getColumnCount';
 import { getHeightAndGutter } from './layoutHelpers';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
@@ -12,7 +9,7 @@ import { Layout, LoadingStateItem, Position } from './types';
 const fullWidthLayout = <T>({
   width,
   idealColumnWidth = FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH,
-  gutter = FULL_WIDTH_DEFAULT_GUTTER,
+  gutter,
   minCols = 2,
   layout,
   measurementCache,
@@ -22,7 +19,7 @@ const fullWidthLayout = <T>({
   ...otherProps
 }: {
   idealColumnWidth?: number;
-  gutter?: number;
+  gutter: number;
   minCols?: number;
   layout: Layout;
   width?: number | null | undefined;

@@ -1,8 +1,5 @@
 import { Cache } from './Cache';
-import getColumnCount, {
-  DEFAULT_LAYOUT_DEFAULT_COLUMN_WIDTH,
-  DEFAULT_LAYOUT_DEFAULT_GUTTER,
-} from './getColumnCount';
+import getColumnCount, { DEFAULT_LAYOUT_DEFAULT_COLUMN_WIDTH } from './getColumnCount';
 import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
@@ -43,7 +40,7 @@ const defaultLayout =
   <T>({
     align,
     columnWidth = DEFAULT_LAYOUT_DEFAULT_COLUMN_WIDTH,
-    gutter = DEFAULT_LAYOUT_DEFAULT_GUTTER,
+    gutter,
     layout,
     minCols = 2,
     rawItemCount,
@@ -55,7 +52,7 @@ const defaultLayout =
     ...otherProps
   }: {
     columnWidth?: number;
-    gutter?: number;
+    gutter: number;
     align: Align;
     layout: Layout;
     minCols?: number;
