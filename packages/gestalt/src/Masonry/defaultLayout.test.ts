@@ -1,4 +1,5 @@
 import defaultLayout from './defaultLayout';
+import { DEFAULT_LAYOUT_DEFAULT_GUTTER } from './getColumnCount';
 import MeasurementStore from './MeasurementStore';
 import { Position } from './types';
 
@@ -27,6 +28,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'start',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -58,6 +60,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'center',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -90,6 +93,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'center',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basicCentered',
@@ -122,6 +126,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'end',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -154,6 +159,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'start',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -185,6 +191,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'start',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -266,6 +273,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
 
     const layout = defaultLayout({
       align: 'end',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -299,6 +307,7 @@ describe('loadingStateItems', () => {
 
     const layout = defaultLayout({
       align: 'start',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',
@@ -335,6 +344,7 @@ describe('loadingStateItems', () => {
 
     const layout = defaultLayout({
       align: 'start',
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       measurementCache: measurementStore,
       positionCache,
       layout: 'basic',

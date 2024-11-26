@@ -548,7 +548,6 @@ function getPositionsWithMultiColumnItem<T>({
   ) || {
     itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
   };
-  console.log({ itemsBatchSize });
 
   // Calculate how many items are on pre array and how many on graphBatch
   // pre items are positioned before the two column item
