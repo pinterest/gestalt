@@ -105,6 +105,7 @@ import conversionTag from './ic_vr_conversion-tag_gestalt.svg';
 import copyToClipboard from './ic_vr_copy-to-clipboard_gestalt.svg';
 import creditCard from './ic_vr_credit-card_gestalt.svg';
 import crop from './ic_vr_crop_gestalt.svg';
+import crystalBall from './ic_vr_crystal-ball_gestalt.svg';
 import cutout from './ic_vr_cutout_gestalt.svg';
 import dash from './ic_vr_dash_gestalt.svg';
 import dataSource from './ic_vr_data-source_gestalt.svg';
@@ -480,6 +481,7 @@ const icons = Object.freeze({
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
   'crop': crop,
+  'crystal-ball': crystalBall,
   'cutout': cutout,
   'dash': dash,
   'data-source': dataSource,

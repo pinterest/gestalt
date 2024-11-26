@@ -105,6 +105,7 @@ import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
 import crop from './crop.svg';
+import crystalBall from './crystal-ball.svg';
 import cutout from './cutout.svg';
 import dash from './dash.svg';
 import dataSource from './data-source.svg';
@@ -480,6 +481,7 @@ const icons = Object.freeze({
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
   'crop': crop,
+  'crystal-ball': crystalBall,
   'cutout': cutout,
   'dash': dash,
   'data-source': dataSource,
