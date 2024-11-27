@@ -3388,7 +3388,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-button-selected-disabled: #2e2e2d;
   --color-background-button-disabled-default: #2e2e2d;
   --color-background-checkbox-checked-default: #e8e7e1;
-  --color-background-checkbox-checked-error: #8a0f0f;
+  --color-background-checkbox-checked-error-error: #ff9494;
   --color-background-checkbox-disabled: #2e2e2d;
   --color-background-checkbox-unchecked-default: #000000;
   --color-background-checkbox-unchecked-error: #000000;
@@ -3461,7 +3461,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-border-button-hover: #b2b0ae;
   --color-border-button-pressed: #969292;
   --color-border-checkbox-checked-default: #e8e7e1;
-  --color-border-checkbox-checked-error: #8a0f0f;
+  --color-border-checkbox-checked-error: #ff9494;
   --color-border-checkbox-disabled: #2e2e2d;
   --color-border-checkbox-unchecked-default: #c7c6c1;
   --color-border-checkbox-unchecked-error: #ff9494;
@@ -4390,7 +4390,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-button-selected-disabled: #e8e7e1;
   --color-background-button-disabled-default: #e8e7e1;
   --color-background-checkbox-checked-default: #000000;
-  --color-background-checkbox-checked-error: #ffd3d1;
+  --color-background-checkbox-checked-error: #b2001a;
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
@@ -4463,7 +4463,7 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
-  --color-border-checkbox-checked-error: #ffd3d1;
+  --color-border-checkbox-checked-error: #b2001a;
   --color-border-checkbox-disabled: #e8e7e1;
   --color-border-checkbox-unchecked-default: #757570;
   --color-border-checkbox-unchecked-error: #b2001a;
@@ -5393,7 +5393,7 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-background-button-selected-disabled: #e8e7e1;
   --color-background-button-disabled-default: #e8e7e1;
   --color-background-checkbox-checked-default: #000000;
-  --color-background-checkbox-checked-error: #ffd3d1;
+  --color-background-checkbox-checked-error: #b2001a;
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
@@ -5466,7 +5466,7 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
-  --color-border-checkbox-checked-error: #ffd3d1;
+  --color-border-checkbox-checked-error: #b2001a;
   --color-border-checkbox-disabled: #e8e7e1;
   --color-border-checkbox-unchecked-default: #757570;
   --color-border-checkbox-unchecked-error: #b2001a;
@@ -6396,7 +6396,7 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-background-button-selected-disabled: #e8e7e1;
   --color-background-button-disabled-default: #e8e7e1;
   --color-background-checkbox-checked-default: #000000;
-  --color-background-checkbox-checked-error: #ffd3d1;
+  --color-background-checkbox-checked-error: #b2001a;
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
@@ -6469,7 +6469,7 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
-  --color-border-checkbox-checked-error: #ffd3d1;
+  --color-border-checkbox-checked-error: #b2001a;
   --color-border-checkbox-disabled: #e8e7e1;
   --color-border-checkbox-unchecked-default: #757570;
   --color-border-checkbox-unchecked-error: #b2001a;
@@ -7399,7 +7399,7 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-background-button-selected-disabled: #e8e7e1;
   --color-background-button-disabled-default: #e8e7e1;
   --color-background-checkbox-checked-default: #000000;
-  --color-background-checkbox-checked-error: #ffd3d1;
+  --color-background-checkbox-checked-error: #b2001a;
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
@@ -7472,7 +7472,7 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
-  --color-border-checkbox-checked-error: #ffd3d1;
+  --color-border-checkbox-checked-error: #b2001a;
   --color-border-checkbox-disabled: #e8e7e1;
   --color-border-checkbox-unchecked-default: #757570;
   --color-border-checkbox-unchecked-error: #b2001a;
@@ -8402,7 +8402,7 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-background-button-selected-disabled: #e8e7e1;
   --color-background-button-disabled-default: #e8e7e1;
   --color-background-checkbox-checked-default: #000000;
-  --color-background-checkbox-checked-error: #ffd3d1;
+  --color-background-checkbox-checked-error: #b2001a;
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
@@ -8475,7 +8475,7 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
-  --color-border-checkbox-checked-error: #ffd3d1;
+  --color-border-checkbox-checked-error: #b2001a;
   --color-border-checkbox-disabled: #e8e7e1;
   --color-border-checkbox-unchecked-default: #757570;
   --color-border-checkbox-unchecked-error: #b2001a;
@@ -9405,7 +9405,7 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-background-button-selected-disabled: #e8e7e1;
   --color-background-button-disabled-default: #e8e7e1;
   --color-background-checkbox-checked-default: #000000;
-  --color-background-checkbox-checked-error: #ffd3d1;
+  --color-background-checkbox-checked-error: #b2001a;
   --color-background-checkbox-disabled: #e8e7e1;
   --color-background-checkbox-unchecked-default: #ffffff;
   --color-background-checkbox-unchecked-error: #ffffff;
@@ -9478,7 +9478,7 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-border-button-hover: #626260;
   --color-border-button-pressed: #585856;
   --color-border-checkbox-checked-default: #000000;
-  --color-border-checkbox-checked-error: #ffd3d1;
+  --color-border-checkbox-checked-error: #b2001a;
   --color-border-checkbox-disabled: #e8e7e1;
   --color-border-checkbox-unchecked-default: #757570;
   --color-border-checkbox-unchecked-error: #b2001a;

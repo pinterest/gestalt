@@ -5,7 +5,7 @@ exports[`RadioGroup renders 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0"
+    className="label paddingX0 formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -64,7 +64,7 @@ exports[`RadioGroup renders a hidden legend 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0 visuallyHidden"
+    className="label paddingX0 visuallyHidden formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -124,7 +124,7 @@ exports[`RadioGroup renders an error 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0"
+    className="label paddingX0 formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -232,7 +232,7 @@ exports[`RadioGroup renders in different direction 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0 visuallyHidden"
+    className="label paddingX0 visuallyHidden formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
