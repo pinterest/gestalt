@@ -1,12 +1,4 @@
-import {
-  ComponentProps,
-  forwardRef,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
@@ -17,7 +9,6 @@ import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
 import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
-import useInExperiment from '../useInExperiment';
 import useInteractiveStates from '../utils/useInteractiveStates';
 import useTapScaleAnimation from '../utils/useTapScaleAnimation';
 
@@ -114,42 +105,20 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     ariaDescribedby = `${id}-helperText`;
   }
 
-  const isInVRExperiment =
-    useInExperiment({
-      webExperimentName: 'web_gestalt_visualRefresh',
-      mwebExperimentName: 'web_gestalt_visualRefresh',
-    }) && !style;
-
   const iconSizes = {
     sm: 8,
     md: 12,
   };
 
-  const vrIconSizes = {
-    sm: 10,
-    md: 12,
-  };
-
   const borderRadiusStyle = size === 'sm' ? styles.borderRadiusSm : styles.borderRadiusMd;
-  const borderRadiusStyleVr = size === 'sm' ? styles.vrBorderRadiusSm : styles.vrBorderRadiusMd;
   const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
-  const vrTextColor = disabled ? 'disabled' : undefined;
   const textColor = disabled ? 'subtle' : undefined;
-  const vrIconColor = disabled ? 'disabled' : 'inverse';
   const unchecked = !(checked || indeterminate);
 
   const bgStyle = classnames({
-    [styles.enabled]: !isInVRExperiment && !disabled && unchecked,
+    [styles.enabled]: !disabled && unchecked,
     [styles.disabled]: disabled,
     [styles.checked]: !unchecked && !disabled,
-    [styles.error]: isInVRExperiment && errorMessage && unchecked,
-    [styles.errorChecked]: isInVRExperiment && errorMessage && !unchecked,
-    [styles.hovered]:
-      isInVRExperiment && !disabled && isHovered && !isActive && !errorMessage && !unchecked,
-    [styles.hoveredError]:
-      !disabled && isHovered && !isActive && isInVRExperiment && errorMessage && !unchecked,
-    [styles.pressed]: isInVRExperiment && isActive && !disabled && !unchecked && !errorMessage,
-    [styles.pressedError]: isInVRExperiment && isActive && !disabled && !unchecked && errorMessage,
   });
 
   const borderStyle = classnames({
@@ -157,32 +126,18 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     [styles.borderDisabled]: disabled,
     [styles.borderSelected]: !disabled && !unchecked,
     [styles.borderErrorUnchecked]: errorMessage && unchecked,
-    [styles.borderErrorChecked]: errorMessage && !unchecked && isInVRExperiment,
-    [styles.borderHovered]:
-      !disabled && isHovered && !isActive && unchecked && (isInVRExperiment || !errorMessage),
-    [styles.borderHoveredError]:
-      !disabled && isHovered && !isActive && isInVRExperiment && errorMessage && unchecked,
-    [styles.borderPressed]: isInVRExperiment && isActive && !disabled && unchecked && !errorMessage,
-    [styles.borderPressedError]:
-      isInVRExperiment && isActive && !disabled && unchecked && errorMessage,
+    [styles.borderHovered]: !disabled && isHovered && !isActive && unchecked && !errorMessage,
   });
 
   const divStyles = classnames(
     bgStyle,
     borderStyle,
-    isInVRExperiment ? borderRadiusStyleVr : borderRadiusStyle,
+    borderRadiusStyle,
     styleSize,
     styles.check,
+    styles.thickBorder,
     {
-      [styles.thickBorder]:
-        !isInVRExperiment || (errorMessage && unchecked) || isHovered || isActive,
-      [styles.thinBorder]:
-        isInVRExperiment &&
-        !((isFocused && isFocusVisible) || isHovered || isActive || errorMessage),
-      [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
-      [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
-      [tapScaleAnimation.classes]: isInVRExperiment,
-      [styles.vrCheckBackground]: isInVRExperiment,
+      [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible,
     },
   );
 
@@ -191,43 +146,18 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     [styles.readOnly]: readOnly,
   });
 
-  const iconWrapperStyles = classnames(styles.vrCheckIconWrapper, {
-    [styles.vrCheckIconEnterTransition]: !unchecked,
-    [styles.vrCheckIconExitTransition]: unchecked,
-  });
-
   return (
     <Box>
       <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
-        <Box alignSelf="center" paddingX={isInVRExperiment ? 0 : 1} position="relative">
+        <Box paddingX={1} position="relative">
           <div ref={tapScaleAnimation.elementRef} className={divStyles} style={style}>
-            {isInVRExperiment ? (
-              <div style={{ width: vrIconSizes[size] }}>
-                <div
-                  className={iconWrapperStyles}
-                  style={{ width: checked || indeterminate ? vrIconSizes[size] : 0 }}
-                >
-                  <Icon
-                    accessibilityLabel=""
-                    color={isInVRExperiment ? vrIconColor : 'inverse'}
-                    icon={
-                      indeterminate
-                        ? ('compact-dash' as ComponentProps<typeof Icon>['icon'])
-                        : ('compact-check' as ComponentProps<typeof Icon>['icon'])
-                    }
-                    size={isInVRExperiment ? vrIconSizes[size] : iconSizes[size]}
-                  />
-                </div>
-              </div>
-            ) : (
-              (checked || indeterminate) && (
-                <Icon
-                  accessibilityLabel=""
-                  color={isInVRExperiment ? vrIconColor : 'inverse'}
-                  icon={indeterminate ? 'dash' : 'check'}
-                  size={iconSizes[size]}
-                />
-              )
+            {(checked || indeterminate) && (
+              <Icon
+                accessibilityLabel=""
+                color="inverse"
+                icon={indeterminate ? 'dash' : 'check'}
+                size={iconSizes[size]}
+              />
             )}
           </div>
           <input
@@ -248,13 +178,11 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             onFocus={handleOnFocus}
             onMouseDown={() => {
               handleOnMouseDown();
-              if (isInVRExperiment) tapScaleAnimation.handleMouseDown();
             }}
             onMouseEnter={handleOnMouseEnter}
             onMouseLeave={handleOnMouseLeave}
             onMouseUp={() => {
               handleOnMouseUp();
-              if (isInVRExperiment) tapScaleAnimation.handleMouseUp();
             }}
             type="checkbox"
           />
@@ -262,22 +190,15 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         {Boolean(image) && <Box paddingX={1}>{image}</Box>}
         {label && (
           <Box
-            dangerouslySetInlineStyle={
-              isInVRExperiment
-                ? undefined
-                : {
-                    __style: { marginTop: size === 'md' ? '2px' : '-1px' },
-                  }
-            }
+            dangerouslySetInlineStyle={{
+              __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+            }}
             //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
             display={labelDisplay === 'hidden' ? 'visuallyHidden' : 'block'}
           >
             <Label htmlFor={id}>
               <Box paddingX={1}>
-                <Text
-                  color={isInVRExperiment ? vrTextColor : textColor}
-                  size={size === 'sm' ? '200' : '300'}
-                >
+                <Text color={textColor} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
               </Box>

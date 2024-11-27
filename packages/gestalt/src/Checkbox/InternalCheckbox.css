@@ -181,3 +181,23 @@
   opacity: var(--opacity-0);
   outline: 0;
 }
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputWrapperPaddingTop {
+  padding-top: var(--sema-space-50);
+}
+
+html:not([dir="rtl"]) .labelWrapper {
+  padding-left: var(--sema-space-200);
+}
+
+html[dir="rtl"] .labelWrapper {
+  padding-right: var(--sema-space-200);
+}
+
+.labelWrapperPaddingTop {
+  padding-top: var(--sema-space-25);
+}
