@@ -1,3 +1,9 @@
+## 165.4.1 (Nov 27, 2024)
+
+### Patch
+
+- CheckBox: VR certification fixes ([#3895](https://github.com/pinterest/gestalt/pull/3895)) - [Preview link](https://deploy-preview-3895--gestalt.netlify.app?devexample=true)
+
 ## 165.4.0 (Nov 26, 2024)
 
 ### Minor
