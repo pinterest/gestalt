@@ -9,7 +9,7 @@ export default function Example() {
         <Checkbox
           checked
           helperText="Helper Text"
-          id="Indeterminate"
+          id="Indeterminate sm"
           indeterminate
           label="Indeterminate"
           onChange={noop}
@@ -18,7 +18,7 @@ export default function Example() {
         <Checkbox
           checked
           helperText="Helper Text"
-          id="Indeterminate"
+          id="Indeterminate md"
           indeterminate
           label="Indeterminate"
           onChange={noop}

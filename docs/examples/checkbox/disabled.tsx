@@ -11,7 +11,7 @@ export default function Example() {
             checked={false}
             disabled
             helperText="Helper Text"
-            id="Disabled"
+            id="Disabled sm"
             label="Disabled"
             onChange={noop}
             size="sm"
@@ -20,7 +20,7 @@ export default function Example() {
             checked
             disabled
             helperText="Helper Text"
-            id="DisabledChecked"
+            id="Disabled Checked sm"
             label="Disabled Checked"
             onChange={noop}
             size="sm"
@@ -28,9 +28,9 @@ export default function Example() {
           <Checkbox
             disabled
             helperText="Helper Text"
-            id="DisabledIndeterminate"
+            id="Disabled indeterminate sm"
             indeterminate
-            label="Disabled indeterminate"
+            label="Disabled indeterminate "
             onChange={noop}
             size="sm"
           />
@@ -40,7 +40,7 @@ export default function Example() {
             checked={false}
             disabled
             helperText="Helper Text"
-            id="Disabled"
+            id="Disabled md"
             label="Disabled"
             onChange={noop}
             size="md"
@@ -49,7 +49,7 @@ export default function Example() {
             checked
             disabled
             helperText="Helper Text"
-            id="DisabledChecked"
+            id="Disabled Checked md"
             label="Disabled Checked"
             onChange={noop}
             size="md"
@@ -57,13 +57,13 @@ export default function Example() {
           <Checkbox
             disabled
             helperText="Helper Text"
-            id="DisabledIndeterminate"
+            id="Disabled Indeterminate md"
             indeterminate
             label="Disabled indeterminate"
             onChange={noop}
             size="md"
           />
-        </Flex>{' '}
+        </Flex>
       </Flex>
     </Box>
   );

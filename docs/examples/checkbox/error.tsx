@@ -11,7 +11,7 @@ export default function Example() {
             checked={false}
             errorMessage="Error Message"
             helperText="Helper Text"
-            id="ErrorState"
+            id="Error sm"
             label="Error"
             onChange={noop}
             size="sm"
@@ -20,7 +20,7 @@ export default function Example() {
             checked
             errorMessage="Error Message"
             helperText="Helper Text"
-            id="ErrorStateChecked"
+            id="Error Checked sm"
             label="Error Checked"
             onChange={noop}
             size="sm"
@@ -28,7 +28,7 @@ export default function Example() {
           <Checkbox
             errorMessage="Error Message"
             helperText="Helper Text"
-            id="ErrorStateIndeterminate"
+            id="Error Indeterminate sm"
             indeterminate
             label="Error indeterminate"
             onChange={noop}
@@ -40,7 +40,7 @@ export default function Example() {
             checked={false}
             errorMessage="Error Message"
             helperText="Helper Text"
-            id="ErrorState"
+            id="Error md"
             label="Error"
             onChange={noop}
             size="md"
@@ -49,7 +49,7 @@ export default function Example() {
             checked
             errorMessage="Error Message"
             helperText="Helper Text"
-            id="ErrorStateChecked"
+            id="Error Checked md"
             label="Error Checked"
             onChange={noop}
             size="md"
@@ -57,7 +57,7 @@ export default function Example() {
           <Checkbox
             errorMessage="Error Message"
             helperText="Helper Text"
-            id="ErrorStateIndeterminate"
+            id="Error Indeterminate  md"
             indeterminate
             label="Error indeterminate"
             onChange={noop}
