@@ -38,6 +38,7 @@ import IconButtonFloating from './IconButtonFloating';
 import IconButtonLink from './IconButtonLink';
 import IconCompact from './IconCompact';
 import Image from './Image';
+import Indicator from './Indicator';
 import Label from './Label';
 import Layer from './Layer';
 import Letterbox from './Letterbox';
@@ -132,6 +133,7 @@ export {
   IconButtonLink,
   IconCompact,
   Image,
+  Indicator,
   Label,
   Layer,
   Letterbox,

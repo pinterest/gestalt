@@ -439,6 +439,9 @@
           }
         }
       },
+      "indicator": {
+        "value": "{color.background.primary.base.value}"
+      },
       "mask": {
         "wash": {
           "value": "rgba(0, 0, 0, 0.04)"
@@ -819,6 +822,9 @@
         "disabled": {
           "value": "#efefef"
         }
+      },
+      "indicator": {
+        "value": "{color.white.mochimalist.0.value}"
       },
       "popover": {
         "primary": {
