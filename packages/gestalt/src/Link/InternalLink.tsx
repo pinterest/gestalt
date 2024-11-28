@@ -302,6 +302,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      role={accessibilityCurrent && accessibilityCurrent === 'section' ? 'tab' : undefined}
       tabIndex={disabled ? undefined : tabIndex}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       target={target ? `_${target}` : undefined}
