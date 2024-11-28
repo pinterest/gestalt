@@ -1,3 +1,9 @@
+## 165.4.3 (Nov 28, 2024)
+
+### Patch
+
+- Checkbox: VR adjustments ([#3896](https://github.com/pinterest/gestalt/pull/3896)) - [Preview link](https://deploy-preview-3896--gestalt.netlify.app?devexample=true)
+
 ## 165.4.2 (Nov 28, 2024)
 
 ### Patch
