@@ -209,7 +209,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           type="checkbox"
         />
       </div>
-      {Boolean(image) && <Box paddingX={1}>{image}</Box>}
+      {Boolean(image) && <div className={classnames(styles.labelWrapper)}>{image}</div>}
       {label && (
         <Box
           //  marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input
@@ -227,7 +227,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             </Label>
           </div>
 
-          <div className={classnames(styles.labelWrapper, {})}>
+          <div className={classnames(styles.labelWrapper)}>
             {helperText ? (
               <FormHelperText
                 disabled={disabled}
