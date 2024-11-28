@@ -1,3 +1,9 @@
+## 165.4.2 (Nov 28, 2024)
+
+### Patch
+
+- Link: role tab for aria-current === section ([#3897](https://github.com/pinterest/gestalt/pull/3897)) - [Preview link](https://deploy-preview-3897--gestalt.netlify.app?devexample=true)
+
 ## 165.4.1 (Nov 27, 2024)
 
 ### Patch
