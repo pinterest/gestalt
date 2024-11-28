@@ -23,16 +23,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <AccessibilitySection name={generatedDocGen?.displayName}>
-        <MainSection.Subsection
-          description={`Status.
-
-Status.
-`}
-          title="Role"
-        />
-      </AccessibilitySection>
-
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
