@@ -19,10 +19,10 @@ type Props = {
 };
 
 /**
- * [Indicator](https://gestalt.pinterest.systems/web/badge) is a label that indicates status or importance. Badges should provide quick recognition.
+ * [Indicator](https://gestalt.pinterest.systems/web/indicator) displays a visual affordance that something has been updated (either with a quantitative number or not)
  *
- * ![Badge light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge.spec.ts-snapshots/Badge-chromium-darwin.png)
- * ![Badge dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Badge-dark.spec.ts-snapshots/Badge-dark-chromium-darwin.png)
+ * ![Indicator light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Indicator.spec.ts-snapshots/Indicator-chromium-darwin.png)
+ * ![Indicator dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Indicator-dark.spec.ts-snapshots/Indicator-dark-chromium-darwin.png)
  *
  */
 export default function Indicator({ accessibilityLabel, count, dataTestId }: Props) {
