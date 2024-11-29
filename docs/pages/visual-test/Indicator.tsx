@@ -1,4 +1,4 @@
-import { Box, Flex,Indicator } from 'gestalt';
+import { Box, Flex, Indicator } from 'gestalt';
 
 export default function Snapshot() {
   return (
