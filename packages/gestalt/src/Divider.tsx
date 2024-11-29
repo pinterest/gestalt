@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import styles from './Divider.css';
 import useInExperiment from './useInExperiment';
 
@@ -17,7 +18,10 @@ export default function Divider({}: Record<any, any>) {
 
   return (
     <hr
-      className={(styles.divider, isInVRExperiment ? styles.VRborderColor : styles.borderColor)}
+      className={classnames(
+        styles.divider,
+        isInVRExperiment ? styles.VRborderColor : styles.borderColor,
+      )}
     />
   );
 }

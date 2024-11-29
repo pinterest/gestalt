@@ -2,6 +2,6 @@
 
 exports[`Divider renders 1`] = `
 <hr
-  className="divider"
+  className="divider borderColor"
 />
 `;
