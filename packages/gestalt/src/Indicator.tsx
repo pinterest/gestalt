@@ -47,7 +47,7 @@ export default function Indicator({ accessibilityLabel, count, dataTestId }: Pro
   return (
     <div
       aria-label={accessibilityLabel}
-      className={classnames(styles.counter, {[styles.marginTop]: !isInVRExperiment})}
+      className={classnames(styles.counter, { [styles.marginTop]: !isInVRExperiment })}
       data-test-id={dataTestId}
       role="status"
     >
@@ -55,8 +55,5 @@ export default function Indicator({ accessibilityLabel, count, dataTestId }: Pro
         {displayCount}
       </TextUI>
     </div>
-
   );
-
-
 }
