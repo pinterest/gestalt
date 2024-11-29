@@ -1,4 +1,5 @@
 import styles from './Divider.css';
+import useInExperiment from './useInExperiment';
 
 /**
  * [Divider](https://gestalt.pinterest.systems/web/divider) is a light gray 1px horizontal or vertical line which groups and divides content in lists and layouts.
@@ -9,7 +10,16 @@ import styles from './Divider.css';
  */
 // eslint-disable-next-line no-empty-pattern
 export default function Divider({}: Record<any, any>) {
-  return <hr className={styles.divider} />;
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
+  return (
+    <hr
+      className={(styles.divider, isInVRExperiment ? styles.VRborderColor : styles.borderColor)}
+    />
+  );
 }
 
 Divider.displayName = 'Divider';
