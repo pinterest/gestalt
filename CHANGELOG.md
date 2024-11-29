@@ -1,3 +1,9 @@
+## 165.4.5 (Nov 29, 2024)
+
+### Patch
+
+- Divider: VR adjusments ([#3900](https://github.com/pinterest/gestalt/pull/3900)) - [Preview link](https://deploy-preview-3900--gestalt.netlify.app?devexample=true)
+
 ## 165.4.4 (Nov 29, 2024)
 
 ### Patch
