@@ -1,3 +1,9 @@
+## 165.4.4 (Nov 29, 2024)
+
+### Patch
+
+- HelpButton: VR adjusments ([#3899](https://github.com/pinterest/gestalt/pull/3899)) - [Preview link](https://deploy-preview-3899--gestalt.netlify.app?devexample=true)
+
 ## 165.4.3 (Nov 28, 2024)
 
 ### Patch
