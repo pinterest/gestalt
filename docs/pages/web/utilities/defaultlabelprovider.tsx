@@ -273,6 +273,11 @@ function getLabelsTable(/* fallbackLabels: { [string]: { [string]: mixed } } */)
       label: 'Click to learn more',
     },
     {
+      component: 'Tabs',
+      prop: 'indicator',
+      label: 'This tab is displaying a notification indicator',
+    },
+    {
       component: 'Toast',
       prop: 'accessibilityDismissButtonLabel',
       label: 'Dismiss message',

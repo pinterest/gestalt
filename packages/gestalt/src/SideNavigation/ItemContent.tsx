@@ -13,6 +13,7 @@ import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import icons from '../icons/index';
+import Indicator from '../Indicator';
 import Text from '../Text';
 import { Indexable } from '../zIndex';
 
@@ -145,16 +146,9 @@ export default function ItemContent({
       width={collapsed ? 44 : undefined}
     >
       {collapsed && icon && notificationAccessibilityLabel ? (
-        <Box
-          aria-label={notificationAccessibilityLabel}
-          color="primary"
-          dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
-          height={8}
-          position="absolute"
-          role="status"
-          rounding="circle"
-          width={8}
-        />
+        <Box dangerouslySetInlineStyle={{ __style: { right: 4, top: 0 } }} position="absolute">
+          <Indicator accessibilityLabel={notificationAccessibilityLabel} position="top" />
+        </Box>
       ) : null}
 
       <Flex
@@ -200,14 +194,7 @@ export default function ItemContent({
                     <Badge text={badge.text} type={badge.type} />
                   ) : null}
                   {notificationAccessibilityLabel ? (
-                    <Box
-                      aria-label={notificationAccessibilityLabel}
-                      color="primary"
-                      height={8}
-                      role="status"
-                      rounding="circle"
-                      width={8}
-                    />
+                    <Indicator accessibilityLabel={notificationAccessibilityLabel} />
                   ) : null}
                 </Box>
               )}

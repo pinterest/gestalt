@@ -5,13 +5,17 @@ exports[`Indicator as counter with 1 digit 1`] = `
   <div>
     <div
       aria-label="Counter"
-      class="counter marginTop"
+      class="placementMiddle"
       role="status"
     >
       <div
-        class="light alignCenter breakWord Text fontWeightSemiBold fontSize100"
+        class="counter marginTop"
       >
-        3
+        <div
+          class="light alignCenter breakWord Text fontWeightSemiBold fontSize100"
+        >
+          3
+        </div>
       </div>
     </div>
   </div>
@@ -23,13 +27,17 @@ exports[`Indicator as counter with 3 digits 1`] = `
   <div>
     <div
       aria-label="Counter"
-      class="counter marginTop"
+      class="placementMiddle"
       role="status"
     >
       <div
-        class="light alignCenter breakWord Text fontWeightSemiBold fontSize100"
+        class="counter marginTop"
       >
-        99+
+        <div
+          class="light alignCenter breakWord Text fontWeightSemiBold fontSize100"
+        >
+          99+
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +49,7 @@ exports[`Indicator as notification 1`] = `
   <div>
     <div
       aria-label="Notification"
-      class="notification"
+      class="notification placementMiddle"
       role="status"
     />
   </div>

@@ -16,6 +16,10 @@ type Props = {
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
   dataTestId?: string;
+  /**
+   * Indicator position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/indicator#Positioning) variant to learn more.
+   */
+  position?: 'middle' | 'top';
 };
 
 /**
@@ -25,7 +29,12 @@ type Props = {
  * ![Indicator dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Indicator-dark.spec.ts-snapshots/Indicator-dark-chromium-darwin.png)
  *
  */
-export default function Indicator({ accessibilityLabel, count, dataTestId }: Props) {
+export default function Indicator({
+  accessibilityLabel,
+  count,
+  dataTestId,
+  position = 'middle',
+}: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
@@ -35,7 +44,10 @@ export default function Indicator({ accessibilityLabel, count, dataTestId }: Pro
     return (
       <div
         aria-label={accessibilityLabel}
-        className={classnames(styles.notification)}
+        className={classnames(
+          styles.notification,
+          position === 'middle' ? styles.placementMiddle : styles.placementTop,
+        )}
         data-test-id={dataTestId}
         role="status"
       />
@@ -47,13 +59,15 @@ export default function Indicator({ accessibilityLabel, count, dataTestId }: Pro
   return (
     <div
       aria-label={accessibilityLabel}
-      className={classnames(styles.counter, { [styles.marginTop]: !isInVRExperiment })}
+      className={classnames(position === 'middle' ? styles.placementMiddle : styles.placementTop)}
       data-test-id={dataTestId}
       role="status"
     >
-      <TextUI align="center" color="light" size="xs">
-        {displayCount}
-      </TextUI>
+      <div className={classnames(styles.counter, { [styles.marginTop]: !isInVRExperiment })}>
+        <TextUI align="center" color="light" size="xs">
+          {displayCount}
+        </TextUI>
+      </div>
     </div>
   );
 }
