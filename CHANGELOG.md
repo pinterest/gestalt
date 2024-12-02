@@ -1,3 +1,9 @@
+## 165.5.0 (Dec 2, 2024)
+
+### Minor
+
+- Indicator: new component ([#3898](https://github.com/pinterest/gestalt/pull/3898)) - [Preview link](https://deploy-preview-3898--gestalt.netlify.app?devexample=true)
+
 ## 165.4.5 (Nov 29, 2024)
 
 ### Patch
