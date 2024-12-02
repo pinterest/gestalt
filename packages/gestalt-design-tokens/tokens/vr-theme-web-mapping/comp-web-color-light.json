@@ -318,6 +318,9 @@
           }
         }
       },
+      "indicator": {
+        "value": "{sema.color.background.primary.value}"
+      },
       "switch": {
         "default": {
           "unselected": {
@@ -516,6 +519,9 @@
             "value": "{sema.color.hover.border.interactive.value}"
           }
         }
+      },
+      "indicator": {
+        "value": "{sema.color.border.inverse.value}"
       },
       "switch": {
         "default": {

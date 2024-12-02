@@ -535,6 +535,9 @@
           }
         }
       },
+      "indicator": {
+        "value": "{sema.color.border.inverse.value}"
+      },
       "switch": {
         "focus": {
           "inner": {
