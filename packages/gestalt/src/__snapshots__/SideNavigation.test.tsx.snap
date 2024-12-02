@@ -491,14 +491,8 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                   </div>
                                   <div
                                     aria-label="You have new messages"
-                                    className="box circle primary"
+                                    className="notification"
                                     role="status"
-                                    style={
-                                      Object {
-                                        "height": 8,
-                                        "width": 8,
-                                      }
-                                    }
                                   />
                                 </div>
                               </span>

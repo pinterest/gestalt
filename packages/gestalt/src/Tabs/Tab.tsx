@@ -21,7 +21,7 @@ import useInExperiment from '../useInExperiment';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type TabType = {
-  indicatorAccessibilityLabel?: string;
+  notificationAccessibilityLabel?: string;
   href: string;
   id?: string;
   indicator?: 'dot' | number;
@@ -55,7 +55,7 @@ const COLORS = Object.freeze({
 
 const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
   {
-    indicatorAccessibilityLabel,
+    notificationAccessibilityLabel,
     bgColor,
     href,
     indicator,
@@ -80,7 +80,6 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     isActive: isPressed,
   } = useInteractiveStates();
 
-
   const { isFocusVisible } = useFocusVisible();
 
   const isInVRExperiment = useInExperiment({
@@ -88,9 +87,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-    const { indicator: defaultIndicatorAccessibilityLabel } =
-    useDefaultLabelContext('Tabs');
-
+  const { accessibilityNotificationLabel } = useDefaultLabelContext('Tabs');
 
   const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
@@ -155,12 +152,18 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
               </TextUI>
 
               {indicator === 'dot' && (
-                <Indicator accessibilityLabel={defaultIndicatorAccessibilityLabel ?? 'temproary'} />
+                <Indicator
+                  accessibilityLabel={
+                    notificationAccessibilityLabel ?? accessibilityNotificationLabel
+                  }
+                />
               )}
               {/* Number.isFinite will return false for a string or undefined */}
               {typeof indicator === 'number' && Number.isFinite(indicator) && (
                 <Indicator
-                  accessibilityLabel={defaultIndicatorAccessibilityLabel ?? 'temproary'}
+                  accessibilityLabel={
+                    notificationAccessibilityLabel ?? accessibilityNotificationLabel
+                  }
                   count={indicator}
                 />
               )}

@@ -120,7 +120,7 @@ describe('useDefaultLabelContext', () => {
             tooltipMessage: 'Click to learn more',
           },
           Tabs: {
-            indicator: 'This tab is displaying a notification indicator',
+            accessibilityNotificationLabel: 'This tab is displaying a notification indicator',
           },
           Toast: {
             accessibilityDismissButtonLabel: 'Dismiss message',
