@@ -1,3 +1,9 @@
+## 166.0.0 (Dec 2, 2024)
+
+### Major
+
+- SideNavigation, Tabs, DefaultLabelProvider: implemented Indicator ([#3901](https://github.com/pinterest/gestalt/pull/3901)) - [Preview link](https://deploy-preview-3901--gestalt.netlify.app?devexample=true)
+
 ## 165.5.0 (Dec 2, 2024)
 
 ### Minor
