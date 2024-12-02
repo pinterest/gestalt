@@ -7,8 +7,8 @@ import {
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+  TOKEN_ROUNDING_0,
 } from 'gestalt-design-tokens';
-import { Underline } from './subcomponents';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
@@ -182,7 +182,17 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
                 // 4px/boint, padding on left and right
                 width={`calc(100% - ${(isInVRExperiment ? 2 : 2) * 4 * 2}px)`}
               >
-                <Underline />
+                {/* Active tab underline */}
+                <Box
+                  color="selected"
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      borderRadius: isInVRExperiment ? TOKEN_ROUNDING_0 : 1.5,
+                    },
+                  }}
+                  height={isInVRExperiment ? 2 : 3}
+                  width="100%"
+                />
               </Box>
             )}
           </Box>

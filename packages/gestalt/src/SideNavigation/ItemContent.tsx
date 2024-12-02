@@ -146,8 +146,8 @@ export default function ItemContent({
       width={collapsed ? 44 : undefined}
     >
       {collapsed && icon && notificationAccessibilityLabel ? (
-        <Box dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }} position="absolute">
-          <Indicator accessibilityLabel={notificationAccessibilityLabel} />
+        <Box dangerouslySetInlineStyle={{ __style: { right: 4, top: 0 } }} position="absolute">
+          <Indicator accessibilityLabel={notificationAccessibilityLabel} position="top" />
         </Box>
       ) : null}
 

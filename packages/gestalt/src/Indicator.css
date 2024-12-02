@@ -21,3 +21,13 @@
 .marginTop {
   padding-top: 1px;
 }
+
+.placementMiddle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.placementTop {
+  display: inline-block;
+  vertical-align: top;
+}

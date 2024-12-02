@@ -100,8 +100,8 @@ export type DefaultLabelContextType = {
     accessibilityLabel: string;
   };
   Tabs: {
-    accessibilityNotificationLabel: string,
-  },
+    accessibilityNotificationLabel: string;
+  };
   TableOfContents: {
     accessibilityLabel: string;
   };
@@ -232,6 +232,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   TableOfContents: {
     accessibilityLabel: 'Table of contents',
   },
+  Tabs: {
+    accessibilityNotificationLabel: 'This tab is displaying a notification indicator',
+  },
   Tag: {
     accessibilityErrorIconLabel: 'Error',
     accessibilityRemoveIconLabel: 'Remove tag',
@@ -247,9 +250,7 @@ export const fallbackLabels: DefaultLabelContextType = {
   HelpButton: {
     tooltipMessage: 'Click to learn more',
   },
-  Tabs: {
-    accessibilityNotificationLabel: 'This tab is displaying a notification indicator',
-  },
+
   Toast: {
     accessibilityDismissButtonLabel: 'Dismiss message',
     accessibilityIconSuccessLabel: 'Success message',

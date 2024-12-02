@@ -214,7 +214,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               >
                 <div
                   aria-label="This tab is displaying a notification indicator"
-                  className="notification"
+                  className="notification placementMiddle"
                   role="status"
                 />
               </div>
@@ -305,7 +305,7 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
               >
                 <div
                   aria-label="This tab is displaying a notification indicator"
-                  className="notification"
+                  className="notification placementMiddle"
                   role="status"
                 />
               </div>
