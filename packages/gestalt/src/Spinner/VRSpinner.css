@@ -27,52 +27,36 @@ svg * {
   transform-box: fill-box;
 }
 
-.spinner g {
+.spinner circle {
   /* Declaration of variables. Actual values are read from `styles` attirbute. */
   --g-start-x: 0;
   --g-start-y: 0;
 
-  animation-duration: var(--g-intro-duration);
-  animation-fill-mode: both;
-  animation-iteration-count: 1;
-  animation-name: dot-intro;
-  animation-timing-function: ease-in-out;
-  transform-origin: center center;
-}
+  /* Shorthand for calculated delay. */
+  --g-base-delay: calc(var(--g-intro-duration) + var(--g-enter-delay));
 
-.spinner g:nth-child(1) {
-  animation-delay: var(--g-enter-delay);
-}
-
-.spinner g:nth-child(2) {
-  animation-delay: calc(var(--g-enter-delay) + 50ms);
-}
-
-.spinner g:nth-child(3) {
-  animation-delay: calc(var(--g-enter-delay) + 100ms);
-}
-
-.spinner circle {
   animation-composition: add;
-  animation-duration: 1.8s, 800ms;
-  animation-iteration-count: infinite;
-  animation-name: colors, scale;
-  animation-timing-function: linear;
+  animation-duration: 800ms, 1.8s, var(--g-intro-duration);
+  animation-fill-mode: both;
+  animation-iteration-count: infinite, infinite, 1;
+  animation-name: scale, colors, dot-intro;
+  animation-timing-function: linear, linear, ease-in-out;
   transform-origin: center center;
 }
 
-.spinner g:nth-child(1) circle {
-  animation-delay: 0s, calc(var(--g-enter-delay) + var(--g-intro-duration));
+.spinner circle:nth-child(1) {
+  animation-delay: calc(var(--g-base-delay) + 0ms), var(--g-base-delay),
+    var(--g-enter-delay);
 }
 
-.spinner g:nth-child(2) circle {
-  animation-delay: 0s,
-    calc(var(--g-enter-delay) + var(--g-intro-duration) + 100ms);
+.spinner circle:nth-child(2) {
+  animation-delay: calc(var(--g-base-delay) + 100ms), var(--g-base-delay),
+    calc(var(--g-enter-delay) + 150ms);
 }
 
-.spinner g:nth-child(3) circle {
-  animation-delay: 0s,
-    calc(var(--g-enter-delay) + var(--g-intro-duration) + 200ms);
+.spinner circle:nth-child(3) {
+  animation-delay: calc(var(--g-base-delay) + 200ms), var(--g-base-delay),
+    calc(var(--g-enter-delay) + 300ms);
 }
 
 @keyframes dot-intro {
