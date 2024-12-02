@@ -99,6 +99,9 @@ export type DefaultLabelContextType = {
   Spinner: {
     accessibilityLabel: string;
   };
+  Tabs: {
+    indicator: string,
+  },
   TableOfContents: {
     accessibilityLabel: string;
   };
@@ -243,6 +246,9 @@ export const fallbackLabels: DefaultLabelContextType = {
   },
   HelpButton: {
     tooltipMessage: 'Click to learn more',
+  },
+  Tabs: {
+    indicator: 'This tab is displaying a notification indicator',
   },
   Toast: {
     accessibilityDismissButtonLabel: 'Dismiss message',

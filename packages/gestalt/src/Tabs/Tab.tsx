@@ -8,9 +8,11 @@ import {
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
 } from 'gestalt-design-tokens';
-import { Count, Notification, Underline } from './subcomponents';
+import { Underline } from './subcomponents';
 import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
+import Indicator from '../Indicator';
 import style from '../Tabs.css';
 import TapAreaLink from '../TapAreaLink';
 import TextUI from '../TextUI';
@@ -19,6 +21,7 @@ import useInExperiment from '../useInExperiment';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type TabType = {
+  indicatorAccessibilityLabel?: string;
   href: string;
   id?: string;
   indicator?: 'dot' | number;
@@ -51,7 +54,18 @@ const COLORS = Object.freeze({
 });
 
 const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
-  { bgColor, href, indicator, id, index, isActive, onChange, text, dataTestId }: TabProps,
+  {
+    indicatorAccessibilityLabel,
+    bgColor,
+    href,
+    indicator,
+    id,
+    index,
+    isActive,
+    onChange,
+    text,
+    dataTestId,
+  }: TabProps,
   ref,
 ) {
   const {
@@ -66,12 +80,17 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     isActive: isPressed,
   } = useInteractiveStates();
 
+
   const { isFocusVisible } = useFocusVisible();
 
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+    const { indicator: defaultIndicatorAccessibilityLabel } =
+    useDefaultLabelContext('Tabs');
+
 
   const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
@@ -135,10 +154,15 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
                 {text}
               </TextUI>
 
-              {indicator === 'dot' && <Notification />}
+              {indicator === 'dot' && (
+                <Indicator accessibilityLabel={defaultIndicatorAccessibilityLabel ?? 'temproary'} />
+              )}
               {/* Number.isFinite will return false for a string or undefined */}
               {typeof indicator === 'number' && Number.isFinite(indicator) && (
-                <Count count={indicator} />
+                <Indicator
+                  accessibilityLabel={defaultIndicatorAccessibilityLabel ?? 'temproary'}
+                  count={indicator}
+                />
               )}
             </Flex>
 
