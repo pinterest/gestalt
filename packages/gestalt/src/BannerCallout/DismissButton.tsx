@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import styles from '../BannerCallout.css';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
-import IconButton from '../IconButton';
+import InternalIconCompactButton from '../IconButton/InternalIconCompactButton';
 
 type Props = {
   size?: 'sm' | 'lg';
@@ -21,9 +21,9 @@ export default function DismissButton({ dismissButton, size = 'lg' }: Props) {
         size === 'lg' ? styles.lgRtlVRPos : styles.smRtlVRPos,
       )}
     >
-      <IconButton
+      <InternalIconCompactButton
         accessibilityLabel={dismissButton?.accessibilityLabel ?? accessibilityDismissButtonLabel}
-        icon="cancel"
+        icon="compact-cancel"
         iconColor="darkGray"
         onClick={dismissButton?.onDismiss}
         size="sm"

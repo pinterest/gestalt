@@ -178,8 +178,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
 
   const thumbnailVariant = thumbnail && (
     <Box marginEnd={3}>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {'avatar' in thumbnail && selected && (
+      <Flex
+        alignItems="center"
+        gap={{ row: isInVRExperiment ? 3 : 2, column: 0 }}
+        justifyContent="center"
+      >
+        {'avatar' in thumbnail && (
           <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
@@ -190,7 +194,13 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           </Box>
         )}
         {'image' in thumbnail && (
-          <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
+          <div
+            className={
+              isInVRExperiment
+                ? classnames(styles.imageDivVr, { [styles.selectedVr]: selected })
+                : styles.imageDiv
+            }
+          >
             {cloneElement(thumbnail.image, { fit: 'cover' })}
           </div>
         )}
@@ -217,9 +227,8 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       </Flex>
     </Box>
   );
-
   const textVariant = (
-    <Box paddingX={5}>
+    <Box paddingX={isInVRExperiment ? 4 : 5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
         {expandable ? (

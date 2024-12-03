@@ -1,0 +1,33 @@
+.notification {
+  composes: borderBox from "./Layout.css";
+  background-color: var(--color-background-box-primary);
+  border-radius: var(--rounding-circle);
+  height: 6px;
+  width: 6px;
+}
+
+.counter {
+  composes: borderBox from "./Layout.css";
+  background-color: var(--color-background-box-primary);
+  border-radius: var(--rounding-pill);
+  display: flex;
+  height: 16px;
+  justify-content: center;
+  min-width: 16px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.marginTop {
+  padding-top: 1px;
+}
+
+.placementMiddle {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.placementTop {
+  display: inline-block;
+  vertical-align: top;
+}

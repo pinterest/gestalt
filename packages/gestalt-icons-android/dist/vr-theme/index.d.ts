@@ -106,6 +106,7 @@ declare const icons: Readonly<{
     'copy-to-clipboard': any;
     'credit-card': any;
     crop: any;
+    'crystal-ball': any;
     cutout: any;
     dash: any;
     'data-source': any;

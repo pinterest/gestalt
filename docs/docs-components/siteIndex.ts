@@ -150,6 +150,7 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'IconButtonLink',
       'IconButtonFloating',
       'Image',
+      'Indicator',
       'Label',
       'Layer',
       'Letterbox',

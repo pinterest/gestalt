@@ -242,7 +242,7 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "value": "{sema.color.background.error.default.value}"
           }
         },
         "disabled": {
@@ -316,6 +316,17 @@
               "value": "{sema.color.background.disabled.value}"
             }
           }
+        }
+      },
+      "indicator": {
+        "value": "{sema.color.background.primary.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "switch": {
@@ -499,7 +510,7 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "value": "{sema.color.background.error.default.value}"
           }
         },
         "disabled": {
@@ -515,6 +526,20 @@
           "hover": {
             "value": "{sema.color.hover.border.interactive.value}"
           }
+        }
+      },
+      "indicator": {
+        "value": "{sema.color.border.inverse.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "#fff"
+        },
+        "secondary": {
+          "value": "#111"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "switch": {
