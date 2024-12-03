@@ -1,4 +1,11 @@
-import React, { cloneElement, forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
+import React, {
+  cloneElement,
+  ComponentProps,
+  forwardRef,
+  ReactElement,
+  useImperativeHandle,
+  useRef,
+} from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import Flex from './Flex';
@@ -146,15 +153,38 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         {text}
       </TextUI>
     ) : null;
+
+  const selectedVariant = selected && isInVRExperiment && (
+    <Box paddingX={5}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        <Icon
+          accessibilityLabel=""
+          color="inverse"
+          icon={'compact-check' as ComponentProps<typeof Icon>['icon']}
+          size={16}
+        />
+        {textComponent}
+        {expandable ? (
+          <Icon
+            accessibilityLabel=""
+            color="inverse"
+            icon={'compact-chevron-down' as ComponentProps<typeof Icon>['icon']}
+            size={12}
+          />
+        ) : null}
+      </Flex>
+    </Box>
+  );
+
   const thumbnailVariant = thumbnail && (
     <Box marginEnd={3}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {'avatar' in thumbnail && (
+        {'avatar' in thumbnail && selected && (
           <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
-        {'avatarGroup' in thumbnail && (
+        {'avatarGroup' in thumbnail && selected && (
           <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
@@ -176,14 +206,19 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           <Icon
             accessibilityLabel=""
             color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-            icon="arrow-down"
+            icon={
+              isInVRExperiment
+                ? ('compact-chevron-down' as ComponentProps<typeof Icon>['icon'])
+                : 'arrow-down'
+            }
             size={12}
           />
         ) : null}
       </Flex>
     </Box>
   );
-  const defaultVariant = (
+
+  const textVariant = (
     <Box paddingX={5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
@@ -191,13 +226,20 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           <Icon
             accessibilityLabel=""
             color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-            icon="arrow-down"
+            icon={
+              isInVRExperiment
+                ? ('compact-chevron-down' as ComponentProps<typeof Icon>['icon'])
+                : 'arrow-down'
+            }
             size={12}
           />
         ) : null}
       </Flex>
     </Box>
   );
+
+  const defaultVariant = thumbnail ? thumbnailVariant : textVariant;
+
   return (
     <button
       ref={innerRef}
@@ -211,7 +253,11 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       onClick={(event) => onClick?.({ event })}
       type="button"
     >
-      <div className={childrenDivClasses}>{thumbnail ? thumbnailVariant : defaultVariant}</div>
+      <div className={childrenDivClasses}>
+        {selected && !(thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail))
+          ? selectedVariant
+          : defaultVariant}
+      </div>
     </button>
   );
 });
