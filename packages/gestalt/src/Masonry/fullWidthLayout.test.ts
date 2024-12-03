@@ -31,6 +31,7 @@ describe.each([undefined, getColumnSpanConfig])(
         measurementCache: measurementStore,
         positionCache,
         gutter: 10,
+        layout: 'flexible',
         idealColumnWidth: 240,
         minCols: 2,
         width: 1000,
@@ -65,6 +66,7 @@ describe.each([undefined, getColumnSpanConfig])(
         measurementCache: measurementStore,
         positionCache,
         gutter: 10,
+        layout: 'flexible',
         idealColumnWidth: 240,
         minCols: 2,
         width: 1000,
@@ -98,6 +100,7 @@ describe.each([undefined, getColumnSpanConfig])(
         measurementCache: measurementStore,
         positionCache,
         gutter: 10,
+        layout: 'flexible',
         idealColumnWidth: 240,
         minCols: 2,
         width: 1000,
@@ -134,6 +137,7 @@ describe('loadingStateItems', () => {
       idealColumnWidth: 240,
       minCols: 2,
       width: 1000,
+      layout: 'flexible',
       _getColumnSpanConfig: getColumnSpanConfig,
       renderLoadingState: true,
     });
@@ -170,6 +174,7 @@ describe('loadingStateItems', () => {
       idealColumnWidth: 240,
       minCols: 2,
       width: 1000,
+      layout: 'flexible',
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
