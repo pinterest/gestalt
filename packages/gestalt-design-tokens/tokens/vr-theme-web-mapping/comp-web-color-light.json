@@ -321,6 +321,14 @@
       "indicator": {
         "value": "{sema.color.background.primary.value}"
       },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
+        }
+      },
       "switch": {
         "default": {
           "unselected": {
@@ -522,6 +530,17 @@
       },
       "indicator": {
         "value": "{sema.color.border.inverse.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "#fff"
+        },
+        "secondary": {
+          "value": "#111"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
+        }
       },
       "switch": {
         "default": {

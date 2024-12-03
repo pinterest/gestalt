@@ -336,6 +336,14 @@
           }
         }
       },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
+        }
+      },
       "searchguide": {
         "default": {
           "01": {
@@ -537,6 +545,14 @@
       },
       "indicator": {
         "value": "{sema.color.border.inverse.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
+        }
       },
       "switch": {
         "focus": {

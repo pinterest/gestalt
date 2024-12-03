@@ -3417,6 +3417,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-iconbutton-semitransparentdark-active: rgba(57, 57, 55, 0.9);
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #2e2e2d;
+  --color-background-popover-primary: #2e2e2d;
+  --color-background-popover-education: #7cbede;
   --color-background-searchguide-default-10: #6d4270;
   --color-background-searchguide-default-11: #000000;
   --color-background-searchguide-default-01: #007db8;
@@ -3477,6 +3479,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-border-checkbox-unchecked-error: #ff9494;
   --color-border-checkbox-unchecked-hover: #b2b0ae;
   --color-border-indicator: #000000;
+  --color-border-popover-primary: #2e2e2d;
+  --color-border-popover-education: #7cbede;
   --color-border-switch-focus-inner: #000000;
   --color-border-switch-focus-outer: #c5eaf7;
   --elevation-floating: 0px 4px 16px 0px rgba(0,0,0,0.2), 0px 1px 4px 0px rgba(0,0,0,0.2);
@@ -4421,6 +4425,8 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #e8e7e1;
   --color-background-indicator: #e60023;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-education: #007db8;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -4481,6 +4487,9 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-border-checkbox-unchecked-error: #b2001a;
   --color-border-checkbox-unchecked-hover: #626260;
   --color-border-indicator: #ffffff;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #007db8;
   --color-border-switch-default-unselected: #757570;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
@@ -5426,6 +5435,8 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #e8e7e1;
   --color-background-indicator: #e60023;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-education: #007db8;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -5486,6 +5497,9 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-border-checkbox-unchecked-error: #b2001a;
   --color-border-checkbox-unchecked-hover: #626260;
   --color-border-indicator: #ffffff;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #007db8;
   --color-border-switch-default-unselected: #757570;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
@@ -6431,6 +6445,8 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #e8e7e1;
   --color-background-indicator: #e60023;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-education: #007db8;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -6491,6 +6507,9 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-border-checkbox-unchecked-error: #b2001a;
   --color-border-checkbox-unchecked-hover: #626260;
   --color-border-indicator: #ffffff;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #007db8;
   --color-border-switch-default-unselected: #757570;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
@@ -7436,6 +7455,8 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #e8e7e1;
   --color-background-indicator: #e60023;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-education: #007db8;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -7496,6 +7517,9 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-border-checkbox-unchecked-error: #b2001a;
   --color-border-checkbox-unchecked-hover: #626260;
   --color-border-indicator: #ffffff;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #007db8;
   --color-border-switch-default-unselected: #757570;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
@@ -8441,6 +8465,8 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #e8e7e1;
   --color-background-indicator: #e60023;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-education: #007db8;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -8501,6 +8527,9 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-border-checkbox-unchecked-error: #b2001a;
   --color-border-checkbox-unchecked-hover: #626260;
   --color-border-indicator: #ffffff;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #007db8;
   --color-border-switch-default-unselected: #757570;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
@@ -9446,6 +9475,8 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-iconbutton-semitransparentdark-disabled-selected: #e8e7e1;
   --color-background-indicator: #e60023;
+  --color-background-popover-primary: #ffffff;
+  --color-background-popover-education: #007db8;
   --color-background-switch-default-unselected: #ffffff;
   --color-background-switch-default-selected: #000000;
   --color-background-switch-disabled-unselected: #ffffff;
@@ -9506,6 +9537,9 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-border-checkbox-unchecked-error: #b2001a;
   --color-border-checkbox-unchecked-hover: #626260;
   --color-border-indicator: #ffffff;
+  --color-border-popover-primary: #ffffff;
+  --color-border-popover-secondary: #111111;
+  --color-border-popover-education: #007db8;
   --color-border-switch-default-unselected: #757570;
   --color-border-switch-focus-inner: #ffffff;
   --color-border-switch-focus-outer: #007db8;
