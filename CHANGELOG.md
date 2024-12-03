@@ -1,3 +1,9 @@
+## 166.0.1 (Dec 3, 2024)
+
+### Patch
+
+- Popover, PopoverEducational: VR adjusments ([#3902](https://github.com/pinterest/gestalt/pull/3902)) - [Preview link](https://deploy-preview-3902--gestalt.netlify.app?devexample=true)
+
 ## 166.0.0 (Dec 2, 2024)
 
 ### Major
