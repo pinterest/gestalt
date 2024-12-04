@@ -1,3 +1,9 @@
+## 166.0.3 (Dec 4, 2024)
+
+### Patch
+
+- Spinner: Intro animation refinements ([#3904](https://github.com/pinterest/gestalt/pull/3904)) - [Preview link](https://deploy-preview-3904--gestalt.netlify.app?devexample=true)
+
 ## 166.0.2 (Dec 4, 2024)
 
 ### Patch
