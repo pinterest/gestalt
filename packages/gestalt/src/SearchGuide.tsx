@@ -1,16 +1,10 @@
-import React, {
-  cloneElement,
-  ComponentProps,
-  forwardRef,
-  ReactElement,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import React, { cloneElement, forwardRef, ReactElement, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 import styles from './SearchGuide.css';
 import touchableStyles from './TapArea.css';
 import TextUI from './TextUI';
@@ -154,24 +148,44 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       </TextUI>
     ) : null;
 
+  const checkIcon = isInVRExperiment ? (
+    <IconCompact
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="compact-check"
+      size={12}
+    />
+  ) : (
+    <Icon
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="check"
+      size={12}
+    />
+  );
+
+  const expandableIcon = isInVRExperiment ? (
+    <IconCompact
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="compact-chevron-down"
+      size={12}
+    />
+  ) : (
+    <Icon
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="arrow-down"
+      size={12}
+    />
+  );
+
   const selectedVariant = selected && isInVRExperiment && (
     <Box paddingX={5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        <Icon
-          accessibilityLabel=""
-          color="inverse"
-          icon={'compact-check' as ComponentProps<typeof Icon>['icon']}
-          size={16}
-        />
+        {checkIcon}
         {textComponent}
-        {expandable ? (
-          <Icon
-            accessibilityLabel=""
-            color="inverse"
-            icon={'compact-chevron-down' as ComponentProps<typeof Icon>['icon']}
-            size={12}
-          />
-        ) : null}
+        {expandable ? expandableIcon : null}
       </Flex>
     </Box>
   );
@@ -212,18 +226,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           </Box>
         )}
         {text.length > 0 && textComponent}
-        {expandable ? (
-          <Icon
-            accessibilityLabel=""
-            color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-            icon={
-              isInVRExperiment
-                ? ('compact-chevron-down' as ComponentProps<typeof Icon>['icon'])
-                : 'arrow-down'
-            }
-            size={12}
-          />
-        ) : null}
+        {expandable ? expandableIcon : null}
       </Flex>
     </Box>
   );
@@ -232,18 +235,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     <Box paddingX={isInVRExperiment ? 4 : 5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
-        {expandable ? (
-          <Icon
-            accessibilityLabel=""
-            color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-            icon={
-              isInVRExperiment
-                ? ('compact-chevron-down' as ComponentProps<typeof Icon>['icon'])
-                : 'arrow-down'
-            }
-            size={12}
-          />
-        ) : null}
+        {expandable ? expandableIcon : null}
       </Flex>
     </Box>
   );
