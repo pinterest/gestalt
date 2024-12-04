@@ -20,6 +20,7 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample';
 import counterExample from '../../examples/sidenavigation/counterExample';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample';
+import disableItemExample from '../../examples/sidenavigation/disableItemExample';
 import displayExpandable from '../../examples/sidenavigation/displayExpandable';
 import displayExpanded from '../../examples/sidenavigation/displayExpanded';
 import displayStatic from '../../examples/sidenavigation/displayStatic';
@@ -27,6 +28,7 @@ import footerVariant from '../../examples/sidenavigation/footerVariant';
 import groupLinkDisplayExpadable from '../../examples/sidenavigation/groupLinkDisplayExpadable';
 import groupLinkDisplayStatic from '../../examples/sidenavigation/groupLinkDisplayStatic';
 import headerExample from '../../examples/sidenavigation/headerExample';
+import helperTextItemExample from '../../examples/sidenavigation/helperTextItemExample';
 import iconsExample from '../../examples/sidenavigation/iconsExample';
 import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample';
 import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample';
@@ -335,6 +337,22 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={borderExample} name="Border example" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Items can be disabled to prevent clicking or navigation to a page if that page is unavailable to users."
+          title="Disabled"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={disableItemExample} name="Disabled item example" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Helper text adds a new line to an item, providing additional information about the page the item represents."
+          title="Helper text"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={helperTextItemExample} name="Helper text item example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection

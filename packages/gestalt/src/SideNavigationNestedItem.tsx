@@ -15,9 +15,17 @@ type Props = {
     accessibilityLabel: string;
   };
   /**
+   * When supplied, will gray out the item and make it non-clickable
+   */
+  disabled?: boolean;
+  /**
    * Directs users to the url when item is selected.
    */
   href: string;
+  /**
+   * Optional subtext for the item label
+   */
+  helperText?: string;
   /**
    * Label for the item.
    */
@@ -55,7 +63,7 @@ type Props = {
  */
 const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
   function SideNavigationNestedItem(
-    { active, counter, href, label, onClick, primaryAction }: Props,
+    { active, counter, disabled, helperText, href, label, onClick, primaryAction }: Props,
     ref,
   ) {
     return (
@@ -63,6 +71,8 @@ const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
         ref={ref}
         active={active}
         counter={counter}
+        disabled={disabled}
+        helperText={helperText}
         href={href}
         label={label}
         onClick={onClick}

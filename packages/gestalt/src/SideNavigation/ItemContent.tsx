@@ -16,6 +16,16 @@ import icons from '../icons/index';
 import Text from '../Text';
 import { Indexable } from '../zIndex';
 
+function getTextColor({active, disabled}:{active?: string, disabled?: boolean}) {
+  if (active) {
+    return 'inverse';
+  } if (disabled) {
+    return 'subtle';
+  }
+    return 'default';
+
+}
+
 export const NESTING_MARGIN_START_MAP = {
   '0': TOKEN_SPACE_400,
   '1': TOKEN_SPACE_1200,
@@ -55,6 +65,8 @@ type Props = {
   counter?: Counter;
   icon?: IconType;
   label: string;
+  helperText?: string;
+  disabled?: boolean;
   notificationAccessibilityLabel?: string;
   primaryAction?: PrimaryAction;
   setCompression: (arg1: 'compress' | 'none') => void;
@@ -69,6 +81,8 @@ export default function ItemContent({
   counter,
   icon,
   label,
+  helperText,
+  disabled,
   primaryAction,
   notificationAccessibilityLabel,
   setCompression,
@@ -114,7 +128,7 @@ export default function ItemContent({
 
   const inactiveItemColor = hovered ? 'secondary' : undefined;
   const itemColor = active ? 'selected' : inactiveItemColor;
-  const textColor = active ? 'inverse' : 'default';
+  const textColor = getTextColor({active, disabled})
   const counterColor = active ? 'inverse' : 'subtle';
 
   const nestingMargin = isMobile
@@ -126,6 +140,7 @@ export default function ItemContent({
   return (
     <Box
       alignItems="center"
+      aria-disabled={disabled}
       color={itemColor}
       dangerouslySetInlineStyle={{
         __style: {
@@ -191,8 +206,14 @@ export default function ItemContent({
         {!collapsed && (
           <Flex.Item flex="grow">
             <Text color={textColor} inline>
+              <Flex alignItems='center' direction="row" gap={1}>
+            <Flex direction='column' gap={1}>
               {label}
-              {(badge || notificationAccessibilityLabel) && (
+              {helperText && <Text color={textColor} lineClamp={1} size="200">
+                {helperText}
+              </Text>}
+              </Flex>
+              {((badge || notificationAccessibilityLabel) && !disabled) && (
                 <Box display="inlineBlock" height="100%" marginStart={1}>
                   {/* Adds a pause for screen reader users between the text content */}
                   <Box display="visuallyHidden">{`, `}</Box>
@@ -211,6 +232,7 @@ export default function ItemContent({
                   ) : null}
                 </Box>
               )}
+              </Flex>
             </Text>
           </Flex.Item>
         )}

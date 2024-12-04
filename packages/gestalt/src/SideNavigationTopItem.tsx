@@ -27,6 +27,10 @@ export type Props = {
     accessibilityLabel: string;
   };
   /**
+   * When supplied, will gray out the item and make it non-clickable. See the [Disabled](https://gestalt.pinterest.systems/web/sidenavigation#Disabled) variant to learn more.
+   */
+  disabled?: boolean;
+  /**
    * Directs users to the url when item is selected.
    */
   href: string;
@@ -49,6 +53,10 @@ export type Props = {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
+  /**
+   * Optional subtext for item labels. See the [Helper text](https://gestalt.pinterest.systems/web/sidenavigation#Helper-text) variant to learn more.
+   */
+  helperText?: string;
   /**
    * Label for the item.
    */
@@ -84,8 +92,10 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
       href,
       badge,
       counter,
+      disabled,
       icon,
       label,
+      helperText,
       primaryAction,
       notificationAccessibilityLabel,
       onClick,
@@ -108,6 +118,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
       <li ref={ref} className={classnames(styles.liItem)}>
         <TapAreaLink
           accessibilityCurrent={active}
+          disabled={disabled}
           href={href}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
@@ -126,7 +137,9 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
             active={active}
             badge={badge}
             counter={counter}
+            disabled={disabled}
             focused={focused}
+            helperText={helperText}
             hovered={hovered}
             icon={icon}
             label={label}
