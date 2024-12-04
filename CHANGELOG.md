@@ -1,3 +1,9 @@
+## 166.0.4 (Dec 4, 2024)
+
+### Patch
+
+- BannerCallout: Remove Children.only logic prone to break if message is undefined in runtime ([#3906](https://github.com/pinterest/gestalt/pull/3906)) - [Preview link](https://deploy-preview-3906--gestalt.netlify.app?devexample=true)
+
 ## 166.0.3 (Dec 4, 2024)
 
 ### Patch
