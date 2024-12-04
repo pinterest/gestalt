@@ -10,6 +10,7 @@ import { useAppContext } from '../appContext';
 
 const enabledExperiments = {
   Tokens: ['web_gestalt_visualRefresh', 'web_gestalt_visualRefresh'],
+  VR1: ['web_gestalt_visualRefresh1', 'web_gestalt_visualRefresh1'],
 } as const;
 
 type ExperimentKey = keyof typeof enabledExperiments;

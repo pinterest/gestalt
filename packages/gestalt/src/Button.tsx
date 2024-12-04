@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import styles from './Button.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
+import ExperimentProvider from './contexts/ExperimentProvider';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
@@ -140,13 +141,16 @@ function InternalButtonContent({
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
+  const isInVR1 = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh1',
+    mwebExperimentName: 'web_gestalt_visualRefresh1',
+  });
+
+  const isInVR = isInVR1 || isInVRExperiment;
+
   return (
     <Fragment>
-      <Flex
-        alignItems="center"
-        gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
-        justifyContent="center"
-      >
+      <Flex alignItems="center" gap={{ row: isInVR ? 1.5 : 2, column: 0 }} justifyContent="center">
         {iconStart && (
           <Icon
             accessibilityLabel=""
@@ -208,6 +212,13 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
+  const isInVR1 = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh1',
+    mwebExperimentName: 'web_gestalt_visualRefresh1',
+  });
+
+  const isInVR = isInVR1 || isInVRExperiment;
+
   const textSizes: {
     [key: string]: '100' | '200' | '300' | '400' | '500' | '600';
   } = {
@@ -250,12 +261,12 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
+  const colorClass = color === 'transparentWhiteText' && !isInVR ? 'transparent' : color;
 
   const { isFocusVisible } = useFocusVisible();
 
-  const sharedTypeClasses = isInVRExperiment
-    ? classnames(styles.buttonVr, {
+  const sharedTypeClasses = isInVR
+    ? classnames('visualRefreshA', styles.buttonVr, {
         [styles.smVr]: size === 'sm',
         [styles.mdVr]: size === 'md',
         [styles.lgVr]: size === 'lg',
@@ -273,7 +284,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       });
 
-  const baseTypeClasses = isInVRExperiment
+  const baseTypeClasses = isInVR
     ? classnames(sharedTypeClasses, touchableStyles.tapTransition, {
         [styles.selected]: !disabled && selected,
         [styles.disabled]: disabled,
@@ -294,7 +305,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const parentButtonClasses = classnames(
     sharedTypeClasses,
     styles.parentButton,
-    isInVRExperiment && {
+    isInVR && {
       [styles[colorClass]]: !disabled && !selected,
     },
   );
@@ -305,10 +316,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     (disabled && 'disabled') ||
     (selected && 'inverse') ||
     (isDarkModeRed && 'default') ||
-    (isInVRExperiment && isDarkMode && color === 'blue' && 'default') ||
+    (isInVR && isDarkMode && color === 'blue' && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
-  const buttonText = isInVRExperiment ? (
+  const buttonText = isInVR ? (
     <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
       {text}
     </TextUI>
@@ -342,12 +353,27 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
-        <InternalButtonContent
-          iconEnd={iconEnd}
-          size={size}
-          text={buttonText}
-          textColor={textColor}
-        />
+        {isInVR1 ? (
+          <ExperimentProvider
+            value={{
+              'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' },
+            }}
+          >
+            <InternalButtonContent
+              iconEnd={iconEnd}
+              size={size}
+              text={buttonText}
+              textColor={textColor}
+            />
+          </ExperimentProvider>
+        ) : (
+          <InternalButtonContent
+            iconEnd={iconEnd}
+            size={size}
+            text={buttonText}
+            textColor={textColor}
+          />
+        )}
       </button>
     );
   }
@@ -373,24 +399,46 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       onTouchMove={handleTouchMove}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
-      style={isInVRExperiment ? compressStyle || undefined : undefined}
+      style={isInVR ? compressStyle || undefined : undefined}
       // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       type="button"
     >
-      <div className={childrenDivClasses} style={compressStyle || undefined}>
-        {iconEnd || iconStart ? (
-          <InternalButtonContent
-            iconEnd={iconEnd}
-            iconStart={iconStart}
-            size={size}
-            text={buttonText}
-            textColor={textColor}
-          />
-        ) : (
-          buttonText
-        )}
-      </div>
+      {isInVR1 ? (
+        <ExperimentProvider
+          value={{
+            'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' },
+          }}
+        >
+          <div className={childrenDivClasses} style={compressStyle || undefined}>
+            {iconEnd || iconStart ? (
+              <InternalButtonContent
+                iconEnd={iconEnd}
+                iconStart={iconStart}
+                size={size}
+                text={buttonText}
+                textColor={textColor}
+              />
+            ) : (
+              buttonText
+            )}
+          </div>
+        </ExperimentProvider>
+      ) : (
+        <div className={childrenDivClasses} style={compressStyle || undefined}>
+          {iconEnd || iconStart ? (
+            <InternalButtonContent
+              iconEnd={iconEnd}
+              iconStart={iconStart}
+              size={size}
+              text={buttonText}
+              textColor={textColor}
+            />
+          ) : (
+            buttonText
+          )}
+        </div>
+      )}
     </button>
   );
 });
