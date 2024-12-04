@@ -39,15 +39,24 @@ function SpinnerBody({
         }
       >
         <svg fill="none" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-          <g style={{ '--g-start-x': '14px', '--g-start-y': '-8px' } as React.CSSProperties}>
-            <circle cx="14" cy="36" r="8" />
-          </g>
-          <g style={{ '--g-start-x': '0px', '--g-start-y': '16px' } as React.CSSProperties}>
-            <circle cx="28" cy="12" r="8" />
-          </g>
-          <g style={{ '--g-start-x': '-14px', '--g-start-y': '-8px' } as React.CSSProperties}>
-            <circle cx="42" cy="36" r="8" />
-          </g>
+          <circle
+            cx="28"
+            cy="12"
+            r="8"
+            style={{ '--g-start-x': '0px', '--g-start-y': '16px' } as React.CSSProperties}
+          />
+          <circle
+            cx="14"
+            cy="36"
+            r="8"
+            style={{ '--g-start-x': '14px', '--g-start-y': '-8px' } as React.CSSProperties}
+          />
+          <circle
+            cx="42"
+            cy="36"
+            r="8"
+            style={{ '--g-start-x': '-14px', '--g-start-y': '-8px' } as React.CSSProperties}
+          />
         </svg>
       </div>
     </Box>
