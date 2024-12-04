@@ -1,3 +1,9 @@
+## 166.0.2 (Dec 4, 2024)
+
+### Patch
+
+- SearchGuide: VR Changes to selected states, trailing icon change, leading icon and size change ([#3903](https://github.com/pinterest/gestalt/pull/3903)) - [Preview link](https://deploy-preview-3903--gestalt.netlify.app?devexample=true)
+
 ## 166.0.1 (Dec 3, 2024)
 
 ### Patch
