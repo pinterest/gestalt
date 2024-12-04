@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ReactElement } from 'react';
+import { ComponentProps, ReactElement } from 'react';
 import classnames from 'classnames';
 import styles from './BannerCallout.css';
 import VRBannerCallout from './BannerCallout/VRBannerCallout';
