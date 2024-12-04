@@ -188,7 +188,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
-        {'avatarGroup' in thumbnail && selected && (
+        {'avatarGroup' in thumbnail && (
           <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
@@ -227,6 +227,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       </Flex>
     </Box>
   );
+
   const textVariant = (
     <Box paddingX={isInVRExperiment ? 4 : 5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
@@ -247,7 +248,11 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     </Box>
   );
 
-  const defaultVariant = thumbnail ? thumbnailVariant : textVariant;
+  const defaultVariant =
+    thumbnail &&
+    (selected || !('avatar' in thumbnail || 'avatarGroup' in thumbnail) || !isInVRExperiment)
+      ? thumbnailVariant
+      : textVariant;
 
   return (
     <button
@@ -263,7 +268,9 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       type="button"
     >
       <div className={childrenDivClasses}>
-        {selected && !(thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail))
+        {selected &&
+        !(thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail)) &&
+        isInVRExperiment
           ? selectedVariant
           : defaultVariant}
       </div>
