@@ -19,10 +19,10 @@ export default function ListText({ size, text }: Props) {
   }
 
   // If `text` is a Text component, we need to override any text size within to ensure they all match
-  // @ts-expect-error - TS2339
   if (
     text &&
     typeof text !== 'string' &&
+    // @ts-expect-error - TS2339
     Children.only<ReactElement>(text)?.type.displayName === 'Text'
   ) {
     return cloneElement(text, { size: size || undefined });
