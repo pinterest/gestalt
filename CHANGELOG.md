@@ -1,3 +1,9 @@
+## 166.0.5 (Dec 5, 2024)
+
+### Patch
+
+- List: remove color override in Text node ([#3907](https://github.com/pinterest/gestalt/pull/3907)) - [Preview link](https://deploy-preview-3907--gestalt.netlify.app?devexample=true)
+
 ## 166.0.4 (Dec 4, 2024)
 
 ### Patch
