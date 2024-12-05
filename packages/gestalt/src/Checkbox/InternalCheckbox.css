@@ -83,8 +83,8 @@
 }
 
 .hoveredError {
-  background-color: var(--sema-color-hover-background-error-weak);
-  border-color: var(--sema-color-hover-background-error-weak);
+  background-color: var(--sema-color-hover-background-error-default);
+  border-color: var(--sema-color-hover-background-error-default);
 }
 
 .pressed {
@@ -93,8 +93,8 @@
 }
 
 .pressedError {
-  background-color: var(--sema-color-pressed-background-error-weak);
-  border-color: var(--sema-color-pressed-background-error-weak);
+  background-color: var(--sema-color-pressed-background-error-default);
+  border-color: var(--sema-color-pressed-background-error-default);
 }
 
 .borderRadiusSm {
@@ -180,4 +180,24 @@
   appearance: none;
   opacity: var(--opacity-0);
   outline: 0;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputWrapperPaddingTop {
+  padding-top: var(--sema-space-50);
+}
+
+html:not([dir="rtl"]) .labelWrapper {
+  padding-left: var(--sema-space-200);
+}
+
+html[dir="rtl"] .labelWrapper {
+  padding-right: var(--sema-space-200);
+}
+
+.labelWrapperPaddingTop {
+  padding-top: var(--sema-space-25);
 }

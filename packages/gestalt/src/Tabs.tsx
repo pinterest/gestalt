@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { LegacyRef, ReactNode } from 'react';
 import Flex from './Flex';
 import Tab from './Tabs/Tab';
 import useInExperiment from './useInExperiment';
@@ -28,12 +28,11 @@ type Props = {
    * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
    */
   tabs: ReadonlyArray<{
+    notificationAccessibilityLabel?: string;
     href: string;
     id?: string;
     indicator?: 'dot' | number;
-    ref?: {
-      current: HTMLElement | null | undefined;
-    };
+    ref?: LegacyRef<HTMLDivElement> | undefined;
     text: ReactNode;
   }>;
   /**
@@ -72,7 +71,6 @@ export default function Tabs({
       {tabs.map(({ href, id, indicator, ref, text }, index) => (
         <Tab
           key={id || `${href}_${index}`}
-          // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; } | undefined' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
           ref={ref}
           bgColor={bgColor}
           dataTestId={dataTestId}

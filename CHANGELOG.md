@@ -1,3 +1,75 @@
+## 166.0.4 (Dec 4, 2024)
+
+### Patch
+
+- BannerCallout: Remove Children.only logic prone to break if message is undefined in runtime ([#3906](https://github.com/pinterest/gestalt/pull/3906)) - [Preview link](https://deploy-preview-3906--gestalt.netlify.app?devexample=true)
+
+## 166.0.3 (Dec 4, 2024)
+
+### Patch
+
+- Spinner: Intro animation refinements ([#3904](https://github.com/pinterest/gestalt/pull/3904)) - [Preview link](https://deploy-preview-3904--gestalt.netlify.app?devexample=true)
+
+## 166.0.2 (Dec 4, 2024)
+
+### Patch
+
+- SearchGuide: VR Changes to selected states, trailing icon change, leading icon and size change ([#3903](https://github.com/pinterest/gestalt/pull/3903)) - [Preview link](https://deploy-preview-3903--gestalt.netlify.app?devexample=true)
+
+## 166.0.1 (Dec 3, 2024)
+
+### Patch
+
+- Popover, PopoverEducational: VR adjusments ([#3902](https://github.com/pinterest/gestalt/pull/3902)) - [Preview link](https://deploy-preview-3902--gestalt.netlify.app?devexample=true)
+
+## 166.0.0 (Dec 2, 2024)
+
+### Major
+
+- SideNavigation, Tabs, DefaultLabelProvider: implemented Indicator ([#3901](https://github.com/pinterest/gestalt/pull/3901)) - [Preview link](https://deploy-preview-3901--gestalt.netlify.app?devexample=true)
+
+## 165.5.0 (Dec 2, 2024)
+
+### Minor
+
+- Indicator: new component ([#3898](https://github.com/pinterest/gestalt/pull/3898)) - [Preview link](https://deploy-preview-3898--gestalt.netlify.app?devexample=true)
+
+## 165.4.5 (Nov 29, 2024)
+
+### Patch
+
+- Divider: VR adjusments ([#3900](https://github.com/pinterest/gestalt/pull/3900)) - [Preview link](https://deploy-preview-3900--gestalt.netlify.app?devexample=true)
+
+## 165.4.4 (Nov 29, 2024)
+
+### Patch
+
+- HelpButton: VR adjusments ([#3899](https://github.com/pinterest/gestalt/pull/3899)) - [Preview link](https://deploy-preview-3899--gestalt.netlify.app?devexample=true)
+
+## 165.4.3 (Nov 28, 2024)
+
+### Patch
+
+- Checkbox: VR adjustments ([#3896](https://github.com/pinterest/gestalt/pull/3896)) - [Preview link](https://deploy-preview-3896--gestalt.netlify.app?devexample=true)
+
+## 165.4.2 (Nov 28, 2024)
+
+### Patch
+
+- Link: role tab for aria-current === section ([#3897](https://github.com/pinterest/gestalt/pull/3897)) - [Preview link](https://deploy-preview-3897--gestalt.netlify.app?devexample=true)
+
+## 165.4.1 (Nov 27, 2024)
+
+### Patch
+
+- CheckBox: VR certification fixes ([#3895](https://github.com/pinterest/gestalt/pull/3895)) - [Preview link](https://deploy-preview-3895--gestalt.netlify.app?devexample=true)
+
+## 165.4.0 (Nov 26, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8645] ([#3894](https://github.com/pinterest/gestalt/pull/3894)) - [Preview link](https://deploy-preview-3894--gestalt.netlify.app?devexample=true)
+
 ## 165.3.1 (Nov 26, 2024)
 
 ### Patch

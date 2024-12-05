@@ -81,7 +81,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="FlexItem"
                 >
                   <hr
-                    className="divider"
+                    className="divider borderColor"
                   />
                 </div>
               </div>
@@ -160,7 +160,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="FlexItem"
                 >
                   <hr
-                    className="divider"
+                    className="divider borderColor"
                   />
                 </div>
                 <div
@@ -491,14 +491,8 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                                   </div>
                                   <div
                                     aria-label="You have new messages"
-                                    className="box circle primary"
+                                    className="notification placementMiddle"
                                     role="status"
-                                    style={
-                                      Object {
-                                        "height": 8,
-                                        "width": 8,
-                                      }
-                                    }
                                   />
                                 </div>
                               </span>
