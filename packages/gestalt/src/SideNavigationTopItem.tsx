@@ -54,7 +54,7 @@ export type Props = {
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
   /**
-   * Optional subtext for item labels. See the [Helper text](https://gestalt.pinterest.systems/web/sidenavigation#Helper-text) variant to learn more.
+   * Provides optional additional information about a row item. See [subtext variant](https://gestalt.pinterest.systems/web/sidenavigation#Subtext) to learn more.
    */
   subtext?: string;
   /**
