@@ -19,7 +19,7 @@ export default function Example() {
             icon="people"
             label="Thanksgiving"
             onClick={({ event }) => event.preventDefault()}
-            subtext='Disabled thanksgiving section'
+            subtext="Disabled thanksgiving section"
           />
 
           <SideNavigation.Group expanded icon="people" label="Christmas">

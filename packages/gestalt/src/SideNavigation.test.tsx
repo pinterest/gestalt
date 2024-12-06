@@ -187,8 +187,7 @@ describe('SideNavigation', () => {
 
   it('renders disabled item', () => {
     const tree = create(
-      <SideNavigation
-        accessibilityLabel="label"      >
+      <SideNavigation accessibilityLabel="label">
         <SideNavigation.TopItem disabled href="#" label="test" />
       </SideNavigation>,
     ).toJSON();
@@ -197,14 +196,10 @@ describe('SideNavigation', () => {
 
   it('renders subtext on an item', () => {
     const tree = create(
-      <SideNavigation
-        accessibilityLabel="label"
-      >
+      <SideNavigation accessibilityLabel="label">
         <SideNavigation.TopItem href="#" label="test" subtext="subtext" />
       </SideNavigation>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
-
 });

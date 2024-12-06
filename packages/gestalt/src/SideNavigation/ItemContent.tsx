@@ -16,16 +16,25 @@ import icons from '../icons/index';
 import Text from '../Text';
 import { Indexable } from '../zIndex';
 
-function getTextColor({active, disabled, subtext}:{active?: string, disabled?: boolean, subtext?: boolean}) {
+function getTextColor({
+  active,
+  disabled,
+  subtext,
+}: {
+  active?: string;
+  disabled?: boolean;
+  subtext?: boolean;
+}) {
   if (active) {
     return 'inverse';
-  } if (disabled) {
-    return 'disabled';
-  } if (subtext){
-    return 'subtle'
   }
-    return 'default';
-
+  if (disabled) {
+    return 'disabled';
+  }
+  if (subtext) {
+    return 'subtle';
+  }
+  return 'default';
 }
 
 export const NESTING_MARGIN_START_MAP = {
@@ -130,8 +139,8 @@ export default function ItemContent({
 
   const inactiveItemColor = hovered ? 'secondary' : undefined;
   const itemColor = active ? 'selected' : inactiveItemColor;
-  const mainTextColor = getTextColor({active, disabled})
-  const subTextColor = getTextColor({active, disabled, subtext: true})
+  const mainTextColor = getTextColor({ active, disabled });
+  const subTextColor = getTextColor({ active, disabled, subtext: true });
   const counterColor = active ? 'inverse' : 'subtle';
 
   const nestingMargin = isMobile
@@ -208,32 +217,34 @@ export default function ItemContent({
         {!collapsed && (
           <Flex.Item flex="grow">
             <Text color={mainTextColor} inline>
-              <Flex alignItems='center' direction="row" gap={1}>
-            <Flex direction='column' gap={1}>
-              {label}
-              {subtext && <Text color={subTextColor} lineClamp={1} size="200">
-                {subtext}
-              </Text>}
-              </Flex>
-              {((badge || notificationAccessibilityLabel) && !disabled) && (
-                <Box display="inlineBlock" height="100%" marginStart={1}>
-                  {/* Adds a pause for screen reader users between the text content */}
-                  <Box display="visuallyHidden">{`, `}</Box>
-                  {!notificationAccessibilityLabel && badge ? (
-                    <Badge text={badge.text} type={badge.type} />
-                  ) : null}
-                  {notificationAccessibilityLabel ? (
-                    <Box
-                      aria-label={notificationAccessibilityLabel}
-                      color="primary"
-                      height={8}
-                      role="status"
-                      rounding="circle"
-                      width={8}
-                    />
-                  ) : null}
-                </Box>
-              )}
+              <Flex alignItems="center" direction="row" gap={1}>
+                <Flex direction="column" gap={1}>
+                  {label}
+                  {subtext && (
+                    <Text color={subTextColor} lineClamp={1} size="200">
+                      {subtext}
+                    </Text>
+                  )}
+                </Flex>
+                {(badge || notificationAccessibilityLabel) && !disabled && (
+                  <Box display="inlineBlock" height="100%" marginStart={1}>
+                    {/* Adds a pause for screen reader users between the text content */}
+                    <Box display="visuallyHidden">{`, `}</Box>
+                    {!notificationAccessibilityLabel && badge ? (
+                      <Badge text={badge.text} type={badge.type} />
+                    ) : null}
+                    {notificationAccessibilityLabel ? (
+                      <Box
+                        aria-label={notificationAccessibilityLabel}
+                        color="primary"
+                        height={8}
+                        role="status"
+                        rounding="circle"
+                        width={8}
+                      />
+                    ) : null}
+                  </Box>
+                )}
               </Flex>
             </Text>
           </Flex.Item>

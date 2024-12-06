@@ -43,7 +43,6 @@ import sectionsExample from '../../examples/sidenavigation/sectionsExample';
 import subcomponent from '../../examples/sidenavigation/subcomponent';
 import subtextItemExample from '../../examples/sidenavigation/subtextItemExample';
 
-
 const DOC_NAMES = [
   'SideNavigation',
   'SideNavigationSection',
@@ -345,7 +344,9 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
           title="Disabled"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={disableItemExample} name="Disabled item example" />}
+            sandpackExample={
+              <SandpackExample code={disableItemExample} name="Disabled item example" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
@@ -353,7 +354,9 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
           title="Subtext"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={subtextItemExample} name="Subtext item example" />}
+            sandpackExample={
+              <SandpackExample code={subtextItemExample} name="Subtext item example" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection
