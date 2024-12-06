@@ -7,10 +7,12 @@ import {
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_ACTIVE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_BASE,
   TOKEN_COLOR_BACKGROUND_TABS_TRANSPARENT_HOVER,
+  TOKEN_ROUNDING_0,
 } from 'gestalt-design-tokens';
-import { Count, Notification, Underline } from './subcomponents';
 import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
+import Indicator from '../Indicator';
 import style from '../Tabs.css';
 import TapAreaLink from '../TapAreaLink';
 import TextUI from '../TextUI';
@@ -19,6 +21,7 @@ import useInExperiment from '../useInExperiment';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
 type TabType = {
+  notificationAccessibilityLabel?: string;
   href: string;
   id?: string;
   indicator?: 'dot' | number;
@@ -51,7 +54,18 @@ const COLORS = Object.freeze({
 });
 
 const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
-  { bgColor, href, indicator, id, index, isActive, onChange, text, dataTestId }: TabProps,
+  {
+    notificationAccessibilityLabel,
+    bgColor,
+    href,
+    indicator,
+    id,
+    index,
+    isActive,
+    onChange,
+    text,
+    dataTestId,
+  }: TabProps,
   ref,
 ) {
   const {
@@ -72,6 +86,8 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+  const { accessibilityNotificationLabel } = useDefaultLabelContext('Tabs');
 
   const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
@@ -135,10 +151,21 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
                 {text}
               </TextUI>
 
-              {indicator === 'dot' && <Notification />}
+              {indicator === 'dot' && (
+                <Indicator
+                  accessibilityLabel={
+                    notificationAccessibilityLabel ?? accessibilityNotificationLabel
+                  }
+                />
+              )}
               {/* Number.isFinite will return false for a string or undefined */}
               {typeof indicator === 'number' && Number.isFinite(indicator) && (
-                <Count count={indicator} />
+                <Indicator
+                  accessibilityLabel={
+                    notificationAccessibilityLabel ?? accessibilityNotificationLabel
+                  }
+                  count={indicator}
+                />
               )}
             </Flex>
 
@@ -155,7 +182,17 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
                 // 4px/boint, padding on left and right
                 width={`calc(100% - ${(isInVRExperiment ? 2 : 2) * 4 * 2}px)`}
               >
-                <Underline />
+                {/* Active tab underline */}
+                <Box
+                  color="selected"
+                  dangerouslySetInlineStyle={{
+                    __style: {
+                      borderRadius: isInVRExperiment ? TOKEN_ROUNDING_0 : 1.5,
+                    },
+                  }}
+                  height={isInVRExperiment ? 2 : 3}
+                  width="100%"
+                />
               </Box>
             )}
           </Box>

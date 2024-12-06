@@ -4,6 +4,7 @@ import FetchItems from './FetchItems';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
+import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -148,6 +149,12 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
+   * Experimental flag to enable an experiment to use a revamped version of dynamic heights (This needs _dynamicHeights enabled)
+   */
+  _dynamicHeightsV2Experiment?: boolean;
+  /**
+  /**
+   *
    * Experimental prop to enable early bailout when positioning multicolumn modules
    *
    * This is an experimental prop and may be removed or changed in the future
@@ -225,14 +232,34 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                 const changedItem: T = this.state.items[idx]!;
                 const newHeight = contentRect.height;
 
-                triggerUpdate =
-                  recalcHeights({
-                    items: this.state.items,
-                    changedItem,
-                    newHeight,
-                    positionStore: this.positionStore,
-                    measurementStore: this.state.measurementStore,
-                  }) || triggerUpdate;
+                // TODO: DefaultGutter comes from getLayoutAlgorithm and their utils, everything should be in one place (this.gutter?)
+                const { layout, gutterWidth } = this.props;
+                let defaultGutter = 14;
+                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+                  defaultGutter = 0;
+                }
+
+                /* eslint-disable-next-line no-underscore-dangle */
+                if (props._dynamicHeightsV2Experiment) {
+                  triggerUpdate =
+                    recalcHeightsV2({
+                      items: this.state.items,
+                      changedItem,
+                      newHeight,
+                      positionStore: this.positionStore,
+                      measurementStore: this.state.measurementStore,
+                      gutterWidth: gutterWidth ?? defaultGutter,
+                    }) || triggerUpdate;
+                } else {
+                  triggerUpdate =
+                    recalcHeights({
+                      items: this.state.items,
+                      changedItem,
+                      newHeight,
+                      positionStore: this.positionStore,
+                      measurementStore: this.state.measurementStore,
+                    }) || triggerUpdate;
+                }
               }
             });
             if (triggerUpdate) {

@@ -1,10 +1,12 @@
-import { ReactNode, useRef } from 'react';
+import { ReactNode } from 'react';
 import Controller from './Controller';
 import Box from '../Box';
 import { Overflow } from '../boxTypes';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
+import InternalIconCompactButton from '../IconButton/InternalIconCompactButton';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
+import useInExperiment from '../useInExperiment';
 
 type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -60,7 +62,10 @@ export default function InternalPopover({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
-  const dismissButtonRef = useRef<null | HTMLButtonElement>(null);
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
 
   if (!anchor) {
     return null;
@@ -92,15 +97,26 @@ export default function InternalPopover({
       {showDismissButton && (
         <Flex direction="column">
           <Box alignSelf="end" padding={2}>
-            <InternalDismissButton
-              ref={dismissButtonRef}
-              accessibilityLabel={
-                accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
-              }
-              iconColor={color === 'white' ? 'darkGray' : 'white'}
-              onClick={onDismiss}
-              size="xs"
-            />
+            {isInVRExperiment ? (
+              <InternalIconCompactButton
+                accessibilityLabel={
+                  accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+                }
+                icon="compact-cancel"
+                iconColor="darkGray"
+                onClick={onDismiss}
+                size="sm"
+              />
+            ) : (
+              <InternalDismissButton
+                accessibilityLabel={
+                  accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault
+                }
+                iconColor={color === 'white' ? 'darkGray' : 'white'}
+                onClick={onDismiss}
+                size="xs"
+              />
+            )}
           </Box>
         </Flex>
       )}

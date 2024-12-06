@@ -119,6 +119,9 @@ describe('useDefaultLabelContext', () => {
           HelpButton: {
             tooltipMessage: 'Click to learn more',
           },
+          Tabs: {
+            accessibilityNotificationLabel: 'This tab is displaying a notification indicator',
+          },
           Toast: {
             accessibilityDismissButtonLabel: 'Dismiss message',
             accessibilityIconSuccessLabel: 'Success message',

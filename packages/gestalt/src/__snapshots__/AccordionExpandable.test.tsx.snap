@@ -122,7 +122,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
     </div>
   </div>
   <hr
-    className="divider"
+    className="divider borderColor"
   />
   <div
     className="box paddingX600 paddingY600"
@@ -242,7 +242,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
     </div>
   </div>
   <hr
-    className="divider"
+    className="divider borderColor"
   />
   <div
     className="box paddingX600 paddingY600"
@@ -644,7 +644,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
     </div>
   </div>
   <hr
-    className="divider"
+    className="divider borderColor"
   />
   <div
     className="box paddingX600 paddingY600"
@@ -764,7 +764,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
     </div>
   </div>
   <hr
-    className="divider"
+    className="divider borderColor"
   />
   <div
     className="box paddingX600 paddingY600"

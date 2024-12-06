@@ -527,6 +527,12 @@
       "keywords": ["cut", "edit"]
     },
     {
+      "name": "crystal-ball",
+      "categories": ["Object"],
+      "description": "Indicates predictions",
+      "keywords": ["predicts", "future", "magic", "sparkles", "trends"]
+    },
+    {
       "name": "dash",
       "categories": ["Utility and tools"],
       "description": "Indicates there isn't data/numbers to show",

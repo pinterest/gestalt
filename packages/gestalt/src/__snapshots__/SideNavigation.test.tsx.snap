@@ -81,7 +81,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="FlexItem"
                 >
                   <hr
-                    className="divider"
+                    className="divider borderColor"
                   />
                 </div>
               </div>
@@ -176,7 +176,7 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                   className="FlexItem"
                 >
                   <hr
-                    className="divider"
+                    className="divider borderColor"
                   />
                 </div>
                 <div

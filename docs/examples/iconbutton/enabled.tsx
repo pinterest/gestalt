@@ -5,7 +5,7 @@ export default function Example() {
     <Flex alignItems="center" gap={8} height="100%" justifyContent="center" width="100%" wrap>
       <IconButton accessibilityLabel="Share" bgColor="gray" icon="share" label="gray" size="xl" />
       <IconButton
-        accessibilityLabel="Share"
+        accessibilityLabel="lightGray"
         bgColor="lightGray"
         icon="share"
         label="lightGray"
@@ -13,27 +13,27 @@ export default function Example() {
       />
       <IconButton accessibilityLabel="Share" bgColor="red" icon="share" label="red" size="xl" />
       <IconButton
-        accessibilityLabel="Share"
+        accessibilityLabel="transparent"
         bgColor="transparent"
         icon="share"
-        label="red"
+        label="transparent"
         size="xl"
       />
       <IconButton
-        accessibilityLabel="Share"
+        accessibilityLabel="transparentDarkGray"
         bgColor="transparentDarkGray"
         icon="share"
         label="transparentDarkGray"
         size="xl"
       />
       <IconButton
-        accessibilityLabel="Share"
+        accessibilityLabel="washLight"
         bgColor="washLight"
         icon="share"
         label="washLight"
         size="xl"
       />
-      <IconButton accessibilityLabel="Share" bgColor="white" icon="share" label="white" size="xl" />
+      <IconButton accessibilityLabel="white" bgColor="white" icon="share" label="white" size="xl" />
     </Flex>
   );
 }
