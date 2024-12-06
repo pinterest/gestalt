@@ -16,11 +16,13 @@ import icons from '../icons/index';
 import Text from '../Text';
 import { Indexable } from '../zIndex';
 
-function getTextColor({active, disabled}:{active?: string, disabled?: boolean}) {
+function getTextColor({active, disabled, subtext}:{active?: string, disabled?: boolean, subtext?: boolean}) {
   if (active) {
     return 'inverse';
   } if (disabled) {
-    return 'subtle';
+    return 'disabled';
+  } if (subtext){
+    return 'subtle'
   }
     return 'default';
 
@@ -65,7 +67,7 @@ type Props = {
   counter?: Counter;
   icon?: IconType;
   label: string;
-  helperText?: string;
+  subtext?: string;
   disabled?: boolean;
   notificationAccessibilityLabel?: string;
   primaryAction?: PrimaryAction;
@@ -81,7 +83,7 @@ export default function ItemContent({
   counter,
   icon,
   label,
-  helperText,
+  subtext,
   disabled,
   primaryAction,
   notificationAccessibilityLabel,
@@ -128,7 +130,8 @@ export default function ItemContent({
 
   const inactiveItemColor = hovered ? 'secondary' : undefined;
   const itemColor = active ? 'selected' : inactiveItemColor;
-  const textColor = getTextColor({active, disabled})
+  const mainTextColor = getTextColor({active, disabled})
+  const subTextColor = getTextColor({active, disabled, subtext: true})
   const counterColor = active ? 'inverse' : 'subtle';
 
   const nestingMargin = isMobile
@@ -140,7 +143,6 @@ export default function ItemContent({
   return (
     <Box
       alignItems="center"
-      aria-disabled={disabled}
       color={itemColor}
       dangerouslySetInlineStyle={{
         __style: {
@@ -185,7 +187,7 @@ export default function ItemContent({
               {typeof icon === 'string' ? (
                 <Icon
                   accessibilityLabel={collapsed ? label : ''}
-                  color={textColor}
+                  color={mainTextColor}
                   icon={icon}
                   inline
                   size={20}
@@ -193,7 +195,7 @@ export default function ItemContent({
               ) : (
                 <Icon
                   accessibilityLabel={collapsed ? label : ''}
-                  color={textColor}
+                  color={mainTextColor}
                   dangerouslySetSvgPath={icon}
                   inline
                   size={20}
@@ -205,12 +207,12 @@ export default function ItemContent({
 
         {!collapsed && (
           <Flex.Item flex="grow">
-            <Text color={textColor} inline>
+            <Text color={mainTextColor} inline>
               <Flex alignItems='center' direction="row" gap={1}>
             <Flex direction='column' gap={1}>
               {label}
-              {helperText && <Text color={textColor} lineClamp={1} size="200">
-                {helperText}
+              {subtext && <Text color={subTextColor} lineClamp={1} size="200">
+                {subtext}
               </Text>}
               </Flex>
               {((badge || notificationAccessibilityLabel) && !disabled) && (

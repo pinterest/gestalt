@@ -6,41 +6,41 @@ export default function Example() {
     <Box height="100%" width={300}>
       <SideNavigation accessibilityLabel="Helper text items">
         <SideNavigation.TopItem
-          helperText='Reporting subtext'
           href="#"
           icon="ads-stats"
           label="Reports"
           onClick={({ event }) => event.preventDefault()}
+          subtext='Reporting subtext'
         />
         <SideNavigation.Section label="Audiences">
           <SideNavigation.TopItem
-            helperText='8.5m+ users'
             href="#"
             icon="people"
             label="Group A"
             onClick={({ event }) => event.preventDefault()}
+            subtext='8.5m+ users'
           />
 
           <SideNavigation.Group expanded icon="people" label="Group B">
             <SideNavigation.NestedItem
-              helperText='2.3m+ users'
               href="#"
               label="Sub audience 1"
               onClick={({ event }) => event.preventDefault()}
+              subtext='2.3m+ users'
             />
 
             <SideNavigation.NestedGroup label="Sub audience 2">
               <SideNavigation.NestedItem
-                helperText='100k+ users'
                 href="#"
                 label="Region 1"
                 onClick={({ event }) => event.preventDefault()}
+                subtext='100k+ users'
               />
               <SideNavigation.NestedItem
-                helperText='50k+ users'
                 href="#"
                 label="Region 2"
                 onClick={({ event }) => event.preventDefault()}
+                subtext='50k+ users'
               />
             </SideNavigation.NestedGroup>
           </SideNavigation.Group>

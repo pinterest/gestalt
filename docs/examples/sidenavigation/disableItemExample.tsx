@@ -15,11 +15,11 @@ export default function Example() {
         <SideNavigation.Section label="Catalogs">
           <SideNavigation.TopItem
             disabled
-            helperText='Disabled thanksgiving section'
             href="#"
             icon="people"
             label="Thanksgiving"
             onClick={({ event }) => event.preventDefault()}
+            subtext='Disabled thanksgiving section'
           />
 
           <SideNavigation.Group expanded icon="people" label="Christmas">

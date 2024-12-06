@@ -15,7 +15,7 @@ type Props = {
     accessibilityLabel: string;
   };
   /**
-   * When supplied, will gray out the item and make it non-clickable
+   * Indicates if row item is disabled and therefore inactive and non-interactive. See [disabled variant](https://gestalt.pinterest.systems/web/sidenavigation#Disabled) to learn more.
    */
   disabled?: boolean;
   /**
@@ -23,9 +23,9 @@ type Props = {
    */
   href: string;
   /**
-   * Optional subtext for the item label
+   * Provides optional additional information about a row item. See [subtext variant](https://gestalt.pinterest.systems/web/sidenavigation#Subtext) to learn more.
    */
-  helperText?: string;
+  subtext?: string;
   /**
    * Label for the item.
    */
@@ -63,7 +63,7 @@ type Props = {
  */
 const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
   function SideNavigationNestedItem(
-    { active, counter, disabled, helperText, href, label, onClick, primaryAction }: Props,
+    { active, counter, disabled, subtext, href, label, onClick, primaryAction }: Props,
     ref,
   ) {
     return (
@@ -72,11 +72,11 @@ const SideNavigationNestedItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
         active={active}
         counter={counter}
         disabled={disabled}
-        helperText={helperText}
         href={href}
         label={label}
         onClick={onClick}
         primaryAction={primaryAction}
+        subtext={subtext}
       />
     );
   },

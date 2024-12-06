@@ -28,7 +28,6 @@ import footerVariant from '../../examples/sidenavigation/footerVariant';
 import groupLinkDisplayExpadable from '../../examples/sidenavigation/groupLinkDisplayExpadable';
 import groupLinkDisplayStatic from '../../examples/sidenavigation/groupLinkDisplayStatic';
 import headerExample from '../../examples/sidenavigation/headerExample';
-import helperTextItemExample from '../../examples/sidenavigation/helperTextItemExample';
 import iconsExample from '../../examples/sidenavigation/iconsExample';
 import incorrectGroupingExample from '../../examples/sidenavigation/incorrectGroupingExample';
 import incorrectHeadingExample from '../../examples/sidenavigation/incorrectHeadingExample';
@@ -42,6 +41,8 @@ import notificationsExample from '../../examples/sidenavigation/notificationsExa
 import primaryAction from '../../examples/sidenavigation/primaryAction';
 import sectionsExample from '../../examples/sidenavigation/sectionsExample';
 import subcomponent from '../../examples/sidenavigation/subcomponent';
+import subtextItemExample from '../../examples/sidenavigation/subtextItemExample';
+
 
 const DOC_NAMES = [
   'SideNavigation',
@@ -348,11 +349,11 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description="Helper text adds a new line to an item, providing additional information about the page the item represents."
-          title="Helper text"
+          description="Subtext adds a new line to an item, providing additional information about the page the item represents."
+          title="Subtext"
         >
           <MainSection.Card
-            sandpackExample={<SandpackExample code={helperTextItemExample} name="Helper text item example" />}
+            sandpackExample={<SandpackExample code={subtextItemExample} name="Subtext item example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection

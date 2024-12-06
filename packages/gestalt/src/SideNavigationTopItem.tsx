@@ -27,7 +27,7 @@ export type Props = {
     accessibilityLabel: string;
   };
   /**
-   * When supplied, will gray out the item and make it non-clickable. See the [Disabled](https://gestalt.pinterest.systems/web/sidenavigation#Disabled) variant to learn more.
+   * Indicates if row item is disabled and therefore inactive and non-interactive. See [disabled variant](https://gestalt.pinterest.systems/web/sidenavigation#Disabled) to learn more.
    */
   disabled?: boolean;
   /**
@@ -56,7 +56,7 @@ export type Props = {
   /**
    * Optional subtext for item labels. See the [Helper text](https://gestalt.pinterest.systems/web/sidenavigation#Helper-text) variant to learn more.
    */
-  helperText?: string;
+  subtext?: string;
   /**
    * Label for the item.
    */
@@ -95,7 +95,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
       disabled,
       icon,
       label,
-      helperText,
+      subtext,
       primaryAction,
       notificationAccessibilityLabel,
       onClick,
@@ -139,13 +139,13 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
             counter={counter}
             disabled={disabled}
             focused={focused}
-            helperText={helperText}
             hovered={hovered}
             icon={icon}
             label={label}
             notificationAccessibilityLabel={notificationAccessibilityLabel}
             primaryAction={primaryAction}
             setCompression={setCompression}
+            subtext={subtext}
           />
         </TapAreaLink>
       </li>
