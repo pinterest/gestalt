@@ -1,3 +1,9 @@
+## 166.1.0 (Dec 6, 2024)
+
+### Minor
+
+- SideNavigation: Add disable and helper text props ([#3905](https://github.com/pinterest/gestalt/pull/3905)) - [Preview link](https://deploy-preview-3905--gestalt.netlify.app?devexample=true)
+
 ## 166.0.5 (Dec 5, 2024)
 
 ### Patch
