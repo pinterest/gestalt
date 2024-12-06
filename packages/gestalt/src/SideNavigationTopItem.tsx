@@ -136,13 +136,13 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
           <ItemContent
             active={active}
             badge={badge}
-            counter={counter}
+            counter={disabled ? undefined : counter}
             disabled={disabled}
             focused={focused}
             hovered={hovered}
             icon={icon}
             label={label}
-            notificationAccessibilityLabel={notificationAccessibilityLabel}
+            notificationAccessibilityLabel={disabled ? undefined : notificationAccessibilityLabel}
             primaryAction={primaryAction}
             setCompression={setCompression}
             subtext={subtext}
