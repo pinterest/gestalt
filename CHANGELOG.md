@@ -1,3 +1,9 @@
+## 166.2.0 (Dec 9, 2024)
+
+### Minor
+
+- Icon: Update Icons [Gestalt-8459] ([#3908](https://github.com/pinterest/gestalt/pull/3908)) - [Preview link](https://deploy-preview-3908--gestalt.netlify.app?devexample=true)
+
 ## 166.1.0 (Dec 6, 2024)
 
 ### Minor
