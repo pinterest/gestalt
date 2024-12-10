@@ -238,14 +238,7 @@ function DateRange({
   });
 
   return (
-    <Box
-      borderStyle="shadow"
-      color="default"
-      display="inlineBlock"
-      minHeight={425}
-      overflow="hidden"
-      rounding={4}
-    >
+    <Box borderStyle="shadow" color="default" display="inlineBlock" minHeight={425} rounding={4}>
       <Flex>
         {radioGroup &&
         // @ts-expect-error - TS2339
