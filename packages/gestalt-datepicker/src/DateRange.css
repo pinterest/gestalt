@@ -14,6 +14,11 @@ html[dir="rtl"] .borderRight {
   position: relative;
 }
 
+.dateFieldSection:first-child {
+  border-top-left-radius: var(--rounding-400);
+  border-top-right-radius: var(--rounding-400);
+}
+
 .dateFieldSectionActive {
   background-color: var(--color-gray-roboflow-100);
 }
