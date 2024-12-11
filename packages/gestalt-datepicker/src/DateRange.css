@@ -28,3 +28,24 @@ html[dir="rtl"] .borderRight {
   transform: translateY(-50%);
   width: 3px;
 }
+
+/* secondary range styles  */
+
+:global ._gestalt .react-datepicker__day--in-range-secondary {
+  background-color: var(--color-background-datepicker-range-default);
+  font-weight: bold;
+}
+
+:global ._gestalt ._gestalt_daterange .react-datepicker__day--range-start {
+  background-color: var(--color-background-datepicker-button-selected-default);
+  border-radius: var(--rounding-datepicker-days);
+  color: var(--color-text-inverse);
+  position: relative;
+}
+
+:global ._gestalt ._gestalt_daterange .react-datepicker__day--range-end {
+  background-color: var(--color-background-datepicker-button-selected-default);
+  border-radius: var(--rounding-datepicker-days);
+  color: var(--color-text-inverse);
+  position: relative;
+}
