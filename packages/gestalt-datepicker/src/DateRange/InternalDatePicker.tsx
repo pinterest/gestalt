@@ -81,7 +81,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
       return dates;
     }
 
-    function generateHighliths(
+    function generateHighligths(
       startDate: Date | null | undefined,
       endDate: Date | null | undefined,
     ) {
@@ -119,8 +119,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
             excludeDates={excludeDates && [...excludeDates]}
             highlightDates={
               selectedRange === DateRangeType.Primary
-                ? generateHighliths(secondaryRangeStartDate, secondaryRangeEndDate)
-                : generateHighliths(rangeStartDate, rangeEndDate)
+                ? generateHighligths(secondaryRangeStartDate, secondaryRangeEndDate)
+                : generateHighligths(rangeStartDate, rangeEndDate)
             }
             id={id}
             includeDates={includeDates && [...includeDates]}
