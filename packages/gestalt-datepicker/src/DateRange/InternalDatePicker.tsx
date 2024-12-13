@@ -81,14 +81,14 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
       return dates;
     }
 
-    function generateHighligths(
+    function generateHighlights(
       startDate: Date | null | undefined,
       endDate: Date | null | undefined,
     ) {
       const datesArray = startDate && endDate ? getDatesArray(startDate, endDate) : [];
       return [
         {
-          'react-datepicker__day--in-range-secondary': datesArray,
+          [styles['react-datepicker__day--in-range-secondary']]: datesArray,
         },
       ];
     }
@@ -119,8 +119,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
             excludeDates={excludeDates && [...excludeDates]}
             highlightDates={
               selectedRange === DateRangeType.Primary
-                ? generateHighligths(secondaryRangeStartDate, secondaryRangeEndDate)
-                : generateHighligths(rangeStartDate, rangeEndDate)
+                ? generateHighlights(secondaryRangeStartDate, secondaryRangeEndDate)
+                : generateHighlights(rangeStartDate, rangeEndDate)
             }
             id={id}
             includeDates={includeDates && [...includeDates]}
