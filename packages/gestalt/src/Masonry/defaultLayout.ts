@@ -1,6 +1,11 @@
 import { Cache } from './Cache';
 import { getHeightAndGutter, offscreen } from './layoutHelpers';
-import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
+import {
+  areSkeletonPins,
+  isLoadingStateItem,
+  isLoadingStateItems,
+  isSkeletonPin,
+} from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
 import { Align, Layout, LoadingStateItem, Position } from './types';
@@ -87,7 +92,9 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
+    return _getColumnSpanConfig &&
+      !isLoadingStateItems(items, renderLoadingState) &&
+      !areSkeletonPins(items)
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -99,9 +106,10 @@ const defaultLayout =
           ...otherProps,
         })
       : items.map((item) => {
-          const height = isLoadingStateItem(item, renderLoadingState)
-            ? item.height
-            : measurementCache.get(item);
+          const height =
+            isLoadingStateItem(item, renderLoadingState) || isSkeletonPin(item)
+              ? item.height
+              : measurementCache.get(item);
 
           if (height == null) {
             return offscreen(columnWidth);
