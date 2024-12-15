@@ -153,7 +153,7 @@ export function initializeHeightsArray<T>({
   items.forEach((item) => {
     const position = positionCache?.get(item);
     if (position) {
-      const col = (position.left - centerOffset) / columnWidthAndGutter;
+      const col = Math.round((position.left - centerOffset) / columnWidthAndGutter);
       const columnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
       // the height of the column is just the sum of the top and height of the item
       const absoluteHeight = position.top + position.height + gutter;
