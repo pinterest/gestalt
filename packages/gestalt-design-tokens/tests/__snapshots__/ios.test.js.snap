@@ -1337,6 +1337,8 @@ public enum GestaltTokensSpinner {
     public static let compMotionExitDuration = baseDuration150
     public static let compMotionEnterEasing = baseEasingEnter
     public static let compMotionEnterDuration = baseDuration300
+    public static let compGrayscaleBackground = baseGrayscale350
+    public static let compWhiteBackground = semaBackgroundLight
 }
 ",
 }
