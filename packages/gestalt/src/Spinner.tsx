@@ -1,7 +1,8 @@
+import { ComponentProps } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Icon from './Icon';
+import Icon, { IconColor } from './Icon';
 import styles from './Spinner.css';
 import VRSpinner from './Spinner/VRSpinner';
 import useInExperiment from './useInExperiment';
@@ -17,15 +18,15 @@ type Props = {
    */
   accessibilityLabel?: string;
   /**
-   * Color of the Spinner.
+   * Color of the Spinner. `grayscale` and `white` variants are available only in Visual Refresh experiment.
    */
-  color?: 'default' | 'subtle';
+  color?: 'default' | 'subtle' | 'grayscale' | 'white';
   /**
    * Whether or not to render with a 300ms delay. The delay is for perceived performance, so you should rarely need to remove it. See the [delay variant](https://gestalt.pinterest.systems/web/spinner#Delay) for more details.
    */
   delay?: boolean;
   /**
-   * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro aimation is not intended, prefer conditional rendering.
+   * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro animation is not intended, prefer conditional rendering.
    */
   show: boolean;
   /**
@@ -56,7 +57,14 @@ export default function Spinner({
 
   if (isInVRExperiment) {
     return (
-      <VRSpinner accessibilityLabel={accessibilityLabel} delay={delay} show={show} size={size} />
+      <VRSpinner
+        accessibilityLabel={accessibilityLabel}
+        // Casting color type as classic and VR color variants types conflict.
+        color={color as ComponentProps<typeof VRSpinner>['color']}
+        delay={delay}
+        show={show}
+        size={size}
+      />
     );
   }
 
@@ -65,7 +73,8 @@ export default function Spinner({
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
-          color={color}
+          // Casting color type as classic and VR color variants types conflict.
+          color={color as IconColor}
           icon="knoop"
           size={SIZE_NAME_TO_PIXEL[size]}
         />

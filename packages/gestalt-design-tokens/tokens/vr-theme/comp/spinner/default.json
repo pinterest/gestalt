@@ -1,6 +1,18 @@
 {
   "comp": {
     "spinner": {
+      "grayscale": {
+        "background": {
+          "type": "color",
+          "value": "{base.color.grayscale.350}"
+        }
+      },
+      "white": {
+        "background": {
+          "type": "color",
+          "value": "{sema.color.background.light}"
+        }
+      },
       "color": {
         "background": {
           "1": {

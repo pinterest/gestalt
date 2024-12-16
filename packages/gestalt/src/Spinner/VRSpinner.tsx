@@ -15,6 +15,7 @@ type SpinnerBodyProps = {
   delay: boolean;
   show: boolean;
   size: 'sm' | 'md' | 'lg';
+  color: 'default' | 'grayscale' | 'white';
   onExitAnimationEnd: () => void;
 };
 
@@ -23,13 +24,18 @@ function SpinnerBody({
   delay,
   show,
   size,
+  color,
   onExitAnimationEnd,
 }: SpinnerBodyProps) {
   return (
     <Box display="flex" justifyContent="around">
       <div
         aria-label={accessibilityLabel}
-        className={classnames(styles.spinner, { [styles.exit]: !show })}
+        className={classnames(styles.spinner, {
+          [styles.exit]: !show,
+          [styles.grayscale]: color === 'grayscale',
+          [styles.white]: color === 'white',
+        })}
         onAnimationEnd={onExitAnimationEnd}
         style={
           {
@@ -68,6 +74,7 @@ type Props = {
   delay?: boolean;
   show: boolean;
   size?: 'sm' | 'md' | 'lg';
+  color?: 'default' | 'grayscale' | 'white';
 };
 
 export default function Spinner({
@@ -75,6 +82,7 @@ export default function Spinner({
   delay = true,
   show: showProp,
   size = 'md',
+  color = 'default',
 }: Props) {
   const [show, setShow] = useState(showProp);
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
@@ -92,6 +100,7 @@ export default function Spinner({
   return (
     <SpinnerBody
       accessibilityLabel={accessibilityLabel || accessibilityLabelDefault}
+      color={color}
       delay={delay}
       onExitAnimationEnd={unmountSpinner}
       show={showProp}
