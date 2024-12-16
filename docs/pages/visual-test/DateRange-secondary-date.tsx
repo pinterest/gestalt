@@ -3,10 +3,14 @@ import { Box, ColorSchemeProvider } from 'gestalt';
 import { DateRange } from 'gestalt-datepicker';
 
 export default function Snapshot() {
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
-  const [compStartDate, setCompStartDate] = useState<Date | null>(null);
-  const [compEndDate, setCompEndDate] = useState<Date | null>(null);
+  const [startDate, setStartDate] = useState<Date | null>(new Date('December 16, 2024 03:24:00'));
+  const [endDate, setEndDate] = useState<Date | null>(new Date('December 20, 2024 03:24:00'));
+  const [compStartDate, setCompStartDate] = useState<Date | null>(
+    new Date('December 9, 2024 03:24:00'),
+  );
+  const [compEndDate, setCompEndDate] = useState<Date | null>(
+    new Date('December 13, 2024 03:24:00'),
+  );
 
   return (
     <ColorSchemeProvider colorScheme="light">

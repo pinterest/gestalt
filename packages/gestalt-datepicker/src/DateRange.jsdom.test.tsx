@@ -308,4 +308,29 @@ describe('DateRange', () => {
     expect(startDateInput).toHaveAttribute('readonly');
     expect(endDateInput).toHaveAttribute('readonly');
   });
+
+  it('highlights secondary date range with correct class', () => {
+    const initialStartDate = new Date('December 10, 2024 03:24:00');
+    const initialEndDate = new Date('December 11, 2024 03:24:00');
+    const initialCompStartDate = new Date('December 16, 2024 03:24:00');
+    const initialCompEndDate = new Date('December 17, 2024 03:24:00');
+    render(
+      <TwoDateRangeWrap
+        initialCompEndDate={initialCompEndDate}
+        initialCompStartDate={initialCompStartDate}
+        initialEndDate={initialEndDate}
+        initialStartDate={initialStartDate}
+        localeData={enUS}
+      />,
+    );
+
+    const firstDay = screen.getByRole('option', {
+      name: /choose monday, december 16th, 2024/i,
+    });
+    const secondDay = screen.getByRole('option', {
+      name: /choose tuesday, december 17th, 2024/i,
+    });
+    expect(firstDay).toHaveClass('react-datepicker__day--in-range-secondary');
+    expect(secondDay).toHaveClass('react-datepicker__day--in-range-secondary');
+  });
 });
