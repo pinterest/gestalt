@@ -1209,7 +1209,7 @@ describe('initializeHeightsArray', () => {
       { top: 456, left: 1767.0593999999999, width: 236.2942, height: 510 },
       { top: 491, left: 1010.1768, width: 236.2942, height: 336 },
       { top: 715, left: 505.5884, width: 236.2942, height: 322 },
-      { top: 787, left: 757.8825999999999, width: 236.2942, height: 417 }
+      { top: 787, left: 757.8825999999999, width: 236.2942, height: 417 },
     ]);
 
     const heights = initializeHeightsArray({
@@ -1244,8 +1244,7 @@ describe('initializeHeightsArray', () => {
       items,
       positionCache: positionCacheInt,
       _getColumnSpanConfig: getColumnSpanConfig,
-    })
-
+    });
 
     expect(heights.length).toEqual(9);
     expect(heights).toEqual([924, 871, 1053, 1220, 843, 1421, 1421, 982, 829]);
