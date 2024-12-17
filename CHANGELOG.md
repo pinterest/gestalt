@@ -1,3 +1,9 @@
+## 166.2.1 (Dec 17, 2024)
+
+### Patch
+
+- Masonry: Update fluid grid to not floor column width (take two) ([#3913](https://github.com/pinterest/gestalt/pull/3913)) - [Preview link](https://deploy-preview-3913--gestalt.netlify.app?devexample=true)
+
 ## 166.2.0 (Dec 9, 2024)
 
 ### Minor
