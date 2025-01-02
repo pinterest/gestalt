@@ -1,3 +1,9 @@
+## 166.2.2 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Remove overflow prop and apply border radius with css instead (web) ([#3909](https://github.com/pinterest/gestalt/pull/3909)) - [Preview link](https://deploy-preview-3909--gestalt.netlify.app?devexample=true)
+
 ## 166.2.1 (Dec 17, 2024)
 
 ### Patch
