@@ -118,7 +118,7 @@ type Props = {
   readOnly?: boolean;
 };
 
-enum DateRangeType {
+export enum DateRangeType {
   Primary,
   Secondary,
 }
@@ -351,16 +351,11 @@ function DateRange({
                     onSecondaryDateChange({ value: startDate }, { value: endDate });
                   }
                 }}
-                rangeEndDate={
-                  selectedRange === DateRangeType.Primary
-                    ? dateValue.endDate
-                    : secondaryDateValue?.endDate
-                }
-                rangeStartDate={
-                  selectedRange === DateRangeType.Primary
-                    ? dateValue.startDate
-                    : secondaryDateValue?.startDate
-                }
+                rangeEndDate={dateValue.endDate}
+                rangeStartDate={dateValue.startDate}
+                secondaryRangeEndDate={secondaryDateValue?.endDate}
+                secondaryRangeStartDate={secondaryDateValue?.startDate}
+                selectedRange={selectedRange}
               />
             </Box>
             {onSubmit && onCancel ? (

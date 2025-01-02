@@ -399,6 +399,13 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
   z-index: 1;
 }
 
+/* styles secondary in range days */
+
+.react-datepicker__day--in-range-secondary {
+  background-color: var(--color-background-datepicker-range-default);
+  font-weight: bold;
+}
+
 /* Year / Month dropdown  */
 
 :global ._gestalt .react-datepicker__month-select,
