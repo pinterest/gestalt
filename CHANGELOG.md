@@ -1,3 +1,9 @@
+## 166.2.3 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Highlight secondary range in DateRange component (web) ([#3910](https://github.com/pinterest/gestalt/pull/3910)) - [Preview link](https://deploy-preview-3910--gestalt.netlify.app?devexample=true)
+
 ## 166.2.2 (Jan 2, 2025)
 
 ### Patch
