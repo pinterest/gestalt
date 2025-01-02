@@ -65,7 +65,7 @@ function PrimaryAction({ accessibilityLabel, disabled, label, isInVRExperiment, 
   return props.role === 'link' ? (
     <ButtonLink
       accessibilityLabel={accessibilityLabel}
-      color="white"
+      color={isInVRExperiment ? 'red' : 'white'}
       disabled={disabled}
       fullWidth
       href={props.href}
