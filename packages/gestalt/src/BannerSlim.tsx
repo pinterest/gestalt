@@ -59,9 +59,13 @@ type PrimaryActionType =
       role?: 'button';
     };
 
-
-
-function PrimaryAction({ accessibilityLabel, disabled, label, isInVRExperiment, ...props }: PrimaryActionType) {
+function PrimaryAction({
+  accessibilityLabel,
+  disabled,
+  label,
+  isInVRExperiment,
+  ...props
+}: PrimaryActionType) {
   return props.role === 'link' ? (
     <ButtonLink
       accessibilityLabel={accessibilityLabel}
@@ -147,7 +151,6 @@ export default function BannerSlim({
   primaryAction,
   type = 'neutral',
 }: Props) {
-
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
