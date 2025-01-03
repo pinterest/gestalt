@@ -3136,6 +3136,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
@@ -4146,6 +4148,8 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
@@ -5156,6 +5160,8 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
@@ -6166,6 +6172,8 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
@@ -7176,6 +7184,8 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
@@ -8186,6 +8196,8 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
@@ -9196,6 +9208,8 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --comp-radiogroupbutton-motion-border-scale-duration: 150ms;
   --comp-radiogroupbutton-motion-border-fade-easing: cubic-bezier(0.3, 0, 0.8, 0.15);
   --comp-radiogroupbutton-motion-border-fade-duration: 150ms;
+  --comp-spinner-grayscale-background: #4c4c4a;
+  --comp-spinner-white-background: #ffffff;
   --comp-spinner-color-background-1: #c85bd2;
   --comp-spinner-color-background-2: #e57534;
   --comp-spinner-color-background-3: #22a596;
