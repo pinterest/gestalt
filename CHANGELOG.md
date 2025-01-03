@@ -1,3 +1,9 @@
+## 166.3.0 (Jan 3, 2025)
+
+### Minor
+
+- BannerSlim: VR ([#3918](https://github.com/pinterest/gestalt/pull/3918)) - [Preview link](https://deploy-preview-3918--gestalt.netlify.app?devexample=true)
+
 ## 166.2.3 (Jan 2, 2025)
 
 ### Patch
