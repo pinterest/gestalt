@@ -1,3 +1,9 @@
+## 167.0.0 (Jan 4, 2025)
+
+### Major
+
+- SideNavigation: patch for accessibility aria-selected bug ([#3919](https://github.com/pinterest/gestalt/pull/3919)) - [Preview link](https://deploy-preview-3919--gestalt.netlify.app?devexample=true)
+
 ## 166.3.0 (Jan 3, 2025)
 
 ### Minor
