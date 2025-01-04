@@ -40,7 +40,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
     // in the month and we need to keep the popover pointed at the input correctly
     const [, setMonth] = useState<number | null | undefined>();
-    const [format, setFormat] = useState<string | null | undefined>();
+    const [format, setFormat] = useState<string | string[] | undefined>();
     const [updatedLocale, setUpdatedLocale] = useState<string | null | undefined>();
 
     useEffect(() => {
@@ -96,7 +96,6 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
     return (
       <div className="_gestalt">
         <div className={isMobile ? undefined : '_gestalt_daterange'}>
-          {/* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
           <ReactDatePicker
             ref={(refElement) => {
               if (!innerInputRef || !refElement) {
