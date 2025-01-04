@@ -16,9 +16,9 @@ type Props = {
    */
   accessibilityLabel: string;
   /**
-   * When set to 'page' or 'section', it displays the item in "active" state. See the [active state](https://gestalt.pinterest.systems/web/iconbuttonlink#Active-state) guidelines to learn more.
+   * When set to 'page', it displays the item in "active" state. See the [active state](https://gestalt.pinterest.systems/web/iconbuttonlink#Active-state) guidelines to learn more.
    */
-  active?: 'page' | 'section';
+  active?: 'page';
   /**
    * Primary colors to apply to the IconButtonLink background.
    */
