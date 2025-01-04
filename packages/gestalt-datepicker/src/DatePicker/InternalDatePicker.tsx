@@ -1,4 +1,4 @@
-import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {ComponentProps,  forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { limitShift, shift } from '@floating-ui/react';
 import {
@@ -74,7 +74,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
     // in the month and we need to keep the popover pointed at the input correctly
     const [, setMonth] = useState<number | null | undefined>();
     const [format, setFormat] = useState<string | undefined>();
-    const [updatedLocale, setUpdatedLocale] = useState<string | null | undefined>();
+    const [updatedLocale, setUpdatedLocale] = useState<ComponentProps<typeof ReactDatePicker>['locale']>();
     const [initRangeHighlight, setInitRangeHighlight] = useState<Date | null | undefined>();
 
     useEffect(() => {

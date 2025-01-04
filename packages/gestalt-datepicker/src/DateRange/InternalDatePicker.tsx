@@ -1,4 +1,12 @@
-import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  ComponentProps,
+  forwardRef,
+  ReactElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
 import { Props } from '../DatePicker';
@@ -41,7 +49,9 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
     // in the month and we need to keep the popover pointed at the input correctly
     const [, setMonth] = useState<number | null | undefined>();
     const [format, setFormat] = useState<string | string[] | undefined>();
-    const [updatedLocale, setUpdatedLocale] = useState<string | null | undefined>();
+    const [updatedLocale, setUpdatedLocale] = useState<
+      ComponentProps<typeof ReactDatePicker>['locale'] | undefined
+    >();
 
     useEffect(() => {
       if (localeData && localeData.code) {
