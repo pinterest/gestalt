@@ -149,11 +149,10 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-  // const isInVRExperiment = useInExperiment({
-  //   webExperimentName: 'web_gestalt_visualRefresh',
-  //   mwebExperimentName: 'web_gestalt_visualRefresh',
-  // });
-  const isInVRExperiment = true
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
