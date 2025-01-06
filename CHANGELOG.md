@@ -1,3 +1,9 @@
+## 167.1.0 (Jan 6, 2025)
+
+### Minor
+
+- DatePicker, TextField: 1. fix open behavior, 2. support to onClick ([#3921](https://github.com/pinterest/gestalt/pull/3921)) - [Preview link](https://deploy-preview-3921--gestalt.netlify.app?devexample=true)
+
 ## 167.0.1 (Jan 6, 2025)
 
 ### Patch
