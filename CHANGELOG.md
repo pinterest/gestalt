@@ -1,3 +1,9 @@
+## 167.0.1 (Jan 6, 2025)
+
+### Patch
+
+- DatePicker: upgraded package to latest 7.5.0 ([#3920](https://github.com/pinterest/gestalt/pull/3920)) - [Preview link](https://deploy-preview-3920--gestalt.netlify.app?devexample=true)
+
 ## 167.0.0 (Jan 4, 2025)
 
 ### Major
