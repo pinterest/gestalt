@@ -43,7 +43,7 @@ type Props = {
   mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric';
   name?: string;
   onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-  onClick?: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
+  onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;

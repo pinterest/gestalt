@@ -78,7 +78,7 @@ type Props = {
   /**
    * Callback triggered when the user user clicks the input.
    */
-  onClick?: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
+  onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
   /**
    * Callback triggered when the user focuses the input.
    */
