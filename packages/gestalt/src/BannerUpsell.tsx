@@ -11,6 +11,7 @@ import IconButton from './IconButton';
 import Image from './Image';
 import Mask from './Mask';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 export type ActionDataType =
@@ -148,7 +149,10 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
@@ -193,7 +197,7 @@ export default function BannerUpsell({
     >
       <Box smDisplay="flex" smMarginBottom={-3} smMarginTop={-3} width="100%" wrap>
         <Box
-          alignItems="center"
+          alignItems={isInVRExperiment ? 'start' : 'center'}
           direction="column"
           display="flex"
           flex={children ? 'grow' : 'shrink'}
@@ -257,8 +261,19 @@ export default function BannerUpsell({
               </Box>
             )}
           </Box>
+          {!children && isInVRExperiment && hasActions && (
+            <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
+              {secondaryAction && responsiveMinWidth !== 'xs' && (
+                <UpsellAction data={secondaryAction} type="secondary" />
+              )}
+              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+              {secondaryAction && responsiveMinWidth === 'xs' && (
+                <UpsellAction data={secondaryAction} stacked={!!secondaryAction} type="secondary" />
+              )}
+            </Box>
+          )}
         </Box>
-        {!children && hasActions && (
+        {!children && !isInVRExperiment && hasActions && (
           <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
             {secondaryAction && responsiveMinWidth !== 'xs' && (
               <UpsellAction data={secondaryAction} type="secondary" />
