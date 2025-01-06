@@ -61,7 +61,7 @@ export type Props = {
    */
   label?: string;
   /**
-   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
+   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more. Type is Locale from 'date-fns/locale'.
    */
   localeData?: Locale;
   /**
