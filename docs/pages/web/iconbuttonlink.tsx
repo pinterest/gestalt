@@ -49,7 +49,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
-          description={`IconButtonLink has an "active" state that visually identifies it. To set them to "active" set 'active="page"' (page redirect) or 'active="section"'. Use routing hooks from React.Router or other frameworks to identify the current route. For example, if the current pathname matches the IconButtonLink href, set IconButtonLink to "page". Use the example below as a reference.`}
+          description={`IconButtonLink has an "active" state that visually identifies it. To set them to "active" set 'active="page"' (page redirect). Use routing hooks from React.Router or other frameworks to identify the current route. For example, if the current pathname matches the IconButtonLink href, set IconButtonLink to "page". Use the example below as a reference.`}
           title="Active state"
         >
           <MainSection.Card sandpackExample={<SandpackExample code={active} name="Active" />} />
