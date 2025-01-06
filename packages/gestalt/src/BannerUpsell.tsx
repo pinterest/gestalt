@@ -149,10 +149,11 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
+  // const isInVRExperiment = useInExperiment({
+  //   webExperimentName: 'web_gestalt_visualRefresh',
+  //   mwebExperimentName: 'web_gestalt_visualRefresh',
+  // });
+  const isInVRExperiment = true
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
@@ -228,7 +229,7 @@ export default function BannerUpsell({
             marginBottom="auto"
             marginEnd={0}
             marginStart={0}
-            marginTop="auto"
+            marginTop={isInVRExperiment ? undefined : 'auto'}
             smDisplay="block"
             smMarginEnd={6}
             smMarginStart={imageData ? 6 : 0}
@@ -262,7 +263,7 @@ export default function BannerUpsell({
             )}
           </Box>
           {!children && isInVRExperiment && hasActions && (
-            <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
+            <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={isInVRExperiment ? 0 : 3}>
               {secondaryAction && responsiveMinWidth !== 'xs' && (
                 <UpsellAction data={secondaryAction} type="secondary" />
               )}
