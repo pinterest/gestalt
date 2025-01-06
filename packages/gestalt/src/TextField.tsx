@@ -76,7 +76,7 @@ type Props = {
    */
   onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   /**
-   * Callback triggered when the input is clicked.
+   * Callback triggered when the user user clicks the input.
    */
   onClick?: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   /**
