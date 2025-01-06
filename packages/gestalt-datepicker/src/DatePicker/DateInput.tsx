@@ -80,10 +80,12 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
         name={name}
         onBlur={(data) => onBlur?.(data.event)}
         onChange={(data) => onChange?.(data.event)}
+        onClick={() => {
+          onClick?.();
+        }}
         onFocus={(data) => {
           onPassthroughFocus?.();
           onFocus?.(data.event);
-          onClick?.();
         }}
         onKeyDown={(data) => onKeyDown?.(data.event)}
         placeholder={placeholder}
@@ -114,10 +116,12 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
           name={name}
           onBlur={(data) => onBlur?.(data.event)}
           onChange={(data) => onChange?.(data.event)}
+          onClick={() => {
+            onClick?.();
+          }}
           onFocus={(data) => {
             onPassthroughFocus?.();
             onFocus?.(data.event);
-            onClick?.();
           }}
           onKeyDown={(data) => onKeyDown?.(data.event)}
           placeholder={placeholder}
