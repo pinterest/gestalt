@@ -262,7 +262,12 @@ export default function BannerUpsell({
             )}
           </Box>
           {!children && isInVRExperiment && hasActions && (
-            <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={isInVRExperiment ? 0 : 3}>
+            <Box
+              marginStart="auto"
+              smDisplay="flex"
+              smMarginEnd={4}
+              smPaddingY={isInVRExperiment ? 0 : 3}
+            >
               {secondaryAction && responsiveMinWidth !== 'xs' && (
                 <UpsellAction data={secondaryAction} type="secondary" />
               )}
