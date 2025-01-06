@@ -250,7 +250,6 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           : undefined
       }
       aria-label={accessibilityLabel}
-      aria-selected={accessibilityCurrent && accessibilityCurrent === 'section' ? true : undefined}
       className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}

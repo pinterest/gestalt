@@ -78,7 +78,7 @@ export default function Example() {
           onDismiss={() => setShowVintage(false)}
           size="flexible"
         >
-          <Box height={120} overflow="scrollX" padding={4}>
+          <Box overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuide color="01" text="Boards" />
               <SearchGuide color="02" text="Pins" />
@@ -94,7 +94,7 @@ export default function Example() {
           onDismiss={() => setShowOutfit(false)}
           size="flexible"
         >
-          <Box height={120} overflow="scrollX" padding={4}>
+          <Box overflow="scrollX" padding={4}>
             <Flex direction="row" gap={2} wrap>
               <SearchGuide color="01" text="Casual" />
               <SearchGuide color="02" text="Formal" />

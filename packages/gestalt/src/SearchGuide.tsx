@@ -4,6 +4,7 @@ import Box from './Box';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 import styles from './SearchGuide.css';
 import touchableStyles from './TapArea.css';
 import TextUI from './TextUI';
@@ -146,9 +147,56 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         {text}
       </TextUI>
     ) : null;
+
+  const checkIcon = isInVRExperiment ? (
+    <IconCompact
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="compact-check"
+      size={12}
+    />
+  ) : (
+    <Icon
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="check"
+      size={12}
+    />
+  );
+
+  const expandableIcon = isInVRExperiment ? (
+    <IconCompact
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="compact-chevron-down"
+      size={12}
+    />
+  ) : (
+    <Icon
+      accessibilityLabel=""
+      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      icon="arrow-down"
+      size={12}
+    />
+  );
+
+  const selectedVariant = selected && isInVRExperiment && (
+    <Box paddingX={5}>
+      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+        {checkIcon}
+        {textComponent}
+        {expandable ? expandableIcon : null}
+      </Flex>
+    </Box>
+  );
+
   const thumbnailVariant = thumbnail && (
     <Box marginEnd={3}>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+      <Flex
+        alignItems="center"
+        gap={{ row: isInVRExperiment ? 3 : 2, column: 0 }}
+        justifyContent="center"
+      >
         {'avatar' in thumbnail && (
           <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
@@ -160,7 +208,13 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           </Box>
         )}
         {'image' in thumbnail && (
-          <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
+          <div
+            className={
+              isInVRExperiment
+                ? classnames(styles.imageDivVr, { [styles.selectedVr]: selected })
+                : styles.imageDiv
+            }
+          >
             {cloneElement(thumbnail.image, { fit: 'cover' })}
           </div>
         )}
@@ -172,32 +226,26 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           </Box>
         )}
         {text.length > 0 && textComponent}
-        {expandable ? (
-          <Icon
-            accessibilityLabel=""
-            color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-            icon="arrow-down"
-            size={12}
-          />
-        ) : null}
+        {expandable ? expandableIcon : null}
       </Flex>
     </Box>
   );
-  const defaultVariant = (
-    <Box paddingX={5}>
+
+  const textVariant = (
+    <Box paddingX={isInVRExperiment ? 4 : 5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
-        {expandable ? (
-          <Icon
-            accessibilityLabel=""
-            color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-            icon="arrow-down"
-            size={12}
-          />
-        ) : null}
+        {expandable ? expandableIcon : null}
       </Flex>
     </Box>
   );
+
+  const defaultVariant =
+    thumbnail &&
+    (selected || !('avatar' in thumbnail || 'avatarGroup' in thumbnail) || !isInVRExperiment)
+      ? thumbnailVariant
+      : textVariant;
+
   return (
     <button
       ref={innerRef}
@@ -211,7 +259,13 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       onClick={(event) => onClick?.({ event })}
       type="button"
     >
-      <div className={childrenDivClasses}>{thumbnail ? thumbnailVariant : defaultVariant}</div>
+      <div className={childrenDivClasses}>
+        {selected &&
+        !(thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail)) &&
+        isInVRExperiment
+          ? selectedVariant
+          : defaultVariant}
+      </div>
     </button>
   );
 });

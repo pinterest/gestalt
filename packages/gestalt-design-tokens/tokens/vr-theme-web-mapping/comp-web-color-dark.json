@@ -98,7 +98,7 @@
         },
         "tertiary": {
           "default": {
-            "value": "transparent"
+            "value": "{base.color.transparent.value}"
           },
           "hover": {
             "value": "{sema.color.hover.background.wash.default.value}"
@@ -108,13 +108,28 @@
           },
           "disabled": {
             "default": {
-              "value": "transparent"
+              "value": "{base.color.transparent.value}"
             },
             "selected": {
               "value": "{sema.color.background.disabled.value}"
             }
           }
         },
+        "elevation": {
+          "default": {
+            "value": "{sema.color.background.elevation.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+
         "gray": {
           "default": {
             "value": "{sema.color.background.tertiary.value}"
@@ -243,7 +258,9 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "error": {
+              "value": "{sema.color.background.error.default.value}"
+            }
           }
         },
         "disabled": {
@@ -317,6 +334,14 @@
               "value": "{sema.color.background.disabled.value}"
             }
           }
+        }
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "searchguide": {
@@ -500,7 +525,7 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "value": "{sema.color.background.error.default.value}"
           }
         },
         "disabled": {
@@ -516,6 +541,17 @@
           "hover": {
             "value": "{sema.color.hover.border.interactive.value}"
           }
+        }
+      },
+      "indicator": {
+        "value": "{sema.color.border.inverse.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "switch": {

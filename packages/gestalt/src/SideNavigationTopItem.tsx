@@ -27,6 +27,10 @@ export type Props = {
     accessibilityLabel: string;
   };
   /**
+   * Indicates if row item is disabled and therefore inactive and non-interactive. See [disabled variant](https://gestalt.pinterest.systems/web/sidenavigation#Disabled) to learn more.
+   */
+  disabled?: boolean;
+  /**
    * Directs users to the url when item is selected.
    */
   href: string;
@@ -49,6 +53,10 @@ export type Props = {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
+  /**
+   * Provides optional additional information about a row item. See [subtext variant](https://gestalt.pinterest.systems/web/sidenavigation#Subtext) to learn more.
+   */
+  subtext?: string;
   /**
    * Label for the item.
    */
@@ -84,8 +92,10 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
       href,
       badge,
       counter,
+      disabled,
       icon,
       label,
+      subtext,
       primaryAction,
       notificationAccessibilityLabel,
       onClick,
@@ -108,6 +118,7 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
       <li ref={ref} className={classnames(styles.liItem)}>
         <TapAreaLink
           accessibilityCurrent={active}
+          disabled={disabled}
           href={href}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
@@ -125,14 +136,16 @@ const SideNavigationTopItemWithForwardRef = forwardRef<HTMLLIElement, Props>(
           <ItemContent
             active={active}
             badge={badge}
-            counter={counter}
+            counter={disabled ? undefined : counter}
+            disabled={disabled}
             focused={focused}
             hovered={hovered}
             icon={icon}
             label={label}
-            notificationAccessibilityLabel={notificationAccessibilityLabel}
+            notificationAccessibilityLabel={disabled ? undefined : notificationAccessibilityLabel}
             primaryAction={primaryAction}
             setCompression={setCompression}
+            subtext={subtext}
           />
         </TapAreaLink>
       </li>

@@ -16,6 +16,7 @@ import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
+import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
@@ -162,6 +163,10 @@ type Props<T> = {
    */
   _dynamicHeights?: boolean;
   /**
+   * Experimental flag to enable an experiment to use a revamped version of dynamic heights (This needs _dynamicHeights enabled)
+   */
+  _dynamicHeightsV2Experiment?: boolean;
+  /**
    * Experimental prop to enable early bailout when positioning multicolumn modules
    *
    * This is an experimental prop and may be removed or changed in the future
@@ -248,6 +253,11 @@ function useScrollContainer({
   const containerOffset = useRef(0);
   const scrollPos = useRef(0);
 
+  useEffect(() => {
+    // reset scroll position whenever the scrollContainer changes
+    scrollPos.current = scrollContainer ? getScrollPos(scrollContainer) : 0;
+  }, [scrollContainer]);
+
   const measureContainer = useCallback(() => {
     if (scrollContainer) {
       containerHeight.current = getElementHeight(scrollContainer);
@@ -259,16 +269,20 @@ function useScrollContainer({
     }
   }, [gridWrapper, scrollContainer]);
 
+  useEffect(() => {
+    // measure the container whenever the gridWrapper or scrollContainer changes (we use the identity of the measureContainer function here as an indication of that)
+    measureContainer();
+  }, [measureContainer]);
+
   // created a debounced version of measureContainer to avoid measuring the container on every render
   // this is mostly because the calls to getBoundingClientRect are expensive and result in forced reflows
   const measureContainerAsync = useMemo(() => debounce(measureContainer, 100), [measureContainer]);
 
-  if (containerHeight.current === 0 && containerOffset.current === 0) {
-    // initialize value on first render
-    // doing this here vs in the `useRef` to avoid measureContainer always being called
-    // https://18.react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
-    measureContainer();
-  }
+  useEffect(() => {
+    // trigger an async measurement whenever an update occurs
+    // todo - followup on this and figure out a more ideal way to handle this.
+    measureContainerAsync();
+  });
 
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
@@ -290,12 +304,6 @@ function useScrollContainer({
     () => scrollPos.current,
     () => 0,
   );
-
-  useEffect(() => {
-    // trigger an async measurement whenever an update occurs
-    // todo - followup on this and figure out a more ideal way to handle this.
-    measureContainerAsync();
-  });
 
   return {
     containerHeight: containerHeight.current,
@@ -476,6 +484,7 @@ function useLayout<T>({
     // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
 
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemMeasurementsCount, items, canPerformLayout, heightUpdateTrigger]);
 
@@ -699,6 +708,7 @@ function Masonry<T>(
     _useRAF,
     _getColumnSpanConfig,
     _dynamicHeights,
+    _dynamicHeightsV2Experiment,
     _loadingStateItems = [],
     _renderLoadingStateItems,
     _earlyBailout,
@@ -773,6 +783,7 @@ function Masonry<T>(
       hasSetInitialWidth.current = true;
     }
 
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
@@ -788,15 +799,33 @@ function Masonry<T>(
 
               if (typeof idx === 'number') {
                 const changedItem: T = items[idx]!;
+                const newHeight = contentRect.height;
 
-                triggerUpdate =
-                  recalcHeights({
-                    items,
-                    changedItem,
-                    newHeight: contentRect.height,
-                    positionStore,
-                    measurementStore,
-                  }) || triggerUpdate;
+                let defaultGutter = 14;
+                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+                  defaultGutter = 0;
+                }
+
+                if (_dynamicHeightsV2Experiment) {
+                  triggerUpdate =
+                    recalcHeightsV2({
+                      items,
+                      changedItem,
+                      newHeight,
+                      positionStore,
+                      measurementStore,
+                      gutterWidth: gutter ?? defaultGutter,
+                    }) || triggerUpdate;
+                } else {
+                  triggerUpdate =
+                    recalcHeights({
+                      items,
+                      changedItem,
+                      newHeight,
+                      positionStore,
+                      measurementStore,
+                    }) || triggerUpdate;
+                }
               }
             });
             if (triggerUpdate) {
@@ -804,7 +833,15 @@ function Masonry<T>(
             }
           })
         : undefined,
-    [_dynamicHeights, items, measurementStore, positionStore],
+    [
+      _dynamicHeights,
+      _dynamicHeightsV2Experiment,
+      items,
+      measurementStore,
+      positionStore,
+      gutter,
+      layout,
+    ],
   );
 
   const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } =

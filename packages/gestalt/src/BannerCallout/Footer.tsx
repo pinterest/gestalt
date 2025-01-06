@@ -1,4 +1,5 @@
-import { ComponentProps, useCallback, useEffect, useRef, useState } from 'react';
+import { ComponentProps, useRef } from 'react';
+import useIsWrappedContainer from './useIsWrappedContainer';
 import Box from '../Box';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
@@ -114,43 +115,32 @@ type Props = {
   checkWrapped?: boolean;
   marginTop: 0 | 4 | 6;
   buttonSize: 'md' | 'lg';
+  fullHeight?: boolean;
 };
 
 export default function Footer({
   secondaryAction,
   primaryAction,
+  fullHeight,
   type,
   checkWrapped = false,
   marginTop,
   buttonSize,
 }: Props) {
-  const [isWrapped, setIsWrapped] = useState(false);
   const wrappedRef = useRef<null | HTMLDivElement>(null);
 
-  const checkWrappedButton = useCallback(() => {
-    if (wrappedRef.current && !isWrapped && wrappedRef.current.offsetTop > 0) {
-      setIsWrapped(true);
-    } else if (wrappedRef.current && isWrapped && !(wrappedRef.current.offsetTop > 0)) {
-      setIsWrapped(false);
-    }
-  }, [isWrapped]);
-
-  useEffect(() => {
-    if (checkWrapped) {
-      checkWrappedButton();
-
-      if (typeof window !== 'undefined') window.addEventListener('resize', checkWrappedButton);
-    }
-
-    return () => {
-      if (checkWrapped && typeof window !== 'undefined')
-        window?.removeEventListener('resize', checkWrappedButton);
-    };
-  }, [checkWrappedButton, checkWrapped]);
+  const isWrapped = useIsWrappedContainer(wrappedRef, checkWrapped);
 
   return (
-    <Box marginTop={marginTop} position="relative">
-      <Flex gap={2} height="100%" justifyContent="end" wrap>
+    <Box
+      alignContent="center"
+      display="flex"
+      height={fullHeight ? undefined : '100%'}
+      justifyContent="end"
+      marginTop={marginTop}
+      position="relative"
+    >
+      <Flex alignContent="center" gap={2} justifyContent="end" wrap>
         {secondaryAction && (
           <Flex.Item flex={isWrapped && checkWrapped ? 'grow' : undefined}>
             <Action data={secondaryAction} level="secondary" size={buttonSize} type={type} />

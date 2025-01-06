@@ -1,3 +1,231 @@
+## 167.0.1 (Jan 6, 2025)
+
+### Patch
+
+- DatePicker: upgraded package to latest 7.5.0 ([#3920](https://github.com/pinterest/gestalt/pull/3920)) - [Preview link](https://deploy-preview-3920--gestalt.netlify.app?devexample=true)
+
+## 167.0.0 (Jan 4, 2025)
+
+### Major
+
+- SideNavigation: patch for accessibility aria-selected bug ([#3919](https://github.com/pinterest/gestalt/pull/3919)) - [Preview link](https://deploy-preview-3919--gestalt.netlify.app?devexample=true)
+
+## 166.3.0 (Jan 3, 2025)
+
+### Minor
+
+- BannerSlim: VR ([#3918](https://github.com/pinterest/gestalt/pull/3918)) - [Preview link](https://deploy-preview-3918--gestalt.netlify.app?devexample=true)
+
+## 166.2.3 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Highlight secondary range in DateRange component (web) ([#3910](https://github.com/pinterest/gestalt/pull/3910)) - [Preview link](https://deploy-preview-3910--gestalt.netlify.app?devexample=true)
+
+## 166.2.2 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Remove overflow prop and apply border radius with css instead (web) ([#3909](https://github.com/pinterest/gestalt/pull/3909)) - [Preview link](https://deploy-preview-3909--gestalt.netlify.app?devexample=true)
+
+## 166.2.1 (Dec 17, 2024)
+
+### Patch
+
+- Masonry: Update fluid grid to not floor column width (take two) ([#3913](https://github.com/pinterest/gestalt/pull/3913)) - [Preview link](https://deploy-preview-3913--gestalt.netlify.app?devexample=true)
+
+## 166.2.0 (Dec 9, 2024)
+
+### Minor
+
+- Icon: Update Icons [Gestalt-8459] ([#3908](https://github.com/pinterest/gestalt/pull/3908)) - [Preview link](https://deploy-preview-3908--gestalt.netlify.app?devexample=true)
+
+## 166.1.0 (Dec 6, 2024)
+
+### Minor
+
+- SideNavigation: Add disable and helper text props ([#3905](https://github.com/pinterest/gestalt/pull/3905)) - [Preview link](https://deploy-preview-3905--gestalt.netlify.app?devexample=true)
+
+## 166.0.5 (Dec 5, 2024)
+
+### Patch
+
+- List: remove color override in Text node ([#3907](https://github.com/pinterest/gestalt/pull/3907)) - [Preview link](https://deploy-preview-3907--gestalt.netlify.app?devexample=true)
+
+## 166.0.4 (Dec 4, 2024)
+
+### Patch
+
+- BannerCallout: Remove Children.only logic prone to break if message is undefined in runtime ([#3906](https://github.com/pinterest/gestalt/pull/3906)) - [Preview link](https://deploy-preview-3906--gestalt.netlify.app?devexample=true)
+
+## 166.0.3 (Dec 4, 2024)
+
+### Patch
+
+- Spinner: Intro animation refinements ([#3904](https://github.com/pinterest/gestalt/pull/3904)) - [Preview link](https://deploy-preview-3904--gestalt.netlify.app?devexample=true)
+
+## 166.0.2 (Dec 4, 2024)
+
+### Patch
+
+- SearchGuide: VR Changes to selected states, trailing icon change, leading icon and size change ([#3903](https://github.com/pinterest/gestalt/pull/3903)) - [Preview link](https://deploy-preview-3903--gestalt.netlify.app?devexample=true)
+
+## 166.0.1 (Dec 3, 2024)
+
+### Patch
+
+- Popover, PopoverEducational: VR adjusments ([#3902](https://github.com/pinterest/gestalt/pull/3902)) - [Preview link](https://deploy-preview-3902--gestalt.netlify.app?devexample=true)
+
+## 166.0.0 (Dec 2, 2024)
+
+### Major
+
+- SideNavigation, Tabs, DefaultLabelProvider: implemented Indicator ([#3901](https://github.com/pinterest/gestalt/pull/3901)) - [Preview link](https://deploy-preview-3901--gestalt.netlify.app?devexample=true)
+
+## 165.5.0 (Dec 2, 2024)
+
+### Minor
+
+- Indicator: new component ([#3898](https://github.com/pinterest/gestalt/pull/3898)) - [Preview link](https://deploy-preview-3898--gestalt.netlify.app?devexample=true)
+
+## 165.4.5 (Nov 29, 2024)
+
+### Patch
+
+- Divider: VR adjusments ([#3900](https://github.com/pinterest/gestalt/pull/3900)) - [Preview link](https://deploy-preview-3900--gestalt.netlify.app?devexample=true)
+
+## 165.4.4 (Nov 29, 2024)
+
+### Patch
+
+- HelpButton: VR adjusments ([#3899](https://github.com/pinterest/gestalt/pull/3899)) - [Preview link](https://deploy-preview-3899--gestalt.netlify.app?devexample=true)
+
+## 165.4.3 (Nov 28, 2024)
+
+### Patch
+
+- Checkbox: VR adjustments ([#3896](https://github.com/pinterest/gestalt/pull/3896)) - [Preview link](https://deploy-preview-3896--gestalt.netlify.app?devexample=true)
+
+## 165.4.2 (Nov 28, 2024)
+
+### Patch
+
+- Link: role tab for aria-current === section ([#3897](https://github.com/pinterest/gestalt/pull/3897)) - [Preview link](https://deploy-preview-3897--gestalt.netlify.app?devexample=true)
+
+## 165.4.1 (Nov 27, 2024)
+
+### Patch
+
+- CheckBox: VR certification fixes ([#3895](https://github.com/pinterest/gestalt/pull/3895)) - [Preview link](https://deploy-preview-3895--gestalt.netlify.app?devexample=true)
+
+## 165.4.0 (Nov 26, 2024)
+
+### Minor
+
+- Icon: Update Icons [GESTALT-8645] ([#3894](https://github.com/pinterest/gestalt/pull/3894)) - [Preview link](https://deploy-preview-3894--gestalt.netlify.app?devexample=true)
+
+## 165.3.1 (Nov 26, 2024)
+
+### Patch
+
+- BannerCallout: implement internal IconCompactButton for dismiss button (VR only) ([#3893](https://github.com/pinterest/gestalt/pull/3893)) - [Preview link](https://deploy-preview-3893--gestalt.netlify.app?devexample=true)
+
+## 165.3.0 (Nov 25, 2024)
+
+### Minor
+
+- SearchGuide: VR certification Fixes ([#3892](https://github.com/pinterest/gestalt/pull/3892)) - [Preview link](https://deploy-preview-3892--gestalt.netlify.app?devexample=true)
+
+## 165.2.3 (Nov 25, 2024)
+
+### Patch
+
+- BannerCallout: responsiveness fixes ([#3891](https://github.com/pinterest/gestalt/pull/3891)) - [Preview link](https://deploy-preview-3891--gestalt.netlify.app?devexample=true)
+
+## 165.2.2 (Nov 22, 2024)
+
+### Patch
+
+- Masonry: Revamp Dynamic Heights ([#3890](https://github.com/pinterest/gestalt/pull/3890)) - [Preview link](https://deploy-preview-3890--gestalt.netlify.app?devexample=true)
+
+## 165.2.1 (Nov 20, 2024)
+
+### Patch
+
+- IconButtonFloating: VR fixes ([#3889](https://github.com/pinterest/gestalt/pull/3889)) - [Preview link](https://deploy-preview-3889--gestalt.netlify.app?devexample=true)
+
+## 165.2.0 (Nov 20, 2024)
+
+### Minor
+
+- IconButton: VR Certification Fixes ([#3879](https://github.com/pinterest/gestalt/pull/3879)) - [Preview link](https://deploy-preview-3879--gestalt.netlify.app?devexample=true)
+
+## 165.1.8 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: VR version intro & outro animation ([#3881](https://github.com/pinterest/gestalt/pull/3881)) - [Preview link](https://deploy-preview-3881--gestalt.netlify.app?devexample=true)
+
+## 165.1.7 (Nov 20, 2024)
+
+### Patch
+
+- Spinner: Opacity animation bug in Chrome ([#3888](https://github.com/pinterest/gestalt/pull/3888)) - [Preview link](https://deploy-preview-3888--gestalt.netlify.app?devexample=true)
+
+## 165.1.6 (Nov 20, 2024)
+
+### Patch
+
+- Pog: implement InternalPog ([#3887](https://github.com/pinterest/gestalt/pull/3887)) - [Preview link](https://deploy-preview-3887--gestalt.netlify.app?devexample=true)
+
+## 165.1.5 (Nov 19, 2024)
+
+### Patch
+
+- Icon: rename ios compact sparkle icon to adhere to naming pattern ([#3886](https://github.com/pinterest/gestalt/pull/3886)) - [Preview link](https://deploy-preview-3886--gestalt.netlify.app?devexample=true)
+
+## 165.1.4 (Nov 19, 2024)
+
+### Patch
+
+- BannerOverlay: VR Certification Fixes ([#3878](https://github.com/pinterest/gestalt/pull/3878)) - [Preview link](https://deploy-preview-3878--gestalt.netlify.app?devexample=true)
+
+## 165.1.3 (Nov 19, 2024)
+
+### Patch
+
+- Spinner: Remove Opacity Token ([#3884](https://github.com/pinterest/gestalt/pull/3884)) - [Preview link](https://deploy-preview-3884--gestalt.netlify.app?devexample=true)
+
+## 165.1.2 (Nov 19, 2024)
+
+### Patch
+
+- Revert "Masonry: Update fullWidthLayout to not floor column widths" ([#3885](https://github.com/pinterest/gestalt/pull/3885)) - [Preview link](https://deploy-preview-3885--gestalt.netlify.app?devexample=true)
+
+## 165.1.1 (Nov 18, 2024)
+
+### Patch
+
+- Badge: fix VR size icon ([#3882](https://github.com/pinterest/gestalt/pull/3882)) - [Preview link](https://deploy-preview-3882--gestalt.netlify.app?devexample=true)
+
+## 165.1.0 (Nov 15, 2024)
+
+### Minor
+
+- Tokens: Remove percents from Android rounding ([#3868](https://github.com/pinterest/gestalt/pull/3868)) - [Preview link](https://deploy-preview-3868--gestalt.netlify.app?devexample=true)
+
+## 165.0.6 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update fullWidthLayout to not floor column widths ([#3874](https://github.com/pinterest/gestalt/pull/3874)) - [Preview link](https://deploy-preview-3874--gestalt.netlify.app?devexample=true)
+
+## 165.0.5 (Nov 15, 2024)
+
+### Patch
+
+- Masonry: Update container measurement logic for V2 ([#3876](https://github.com/pinterest/gestalt/pull/3876)) - [Preview link](https://deploy-preview-3876--gestalt.netlify.app?devexample=true)
+
 ## 165.0.4 (Nov 15, 2024)
 
 ### Patch

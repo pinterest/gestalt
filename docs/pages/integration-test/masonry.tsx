@@ -70,6 +70,8 @@ export default function TestPage({
   const {
     constrained,
     deferMount,
+    dynamicHeights,
+    dynamicHeightsV2,
     externalCache,
     experimental,
     finiteLength,
@@ -111,6 +113,8 @@ export default function TestPage({
         <MasonryContainer
           // @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           constrained={booleanize(constrained)}
+          dynamicHeights={dynamicHeights}
+          dynamicHeightsV2={dynamicHeightsV2}
           // @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           externalCache={booleanize(externalCache)}
           // @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.

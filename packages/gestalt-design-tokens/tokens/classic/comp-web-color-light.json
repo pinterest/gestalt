@@ -216,6 +216,20 @@
             "value": "{color.background.secondary.base.value}"
           }
         },
+        "elevation": {
+          "default": {
+            "value": "{color.transparent.value}"
+          },
+          "hover": {
+            "value": "rgba(0, 0, 0, 0.06)"
+          },
+          "active": {
+            "value": "rgba(0, 0, 0, 0.1)"
+          },
+          "disabled": {
+            "value": "{color.background.secondary.base.value}"
+          }
+        },
         "shopping": {
           "default": {
             "value": "{color.background.shopping.value}"
@@ -416,9 +430,17 @@
             "value": "#1f1f1f"
           },
           "disabled": {
-            "value": "{color.background.secondary.base.value}"
+            "default": {
+              "value": "{color.background.secondary.base.value}"
+            },
+            "selected": {
+              "value": "{color.background.secondary.base.value}"
+            }
           }
         }
+      },
+      "indicator": {
+        "value": "{color.background.primary.base.value}"
       },
       "mask": {
         "wash": {
@@ -800,6 +822,9 @@
         "disabled": {
           "value": "#efefef"
         }
+      },
+      "indicator": {
+        "value": "{color.white.mochimalist.0.value}"
       },
       "popover": {
         "primary": {

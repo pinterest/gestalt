@@ -215,6 +215,18 @@
             "value": "rgba(250, 250, 250, 0.6)"
           }
         },
+        "elevation": {
+          "default": {
+            "value": "{color.transparent.value}",
+            "_darkMode": "Unsupported color"
+          },
+          "hover": {
+            "value": "rgba(250, 250, 250, 0.5)"
+          },
+          "active": {
+            "value": "rgba(250, 250, 250, 0.6)"
+          }
+        },
         "shopping": {
           "default": {
             "value": "{color.background.shopping.value}"
@@ -377,6 +389,9 @@
             "value": "#e0e0e0"
           }
         }
+      },
+      "indicator": {
+        "value": "{color.background.primary.base.value}"
       },
       "mask": {
         "wash": {
@@ -729,6 +744,9 @@
         "disabled": {
           "value": "#404040"
         }
+      },
+      "indicator": {
+        "value": "#000000"
       },
       "popover": {
         "primary": {
