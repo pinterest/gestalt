@@ -107,7 +107,7 @@ describe('DatePicker', () => {
 
     // eslint-disable-next-line testing-library/no-unnecessary-act -- We have to wrap the focus event in `act` since it does change the component's internal state
     await act(async () => {
-      await fireEvent.focus(screen.getByDisplayValue('12/13/2018'));
+      await fireEvent.click(screen.getByDisplayValue('12/13/2018'));
     });
 
     // Test correct render of DatePicker popover
