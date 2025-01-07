@@ -106,7 +106,7 @@ type Props = {
   mobileInputMode?: 'none' | 'text' | 'decimal' | 'numeric';
   name?: string;
   onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-  onClick?: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
+  onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
@@ -156,7 +156,9 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
   ref,
 ) {
   // ==== REFS ====
-  const innerRef = useRef<null | HTMLInputElement | HTMLDivElement>(null);
+  const innerRef = useRef<HTMLInputElement>(null);
+  const innerTagsRef = useRef<HTMLDivElement>(null);
+
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
   useImperativeHandle(ref, () => innerRef.current);
@@ -171,7 +173,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     onBlur?.({ event, value: event.currentTarget.value });
   };
 
-  const handleClick = (event: React.ChangeEvent<HTMLInputElement>) =>
+  const handleClick = (event: React.MouseEvent<HTMLInputElement>) =>
     onClick?.({ event, value: event.currentTarget.value });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -232,9 +234,10 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   const inputElement = (
     <input
+      ref={tags ? undefined : innerRef}
       aria-activedescendant={accessibilityActiveDescendant}
-      aria-controls={accessibilityControls}
       // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+      aria-controls={accessibilityControls}
       aria-describedby={focused ? ariaDescribedby : undefined}
       aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
       autoComplete={autoComplete}
@@ -250,19 +253,17 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
       name={name}
       onBlur={handleBlur}
       onChange={handleChange}
-      // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void | undefined' is not assignable to type 'MouseEventHandler<HTMLInputElement>'.
       onClick={handleClick}
       onFocus={handleFocus}
-      onKeyDown={handleKeyDown}
       // type='number' doesn't work on ios safari without a pattern
       // https://stackoverflow.com/questions/14447668/input-type-number-is-not-showing-a-number-keypad-on-ios
+      onKeyDown={handleKeyDown}
       pattern={type === 'number' ? '\\d*' : undefined}
       placeholder={placeholder}
-      readOnly={readOnly}
       // This config is required to prevent exposing passwords and usernames to spell-checking servers during login processes. More info here: https://www.androidpolice.com/google-chrome-servers-get-passwords-enhanced-spell-check/
+      readOnly={readOnly}
       spellCheck={['email', 'password'].includes(type) ? false : undefined}
       step={type === 'number' ? step : undefined}
-      {...(tags ? {} : { ref: innerRef })}
       type={type}
       value={value}
     />
@@ -277,7 +278,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
       <Box position="relative">
         {tags ? (
-          <div className={styledClasses} {...(tags ? { ref: innerRef } : {})}>
+          <div ref={innerTagsRef} className={styledClasses}>
             {tags.map((tag, tagIndex) => (
               <Box
                 // eslint-disable-next-line react/no-array-index-key

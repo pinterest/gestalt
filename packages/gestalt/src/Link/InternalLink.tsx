@@ -250,7 +250,6 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           : undefined
       }
       aria-label={accessibilityLabel}
-      aria-selected={accessibilityCurrent && accessibilityCurrent === 'section' ? true : undefined}
       className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
@@ -302,7 +301,6 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
-      role={accessibilityCurrent && accessibilityCurrent === 'section' ? 'tab' : undefined}
       tabIndex={disabled ? undefined : tabIndex}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       target={target ? `_${target}` : undefined}
