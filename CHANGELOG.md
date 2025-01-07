@@ -1,3 +1,9 @@
+## 167.1.1 (Jan 7, 2025)
+
+### Patch
+
+- Internal: remove internal circular dependencies ([#3925](https://github.com/pinterest/gestalt/pull/3925)) - [Preview link](https://deploy-preview-3925--gestalt.netlify.app?devexample=true)
+
 ## 167.1.0 (Jan 6, 2025)
 
 ### Minor
