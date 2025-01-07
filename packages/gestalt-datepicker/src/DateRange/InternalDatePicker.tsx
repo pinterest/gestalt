@@ -11,7 +11,11 @@ import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
-import { DateRangeType } from '../DateRange';
+
+enum DateRangeType {
+  Primary,
+  Secondary,
+}
 
 type ModifiedProps = Props & {
   onChange: (arg1: { startDate: Date; endDate: Date }) => void;

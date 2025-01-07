@@ -1,6 +1,6 @@
 import { Children, ReactNode } from 'react';
-import { Flex } from '.';
 import Box from './Box';
+import Flex from "./Flex";
 import useInExperiment from './useInExperiment';
 
 type Props = {
