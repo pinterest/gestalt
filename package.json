@@ -6,8 +6,8 @@
   ],
   "dependencies": {
     "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "stylelint-value-no-unknown-custom-properties": "5.0.0"
   },
   "devDependencies": {
