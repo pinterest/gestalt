@@ -204,15 +204,11 @@ exports[`List renders an list item with custom text 1`] = `
           }
         }
       >
-        <span
-          className="textColorOverrideDark"
+        <div
+          className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
         >
-          <div
-            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-          >
-            List item text
-          </div>
-        </span>
+          List item text
+        </div>
       </li>
     </ol>
   </div>
@@ -227,15 +223,11 @@ exports[`List renders an list with a custom label 1`] = `
     className="box marginBottom400 xsDisplayBlock"
     id=":rm:"
   >
-    <span
-      className="textColorOverrideDark"
+    <div
+      className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
     >
-      <div
-        className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-      >
-        label test
-      </div>
-    </span>
+      label test
+    </div>
   </div>
   <div
     className="default alignStart breakWord Text fontSize300 fontWeightNormal"

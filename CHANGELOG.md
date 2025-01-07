@@ -1,3 +1,63 @@
+## 167.1.0 (Jan 6, 2025)
+
+### Minor
+
+- DatePicker, TextField: 1. fix open behavior, 2. support to onClick ([#3921](https://github.com/pinterest/gestalt/pull/3921)) - [Preview link](https://deploy-preview-3921--gestalt.netlify.app?devexample=true)
+
+## 167.0.1 (Jan 6, 2025)
+
+### Patch
+
+- DatePicker: upgraded package to latest 7.5.0 ([#3920](https://github.com/pinterest/gestalt/pull/3920)) - [Preview link](https://deploy-preview-3920--gestalt.netlify.app?devexample=true)
+
+## 167.0.0 (Jan 4, 2025)
+
+### Major
+
+- SideNavigation: patch for accessibility aria-selected bug ([#3919](https://github.com/pinterest/gestalt/pull/3919)) - [Preview link](https://deploy-preview-3919--gestalt.netlify.app?devexample=true)
+
+## 166.3.0 (Jan 3, 2025)
+
+### Minor
+
+- BannerSlim: VR ([#3918](https://github.com/pinterest/gestalt/pull/3918)) - [Preview link](https://deploy-preview-3918--gestalt.netlify.app?devexample=true)
+
+## 166.2.3 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Highlight secondary range in DateRange component (web) ([#3910](https://github.com/pinterest/gestalt/pull/3910)) - [Preview link](https://deploy-preview-3910--gestalt.netlify.app?devexample=true)
+
+## 166.2.2 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Remove overflow prop and apply border radius with css instead (web) ([#3909](https://github.com/pinterest/gestalt/pull/3909)) - [Preview link](https://deploy-preview-3909--gestalt.netlify.app?devexample=true)
+
+## 166.2.1 (Dec 17, 2024)
+
+### Patch
+
+- Masonry: Update fluid grid to not floor column width (take two) ([#3913](https://github.com/pinterest/gestalt/pull/3913)) - [Preview link](https://deploy-preview-3913--gestalt.netlify.app?devexample=true)
+
+## 166.2.0 (Dec 9, 2024)
+
+### Minor
+
+- Icon: Update Icons [Gestalt-8459] ([#3908](https://github.com/pinterest/gestalt/pull/3908)) - [Preview link](https://deploy-preview-3908--gestalt.netlify.app?devexample=true)
+
+## 166.1.0 (Dec 6, 2024)
+
+### Minor
+
+- SideNavigation: Add disable and helper text props ([#3905](https://github.com/pinterest/gestalt/pull/3905)) - [Preview link](https://deploy-preview-3905--gestalt.netlify.app?devexample=true)
+
+## 166.0.5 (Dec 5, 2024)
+
+### Patch
+
+- List: remove color override in Text node ([#3907](https://github.com/pinterest/gestalt/pull/3907)) - [Preview link](https://deploy-preview-3907--gestalt.netlify.app?devexample=true)
+
 ## 166.0.4 (Dec 4, 2024)
 
 ### Patch

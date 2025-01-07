@@ -141,7 +141,23 @@ exports[`SideNavigation renders Header + Footer 1`] = `
                           <span
                             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
-                            test
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    test
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </span>
                         </div>
                       </div>
@@ -343,37 +359,57 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                test
                                 <div
-                                  className="box marginStart100 xsDisplayInlineBlock"
-                                  style={
-                                    Object {
-                                      "height": "100%",
-                                    }
-                                  }
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
                                 >
                                   <div
-                                    className="box xsDisplayVisuallyHidden"
-                                  >
-                                    , 
-                                  </div>
-                                  <div
-                                    className="badge info padding middle"
+                                    className="FlexItem"
                                   >
                                     <div
-                                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
                                     >
                                       <div
                                         className="FlexItem"
                                       >
+                                        test
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="box marginStart100 xsDisplayInlineBlock"
+                                      style={
+                                        Object {
+                                          "height": "100%",
+                                        }
+                                      }
+                                    >
+                                      <div
+                                        className="box xsDisplayVisuallyHidden"
+                                      >
+                                        , 
+                                      </div>
+                                      <div
+                                        className="badge info padding middle"
+                                      >
                                         <div
-                                          className="box contentCenter xsDisplayFlex"
+                                          className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
                                         >
-                                          <span
-                                            className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                                          <div
+                                            className="FlexItem"
                                           >
-                                            New
-                                          </span>
+                                            <div
+                                              className="box contentCenter xsDisplayFlex"
+                                            >
+                                              <span
+                                                className="inverse alignStart breakWord Text fontWeightSemiBold fontSize200"
+                                              >
+                                                New
+                                              </span>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -475,25 +511,51 @@ exports[`SideNavigation renders Icon + Badge/Notification + Counter + Border 1`]
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                test
                                 <div
-                                  className="box marginStart100 xsDisplayInlineBlock"
-                                  style={
-                                    Object {
-                                      "height": "100%",
-                                    }
-                                  }
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
                                 >
                                   <div
-                                    className="box xsDisplayVisuallyHidden"
+                                    className="FlexItem"
                                   >
-                                    , 
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        test
+                                      </div>
+                                    </div>
                                   </div>
                                   <div
-                                    aria-label="You have new messages"
-                                    className="notification placementMiddle"
-                                    role="status"
-                                  />
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="box marginStart100 xsDisplayInlineBlock"
+                                      style={
+                                        Object {
+                                          "height": "100%",
+                                        }
+                                      }
+                                    >
+                                      <div
+                                        className="box xsDisplayVisuallyHidden"
+                                      >
+                                        , 
+                                      </div>
+                                      <div
+                                        aria-label="You have new messages"
+                                        className="box circle primary"
+                                        role="status"
+                                        style={
+                                          Object {
+                                            "height": 8,
+                                            "width": 8,
+                                          }
+                                        }
+                                      />
+                                    </div>
+                                  </div>
                                 </div>
                               </span>
                             </div>
@@ -658,7 +720,23 @@ exports[`SideNavigation renders Sections 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                test
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        test
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                           </div>
@@ -781,7 +859,158 @@ exports[`SideNavigation renders basic Item 1`] = `
                           <span
                             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
-                            test
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    test
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`SideNavigation renders disabled item 1`] = `
+<div
+  className="box overflowAuto paddingX0 paddingY0 relative"
+  style={
+    Object {
+      "height": "100%",
+      "width": undefined,
+    }
+  }
+>
+  <nav
+    aria-label="label"
+    className="box default relative"
+    style={
+      Object {
+        "height": "100%",
+        "minWidth": 280,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="fullHeight overflowAutoY"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
+      <div
+        className=""
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box paddingX200 paddingY200"
+          style={
+            Object {
+              "paddingBottom": 24,
+              "width": undefined,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
+          >
+            <div
+              className="FlexItem"
+            >
+              <ul
+                className="ulItem"
+              >
+                <li
+                  className="liItem"
+                >
+                  <a
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 block fullWidth"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyPress={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchCancel={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    rel=""
+                  >
+                    <div
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "minHeight": 44,
+                          "outline": undefined,
+                          "paddingInlineEnd": "var(--space-400)",
+                          "paddingInlineStart": "var(--space-400)",
+                          "width": undefined,
+                        }
+                      }
+                    >
+                      <div
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        style={
+                          Object {
+                            "height": "100%",
+                          }
+                        }
+                      >
+                        <div
+                          className="FlexItem flexGrow"
+                        >
+                          <span
+                            className="disabled alignStart breakWord Text fontSize300 fontWeightNormal"
+                          >
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    test
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </span>
                         </div>
                       </div>
@@ -924,7 +1153,23 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           <span
                             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
-                            Reporting
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    Reporting
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </span>
                         </div>
                       </div>
@@ -1002,7 +1247,23 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                           <span
                             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
-                            Conversions
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    Conversions
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </span>
                         </div>
                       </div>
@@ -1102,7 +1363,23 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                Thanksgiving
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        Thanksgiving
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                           </div>
@@ -1182,7 +1459,23 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                Christmas
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        Christmas
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                             <div
@@ -1300,7 +1593,23 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                Halloween
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        Halloween
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                             <div
@@ -1485,7 +1794,23 @@ exports[`SideNavigation renders expanded group 1`] = `
                           <span
                             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                           >
-                            Christmas
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    Christmas
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </span>
                         </div>
                         <div
@@ -1582,7 +1907,23 @@ exports[`SideNavigation renders expanded group 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                Luxury Christmas
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        Luxury Christmas
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                           </div>
@@ -1640,7 +1981,23 @@ exports[`SideNavigation renders expanded group 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                Classic Christmas
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        Classic Christmas
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                             <div
@@ -1737,7 +2094,23 @@ exports[`SideNavigation renders expanded group 1`] = `
                                   <span
                                     className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
-                                    West Coast
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        <div
+                                          className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                        >
+                                          <div
+                                            className="FlexItem"
+                                          >
+                                            West Coast
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </span>
                                 </div>
                               </div>
@@ -1793,7 +2166,23 @@ exports[`SideNavigation renders expanded group 1`] = `
                                   <span
                                     className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
-                                    East Coast
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        <div
+                                          className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                        >
+                                          <div
+                                            className="FlexItem"
+                                          >
+                                            East Coast
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </span>
                                 </div>
                               </div>
@@ -1921,7 +2310,23 @@ exports[`SideNavigation renders static group 1`] = `
                         <span
                           className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                         >
-                          Christmas
+                          <div
+                            className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                          >
+                            <div
+                              className="FlexItem"
+                            >
+                              <div
+                                className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                              >
+                                <div
+                                  className="FlexItem"
+                                >
+                                  Christmas
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </span>
                       </div>
                     </div>
@@ -1979,7 +2384,23 @@ exports[`SideNavigation renders static group 1`] = `
                               <span
                                 className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                               >
-                                Luxury Christmas
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        Luxury Christmas
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                               </span>
                             </div>
                           </div>
@@ -2016,7 +2437,23 @@ exports[`SideNavigation renders static group 1`] = `
                             <span
                               className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                             >
-                              Classic Christmas
+                              <div
+                                className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                              >
+                                <div
+                                  className="FlexItem"
+                                >
+                                  <div
+                                    className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                  >
+                                    <div
+                                      className="FlexItem"
+                                    >
+                                      Classic Christmas
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </span>
                           </div>
                         </div>
@@ -2074,7 +2511,23 @@ exports[`SideNavigation renders static group 1`] = `
                                   <span
                                     className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
-                                    West Coast
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        <div
+                                          className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                        >
+                                          <div
+                                            className="FlexItem"
+                                          >
+                                            West Coast
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </span>
                                 </div>
                               </div>
@@ -2130,7 +2583,23 @@ exports[`SideNavigation renders static group 1`] = `
                                   <span
                                     className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                                   >
-                                    East Coast
+                                    <div
+                                      className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                                    >
+                                      <div
+                                        className="FlexItem"
+                                      >
+                                        <div
+                                          className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                        >
+                                          <div
+                                            className="FlexItem"
+                                          >
+                                            East Coast
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
                                   </span>
                                 </div>
                               </div>
@@ -2140,6 +2609,158 @@ exports[`SideNavigation renders static group 1`] = `
                       </ul>
                     </li>
                   </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`SideNavigation renders subtext on an item 1`] = `
+<div
+  className="box overflowAuto paddingX0 paddingY0 relative"
+  style={
+    Object {
+      "height": "100%",
+      "width": undefined,
+    }
+  }
+>
+  <nav
+    aria-label="label"
+    className="box default relative"
+    style={
+      Object {
+        "height": "100%",
+        "minWidth": 280,
+        "width": undefined,
+      }
+    }
+  >
+    <div
+      className="fullHeight overflowAutoY"
+      style={
+        Object {
+          "width": undefined,
+        }
+      }
+    >
+      <div
+        className=""
+        style={
+          Object {
+            "width": undefined,
+          }
+        }
+      >
+        <div
+          className="box paddingX200 paddingY200"
+          style={
+            Object {
+              "paddingBottom": 24,
+              "width": undefined,
+            }
+          }
+        >
+          <div
+            className="Flex rowGap0 columnGap400 xsDirectionColumn"
+          >
+            <div
+              className="FlexItem"
+            >
+              <ul
+                className="ulItem"
+              >
+                <li
+                  className="liItem"
+                >
+                  <a
+                    className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+                    href="#"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyPress={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchCancel={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    rel=""
+                    tabIndex={0}
+                  >
+                    <div
+                      className="box paddingXNaN paddingY200 paddingYNaN relative rounding2 xsDisplayFlex xsItemsCenter"
+                      style={
+                        Object {
+                          "height": undefined,
+                          "minHeight": 44,
+                          "outline": undefined,
+                          "paddingInlineEnd": "var(--space-400)",
+                          "paddingInlineStart": "var(--space-400)",
+                          "width": undefined,
+                        }
+                      }
+                    >
+                      <div
+                        className="Flex rowGap200 columnGap0 flexGrow xsDirectionRow xsItemsCenter"
+                        style={
+                          Object {
+                            "height": "100%",
+                          }
+                        }
+                      >
+                        <div
+                          className="FlexItem flexGrow"
+                        >
+                          <span
+                            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+                          >
+                            <div
+                              className="Flex rowGap100 columnGap100 xsDirectionRow xsItemsCenter"
+                            >
+                              <div
+                                className="FlexItem"
+                              >
+                                <div
+                                  className="Flex rowGap100 columnGap100 xsDirectionColumn"
+                                >
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    test
+                                  </div>
+                                  <div
+                                    className="FlexItem"
+                                  >
+                                    <div
+                                      className="subtle alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
+                                      style={
+                                        Object {
+                                          "WebkitLineClamp": 1,
+                                        }
+                                      }
+                                      title="subtext"
+                                    >
+                                      subtext
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </li>
               </ul>
             </div>

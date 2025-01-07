@@ -45,7 +45,7 @@ const fullWidthLayout = <T>({
   // original implementation takes with CSS.
   const colguess = Math.floor(width / idealColumnWidth);
   const columnCount = Math.max(Math.floor((width - colguess * gutter) / idealColumnWidth), minCols);
-  const columnWidth = Math.floor(width / columnCount) - gutter;
+  const columnWidth = width / columnCount - gutter;
   const columnWidthAndGutter = columnWidth + gutter;
   const centerOffset = gutter / 2;
 
