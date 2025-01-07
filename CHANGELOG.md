@@ -1,3 +1,9 @@
+## 167.1.3 (Jan 7, 2025)
+
+### Patch
+
+- ComboBox: fix ref bug issue with tags ([#3928](https://github.com/pinterest/gestalt/pull/3928)) - [Preview link](https://deploy-preview-3928--gestalt.netlify.app?devexample=true)
+
 ## 167.1.2 (Jan 7, 2025)
 
 ### Patch
