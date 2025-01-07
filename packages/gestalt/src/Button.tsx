@@ -22,6 +22,8 @@ const DEFAULT_TEXT_COLORS = {
   semiTransparentWhite: 'default',
   transparentWhiteText: 'inverse',
   white: 'default',
+  alwaysDark: 'light',
+  alwaysLight: 'dark',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -53,7 +55,7 @@ type Props = {
    * Indicates whether this component is hosted in a light or dark container.
    * Used for improving focus ring color contrast.
    */
-  backgroundContext?: 'light' | 'dark';
+  backgroundContext?: 'light' | 'dark' ;
   /**
    * The background color of Button.
    * See the [color on white backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-white-backgrounds) and the [color on color/image backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-colorimage-backgrounds)
@@ -65,7 +67,9 @@ type Props = {
     | 'transparent'
     | 'semiTransparentWhite'
     | 'transparentWhiteText'
-    | 'white';
+    | 'white'
+    | 'alwaysDark' 
+    | 'alwaysLight';
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -250,8 +254,12 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
+  let colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
 
+  colorClass = color === 'alwaysLight' ? 'light' : colorClass;
+  colorClass = color === 'alwaysDark' ? 'dark' : colorClass;
+
+  
   const { isFocusVisible } = useFocusVisible();
 
   const sharedTypeClasses = isInVRExperiment
@@ -388,7 +396,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
             textColor={textColor}
           />
         ) : (
-          buttonText
+          buttonText 
         )}
       </div>
     </button>
