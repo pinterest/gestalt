@@ -161,7 +161,7 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
 
   // When using both forwardRef and innerRefs, useimperativehandle() allows to externally set focus via the ref prop: textfieldRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | HTMLInputElement | null' is not assignable to type 'HTMLInputElement'.
-  useImperativeHandle(ref, () => tags? innerTagsRef.current : innerRef.current);
+  useImperativeHandle(ref, () => (tags ? innerTagsRef.current : innerRef.current));
 
   // ==== STATE ====
   const [focused, setFocused] = useState(false);
