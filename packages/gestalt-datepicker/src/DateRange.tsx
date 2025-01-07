@@ -118,7 +118,7 @@ type Props = {
   readOnly?: boolean;
 };
 
-export enum DateRangeType {
+enum DateRangeType {
   Primary,
   Secondary,
 }
