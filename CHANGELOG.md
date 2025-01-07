@@ -1,3 +1,9 @@
+## 167.1.2 (Jan 7, 2025)
+
+### Patch
+
+- IconCompact: added docs, accessibility tests, and indexed component ([#3924](https://github.com/pinterest/gestalt/pull/3924)) - [Preview link](https://deploy-preview-3924--gestalt.netlify.app?devexample=true)
+
 ## 167.1.1 (Jan 7, 2025)
 
 ### Patch
