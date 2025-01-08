@@ -1,3 +1,9 @@
+## 167.3.0 (Jan 8, 2025)
+
+### Minor
+
+- ColorSchemeProvider: support to classic partial exclusions ([#3930](https://github.com/pinterest/gestalt/pull/3930)) - [Preview link](https://deploy-preview-3930--gestalt.netlify.app?devexample=true)
+
 ## 167.2.0 (Jan 8, 2025)
 
 ### Minor
