@@ -137,6 +137,8 @@ type Props = {
    * Sets the line height for the selected language.
    */
   language?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
+  __forceClassic: boolean;
+  __rootSelector: string;
 };
 
 /**
@@ -148,16 +150,20 @@ export default function ColorSchemeProvider({
   fullDimensions = false,
   id,
   language = 'default',
+  __forceClassic = false,
+  __rootSelector = "",
 }: Props) {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const [languageLineHeight, setLanguageLineHeight] = useState(language);
 
-  const className = id ? `__gestaltTheme${id}` : undefined;
-  const selector = className ? `.${className}` : ':root';
   const isInExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
+
+  const className = id ? `__gestaltTheme${id}` : undefined;
+  const root = __rootSelector ? `:root .${__rootSelector}` : ':root';
+  const selector = className ? `.${className}` : root;
 
   const handlePrefChange = (event: MediaQueryList) => {
     setTheme(getTheme(event.matches ? 'dark' : 'light'));
@@ -185,10 +191,10 @@ export default function ColorSchemeProvider({
             colorScheme === 'userPreference'
               ? `@media(prefers-color-scheme: dark) {
   ${selector} {
-${themeToStyles(darkModeTheme, isInExperiment, languageLineHeight)} }
+${themeToStyles(darkModeTheme, __forceClassic ? false : isInExperiment, languageLineHeight)} }
 }`
               : `${selector} {
-${themeToStyles(theme, isInExperiment, languageLineHeight)} }`,
+${themeToStyles(theme, __forceClassic ? false : isInExperiment, languageLineHeight)} }`,
         }}
       />
       <div
