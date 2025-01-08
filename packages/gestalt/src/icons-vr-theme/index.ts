@@ -342,12 +342,14 @@ import thumbsUp from './thumbs-up.svg';
 import timer from './timer.svg';
 import timer3 from './timer-3.svg';
 import timer10 from './timer-10.svg';
+import tint from './tint.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
 import undo from './undo.svg';
 import unlock from './unlock.svg';
 import uploadFeed from './upload-feed.svg';
 import viber from './viber.svg';
+import vibrance from './vibrance.svg';
 import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
 import videoRewind10Seconds from './video-rewind-10-seconds.svg';
@@ -718,12 +720,14 @@ const icons = Object.freeze({
   'timer': timer,
   'timer-10': timer10,
   'timer-3': timer3,
+  'tint': tint,
   'trash-can': trashCan,
   'trending': trending,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
   'viber': viber,
+  'vibrance': vibrance,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,

@@ -342,12 +342,14 @@ import thumbsUp from './ic_thumbs-up_gestalt.svg';
 import timer from './ic_timer_gestalt.svg';
 import timer3 from './ic_timer-3_gestalt.svg';
 import timer10 from './ic_timer-10_gestalt.svg';
+import tint from './ic_tint_gestalt.svg';
 import trashCan from './ic_trash-can_gestalt.svg';
 import trending from './ic_trending_gestalt.svg';
 import undo from './ic_undo_gestalt.svg';
 import unlock from './ic_unlock_gestalt.svg';
 import uploadFeed from './ic_upload-feed_gestalt.svg';
 import viber from './ic_viber_gestalt.svg';
+import vibrance from './ic_vibrance_gestalt.svg';
 import videoAdvance10Seconds from './ic_video-advance-10-seconds_gestalt.svg';
 import videoCamera from './ic_video-camera_gestalt.svg';
 import videoRewind10Seconds from './ic_video-rewind-10-seconds_gestalt.svg';
@@ -718,12 +720,14 @@ const icons = Object.freeze({
   'timer': timer,
   'timer-10': timer10,
   'timer-3': timer3,
+  'tint': tint,
   'trash-can': trashCan,
   'trending': trending,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
   'viber': viber,
+  'vibrance': vibrance,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,

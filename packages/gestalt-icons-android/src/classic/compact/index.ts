@@ -25,11 +25,11 @@ const icons = Object.freeze({
   'compact-chevron-right': compactChevronRight,
   'compact-chevron-up': compactChevronUp,
   'compact-dash': compactDash,
+  'compact-info-circle-fill': compactInfoCircleFill,
   'compact-lock': compactLock,
   'compact-sparkle': compactSparkle,
   'compact-workflow-status-problem': compactWorkflowStatusProblem,
   'compact-workflow-status-warning': compactWorkflowStatusWarning,
-  'compact-info-circle-fill': compactInfoCircleFill,
 });
 
 export default icons;
