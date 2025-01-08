@@ -4,7 +4,6 @@
     "base/color/hover",
     "base/color/pressed",
     "base/text/font",
-    "base/elevation",
     "base/rounding",
     "base/space",
     "base/motion",

@@ -8,8 +8,7 @@
       "base/text/font": "enabled",
       "base/space": "enabled",
       "base/rounding": "enabled",
-      "base/motion": "enabled",
-      "base/elevation": "enabled"
+      "base/motion": "enabled"
     },
     "$figmaCollectionId": "VariableCollectionId:4995:2",
     "$figmaModeId": "7410:0",
@@ -204,7 +203,6 @@
       "base/color/hover": "source",
       "base/color/pressed": "source",
       "base/text/font": "source",
-      "base/elevation": "source",
       "base/rounding": "source",
       "base/space": "source",
       "base/motion": "source"
@@ -311,7 +309,6 @@
       "base/color/hover": "source",
       "base/color/pressed": "source",
       "base/text/font": "source",
-      "base/elevation": "source",
       "base/rounding": "source",
       "base/space": "source",
       "base/motion": "source"
@@ -702,7 +699,6 @@
     },
     "selectedTokenSets": {
       "sema/elevation": "enabled",
-      "base/elevation": "source",
       "base/text/font": "source",
       "base/color/pressed": "source",
       "base/color/hover": "source",
