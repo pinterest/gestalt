@@ -1,3 +1,9 @@
+## 167.1.4 (Jan 8, 2025)
+
+### Patch
+
+- DatePicker: fix in onChange event ([#3929](https://github.com/pinterest/gestalt/pull/3929)) - [Preview link](https://deploy-preview-3929--gestalt.netlify.app?devexample=true)
+
 ## 167.1.3 (Jan 7, 2025)
 
 ### Patch
