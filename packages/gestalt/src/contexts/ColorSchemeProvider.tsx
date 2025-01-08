@@ -137,8 +137,8 @@ type Props = {
    * Sets the line height for the selected language.
    */
   language?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
-  __forceClassic: boolean;
-  __rootSelector: string;
+  __forceClassic?: boolean;
+  __rootSelector?: string;
 };
 
 /**
@@ -151,7 +151,7 @@ export default function ColorSchemeProvider({
   id,
   language = 'default',
   __forceClassic = false,
-  __rootSelector = "",
+  __rootSelector = '',
 }: Props) {
   const [theme, setTheme] = useState(getTheme(colorScheme));
   const [languageLineHeight, setLanguageLineHeight] = useState(language);
