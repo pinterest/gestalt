@@ -1,14 +1,14 @@
 {
   "elevation": {
     "floatingappendb": {
-      "value": "{sema.elevation.floating.value}"
+      "value": "{sema.elevation.shadow.floating.value}"
     },
     "raisedappendb": {
       "top": {
-        "value": "{sema.elevation.raised.top.value}"
+        "value": "{sema.elevation.shadow.floating.value}"
       },
       "bottom": {
-        "value": "{sema.elevation.raised.bottom.value}"
+        "value": "{sema.elevation.shadow.raised.value}"
       }
     }
   }
