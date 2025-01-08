@@ -164,12 +164,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
               | undefined,
           ) => {
             if (controlledValue === undefined) setUncontrolledValue(value);
-            if (event !== undefined) {
-              onChange({ event, value });
-              if (event.type === 'click') {
-                nextRef?.current?.focus();
-                onSelect?.();
-              }
+            onChange({ event, value });
+            if (event?.type === 'click') {
+              nextRef?.current?.focus();
+              onSelect?.();
             }
           }}
           onKeyDown={(event) => {
