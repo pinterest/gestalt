@@ -7,6 +7,7 @@ import Button from './Button';
 import ButtonLink from './ButtonLink';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Heading from './Heading';
 import IconButton from './IconButton';
 import Image from './Image';
 import Mask from './Mask';
@@ -236,13 +237,19 @@ export default function BannerUpsell({
             <Box maxWidth={648}>
               {title && (
                 <Box marginBottom={2}>
-                  <Text
-                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
-                    size="400"
-                    weight="bold"
-                  >
-                    {title}
-                  </Text>
+                  {isInVRExperiment ? (
+                    <Heading align={responsiveMinWidth === 'xs' ? 'center' : 'start'} size="400">
+                      {title}
+                    </Heading>
+                  ) : (
+                    <Text
+                      align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
+                      size="400"
+                      weight="bold"
+                    >
+                      {title}
+                    </Text>
+                  )}
                 </Box>
               )}
               {messageElement}
@@ -263,6 +270,7 @@ export default function BannerUpsell({
           </Box>
           {!children && isInVRExperiment && hasActions && (
             <Box
+              margin="auto"
               marginStart="auto"
               smDisplay="flex"
               smMarginEnd={4}
