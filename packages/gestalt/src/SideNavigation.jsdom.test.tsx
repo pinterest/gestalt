@@ -185,9 +185,7 @@ describe('SideNavigation desktop', () => {
     await userEvent.tab();
 
     expect(
-      screen.getByRole('button', {
-        exact: true,
-      }),
+      screen.getByRole('button'),
     ).toHaveFocus();
 
     expect(

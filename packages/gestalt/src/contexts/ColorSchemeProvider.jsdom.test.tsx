@@ -105,7 +105,6 @@ describe('useColorScheme', () => {
       </ColorSchemeProvider>,
     );
     expect(screen.getByText('lightMode')).toBeTruthy();
-    // @ts-expect-error - TS2769 - No overload matches this call.
     act(() => listener({ matches: true }));
     expect(screen.getByText('darkMode')).toBeTruthy();
   });

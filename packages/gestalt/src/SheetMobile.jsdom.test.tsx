@@ -119,9 +119,7 @@ describe('SheetMobile', () => {
       </DeviceTypeProvider>,
     );
     expect(
-      screen.queryAllByRole('button', {
-        exact: true,
-      }),
+      screen.queryAllByRole('button'),
     ).toHaveLength(3);
     expect(
       screen.getByText('Next', {
