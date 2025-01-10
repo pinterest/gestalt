@@ -22,8 +22,8 @@ const DEFAULT_TEXT_COLORS = {
   semiTransparentWhite: 'default',
   transparentWhiteText: 'inverse',
   white: 'default',
-  alwaysDark: 'light',
-  alwaysLight: 'dark',
+  light: 'light',
+  dark: 'dark',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -68,8 +68,8 @@ type Props = {
     | 'semiTransparentWhite'
     | 'transparentWhiteText'
     | 'white'
-    | 'alwaysDark' 
-    | 'alwaysLight';
+    | 'dark' 
+    | 'light';
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -254,11 +254,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  let colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
-
-  colorClass = color === 'alwaysLight' ? 'alwaysLight' : colorClass;
-  colorClass = color === 'alwaysDark' ? 'alwaysDark' : colorClass;
-
+  const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
   
   const { isFocusVisible } = useFocusVisible();
 

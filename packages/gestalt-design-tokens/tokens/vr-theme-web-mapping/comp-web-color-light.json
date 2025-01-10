@@ -110,6 +110,34 @@
             "value": "transparent"
           }
         },
+        "dark": {
+          "default": {
+            "value": "{sema.color.background.dark.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.dark.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.dark.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
+        "light": {
+          "default": {
+            "value": "{sema.color.background.light.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.light.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.light.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
         "gray": {
           "default": {
             "value": "{sema.color.background.tertiary.value}"
