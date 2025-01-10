@@ -31,3 +31,7 @@
   display: inline-block;
   vertical-align: top;
 }
+
+.border {
+  outline: 1px solid var(--sema-color-border-inverse)
+}

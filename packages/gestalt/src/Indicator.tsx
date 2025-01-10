@@ -63,7 +63,12 @@ export default function Indicator({
       data-test-id={dataTestId}
       role="status"
     >
-      <div className={classnames(styles.counter, { [styles.marginTop]: !isInVRExperiment })}>
+      <div
+        className={classnames(styles.counter, {
+          [styles.marginTop]: !isInVRExperiment,
+          [styles.border]: isInVRExperiment,
+        })}
+      >
         <TextUI align="center" color="light" size="xs">
           {displayCount}
         </TextUI>
