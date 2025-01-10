@@ -84,7 +84,6 @@ export default function Layer({
   }
 
   // After useEffect, we render the children into the portal container node outside the DOM hierarchy
-  // @ts-expect-error - TS2322 - Type 'ReactPortal' is not assignable to type 'ReactNode'.
   return createPortal(children, portalContainer.current);
 }
 
