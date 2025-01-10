@@ -79,6 +79,14 @@ type Props = {
    */
   onBlur?: (arg1: { event: React.FocusEvent<HTMLAnchorElement> }) => void;
   /**
+   * Callback fired when a mouse pointer moves in a Link component.
+   */
+  _onMouseEnter?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+  /**
+   * Callback fired when a mouse pointer moves out a Link component.
+   */
+  _onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+  /**
    * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
   onClick?: (arg1: {
@@ -137,6 +145,8 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     href,
     id,
     onBlur,
+    _onMouseEnter,
+    _onMouseLeave,
     onClick,
     onFocus,
     rel = 'none',
@@ -276,6 +286,8 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       }}
       onKeyPress={handleKeyPress}
       onMouseDown={handleMouseDown}
+      onMouseEnter={(event) => _onMouseEnter?.({ event })}
+      onMouseLeave={(event) => _onMouseLeave?.({ event })}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
