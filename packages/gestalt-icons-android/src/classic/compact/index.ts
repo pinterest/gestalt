@@ -11,7 +11,11 @@ import compactDash from './ic_compact-dash_gestalt.svg';
 import compactInfoCircleFill from './ic_compact-info-circle-fill_gestalt.svg';
 import compactLock from './ic_compact-lock_gestalt.svg';
 import compactSparkle from './ic_compact-sparkle_gestalt.svg';
+import compactWorkflowStatusCanceled from './ic_compact-workflow-status-canceled_gestalt.svg';
+import compactWorkflowStatusHalted from './ic_compact-workflow-status-halted_gestalt.svg';
+import compactWorkflowStatusInProgress from './ic_compact-workflow-status-in-progress_gestalt.svg';
 import compactWorkflowStatusProblem from './ic_compact-workflow-status-problem_gestalt.svg';
+import compactWorkflowStatusUnstarted from './ic_compact-workflow-status-unstarted_gestalt.svg';
 import compactWorkflowStatusWarning from './ic_compact-workflow-status-warning_gestalt.svg';
 
 const icons = Object.freeze({
@@ -28,7 +32,11 @@ const icons = Object.freeze({
   'compact-info-circle-fill': compactInfoCircleFill,
   'compact-lock': compactLock,
   'compact-sparkle': compactSparkle,
+  'compact-workflow-status-canceled': compactWorkflowStatusCanceled,
+  'compact-workflow-status-halted': compactWorkflowStatusHalted,
+  'compact-workflow-status-in-progress': compactWorkflowStatusInProgress,
   'compact-workflow-status-problem': compactWorkflowStatusProblem,
+  'compact-workflow-status-unstarted': compactWorkflowStatusUnstarted,
   'compact-workflow-status-warning': compactWorkflowStatusWarning,
 });
 
