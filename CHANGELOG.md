@@ -1,3 +1,9 @@
+## 167.4.0 (Jan 10, 2025)
+
+### Minor
+
+- Icon: Missing compact icons ([#3932](https://github.com/pinterest/gestalt/pull/3932)) - [Preview link](https://deploy-preview-3932--gestalt.netlify.app?devexample=true)
+
 ## 167.3.0 (Jan 8, 2025)
 
 ### Minor
