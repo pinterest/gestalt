@@ -1,3 +1,87 @@
+## 167.4.0 (Jan 10, 2025)
+
+### Minor
+
+- Icon: Missing compact icons ([#3932](https://github.com/pinterest/gestalt/pull/3932)) - [Preview link](https://deploy-preview-3932--gestalt.netlify.app?devexample=true)
+
+## 167.3.0 (Jan 8, 2025)
+
+### Minor
+
+- ColorSchemeProvider: support to classic partial exclusions ([#3930](https://github.com/pinterest/gestalt/pull/3930)) - [Preview link](https://deploy-preview-3930--gestalt.netlify.app?devexample=true)
+
+## 167.2.0 (Jan 8, 2025)
+
+### Minor
+
+- Icon: New Icons [Gestalt-8746] ([#3926](https://github.com/pinterest/gestalt/pull/3926)) - [Preview link](https://deploy-preview-3926--gestalt.netlify.app?devexample=true)
+
+## 167.1.4 (Jan 8, 2025)
+
+### Patch
+
+- DatePicker: fix in onChange event ([#3929](https://github.com/pinterest/gestalt/pull/3929)) - [Preview link](https://deploy-preview-3929--gestalt.netlify.app?devexample=true)
+
+## 167.1.3 (Jan 7, 2025)
+
+### Patch
+
+- ComboBox: fix ref bug issue with tags ([#3928](https://github.com/pinterest/gestalt/pull/3928)) - [Preview link](https://deploy-preview-3928--gestalt.netlify.app?devexample=true)
+
+## 167.1.2 (Jan 7, 2025)
+
+### Patch
+
+- IconCompact: added docs, accessibility tests, and indexed component ([#3924](https://github.com/pinterest/gestalt/pull/3924)) - [Preview link](https://deploy-preview-3924--gestalt.netlify.app?devexample=true)
+
+## 167.1.1 (Jan 7, 2025)
+
+### Patch
+
+- Internal: remove internal circular dependencies ([#3925](https://github.com/pinterest/gestalt/pull/3925)) - [Preview link](https://deploy-preview-3925--gestalt.netlify.app?devexample=true)
+
+## 167.1.0 (Jan 6, 2025)
+
+### Minor
+
+- DatePicker, TextField: 1. fix open behavior, 2. support to onClick ([#3921](https://github.com/pinterest/gestalt/pull/3921)) - [Preview link](https://deploy-preview-3921--gestalt.netlify.app?devexample=true)
+
+## 167.0.1 (Jan 6, 2025)
+
+### Patch
+
+- DatePicker: upgraded package to latest 7.5.0 ([#3920](https://github.com/pinterest/gestalt/pull/3920)) - [Preview link](https://deploy-preview-3920--gestalt.netlify.app?devexample=true)
+
+## 167.0.0 (Jan 4, 2025)
+
+### Major
+
+- SideNavigation: patch for accessibility aria-selected bug ([#3919](https://github.com/pinterest/gestalt/pull/3919)) - [Preview link](https://deploy-preview-3919--gestalt.netlify.app?devexample=true)
+
+## 166.3.0 (Jan 3, 2025)
+
+### Minor
+
+- BannerSlim: VR ([#3918](https://github.com/pinterest/gestalt/pull/3918)) - [Preview link](https://deploy-preview-3918--gestalt.netlify.app?devexample=true)
+
+## 166.2.3 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Highlight secondary range in DateRange component (web) ([#3910](https://github.com/pinterest/gestalt/pull/3910)) - [Preview link](https://deploy-preview-3910--gestalt.netlify.app?devexample=true)
+
+## 166.2.2 (Jan 2, 2025)
+
+### Patch
+
+- DateRange: Remove overflow prop and apply border radius with css instead (web) ([#3909](https://github.com/pinterest/gestalt/pull/3909)) - [Preview link](https://deploy-preview-3909--gestalt.netlify.app?devexample=true)
+
+## 166.2.1 (Dec 17, 2024)
+
+### Patch
+
+- Masonry: Update fluid grid to not floor column width (take two) ([#3913](https://github.com/pinterest/gestalt/pull/3913)) - [Preview link](https://deploy-preview-3913--gestalt.netlify.app?devexample=true)
+
 ## 166.2.0 (Dec 9, 2024)
 
 ### Minor

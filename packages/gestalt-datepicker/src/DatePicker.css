@@ -25,6 +25,7 @@
   font-weight: var(--font-weight-datepicker-heading);
   line-height: var(--font-lineheight-datepicker-heading);
   margin-bottom: var(--space-400);
+  margin-top: var(--space-0);
   text-decoration: var(--font-textdecoration-datepicker-heading);
 }
 
@@ -397,6 +398,13 @@ html:not([dir="rtl"]) :global ._gestalt .react-datepicker__navigation--next {
 
 .react-datepicker-popper {
   z-index: 1;
+}
+
+/* styles secondary in range days */
+
+.react-datepicker__day--in-range-secondary {
+  background-color: var(--color-background-datepicker-range-default);
+  font-weight: bold;
 }
 
 /* Year / Month dropdown  */

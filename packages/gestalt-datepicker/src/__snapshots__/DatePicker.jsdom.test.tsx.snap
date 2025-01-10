@@ -238,11 +238,11 @@ exports[`DatePicker Mobile Datepicker renders 1`] = `
                           <div
                             class="react-datepicker__header "
                           >
-                            <div
+                            <h2
                               class="react-datepicker__current-month"
                             >
                               December 2018
-                            </div>
+                            </h2>
                             <div
                               class="react-datepicker__header__dropdown react-datepicker__header__dropdown--select"
                             />

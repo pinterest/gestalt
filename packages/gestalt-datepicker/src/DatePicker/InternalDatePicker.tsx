@@ -1,4 +1,12 @@
-import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  ComponentProps,
+  forwardRef,
+  ReactElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { limitShift, shift } from '@floating-ui/react';
 import {
@@ -14,7 +22,7 @@ import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
 type InternalProps = Props & {
-  inline?: boolean;
+  inline?: ComponentProps<typeof ReactDatePicker>['inline'];
   inputOnly?: boolean;
   onFocus?: () => void;
   onSelect?: () => void;
@@ -73,8 +81,9 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
     // in the month and we need to keep the popover pointed at the input correctly
     const [, setMonth] = useState<number | null | undefined>();
-    const [format, setFormat] = useState<string | null | undefined>();
-    const [updatedLocale, setUpdatedLocale] = useState<string | null | undefined>();
+    const [format, setFormat] = useState<string | undefined>();
+    const [updatedLocale, setUpdatedLocale] =
+      useState<ComponentProps<typeof ReactDatePicker>['locale']>();
     const [initRangeHighlight, setInitRangeHighlight] = useState<Date | null | undefined>();
 
     useEffect(() => {
@@ -113,7 +122,6 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
             </Box>
           </Label>
         )}
-        {/* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
         <ReactDatePicker
           calendarClassName={
             inline ? styles['react-datepicker-inline'] : styles['react-datepicker']
@@ -148,10 +156,16 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
           nextMonthButtonLabel={
             <Icon accessibilityLabel={nextMonth} color="default" icon="arrow-forward" size={16} />
           }
-          onChange={(value: Date, event: React.ChangeEvent<HTMLInputElement>) => {
+          onChange={(
+            value: Date | null,
+            event:
+              | React.MouseEvent<HTMLElement, MouseEvent>
+              | React.KeyboardEvent<HTMLElement>
+              | undefined,
+          ) => {
             if (controlledValue === undefined) setUncontrolledValue(value);
             onChange({ event, value });
-            if (event.type === 'click') {
+            if (event?.type === 'click') {
               nextRef?.current?.focus();
               onSelect?.();
             }

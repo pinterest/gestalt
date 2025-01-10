@@ -10,8 +10,11 @@ import compactChevronUp from './ic_vr_compact-chevron-up_gestalt.svg';
 import compactDash from './ic_vr_compact-dash_gestalt.svg';
 import compactInfoCircleFill from './ic_vr_compact-info-circle-fill_gestalt.svg';
 import compactLock from './ic_vr_compact-lock_gestalt.svg';
-import compactSparkle from './ic_vr_compact-sparkle_gestalt.svg';
+import compactWorkflowStatusCanceled from './ic_vr_compact-workflow-status-canceled_gestalt.svg';
+import compactWorkflowStatusHalted from './ic_vr_compact-workflow-status-halted_gestalt.svg';
+import compactWorkflowStatusInProgress from './ic_vr_compact-workflow-status-in-progress_gestalt.svg';
 import compactWorkflowStatusProblem from './ic_vr_compact-workflow-status-problem_gestalt.svg';
+import compactWorkflowStatusUnstarted from './ic_vr_compact-workflow-status-unstarted_gestalt.svg';
 import compactWorkflowStatusWarning from './ic_vr_compact-workflow-status-warning_gestalt.svg';
 
 const icons = Object.freeze({
@@ -27,9 +30,12 @@ const icons = Object.freeze({
   'compact-dash': compactDash,
   'compact-info-circle-fill': compactInfoCircleFill,
   'compact-lock': compactLock,
+  'compact-workflow-status-canceled': compactWorkflowStatusCanceled,
+  'compact-workflow-status-halted': compactWorkflowStatusHalted,
+  'compact-workflow-status-in-progress': compactWorkflowStatusInProgress,
   'compact-workflow-status-problem': compactWorkflowStatusProblem,
+  'compact-workflow-status-unstarted': compactWorkflowStatusUnstarted,
   'compact-workflow-status-warning': compactWorkflowStatusWarning,
-  'compact-sparkle': compactSparkle,
 });
 
 export default icons;
