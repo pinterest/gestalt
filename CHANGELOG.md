@@ -1,3 +1,9 @@
+## 167.5.1 (Jan 13, 2025)
+
+### Patch
+
+- Internal: Upgrade React to 18.3.1 ([#3935](https://github.com/pinterest/gestalt/pull/3935)) - [Preview link](https://deploy-preview-3935--gestalt.netlify.app?devexample=true)
+
 ## 167.5.0 (Jan 13, 2025)
 
 ### Minor
