@@ -1,3 +1,9 @@
+## 167.4.1 (Jan 13, 2025)
+
+### Patch
+
+- Indicator: add VR outline ([#3934](https://github.com/pinterest/gestalt/pull/3934)) - [Preview link](https://deploy-preview-3934--gestalt.netlify.app?devexample=true)
+
 ## 167.4.0 (Jan 10, 2025)
 
 ### Minor
