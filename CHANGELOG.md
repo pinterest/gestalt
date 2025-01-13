@@ -1,3 +1,9 @@
+## 167.5.0 (Jan 13, 2025)
+
+### Minor
+
+- Link, ButtonLink: support to experimental onMouseEnter, onMouseLeave to support prefetching logic ([#3933](https://github.com/pinterest/gestalt/pull/3933)) - [Preview link](https://deploy-preview-3933--gestalt.netlify.app?devexample=true)
+
 ## 167.4.1 (Jan 13, 2025)
 
 ### Patch
