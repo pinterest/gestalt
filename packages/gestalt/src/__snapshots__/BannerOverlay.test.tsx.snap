@@ -97,6 +97,8 @@ Array [
                     onFocus={[Function]}
                     onKeyPress={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     onMouseUp={[Function]}
                     onTouchCancel={[Function]}
                     onTouchEnd={[Function]}
@@ -205,6 +207,8 @@ Array [
                   onFocus={[Function]}
                   onKeyPress={[Function]}
                   onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                   onMouseUp={[Function]}
                   onTouchCancel={[Function]}
                   onTouchEnd={[Function]}
@@ -333,6 +337,8 @@ Array [
                     onFocus={[Function]}
                     onKeyPress={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     onMouseUp={[Function]}
                     onTouchCancel={[Function]}
                     onTouchEnd={[Function]}
@@ -441,6 +447,8 @@ Array [
                   onFocus={[Function]}
                   onKeyPress={[Function]}
                   onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                   onMouseUp={[Function]}
                   onTouchCancel={[Function]}
                   onTouchEnd={[Function]}

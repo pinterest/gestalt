@@ -75,6 +75,15 @@ type ButtonProps = {
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
   /**
+   * Callback fired when a mouse pointer moves in a ButtonLink component.
+   */
+  _onMouseEnter?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+  /**
+   * Callback fired when a mouse pointer moves out a ButtonLink component.
+   */
+  _onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+
+  /**
    * sm: 32px, md: 40px, lg: 48px
    */
   size?: 'sm' | 'md' | 'lg';
@@ -117,6 +126,9 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     iconEnd,
     iconStart,
     onClick,
+    _onMouseEnter,
+    _onMouseLeave,
+
     tabIndex = 0,
     size = 'md',
     text,
@@ -176,6 +188,14 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
         })
       : undefined;
 
+  const handleOnMouseEnter: ComponentProps<typeof InternalLink>['onMouseEnter'] = ({ event }) => {
+    // @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
+    _onMouseEnter?.({ event });
+  };
+  const handleOnMouseLeave: ComponentProps<typeof InternalLink>['onMouseLeave'] = ({ event }) =>
+    // @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
+    _onMouseLeave?.({ event });
+
   return (
     <InternalLink
       ref={innerRef}
@@ -187,6 +207,8 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       fullWidth={fullWidth}
       href={href}
       onClick={handleClick}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
       rel={rel}
       selected={false}
       size={size}
