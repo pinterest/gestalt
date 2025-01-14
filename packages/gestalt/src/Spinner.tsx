@@ -1,4 +1,3 @@
-import { ComponentProps } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -10,6 +9,7 @@ import useInExperiment from './useInExperiment';
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
   md: 40,
+  lg: 56,
 } as const;
 
 type Props = {
@@ -30,9 +30,9 @@ type Props = {
    */
   show: boolean;
   /**
-   * sm: 32px, md: 40px
+   * sm: 32px, md: 40px, lg: 56px. 'lg' is available only in Visual Refresh experiment.
    */
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'lg';
 };
 
 /**
@@ -59,11 +59,12 @@ export default function Spinner({
     return (
       <VRSpinner
         accessibilityLabel={accessibilityLabel}
-        // Casting color type as classic and VR color variants types conflict.
-        color={color as ComponentProps<typeof VRSpinner>['color']}
+        // 'subtle' maps to 'default' as it is not a VR color variant
+        color={color === 'subtle' ? 'default' : color}
         delay={delay}
         show={show}
-        size={size}
+        // 'md' maps to 'lg' as it doesn't exist in VR Spinner
+        size={size === 'md' ? 'lg' : size}
       />
     );
   }

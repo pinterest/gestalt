@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import classnames from 'classnames';
+import vrLightDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme/variables-light.json';
 import styles from './VRSpinner.css';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
-  md: 40,
   lg: 56,
 } as const;
 
@@ -14,7 +14,7 @@ type SpinnerBodyProps = {
   accessibilityLabel: string;
   delay: boolean;
   show: boolean;
-  size: 'sm' | 'md' | 'lg';
+  size: 'sm' | 'lg';
   color: 'default' | 'grayscale' | 'white';
   onExitAnimationEnd: () => void;
 };
@@ -27,20 +27,30 @@ function SpinnerBody({
   color,
   onExitAnimationEnd,
 }: SpinnerBodyProps) {
+  const colorWhite = color === 'white' && vrLightDesignTokens['sema-color-background-light'];
+  const colorGrayscale = color === 'grayscale' && vrLightDesignTokens['base-color-grayscale-350'];
+  const colorValue = colorWhite || colorGrayscale;
+  const spinnerColor = colorValue
+    ? ({
+        '--comp-spinner-color-background-1': colorValue,
+        '--comp-spinner-color-background-2': colorValue,
+        '--comp-spinner-color-background-3': colorValue,
+      } as React.CSSProperties)
+    : {};
+
   return (
     <Box display="flex" justifyContent="around">
       <div
         aria-label={accessibilityLabel}
         className={classnames(styles.spinner, {
           [styles.exit]: !show,
-          [styles.grayscale]: color === 'grayscale',
-          [styles.white]: color === 'white',
         })}
         onAnimationEnd={onExitAnimationEnd}
         style={
           {
             '--g-enter-delay': delay ? '300ms' : undefined,
             '--g-size': `${SIZE_NAME_TO_PIXEL[size]}px`,
+            ...spinnerColor,
           } as React.CSSProperties
         }
       >
@@ -73,7 +83,7 @@ type Props = {
   accessibilityLabel?: string;
   delay?: boolean;
   show: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'lg';
   color?: 'default' | 'grayscale' | 'white';
 };
 
@@ -81,7 +91,7 @@ export default function Spinner({
   accessibilityLabel,
   delay = true,
   show: showProp,
-  size = 'md',
+  size = 'lg',
   color = 'default',
 }: Props) {
   const [show, setShow] = useState(showProp);

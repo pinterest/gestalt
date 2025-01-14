@@ -1,3 +1,5 @@
+import { useAppContext } from 'docs/docs-components/appContext';
+import { useExperimentContext } from 'packages/gestalt/src/contexts/ExperimentProvider';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -16,8 +18,13 @@ import doOverlay from '../../examples/spinner/doOverlay';
 import doWait from '../../examples/spinner/doWait';
 import localizationLabels from '../../examples/spinner/localizationLabels';
 import main from '../../examples/spinner/main';
+import variantGrayscale from '../../examples/spinner/variantGrayscale';
+import variantWhite from '../../examples/spinner/variantWhite';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
+  const { experiments } = useAppContext();
+  const isVREnabled = experiments === 'Tokens';
+
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -163,6 +170,31 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={<SandpackExample code={delay} name="Delay variant" />}
           />
         </MainSection.Subsection>
+
+        {isVREnabled && (
+          <MainSection.Subsection
+            columns={2}
+            description={`
+    By default, Spinner has color-change animation. Non-default color variant are \`grayscale\` and \`white\`.
+  `}
+            title="Colors"
+          >
+            <MainSection.Card
+              cardSize="lg"
+              sandpackExample={
+                <SandpackExample code={variantGrayscale} layout="column" name="Delay variant" />
+              }
+              title="Grayscale"
+            />
+            <MainSection.Card
+              cardSize="lg"
+              sandpackExample={
+                <SandpackExample code={variantWhite} layout="column" name="Delay variant" />
+              }
+              title="White"
+            />
+          </MainSection.Subsection>
+        )}
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />

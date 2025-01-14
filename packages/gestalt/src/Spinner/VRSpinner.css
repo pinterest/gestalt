@@ -59,16 +59,6 @@ svg * {
     calc(var(--g-enter-delay) + 300ms);
 }
 
-.spinner.grayscale circle {
-  animation-name: scale, none, dot-intro;
-  fill: var(--comp-spinner-grayscale-background);
-}
-
-.spinner.white circle {
-  animation-name: scale, none, dot-intro;
-  fill: var(--comp-spinner-white-background);
-}
-
 @keyframes dot-intro {
   from {
     transform: translate(var(--g-start-x), var(--g-start-y)) scale(0);
