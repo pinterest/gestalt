@@ -29,14 +29,14 @@ function SpinnerBody({
 }: SpinnerBodyProps) {
   const colorWhite = color === 'white' && vrLightDesignTokens['sema-color-background-light'];
   const colorGrayscale = color === 'grayscale' && vrLightDesignTokens['base-color-grayscale-350'];
-  const colorValue = colorWhite || colorGrayscale;
-  const spinnerColor = colorValue
-    ? ({
-        '--comp-spinner-color-background-1': colorValue,
-        '--comp-spinner-color-background-2': colorValue,
-        '--comp-spinner-color-background-3': colorValue,
-      } as React.CSSProperties)
-    : {};
+  const nonDefaultSpinnerColor =
+    colorWhite || colorGrayscale
+      ? ({
+          '--comp-spinner-color-background-1': colorWhite || colorGrayscale,
+          '--comp-spinner-color-background-2': colorWhite || colorGrayscale,
+          '--comp-spinner-color-background-3': colorWhite || colorGrayscale,
+        } as React.CSSProperties)
+      : {};
 
   return (
     <Box display="flex" justifyContent="around">
@@ -50,7 +50,7 @@ function SpinnerBody({
           {
             '--g-enter-delay': delay ? '300ms' : undefined,
             '--g-size': `${SIZE_NAME_TO_PIXEL[size]}px`,
-            ...spinnerColor,
+            ...nonDefaultSpinnerColor,
           } as React.CSSProperties
         }
       >
