@@ -1,3 +1,9 @@
+## 167.6.0 (Jan 14, 2025)
+
+### Minor
+
+- Spinner: VR color variants ([#3912](https://github.com/pinterest/gestalt/pull/3912)) - [Preview link](https://deploy-preview-3912--gestalt.netlify.app?devexample=true)
+
 ## 167.5.1 (Jan 13, 2025)
 
 ### Patch
