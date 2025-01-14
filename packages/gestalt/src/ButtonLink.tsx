@@ -46,6 +46,10 @@ type ButtonProps = {
    */
   disabled?: boolean;
   /**
+   * When supplied, the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink. If the value is a string, the string value will define the filename
+   */
+  download?: boolean | string;
+  /**
    * Indicates whether this component is hosted in a light or dark container.
    * Used for improving focus ring color contrast.
    */
@@ -121,6 +125,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     color = 'gray',
     dataTestId,
     disabled = false,
+    download,
     focusColor,
     fullWidth = false,
     iconEnd,
@@ -203,6 +208,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       colorClass={color}
       dataTestId={dataTestId}
       disabled={disabled}
+      download={download}
       focusColor={focusColor}
       fullWidth={fullWidth}
       href={href}
