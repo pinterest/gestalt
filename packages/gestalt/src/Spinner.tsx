@@ -9,6 +9,7 @@ import useInExperiment from './useInExperiment';
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
   md: 40,
+  lg: 56,
 } as const;
 
 type Props = {
@@ -17,21 +18,21 @@ type Props = {
    */
   accessibilityLabel?: string;
   /**
-   * Color of the Spinner.
+   * Color of the Spinner. `grayscale` and `white` variants are available only in Visual Refresh experiment.
    */
-  color?: 'default' | 'subtle';
+  color?: 'default' | 'subtle' | 'grayscale' | 'white';
   /**
    * Whether or not to render with a 300ms delay. The delay is for perceived performance, so you should rarely need to remove it. See the [delay variant](https://gestalt.pinterest.systems/web/spinner#Delay) for more details.
    */
   delay?: boolean;
   /**
-   * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro aimation is not intended, prefer conditional rendering.
+   * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro animation is not intended, prefer conditional rendering.
    */
   show: boolean;
   /**
-   * sm: 32px, md: 40px
+   * sm: 32px, md: 40px, lg: 56px. 'lg' is available only in Visual Refresh experiment and is the default value.
    */
-  size?: 'sm' | 'md';
+  size?: 'sm' | 'md' | 'lg';
 };
 
 /**
@@ -56,7 +57,15 @@ export default function Spinner({
 
   if (isInVRExperiment) {
     return (
-      <VRSpinner accessibilityLabel={accessibilityLabel} delay={delay} show={show} size={size} />
+      <VRSpinner
+        accessibilityLabel={accessibilityLabel}
+        // 'subtle' maps to 'default' as it is not a VR color variant
+        color={color === 'subtle' ? 'default' : color}
+        delay={delay}
+        show={show}
+        // 'md' maps to 'lg' as it doesn't exist in VR Spinner
+        size={size === 'md' ? 'lg' : size}
+      />
     );
   }
 
@@ -65,7 +74,8 @@ export default function Spinner({
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
-          color={color}
+          // map non-classic colors to subtle
+          color={color === 'default' || color === 'subtle' ? color : 'subtle'}
           icon="knoop"
           size={SIZE_NAME_TO_PIXEL[size]}
         />
