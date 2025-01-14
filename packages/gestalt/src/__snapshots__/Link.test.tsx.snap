@@ -22,6 +22,52 @@ exports[`default 1`] = `
 </a>
 `;
 
+exports[`download string 1`] = `
+<a
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
+  download="file"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+>
+  Link
+</a>
+`;
+
+exports[`download true 1`] = `
+<a
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
+  download={true}
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+>
+  Link
+</a>
+`;
+
 exports[`external link with nofollow 1`] = `
 <a
   className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
