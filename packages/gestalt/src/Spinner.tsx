@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Icon, { IconColor } from './Icon';
+import Icon from './Icon';
 import styles from './Spinner.css';
 import VRSpinner from './Spinner/VRSpinner';
 import useInExperiment from './useInExperiment';
@@ -30,7 +30,7 @@ type Props = {
    */
   show: boolean;
   /**
-   * sm: 32px, md: 40px, lg: 56px. 'lg' is available only in Visual Refresh experiment.
+   * sm: 32px, md: 40px, lg: 56px. 'lg' is available only in Visual Refresh experiment and is the default value.
    */
   size?: 'sm' | 'md' | 'lg';
 };
