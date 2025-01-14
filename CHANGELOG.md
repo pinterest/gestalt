@@ -1,3 +1,9 @@
+## 167.7.0 (Jan 14, 2025)
+
+### Minor
+
+- Link/ButtonLink: support for download ([#3936](https://github.com/pinterest/gestalt/pull/3936)) - [Preview link](https://deploy-preview-3936--gestalt.netlify.app?devexample=true)
+
 ## 167.6.0 (Jan 14, 2025)
 
 ### Minor
