@@ -74,8 +74,8 @@ export default function Spinner({
       <div className={classnames(styles.icon, { [styles.delay]: delay })}>
         <Icon
           accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
-          // Casting color type as classic and VR color variants types conflict.
-          color={color as IconColor}
+          // map non-classic colors to subtle
+          color={color === 'default' || color === 'subtle' ? color : 'subtle'}
           icon="knoop"
           size={SIZE_NAME_TO_PIXEL[size]}
         />
