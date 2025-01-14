@@ -1,5 +1,4 @@
 import { useAppContext } from 'docs/docs-components/appContext';
-import { useExperimentContext } from 'packages/gestalt/src/contexts/ExperimentProvider';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
