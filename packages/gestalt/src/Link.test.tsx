@@ -62,7 +62,7 @@ it('download string', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-  it('download true', () =>
+it('download true', () =>
   expect(
     renderer
       .create(
