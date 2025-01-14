@@ -63,6 +63,10 @@ type Props = {
    */
   display?: 'inline' | 'inlineBlock' | 'block';
   /**
+   * When supplied, the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink. If the value is a string, the string value will define the filename
+   */
+  download?: boolean | string;
+  /**
    * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/web/link#externalLinkIcon-and-rel) to learn more.
    */
   externalLinkIcon?: ExternalLinkIcon;
@@ -140,6 +144,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     accessibilityLabel,
     children,
     dataTestId,
+    download,
     display = 'block',
     externalLinkIcon = 'none',
     href,
@@ -298,6 +303,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
+      {...(download ? { download } : {})}
       target={target ? `_${target}` : undefined}
     >
       {children}

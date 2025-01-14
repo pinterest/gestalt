@@ -21,6 +21,7 @@ type Props = {
   colorClass?: string;
   dataTestId?: string;
   disabled?: boolean;
+  download?: boolean | string;
   focusColor?: 'lightBackground' | 'darkBackground';
   fullHeight?: boolean;
   fullWidth?: boolean;
@@ -65,6 +66,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
+    download,
     focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
@@ -304,6 +306,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       tabIndex={disabled ? undefined : tabIndex}
       {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       target={target ? `_${target}` : undefined}
+      {...(download ? { download } : {})}
     >
       {children}
     </a>
