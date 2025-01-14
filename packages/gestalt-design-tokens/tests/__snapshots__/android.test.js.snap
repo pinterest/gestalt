@@ -772,8 +772,6 @@ Object {
   "dist/android/vr-theme/component/spinner.xml": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <resources>
-  <dimen name=\\"comp_spinner_grayscale_background\\">@dimen/base_color_grayscale_350</dimen>
-  <dimen name=\\"comp_spinner_white_background\\">@dimen/sema_color_background_light</dimen>
   <dimen name=\\"comp_spinner_color_background_1\\">#c85bd2</dimen>
   <dimen name=\\"comp_spinner_color_background_2\\">#e57534</dimen>
   <dimen name=\\"comp_spinner_color_background_3\\">#22a596</dimen>
