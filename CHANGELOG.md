@@ -1,3 +1,9 @@
+## 168.0.0 (Jan 15, 2025)
+
+### Major
+
+- Masonry: Remove \_loadingStateItems and \_renderLoadingStateItems props ([#3938](https://github.com/pinterest/gestalt/pull/3938)) - [Preview link](https://deploy-preview-3938--gestalt.netlify.app?devexample=true)
+
 ## 167.7.0 (Jan 14, 2025)
 
 ### Minor
