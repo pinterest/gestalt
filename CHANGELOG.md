@@ -1,3 +1,9 @@
+## 168.0.1 (Jan 15, 2025)
+
+### Patch
+
+- BannerSlim: VR fixes ([#3939](https://github.com/pinterest/gestalt/pull/3939)) - [Preview link](https://deploy-preview-3939--gestalt.netlify.app?devexample=true)
+
 ## 168.0.0 (Jan 15, 2025)
 
 ### Major
