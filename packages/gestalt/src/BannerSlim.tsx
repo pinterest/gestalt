@@ -1,4 +1,5 @@
-import { Children, ComponentProps, Fragment, ReactElement } from 'react';
+import { ComponentProps, Fragment, ReactElement, useRef } from 'react';
+import useIsParagraph from './BannerSlim/useIsParagraph';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -207,6 +208,11 @@ export default function BannerSlim({
   // Buttons not allowed on compact BannerSlims
   const shouldShowButtons = !isBare && (primaryAction || onDismiss);
 
+  const referenceRef = useRef<null | HTMLDivElement>(null);
+  const targetRef = useRef<null | HTMLDivElement>(null);
+
+  const isParagraph = useIsParagraph({ referenceRef, targetRef });
+
   return (
     <Box
       alignItems="center"
@@ -214,9 +220,9 @@ export default function BannerSlim({
       direction="column"
       display="flex"
       mdDirection="row"
-      padding={isBare ? 0 : 4}
-      paddingY={isBare ? 1 : 0}
+      paddingX={isBare ? 0 : 4}
       rounding={4}
+      smPaddingY={isBare ? 1 : 4}
       width="100%"
     >
       <Flex
@@ -227,12 +233,12 @@ export default function BannerSlim({
         width="100%"
       >
         {!isDefault && (
-          <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
+          <Flex.Item alignSelf={isParagraph ? 'start' : undefined}>
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.iconColor}
               icon={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.icon}
-              size={16}
+              size={isInVRExperiment ? 20 : 16}
             />
           </Flex.Item>
         )}
@@ -244,21 +250,20 @@ export default function BannerSlim({
             }}
           >
             {typeof message === 'string' ? (
-              <Text inline>
-                {message}
-                {helperLink ? (
-                  <Fragment>
-                    {' '}
-                    <HelperLink {...helperLink} />
-                  </Fragment>
-                ) : null}
-              </Text>
+              <Fragment>
+                <Text ref={referenceRef} inline />
+                <Text ref={targetRef} inline>
+                  {message}
+                  {helperLink ? (
+                    <Fragment>
+                      {' '}
+                      <HelperLink {...helperLink} />
+                    </Fragment>
+                  ) : null}
+                </Text>
+              </Fragment>
             ) : null}
-            {typeof message !== 'string' &&
-            // @ts-expect-error - TS2339
-            Children.only<ReactElement>(message).type.displayName === 'Text'
-              ? message
-              : null}
+            {typeof message !== 'string' && message}
           </Box>
         </Flex.Item>
 
