@@ -13,11 +13,11 @@ const useIsParagraph = ({
     if (
       referenceRef?.current?.offsetHeight &&
       targetRef?.current?.offsetHeight &&
-      referenceRef?.current?.offsetHeight < targetRef?.current?.offsetHeight
+      isParagraph !== referenceRef?.current?.offsetHeight < targetRef?.current?.offsetHeight
     ) {
       setIsParagraph(referenceRef?.current?.offsetHeight < targetRef?.current?.offsetHeight);
     }
-  }, [referenceRef, targetRef]);
+  }, [referenceRef, targetRef, isParagraph]);
 
   useEffect(() => {
     checkParagraph();

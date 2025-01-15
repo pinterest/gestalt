@@ -212,7 +212,7 @@ export default function BannerSlim({
   const targetRef = useRef<null | HTMLDivElement>(null);
 
   const isParagraph = useIsParagraph({ referenceRef, targetRef });
-
+console.log(isParagraph)
   return (
     <Box
       alignItems="center"
