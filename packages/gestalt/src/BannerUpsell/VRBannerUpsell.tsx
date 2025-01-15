@@ -1,19 +1,19 @@
 import { Children, ComponentProps, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
-import styles from './BannerUpsell.css';
-import VRBannerUpsell from './BannerUpsell/VRBannerUpsell';
-import BannerUpsellForm from './BannerUpsellForm';
-import Box from './Box';
-import Button from './Button';
-import ButtonLink from './ButtonLink';
-import { useColorScheme } from './contexts/ColorSchemeProvider';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import IconButton from './IconButton';
-import Image from './Image';
-import Mask from './Mask';
-import Text from './Text';
-import useInExperiment from './useInExperiment';
-import useResponsiveMinWidth from './useResponsiveMinWidth';
+import styles from '../BannerUpsell.css';
+import BannerUpsellForm from '../BannerUpsellForm';
+import Box from '../Box';
+import Button from '../Button';
+import ButtonLink from '../ButtonLink';
+import { useColorScheme } from '../contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Heading from '../Heading';
+import IconButton from '../IconButton';
+import Image from '../Image';
+import Mask from '../Mask';
+import Text from '../Text';
+import useInExperiment from '../useInExperiment';
+import useResponsiveMinWidth from '../useResponsiveMinWidth';
 
 export type ActionDataType =
   | {
@@ -158,7 +158,7 @@ export default function BannerUpsell({
 
   if (typeof message === 'string') {
     messageElement = (
-      <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
+      <Text align={responsiveMinWidth === 'xs' ? 'start' : undefined}>{message}</Text>
     );
   }
   // If `text` is a Text component, we need to override any text colors within to ensure they all match
@@ -182,20 +182,6 @@ export default function BannerUpsell({
       </span>
     );
   }
-  if (isInVRExperiment) {
-    return (
-      <VRBannerUpsell
-        dismissButton={dismissButton}
-        imageData={imageData}
-        message={message}
-        primaryAction={primaryAction}
-        secondaryAction={secondaryAction}
-        title={title}
-      >
-        {children}
-      </VRBannerUpsell>
-    );
-  }
 
   return (
     <Box
@@ -203,16 +189,20 @@ export default function BannerUpsell({
       color={isDarkMode ? 'elevationFloating' : 'default'}
       direction="column"
       display="flex"
-      paddingX={12}
+      paddingX={6}
       paddingY={6}
       position="relative"
       rounding={4}
       smDirection="row"
       smPadding={8}
+      smPaddingX={8}
     >
-      <Box smDisplay="flex" smMarginBottom={-3} smMarginTop={-3} width="100%" wrap>
+      {/*
+            SM BREAKPOINT
+      */}
+      <Box display="block" lgDisplay="none" smDisplay="none" width="100%" wrap>
         <Box
-          alignItems="center"
+          alignItems="start"
           direction="column"
           display="flex"
           flex={children ? 'grow' : 'shrink'}
@@ -222,21 +212,6 @@ export default function BannerUpsell({
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
           smPaddingY={3}
         >
-          {imageData && (
-            <Box
-              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
-              lgDisplay="none"
-              marginBottom={4}
-              mdDisplay="none"
-              smDisplay="none"
-              smMarginBottom={0}
-              width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
-            >
-              <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
-                {imageData.component}
-              </Mask>
-            </Box>
-          )}
           <Box
             alignItems="center"
             direction="column"
@@ -245,21 +220,33 @@ export default function BannerUpsell({
             marginBottom="auto"
             marginEnd={0}
             marginStart={0}
-            marginTop="auto"
             smDisplay="block"
             smMarginEnd={6}
             smMarginStart={imageData ? 6 : 0}
           >
-            <Box maxWidth={648}>
+            <Box alignItems="start" maxWidth={648}>
               {title && (
                 <Box marginBottom={2}>
-                  <Text
-                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
-                    size="400"
-                    weight="bold"
-                  >
-                    {title}
-                  </Text>
+                  {imageData && (
+                    <Box
+                      display="flex"
+                      flex="none"
+                      marginBottom={4}
+                      smMarginBottom={0}
+                      width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+                    >
+                      <Mask
+                        rounding={imageData.mask?.rounding || 0}
+                        wash={imageData.mask?.wash || false}
+                        width={48}
+                      >
+                        {imageData.component}
+                      </Mask>
+                      <Heading align="start" size="400">
+                        {title}
+                      </Heading>
+                    </Box>
+                  )}
                 </Box>
               )}
               {messageElement}
@@ -278,19 +265,210 @@ export default function BannerUpsell({
               </Box>
             )}
           </Box>
+          {!children && hasActions && (
+            <Box direction="row" display="flex" margin="auto" marginStart="auto" paddingY={3}>
+              {secondaryAction && responsiveMinWidth !== 'xs' && (
+                <UpsellAction data={secondaryAction} type="secondary" />
+              )}
+              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+              {secondaryAction && responsiveMinWidth === 'xs' && (
+                <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+              )}
+            </Box>
+          )}
         </Box>
-        {!children && hasActions && (
-          <Box marginStart="auto" smDisplay="flex" smMarginEnd={4} smPaddingY={3}>
-            {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <UpsellAction data={secondaryAction} type="secondary" />
-            )}
-            {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
-            {secondaryAction && responsiveMinWidth === 'xs' && (
-              <UpsellAction data={secondaryAction} stacked={!!secondaryAction} type="secondary" />
+      </Box>
+
+      {/*
+
+      MD BREAKPOINT
+      */}
+      <Box
+        display="none"
+        lgDisplay="none"
+        smDisplay="block"
+        smMarginBottom={-3}
+        smMarginTop={-3}
+        width="100%"
+        wrap
+      >
+        <Box
+          alignItems="start"
+          direction="column"
+          display="flex"
+          flex={children ? 'grow' : 'shrink'}
+          justifyContent="center"
+          marginBottom={primaryAction || secondaryAction ? 4 : undefined}
+          smDirection="row"
+          smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
+          smPaddingY={3}
+        >
+          {imageData && (
+            <Box
+              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
+              marginBottom={4}
+              smMarginBottom={0}
+              width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+            >
+              <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
+                {imageData.component}
+              </Mask>
+            </Box>
+          )}
+          <Box
+            alignItems="center"
+            direction="column"
+            display="flex"
+            flex={children ? 'grow' : 'shrink'}
+            marginBottom="auto"
+            marginEnd={0}
+            marginStart={0}
+            smDisplay="block"
+            smMarginEnd={6}
+            smMarginStart={imageData ? 6 : 0}
+          >
+            <Box maxWidth={648}>
+              {title && (
+                <Box marginBottom={2}>
+                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : 'start'} size="400">
+                    {title}
+                  </Heading>
+                </Box>
+              )}
+
+              {messageElement}
+            </Box>
+            {children && (
+              <Box
+                flex="grow"
+                justifyContent="end"
+                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                smDisplay="flex"
+                smMarginEnd={4}
+                smPaddingY={3}
+                width="100%"
+              >
+                {children}
+              </Box>
             )}
           </Box>
-        )}
+          {!children && hasActions && (
+            <Box
+              direction="row"
+              display="flex"
+              margin="auto"
+              marginStart="auto"
+              smMarginEnd={4}
+              smMarginTop={4}
+              smPaddingY={0}
+            >
+              {secondaryAction && responsiveMinWidth !== 'xs' && (
+                <UpsellAction data={secondaryAction} type="secondary" />
+              )}
+              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+              {secondaryAction && responsiveMinWidth === 'xs' && (
+                <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+              )}
+            </Box>
+          )}
+        </Box>
       </Box>
+
+      {/*
+
+      LG BREAKPOINT
+      */}
+      <Box
+        display="none"
+        lgDisplay="block"
+        smDisplay="none"
+        smMarginBottom={-3}
+        smMarginTop={-3}
+        width="100%"
+        wrap
+      >
+        <Box
+          alignItems="start"
+          direction="column"
+          display="flex"
+          flex={children ? 'grow' : 'shrink'}
+          justifyContent="center"
+          marginBottom={primaryAction || secondaryAction ? 4 : undefined}
+          smDirection="row"
+          smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
+          smPaddingY={3}
+        >
+          {imageData && (
+            <Box
+              alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
+              marginBottom={4}
+              smMarginBottom={0}
+              width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+            >
+              <Mask rounding={imageData.mask?.rounding || 0} wash={imageData.mask?.wash || false}>
+                {imageData.component}
+              </Mask>
+            </Box>
+          )}
+          <Box
+            alignItems="center"
+            direction="column"
+            display="flex"
+            flex={children ? 'grow' : 'shrink'}
+            marginBottom="auto"
+            marginEnd={0}
+            marginStart={0}
+            smDisplay="block"
+            smMarginEnd={6}
+            smMarginStart={imageData ? 6 : 0}
+          >
+            <Box maxWidth={648}>
+              {title && isInVRExperiment && (
+                <Box marginBottom={2}>
+                  <Heading align={responsiveMinWidth === 'xs' ? 'center' : 'start'} size="400">
+                    {title}
+                  </Heading>
+                </Box>
+              )}
+
+              {messageElement}
+            </Box>
+            {children && (
+              <Box
+                flex="grow"
+                justifyContent="end"
+                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                smDisplay="flex"
+                smMarginEnd={4}
+                smPaddingY={3}
+                width="100%"
+              >
+                {children}
+              </Box>
+            )}
+          </Box>
+          {!children && isInVRExperiment && hasActions && (
+            <Box
+              direction="row"
+              display="flex"
+              margin="auto"
+              marginStart="auto"
+              smMarginEnd={4}
+              smMarginTop={4}
+              smPaddingY={isInVRExperiment ? 0 : 3}
+            >
+              {secondaryAction && responsiveMinWidth !== 'xs' && (
+                <UpsellAction data={secondaryAction} type="secondary" />
+              )}
+              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+              {secondaryAction && responsiveMinWidth === 'xs' && (
+                <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+              )}
+            </Box>
+          )}
+        </Box>
+      </Box>
+
       {dismissButton && (
         <div className={classnames(styles.rtlPos)}>
           <IconButton
