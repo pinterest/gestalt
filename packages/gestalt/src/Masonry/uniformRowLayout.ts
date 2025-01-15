@@ -1,6 +1,5 @@
 import { Cache } from './Cache';
-import { isLoadingStateItem } from './loadingStateUtils';
-import { LoadingStateItem, Position } from './types';
+import { Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
   top: -9999,
@@ -54,7 +53,6 @@ const uniformRowLayout =
     gutter = 14,
     width,
     minCols = 3,
-    renderLoadingState,
   }: {
     cache: Cache<T, number>;
     columnWidth?: number;
@@ -62,9 +60,8 @@ const uniformRowLayout =
     gutter?: number;
     width?: number | null | undefined;
     minCols?: number;
-    renderLoadingState?: boolean;
-  }): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) =>
-  (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>): ReadonlyArray<Position> => {
+  }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
+  (items: ReadonlyArray<T>): ReadonlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(idealColumnWidth));
     }
@@ -79,7 +76,7 @@ const uniformRowLayout =
 
     const heights: Array<number> = [];
     return items.map((item, i) => {
-      const height = isLoadingStateItem(item, renderLoadingState) ? item.height : cache.get(item);
+      const height = cache.get(item);
 
       if (height == null) {
         return offscreen(columnWidth);
