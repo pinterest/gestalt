@@ -1,4 +1,4 @@
-import { ComponentProps, Fragment, ReactElement, useRef } from 'react';
+import { cloneElement, ComponentProps, Fragment, ReactElement, useRef } from 'react';
 import useIsParagraph from './BannerSlim/useIsParagraph';
 import Box from './Box';
 import Button from './Button';
@@ -263,7 +263,10 @@ export default function BannerSlim({
                 </Text>
               </Fragment>
             ) : null}
-            {typeof message !== 'string' && message}
+            <Fragment>
+              <Text ref={referenceRef} inline />
+              {typeof message !== 'string' && cloneElement(message, { ref: targetRef })}
+            </Fragment>
           </Box>
         </Flex.Item>
 
