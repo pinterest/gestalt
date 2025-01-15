@@ -263,7 +263,10 @@ export default function BannerSlim({
                 </Text>
               </Fragment>
             ) : null}
-            {typeof message !== 'string' && message}
+            <Fragment>
+              <Text ref={referenceRef} inline />
+              <Box ref={targetRef}>{typeof message !== 'string' && message} </Box>
+            </Fragment>
           </Box>
         </Flex.Item>
 
