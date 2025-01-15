@@ -1,3 +1,9 @@
+## 168.0.2 (Jan 15, 2025)
+
+### Patch
+
+- BannerSlim: VR fixes when message isnt string ([#3940](https://github.com/pinterest/gestalt/pull/3940)) - [Preview link](https://deploy-preview-3940--gestalt.netlify.app?devexample=true)
+
 ## 168.0.1 (Jan 15, 2025)
 
 ### Patch
