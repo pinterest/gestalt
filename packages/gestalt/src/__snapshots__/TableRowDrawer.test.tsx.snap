@@ -177,7 +177,7 @@ exports[`renders correctly with drawer 1`] = `
             className="box paddingX200 paddingY200"
           >
             <div
-              className="box mdDirectionRow paddingX400 paddingY0 paddingY400 recommendationWeak rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+              className="box mdDirectionRow paddingX400 recommendationWeak rounding4 smPaddingY400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
               style={
                 Object {
                   "width": "100%",
@@ -193,7 +193,7 @@ exports[`renders correctly with drawer 1`] = `
                 }
               >
                 <div
-                  className="FlexItem selfStart"
+                  className="FlexItem"
                 >
                   <svg
                     aria-hidden={null}
@@ -220,6 +220,9 @@ exports[`renders correctly with drawer 1`] = `
                       }
                     }
                   >
+                    <span
+                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+                    />
                     <span
                       className="default alignStart breakWord Text fontSize300 fontWeightNormal"
                     >
