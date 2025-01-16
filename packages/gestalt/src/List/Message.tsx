@@ -1,6 +1,4 @@
 import { Children, cloneElement, ReactElement } from 'react';
-import { useColorScheme } from '../contexts/ColorSchemeProvider';
-import styles from '../List.css';
 import Text from '../Text';
 
 type Size = '100' | '200' | '300' | '400' | '500' | '600';
@@ -11,8 +9,6 @@ type Props = {
 };
 
 export default function ListText({ size, text }: Props) {
-  const { colorSchemeName } = useColorScheme();
-
   // Flow shuold catch if text is missing. In case Flow is not enabled and text is missing, the errors are not that helpful. This surfaces the problem more explicitly.
   if (!text) {
     throw new Error(`Gestalt List is missing \`label\` prop or a \`text\` prop within List.Item.`);
@@ -22,20 +18,14 @@ export default function ListText({ size, text }: Props) {
     return <Text size={size || undefined}>{text}</Text>;
   }
 
-  // If `text` is a Text component, we need to override any text colors within to ensure they all match
-  // @ts-expect-error - TS2339
-  if (typeof text !== 'string' && Children.only<ReactElement>(text)?.type.displayName === 'Text') {
-    const isDarkMode = colorSchemeName === 'darkMode';
-
-    const textColorOverrideStyles = isDarkMode
-      ? styles.textColorOverrideLight
-      : styles.textColorOverrideDark;
-
-    return (
-      <span className={textColorOverrideStyles}>
-        {cloneElement(text, { size: size || undefined })}
-      </span>
-    );
+  // If `text` is a Text component, we need to override any text size within to ensure they all match
+  if (
+    text &&
+    typeof text !== 'string' &&
+    // @ts-expect-error - TS2339
+    Children.only<ReactElement>(text)?.type.displayName === 'Text'
+  ) {
+    return cloneElement(text, { size: size || undefined });
   }
 
   throw new Error(

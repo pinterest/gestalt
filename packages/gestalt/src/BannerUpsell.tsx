@@ -229,20 +229,18 @@ export default function BannerUpsell({
             smMarginEnd={6}
             smMarginStart={imageData ? 6 : 0}
           >
-            <Box maxWidth={648}>
-              {title && (
-                <Box marginBottom={2}>
-                  <Text
-                    align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
-                    size="400"
-                    weight="bold"
-                  >
-                    {title}
-                  </Text>
-                </Box>
-              )}
-              {messageElement}
-            </Box>
+            {title && (
+              <Box marginBottom={2}>
+                <Text
+                  align={responsiveMinWidth === 'xs' ? 'center' : 'start'}
+                  size="400"
+                  weight="bold"
+                >
+                  {title}
+                </Text>
+              </Box>
+            )}
+            {messageElement}
             {children && (
               <Box
                 flex="grow"

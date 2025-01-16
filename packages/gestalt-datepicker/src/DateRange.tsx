@@ -113,6 +113,9 @@ type Props = {
    * Customize your error message for the cases the user enters invalid dates. See the [error messaging variant](https://gestalt.pinterest.systems/web/daterange#Error-messaging) to learn more.
    */
   secondaryDateErrorMessage?: { startDate: string | null; endDate: string | null };
+  /**
+   * Prevents the user from changing the date values from the date fields (not from interacting with the fields).    */
+  readOnly?: boolean;
 };
 
 enum DateRangeType {
@@ -186,6 +189,7 @@ function DateRange({
   onSecondaryDateChange,
   onSecondaryDateError,
   onSecondaryDateFocus,
+  readOnly,
 }: Props) {
   const componentId = useId();
   const deviceType = useDeviceType();
@@ -234,21 +238,14 @@ function DateRange({
   });
 
   return (
-    <Box
-      borderStyle="shadow"
-      color="default"
-      display="inlineBlock"
-      minHeight={425}
-      overflow="hidden"
-      rounding={4}
-    >
+    <Box borderStyle="shadow" color="default" display="inlineBlock" minHeight={425} rounding={4}>
       <Flex>
         {radioGroup &&
         // @ts-expect-error - TS2339
         Children.only<ReactElement>(radioGroup).type.displayName === 'RadioGroup' &&
         !isMobile ? (
           <div className={borderStyles.borderRight}>
-            <Box paddingX={6} paddingY={4} width={216}>
+            <Box minWidth={216} paddingX={6} paddingY={4}>
               {radioGroup}
             </Box>
           </div>
@@ -300,6 +297,7 @@ function DateRange({
                             }}
                             onError={onDateErrorEvent?.startDate}
                             onFocus={onDateFocusEvent?.endDate}
+                            readOnly={readOnly}
                             value={startDate}
                           />
                         </Box>
@@ -324,6 +322,7 @@ function DateRange({
                             }}
                             onError={onDateErrorEvent?.endDate}
                             onFocus={onDateFocusEvent?.endDate}
+                            readOnly={readOnly}
                             value={endDate}
                           />
                         </Box>
@@ -352,16 +351,11 @@ function DateRange({
                     onSecondaryDateChange({ value: startDate }, { value: endDate });
                   }
                 }}
-                rangeEndDate={
-                  selectedRange === DateRangeType.Primary
-                    ? dateValue.endDate
-                    : secondaryDateValue?.endDate
-                }
-                rangeStartDate={
-                  selectedRange === DateRangeType.Primary
-                    ? dateValue.startDate
-                    : secondaryDateValue?.startDate
-                }
+                rangeEndDate={dateValue.endDate}
+                rangeStartDate={dateValue.startDate}
+                secondaryRangeEndDate={secondaryDateValue?.endDate}
+                secondaryRangeStartDate={secondaryDateValue?.startDate}
+                selectedRange={selectedRange}
               />
             </Box>
             {onSubmit && onCancel ? (

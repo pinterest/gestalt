@@ -15,61 +15,61 @@ const colorTokensLight: ColorTokens = Object.freeze({
     hover: '#D6D4CD',
     pressed: '#C2C1BC',
   },
-  '01': {
+  1: {
     // redWeak
     base: '#FFD3D1',
     hover: '#FBBEBB',
     pressed: '#F4A8A4',
   },
-  '02': {
+  2: {
     // redDefault
     base: '#FF9494',
     hover: '#F87777',
     pressed: '#ED5A5A',
   },
-  '03': {
+  3: {
     // purpleWeak
     base: '#FCD8FC',
     hover: '#FAC7FA',
     pressed: '#F8B5F8',
   },
-  '04': {
+  4: {
     // purpleDefault
     base: '#EFADEF',
     hover: '#E599E5',
     pressed: '#DA86DA',
   },
-  '05': {
+  5: {
     // blueWeak
     base: '#C5EAF7',
     hover: '#A8DDF0',
     pressed: '#8ECFE6',
   },
-  '06': {
+  6: {
     // blueDefault
     base: '#7CBEDE',
     hover: '#58A9D0',
     pressed: '#4096BF',
   },
-  '07': {
+  7: {
     // greenWeak
     base: '#D0E2A8',
     hover: '#BCD090',
     pressed: '#A7B97E',
   },
-  '08': {
+  8: {
     // greenDefault
     base: '#A8BB63',
     hover: '#93A550',
     pressed: '#81904C',
   },
-  '09': {
+  9: {
     // orangeWeak
     base: '#FDE7C9',
     hover: '#F9D9AE',
     pressed: '#F4CC95',
   },
-  '10': {
+  10: {
     // orangeDefault
     base: '#FBC55B',
     hover: '#F8B430',
@@ -83,61 +83,61 @@ const colorTokensDark: ColorTokens = Object.freeze({
     hover: '#757570',
     pressed: '#757570',
   },
-  '01': {
+  1: {
     // redWeak
     base: '#8A0F0F',
     hover: '#8A0F0F',
     pressed: '#8A0F0F',
   },
-  '02': {
+  2: {
     // redDefault
     base: '#B2001A',
     hover: '#B2001A',
     pressed: '#B2001A',
   },
-  '03': {
+  3: {
     // purpleWeak
     base: '#6D4270',
     hover: '#6D4270',
     pressed: '#6D4270',
   },
-  '04': {
+  4: {
     // purpleDefault
     base: '#8F4696',
     hover: '#8F4696',
     pressed: '#8F4696',
   },
-  '05': {
+  5: {
     // blueWeak
     base: '#215D82',
     hover: '#215D82',
     pressed: '#215D82',
   },
-  '06': {
+  6: {
     // blueDefault
     base: '#007DB8',
     hover: '#007DB8',
     pressed: '#007DB8',
   },
-  '07': {
+  7: {
     // greenWeak
     base: '#265926',
     hover: '#265926',
     pressed: '#265926',
   },
-  '08': {
+  8: {
     // greenDefault
     base: '#517D3B',
     hover: '#517D3B',
     pressed: '#517D3B',
   },
-  '09': {
+  9: {
     // orangeWeak
     base: '#9B4B1C',
     hover: '#9B4B1C',
     pressed: '#9B4B1C',
   },
-  '10': {
+  10: {
     // orangeDefault
     base: '#C66F31',
     hover: '#C66F31',

@@ -5,7 +5,7 @@ exports[`Fieldset renders 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0"
+    className="label paddingX0 formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -135,7 +135,7 @@ exports[`Fieldset renders a visually hidden legend 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0 visuallyHidden"
+    className="label paddingX0 visuallyHidden formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -266,7 +266,7 @@ exports[`Fieldset renders with errorMessage 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label formLabel paddingX0 visuallyHidden"
+    className="label paddingX0 visuallyHidden formLabel"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"

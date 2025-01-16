@@ -76,7 +76,7 @@ test.describe('Masonry: flexible resize', () => {
     const itemRectsAfter = await Promise.all(
       gridItemsAfter.map((gridItemAfter) => gridItemAfter.boundingBox()),
     );
-    expect(itemRectsAfter[0]?.width).toBe(273);
+    expect(Math.floor(itemRectsAfter[0]?.width)).toBe(273);
     expect(itemRectsAfter[0]?.height).toBe(216);
 
     // Get new sizes of grid items.

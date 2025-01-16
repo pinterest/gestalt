@@ -6,6 +6,7 @@ import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverEducational.css';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
@@ -38,6 +39,7 @@ function PrimaryAction(props: PrimaryActionType) {
       <ButtonLink
         accessibilityLabel={props.accessibilityLabel}
         color="white"
+        focusColor="darkBackground"
         fullWidth={false}
         href={props.href}
         onClick={props.onClick}
@@ -50,6 +52,7 @@ function PrimaryAction(props: PrimaryActionType) {
   return (
     <Button
       accessibilityLabel={props.accessibilityLabel}
+      backgroundContext="dark"
       color="white"
       fullWidth={false}
       onClick={props.onClick}
@@ -143,6 +146,11 @@ export default function PopoverEducational({
   zIndex,
   _experimentalVariant,
 }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   if (!anchor) {
     return null;
   }
@@ -184,7 +192,7 @@ export default function PopoverEducational({
         {children ??
           (message ? (
             <Box padding={4} tabIndex={0}>
-              <Flex direction="column" gap={3}>
+              <Flex direction="column" gap={isInVRExperiment ? 4 : 3}>
                 {textElement}
                 {primaryAction ? (
                   <Flex.Item alignSelf="end" flex="grow">

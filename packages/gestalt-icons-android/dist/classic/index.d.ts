@@ -106,6 +106,7 @@ declare const icons: Readonly<{
     'copy-to-clipboard': any;
     'credit-card': any;
     crop: any;
+    'crystal-ball': any;
     cutout: any;
     dash: any;
     'data-source': any;
@@ -342,12 +343,14 @@ declare const icons: Readonly<{
     timer: any;
     'timer-10': any;
     'timer-3': any;
+    tint: any;
     'trash-can': any;
     trending: any;
     undo: any;
     unlock: any;
     'upload-feed': any;
     viber: any;
+    vibrance: any;
     'video-advance-10-seconds': any;
     'video-camera': any;
     'video-rewind-10-seconds': any;

@@ -20,6 +20,7 @@ import correctIconExample from '../../examples/sidenavigation/correctIconExample
 import correctLengthExample from '../../examples/sidenavigation/correctLengthExample';
 import counterExample from '../../examples/sidenavigation/counterExample';
 import customIconsExample from '../../examples/sidenavigation/customIconsExample';
+import disableItemExample from '../../examples/sidenavigation/disableItemExample';
 import displayExpandable from '../../examples/sidenavigation/displayExpandable';
 import displayExpanded from '../../examples/sidenavigation/displayExpanded';
 import displayStatic from '../../examples/sidenavigation/displayStatic';
@@ -40,6 +41,7 @@ import notificationsExample from '../../examples/sidenavigation/notificationsExa
 import primaryAction from '../../examples/sidenavigation/primaryAction';
 import sectionsExample from '../../examples/sidenavigation/sectionsExample';
 import subcomponent from '../../examples/sidenavigation/subcomponent';
+import subtextItemExample from '../../examples/sidenavigation/subtextItemExample';
 
 const DOC_NAMES = [
   'SideNavigation',
@@ -335,6 +337,26 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={borderExample} name="Border example" />}
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Items can be disabled to prevent clicking or navigation to a page if that page is unavailable to users."
+          title="Disabled"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={disableItemExample} name="Disabled item example" />
+            }
+          />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="Subtext adds a new line to an item, providing additional information about the page the item represents."
+          title="Subtext"
+        >
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={subtextItemExample} name="Subtext item example" />
+            }
           />
         </MainSection.Subsection>
         <MainSection.Subsection

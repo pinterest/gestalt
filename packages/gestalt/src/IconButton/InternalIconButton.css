@@ -31,6 +31,10 @@
   opacity: 0.5;
 }
 
+.disabledVr {
+  cursor: default;
+}
+
 .activeText div {
   /* Ensure the disabled color is used */
   /* stylelint-disable-next-line declaration-no-important */

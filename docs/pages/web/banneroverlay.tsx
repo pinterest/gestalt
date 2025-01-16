@@ -9,6 +9,7 @@ import avatar from '../../examples/banneroverlay/avatar';
 import callToAction from '../../examples/banneroverlay/callToAction';
 import ctaDismiss from '../../examples/banneroverlay/ctaDismiss';
 import desktop from '../../examples/banneroverlay/desktop';
+import dismissButton from '../../examples/banneroverlay/dismissButton';
 import doConcise from '../../examples/banneroverlay/doConcise';
 import doEducate from '../../examples/banneroverlay/doEducate';
 import doNavigate from '../../examples/banneroverlay/doNavigate';
@@ -18,6 +19,7 @@ import dontStack from '../../examples/banneroverlay/dontStack';
 import icon from '../../examples/banneroverlay/icon';
 import image from '../../examples/banneroverlay/image';
 import main from '../../examples/banneroverlay/main';
+import message from '../../examples/banneroverlay/message';
 import mobile from '../../examples/banneroverlay/mobile';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
@@ -120,64 +122,100 @@ In case we need to break this design positioning rule, and place BannerOverlay a
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
-          \`dismissButton\` and \`primaryAction\`, require a short, descriptive label for screen readers, which should also be localized.
+\`dismissButton\` and \`primaryAction\`, require a short, descriptive label for screen readers, which should also be localized.
 
-          Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.`}
+Icons and thumbnails on BannerOverlay are purely decorative, and can therefore have an empty string as the \`accessibilityLabel\`. The thumbnail (Image) or Icon should supply an alt or accessibilityLabel, respectively, if the Image or Icon supplies extra context or information.
+`}
           title="Labels"
         />
       </AccessibilitySection>
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`Remember to localize text and any string within \`primaryAction\` or \`dismissButton\`, as well as title and message.
+          columns={2}
+          description={`BannerOverlay supports images, icons and avatars as thumbnails.
 
-<b>Please note</b>: Start aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages.`}
-        />
-        <MainSection.Subsection title="Image">
+- Image: With an image for Pin or Board actions, or the Pinterest logo.
+- Avatar: With an Avatar for Profile or Pinner-related messaging.
+- Icon: For when an icon is needed to represent content that isn’t a pin or a profile.
+          `}
+          title="Thumbnail"
+        >
           <MainSection.Card
-            description="With an image for Pin or Board actions, or the Pinterest logo."
+            cardSize="lg"
             sandpackExample={<SandpackExample code={image} layout="column" name="Image" />}
+            title="Image"
           />
-        </MainSection.Subsection>
-
-        <MainSection.Subsection title="Avatar">
           <MainSection.Card
-            description="With an Avatar for Profile or Pinner-related messaging."
+            cardSize="lg"
             sandpackExample={<SandpackExample code={avatar} layout="column" name="avatar" />}
+            title="Avatar"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={icon} layout="column" name="icon" />}
+            title="Icon"
           />
         </MainSection.Subsection>
 
-        <MainSection.Subsection title="Icon">
+        <MainSection.Subsection
+          description={`You can have zero, one or two actions using the props \`primaryAction\` and \`secondaryAction'.
+
+
+Remember to localize text and any string within \`primaryAction\` or \`dismissButton\`, as well as title and message.
+
+<b>Please note</b>: Start aligned text is the primary alignment for our Business products. It will be left-aligned in left-to-right languages and right-aligned in right-to-left languages`}
+          title="Actions"
+        >
           <MainSection.Card
-            description="For when an icon is needed to represent content that isn’t a pin or a profile."
-            sandpackExample={<SandpackExample code={icon} layout="column" name="icon" />}
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection title="Call to Action">
-          <MainSection.Card
-            description="You can have zero, one or two actions using the props `primaryAction` and `secondaryAction`."
             sandpackExample={<SandpackExample code={callToAction} layout="column" name="icon" />}
           />
         </MainSection.Subsection>
-        <MainSection.Subsection title="Dismissed by CTA">
+        <MainSection.Subsection
+          columns={2}
+          description="BannerOverlay provides a dismiss button affordance. You can optionally have the Call to Action dismiss the BannerOverlay by not setting the dismissButton prop."
+          title="Dismissable"
+        >
           <MainSection.Card
-            description={`You can optionally have the Call to Action dismiss the BannerOverlay by not setting the dismissButton prop.
-
-<b>Please note:</b> Make sure to either set the CTA to dismiss the BannerOverlay or set the dismissButton prop. Otherwise, the BannerOverlay will be stuck on the screen.`}
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={dismissButton} layout="column" name="icon" />}
+            title="Dismiss button"
+          />
+          <MainSection.Card
+            cardSize="lg"
             sandpackExample={<SandpackExample code={ctaDismiss} layout="column" name="icon" />}
+            title="Call to Action dismiss"
           />
         </MainSection.Subsection>
-      </MainSection>
-      <MainSection name="Responsive">
-        <MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. BannerOverlay will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
+`}
+          title="Message"
+        >
           <MainSection.Card
-            description={`BannerOverlay is responsive to different devices. Therefore, BannerOverlay dweb is set to a max width of 900 px to preserve a great usability experience and consistency with other components.
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={message}
+                layout="column"
+                name="BannerOverlay 'message' prop example"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`BannerOverlay is responsive to different devices. Therefore, BannerOverlay dweb is set to a max width of 900 px to preserve a great usability experience and consistency with other components.
 
 On desktop devices, the BannerOverlay should appear at the top of the screen (below navigation). The BannerOverlay shouldn't block navigation.
 On mobile devices, the BannerOverlay should appear at the bottom of the screen. The 'offset' prop can be used to adjust the position of the BannerOverlay.`}
-          />
-          <SandpackExample code={mobile} hideEditor name="Main BannerOverlay example" />
-          <SandpackExample code={desktop} hideEditor name="Main BannerOverlay example" />
+          title="Responsive"
+        >
+          <MainSection.Card />
+          <SandpackExample code={mobile} hideEditor name="Mobile BannerOverlay example" />
+          <SandpackExample code={desktop} hideEditor name="Desktop BannerOverlay example" />
         </MainSection.Subsection>
       </MainSection>
 

@@ -13,8 +13,8 @@ type Props = {
   message: string | ReactElement;
   type: 'default' | 'error' | 'info' | 'recommendation' | 'success' | 'warning';
   title?: string;
-  marginBottom?: 4;
   iconAccessibilityLabel?: string;
+  fullWidth?: boolean;
 };
 
 export default function HeaderSection({
@@ -24,7 +24,7 @@ export default function HeaderSection({
   message,
   type,
   iconAccessibilityLabel,
-  marginBottom,
+  fullWidth,
 }: Props) {
   const {
     iconAccessibilityLabelError,
@@ -52,30 +52,31 @@ export default function HeaderSection({
   };
 
   return (
-    <Box marginBottom={marginBottom}>
-      <Flex gap={gap}>
+    <Box width="100%">
+      <Flex gap={gap} width="100%">
         <Icon
           accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
           color={MESSAGING_TYPE_ATTRIBUTES[type]?.iconColor}
           icon={MESSAGING_TYPE_ATTRIBUTES[type]?.icon}
           size={iconSize}
         />
-
-        <Box maxWidth={648}>
-          {(title || message) && (
-            <Flex direction="column" gap={2} width="100%">
-              {title && <Heading size="400">{title}</Heading>}
-              {message && typeof message === 'string' && <Text>{message}</Text>}
-              {message &&
-              typeof message !== 'string' &&
-              // @ts-expect-error - TS2339
-              Children.only<ReactElement>(message).type.displayName === 'Text'
-                ? message
-                : null}
-            </Flex>
-          )}
-        </Box>
-      </Flex>{' '}
+        <Flex.Item flex={fullWidth ? 'grow' : undefined}>
+          <Box width="100%">
+            {(title || message) && (
+              <Flex direction="column" gap={2} width="100%">
+                {title && <Heading size="400">{title}</Heading>}
+                {message && typeof message === 'string' && <Text>{message}</Text>}
+                {message &&
+                typeof message !== 'string' &&
+                // @ts-expect-error - TS2339
+                Children.only<ReactElement>(message).type.displayName === 'Text'
+                  ? message
+                  : null}
+              </Flex>
+            )}
+          </Box>
+        </Flex.Item>
+      </Flex>
     </Box>
   );
 }

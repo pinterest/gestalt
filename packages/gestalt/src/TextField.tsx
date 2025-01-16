@@ -76,6 +76,10 @@ type Props = {
    */
   onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   /**
+   * Callback triggered when the user user clicks the input.
+   */
+  onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
+  /**
    * Callback triggered when the user focuses the input.
    */
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
@@ -138,6 +142,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     name,
     onBlur,
     onChange,
+    onClick,
     onFocus,
     onKeyDown,
     placeholder,
@@ -211,6 +216,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
         name={name}
         onBlur={onBlur}
         onChange={onChange}
+        onClick={onClick}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
@@ -290,6 +296,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
       name={name}
       onBlur={onBlur}
       onChange={onChange}
+      onClick={onClick}
       onFocus={onFocus}
       onKeyDown={onKeyDown}
       placeholder={placeholder}

@@ -13,8 +13,30 @@ import { useSideNavigation } from '../contexts/SideNavigationProvider';
 import Flex from '../Flex';
 import Icon from '../Icon';
 import icons from '../icons/index';
+import Indicator from '../Indicator';
 import Text from '../Text';
 import { Indexable } from '../zIndex';
+
+function getTextColor({
+  active,
+  disabled,
+  subtext,
+}: {
+  active?: string;
+  disabled?: boolean;
+  subtext?: boolean;
+}) {
+  if (active) {
+    return 'inverse';
+  }
+  if (disabled) {
+    return 'disabled';
+  }
+  if (subtext) {
+    return 'subtle';
+  }
+  return 'default';
+}
 
 export const NESTING_MARGIN_START_MAP = {
   '0': TOKEN_SPACE_400,
@@ -55,6 +77,8 @@ type Props = {
   counter?: Counter;
   icon?: IconType;
   label: string;
+  subtext?: string;
+  disabled?: boolean;
   notificationAccessibilityLabel?: string;
   primaryAction?: PrimaryAction;
   setCompression: (arg1: 'compress' | 'none') => void;
@@ -69,6 +93,8 @@ export default function ItemContent({
   counter,
   icon,
   label,
+  subtext,
+  disabled,
   primaryAction,
   notificationAccessibilityLabel,
   setCompression,
@@ -114,7 +140,8 @@ export default function ItemContent({
 
   const inactiveItemColor = hovered ? 'secondary' : undefined;
   const itemColor = active ? 'selected' : inactiveItemColor;
-  const textColor = active ? 'inverse' : 'default';
+  const mainTextColor = getTextColor({ active, disabled });
+  const subTextColor = getTextColor({ active, disabled, subtext: true });
   const counterColor = active ? 'inverse' : 'subtle';
 
   const nestingMargin = isMobile
@@ -145,16 +172,9 @@ export default function ItemContent({
       width={collapsed ? 44 : undefined}
     >
       {collapsed && icon && notificationAccessibilityLabel ? (
-        <Box
-          aria-label={notificationAccessibilityLabel}
-          color="primary"
-          dangerouslySetInlineStyle={{ __style: { top: 4, right: 4 } }}
-          height={8}
-          position="absolute"
-          role="status"
-          rounding="circle"
-          width={8}
-        />
+        <Box dangerouslySetInlineStyle={{ __style: { right: 4, top: 0 } }} position="absolute">
+          <Indicator accessibilityLabel={notificationAccessibilityLabel} position="top" />
+        </Box>
       ) : null}
 
       <Flex
@@ -170,7 +190,7 @@ export default function ItemContent({
               {typeof icon === 'string' ? (
                 <Icon
                   accessibilityLabel={collapsed ? label : ''}
-                  color={textColor}
+                  color={mainTextColor}
                   icon={icon}
                   inline
                   size={20}
@@ -178,7 +198,7 @@ export default function ItemContent({
               ) : (
                 <Icon
                   accessibilityLabel={collapsed ? label : ''}
-                  color={textColor}
+                  color={mainTextColor}
                   dangerouslySetSvgPath={icon}
                   inline
                   size={20}
@@ -190,27 +210,36 @@ export default function ItemContent({
 
         {!collapsed && (
           <Flex.Item flex="grow">
-            <Text color={textColor} inline>
-              {label}
-              {(badge || notificationAccessibilityLabel) && (
-                <Box display="inlineBlock" height="100%" marginStart={1}>
-                  {/* Adds a pause for screen reader users between the text content */}
-                  <Box display="visuallyHidden">{`, `}</Box>
-                  {!notificationAccessibilityLabel && badge ? (
-                    <Badge text={badge.text} type={badge.type} />
-                  ) : null}
-                  {notificationAccessibilityLabel ? (
-                    <Box
-                      aria-label={notificationAccessibilityLabel}
-                      color="primary"
-                      height={8}
-                      role="status"
-                      rounding="circle"
-                      width={8}
-                    />
-                  ) : null}
-                </Box>
-              )}
+            <Text color={mainTextColor} inline>
+              <Flex alignItems="center" direction="row" gap={1}>
+                <Flex direction="column" gap={1}>
+                  {label}
+                  {subtext && (
+                    <Text color={subTextColor} lineClamp={1} size="200">
+                      {subtext}
+                    </Text>
+                  )}
+                </Flex>
+                {(badge || notificationAccessibilityLabel) && !disabled && (
+                  <Box display="inlineBlock" height="100%" marginStart={1}>
+                    {/* Adds a pause for screen reader users between the text content */}
+                    <Box display="visuallyHidden">{`, `}</Box>
+                    {!notificationAccessibilityLabel && badge ? (
+                      <Badge text={badge.text} type={badge.type} />
+                    ) : null}
+                    {notificationAccessibilityLabel ? (
+                      <Box
+                        aria-label={notificationAccessibilityLabel}
+                        color="primary"
+                        height={8}
+                        role="status"
+                        rounding="circle"
+                        width={8}
+                      />
+                    ) : null}
+                  </Box>
+                )}
+              </Flex>
             </Text>
           </Flex.Item>
         )}
