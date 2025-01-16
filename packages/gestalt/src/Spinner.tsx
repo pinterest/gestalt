@@ -66,7 +66,7 @@ export default function Spinner({
 
   if (isInVRExperiment) {
     return (
-    <VRSpinner
+      <VRSpinner
         accessibilityLabel={accessibilityLabel}
         color={color === 'subtle' ? 'default' : color} // 'subtle' maps to 'default' as it is not a VR color variant
         delay={delay}
