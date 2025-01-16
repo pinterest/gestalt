@@ -1,3 +1,9 @@
+## 169.0.3 (Jan 16, 2025)
+
+### Patch
+
+- BannerSlim: fix <sm breakpoint paddingY ([#3943](https://github.com/pinterest/gestalt/pull/3943)) - [Preview link](https://deploy-preview-3943--gestalt.netlify.app?devexample=true)
+
 ## 169.0.2 (Jan 16, 2025)
 
 ### Patch
