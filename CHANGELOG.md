@@ -1,3 +1,9 @@
+## 169.0.4 (Jan 16, 2025)
+
+### Patch
+
+- Internal: upgrade "@playwright/test" to 1.49 ([#3946](https://github.com/pinterest/gestalt/pull/3946)) - [Preview link](https://deploy-preview-3946--gestalt.netlify.app?devexample=true)
+
 ## 169.0.3 (Jan 16, 2025)
 
 ### Patch
