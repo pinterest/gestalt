@@ -68,13 +68,11 @@ export default function Spinner({
     return (
       <VRSpinner
         accessibilityLabel={accessibilityLabel}
-        // 'subtle' maps to 'default' as it is not a VR color variant
-        color={color === 'subtle' ? 'default' : color}
+        color={color === 'subtle' ? 'default' : color} // 'subtle' maps to 'default' as it is not a VR color variant
         delay={delay}
         label={label}
-        // 'md' maps to 'lg' as it doesn't exist in VR Spinner
         show={show}
-        size={size === 'md' ? 'lg' : size}
+        size={size === 'md' ? 'lg' : size} // 'md' maps to 'lg' as it doesn't exist in VR Spinner
       />
     );
   }
