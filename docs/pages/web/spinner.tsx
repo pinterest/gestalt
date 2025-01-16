@@ -144,7 +144,11 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <AccessibilitySection
         description={`
-      Be sure to include \`accessibilityLabel\` if there's no \`label\`. \`accessibilityLabel\` should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface). Don't forget to localize the label!
+      \`accessibilityLabel\` should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface).
+
+      Note that \`accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.
+
+      If \`label\` is provided, \`accessibilityLabel\` is not needed. \`accessibilityLabel\` overrides \`label\` for assistive technologies. Therefore, avoid overriding \`label\` if \`accessibilityLabel\` is less specific.
 
       The override order for labels:  \`accessibilityLabel\` overrides \`label\`, \`label\` overrides default label from DefaultLabelProvider. DefaultLabelProvider is only accessible if there is not \`accessibilityLabel\` not \`label\`.
       `}
@@ -180,7 +184,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Spinner supports a label. If \`label\` is provided, \`accessibilityLabel\` is not needed. \`accessibilityLabel\` overrides "label" for assistive technologies. See the [Accessibility guidelines](#Accessibility) for more information`}
+          description="Spinner supports a label. See the [Accessibility guidelines](#Accessibility) for more information"
           title="Label"
         >
           <MainSection.Card
