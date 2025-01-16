@@ -55,7 +55,7 @@ type Props = {
    * Indicates whether this component is hosted in a light or dark container.
    * Used for improving focus ring color contrast.
    */
-  backgroundContext?: 'light' | 'dark' ;
+  backgroundContext?: 'light' | 'dark';
   /**
    * The background color of Button.
    * See the [color on white backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-white-backgrounds) and the [color on color/image backgrounds variant](https://gestalt.pinterest.systems/web/button#Color-on-colorimage-backgrounds)
@@ -68,7 +68,7 @@ type Props = {
     | 'semiTransparentWhite'
     | 'transparentWhiteText'
     | 'white'
-    | 'dark' 
+    | 'dark'
     | 'light';
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
@@ -391,7 +391,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
             textColor={textColor}
           />
         ) : (
-          buttonText 
+          buttonText
         )}
       </div>
     </button>
