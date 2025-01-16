@@ -1,3 +1,9 @@
+## 169.1.0 (Jan 16, 2025)
+
+### Minor
+
+- Spinner, Text, TextUI: add label to Spinner, and id to TextUI and Text ([#3947](https://github.com/pinterest/gestalt/pull/3947)) - [Preview link](https://deploy-preview-3947--gestalt.netlify.app?devexample=true)
+
 ## 169.0.4 (Jan 16, 2025)
 
 ### Patch
