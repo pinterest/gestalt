@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
-import Icon from './Icon';
+import InternalIcon from './Icon/InternalIcon';
 import styles from './Spinner.css';
 import VRSpinner from './Spinner/VRSpinner';
 import TextUI from './TextUI';
@@ -83,9 +83,10 @@ export default function Spinner({
     <Box padding={label ? 1 : undefined}>
       <Flex direction="column" gap={6}>
         <Box display="flex" justifyContent="around" overflow="hidden">
-          <div aria-describedby={id} className={classnames(styles.icon, { [styles.delay]: delay })}>
-            <Icon
-              accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
+          <div className={classnames(styles.icon, { [styles.delay]: delay })}>
+            <InternalIcon
+              accessibilityDescribedby={label ? id : undefined}
+              accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
               // map non-classic colors to subtle
               color={color === 'default' || color === 'subtle' ? color : 'subtle'}
               icon="knoop"

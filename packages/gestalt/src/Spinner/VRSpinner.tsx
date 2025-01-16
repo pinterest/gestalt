@@ -43,9 +43,8 @@ function SpinnerBody({
       : {};
 
   return (
-    <Box aria-describedby={accessibilityDescribedby} display="flex" justifyContent="around">
+    <Box display="flex" justifyContent="around">
       <div
-        aria-label={accessibilityLabel}
         className={classnames(styles.spinner, {
           [styles.exit]: !show,
         })}
@@ -58,7 +57,13 @@ function SpinnerBody({
           } as React.CSSProperties
         }
       >
-        <svg fill="none" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          aria-describedby={accessibilityDescribedby}
+          aria-label={accessibilityLabel}
+          fill="none"
+          viewBox="0 0 56 56"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <circle
             cx="28"
             cy="12"
@@ -118,8 +123,8 @@ export default function Spinner({
     <Box padding={label ? 1 : undefined}>
       <Flex direction="column" gap={6}>
         <SpinnerBody
-          accessibilityDescribedby={id}
-          accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
+          accessibilityDescribedby={label ? id : undefined}
+          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
           color={color}
           delay={delay}
           onExitAnimationEnd={unmountSpinner}
