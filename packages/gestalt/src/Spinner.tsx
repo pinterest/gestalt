@@ -1,9 +1,11 @@
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import Flex from './Flex';
 import Icon from './Icon';
 import styles from './Spinner.css';
 import VRSpinner from './Spinner/VRSpinner';
+import TextUI from './TextUI';
 import useInExperiment from './useInExperiment';
 
 const SIZE_NAME_TO_PIXEL = {
@@ -26,6 +28,10 @@ type Props = {
    */
   delay?: boolean;
   /**
+   * Adds a label under the spinning animation.
+   */
+  label?: string;
+  /**
    * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro animation is not intended, prefer conditional rendering.
    */
   show: boolean;
@@ -45,6 +51,7 @@ export default function Spinner({
   accessibilityLabel,
   color = 'subtle',
   delay = true,
+  label,
   show,
   size = 'md',
 }: Props) {
@@ -70,17 +77,26 @@ export default function Spinner({
   }
 
   return show ? (
-    <Box display="flex" justifyContent="around" overflow="hidden">
-      <div className={classnames(styles.icon, { [styles.delay]: delay })}>
-        <Icon
-          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
-          // map non-classic colors to subtle
-          color={color === 'default' || color === 'subtle' ? color : 'subtle'}
-          icon="knoop"
-          size={SIZE_NAME_TO_PIXEL[size]}
-        />
-      </div>
-    </Box>
+    <Flex gap={6}>
+      <Box display="flex" justifyContent="around" overflow="hidden">
+        <div className={classnames(styles.icon, { [styles.delay]: delay })}>
+          <Icon
+            accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
+            // map non-classic colors to subtle
+            color={color === 'default' || color === 'subtle' ? color : 'subtle'}
+            icon="knoop"
+            size={SIZE_NAME_TO_PIXEL[size]}
+          />
+        </div>
+      </Box>
+      {label && (
+        <Box minWidth={200}>
+          <TextUI align="center" size="sm">
+            {label}
+          </TextUI>
+        </Box>
+      )}
+    </Flex>
   ) : (
     <div />
   );

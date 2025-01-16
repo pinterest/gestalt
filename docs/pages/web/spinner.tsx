@@ -1,4 +1,3 @@
-import { useAppContext } from 'docs/docs-components/appContext';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -15,14 +14,13 @@ import dontMultiple from '../../examples/spinner/dontMultiple';
 import dontWait from '../../examples/spinner/dontWait';
 import doOverlay from '../../examples/spinner/doOverlay';
 import doWait from '../../examples/spinner/doWait';
+import grayscale from '../../examples/spinner/grayscale';
+import label from '../../examples/spinner/label';
 import localizationLabels from '../../examples/spinner/localizationLabels';
 import main from '../../examples/spinner/main';
-import variantGrayscale from '../../examples/spinner/variantGrayscale';
-import variantWhite from '../../examples/spinner/variantWhite';
+import white from '../../examples/spinner/white';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
-  const { experiments } = useAppContext();
-  const isVREnabled = experiments === 'Tokens';
 
   return (
     <Page title={generatedDocGen?.displayName}>
@@ -160,6 +158,40 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
+          columns={2}
+          description={`
+    By default, Spinner has color-change animation. Non-default color variant are \`grayscale\` and \`white\`.
+  `}
+          title="Colors"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={grayscale} layout="column" name="Delay variant" />
+            }
+            title="Grayscale"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={white} layout="column" name="Delay variant" />
+            }
+            title="White"
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`
+    Spinner supports a label.
+  `}
+          title="Label"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={label} name="Label variant" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`
     By default, Spinner uses a 300ms delay to improve perceived performance. This can be disabled if needed.
   `}
@@ -169,31 +201,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             sandpackExample={<SandpackExample code={delay} name="Delay variant" />}
           />
         </MainSection.Subsection>
-
-        {isVREnabled && (
-          <MainSection.Subsection
-            columns={2}
-            description={`
-    By default, Spinner has color-change animation. Non-default color variant are \`grayscale\` and \`white\`.
-  `}
-            title="Colors"
-          >
-            <MainSection.Card
-              cardSize="lg"
-              sandpackExample={
-                <SandpackExample code={variantGrayscale} layout="column" name="Delay variant" />
-              }
-              title="Grayscale"
-            />
-            <MainSection.Card
-              cardSize="lg"
-              sandpackExample={
-                <SandpackExample code={variantWhite} layout="column" name="Delay variant" />
-              }
-              title="White"
-            />
-          </MainSection.Subsection>
-        )}
       </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
