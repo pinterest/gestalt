@@ -1,3 +1,9 @@
+## 168.0.3 (Jan 16, 2025)
+
+### Patch
+
+- AvatarGroup: fix VR default size bug ([#3942](https://github.com/pinterest/gestalt/pull/3942)) - [Preview link](https://deploy-preview-3942--gestalt.netlify.app?devexample=true)
+
 ## 168.0.2 (Jan 15, 2025)
 
 ### Patch
