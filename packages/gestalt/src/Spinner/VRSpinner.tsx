@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import classnames from 'classnames';
 import vrLightDesignTokens from 'gestalt-design-tokens/dist/json/vr-theme/variables-light.json';
 import styles from './VRSpinner.css';
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Flex from '../Flex';
+import TextUI from '../TextUI';
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
@@ -11,6 +13,7 @@ const SIZE_NAME_TO_PIXEL = {
 } as const;
 
 type SpinnerBodyProps = {
+  accessibilityDescribedby?: string;
   accessibilityLabel: string;
   delay: boolean;
   show: boolean;
@@ -20,6 +23,7 @@ type SpinnerBodyProps = {
 };
 
 function SpinnerBody({
+  accessibilityDescribedby,
   accessibilityLabel,
   delay,
   show,
@@ -39,7 +43,7 @@ function SpinnerBody({
       : {};
 
   return (
-    <Box display="flex" justifyContent="around">
+    <Box aria-describedby={accessibilityDescribedby} display="flex" justifyContent="around">
       <div
         aria-label={accessibilityLabel}
         className={classnames(styles.spinner, {
@@ -81,6 +85,7 @@ function SpinnerBody({
 
 type Props = {
   accessibilityLabel?: string;
+  label?: string;
   delay?: boolean;
   show: boolean;
   size?: 'sm' | 'lg';
@@ -90,12 +95,14 @@ type Props = {
 export default function Spinner({
   accessibilityLabel,
   delay = true,
+  label,
   show: showProp,
   size = 'lg',
   color = 'default',
 }: Props) {
   const [show, setShow] = useState(showProp);
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
+  const id = useId();
 
   const unmountSpinner = () => {
     if (!showProp) setShow(false);
@@ -108,14 +115,26 @@ export default function Spinner({
   if (!show) return null;
 
   return (
-    <SpinnerBody
-      accessibilityLabel={accessibilityLabel || accessibilityLabelDefault}
-      color={color}
-      delay={delay}
-      onExitAnimationEnd={unmountSpinner}
-      show={showProp}
-      size={size}
-    />
+    <Box padding={label ? 1 : undefined}>
+      <Flex direction="column" gap={6}>
+        <SpinnerBody
+          accessibilityDescribedby={id}
+          accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
+          color={color}
+          delay={delay}
+          onExitAnimationEnd={unmountSpinner}
+          show={showProp}
+          size={size}
+        />
+        {label && (
+          <Box minWidth={200}>
+            <TextUI align="center" id={id} size="sm">
+              {label}
+            </TextUI>
+          </Box>
+        )}
+      </Flex>
+    </Box>
   );
 }
 

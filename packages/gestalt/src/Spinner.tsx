@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -56,6 +57,7 @@ export default function Spinner({
   size = 'md',
 }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
+  const id = useId();
 
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -69,34 +71,37 @@ export default function Spinner({
         // 'subtle' maps to 'default' as it is not a VR color variant
         color={color === 'subtle' ? 'default' : color}
         delay={delay}
-        show={show}
+        label={label}
         // 'md' maps to 'lg' as it doesn't exist in VR Spinner
+        show={show}
         size={size === 'md' ? 'lg' : size}
       />
     );
   }
 
   return show ? (
-    <Flex gap={6}>
-      <Box display="flex" justifyContent="around" overflow="hidden">
-        <div className={classnames(styles.icon, { [styles.delay]: delay })}>
-          <Icon
-            accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
-            // map non-classic colors to subtle
-            color={color === 'default' || color === 'subtle' ? color : 'subtle'}
-            icon="knoop"
-            size={SIZE_NAME_TO_PIXEL[size]}
-          />
-        </div>
-      </Box>
-      {label && (
-        <Box minWidth={200}>
-          <TextUI align="center" size="sm">
-            {label}
-          </TextUI>
+    <Box padding={label ? 1 : undefined}>
+      <Flex direction="column" gap={6}>
+        <Box display="flex" justifyContent="around" overflow="hidden">
+          <div aria-describedby={id} className={classnames(styles.icon, { [styles.delay]: delay })}>
+            <Icon
+              accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
+              // map non-classic colors to subtle
+              color={color === 'default' || color === 'subtle' ? color : 'subtle'}
+              icon="knoop"
+              size={SIZE_NAME_TO_PIXEL[size]}
+            />
+          </div>
         </Box>
-      )}
-    </Flex>
+        {label && (
+          <Box minWidth={200}>
+            <TextUI align="center" id={id} size="sm">
+              {label}
+            </TextUI>
+          </Box>
+        )}
+      </Flex>{' '}
+    </Box>
   ) : (
     <div />
   );

@@ -44,6 +44,10 @@ type Props = {
    */
   dataTestId?: string;
   /**
+   * A unique identifier for the element.
+   */
+  id?: string;
+  /**
    * Indicates how the text should flow with the surrounding content. See the [block vs inline variant](https://gestalt.pinterest.systems/web/text#Block-vs.-inline) for more details.
    */
   inline?: boolean;
@@ -91,6 +95,7 @@ const TextUIWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     overflow = 'breakWord',
     size = 'md',
     title,
+    id,
   }: Props,
   ref,
 ): ReactElement {
@@ -148,6 +153,7 @@ const TextUIWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     <Tag
       className={cs}
       data-test-id={dataTestId}
+      id={id}
       title={
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }
