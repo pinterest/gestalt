@@ -138,6 +138,7 @@
           },
           "active": {
             "value": "{sema.color.pressed.background.light.value}"
+          }
         },
         "elevation": {
           "default": {

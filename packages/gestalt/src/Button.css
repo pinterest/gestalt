@@ -203,7 +203,7 @@ a.lgVr:focus {
 }
 
 .light {
-  background-color: var(--color-background-button-light-default);
+  background-color: var(--color-background-light);
 }
 
 .light:hover {

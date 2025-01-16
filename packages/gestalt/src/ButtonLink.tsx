@@ -20,8 +20,8 @@ const DEFAULT_TEXT_COLORS = {
   semiTransparentWhite: 'default',
   transparentWhiteText: 'inverse',
   white: 'default',
-  light: 'light',
-  dark: 'dark',
+  light: 'dark',
+  dark: 'light',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
