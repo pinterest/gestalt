@@ -221,6 +221,7 @@ export default function BannerSlim({
       display="flex"
       mdDirection="row"
       paddingX={isBare ? 0 : 4}
+      paddingY={isBare ? 0 : 4}
       rounding={4}
       smPaddingY={isBare ? 1 : 4}
       width="100%"
