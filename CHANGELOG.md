@@ -1,3 +1,9 @@
+## 169.1.1 (Jan 16, 2025)
+
+### Patch
+
+- BannerSlim: fix bug with list of children ([#3948](https://github.com/pinterest/gestalt/pull/3948)) - [Preview link](https://deploy-preview-3948--gestalt.netlify.app?devexample=true)
+
 ## 169.1.0 (Jan 16, 2025)
 
 ### Minor
