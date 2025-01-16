@@ -1,3 +1,9 @@
+## 169.0.1 (Jan 16, 2025)
+
+### Patch
+
+- Internal: Revert "Internal: Upgrade React to 19 ([#3937](https://github.com/pinterest/gestalt/pull/3937)) - [Preview link](https://deploy-preview-3937--gestalt.netlify.app?devexample=true)" ([#3944](https://github.com/pinterest/gestalt/pull/3944)) - [Preview link](https://deploy-preview-3944--gestalt.netlify.app?devexample=true)
+
 ## 169.0.0 (Jan 16, 2025)
 
 ### Major
