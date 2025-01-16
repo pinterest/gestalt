@@ -9,7 +9,6 @@
 }
 
 .focused:focus {
-  outline: var(--g-border-width-lg) solid
-    var(--sema-color-border-focus-outer-default);
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
   outline-offset: 0;
 }
