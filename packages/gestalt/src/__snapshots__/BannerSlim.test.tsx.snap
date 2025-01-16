@@ -53,9 +53,6 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
         >
           test
         </span>
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        />
       </div>
     </div>
   </div>
@@ -159,9 +156,6 @@ exports[`BannerSlim renders neutral type with message 1`] = `
         >
           test
         </span>
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        />
       </div>
     </div>
   </div>
@@ -221,9 +215,6 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
         >
           test
         </span>
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        />
       </div>
     </div>
   </div>
@@ -261,9 +252,6 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
         >
           test
         </span>
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        />
       </div>
     </div>
     <div
@@ -445,9 +433,6 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
             </a>
           </span>
         </span>
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        />
       </div>
     </div>
   </div>
