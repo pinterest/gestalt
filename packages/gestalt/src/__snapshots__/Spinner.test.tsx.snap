@@ -19,7 +19,6 @@ exports[`Spinner renders when passed show 1`] = `
           className="icon delay"
         >
           <svg
-            aria-describedby=":r1:"
             aria-hidden={null}
             aria-label="Test"
             className="subtle icon iconBlock"
@@ -57,7 +56,6 @@ exports[`Spinner renders with medium size 1`] = `
           className="icon delay"
         >
           <svg
-            aria-describedby=":r3:"
             aria-hidden={null}
             aria-label="Test"
             className="subtle icon iconBlock"
@@ -95,7 +93,6 @@ exports[`Spinner renders with no delay 1`] = `
           className="icon"
         >
           <svg
-            aria-describedby=":r2:"
             aria-hidden={null}
             aria-label="Test"
             className="subtle icon iconBlock"
@@ -133,7 +130,6 @@ exports[`Spinner renders with small size 1`] = `
           className="icon delay"
         >
           <svg
-            aria-describedby=":r4:"
             aria-hidden={null}
             aria-label="Test"
             className="subtle icon iconBlock"
