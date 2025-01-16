@@ -1,17 +1,20 @@
 import { ComponentProps, ReactElement, useId, useRef, useState } from 'react';
+import classnames from 'classnames';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
+import focusStyles from './Focus.css';
 import styles from './HelpButton.css';
 import Icon from './Icon';
 import { ESCAPE, TAB } from './keyCodes';
 import Layer from './Layer';
 import Link from './Link';
 import InternalPopover from './Popover/InternalPopover';
+import MaybeTooltip from './sharedSubcomponents/MaybeTooltip';
 import TapArea from './TapArea';
 import Text from './Text';
-import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import { CompositeZIndex, FixedZIndex, Indexable } from './zIndex';
 
@@ -92,6 +95,8 @@ export default function HelpButton({
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
+
+  const { isFocusVisible } = useFocusVisible();
 
   // Define where the focused content stays
   const [innerModalFocus, setInnerModalFocus] = useState(false);
@@ -185,15 +190,25 @@ export default function HelpButton({
          * `id` - used to tracking children by line 130
          * `tabIndex={0}` - It's used to make the text element as a focusable element
          */}
-        <Box ref={textRef} id={`helpButtonText-${popoverId}`} tabIndex={0}>
+        <div
+          ref={textRef}
+          className={classnames({
+            [focusStyles.hideOutline]: !isFocusVisible,
+            [focusStyles.accessibilityOutline]: !isInVRExperiment && isFocusVisible,
+            [styles.focused]: isInVRExperiment && isFocusVisible,
+          })}
+          id={`helpButtonText-${popoverId}`}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
+        >
           {typeof text === 'string' ? (
             <Text align="start">{text}</Text>
           ) : (
             <span className={textColorOverrideStyles}>{text}</span>
           )}
-        </Box>
+        </div>
         {link && link?.href && (
-          <Box display="block" marginTop={3} width="100%">
+          <Box display="block" marginTop={isInVRExperiment ? 5 : 3} width="100%">
             <Text>
               <Link
                 ref={link.ref}
@@ -218,11 +233,14 @@ export default function HelpButton({
   return (
     // The only purpose of this Flex is to make zIndex work (Tooltip over Popover).
     <Flex alignItems="center" flex="none" justifyContent="center">
-      <Tooltip
-        accessibilityLabel=""
-        idealDirection={idealDirection}
-        text={tooltipMessage}
-        zIndex={tooltipZIndex}
+      <MaybeTooltip
+        disabled={open}
+        tooltip={{
+          idealDirection,
+          text: tooltipMessage,
+          zIndex: tooltipZIndex,
+          accessibilityLabel: '',
+        }}
       >
         <TapArea
           ref={tapAreaRef}
@@ -260,7 +278,7 @@ export default function HelpButton({
             />
           </Box>
         </TapArea>
-      </Tooltip>
+      </MaybeTooltip>
       {open &&
         (isWithinFixedContainer ? (
           // This Box is  handling the zIndex work (Tooltip over Popover)
