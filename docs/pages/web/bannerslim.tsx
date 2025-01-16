@@ -441,7 +441,7 @@ BannerSlim doesn't depend on DeviceTypeProvider to display a mobile view; instea
 **[BannerUpsell](/web/bannerupsell)**
 An BannerUpsell is used to market new features or to encourage a user to try recommendations.
 
-**[BannerCallout](/web/bannercallout)**
+**[BannerCallout](/web/bannercallout)** 
 BannerCallouts are used at the top-most level of a page to communicate highest-priority information that applies to the entire page or surface. BannerCallouts can be dismissed and are also actionable.
 
 **[Toast](/web/toast)**
