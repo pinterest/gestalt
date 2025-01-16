@@ -21,7 +21,6 @@ import main from '../../examples/spinner/main';
 import white from '../../examples/spinner/white';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
-
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -145,7 +144,9 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <AccessibilitySection
         description={`
-      Be sure to include \`accessibilityLabel\`. Labels should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface). Don't forget to localize the label!
+      Be sure to include \`accessibilityLabel\` if there's no \`label\`. \`accessibilityLabel\` should relate to the specific part of the product where Spinner is being used (e.g. "Loading homefeed" when used on the homefeed surface). Don't forget to localize the label!
+
+      The override order for labels:  \`accessibilityLabel\` overrides \`label\`, \`label\` overrides default label from DefaultLabelProvider. DefaultLabelProvider is only accessible if there is not \`accessibilityLabel\` not \`label\`.
       `}
         name={generatedDocGen?.displayName}
       />
@@ -153,7 +154,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <LocalizationSection
         code={localizationLabels}
         name={generatedDocGen?.displayName}
-        notes={`Note that \`accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific.`}
+        notes={`Note that \`accessibilityLabel\` is optional as DefaultLabelProvider provides default strings. Use custom labels if they need to be more specific. DefaultLabelProvider is override by \`label\`.`}
       />
 
       <MainSection name="Variants">
@@ -173,17 +174,13 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={white} layout="column" name="Delay variant" />
-            }
+            sandpackExample={<SandpackExample code={white} layout="column" name="Delay variant" />}
             title="White"
           />
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`
-    Spinner supports a label.
-  `}
+          description={`Spinner supports a label. If \`label\` is provided, \`accessibilityLabel\` is not needed. \`accessibilityLabel\` overrides "label" for assistive technologies. See the [Accessibility guidelines](#Accessibility) for more information`}
           title="Label"
         >
           <MainSection.Card

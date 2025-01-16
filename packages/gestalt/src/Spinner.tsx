@@ -66,7 +66,7 @@ export default function Spinner({
 
   if (isInVRExperiment) {
     return (
-      <VRSpinner
+    <VRSpinner
         accessibilityLabel={accessibilityLabel}
         color={color === 'subtle' ? 'default' : color} // 'subtle' maps to 'default' as it is not a VR color variant
         delay={delay}
@@ -84,7 +84,7 @@ export default function Spinner({
           <div className={classnames(styles.icon, { [styles.delay]: delay })}>
             <InternalIcon
               accessibilityDescribedby={label ? id : undefined}
-              accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
+              accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
               // map non-classic colors to subtle
               color={color === 'default' || color === 'subtle' ? color : 'subtle'}
               icon="knoop"

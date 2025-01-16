@@ -124,7 +124,7 @@ export default function Spinner({
       <Flex direction="column" gap={6}>
         <SpinnerBody
           accessibilityDescribedby={label ? id : undefined}
-          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
+          accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
           color={color}
           delay={delay}
           onExitAnimationEnd={unmountSpinner}
