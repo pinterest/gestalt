@@ -103,7 +103,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     href,
     onClick,
     role,
-    size = isInVRExperiment ? 'md' : 'fit',
+    size = 'fit',
   } = props;
 
   const isDisplayOnly = !role;
