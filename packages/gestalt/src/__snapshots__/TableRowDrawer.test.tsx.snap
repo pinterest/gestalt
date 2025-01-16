@@ -228,9 +228,6 @@ exports[`renders correctly with drawer 1`] = `
                     >
                       Test BannerSlim
                     </span>
-                    <span
-                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-                    />
                   </div>
                 </div>
               </div>
