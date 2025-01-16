@@ -225,10 +225,8 @@ export default function BannerUpsell({
           {imageData && (
             <Box
               alignSelf={responsiveMinWidth === 'xs' ? 'center' : undefined}
-              lgDisplay="none"
+              flex="none"
               marginBottom={4}
-              mdDisplay="none"
-              smDisplay="none"
               smMarginBottom={0}
               width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
             >
