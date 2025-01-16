@@ -10,7 +10,6 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import builtInIcon from '../../examples/icon/builtInIcon';
-import compactIcon from '../../examples/icon/compactIcon';
 import customIcon from '../../examples/icon/customIcon';
 import doClarity from '../../examples/icon/doClarity';
 import doIntentional from '../../examples/icon/doIntentional';
@@ -223,20 +222,6 @@ Should be used sparingly and only in places where the UI is very dense and a lar
             title="Custom SVG icon"
           />
         </MainSection.Subsection>
-        <MainSection.Subsection
-          columns={2}
-          description={`Icons are available as part of a Compact Icon set. These icons have a 16x16 viewboxes and are used in places where space is limited. Refer to your designer for guidance on when to use Compact Icons.
-           <br/> They can be used with the \`IconCompact\` component.`}
-          title="Compact icon"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample code={compactIcon} name="compact icons" previewHeight={HEIGHT} />
-            }
-            title="Compact Icon"
-          />
-        </MainSection.Subsection>
       </MainSection>
       <MainSection name="Writing">
         <MainSection.Subsection columns={2}>
@@ -266,6 +251,9 @@ Use a descriptive label to describe the Icon
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
+**[IconCompact](/web/iconcompact)**
+Some icons are only available as part of a Compact Icon set. These icons have a 16x16 viewboxes and are used in places where space is limited. Refer to your designer for guidance on when to use Compact Icons.
+
 **[IconButton](/web/iconbutton)**
 Use IconButton when only an icon is needed to represent an action instead of text.
 

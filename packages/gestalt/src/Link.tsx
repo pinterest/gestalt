@@ -63,6 +63,10 @@ type Props = {
    */
   display?: 'inline' | 'inlineBlock' | 'block';
   /**
+   * When supplied, the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink. If the value is a string, the string value will define the filename
+   */
+  download?: boolean | string;
+  /**
    * When supplied, a "visit" icon is shown at the end of Link. See the [externalLinkIcon and rel variant](https://gestalt.pinterest.systems/web/link#externalLinkIcon-and-rel) to learn more.
    */
   externalLinkIcon?: ExternalLinkIcon;
@@ -78,6 +82,14 @@ type Props = {
    * Callback triggered when when the element loses focus.
    */
   onBlur?: (arg1: { event: React.FocusEvent<HTMLAnchorElement> }) => void;
+  /**
+   * Callback fired when a mouse pointer moves in a Link component.
+   */
+  _onMouseEnter?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+  /**
+   * Callback fired when a mouse pointer moves out a Link component.
+   */
+  _onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
   /**
    * Callback fired when Link is clicked (pressed and released) with a mouse or keyboard. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    */
@@ -132,11 +144,14 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     accessibilityLabel,
     children,
     dataTestId,
+    download,
     display = 'block',
     externalLinkIcon = 'none',
     href,
     id,
     onBlur,
+    _onMouseEnter,
+    _onMouseLeave,
     onClick,
     onFocus,
     rel = 'none',
@@ -276,6 +291,8 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
       }}
       onKeyPress={handleKeyPress}
       onMouseDown={handleMouseDown}
+      onMouseEnter={(event) => _onMouseEnter?.({ event })}
+      onMouseLeave={(event) => _onMouseLeave?.({ event })}
       onMouseUp={handleMouseUp}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
@@ -286,6 +303,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
       {...(compressStyle && tapStyle === 'compress' ? { style: compressStyle } : {})}
+      {...(download ? { download } : {})}
       target={target ? `_${target}` : undefined}
     >
       {children}

@@ -42,7 +42,7 @@ export function Message({
   };
   type?: 'default' | 'success' | 'error' | 'progress';
 }) {
-  const isInExperiment = useInExperiment({
+  const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
@@ -72,8 +72,8 @@ export function Message({
     };
   }, [checkEllipsisActive]);
 
-  const isTruncated = !textElement && text && ellipsisActive;
-  const isTruncatedWithHelperLink = isTruncated && helperLink;
+  const isTruncated = !textElement && text && ellipsisActive && !isInVRExperiment;
+  const isTruncatedWithHelperLink = isTruncated && helperLink && !isInVRExperiment;
 
   return (
     <Fragment>
@@ -84,10 +84,11 @@ export function Message({
           align="start"
           color={textColor}
           inline
-          lineClamp={2}
-          title={isTruncated && typeof text === 'string' ? text : undefined}
+          lineClamp={isInVRExperiment ? undefined : 2}
+          size="300"
           // Set title prop manually if text is truncated
-          weight={isError && !isInExperiment ? 'bold' : undefined}
+          title={isTruncated && typeof text === 'string' ? text : undefined}
+          weight={isError && !isInVRExperiment ? 'bold' : undefined}
         >
           {text}
           {helperLink ? (
@@ -96,7 +97,7 @@ export function Message({
               <Text
                 color={textColor}
                 inline
-                weight={isError && !isInExperiment ? 'bold' : undefined}
+                weight={isError && !isInVRExperiment ? 'bold' : undefined}
               >
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
@@ -114,7 +115,7 @@ export function Message({
       ) : null}
       {/* Should the helkper link */}
       {isTruncatedWithHelperLink ? (
-        <Text color={textColor} weight={isError && !isInExperiment ? 'bold' : undefined}>
+        <Text color={textColor} weight={isError ? 'bold' : undefined}>
           <Link
             accessibilityLabel={helperLink?.accessibilityLabel ?? ''}
             display="inlineBlock"
@@ -131,9 +132,18 @@ export function Message({
 }
 
 export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   return (
     <Box aria-hidden>
-      <Mask height={SIZE_THUMBNAIL} rounding={2} width={SIZE_THUMBNAIL}>
+      <Mask
+        height={isInVRExperiment ? 40 : SIZE_THUMBNAIL}
+        rounding={2}
+        width={isInVRExperiment ? 40 : SIZE_THUMBNAIL}
+      >
         {thumbnail}
       </Mask>
     </Box>
@@ -147,10 +157,14 @@ export function IconThumbnail({
   thumbnail: ReactElement;
   overrideColor?: IconColor;
 }) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   return (
     <Box aria-hidden>
       {cloneElement(thumbnail, {
-        size: SIZE_ICON,
+        size: isInVRExperiment ? 32 : SIZE_ICON,
         color: overrideColor ?? thumbnail.props.color,
       })}
     </Box>

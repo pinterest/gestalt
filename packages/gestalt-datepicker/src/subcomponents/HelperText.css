@@ -54,7 +54,7 @@ html:not([dir="rtl"]) .md_startPadding {
 }
 
 .vr_md_topPadding {
-  padding-top: var(--sema-space-100);
+  padding-top: var(--sema-space-200);
 }
 
 html[dir="rtl"] .vr_md_startPadding {

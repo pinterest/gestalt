@@ -111,6 +111,40 @@ it('renders Button with nofollow', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
+it('renders with download true', () =>
+  expect(
+    renderer
+      .create(
+        <InternalLink
+          download
+          href="https://example.com"
+          rel="nofollow"
+          tabIndex={0}
+          wrappedComponent="button"
+        >
+          InternalLink
+        </InternalLink>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
+it('renders with download string', () =>
+  expect(
+    renderer
+      .create(
+        <InternalLink
+          download="file"
+          href="https://example.com"
+          rel="nofollow"
+          tabIndex={0}
+          wrappedComponent="button"
+        >
+          InternalLink
+        </InternalLink>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
 it('renders Button with onClick', () =>
   expect(
     renderer

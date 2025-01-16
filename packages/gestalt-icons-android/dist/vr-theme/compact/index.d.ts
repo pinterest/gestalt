@@ -11,7 +11,11 @@ declare const icons: Readonly<{
     'compact-dash': any;
     'compact-info-circle-fill': any;
     'compact-lock': any;
+    'compact-workflow-status-canceled': any;
+    'compact-workflow-status-halted': any;
+    'compact-workflow-status-in-progress': any;
     'compact-workflow-status-problem': any;
+    'compact-workflow-status-unstarted': any;
     'compact-workflow-status-warning': any;
 }>;
 export default icons;

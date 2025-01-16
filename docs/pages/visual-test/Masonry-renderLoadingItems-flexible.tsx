@@ -1,6 +1,96 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Box, ColorSchemeProvider, Flex, Image, Masonry } from 'gestalt';
 import { TOKEN_COLOR_GRAY_ROBOFLOW_300 } from 'gestalt-design-tokens';
+
+const styles = {
+  backgroundColor: `${TOKEN_COLOR_GRAY_ROBOFLOW_300}`,
+  backgroundSize: '200vw 100%',
+  content: '',
+  position: 'relative',
+  width: '100%',
+} as const;
+
+type SkeletonPinProps = {
+  key: string;
+  height: number;
+};
+
+function SkeletonPin({ data }: { data: SkeletonPinProps }) {
+  const { height } = data;
+  return (
+    <div style={styles}>
+      <Box height={height} />
+    </div>
+  );
+}
+
+const smallPinHeight = 236;
+const largePinHeight = 356;
+
+function getSkeletonPins(numOfPins: number) {
+  return Array.from({ length: numOfPins }).reduce<Array<{ height: number; key: string }>>(
+    (acc: Array<{ height: number; key: string }>, _, i) => {
+      const height = i % 2 === 0 ? largePinHeight : smallPinHeight;
+      return [...acc, { height, key: `skeleton-pin-${i}`, isSkeleton: true }];
+    },
+    [],
+  );
+}
+
+function isSkeletonPin<T>(data: T | SkeletonPinProps): data is SkeletonPinProps {
+  return Boolean(data && typeof data === 'object' && 'key' in data && 'height' in data);
+}
+
+function useSkeletonPins<T>({
+  isFetching,
+  items = [],
+  renderItem,
+}: {
+  isFetching: boolean;
+  items: T[];
+  renderItem: (props: { data: T; itemIdx: number; isMeasuring: boolean }) => React.ReactNode;
+}) {
+  const isInitialLoadingState = isFetching && items.length === 0;
+  const isInfiniteScrolling = isFetching && items.length > 0;
+
+  const skeletonPins = useMemo(
+    () => getSkeletonPins(isInfiniteScrolling ? 5 : 15),
+    [isInfiniteScrolling],
+  );
+
+  // eslint-disable-next-line no-underscore-dangle
+  const _items = useMemo(() => {
+    if (isInitialLoadingState) {
+      return skeletonPins;
+    }
+
+    if (isInfiniteScrolling) {
+      return [...items, ...skeletonPins];
+    }
+
+    return items;
+  }, [isInitialLoadingState, isInfiniteScrolling, items, skeletonPins]) as T[];
+
+  // eslint-disable-next-line no-underscore-dangle
+  const _renderItem = useMemo(
+    () =>
+      function renderMasonryItem(props: { data: T; itemIdx: number; isMeasuring: boolean }) {
+        const { itemIdx, data } = props;
+
+        if (itemIdx >= items.length && isSkeletonPin(data)) {
+          return <SkeletonPin key={data.key} data={data} />;
+        }
+
+        return renderItem(props);
+      },
+    [renderItem, items.length],
+  );
+
+  return {
+    _items,
+    _renderItem,
+  };
+}
 
 type Pin = {
   color: string;
@@ -53,23 +143,6 @@ function getPins(): Promise<Array<Pin>> {
   return Promise.resolve(pinList);
 }
 
-const styles = {
-  backgroundColor: `${TOKEN_COLOR_GRAY_ROBOFLOW_300}`,
-  backgroundSize: '200vw 100%',
-  content: '',
-  position: 'relative',
-  width: '100%',
-} as const;
-
-function SkeletonPin({ data }: { data: { height: number } }) {
-  const { height } = data;
-  return (
-    <div style={styles}>
-      <Box height={height} />
-    </div>
-  );
-}
-
 function GridComponent({
   data,
 }: {
@@ -94,44 +167,72 @@ function GridComponent({
   );
 }
 
-const randomPinHeight = () => Math.random() * 200 + 100;
-
-const skeletonPins = [...new Array(3)]
-  .map(() => [
-    { height: randomPinHeight() },
-    { height: randomPinHeight() },
-    { height: randomPinHeight() },
-    { height: randomPinHeight() },
-    { height: randomPinHeight() },
-  ])
-  .flat();
-
 export default function Snapshot() {
   const [items, setItems] = useState<Array<Pin>>([]);
+  const [isFetching, setIsFetching] = useState(true);
+
   const scrollContainerRef = useRef(null);
+
+  const { _items, _renderItem } = useSkeletonPins({
+    isFetching,
+    items,
+    renderItem: GridComponent,
+  });
+
+  const loadMoreItems = useCallback(() => {
+    if (!isFetching) {
+      setIsFetching(true);
+      setTimeout(() => {
+        getPins().then((newPins) => {
+          setItems((prevItems) => [...prevItems, ...newPins]);
+          setIsFetching(false);
+        });
+      }, 2500);
+    }
+  }, [isFetching]);
 
   useEffect(() => {
     setTimeout(() => {
-      getPins().then(setItems);
+      getPins().then((loadedPins) => {
+        setItems(loadedPins);
+        setIsFetching(false);
+      });
     }, 2500);
   }, []);
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+
+    const handleScroll = () => {
+      if (!scrollContainer) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
+
+      if (scrollHeight - scrollTop - clientHeight < 300) {
+        loadMoreItems();
+      }
+    };
+
+    window?.addEventListener('scroll', handleScroll);
+    return () => window?.removeEventListener('scroll', handleScroll);
+  }, [loadMoreItems]);
 
   return (
     <ColorSchemeProvider colorScheme="light">
       <div
         ref={scrollContainerRef}
-        style={{ overflowY: 'scroll', height: '100vh', width: '100vw' }}
+        style={{
+          overflowY: 'scroll',
+          minHeight: '150vh', // Force content to be taller than viewport
+          width: '100vw',
+        }}
       >
         <Masonry
-          _loadingStateItems={skeletonPins}
-          // Since we are prefixing this prop with "_", we get this eslint warning
-          // eslint-disable-next-line react/no-unstable-nested-components
-          _renderLoadingStateItems={({ data }) => <SkeletonPin data={data} />}
           columnWidth={170}
           gutterWidth={20}
-          items={items}
+          items={_items}
           layout="flexible"
-          renderItem={({ data }) => <GridComponent data={data} />}
+          renderItem={_renderItem}
         />
       </div>
     </ColorSchemeProvider>

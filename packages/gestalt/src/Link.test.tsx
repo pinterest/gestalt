@@ -51,6 +51,28 @@ it('target null', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
+it('download string', () =>
+  expect(
+    renderer
+      .create(
+        <Link download="file" href="https://example.com">
+          Link
+        </Link>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
+it('download true', () =>
+  expect(
+    renderer
+      .create(
+        <Link download href="https://example.com">
+          Link
+        </Link>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
+
 it('target self', () =>
   expect(
     renderer

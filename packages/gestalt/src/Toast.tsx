@@ -131,8 +131,14 @@ export default function Toast({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Toast');
 
-  const { containerColor, textColor, iconColor } = COLORS_BY_TYPE[type];
-
+  const { containerColor, textColor, iconColor } =
+    isInExperiment && type === 'progress'
+      ? {
+          containerColor: 'inverse',
+          textColor: 'inverse',
+          iconColor: 'darkGray',
+        }
+      : COLORS_BY_TYPE[type];
   const isDefaultToast = type === 'default';
   const isNotDefaultToast = ['success', 'error', 'progress'].includes(type);
 
@@ -170,11 +176,13 @@ export default function Toast({
             paddingInlineEnd: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
           },
         }}
+        display={isInExperiment ? 'flex' : undefined}
+        minHeight={isInExperiment ? 60 : undefined}
         paddingY={3}
         rounding={4}
         width="100%"
       >
-        <Flex alignItems="center" gap={isInExperiment ? 2 : 4}>
+        <Flex alignItems="center" gap={isInExperiment ? { column: 2, row: 3 } : 4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
             <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>
           ) : null}

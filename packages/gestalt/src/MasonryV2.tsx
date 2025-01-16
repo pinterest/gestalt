@@ -16,12 +16,13 @@ import debounce from './debounce';
 import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
+import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
+import { Align, Layout, Position } from './Masonry/types';
 import throttle from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
@@ -145,28 +146,19 @@ type Props<T> = {
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   /**
-   * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
-   */
-  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
-  /**
-   * Experimental prop to render a loading state
-   *
-   * A function that renders the loading state items you would like displayed in the grid. This function is passed two props: the item's data and the item's index in the grid.
-   */
-  _renderLoadingStateItems?: (arg1: {
-    readonly data: LoadingStateItem;
-    readonly itemIdx: number;
-  }) => ReactNode;
-  /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
   _dynamicHeights?: boolean;
+  /**
+   * Experimental flag to enable an experiment to use a revamped version of dynamic heights (This needs _dynamicHeights enabled)
+   */
+  _dynamicHeightsV2Experiment?: boolean;
   /**
    * Experimental prop to enable early bailout when positioning multicolumn modules
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: boolean;
+  _earlyBailout?: (columnSpan: number) => number;
 };
 
 type MasonryRef = {
@@ -248,6 +240,11 @@ function useScrollContainer({
   const containerOffset = useRef(0);
   const scrollPos = useRef(0);
 
+  useEffect(() => {
+    // reset scroll position whenever the scrollContainer changes
+    scrollPos.current = scrollContainer ? getScrollPos(scrollContainer) : 0;
+  }, [scrollContainer]);
+
   const measureContainer = useCallback(() => {
     if (scrollContainer) {
       containerHeight.current = getElementHeight(scrollContainer);
@@ -259,16 +256,20 @@ function useScrollContainer({
     }
   }, [gridWrapper, scrollContainer]);
 
+  useEffect(() => {
+    // measure the container whenever the gridWrapper or scrollContainer changes (we use the identity of the measureContainer function here as an indication of that)
+    measureContainer();
+  }, [measureContainer]);
+
   // created a debounced version of measureContainer to avoid measuring the container on every render
   // this is mostly because the calls to getBoundingClientRect are expensive and result in forced reflows
   const measureContainerAsync = useMemo(() => debounce(measureContainer, 100), [measureContainer]);
 
-  if (containerHeight.current === 0 && containerOffset.current === 0) {
-    // initialize value on first render
-    // doing this here vs in the `useRef` to avoid measureContainer always being called
-    // https://18.react.dev/reference/react/useRef#avoiding-recreating-the-ref-contents
-    measureContainer();
-  }
+  useEffect(() => {
+    // trigger an async measurement whenever an update occurs
+    // todo - followup on this and figure out a more ideal way to handle this.
+    measureContainerAsync();
+  });
 
   const subscribeToScrollEvent = useCallback(
     (callback: () => void) => {
@@ -290,12 +291,6 @@ function useScrollContainer({
     () => scrollPos.current,
     () => 0,
   );
-
-  useEffect(() => {
-    // trigger an async measurement whenever an update occurs
-    // todo - followup on this and figure out a more ideal way to handle this.
-    measureContainerAsync();
-  });
 
   return {
     containerHeight: containerHeight.current,
@@ -374,8 +369,6 @@ function useLayout<T>({
   _measureAll,
   _useRAF,
   _getColumnSpanConfig,
-  _loadingStateItems = [],
-  _renderLoadingStateItems,
   _earlyBailout,
 }: {
   align: Align;
@@ -396,20 +389,13 @@ function useLayout<T>({
   _measureAll?: boolean;
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
-  _renderLoadingStateItems?: Props<T>['_renderLoadingStateItems'];
-  _earlyBailout?: boolean;
+  _earlyBailout?: (columnSpan: number) => number;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
   positions: ReadonlyArray<Position | null | undefined>;
   updateMeasurement: (arg1: T, arg2: number) => void;
-  renderLoadingState: boolean;
 } {
-  const renderLoadingState = Boolean(
-    items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
-  );
-
   const layoutFunction = getLayoutAlgorithm({
     align,
     columnWidth,
@@ -422,8 +408,6 @@ function useLayout<T>({
     width,
     _getColumnSpanConfig,
     _logTwoColWhitespace,
-    _loadingStateItems,
-    renderLoadingState,
     _earlyBailout,
   });
 
@@ -438,10 +422,7 @@ function useLayout<T>({
   const hasPendingMeasurements = itemMeasurementsCount < items.length;
   const canPerformLayout = width != null;
 
-  const loadingStatePositions =
-    canPerformLayout && renderLoadingState ? layoutFunction(_loadingStateItems) : [];
-
-  const itemPositions: ReadonlyArray<Position | null | undefined> = useMemo(() => {
+  const positions: ReadonlyArray<Position | null | undefined> = useMemo(() => {
     if (!canPerformLayout) {
       return [];
     }
@@ -472,10 +453,11 @@ function useLayout<T>({
       return acc;
     }, []);
     // only recalculate positions when certain things change
-    // - itemsToPosition: if we get new items, we should always recalculate positions
+    // - items: if we get new items, we should always recalculate positions
     // - itemMeasurementsCount: if we have a change in the number of items we've measured, we should always recalculage
     // - canPerformLayout: if we don't have a width, we can't calculate positions yet. so recalculate once we're able to
 
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [itemMeasurementsCount, items, canPerformLayout, heightUpdateTrigger]);
 
@@ -501,8 +483,6 @@ function useLayout<T>({
     [measurementStore, forceUpdate, _useRAF],
   );
 
-  const positions = renderLoadingState ? loadingStatePositions : itemPositions;
-
   // Math.max() === -Infinity when there are no positions
   const height = positions.length
     ? Math.max(...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)))
@@ -512,7 +492,6 @@ function useLayout<T>({
     hasPendingMeasurements,
     height,
     positions,
-    renderLoadingState,
     updateMeasurement,
   };
 }
@@ -555,40 +534,6 @@ function useViewport({
     viewportTop: -Infinity,
     viewportBottom: Infinity,
   };
-}
-
-function MasonryLoadingStateItem<T>({
-  height,
-  idx,
-  item,
-  left,
-  renderItem,
-  top,
-  width,
-}: {
-  height: number;
-  idx: number;
-  item: LoadingStateItem;
-  left: number;
-  renderItem: Props<T>['_renderLoadingStateItems'];
-  top: number;
-  width: number;
-}) {
-  return (
-    <div
-      className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
-      data-grid-item
-      role="listitem"
-      style={{
-        top,
-        left,
-        width: layoutNumberToCssDimension(width) ?? 0,
-        height: layoutNumberToCssDimension(height) ?? 0,
-      }}
-    >
-      {renderItem?.({ data: item, itemIdx: idx }) ?? null}
-    </div>
-  );
 }
 
 function MasonryItem<T>({
@@ -674,7 +619,6 @@ function MasonryItem<T>({
   );
 }
 
-const MasonryLoadingStateItemMemo = memo(MasonryLoadingStateItem) as typeof MasonryLoadingStateItem;
 const MasonryItemMemo = memo(MasonryItem) as typeof MasonryItem;
 
 function Masonry<T>(
@@ -699,8 +643,7 @@ function Masonry<T>(
     _useRAF,
     _getColumnSpanConfig,
     _dynamicHeights,
-    _loadingStateItems = [],
-    _renderLoadingStateItems,
+    _dynamicHeightsV2Experiment,
     _earlyBailout,
   }: Props<T>,
   ref:
@@ -773,6 +716,7 @@ function Masonry<T>(
       hasSetInitialWidth.current = true;
     }
 
+    // eslint-disable-next-line react-compiler/react-compiler
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [width]);
 
@@ -788,15 +732,33 @@ function Masonry<T>(
 
               if (typeof idx === 'number') {
                 const changedItem: T = items[idx]!;
+                const newHeight = contentRect.height;
 
-                triggerUpdate =
-                  recalcHeights({
-                    items,
-                    changedItem,
-                    newHeight: contentRect.height,
-                    positionStore,
-                    measurementStore,
-                  }) || triggerUpdate;
+                let defaultGutter = 14;
+                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+                  defaultGutter = 0;
+                }
+
+                if (_dynamicHeightsV2Experiment) {
+                  triggerUpdate =
+                    recalcHeightsV2({
+                      items,
+                      changedItem,
+                      newHeight,
+                      positionStore,
+                      measurementStore,
+                      gutterWidth: gutter ?? defaultGutter,
+                    }) || triggerUpdate;
+                } else {
+                  triggerUpdate =
+                    recalcHeights({
+                      items,
+                      changedItem,
+                      newHeight,
+                      positionStore,
+                      measurementStore,
+                    }) || triggerUpdate;
+                }
               }
             });
             if (triggerUpdate) {
@@ -804,29 +766,34 @@ function Masonry<T>(
             }
           })
         : undefined,
-    [_dynamicHeights, items, measurementStore, positionStore],
+    [
+      _dynamicHeights,
+      _dynamicHeightsV2Experiment,
+      items,
+      measurementStore,
+      positionStore,
+      gutter,
+      layout,
+    ],
   );
 
-  const { hasPendingMeasurements, height, positions, renderLoadingState, updateMeasurement } =
-    useLayout<T>({
-      align,
-      columnWidth,
-      gutter,
-      items,
-      layout,
-      measurementStore,
-      minCols,
-      positionStore,
-      width,
-      heightUpdateTrigger,
-      _logTwoColWhitespace,
-      _measureAll,
-      _useRAF,
-      _getColumnSpanConfig,
-      _loadingStateItems,
-      _renderLoadingStateItems,
-      _earlyBailout,
-    });
+  const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
+    align,
+    columnWidth,
+    gutter,
+    items,
+    layout,
+    measurementStore,
+    minCols,
+    positionStore,
+    width,
+    heightUpdateTrigger,
+    _logTwoColWhitespace,
+    _measureAll,
+    _useRAF,
+    _getColumnSpanConfig,
+    _earlyBailout,
+  });
 
   useFetchOnScroll({
     containerHeight,
@@ -841,7 +808,7 @@ function Masonry<T>(
   });
 
   const isServerRenderOrHydration = width == null && hasPendingMeasurements;
-  const canPerformFullLayout = width != null && !renderLoadingState;
+  const canPerformFullLayout = width != null;
 
   const { viewportTop, viewportBottom } = useViewport({
     containerHeight,
@@ -911,27 +878,6 @@ function Masonry<T>(
           width={position.width}
         />
       ) : null;
-    });
-  } else if (renderLoadingState) {
-    gridBody = _loadingStateItems.map((item, i) => {
-      const key = `item-${i}`;
-      const position = positions[i];
-      if (!position) {
-        return null;
-      }
-
-      return (
-        <MasonryLoadingStateItemMemo
-          key={key}
-          height={position.top}
-          idx={i}
-          item={item}
-          left={position.left}
-          renderItem={_renderLoadingStateItems}
-          top={position.top}
-          width={position.width}
-        />
-      );
     });
   }
 

@@ -12,6 +12,7 @@
 
 .icon {
   composes: block from "./Layout.css";
+  animation-composition: add;
   animation-duration: 1.2s;
   animation-iteration-count: infinite;
   animation-name: spin;

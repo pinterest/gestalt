@@ -36,6 +36,7 @@ const androidTransformGroup = [
   'font-size/px',
   'size/pxToDpOrSp',
   'value/easing/android',
+  'value/rounding/android',
 ];
 
 const iOSTransformGroup = [

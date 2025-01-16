@@ -1,38 +1,4 @@
-.inputParent {
-  isolation: isolate;
-  position: relative;
-}
-
-.input {
-  box-sizing: border-box;
-  display: block;
-  font-family: var(--sema-font-family-body-md);
-  font-size: var(--sema-font-size-body-md);
-  font-weight: var(--sema-font-weight-body-md-default);
-  letter-spacing: var(--sema-font-letterspacing-body-md);
-  line-height: var(--sema-font-lineheight-body-md);
-  position: relative;
-  text-decoration: var(--sema-font-textdecoration-body-md-default);
-  width: 100%;
-}
-
-.visuallyHidden {
-  border: 0;
-
-  /* clip is deprecated https: //developer.mozilla.org/en-US/docs/Web/CSS/clip */
-  clip: rect(0 0 0 0);
-  clip: rect(0, 0, 0, 0);
-
-  /* clip is replaced with clip-path */
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: var(--sema-space-300);
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
+/* style */
 
 .enabled {
   background: var(--sema-color-background-default);
@@ -76,144 +42,206 @@
   border: 1px solid var(--sema-color-border-disabled);
 }
 
+/* input / label / end icon positioning */
+
+.inputParent {
+  isolation: isolate;
+  position: relative;
+}
+
+.input {
+  box-sizing: border-box;
+  display: block;
+  font-family: var(--sema-font-family-body-md);
+  font-size: var(--sema-font-size-body-md);
+  font-weight: var(--sema-font-weight-body-md-default);
+  letter-spacing: var(--sema-font-letterspacing-body-md);
+  line-height: var(--sema-font-lineheight-body-md);
+  position: relative;
+  text-decoration: var(--sema-font-textdecoration-body-md-default);
+  width: 100%;
+}
+
+.visuallyHidden {
+  border: 0;
+
+  /* clip is deprecated https: //developer.mozilla.org/en-US/docs/Web/CSS/clip */
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+
+  /* clip is replaced with clip-path */
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: var(--sema-space-300);
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .label {
   padding: var(--sema-space-0);
   position: absolute;
   z-index: 1;
 }
 
+.endIconContainer {
+  align-items: center;
+  bottom: var(--sema-space-0);
+  display: flex;
+  height: 100%;
+  position: absolute;
+  top: var(--sema-space-0);
+}
+
 /* md */
+
+/* md input */
 
 .md_input {
   border-radius: var(--sema-rounding-300);
   min-height: 36px;
-  padding-bottom: var(--sema-space-200);
-}
-
-.md_label {
-  top: calc(var(--sema-space-200) + var(--sema-space-50));
 }
 
 .md_inputLabelPadding {
+  padding-bottom: calc(var(--sema-space-200) - var(--sema-space-25));
   padding-top: calc(
-    var(--sema-space-200) + var(--sema-space-50) +
-      (var(--sema-font-lineheight-ui-xs))
+    var(--sema-space-100) + var(--sema-space-150) +
+      var(--sema-font-lineheight-ui-xs) - var(--sema-space-25)
   );
 }
 
 .md_inputNoLabelPadding {
-  padding-top: var(--sema-space-200);
+  padding-bottom: calc(
+    var(--sema-space-100) + var(--sema-space-50) - var(--sema-space-25)
+  );
+  padding-top: calc(
+    var(--sema-space-100) + var(--sema-space-50) - var(--sema-space-25)
+  );
 }
 
-html[dir="rtl"] .md_inputHorizontalPadding {
-  padding-left: calc(
-    var(--sema-space-200) + var(--sema-space-400) + var(--sema-space-100)
-  );
+html[dir="rtl"] .md_inputStartPadding {
   padding-right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .md_inputHorizontalPadding {
+html:not([dir="rtl"]) .md_inputStartPadding {
   padding-left: var(--sema-space-300);
-  padding-right: calc(
-    var(--sema-space-200) + var(--sema-space-400) + var(--sema-space-100)
+}
+
+html[dir="rtl"] .md_inputEndButtonEndPadding {
+  padding-left: calc(var(--sema-space-200) + var(--sema-space-600));
+}
+
+html:not([dir="rtl"]) .md_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-200) + var(--sema-space-600));
+}
+
+/* md label */
+
+.md_labelTopPosition {
+  top: calc(
+    var(--sema-space-100) + var(--sema-space-150) - var(--sema-space-25)
   );
 }
 
-html[dir="rtl"] .md_label {
+html[dir="rtl"] .md_labelPosition {
   left: calc(
-    var(--sema-space-200) + var(--sema-space-400) + var(--sema-space-100)
+    var(--sema-space-200) + var(--sema-space-600) + var(--sema-space-25)
   );
+  right: calc(var(--sema-space-300) + var(--sema-space-25));
+}
+
+html:not([dir="rtl"]) .md_labelPosition {
+  left: calc(var(--sema-space-300) + var(--sema-space-25));
+  right: calc(
+    var(--sema-space-200) + var(--sema-space-600) + var(--sema-space-25)
+  );
+}
+
+/* md icon end */
+
+html:not([dir="rtl"]) .md_endIconContainer {
   right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .md_label {
+html[dir="rtl"] .md_endIconContainer {
   left: var(--sema-space-300);
-  right: calc(
-    var(--sema-space-200) + var(--sema-space-400) + var(--sema-space-100)
-  );
-}
-
-.calendarButtonContainer {
-  align-items: center;
-  bottom: var(--sema-space-0);
-  display: flex;
-  height: 100%;
-  position: absolute;
-  top: var(--sema-space-0);
-}
-
-html:not([dir="rtl"]) .md_calendarButtonContainer {
-  right: calc(var(--sema-space-200) + var(--sema-space-100));
-}
-
-html[dir="rtl"] .md_calendarButtonContainer {
-  left: calc(var(--sema-space-200) + var(--sema-space-100));
 }
 
 /* lg */
 
+/* lg input */
+
 .lg_input {
   border-radius: var(--sema-rounding-400);
   min-height: 48px;
-  padding-bottom: var(--sema-space-300);
-}
-
-.lg_label {
-  top: calc(var(--sema-space-300) + var(--sema-space-100));
 }
 
 .lg_inputLabelPadding {
+  padding-bottom: calc(
+    var(--sema-space-300) + var(--sema-space-50) - var(--sema-space-25)
+  );
   padding-top: calc(
     var(--sema-space-300) + var(--sema-space-100) +
-      (var(--sema-font-lineheight-ui-xs) + var(--sema-space-100))
+      var(--sema-font-lineheight-ui-xs) + var(--sema-space-100) -
+      var(--sema-space-25)
   );
 }
 
 .lg_inputNoLabelPadding {
-  padding-top: var(--sema-space-300);
+  padding-bottom: calc(
+    var(--sema-space-300) + var(--sema-space-25) - var(--sema-space-25)
+  );
+  padding-top: calc(
+    var(--sema-space-300) + var(--sema-space-25) - var(--sema-space-25)
+  );
 }
 
-html[dir="rtl"] .lg_inputHorizontalPadding {
-  padding-left: calc(
-    var(--sema-space-300) + var(--sema-space-400) + var(--sema-space-100)
-  );
+html[dir="rtl"] .lg_inputStartPadding {
   padding-right: var(--sema-space-400);
 }
 
-html:not([dir="rtl"]) .lg_inputHorizontalPadding {
+html:not([dir="rtl"]) .lg_inputStartPadding {
   padding-left: var(--sema-space-400);
-  padding-right: calc(
-    var(--sema-space-300) + var(--sema-space-400) + var(--sema-space-100)
+}
+
+html[dir="rtl"] .lg_inputEndButtonEndPadding {
+  padding-left: calc(var(--sema-space-300) + var(--sema-space-600));
+}
+
+html:not([dir="rtl"]) .lg_inputEndButtonEndPadding {
+  padding-right: calc(var(--sema-space-300) + var(--sema-space-600));
+}
+
+/* lg label */
+
+.lg_labelTopPosition {
+  top: calc(
+    var(--sema-space-300) + var(--sema-space-100) - var(--sema-space-25)
   );
 }
 
-html[dir="rtl"] .lg_label {
+html[dir="rtl"] .lg_labelPosition {
   left: calc(
-    var(--sema-space-300) + var(--sema-space-400) + var(--sema-space-100)
+    var(--sema-space-300) + var(--sema-space-600) + var(--sema-space-25)
   );
-  right: var(--sema-space-400);
+  right: calc(var(--sema-space-400) + var(--sema-space-25));
 }
 
-html:not([dir="rtl"]) .lg_label {
-  left: var(--sema-space-400);
+html:not([dir="rtl"]) .lg_labelPosition {
+  left: calc(var(--sema-space-400) + var(--sema-space-25));
   right: calc(
-    var(--sema-space-300) + var(--sema-space-400) + var(--sema-space-100)
+    var(--sema-space-300) + var(--sema-space-600) + var(--sema-space-25)
   );
 }
 
-.lg_calendarButtonContainer {
-  align-items: center;
-  bottom: var(--sema-space-0);
-  display: flex;
-  height: 100%;
-  position: absolute;
-  top: var(--sema-space-0);
+/* lg icon end */
+
+html:not([dir="rtl"]) .lg_endIconContainer {
+  right: var(--sema-space-300);
 }
 
-html:not([dir="rtl"]) .lg_calendarButtonContainer {
-  right: calc(var(--sema-space-300) + var(--sema-space-100));
-}
-
-html[dir="rtl"] .lg_calendarButtonContainer {
-  left: calc(var(--sema-space-300) + var(--sema-space-100));
+html[dir="rtl"] .lg_endIconContainer {
+  left: var(--sema-space-300);
 }

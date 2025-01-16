@@ -103,6 +103,11 @@ const labels = {
   TableOfContents: {
     accessibilityLabel: myI18nTranslator('Table of contents'),
   },
+  Tabs: {
+    accessibilityNotificationLabel: myI18nTranslator(
+      'This tab is displaying a notification indicator',
+    ),
+  },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),
     accessibilityRemoveIconLabel: myI18nTranslator('Remove tag'),

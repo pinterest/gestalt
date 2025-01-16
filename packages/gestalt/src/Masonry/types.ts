@@ -26,6 +26,5 @@ export type Layout =
   | 'basicCentered'
   | 'flexible'
   | 'serverRenderedFlexible'
-  | 'uniformRow';
-
-export type LoadingStateItem = { height: number };
+  | 'uniformRow'
+  | 'uniformRowFlexible';

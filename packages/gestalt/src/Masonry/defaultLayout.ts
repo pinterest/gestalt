@@ -1,9 +1,8 @@
 import { Cache } from './Cache';
 import { getHeightAndGutter, offscreen } from './layoutHelpers';
-import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
-import { Align, Layout, LoadingStateItem, Position } from './types';
+import { Align, Layout, Position } from './types';
 
 const calculateCenterOffset = ({
   align,
@@ -46,7 +45,6 @@ const defaultLayout =
     width,
     measurementCache,
     _getColumnSpanConfig,
-    renderLoadingState,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -59,14 +57,13 @@ const defaultLayout =
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-    earlyBailout?: boolean;
+    earlyBailout?: (columnSpan: number) => number;
     logWhitespace?: (
       additionalWhitespace: ReadonlyArray<number>,
       numberOfIterations: number,
       columnSpan: number,
     ) => void;
-    renderLoadingState?: boolean;
-  }): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) =>
+  }): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) =>
   (items): ReadonlyArray<Position> => {
     if (width == null) {
       return items.map(() => offscreen(columnWidth));
@@ -87,7 +84,7 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -99,9 +96,7 @@ const defaultLayout =
           ...otherProps,
         })
       : items.map((item) => {
-          const height = isLoadingStateItem(item, renderLoadingState)
-            ? item.height
-            : measurementCache.get(item);
+          const height = measurementCache.get(item);
 
           if (height == null) {
             return offscreen(columnWidth);

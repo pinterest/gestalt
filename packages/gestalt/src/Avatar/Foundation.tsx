@@ -13,7 +13,7 @@ import useInExperiment from '../useInExperiment';
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
 type ResponsiveFitSizeBoxProps = {
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  color?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   children: ReactNode;
   content: string;
   isCollaboratorCount?: boolean;
@@ -88,7 +88,7 @@ function ResponsiveFitSizeBox({
 }
 
 type AvatarFoundationProps = {
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  color?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   children?: string | number;
   isCollaboratorCount?: boolean;
   isHovered?: boolean;

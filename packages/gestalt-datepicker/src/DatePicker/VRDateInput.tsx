@@ -108,8 +108,8 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
     };
   }, [label, checkEllipsisActive]);
 
-  const isMd = size === 'md';
-  const isLg = size === 'lg';
+  const isMD = size === 'md';
+  const isLG = size === 'lg';
 
   return (
     <div>
@@ -119,9 +119,11 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
             className={classnames(styles.label, {
               [styles.visuallyHidden]: !isLabelVisible,
               // md
-              [styles.md_label]: isMd,
+              [styles.md_labelTopPosition]: isMD,
+              [styles.md_labelPosition]: isMD,
               // lg
-              [styles.lg_label]: isLg,
+              [styles.lg_labelTopPosition]: isLG,
+              [styles.lg_labelPosition]: isLG,
             })}
             htmlFor={id}
           >
@@ -151,15 +153,19 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
             [styles.disabledText]: disabled,
             [styles.disabledBorder]: disabled,
             // md
-            [styles.md_input]: isMd,
-            [styles.md_inputHorizontalPadding]: isMd,
-            [styles.md_inputLabelPadding]: isMd && label && isLabelVisible,
-            [styles.md_inputNoLabelPadding]: isMd && (!label || (label && !isLabelVisible)),
+            [styles.md_input]: isMD,
+            [styles.md_inputPadding]: isMD,
+            [styles.md_inputStartPadding]: isMD,
+            [styles.md_inputEndButtonEndPadding]: isMD,
+            [styles.md_inputLabelPadding]: isMD && label && isLabelVisible,
+            [styles.md_inputNoLabelPadding]: isMD && (!label || (label && !isLabelVisible)),
             // lg
-            [styles.lg_input]: isLg,
-            [styles.lg_inputHorizontalPadding]: isLg,
-            [styles.lg_inputLabelPadding]: isLg && label && isLabelVisible,
-            [styles.lg_inputNoLabelPadding]: isLg && (!label || (label && !isLabelVisible)),
+            [styles.lg_input]: isLG,
+            [styles.lg_inputPadding]: isLG,
+            [styles.lg_inputStartPadding]: isLG,
+            [styles.lg_inputEndButtonEndPadding]: isLG,
+            [styles.lg_inputLabelPadding]: isLG && label && isLabelVisible,
+            [styles.lg_inputNoLabelPadding]: isLG && (!label || (label && !isLabelVisible)),
           })}
           data-test-id={dataTestId}
           disabled={disabled}
@@ -187,9 +193,9 @@ const InternalTextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(func
         {!disabled && (
           <div
             aria-hidden
-            className={classnames(styles.calendarButtonContainer, {
-              [styles.md_calendarButtonContainer]: isMd,
-              [styles.lg_calendarButtonContainer]: isLg,
+            className={classnames(styles.endIconContainer, {
+              [styles.md_endIconContainer]: isMD,
+              [styles.lg_endIconContainer]: isLG,
             })}
           >
             <TapArea

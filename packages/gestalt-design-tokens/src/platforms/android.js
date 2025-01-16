@@ -2,7 +2,6 @@ const { optionsFileHeaderOutputReferences } = require('../headers/fileheader');
 const { getSources, getComponentTokenOverrides, getListOfComponents } = require('../getSources');
 
 const {
-  filterColor,
   filterRounding,
   filterOpacity,
   filterSpace,
@@ -12,6 +11,7 @@ const {
   filterMotionDuration,
   filterMotionEasing,
   filterComponentToken,
+  colorNoGradientFilter,
 } = require('../filters');
 
 const androidTransformGroup = {
@@ -42,7 +42,7 @@ const getFiles = ({ theme, modeTheme, language }) => {
         'destination': 'color-dark.xml',
         ...androidResources,
         ...colorResource,
-        ...filterColor,
+        ...colorNoGradientFilter,
       },
     ];
   }
@@ -75,7 +75,7 @@ const getFiles = ({ theme, modeTheme, language }) => {
       'destination': 'colors-light.xml',
       ...androidResources,
       ...colorResource,
-      ...filterColor,
+      ...colorNoGradientFilter,
     },
     {
       'destination': 'font-size.xml',
