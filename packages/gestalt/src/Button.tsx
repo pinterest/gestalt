@@ -22,8 +22,8 @@ const DEFAULT_TEXT_COLORS = {
   semiTransparentWhite: 'default',
   transparentWhiteText: 'inverse',
   white: 'default',
-  light: 'light',
-  dark: 'dark',
+  light: 'dark',
+  dark: 'light',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -255,7 +255,6 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkModeRed = isDarkMode && color === 'red';
 
   const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
-  
   const { isFocusVisible } = useFocusVisible();
 
   const sharedTypeClasses = isInVRExperiment
