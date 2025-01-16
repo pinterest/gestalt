@@ -90,7 +90,7 @@ export default function HelpButton({
   zIndex,
 }: Props) {
   const tapAreaRef = useRef<null | HTMLDivElement>(null);
-  const textRef = useRef<null | HTMLElement>(null);
+  const textRef = useRef<null | HTMLDivElement>(null);
 
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
