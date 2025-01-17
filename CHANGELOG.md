@@ -1,3 +1,9 @@
+## 169.1.3 (Jan 17, 2025)
+
+### Patch
+
+- HelpButton: general fixes and VR fixes ([#3949](https://github.com/pinterest/gestalt/pull/3949)) - [Preview link](https://deploy-preview-3949--gestalt.netlify.app?devexample=true)
+
 ## 169.1.2 (Jan 17, 2025)
 
 ### Patch
