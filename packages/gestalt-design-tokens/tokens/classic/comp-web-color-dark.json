@@ -249,6 +249,28 @@
             "value": "#1f1f1f"
           }
         },
+        "dark": {
+          "default": {
+            "value": "{color.background.dark}"
+          },
+          "hover": {
+            "value": "#000000"
+          },
+          "active": {
+            "value": "#000000"
+          }
+        },
+        "light": {
+          "default": {
+            "value": "{color.background.light}"
+          },
+          "hover": {
+            "value": "#F8F7F2"
+          },
+          "active": {
+            "value": "#F8F7F2"
+          }
+        },
         "gray": {
           "default": {
             "value": "{color.background.neutral.value}"

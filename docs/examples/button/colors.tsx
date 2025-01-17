@@ -12,7 +12,7 @@ export default function Example() {
   return (
     <Box padding={4}>
       <Flex gap={6} height="100%" width="100%" wrap>
-        {['gray', 'red', 'blue', 'transparent', 'transparentWhiteText'].map((color) => (
+        {['gray', 'red', 'transparent', 'transparentWhiteText', 'dark', 'light'].map((color) => (
           <Flex key={color} direction="column" gap={2}>
             <Box
               alignItems="center"
