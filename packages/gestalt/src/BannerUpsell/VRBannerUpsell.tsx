@@ -352,26 +352,24 @@ export default function BannerUpsell({
               </Box>
             )}
           </Box>
-          {!children && hasActions && (
-            <Box
-              direction="row"
-              display="flex"
-              margin="auto"
-              marginStart="auto"
-              smMarginEnd={4}
-              smMarginTop={4}
-              smPaddingY={0}
-            >
-              {secondaryAction && responsiveMinWidth !== 'xs' && (
-                <UpsellAction data={secondaryAction} type="secondary" />
-              )}
-              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
-              {secondaryAction && responsiveMinWidth === 'xs' && (
-                <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
-              )}
-            </Box>
-          )}
         </Box>
+        {!children && hasActions && (
+          <Box
+            justifyContent="end"
+            marginStart="auto"
+            smDisplay="flex"
+            smMarginEnd={4}
+            smPaddingY={3}
+          >
+            {secondaryAction && responsiveMinWidth !== 'xs' && (
+              <UpsellAction data={secondaryAction} type="secondary" />
+            )}
+            {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+            {secondaryAction && responsiveMinWidth === 'xs' && (
+              <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+            )}
+          </Box>
+        )}
       </Box>
 
       {/*
