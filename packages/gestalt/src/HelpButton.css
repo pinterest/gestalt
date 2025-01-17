@@ -7,3 +7,8 @@
   /* stylelint-disable-next-line declaration-no-important */
   color: var(--color-text-dark) !important;
 }
+
+.focused:focus {
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+}
