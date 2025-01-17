@@ -1,3 +1,9 @@
+## 169.1.4 (Jan 17, 2025)
+
+### Patch
+
+- Dropdown: add marginStart to selected check icon ([#3951](https://github.com/pinterest/gestalt/pull/3951)) - [Preview link](https://deploy-preview-3951--gestalt.netlify.app?devexample=true)
+
 ## 169.1.3 (Jan 17, 2025)
 
 ### Patch
