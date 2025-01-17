@@ -133,9 +133,6 @@
           },
           "active": {
             "value": "{sema.color.pressed.background.dark.value}"
-          },
-          "disabled": {
-            "value": "{sema.color.background.disabled.value}"
           }
         },
         "light": {
@@ -147,9 +144,6 @@
           },
           "active": {
             "value": "{sema.color.pressed.background.light.value}"
-          },
-          "disabled": {
-            "value": "{sema.color.background.disabled.value}"
           }
         },
         "gray": {
