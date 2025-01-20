@@ -15,8 +15,11 @@ html[dir="rtl"] .borderRight {
 }
 
 .dateFieldSection:first-child {
-  border-top-left-radius: var(--rounding-400);
   border-top-right-radius: var(--rounding-400);
+}
+
+.dateFieldSectionTopLeftBorder:first-child {
+  border-top-left-radius: var(--rounding-400);
 }
 
 .dateFieldSectionActive {
