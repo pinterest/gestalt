@@ -12,7 +12,6 @@ import IconButton from '../IconButton';
 import Image from '../Image';
 import Mask from '../Mask';
 import Text from '../Text';
-import useInExperiment from '../useInExperiment';
 import useResponsiveMinWidth from '../useResponsiveMinWidth';
 
 export type ActionDataType =
@@ -150,10 +149,7 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
-  });
+
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
@@ -373,7 +369,6 @@ export default function BannerUpsell({
       </Box>
 
       {/*
-
       LG BREAKPOINT
       */}
       <Box
@@ -421,7 +416,7 @@ export default function BannerUpsell({
             smMarginStart={imageData ? 6 : 0}
           >
             <Box maxWidth={648}>
-              {title && isInVRExperiment && (
+              {title && (
                 <Box marginBottom={2}>
                   <Heading align={responsiveMinWidth === 'xs' ? 'center' : 'start'} size="400">
                     {title}
@@ -445,15 +440,12 @@ export default function BannerUpsell({
               </Box>
             )}
           </Box>
-          {!children && isInVRExperiment && hasActions && (
+          {!children && hasActions && (
             <Box
               direction="row"
               display="flex"
               margin="auto"
               marginStart="auto"
-              smMarginEnd={4}
-              smMarginTop={4}
-              smPaddingY={isInVRExperiment ? 0 : 3}
             >
               {secondaryAction && responsiveMinWidth !== 'xs' && (
                 <UpsellAction data={secondaryAction} type="secondary" />
