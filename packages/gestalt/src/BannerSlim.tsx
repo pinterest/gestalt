@@ -221,6 +221,7 @@ export default function BannerSlim({
       display="flex"
       mdDirection="row"
       paddingX={isBare ? 0 : 4}
+      paddingY={isBare ? 0 : 4}
       rounding={4}
       smPaddingY={isBare ? 1 : 4}
       width="100%"
@@ -250,7 +251,7 @@ export default function BannerSlim({
             }}
           >
             {typeof message === 'string' ? (
-              <Fragment>
+              <div>
                 <Text ref={referenceRef} inline />
                 <Text ref={targetRef} inline>
                   {message}
@@ -261,12 +262,14 @@ export default function BannerSlim({
                     </Fragment>
                   ) : null}
                 </Text>
-              </Fragment>
+              </div>
             ) : null}
-            <Fragment>
-              <Text ref={referenceRef} inline />
-              {typeof message !== 'string' && cloneElement(message, { ref: targetRef })}
-            </Fragment>
+            {message && typeof message !== 'string' ? (
+              <div>
+                <Text ref={referenceRef} inline />
+                {cloneElement(message, { ref: targetRef })}
+              </div>
+            ) : null}
           </Box>
         </Flex.Item>
 

@@ -1,3 +1,57 @@
+## 169.1.4 (Jan 17, 2025)
+
+### Patch
+
+- Dropdown: add marginStart to selected check icon ([#3951](https://github.com/pinterest/gestalt/pull/3951)) - [Preview link](https://deploy-preview-3951--gestalt.netlify.app?devexample=true)
+
+## 169.1.3 (Jan 17, 2025)
+
+### Patch
+
+- HelpButton: general fixes and VR fixes ([#3949](https://github.com/pinterest/gestalt/pull/3949)) - [Preview link](https://deploy-preview-3949--gestalt.netlify.app?devexample=true)
+
+## 169.1.2 (Jan 17, 2025)
+
+### Patch
+
+- BannerSlim: fix ([#3950](https://github.com/pinterest/gestalt/pull/3950)) - [Preview link](https://deploy-preview-3950--gestalt.netlify.app?devexample=true)
+
+## 169.1.1 (Jan 16, 2025)
+
+### Patch
+
+- BannerSlim: fix bug with list of children ([#3948](https://github.com/pinterest/gestalt/pull/3948)) - [Preview link](https://deploy-preview-3948--gestalt.netlify.app?devexample=true)
+
+## 169.1.0 (Jan 16, 2025)
+
+### Minor
+
+- Spinner, Text, TextUI: add label to Spinner, and id to TextUI and Text ([#3947](https://github.com/pinterest/gestalt/pull/3947)) - [Preview link](https://deploy-preview-3947--gestalt.netlify.app?devexample=true)
+
+## 169.0.4 (Jan 16, 2025)
+
+### Patch
+
+- Internal: upgrade "@playwright/test" to 1.49 ([#3946](https://github.com/pinterest/gestalt/pull/3946)) - [Preview link](https://deploy-preview-3946--gestalt.netlify.app?devexample=true)
+
+## 169.0.3 (Jan 16, 2025)
+
+### Patch
+
+- BannerSlim: fix <sm breakpoint paddingY ([#3943](https://github.com/pinterest/gestalt/pull/3943)) - [Preview link](https://deploy-preview-3943--gestalt.netlify.app?devexample=true)
+
+## 169.0.2 (Jan 16, 2025)
+
+### Patch
+
+- Internal: Revert Revert "Internal: Upgrade React to 19 ([#3937](https://github.com/pinterest/gestalt/pull/3937)) - [Preview link](https://deploy-preview-3937--gestalt.netlify.app?devexample=true)" (#39… ([#3945](https://github.com/pinterest/gestalt/pull/3945)) - [Preview link](https://deploy-preview-3945--gestalt.netlify.app?devexample=true)
+
+## 169.0.1 (Jan 16, 2025)
+
+### Patch
+
+- Internal: Revert "Internal: Upgrade React to 19 ([#3937](https://github.com/pinterest/gestalt/pull/3937)) - [Preview link](https://deploy-preview-3937--gestalt.netlify.app?devexample=true)" ([#3944](https://github.com/pinterest/gestalt/pull/3944)) - [Preview link](https://deploy-preview-3944--gestalt.netlify.app?devexample=true)
+
 ## 169.0.0 (Jan 16, 2025)
 
 ### Major

@@ -66,11 +66,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -108,11 +109,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -150,11 +152,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -192,11 +195,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -234,11 +238,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -276,11 +281,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -318,11 +324,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -360,11 +367,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -402,11 +410,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -444,11 +453,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -486,11 +496,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -528,11 +539,12 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -621,11 +633,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -663,11 +676,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -711,11 +725,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </div>
                     </div>
                     <div
-                      class="box justifyCenter transparent xsDisplayNone xsItemsCenter"
+                      class="box justifyEnd marginStart200 transparent xsDisplayNone xsItemsCenter"
+                      style="min-width: 12px;"
                     >
                       <div
                         class="box"
-                        style="width: 12px;"
+                        style="min-width: 12px;"
                       />
                     </div>
                     <div
@@ -803,11 +818,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                     </div>
                   </div>
                   <div
-                    class="box justifyCenter transparent xsDisplayFlex xsItemsCenter"
+                    class="box justifyEnd marginStart200 transparent xsDisplayFlex xsItemsCenter"
+                    style="min-width: 12px;"
                   >
                     <div
                       class="box"
-                      style="width: 12px;"
+                      style="min-width: 12px;"
                     />
                   </div>
                 </div>
@@ -881,11 +897,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </div>
                     </div>
                     <div
-                      class="box justifyCenter transparent xsDisplayNone xsItemsCenter"
+                      class="box justifyEnd marginStart200 transparent xsDisplayNone xsItemsCenter"
+                      style="min-width: 12px;"
                     >
                       <div
                         class="box"
-                        style="width: 12px;"
+                        style="min-width: 12px;"
                       />
                     </div>
                     <div
@@ -949,11 +966,12 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                       </div>
                     </div>
                     <div
-                      class="box justifyCenter transparent xsDisplayNone xsItemsCenter"
+                      class="box justifyEnd marginStart200 transparent xsDisplayNone xsItemsCenter"
+                      style="min-width: 12px;"
                     >
                       <div
                         class="box"
-                        style="width: 12px;"
+                        style="min-width: 12px;"
                       />
                     </div>
                     <div
