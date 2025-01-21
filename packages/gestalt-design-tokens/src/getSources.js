@@ -84,7 +84,7 @@ function getSources({ theme, modeTheme, platform, language }) {
     'tokens/vr-theme/base/lineheight.json',
     'tokens/vr-theme/base/motion.json',
     `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
-    `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
+    `tokens/vr-theme/sema/elevation.json`,
     'tokens/vr-theme/sema/text/font.json',
     ...getComponentTokenSources(),
     ...(platform === 'web'

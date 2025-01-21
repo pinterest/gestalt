@@ -98,6 +98,9 @@ function registerTokenTransforms(sd) {
     name: 'value/elevation/css',
     type: 'value',
     matcher(prop) {
+      if (prop.attributes.prefix === 'sema') {
+        return prop.attributes.category === 'elevation' && prop.attributes.type === 'shadow';
+      }
       return prop.attributes.category === 'elevation';
     },
     transformer(prop) {
@@ -211,6 +214,10 @@ function registerTokenTransforms(sd) {
     name: 'value/elevation/ios',
     type: 'value',
     matcher(prop) {
+      // only vr-theme elevations have a shadow type
+      if (prop.attributes.prefix === 'sema') {
+        return prop.attributes.category === 'elevation' && prop.attributes.type === 'shadow';
+      }
       return prop.attributes.category === 'elevation';
     },
     transformer(prop) {

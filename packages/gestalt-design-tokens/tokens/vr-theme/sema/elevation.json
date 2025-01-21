@@ -1,0 +1,61 @@
+{
+  "sema": {
+    "elevation": {
+      "shadow": {
+        "surface": {
+          "type": "boxShadow",
+          "value": [
+            {
+              "x": "0px",
+              "y": "0.5px",
+              "blur": "3px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.2)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "raised": {
+          "type": "boxShadow",
+          "value": [
+            {
+              "x": "0px",
+              "y": "1.5px",
+              "blur": "6px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.2)",
+              "type": "dropShadow"
+            }
+          ]
+        },
+        "floating": {
+          "type": "boxShadow",
+          "value": [
+            {
+              "x": "0px",
+              "y": "3px",
+              "blur": "12px",
+              "spread": "0px",
+              "color": "rgba(0,0,0,0.2)",
+              "type": "dropShadow"
+            }
+          ]
+        }
+      },
+      "background-blur": {
+        "weak": {
+          "value": "8px",
+          "type": "dimension"
+        },
+        "default": {
+          "value": "24px",
+          "type": "dimension"
+        },
+        "strong": {
+          "value": "64px",
+          "type": "dimension"
+        }
+      }
+    }
+  }
+}
