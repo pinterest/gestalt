@@ -1,3 +1,9 @@
+## 169.2.0 (Jan 22, 2025)
+
+### Minor
+
+- Button: new variants ([#3931](https://github.com/pinterest/gestalt/pull/3931)) - [Preview link](https://deploy-preview-3931--gestalt.netlify.app?devexample=true)
+
 ## 169.1.6 (Jan 22, 2025)
 
 ### Patch
