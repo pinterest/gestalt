@@ -80,7 +80,7 @@ export default function Fieldset({
         <Text size="100">{legend}</Text>
       </legend>
       {children}
-      {helperText && (
+      {helperText && isInVRExperiment && (
         <div className={classnames(styles.marginTop)} id={`${id}-helperText`}>
           <Flex gap={8}>
             <Flex.Item flex="grow">
@@ -91,7 +91,9 @@ export default function Fieldset({
           </Flex>
         </div>
       )}
-      {errorMessage && <FormErrorMessage id={`${id}-error`} marginTop text={errorMessage} />}
+      {errorMessage && (
+        <FormErrorMessage id={`${id}-error`} marginTop={isInVRExperiment} text={errorMessage} />
+      )}
     </fieldset>
   );
 }
