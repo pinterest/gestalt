@@ -165,8 +165,8 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
