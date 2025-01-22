@@ -1,3 +1,9 @@
+## 169.2.1 (Jan 22, 2025)
+
+### Patch
+
+- Internal: renaming Visual Refresh experiment name to snake_case ([#3955](https://github.com/pinterest/gestalt/pull/3955)) - [Preview link](https://deploy-preview-3955--gestalt.netlify.app?devexample=true)
+
 ## 169.2.0 (Jan 22, 2025)
 
 ### Minor
