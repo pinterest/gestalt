@@ -86,8 +86,8 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
     ref,
   ) {
     const isInVRExperiment = useInExperiment({
-      webExperimentName: 'web_gestalt_visualRefresh',
-      mwebExperimentName: 'web_gestalt_visualRefresh',
+      webExperimentName: 'web_gestalt_visualrefresh',
+      mwebExperimentName: 'web_gestalt_visualrefresh',
     });
 
     return (
