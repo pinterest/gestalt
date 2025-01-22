@@ -111,8 +111,8 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   const colorClass = semanticColors.includes(color) && styles[color];
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const getWordBreakStyle = (): string | undefined => {

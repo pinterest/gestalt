@@ -4,8 +4,8 @@ import { useDangerouslyInGestaltExperiment } from 'gestalt';
 
 export default function DocsVisualRefreshTypographyStyle() {
   const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   return isInExperiment ? (

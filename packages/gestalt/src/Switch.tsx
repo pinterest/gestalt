@@ -39,8 +39,8 @@ type Props = {
  */
 export default function Switch({ disabled = false, id, name, onChange, switched = false }: Props) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (

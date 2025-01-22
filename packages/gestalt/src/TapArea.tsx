@@ -201,8 +201,8 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   useImperativeHandle(ref, () => innerRef.current);
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const { isFocusVisible } = useFocusVisible();
