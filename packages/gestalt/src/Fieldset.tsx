@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import classnames from 'classnames';
 import boxStyles from './Box.css';
 import boxWhitespaceStyles from './boxWhitespace.css';
+import styles from './Fieldset.css';
+import Flex from './Flex';
 import labelStyles from './Label/InternalLabel.css';
 import formStyles from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
@@ -31,6 +33,7 @@ type Props = {
    * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](https://gestalt.pinterest.systems#Legend-visibility) for more info.
    */
   legendDisplay?: 'visible' | 'hidden';
+  helperText?: string;
 };
 
 /**
@@ -46,6 +49,7 @@ export default function Fieldset({
   legend,
   legendDisplay = 'visible',
   children,
+  helperText,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualRefresh',
@@ -76,7 +80,18 @@ export default function Fieldset({
         <Text size="100">{legend}</Text>
       </legend>
       {children}
-      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
+      {helperText && (
+        <div className={classnames(styles.marginTop)} id={`${id}-helperText`}>
+          <Flex gap={8}>
+            <Flex.Item flex="grow">
+              <Text color="subtle" size="100">
+                {helperText}
+              </Text>
+            </Flex.Item>
+          </Flex>
+        </div>
+      )}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} marginTop text={errorMessage} />}
     </fieldset>
   );
 }

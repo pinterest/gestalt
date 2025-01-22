@@ -36,6 +36,11 @@ type Props = {
    *
    */
   legendDisplay?: 'visible' | 'hidden';
+  /**
+   * Adds an help message below the group of radio buttons.
+   *
+   */
+  helperText?: string;
 };
 
 /**
@@ -49,6 +54,7 @@ function RadioGroup({
   id,
   legend,
   legendDisplay = 'visible',
+  helperText,
 }: Props) {
   // Consume GlobalEventsHandlerProvider
   const { radioGroupHandlers } = useGlobalEventsHandlerContext() ?? {
@@ -61,7 +67,13 @@ function RadioGroup({
 
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
-      <Fieldset errorMessage={errorMessage} id={id} legend={legend} legendDisplay={legendDisplay}>
+      <Fieldset
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        legend={legend}
+        legendDisplay={legendDisplay}
+      >
         <Flex
           direction={direction}
           gap={direction === 'row' ? { row: 4, column: 0 } : { column: 2, row: 0 }}
