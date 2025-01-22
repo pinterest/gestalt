@@ -157,8 +157,8 @@ export default function ColorSchemeProvider({
   const [languageLineHeight, setLanguageLineHeight] = useState(language);
 
   const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const className = id ? `__gestaltTheme${id}` : undefined;

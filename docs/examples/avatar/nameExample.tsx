@@ -2,8 +2,8 @@ import { Avatar, Flex, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
 
 export default function Example() {
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const name = isInVRExperiment ? 'Ayesha Rashad' : 'Shanice Byles';

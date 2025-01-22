@@ -131,8 +131,8 @@ export default function BannerOverlay({
   const isMobileDevice = useDeviceType() === 'mobile';
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
