@@ -1,3 +1,9 @@
+## 169.1.5 (Jan 22, 2025)
+
+### Patch
+
+- DateRange: fix date input border radius when radio group is present (web) ([#3952](https://github.com/pinterest/gestalt/pull/3952)) - [Preview link](https://deploy-preview-3952--gestalt.netlify.app?devexample=true)
+
 ## 169.1.4 (Jan 17, 2025)
 
 ### Patch
