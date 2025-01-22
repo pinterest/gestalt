@@ -271,6 +271,7 @@ function DateRange({
                     key={key}
                     className={classnames(borderStyles.dateFieldSection, {
                       [borderStyles.dateFieldSectionActive]: shouldHighlight,
+                      [borderStyles.dateFieldSectionTopLeftBorder]: !radioGroup,
                     })}
                   >
                     <div
