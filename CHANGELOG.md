@@ -1,3 +1,9 @@
+## 169.1.6 (Jan 22, 2025)
+
+### Patch
+
+- DateRange: fix date selection bug when you disable secondary range ([#3953](https://github.com/pinterest/gestalt/pull/3953)) - [Preview link](https://deploy-preview-3953--gestalt.netlify.app?devexample=true)
+
 ## 169.1.5 (Jan 22, 2025)
 
 ### Patch
