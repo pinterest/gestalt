@@ -3,7 +3,7 @@ import getServerURL from './utils/getServerURL';
 import selectors from './utils/selectors';
 
 test.describe('Masonry: Null items', () => {
-  // Manually configuring the reetries for this flaky test
+  // Manually configuring the retries for this flaky test
   test.describe.configure({retries: 3})
 
   test('should not throw an error when null/undefined items are inserted', async ({ page }) => {
