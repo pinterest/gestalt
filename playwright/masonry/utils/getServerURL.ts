@@ -39,7 +39,7 @@ const getServerURL = (options?: Options | null): string => {
       .join('&');
   }
 
-  return `${process.env.NODE_ENV!=='development' ? BASE_URL : ''}${BASE_PATH}?${serializedOptions}`;
+  return `${process.env.CI ? '' : BASE_URL}${BASE_PATH}?${serializedOptions}`;
 };
 
 export default getServerURL;
