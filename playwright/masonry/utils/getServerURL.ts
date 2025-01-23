@@ -10,20 +10,25 @@ const normalizeValue = (val: boolean | number) => {
 // These are used in docs/pages/integration-test/masonry.tsx
 type Options = {
   constrained?: boolean;
+  darkMode?: boolean;
   deferMount?: boolean;
+  dynamicHeights?: boolean;
+  dynamicHeightsV2?: boolean;
   externalCache?: boolean;
+  experimental?: boolean;
   finiteLength?: boolean;
   flexible?: boolean;
   logWhitespace?: boolean;
   manualFetch?: boolean;
+  multiColTest?: boolean;
   noScroll?: boolean;
   offsetTop?: number;
   realisticPinHeights?: boolean;
   scrollContainer?: boolean;
   twoColItems?: boolean;
-  virtualize?: boolean;
-  virtualBoundsTop?: number;
   virtualBoundsBottom?: number;
+  virtualBoundsTop?: number;
+  virtualize?: boolean;
 };
 
 const getServerURL = (options?: Options | null): string => {
