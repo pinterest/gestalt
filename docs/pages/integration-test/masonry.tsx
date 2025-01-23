@@ -3,6 +3,7 @@ import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry, MasonryV2 } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
+import generateMultiColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateMultiColumnExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
 import getRandomNumberGenerator from '../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator';
 import pinHeights, {
@@ -128,6 +129,20 @@ export default function TestPage({
     };
   }, [deferMountValue]);
 
+  const getInitialItems = () => {
+    if (multiColTestValue) {
+      return generateMultiColumnExampleItems({ name: 'MultiColTest' });
+    }
+    if (realisticPinHeightsValue) {
+      return generateRealisticExampleItems({
+        name: 'InitialPin',
+        pinHeightsSample,
+      });
+    }
+    return generateExampleItems({ name: 'InitialPin' });
+  }
+
+
   return (
     <ColorSchemeProvider colorScheme={darkModeValue ? "dark" : "light"}>
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
@@ -138,14 +153,7 @@ export default function TestPage({
           externalCache={externalCacheValue}
           finiteLength={finiteLengthValue}
           flexible={flexibleValue}
-          initialItems={
-            realisticPinHeightsValue
-              ? generateRealisticExampleItems({
-                  name: 'InitialPin',
-                  pinHeightsSample,
-                })
-              : generateExampleItems({ name: 'InitialPin' })
-          }
+          initialItems={getInitialItems()}
           logWhitespace={logWhitespaceValue}
           manualFetch={manualFetchValue}
           MasonryComponent={experimentalValue ? MasonryV2 : Masonry}
