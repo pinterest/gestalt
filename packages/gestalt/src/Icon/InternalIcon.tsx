@@ -24,6 +24,7 @@ export type IconColor =
 
 type IconName = keyof typeof icons | keyof typeof compactIconsVR;
 type Props = {
+  accessibilityDescribedby?: string;
   accessibilityLabel: string;
   color?: IconColor;
   dataTestId?: string;
@@ -38,16 +39,8 @@ type Props = {
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
 const IconNames: ReadonlyArray<IconName> = Object.keys(icons);
 
-/**
- * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
- *
- * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/foundations/iconography/library) to explore the full icon library.
- *
- * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list.spec.ts-snapshots/Icon-list-chromium-darwin.png)
- * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.ts-snapshots/Icon-list-dark-chromium-darwin.png)
- *
- */
 function InternalIcon({
+  accessibilityDescribedby,
   accessibilityLabel,
   color = 'subtle',
   dangerouslySetSvgPath,
@@ -133,6 +126,7 @@ function InternalIcon({
   return (
     // @ts-expect-error - TS2322 - Type '{ children: Element; "aria-hidden": true | null; "aria-label": string; className: string; height: string | number; role: "img"; viewBox: string; width: string | number; }' is not assignable to type 'SVGProps<SVGSVGElement>'.
     <svg
+      aria-describedby={accessibilityDescribedby}
       aria-hidden={ariaHidden}
       aria-label={accessibilityLabel}
       className={cs}

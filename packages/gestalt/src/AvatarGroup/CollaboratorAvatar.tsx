@@ -4,7 +4,7 @@ import PositioningWrapper from './PositioningWrapper';
 import InternalAvatar from '../Avatar/InternalAvatar';
 
 type Props = BaseStackType & {
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10';
+  color?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   index: number;
   name: string;
   isHovered: boolean;

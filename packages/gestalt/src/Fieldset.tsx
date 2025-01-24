@@ -7,6 +7,7 @@ import formStyles from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import formLabelStyles from './sharedSubcomponents/FormLabel.css';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import whitespaceStyles from './Whitespace.css';
 
 type Props = {
@@ -46,6 +47,11 @@ export default function Fieldset({
   legendDisplay = 'visible',
   children,
 }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   if (errorMessage && id === '') {
     // eslint-disable-next-line no-console
     console.error('Please provide an id property to <Fieldset />');
@@ -59,10 +65,11 @@ export default function Fieldset({
       <legend
         className={classnames(
           labelStyles.label,
-          formLabelStyles.formLabel,
           boxWhitespaceStyles.paddingX0, // Needed to remove the default legend  padding
           {
             [boxStyles.visuallyHidden]: legendDisplay === 'hidden',
+            [formLabelStyles.formLabel]: !isInVRExperiment,
+            [formLabelStyles.vrFormLabel]: isInVRExperiment,
           },
         )}
       >

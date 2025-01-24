@@ -60,6 +60,51 @@ export default function Example() {
             </Box>
           </Flex>
           <Box color="default" padding={1}>
+            <Text>bgColor=transparentDarkBackground</Text>
+          </Box>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="transparentDarkBackground" icon="saved" />
+            <Box color="default" padding={1}>
+              <Text size="100">default</Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="transparentDarkBackground" hovered icon="saved" />
+            <Box color="default" padding={1}>
+              <Text size="100">hovered</Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="transparentDarkBackground" focused icon="saved" />
+            <Box color="default" padding={1}>
+              <Text size="100">focused</Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog active bgColor="transparentDarkBackground" icon="saved" />
+            <Box color="default" padding={1}>
+              <Text size="100">active</Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="transparentDarkBackground" icon="saved" selected />
+            <Box color="default" padding={1}>
+              <Text size="100">selected</Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="transparentDarkBackground" disabled icon="saved" />
+            <Box color="default" padding={1}>
+              <Text size="100">disabled</Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap={2}>
+            <Pog bgColor="transparentDarkBackground" disabled icon="saved" selected />
+            <Box color="default" padding={1}>
+              <Text size="100">disabled selected</Text>
+            </Box>
+          </Flex>
+          <Box color="default" padding={1}>
             <Text>bgColor=white</Text>
           </Box>
           <Flex alignItems="center" gap={2}>

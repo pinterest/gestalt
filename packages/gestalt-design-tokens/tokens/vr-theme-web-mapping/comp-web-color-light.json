@@ -98,7 +98,7 @@
         },
         "tertiary": {
           "default": {
-            "value": "transparent"
+            "value": "{base.color.transparent.value}"
           },
           "hover": {
             "value": "{sema.color.hover.background.wash.default.value}"
@@ -107,7 +107,21 @@
             "value": "{sema.color.pressed.background.wash.default.value}"
           },
           "disabled": {
-            "value": "transparent"
+            "value": "{base.color.transparent.value}"
+          }
+        },
+        "elevation": {
+          "default": {
+            "value": "{sema.color.background.elevation.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.default.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.default.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
           }
         },
         "gray": {
@@ -180,6 +194,20 @@
             "value": "#00000064"
           }
         },
+        "transparentdarkbackground": {
+          "default": {
+            "value": "{base.color.transparent.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.dark.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.wash.dark.value}"
+          },
+          "disabled": {
+            "value": "{sema.color.background.disabled.value}"
+          }
+        },
         "white": {
           "default": {
             "value": "{sema.color.background.default.value}"
@@ -214,7 +242,7 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "value": "{sema.color.background.error.default.value}"
           }
         },
         "disabled": {
@@ -269,18 +297,36 @@
           }
         }
       },
-      "semitransparentdark": {
-        "default": {
-          "value": "{sema.color.background.wash.dark.value}"
+      "iconbutton": {
+        "semitransparentdark": {
+          "default": {
+            "value": "{sema.color.background.wash.dark.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.wash.dark.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.wash.dark.value}"
+          },
+          "disabled": {
+            "default": {
+              "value": "#00000064"
+            },
+            "selected": {
+              "value": "{sema.color.background.disabled.value}"
+            }
+          }
+        }
+      },
+      "indicator": {
+        "value": "{sema.color.background.primary.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
         },
-        "hover": {
-          "value": "{sema.color.hover.background.wash.dark.value}"
-        },
-        "active": {
-          "value": "{sema.color.pressed.background.wash.dark.value}"
-        },
-        "disabled": {
-          "value": "#00000064"
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "switch": {
@@ -450,17 +496,6 @@
       }
     },
     "border": {
-      "badge": {
-        "default": {
-          "value": "{sema.color.border.focus.inner.default.value}"
-        },
-        "light": {
-          "value": "{sema.color.border.focus.inner.light.value}"
-        },
-        "dark": {
-          "value": "{sema.color.border.focus.inner.dark.value}"
-        }
-      },
       "button": {
         "hover": {
           "value": "{sema.color.hover.border.interactive.value}"
@@ -475,7 +510,7 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "value": "{sema.color.background.error.default.value}"
           }
         },
         "disabled": {
@@ -491,6 +526,20 @@
           "hover": {
             "value": "{sema.color.hover.border.interactive.value}"
           }
+        }
+      },
+      "indicator": {
+        "value": "{sema.color.border.inverse.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "#fff"
+        },
+        "secondary": {
+          "value": "#111"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "switch": {

@@ -1,21 +1,25 @@
-import { ComponentProps, ReactElement, Ref, useId, useRef, useState } from 'react';
+import { ComponentProps, ReactElement, useId, useRef, useState } from 'react';
+import classnames from 'classnames';
 import Box from './Box';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
+import focusStyles from './Focus.css';
 import styles from './HelpButton.css';
 import Icon from './Icon';
 import { ESCAPE, TAB } from './keyCodes';
 import Layer from './Layer';
 import Link from './Link';
 import InternalPopover from './Popover/InternalPopover';
+import MaybeTooltip from './sharedSubcomponents/MaybeTooltip';
 import TapArea from './TapArea';
 import Text from './Text';
-import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
+import useInExperiment from './useInExperiment';
 import { CompositeZIndex, FixedZIndex, Indexable } from './zIndex';
 
 type LinkType = {
-  accessibilityLabel?: string;
+  accessibilityLabel?: ComponentProps<typeof Link>['accessibilityLabel'];
   externalLinkIcon?:
     | 'none'
     | 'default'
@@ -23,19 +27,12 @@ type LinkType = {
         color: ComponentProps<typeof Icon>['color'];
         size: ComponentProps<typeof Text>['size'];
       };
-  href: string;
-  onClick?: (arg1: {
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
-    dangerouslyDisableOnNavigation: () => void;
-  }) => void;
-  ref?: Ref<'a'>;
+  href: ComponentProps<typeof Link>['href'];
+  onClick?: ComponentProps<typeof Link>['onClick'];
+  ref?: ComponentProps<typeof Link>['ref'];
   text: string;
-  target?: null | 'self' | 'blank';
+  target?: ComponentProps<typeof Link>['target'];
 };
-
-type OnTapType = (arg1: {
-  event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
-}) => void;
 
 type Props = {
   /**
@@ -66,7 +63,9 @@ type Props = {
   /**
    * Callback fired when HelpIcon is clicked (pressed and released) with a mouse or keyboard.
    */
-  onClick?: OnTapType;
+  onClick?: (arg1: {
+    event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
+  }) => void;
   /**
    * Informational content that's displayed when the user clicks on HelpButton.
    */
@@ -90,18 +89,27 @@ export default function HelpButton({
   text,
   zIndex,
 }: Props) {
-  const tapAreaRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
-  const textRef = useRef<null | HTMLElement>(null);
+  const tapAreaRef = useRef<null | HTMLDivElement>(null);
+  const textRef = useRef<null | HTMLDivElement>(null);
+
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
+
+  const { isFocusVisible } = useFocusVisible();
+
   // Define where the focused content stays
   const [innerModalFocus, setInnerModalFocus] = useState(false);
+
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
   const { colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
 
-  const handlePopoverKeyDown = ({ event }: { event: React.KeyboardEvent<HTMLElement> }) => {
+  const handlePopoverKeyDown: ComponentProps<typeof InternalPopover>['onKeyDown'] = ({ event }) => {
     // Avoid others KeyDown events to listen this call
     if (innerModalFocus) event.stopPropagation();
 
@@ -114,6 +122,7 @@ export default function HelpButton({
         `a[href="${link?.href ?? ''}"]`, // Link query
       ].join(' ,'),
     );
+
     const lastElement = elementsInnerPopover[elementsInnerPopover.length - 1];
     if (innerModalFocus && event.keyCode === TAB && lastElement === event.target) {
       event.preventDefault();
@@ -127,7 +136,7 @@ export default function HelpButton({
     }
   };
 
-  const handleTapAreaKeyDown = ({ event }: { event: React.KeyboardEvent<HTMLDivElement> }) => {
+  const handleTapAreaKeyDown: ComponentProps<typeof TapArea>['onKeyDown'] = ({ event }) => {
     if (event.keyCode === TAB && open) {
       event.preventDefault();
       textRef.current?.focus();
@@ -137,25 +146,18 @@ export default function HelpButton({
     event.stopPropagation();
   };
 
-  const toggleView = () => {
-    setOpen((currVal) => !currVal);
-  };
+  const toggleView = () => setOpen((currVal) => !currVal);
 
-  const onHandleTap = (
-    ...args: ReadonlyArray<{
-      event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>;
-    }>
-  ) => {
-    toggleView();
-    // @ts-expect-error - TS2556 - A spread argument must either have a tuple type or be passed to a rest parameter.
-    onClick?.(...args);
-  };
+  let bgIconColor: ComponentProps<typeof Box>['color'] = isInVRExperiment ? 'default' : 'tertiary';
+  let iconColor: ComponentProps<typeof Icon>['color'] = isInVRExperiment ? 'subtle' : 'inverse';
 
-  const bgIconColor = open || hovered || focused ? 'selected' : 'tertiary';
+  if (!isInVRExperiment && (open || hovered || focused)) {
+    bgIconColor = 'selected';
+  }
 
-  const tooltipZIndex = zIndex ?? new FixedZIndex(1);
-
-  const zIndexWrapper = new CompositeZIndex([tooltipZIndex]);
+  if (isInVRExperiment && (open || hovered || focused)) {
+    iconColor = 'default';
+  }
 
   // Overriding color of `Text` components
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -163,12 +165,9 @@ export default function HelpButton({
     ? styles.textColorOverrideLight
     : styles.textColorOverrideDark;
 
-  const textElement =
-    typeof text === 'string' ? (
-      <Text align="start">{text}</Text>
-    ) : (
-      <span className={textColorOverrideStyles}>{text}</span>
-    );
+  const tooltipZIndex = zIndex ?? new FixedZIndex(1);
+
+  const zIndexWrapper = new CompositeZIndex([tooltipZIndex]);
 
   const popoverElement = (
     <InternalPopover
@@ -191,14 +190,27 @@ export default function HelpButton({
          * `id` - used to tracking children by line 130
          * `tabIndex={0}` - It's used to make the text element as a focusable element
          */}
-        <Box ref={textRef} id={`helpButtonText-${popoverId}`} tabIndex={0}>
-          {textElement}
-        </Box>
+        <div
+          ref={textRef}
+          className={classnames({
+            [focusStyles.hideOutline]: !isFocusVisible,
+            [focusStyles.accessibilityOutline]: !isInVRExperiment && isFocusVisible,
+            [styles.focused]: isInVRExperiment && isFocusVisible,
+          })}
+          id={`helpButtonText-${popoverId}`}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
+        >
+          {typeof text === 'string' ? (
+            <Text align="start">{text}</Text>
+          ) : (
+            <span className={textColorOverrideStyles}>{text}</span>
+          )}
+        </div>
         {link && link?.href && (
-          <Box display="block" marginTop={3} width="100%">
+          <Box display="block" marginTop={isInVRExperiment ? 5 : 3} width="100%">
             <Text>
               <Link
-                // @ts-expect-error - TS2322 - Type 'Ref<"a"> | undefined' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
                 ref={link.ref}
                 accessibilityLabel={link.accessibilityLabel}
                 externalLinkIcon={link.externalLinkIcon}
@@ -221,25 +233,31 @@ export default function HelpButton({
   return (
     // The only purpose of this Flex is to make zIndex work (Tooltip over Popover).
     <Flex alignItems="center" flex="none" justifyContent="center">
-      <Tooltip
-        accessibilityLabel=""
-        idealDirection={idealDirection}
-        text={tooltipMessage}
-        zIndex={tooltipZIndex}
+      <MaybeTooltip
+        disabled={open}
+        tooltip={{
+          idealDirection,
+          text: tooltipMessage,
+          zIndex: tooltipZIndex,
+          accessibilityLabel: '',
+        }}
       >
         <TapArea
-          // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
           ref={tapAreaRef}
           accessibilityControls={popoverId}
           accessibilityExpanded={open}
           accessibilityLabel={accessibilityLabel}
           fullWidth={false}
+          innerFocusColor={isInVRExperiment ? 'default' : undefined}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
           onKeyDown={handleTapAreaKeyDown}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          onTap={onHandleTap}
+          onTap={({ event }) => {
+            toggleView();
+            onClick?.({ event });
+          }}
           role="button"
           rounding="circle"
         >
@@ -252,10 +270,15 @@ export default function HelpButton({
             rounding="circle"
             width={16}
           >
-            <Icon accessibilityLabel="" color="inverse" icon="question-mark" size={8} />
+            <Icon
+              accessibilityLabel=""
+              color={iconColor}
+              icon="question-mark"
+              size={isInVRExperiment ? 16 : 8}
+            />
           </Box>
         </TapArea>
-      </Tooltip>
+      </MaybeTooltip>
       {open &&
         (isWithinFixedContainer ? (
           // This Box is  handling the zIndex work (Tooltip over Popover)

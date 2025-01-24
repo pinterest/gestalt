@@ -21,11 +21,11 @@ export default function Example() {
 
   const collaboratorsVR = [
     {
-      color: '10',
+      color: 10,
       name: 'Sora',
     },
     {
-      color: '04',
+      color: 4,
       name: '🙏🏾',
     },
     {

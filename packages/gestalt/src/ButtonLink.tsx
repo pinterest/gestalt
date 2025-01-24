@@ -46,6 +46,10 @@ type ButtonProps = {
    */
   disabled?: boolean;
   /**
+   * When supplied, the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink. If the value is a string, the string value will define the filename
+   */
+  download?: boolean | string;
+  /**
    * Indicates whether this component is hosted in a light or dark container.
    * Used for improving focus ring color contrast.
    */
@@ -74,6 +78,15 @@ type ButtonProps = {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
+  /**
+   * Callback fired when a mouse pointer moves in a ButtonLink component.
+   */
+  _onMouseEnter?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+  /**
+   * Callback fired when a mouse pointer moves out a ButtonLink component.
+   */
+  _onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+
   /**
    * sm: 32px, md: 40px, lg: 48px
    */
@@ -112,11 +125,15 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     color = 'gray',
     dataTestId,
     disabled = false,
+    download,
     focusColor,
     fullWidth = false,
     iconEnd,
     iconStart,
     onClick,
+    _onMouseEnter,
+    _onMouseLeave,
+
     tabIndex = 0,
     size = 'md',
     text,
@@ -176,6 +193,14 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
         })
       : undefined;
 
+  const handleOnMouseEnter: ComponentProps<typeof InternalLink>['onMouseEnter'] = ({ event }) => {
+    // @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
+    _onMouseEnter?.({ event });
+  };
+  const handleOnMouseLeave: ComponentProps<typeof InternalLink>['onMouseLeave'] = ({ event }) =>
+    // @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
+    _onMouseLeave?.({ event });
+
   return (
     <InternalLink
       ref={innerRef}
@@ -183,10 +208,13 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       colorClass={color}
       dataTestId={dataTestId}
       disabled={disabled}
+      download={download}
       focusColor={focusColor}
       fullWidth={fullWidth}
       href={href}
       onClick={handleClick}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
       rel={rel}
       selected={false}
       size={size}

@@ -7,18 +7,22 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import checked from '../../examples/checkbox/checked';
+import disabled from '../../examples/checkbox/disabled';
 import dontUseForOneSelection from '../../examples/checkbox/dontUseForOneSelection';
 import dontUseNumerousInTableRows from '../../examples/checkbox/dontUseNumerousInTableRows';
 import dontUseToToggleState from '../../examples/checkbox/dontUseToToggleState';
 import dontUseTruncatedText from '../../examples/checkbox/dontUseTruncatedText';
 import dontVerticallyCenterInputs from '../../examples/checkbox/dontVerticallyCenterInputs';
+import error from '../../examples/checkbox/error';
 import errorMessageExample from '../../examples/checkbox/errorMessageExample';
+import indeterminate from '../../examples/checkbox/indeterminate';
 import keepLabelsAndLegendsClear from '../../examples/checkbox/keepLabelsAndLegendsClear';
 import labelVisibilityExample from '../../examples/checkbox/labelVisibilityExample';
 import legendsExample from '../../examples/checkbox/legendsExample';
 import main from '../../examples/checkbox/main';
 import sizeExample from '../../examples/checkbox/sizeExample';
-import stateExample from '../../examples/checkbox/stateExample';
+import unchecked from '../../examples/checkbox/unchecked';
 import useAtStartOfTableRow from '../../examples/checkbox/useAtStartOfTableRow';
 import useForMultiSelection from '../../examples/checkbox/useForMultiSelection';
 import useSingleInForms from '../../examples/checkbox/useSingleInForms';
@@ -266,6 +270,7 @@ If Checkbox is labeled by content elsewhere on the page, or a more complex label
           />
         </MainSection.Subsection>
         <MainSection.Subsection
+          columns={2}
           description={`Checkbox has unchecked, checked, error, indeterminate and disabled states.
 
 Indeterminate is a state that is neither checked nor unchecked — e.g. a "Select all" checkbox when not all items are selected or unselected. Indeterminism is purely presentational - the value of a checkbox and its indeterminism are independent.
@@ -274,10 +279,39 @@ Indeterminate is a state that is neither checked nor unchecked — e.g. a "Selec
         >
           <MainSection.Card
             cardSize="lg"
-            sandpackExample={<SandpackExample code={stateExample} name="State example" />}
+            sandpackExample={
+              <SandpackExample code={unchecked} layout="column" name="Unchecked example" />
+            }
+            title="Unchecked"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={checked} layout="column" name="Checked example" />
+            }
+            title="Checked"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={indeterminate} layout="column" name="Indeterminate example" />
+            }
+            title="Indeterminate"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={disabled} layout="column" name="State example" />
+            }
+            title="Disabled"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={error} layout="column" name="State example" />}
+            title="Error"
           />
         </MainSection.Subsection>
-        <MainSection.Subsection description="Checkbox supports helperText" title="With helperText">
+        <MainSection.Subsection description="Checkbox supports helperText" title="Helper text">
           <MainSection.Card
             cardSize="lg"
             sandpackExample={

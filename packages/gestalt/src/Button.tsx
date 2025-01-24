@@ -323,7 +323,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       <button
         ref={innerRef}
         aria-label={accessibilityLabel}
-        className={baseTypeClasses}
+        className={parentButtonClasses}
         data-test-id={dataTestId}
         disabled={disabled}
         name={name}
@@ -337,17 +337,24 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         onTouchMove={handleTouchMove}
         // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchStart={handleTouchStart}
-        style={compressStyle || undefined}
+        style={isInVRExperiment ? compressStyle || undefined : undefined}
         // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
         tabIndex={disabled ? null : tabIndex}
         type="submit"
       >
-        <InternalButtonContent
-          iconEnd={iconEnd}
-          size={size}
-          text={buttonText}
-          textColor={textColor}
-        />
+        <div className={childrenDivClasses} style={compressStyle || undefined}>
+          {iconEnd || iconStart ? (
+            <InternalButtonContent
+              iconEnd={iconEnd}
+              iconStart={iconStart}
+              size={size}
+              text={buttonText}
+              textColor={textColor}
+            />
+          ) : (
+            buttonText
+          )}
+        </div>
       </button>
     );
   }

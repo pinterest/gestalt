@@ -32,7 +32,7 @@ export default function Example() {
         bgColor="transparent"
         disabled
         icon="share"
-        label="red"
+        label="transparent"
         size="xl"
       />
       <IconButton

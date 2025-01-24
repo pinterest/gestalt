@@ -1,9 +1,8 @@
 import { Cache } from './Cache';
 import { getHeightAndGutter } from './layoutHelpers';
-import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
-import { LoadingStateItem, Position } from './types';
+import { Position } from './types';
 
 const fullWidthLayout = <T>({
   width,
@@ -12,7 +11,6 @@ const fullWidthLayout = <T>({
   minCols = 2,
   measurementCache,
   _getColumnSpanConfig,
-  renderLoadingState,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -22,14 +20,13 @@ const fullWidthLayout = <T>({
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-  earlyBailout?: boolean;
+  earlyBailout?: (columnSpan: number) => number;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
-  renderLoadingState?: boolean;
-}): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) => {
+}): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
   if (width == null) {
     return (items) =>
       items.map(() => ({
@@ -45,13 +42,13 @@ const fullWidthLayout = <T>({
   // original implementation takes with CSS.
   const colguess = Math.floor(width / idealColumnWidth);
   const columnCount = Math.max(Math.floor((width - colguess * gutter) / idealColumnWidth), minCols);
-  const columnWidth = Math.floor(width / columnCount) - gutter;
+  const columnWidth = width / columnCount - gutter;
   const columnWidthAndGutter = columnWidth + gutter;
   const centerOffset = gutter / 2;
 
-  return (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => {
+  return (items: ReadonlyArray<T>) => {
     const heights = new Array<number>(columnCount).fill(0);
-    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -64,9 +61,7 @@ const fullWidthLayout = <T>({
         })
       : items.reduce<Array<any>>((acc, item) => {
           const positions = acc;
-          const height = isLoadingStateItem(item, renderLoadingState)
-            ? item.height
-            : measurementCache.get(item);
+          const height = measurementCache.get(item);
           let position;
 
           if (height == null) {

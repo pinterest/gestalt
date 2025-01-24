@@ -19,14 +19,14 @@ export default function Example() {
         size="xs"
         src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
       />
-      <Avatar color="01" name="Jamie" size="sm" />
+      <Avatar color={1} name="Jamie" size="sm" />
       <Avatar
         name="Sora"
         size="md"
         src="https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg"
         verified
       />
-      <Avatar color="07" name="Ayesha" size="lg" />
+      <Avatar color={7} name="Ayesha" size="lg" />
       <Avatar
         name="Ayesha"
         size="xl"

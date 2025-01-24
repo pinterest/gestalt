@@ -491,6 +491,30 @@
       "keywords": ["dual"]
     },
     {
+      "name": "compact-workflow-status-canceled",
+      "categories": ["Status"],
+      "description": "Indicates an element's state as canceled.",
+      "keywords": ["abandon"]
+    },
+    {
+      "name": "compact-workflow-status-halted",
+      "categories": ["Status"],
+      "description": "Indicates an element's state as halted.",
+      "keywords": ["paused"]
+    },
+    {
+      "name": "compact-workflow-status-in-progress",
+      "categories": ["Status"],
+      "description": "Indicates an element's state as in progress.",
+      "keywords": ["processing"]
+    },
+    {
+      "name": "compact-workflow-status-unstarted",
+      "categories": ["Status"],
+      "description": "Indicates an element's state as unstarted.",
+      "keywords": [""]
+    },
+    {
       "name": "compass",
       "categories": ["Utility and tools"],
       "description": "Indicates directions",
@@ -525,6 +549,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to crop an image",
       "keywords": ["cut", "edit"]
+    },
+    {
+      "name": "crystal-ball",
+      "categories": ["Object"],
+      "description": "Indicates predictions",
+      "keywords": ["predicts", "future", "magic", "sparkles", "trends"]
     },
     {
       "name": "dash",
@@ -1705,6 +1735,12 @@
       "keywords": ["like", "yes", "approve"]
     },
     {
+      "name": "tint",
+      "categories": ["Creation"],
+      "description": "Indicates an ability to change the tint of an image.",
+      "keywords": ["color", "hue", "green", "magenta"]
+    },
+    {
       "name": "trash-can",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to delete items",
@@ -1727,6 +1763,12 @@
       "categories": ["Brand"],
       "description": "Indicates Viber service or feature.",
       "keywords": ["message"]
+    },
+    {
+      "name": "vibrance",
+      "categories": ["Creation"],
+      "description": "Indicates an ability to change the vibrance of an image.",
+      "keywords": ["Keywords: bright", "intensity", "intense"]
     },
     {
       "name": "video-advance-10-seconds",

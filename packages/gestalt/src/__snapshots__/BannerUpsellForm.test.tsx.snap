@@ -45,7 +45,7 @@ exports[`BannerUpsellForm renders 1`] = `
     >
       <button
         aria-label="Submit button"
-        className="button inline accessibilityOutline tapTransition md red enabled"
+        className="button inline accessibilityOutline parentButton"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -59,16 +59,12 @@ exports[`BannerUpsellForm renders 1`] = `
         type="submit"
       >
         <div
-          className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+          className="button inline accessibilityOutline tapTransition md red enabled childrenDiv"
         >
           <div
-            className="FlexItem"
+            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
           >
-            <div
-              className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
-            >
-              Submit
-            </div>
+            Submit
           </div>
         </div>
       </button>

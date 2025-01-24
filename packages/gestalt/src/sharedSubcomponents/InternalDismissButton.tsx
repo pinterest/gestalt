@@ -103,6 +103,7 @@ const InternalDismissIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Pr
           style={compressStyle || undefined}
         >
           <Pog
+            bgColor={iconColor === 'white' ? 'transparentDarkBackground' : undefined}
             focused={isFocusVisible && isFocused}
             hovered={isHovered}
             icon="cancel"

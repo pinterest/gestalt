@@ -98,13 +98,13 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
           accessibilityExpanded={accessibilityExpanded}
           accessibilityLabel={accessibilityLabel}
           accessibilityPopupRole={accessibilityPopupRole}
-          bgColor="transparent"
+          bgColor={isInVRExperiment ? 'elevation' : 'transparent'}
           dangerouslySetSvgPath={dangerouslySetSvgPath}
           disabled={disabled}
           icon={icon}
           onClick={onClick}
           selected={selected}
-          size="xl"
+          size={isInVRExperiment ? 56 : 'xl'}
           tooltip={tooltip}
         />
       </Box>

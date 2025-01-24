@@ -61,7 +61,7 @@ export type Props = {
    */
   label?: string;
   /**
-   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
+   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more. Type is Locale from 'date-fns/locale'.
    */
   localeData?: Locale;
   /**
@@ -85,7 +85,10 @@ export type Props = {
   /**
    * Callback triggered when the user selects a date.
    */
-  onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: Date | null }) => void;
+  onChange: (arg1: {
+    event: React.MouseEvent<HTMLElement, MouseEvent> | React.KeyboardEvent<HTMLElement> | undefined;
+    value: Date | null;
+  }) => void;
   /**
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */

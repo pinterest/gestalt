@@ -148,12 +148,14 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           alignItems="center"
           color="transparent"
           display={!iconEnd ? 'flex' : 'none'}
-          justifyContent="center"
+          justifyContent="end"
+          marginStart={2}
+          minWidth={12}
         >
           {isSelectedItem && !iconEnd ? (
             <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
           ) : (
-            <Box width={12} />
+            <Box minWidth={12} />
           )}
         </Box>
         {iconEnd && (

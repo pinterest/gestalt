@@ -1,4 +1,5 @@
-import { Children, ComponentProps, Fragment, ReactElement } from 'react';
+import { cloneElement, ComponentProps, Fragment, ReactElement, useRef } from 'react';
+import useIsParagraph from './BannerSlim/useIsParagraph';
 import Box from './Box';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
@@ -9,6 +10,7 @@ import IconButton from './IconButton';
 import Link from './Link';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 
 type HelperLinkType = {
   accessibilityLabel: string;
@@ -47,20 +49,28 @@ type PrimaryActionType =
       rel?: 'none' | 'nofollow';
       role: 'link';
       target?: null | 'self' | 'blank';
+      isInVRExperiment?: boolean;
     }
   | {
       accessibilityLabel: string;
+      isInVRExperiment?: boolean;
       disabled?: boolean;
       label: string;
       onClick: ComponentProps<typeof Button>['onClick'];
       role?: 'button';
     };
 
-function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: PrimaryActionType) {
+function PrimaryAction({
+  accessibilityLabel,
+  disabled,
+  label,
+  isInVRExperiment,
+  ...props
+}: PrimaryActionType) {
   return props.role === 'link' ? (
     <ButtonLink
       accessibilityLabel={accessibilityLabel}
-      color="white"
+      color={isInVRExperiment ? 'red' : 'white'}
       disabled={disabled}
       fullWidth
       href={props.href}
@@ -73,7 +83,7 @@ function PrimaryAction({ accessibilityLabel, disabled, label, ...props }: Primar
   ) : (
     <Button
       accessibilityLabel={accessibilityLabel}
-      color="white"
+      color={isInVRExperiment ? 'red' : 'white'}
       disabled={disabled}
       fullWidth
       onClick={props.onClick}
@@ -142,6 +152,11 @@ export default function BannerSlim({
   primaryAction,
   type = 'neutral',
 }: Props) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualRefresh',
+    mwebExperimentName: 'web_gestalt_visualRefresh',
+  });
+
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
 
@@ -193,6 +208,11 @@ export default function BannerSlim({
   // Buttons not allowed on compact BannerSlims
   const shouldShowButtons = !isBare && (primaryAction || onDismiss);
 
+  const referenceRef = useRef<null | HTMLDivElement>(null);
+  const targetRef = useRef<null | HTMLDivElement>(null);
+
+  const isParagraph = useIsParagraph({ referenceRef, targetRef });
+
   return (
     <Box
       alignItems="center"
@@ -200,9 +220,10 @@ export default function BannerSlim({
       direction="column"
       display="flex"
       mdDirection="row"
-      padding={isBare ? 0 : 4}
-      paddingY={isBare ? 1 : 0}
+      paddingX={isBare ? 0 : 4}
+      paddingY={isBare ? 0 : 4}
       rounding={4}
+      smPaddingY={isBare ? 1 : 4}
       width="100%"
     >
       <Flex
@@ -213,12 +234,12 @@ export default function BannerSlim({
         width="100%"
       >
         {!isDefault && (
-          <Flex.Item alignSelf={shouldShowButtons ? undefined : 'start'}>
+          <Flex.Item alignSelf={isParagraph ? 'start' : undefined}>
             <Icon
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.iconColor}
               icon={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.icon}
-              size={16}
+              size={isInVRExperiment ? 20 : 16}
             />
           </Flex.Item>
         )}
@@ -230,21 +251,25 @@ export default function BannerSlim({
             }}
           >
             {typeof message === 'string' ? (
-              <Text inline>
-                {message}
-                {helperLink ? (
-                  <Fragment>
-                    {' '}
-                    <HelperLink {...helperLink} />
-                  </Fragment>
-                ) : null}
-              </Text>
+              <div>
+                <Text ref={referenceRef} inline />
+                <Text ref={targetRef} inline>
+                  {message}
+                  {helperLink ? (
+                    <Fragment>
+                      {' '}
+                      <HelperLink {...helperLink} />
+                    </Fragment>
+                  ) : null}
+                </Text>
+              </div>
             ) : null}
-            {typeof message !== 'string' &&
-            // @ts-expect-error - TS2339
-            Children.only<ReactElement>(message).type.displayName === 'Text'
-              ? message
-              : null}
+            {message && typeof message !== 'string' ? (
+              <div>
+                <Text ref={referenceRef} inline />
+                {cloneElement(message, { ref: targetRef })}
+              </div>
+            ) : null}
           </Box>
         </Flex.Item>
 
@@ -253,7 +278,7 @@ export default function BannerSlim({
             <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
               {primaryAction && (
                 <Box display="none" flex="none" mdDisplay="flex">
-                  <PrimaryAction {...primaryAction} />
+                  <PrimaryAction isInVRExperiment={isInVRExperiment} {...primaryAction} />
                 </Box>
               )}
 
@@ -272,7 +297,7 @@ export default function BannerSlim({
       </Flex>
       {!isBare && primaryAction && (
         <Box alignSelf="end" display="flex" flex="none" marginTop={4} mdDisplay="none">
-          <PrimaryAction {...primaryAction} />
+          <PrimaryAction isInVRExperiment={isInVRExperiment} {...primaryAction} />
         </Box>
       )}
     </Box>

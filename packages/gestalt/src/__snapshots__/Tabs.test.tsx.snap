@@ -213,14 +213,9 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle primary"
-                  style={
-                    Object {
-                      "height": 6,
-                      "marginTop": "1px",
-                      "width": 6,
-                    }
-                  }
+                  aria-label="This tab is displaying a notification indicator"
+                  className="notification placementMiddle"
+                  role="status"
                 />
               </div>
             </div>
@@ -309,14 +304,9 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
                 className="FlexItem"
               >
                 <div
-                  className="box circle primary"
-                  style={
-                    Object {
-                      "height": 6,
-                      "marginTop": "1px",
-                      "width": 6,
-                    }
-                  }
+                  aria-label="This tab is displaying a notification indicator"
+                  className="notification placementMiddle"
+                  role="status"
                 />
               </div>
             </div>
