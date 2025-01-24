@@ -30,6 +30,8 @@ const flipOnRtlIconNames: ReadonlyArray<IconName | undefined> = Object.freeze([
   'speech-ellipsis',
   'switch-account',
   'text-size',
+  'redo'
+  'undo',
   'visit',
 ]);
 
