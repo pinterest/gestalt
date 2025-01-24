@@ -290,9 +290,8 @@ export default function BannerUpsell({
           )}
         </Box>
       </Box>
-
+      
       {/*
-
       MD BREAKPOINT
       */}
       <Box
