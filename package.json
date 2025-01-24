@@ -1,13 +1,12 @@
 {
   "private": true,
   "workspaces": [
-    "docs",
     "packages/*"
   ],
   "dependencies": {
     "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "stylelint-value-no-unknown-custom-properties": "5.0.0"
   },
   "devDependencies": {
@@ -85,7 +84,7 @@
     "prettier": "2.8.0",
     "react-docgen": "^6.0.4",
     "react-lazy-hydration": "^0.1.0",
-    "react-test-renderer": "^18.1.0",
+    "react-test-renderer": "^19.0.0",
     "rollup": "^2.79.2",
     "semver": "^7.5.3",
     "shellcheck": "^1.1.0",
