@@ -1,3 +1,9 @@
+## 169.2.2 (Jan 24, 2025)
+
+### Patch
+
+- Icon: Add Re-do and Undo to RTL ([#3957](https://github.com/pinterest/gestalt/pull/3957)) - [Preview link](https://deploy-preview-3957--gestalt.netlify.app?devexample=true)
+
 ## 169.2.1 (Jan 22, 2025)
 
 ### Patch
