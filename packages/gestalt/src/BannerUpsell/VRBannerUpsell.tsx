@@ -37,15 +37,17 @@ type UpsellActionProps = {
   data: ActionDataType;
   stacked?: boolean;
   type: string;
+  size?: string;
 };
 
-function UpsellAction({ data, stacked, type }: UpsellActionProps) {
+function UpsellAction({ data, stacked, type, size }: UpsellActionProps) {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label } = data;
 
   return (
     <Box
       alignItems="center"
+      dangerouslySetInlineStyle={size === 'sm' ? { __style: { width: '50%' } } : undefined}
       display="block"
       justifyContent="center"
       marginTop={type === 'secondary' && stacked ? 2 : undefined}
@@ -63,7 +65,7 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps) {
           href={data.href ?? ''}
           onClick={data.onClick}
           rel={data.rel}
-          size="lg"
+          size={size === 'sm' ? 'md' : 'lg'}
           target={data.target}
           text={label}
         />
@@ -74,7 +76,7 @@ function UpsellAction({ data, stacked, type }: UpsellActionProps) {
           disabled={disabled}
           fullWidth
           onClick={data.onClick}
-          size="lg"
+          size={size === 'sm' ? 'md' : 'lg'}
           text={label}
         />
       )}
@@ -185,28 +187,30 @@ export default function BannerUpsell({
       color={isDarkMode ? 'elevationFloating' : 'default'}
       direction="column"
       display="flex"
-      paddingX={6}
-      paddingY={6}
+      paddingX={5}
+      paddingY={5}
       position="relative"
       rounding={4}
-      smDirection="row"
-      smPadding={8}
-      smPaddingX={8}
     >
       {/*
             SM BREAKPOINT
       */}
-      <Box display="block" lgDisplay="none" smDisplay="none" width="100%" wrap>
+      <Box
+        display="block"
+        lgDisplay="none"
+        paddingX={1}
+        paddingY={5}
+        smDisplay="none"
+        width="100%"
+        wrap
+      >
         <Box
           alignItems="start"
           direction="column"
           display="flex"
           flex={children ? 'grow' : 'shrink'}
           justifyContent="center"
-          marginBottom={primaryAction || secondaryAction ? 4 : undefined}
           smDirection="row"
-          smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
-          smPaddingY={3}
         >
           <Box
             alignItems="center"
@@ -262,13 +266,23 @@ export default function BannerUpsell({
             )}
           </Box>
           {!children && hasActions && (
-            <Box direction="row" display="flex" margin="auto" marginStart="auto" paddingY={3}>
+            <Box
+              dangerouslySetInlineStyle={{ __style: { width: '100%' } }}
+              direction="row"
+              display="flex"
+              marginTop={5}
+            >
               {secondaryAction && responsiveMinWidth !== 'xs' && (
-                <UpsellAction data={secondaryAction} type="secondary" />
+                <UpsellAction data={secondaryAction} size="sm" type="secondary" />
               )}
-              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+              {primaryAction && <UpsellAction data={primaryAction} size="sm" type="primary" />}
               {secondaryAction && responsiveMinWidth === 'xs' && (
-                <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+                <UpsellAction
+                  data={secondaryAction}
+                  size="sm"
+                  stacked={!secondaryAction}
+                  type="secondary"
+                />
               )}
             </Box>
           )}
@@ -441,12 +455,7 @@ export default function BannerUpsell({
             )}
           </Box>
           {!children && hasActions && (
-            <Box
-              direction="row"
-              display="flex"
-              margin="auto"
-              marginStart="auto"
-            >
+            <Box direction="row" display="flex" margin="auto" marginStart="auto">
               {secondaryAction && responsiveMinWidth !== 'xs' && (
                 <UpsellAction data={secondaryAction} type="secondary" />
               )}
