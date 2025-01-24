@@ -4,8 +4,12 @@ export default function Example() {
   return (
     <Box padding={4}>
       <Flex gap={6} height="100%" width="100%" wrap>
-        {['gray', 'red', 'transparent'].map((color) => {
-          const colorCopy: 'gray' | 'red' | 'transparent' = color as 'gray' | 'red' | 'transparent';
+        {['gray', 'red', 'transparent', 'dark'].map((color) => {
+          const colorCopy: 'gray' | 'red' | 'transparent' | 'dark' = color as
+            | 'gray'
+            | 'red'
+            | 'transparent'
+            | 'dark';
 
           return (
             <Flex key={color} direction="column" gap={2}>

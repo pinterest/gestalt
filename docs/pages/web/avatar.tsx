@@ -24,8 +24,8 @@ import verifiedExample from '../../examples/avatar/verifiedExample';
 
 export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   return (

@@ -206,6 +206,12 @@ function DateRange({
     if (dateRangeHandlers?.onRender) dateRangeHandlers?.onRender();
   }, [dateRangeHandlers]);
 
+  useEffect(() => {
+    if (secondaryDateValue === undefined) {
+      setSelectedRange(DateRangeType.Primary);
+    }
+  }, [secondaryDateValue]);
+
   if (!dateValue.startDate && dateValue.endDate) {
     onDateChange({ value: null }, { value: null });
   }
@@ -265,12 +271,14 @@ function DateRange({
                 const { startDate, endDate } = dateValues;
                 const isInputSelected = selectedRange === key;
                 const shouldHighlight = secondaryDateValue && isInputSelected;
+                const multipleRanges = dateInputs.length > 1;
 
                 return (
                   <div
                     key={key}
                     className={classnames(borderStyles.dateFieldSection, {
                       [borderStyles.dateFieldSectionActive]: shouldHighlight,
+                      [borderStyles.dateFieldSectionTopLeftBorder]: !radioGroup,
                     })}
                   >
                     <div
@@ -278,7 +286,7 @@ function DateRange({
                         [borderStyles.dateFieldSectionLeftBorder]: shouldHighlight,
                       })}
                     />
-                    <TapArea disabled={false} onTap={() => setSelectedRange(key)}>
+                    <TapArea disabled={!multipleRanges} onTap={() => setSelectedRange(key)}>
                       <Flex gap={3}>
                         <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
                           <InternalDateField

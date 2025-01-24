@@ -201,3 +201,27 @@ a.lgVr:focus {
 .white:active {
   background-color: var(--color-background-button-white-active);
 }
+
+.light {
+  background-color: var(--color-background-light);
+}
+
+.light:hover {
+  background-color: var(--color-background-button-light-hover);
+}
+
+.light:active {
+  background-color: var(--color-background-button-light-active);
+}
+
+.dark {
+  background-color: var(--color-background-dark);
+}
+
+.dark:hover {
+  background-color: var(--color-background-button-dark-hover);
+}
+
+.dark:active {
+  background-color: var(--color-background-button-dark-active);
+}

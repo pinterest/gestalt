@@ -17,8 +17,8 @@ export default function AccessibilityLinkActionIcon({ size, color, icon = 'visit
   const { accessibilityNewTabLabel, accessibilityDownloadLabel } = useDefaultLabelContext('Link');
 
   const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const classNames = classnames(

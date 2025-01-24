@@ -20,6 +20,8 @@ const DEFAULT_TEXT_COLORS = {
   semiTransparentWhite: 'default',
   transparentWhiteText: 'inverse',
   white: 'default',
+  light: 'dark',
+  dark: 'light',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -159,8 +161,8 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   useImperativeHandle(ref, () => innerRef.current);
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');

@@ -73,8 +73,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
     const { nextMonth, previousMonth } = useDefaultLabel('DatePicker');
 
     const isInVRExperiment = useDangerouslyInGestaltExperiment({
-      webExperimentName: 'web_gestalt_visualRefresh',
-      mwebExperimentName: 'web_gestalt_visualRefresh',
+      webExperimentName: 'web_gestalt_visualrefresh',
+      mwebExperimentName: 'web_gestalt_visualrefresh',
     });
     // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
     const [uncontrolledValue, setUncontrolledValue] = useState<Date | null | undefined>(null);
