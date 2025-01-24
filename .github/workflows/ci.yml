@@ -28,6 +28,10 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Install docs dependencies
+        run: |
+          cd docs
+          yarn install --frozen-lockfile
       - name: Build
         run: yarn build
       - name: Run tests
