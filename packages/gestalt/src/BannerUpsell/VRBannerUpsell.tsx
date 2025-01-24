@@ -187,6 +187,8 @@ export default function BannerUpsell({
       color={isDarkMode ? 'elevationFloating' : 'default'}
       direction="column"
       display="flex"
+      mdPaddingX={8}
+      mdPaddingY={8}
       paddingX={5}
       paddingY={5}
       position="relative"
