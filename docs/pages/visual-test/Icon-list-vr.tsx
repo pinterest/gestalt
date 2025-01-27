@@ -4,7 +4,7 @@ import icons from '../../../packages/gestalt/src/icons-vr-theme/index';
 export default function Snapshot() {
   return (
     <ExperimentProvider
-      value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+      value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
     >
       <ColorSchemeProvider colorScheme="light">
         <Box color="default" height={2000} width={2000}>

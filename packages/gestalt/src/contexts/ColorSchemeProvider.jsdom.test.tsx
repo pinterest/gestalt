@@ -115,7 +115,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh light mode theme when specified', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light">
           <ThemeAwareComponent />
@@ -130,7 +130,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh dark mode theme when specified', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="dark">
           <ThemeAwareComponent />
@@ -145,7 +145,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh with tall line height', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light" language="tall">
           <ThemeAwareComponent />
@@ -160,7 +160,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh with ck line height', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light" language="ck">
           <ThemeAwareComponent />
@@ -175,7 +175,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh with ja line height', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light" language="ja">
           <ThemeAwareComponent />
@@ -190,7 +190,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh with th line height', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light" language="th">
           <ThemeAwareComponent />
@@ -205,7 +205,7 @@ describe('visual refresh tokens', () => {
   it('uses visual refresh with vi line height', () => {
     const { container } = render(
       <ExperimentProvider
-        value={{ 'web_gestalt_visualRefresh': { anyEnabled: true, group: 'enabled' } }}
+        value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light" language="vi">
           <ThemeAwareComponent />

@@ -33,8 +33,8 @@ const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
   const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   return (

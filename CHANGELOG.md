@@ -1,3 +1,33 @@
+## 169.2.2 (Jan 24, 2025)
+
+### Patch
+
+- Icon: Add Re-do and Undo to RTL ([#3957](https://github.com/pinterest/gestalt/pull/3957)) - [Preview link](https://deploy-preview-3957--gestalt.netlify.app?devexample=true)
+
+## 169.2.1 (Jan 22, 2025)
+
+### Patch
+
+- Internal: renaming Visual Refresh experiment name to snake_case ([#3955](https://github.com/pinterest/gestalt/pull/3955)) - [Preview link](https://deploy-preview-3955--gestalt.netlify.app?devexample=true)
+
+## 169.2.0 (Jan 22, 2025)
+
+### Minor
+
+- Button: new variants ([#3931](https://github.com/pinterest/gestalt/pull/3931)) - [Preview link](https://deploy-preview-3931--gestalt.netlify.app?devexample=true)
+
+## 169.1.6 (Jan 22, 2025)
+
+### Patch
+
+- DateRange: fix date selection bug when you disable secondary range ([#3953](https://github.com/pinterest/gestalt/pull/3953)) - [Preview link](https://deploy-preview-3953--gestalt.netlify.app?devexample=true)
+
+## 169.1.5 (Jan 22, 2025)
+
+### Patch
+
+- DateRange: fix date input border radius when radio group is present (web) ([#3952](https://github.com/pinterest/gestalt/pull/3952)) - [Preview link](https://deploy-preview-3952--gestalt.netlify.app?devexample=true)
+
 ## 169.1.4 (Jan 17, 2025)
 
 ### Patch
