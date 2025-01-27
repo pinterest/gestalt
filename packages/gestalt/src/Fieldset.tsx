@@ -80,7 +80,7 @@ export default function Fieldset({
         <Text size="100">{legend}</Text>
       </legend>
       {children}
-      {helperText && isInVRExperiment && (
+      {helperText && (
         <div className={classnames(styles.marginTop)} id={`${id}-helperText`}>
           <Flex gap={8}>
             <Flex.Item flex="grow">
