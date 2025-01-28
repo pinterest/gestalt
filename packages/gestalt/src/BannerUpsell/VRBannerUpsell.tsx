@@ -233,8 +233,6 @@ export default function BannerUpsell({
                     <Box
                       display="flex"
                       flex="none"
-                      marginBottom={4}
-                      smMarginBottom={0}
                       width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
                     >
                       <Mask
