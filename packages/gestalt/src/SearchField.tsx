@@ -117,7 +117,8 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     mwebExperimentName: 'web_gestalt_visualRefresh',
   });
 
-  const { accessibilityClearButtonLabel as accessibilityDefaultClearButtonLabel } = useDefaultLabelContext('SearchField');
+  const { accessibilityClearButtonLabel: accessibilityDefaultClearButtonLabel } =
+    useDefaultLabelContext('SearchField');
 
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
@@ -245,7 +246,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
         {hasValue && (
           <div className={styles.clear}>
             <IconButton
-              accessibilityLabel={accessibilityClearButtonLabel ?? accessibilityDefaultClearButtonLabel }
+              accessibilityLabel={
+                accessibilityClearButtonLabel ?? accessibilityDefaultClearButtonLabel
+              }
               bgColor="transparent"
               icon="cancel"
               onClick={({ event }) => {
