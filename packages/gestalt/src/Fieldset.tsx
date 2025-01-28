@@ -2,11 +2,10 @@ import { ReactNode } from 'react';
 import classnames from 'classnames';
 import boxStyles from './Box.css';
 import boxWhitespaceStyles from './boxWhitespace.css';
-import styles from './Fieldset.css';
-import Flex from './Flex';
 import labelStyles from './Label/InternalLabel.css';
 import formStyles from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
+import FormHelperText from './sharedSubcomponents/FormHelperText';
 import formLabelStyles from './sharedSubcomponents/FormLabel.css';
 import Text from './Text';
 import useInExperiment from './useInExperiment';
@@ -80,17 +79,17 @@ export default function Fieldset({
         <Text size="100">{legend}</Text>
       </legend>
       {children}
+
       {helperText && (
-        <div className={classnames(styles.marginTop)} id={`${id}-helperText`}>
-          <Flex gap={8}>
-            <Flex.Item flex="grow">
-              <Text color="subtle" size="100">
-                {helperText}
-              </Text>
-            </Flex.Item>
-          </Flex>
-        </div>
+        <FormHelperText
+          disabled={false}
+          id={`${id}-helperText`}
+          marginTop
+          noPadding
+          text={helperText}
+        />
       )}
+
       {errorMessage && (
         <FormErrorMessage id={`${id}-error`} marginTop={isInVRExperiment} text={errorMessage} />
       )}
