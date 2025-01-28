@@ -98,6 +98,9 @@ describe('useDefaultLabelContext', () => {
             iconAccessibilityLabelWarning: 'Warning',
             iconAccessibilityLabelSuccess: 'Success',
           },
+          SearchField: {
+            accessibilityClearButtonLabel: 'Clear input',
+          },
           Spinner: {
             accessibilityLabel: 'Loading',
           },
