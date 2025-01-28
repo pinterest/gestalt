@@ -7,6 +7,7 @@ import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Flex from '../Flex';
 import Heading from '../Heading';
 import IconButton from '../IconButton';
 import Image from '../Image';
@@ -49,9 +50,9 @@ function UpsellAction({ data, stacked, type, size }: UpsellActionProps) {
       alignItems="center"
       dangerouslySetInlineStyle={size === 'sm' ? { __style: { width: '50%' } } : undefined}
       display="block"
-      justifyContent="center"
+      justifyContent={size === 'sm' ? undefined : 'center'}
       marginTop={type === 'secondary' && stacked ? 2 : undefined}
-      paddingX={1}
+      paddingX={size === 'sm' ? undefined : 1}
       smDisplay="flex"
       smMarginBottom="auto"
       smMarginTop="auto"
@@ -235,16 +236,18 @@ export default function BannerUpsell({
                       flex="none"
                       width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
                     >
-                      <Mask
-                        rounding={imageData.mask?.rounding || 0}
-                        wash={imageData.mask?.wash || false}
-                        width={48}
-                      >
-                        {imageData.component}
-                      </Mask>
-                      <Heading align="start" size="400">
-                        {title}
-                      </Heading>
+                      <Flex gap={3}>
+                        <Mask
+                          rounding={imageData.mask?.rounding || 0}
+                          wash={imageData.mask?.wash || false}
+                          width={32}
+                        >
+                          {imageData.component}
+                        </Mask>
+                        <Heading align="start" size="400">
+                          {title}
+                        </Heading>
+                      </Flex>
                     </Box>
                   )}
                 </Box>
