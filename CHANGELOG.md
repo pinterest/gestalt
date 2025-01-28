@@ -1,3 +1,9 @@
+## 169.2.3 (Jan 28, 2025)
+
+### Patch
+
+- Masonry: Fix integration tests ([#3956](https://github.com/pinterest/gestalt/pull/3956)) - [Preview link](https://deploy-preview-3956--gestalt.netlify.app?devexample=true)
+
 ## 169.2.2 (Jan 24, 2025)
 
 ### Patch
