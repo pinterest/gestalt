@@ -37,6 +37,7 @@ type Props = {
   labelDisplay?: 'visible' | 'hidden';
   onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
+  onClear?: () => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
@@ -54,6 +55,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
     label,
     labelDisplay,
     onBlur,
+    onClear,
     onChange,
     onClick,
     onFocus,
@@ -230,6 +232,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                 innerRef?.current?.focus();
                 // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                 onChange({ value: '', event });
+                onClear?.()
               }}
               rounding={2}
               tapStyle="compress"
