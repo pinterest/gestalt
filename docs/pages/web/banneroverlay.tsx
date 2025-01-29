@@ -5,7 +5,6 @@ import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
-import avatar from '../../examples/banneroverlay/avatar';
 import callToAction from '../../examples/banneroverlay/callToAction';
 import ctaDismiss from '../../examples/banneroverlay/ctaDismiss';
 import desktop from '../../examples/banneroverlay/desktop';
@@ -133,10 +132,9 @@ Icons and thumbnails on BannerOverlay are purely decorative, and can therefore h
       <MainSection name="Variants">
         <MainSection.Subsection
           columns={2}
-          description={`BannerOverlay supports images, icons and avatars as thumbnails.
+          description={`BannerOverlay supports images, icons as thumbnails.
 
 - Image: With an image for Pin or Board actions, or the Pinterest logo.
-- Avatar: With an Avatar for Profile or Pinner-related messaging.
 - Icon: For when an icon is needed to represent content that isn’t a pin or a profile.
           `}
           title="Thumbnail"
@@ -146,11 +144,7 @@ Icons and thumbnails on BannerOverlay are purely decorative, and can therefore h
             sandpackExample={<SandpackExample code={image} layout="column" name="Image" />}
             title="Image"
           />
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={<SandpackExample code={avatar} layout="column" name="avatar" />}
-            title="Avatar"
-          />
+
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={icon} layout="column" name="icon" />}
