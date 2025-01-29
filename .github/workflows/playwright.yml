@@ -22,7 +22,7 @@ jobs:
           node-version: 20
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile && cd docs && yarn install && cd ..
       - name: Install Playwright
         run: npx playwright install --with-deps chromium
       - name: Run build
