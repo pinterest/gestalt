@@ -141,7 +141,7 @@
     "playwright:test-masonry-debug": "PWDEBUG=1 npx playwright test --config=playwright/playwright.config.ts --retries 0",
     "playwright:update-visual-test": "npx playwright test --config=playwright/playwright.config.ts",
     "precommit": "lint-staged",
-    "preinstall": "yarn --cwd docs install",
+    "preinstall": "yarn --cwd docs install --verbose",
     "prettier": "prettier",
     "slack-generate:post": "./scripts/generateSlackBlockKitPost.js",
     "start": "netlify dev -c \"yarn dev\"",
