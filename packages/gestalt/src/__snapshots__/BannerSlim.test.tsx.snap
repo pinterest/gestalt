@@ -45,16 +45,17 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
           }
         }
       >
-        <div>
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          />
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            test
-          </span>
-        </div>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          test
+        </span>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
       </div>
     </div>
   </div>
@@ -84,45 +85,43 @@ exports[`BannerSlim renders complex message 1`] = `
       <div
         className="box"
       >
-        <div>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          The campaign
+           
           <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          />
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
-            The campaign
-             
-            <span
-              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
-            >
-              Back to School
-            </span>
-             
-            is regularly hitting its
-             
-            <a
-              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
-              href="http://www.pinterest.com"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
-            >
-              daily cap
-            </a>
-            . Consider raising daily caps to increase scale for a similar CPC and CTR.
+            Back to School
           </span>
-        </div>
+           
+          is regularly hitting its
+           
+          <a
+            className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
+            href="http://www.pinterest.com"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            rel=""
+          >
+            daily cap
+          </a>
+          . Consider raising daily caps to increase scale for a similar CPC and CTR.
+        </span>
       </div>
     </div>
   </div>
@@ -152,16 +151,17 @@ exports[`BannerSlim renders neutral type with message 1`] = `
       <div
         className="box"
       >
-        <div>
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          />
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            test
-          </span>
-        </div>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          test
+        </span>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
       </div>
     </div>
   </div>
@@ -213,16 +213,17 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
           }
         }
       >
-        <div>
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          />
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            test
-          </span>
-        </div>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          test
+        </span>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
       </div>
     </div>
   </div>
@@ -252,16 +253,17 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
       <div
         className="box"
       >
-        <div>
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          />
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          >
-            test
-          </span>
-        </div>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          test
+        </span>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
       </div>
     </div>
     <div
@@ -410,41 +412,42 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
       <div
         className="box"
       >
-        <div>
-          <span
-            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-          />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        >
+          test
+           
           <span
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
-            test
-             
-            <span
-              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+            <a
+              aria-label="Learn more Pinterest.com"
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
+              href="http://www.pinterest.com"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
             >
-              <a
-                aria-label="Learn more Pinterest.com"
-                className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
-                href="http://www.pinterest.com"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyPress={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                rel=""
-              >
-                Learn more
-              </a>
-            </span>
+              Learn more
+            </a>
           </span>
-        </div>
+        </span>
+        <span
+          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+        />
       </div>
     </div>
   </div>

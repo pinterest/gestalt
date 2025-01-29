@@ -251,7 +251,7 @@ export default function BannerSlim({
             }}
           >
             {typeof message === 'string' ? (
-              <div>
+              <Fragment>
                 <Text ref={referenceRef} inline />
                 <Text ref={targetRef} inline>
                   {message}
@@ -262,14 +262,12 @@ export default function BannerSlim({
                     </Fragment>
                   ) : null}
                 </Text>
-              </div>
+              </Fragment>
             ) : null}
-            {message && typeof message !== 'string' ? (
-              <div>
-                <Text ref={referenceRef} inline />
-                {cloneElement(message, { ref: targetRef })}
-              </div>
-            ) : null}
+            <Fragment>
+              <Text ref={referenceRef} inline />
+              {typeof message !== 'string' && cloneElement(message, { ref: targetRef })}
+            </Fragment>
           </Box>
         </Flex.Item>
 
