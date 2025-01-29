@@ -314,7 +314,7 @@ export default function BannerOverlay({
           width={`calc(100% - ${TOKEN_SPACE_800}`}
           zIndex={zIndex}
         >
-          <Flex alignItems='center' gap={4}>
+          <Flex alignItems="center" gap={4}>
             {thumbnail?.image && checkDisplayName(thumbnail.image, 'Image') ? (
               <ImageThumbnail thumbnail={thumbnail.image} />
             ) : null}
