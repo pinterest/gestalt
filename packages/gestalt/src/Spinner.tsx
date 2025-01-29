@@ -1,12 +1,9 @@
-import { useId } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Flex from './Flex';
-import InternalIcon from './Icon/InternalIcon';
+import Icon from './Icon';
 import styles from './Spinner.css';
 import VRSpinner from './Spinner/VRSpinner';
-import TextUI from './TextUI';
 import useInExperiment from './useInExperiment';
 
 const SIZE_NAME_TO_PIXEL = {
@@ -29,10 +26,6 @@ type Props = {
    */
   delay?: boolean;
   /**
-   * Adds a label under the spinning animation.
-   */
-  label?: string;
-  /**
    * Indicates if Spinner should be visible. Controlling the component with this prop ensures the outro animation is played. If outro animation is not intended, prefer conditional rendering.
    */
   show: boolean;
@@ -52,12 +45,10 @@ export default function Spinner({
   accessibilityLabel,
   color = 'subtle',
   delay = true,
-  label,
   show,
   size = 'md',
 }: Props) {
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
-  const id = useId();
 
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
@@ -68,38 +59,27 @@ export default function Spinner({
     return (
       <VRSpinner
         accessibilityLabel={accessibilityLabel}
-        color={color === 'subtle' ? 'default' : color} // 'subtle' maps to 'default' as it is not a VR color variant
+        // 'subtle' maps to 'default' as it is not a VR color variant
+        color={color === 'subtle' ? 'default' : color}
         delay={delay}
-        label={label}
         show={show}
-        size={size === 'md' ? 'lg' : size} // 'md' maps to 'lg' as it doesn't exist in VR Spinner
+        // 'md' maps to 'lg' as it doesn't exist in VR Spinner
+        size={size === 'md' ? 'lg' : size}
       />
     );
   }
 
   return show ? (
-    <Box padding={label ? 1 : undefined}>
-      <Flex direction="column" gap={6}>
-        <Box display="flex" justifyContent="around" overflow="hidden">
-          <div className={classnames(styles.icon, { [styles.delay]: delay })}>
-            <InternalIcon
-              accessibilityDescribedby={label ? id : undefined}
-              accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
-              // map non-classic colors to subtle
-              color={color === 'default' || color === 'subtle' ? color : 'subtle'}
-              icon="knoop"
-              size={SIZE_NAME_TO_PIXEL[size]}
-            />
-          </div>
-        </Box>
-        {label && (
-          <Box minWidth={200}>
-            <TextUI align="center" id={id} size="sm">
-              {label}
-            </TextUI>
-          </Box>
-        )}
-      </Flex>{' '}
+    <Box display="flex" justifyContent="around" overflow="hidden">
+      <div className={classnames(styles.icon, { [styles.delay]: delay })}>
+        <Icon
+          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
+          // map non-classic colors to subtle
+          color={color === 'default' || color === 'subtle' ? color : 'subtle'}
+          icon="knoop"
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      </div>
     </Box>
   ) : (
     <div />
