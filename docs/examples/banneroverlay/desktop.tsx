@@ -1,13 +1,5 @@
 import { useState } from 'react';
-import {
-  BannerOverlay,
-  Button,
-  DeviceTypeProvider,
-  FixedZIndex,
-  Image,
-  Link,
-  Text,
-} from 'gestalt';
+import { BannerOverlay, Button, DeviceTypeProvider, FixedZIndex, Image, Link, Text } from 'gestalt';
 
 export default function Example() {
   const [showComponent, setShowComponent] = useState(true);
