@@ -33,7 +33,16 @@ const rollupConfig = {
       sourcemap: true,
     },
   ],
-  external: ['react', 'react/jsx-runtime', 'react-dom/client', 'classnames/bind', 'classnames', 'react-dom', 'recharts', 'gestalt'],
+  external: [
+    'react',
+    'react/jsx-runtime',
+    'react-dom/client',
+    'classnames/bind',
+    'classnames',
+    'react-dom',
+    'recharts',
+    'gestalt',
+  ],
   acornInjectPlugins,
   plugins: plugins('gestalt-charts'),
 };

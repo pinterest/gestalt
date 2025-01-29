@@ -33,7 +33,17 @@ const rollupConfig = {
       sourcemap: true,
     },
   ],
-  external: ['react', 'react', 'react/jsx-runtime', 'react-dom/client', 'classnames/bind', 'classnames', 'react-dom', 'react-datepicker', 'gestalt'],
+  external: [
+    'react',
+    'react',
+    'react/jsx-runtime',
+    'react-dom/client',
+    'classnames/bind',
+    'classnames',
+    'react-dom',
+    'react-datepicker',
+    'gestalt',
+  ],
   acornInjectPlugins,
   plugins: plugins('gestalt-datepicker'),
 };
