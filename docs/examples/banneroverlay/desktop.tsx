@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import {
-  Avatar,
   BannerOverlay,
   Button,
   DeviceTypeProvider,
   FixedZIndex,
+  Image,
   Link,
   Text,
 } from 'gestalt';
@@ -44,7 +44,14 @@ export default function Example() {
           accessibilityLabel: 'Get the app',
         }}
         thumbnail={{
-          avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+          image: (
+            <Image
+              alt="Pinterest Logo"
+              naturalHeight={1}
+              naturalWidth={1}
+              src="https://i.ibb.co/LQc8ynn/image.png"
+            />
+          ),
         }}
         title="More to Explore"
         zIndex={new FixedZIndex(100)}
