@@ -1,3 +1,9 @@
+## 169.3.0 (Jan 29, 2025)
+
+### Minor
+
+- Internal: Change React 19 Build ([#3963](https://github.com/pinterest/gestalt/pull/3963)) - [Preview link](https://deploy-preview-3963--gestalt.netlify.app?devexample=true)
+
 ## 169.2.4 (Jan 29, 2025)
 
 ### Patch
