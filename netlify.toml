@@ -1,6 +1,6 @@
 [build]
   publish = "docs/.next"
-  command = "cd docs && yarn install && ../scripts/netlify.sh"
+  command = "./scripts/netlify.sh"
 
 [dev]
   targetPort = 3000
