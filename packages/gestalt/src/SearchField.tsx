@@ -254,7 +254,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
               onClick={({ event }) => {
                 inputRef?.current?.focus();
                 onChange({ value: '', event });
-                onClear?.()
+                onClear?.();
               }}
               padding={size === 'md' ? 1 : undefined}
               selected={focused}

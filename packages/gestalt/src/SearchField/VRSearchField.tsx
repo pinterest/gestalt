@@ -232,7 +232,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
                 innerRef?.current?.focus();
                 // @ts-expect-error - TS2322 - Type 'KeyboardEvent<HTMLDivElement>' is not assignable to type 'ChangeEvent<HTMLInputElement>'.
                 onChange({ value: '', event });
-                onClear?.()
+                onClear?.();
               }}
               rounding={2}
               tapStyle="compress"
