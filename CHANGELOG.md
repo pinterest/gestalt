@@ -1,3 +1,9 @@
+## 169.2.4 (Jan 29, 2025)
+
+### Patch
+
+- Spinner, BannerSlim, Text, TextUI: revert some changes creating some unexpected resizes in some prod surfaces ([#3962](https://github.com/pinterest/gestalt/pull/3962)) - [Preview link](https://deploy-preview-3962--gestalt.netlify.app?devexample=true)
+
 ## 169.2.3 (Jan 28, 2025)
 
 ### Patch
