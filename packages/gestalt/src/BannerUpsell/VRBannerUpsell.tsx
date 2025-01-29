@@ -39,23 +39,31 @@ type UpsellActionProps = {
   stacked?: boolean;
   type: string;
   size?: string;
+  twoButtons?: boolean;
 };
 
-function UpsellAction({ data, stacked, type, size }: UpsellActionProps) {
+function UpsellAction({ data, stacked, type, size, twoButtons }: UpsellActionProps) {
   const color = type === 'primary' ? 'red' : 'gray';
   const { accessibilityLabel, disabled, label } = data;
+
+  const marginEnd = type === 'primary' && size === 'sm' && twoButtons ? 1 : undefined;
+  const marginStart = type === 'secondary' && size === 'sm' && twoButtons ? 1 : undefined;
+  const width = twoButtons ? '50%' : '100%';
 
   return (
     <Box
       alignItems="center"
-      dangerouslySetInlineStyle={size === 'sm' ? { __style: { width: '50%' } } : undefined}
+      dangerouslySetInlineStyle={size === 'sm' ? { __style: { width } } : undefined}
       display="block"
       justifyContent={size === 'sm' ? undefined : 'center'}
+      marginEnd={marginEnd}
+      marginStart={marginStart}
       marginTop={type === 'secondary' && stacked ? 2 : undefined}
       paddingX={size === 'sm' ? undefined : 1}
       smDisplay="flex"
       smMarginBottom="auto"
       smMarginTop="auto"
+      smPaddingX={size === 'sm' ? 2 : undefined}
     >
       {data.role === 'link' ? (
         <ButtonLink
@@ -198,100 +206,109 @@ export default function BannerUpsell({
       {/*
             SM BREAKPOINT
       */}
-      <Box
-        display="block"
-        lgDisplay="none"
-        paddingX={1}
-        paddingY={5}
-        smDisplay="none"
-        width="100%"
-        wrap
-      >
-        <Box
-          alignItems="start"
-          direction="column"
-          display="flex"
-          flex={children ? 'grow' : 'shrink'}
-          justifyContent="center"
-          smDirection="row"
-        >
+      <div className={classnames(styles.paddingRightSM)}>
+        <Box display="block" lgDisplay="none" smDisplay="none" width="100%" wrap>
           <Box
-            alignItems="center"
+            alignItems="start"
             direction="column"
             display="flex"
             flex={children ? 'grow' : 'shrink'}
-            marginBottom="auto"
-            marginEnd={0}
-            marginStart={0}
-            smDisplay="block"
-            smMarginEnd={6}
-            smMarginStart={imageData ? 6 : 0}
+            justifyContent="center"
+            smDirection="row"
           >
-            <Box alignItems="start" maxWidth={648}>
-              {title && (
-                <Box marginBottom={2}>
-                  {imageData && (
-                    <Box
-                      display="flex"
-                      flex="none"
-                      width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
-                    >
-                      <Flex gap={3}>
-                        <Mask
-                          rounding={imageData.mask?.rounding || 0}
-                          wash={imageData.mask?.wash || false}
-                          width={32}
-                        >
-                          {imageData.component}
-                        </Mask>
-                        <Heading align="start" size="400">
-                          {title}
-                        </Heading>
-                      </Flex>
-                    </Box>
-                  )}
+            <Box
+              alignItems="center"
+              direction="column"
+              display="flex"
+              flex={children ? 'grow' : 'shrink'}
+              marginBottom="auto"
+              marginEnd={0}
+              marginStart={0}
+              smDisplay="block"
+              smMarginEnd={6}
+              smMarginStart={imageData ? 6 : 0}
+            >
+              <Box alignItems="start" maxWidth={648}>
+                {title && (
+                  <Box marginBottom={2}>
+                    {imageData && (
+                      <Box
+                        display="flex"
+                        flex="none"
+                        width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+                      >
+                        <Flex>
+                          <Box marginEnd={3}>
+                            <Mask
+                              rounding={imageData.mask?.rounding || 0}
+                              wash={imageData.mask?.wash || false}
+                              width={32}
+                            >
+                              {imageData.component}
+                            </Mask>
+                          </Box>
+
+                          <Heading align="start" size="400">
+                            {title}
+                          </Heading>
+                        </Flex>
+                      </Box>
+                    )}
+                  </Box>
+                )}
+                {messageElement}
+              </Box>
+              {children && (
+                <Box
+                  flex="grow"
+                  justifyContent="end"
+                  marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                  smDisplay="flex"
+                  smMarginEnd={4}
+                  smPaddingY={3}
+                  width="100%"
+                >
+                  {children}
                 </Box>
               )}
-              {messageElement}
             </Box>
-            {children && (
+            {!children && hasActions && (
               <Box
-                flex="grow"
-                justifyContent="end"
-                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
-                smDisplay="flex"
-                smMarginEnd={4}
-                smPaddingY={3}
-                width="100%"
+                dangerouslySetInlineStyle={{ __style: { width: '100%' } }}
+                direction="row"
+                display="flex"
+                marginTop={5}
               >
-                {children}
+                {secondaryAction && responsiveMinWidth !== 'xs' && (
+                  <UpsellAction
+                    data={secondaryAction}
+                    size="sm"
+                    twoButtons={!!secondaryAction && !!primaryAction}
+                    type="secondary"
+                  />
+                )}
+                {primaryAction && (
+                  <UpsellAction
+                    data={primaryAction}
+                    size="sm"
+                    twoButtons={!!secondaryAction && !!primaryAction}
+                    type="primary"
+                  />
+                )}
+                {secondaryAction && responsiveMinWidth === 'xs' && (
+                  <UpsellAction
+                    data={secondaryAction}
+                    size="sm"
+                    stacked={!secondaryAction}
+                    twoButtons={!!secondaryAction && !!primaryAction}
+                    type="secondary"
+                  />
+                )}
               </Box>
             )}
           </Box>
-          {!children && hasActions && (
-            <Box
-              dangerouslySetInlineStyle={{ __style: { width: '100%' } }}
-              direction="row"
-              display="flex"
-              marginTop={5}
-            >
-              {secondaryAction && responsiveMinWidth !== 'xs' && (
-                <UpsellAction data={secondaryAction} size="sm" type="secondary" />
-              )}
-              {primaryAction && <UpsellAction data={primaryAction} size="sm" type="primary" />}
-              {secondaryAction && responsiveMinWidth === 'xs' && (
-                <UpsellAction
-                  data={secondaryAction}
-                  size="sm"
-                  stacked={!secondaryAction}
-                  type="secondary"
-                />
-              )}
-            </Box>
-          )}
         </Box>
-      </Box>
-
+      </div>
       {/*
       MD BREAKPOINT
       */}
@@ -374,11 +391,26 @@ export default function BannerUpsell({
             smPaddingY={3}
           >
             {secondaryAction && responsiveMinWidth !== 'xs' && (
-              <UpsellAction data={secondaryAction} type="secondary" />
+              <UpsellAction
+                data={secondaryAction}
+                twoButtons={!!secondaryAction && !!primaryAction}
+                type="secondary"
+              />
             )}
-            {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+            {primaryAction && (
+              <UpsellAction
+                data={primaryAction}
+                twoButtons={!!secondaryAction && !!primaryAction}
+                type="primary"
+              />
+            )}
             {secondaryAction && responsiveMinWidth === 'xs' && (
-              <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+              <UpsellAction
+                data={secondaryAction}
+                stacked={!secondaryAction}
+                twoButtons={!!secondaryAction && !!primaryAction}
+                type="secondary"
+              />
             )}
           </Box>
         )}
@@ -459,11 +491,26 @@ export default function BannerUpsell({
           {!children && hasActions && (
             <Box direction="row" display="flex" margin="auto" marginStart="auto">
               {secondaryAction && responsiveMinWidth !== 'xs' && (
-                <UpsellAction data={secondaryAction} type="secondary" />
+                <UpsellAction
+                  data={secondaryAction}
+                  twoButtons={!!secondaryAction && !!primaryAction}
+                  type="secondary"
+                />
               )}
-              {primaryAction && <UpsellAction data={primaryAction} type="primary" />}
+              {primaryAction && (
+                <UpsellAction
+                  data={primaryAction}
+                  twoButtons={!!secondaryAction && !!primaryAction}
+                  type="primary"
+                />
+              )}
               {secondaryAction && responsiveMinWidth === 'xs' && (
-                <UpsellAction data={secondaryAction} stacked={!secondaryAction} type="secondary" />
+                <UpsellAction
+                  data={secondaryAction}
+                  stacked={!secondaryAction}
+                  twoButtons={!!secondaryAction && !!primaryAction}
+                  type="secondary"
+                />
               )}
             </Box>
           )}
