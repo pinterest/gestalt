@@ -151,17 +151,26 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
                   <Box marginStart={2} marginTop={1}>
                     {/* Adds a pause for screen reader users between the text content */}
                     <Box display="visuallyHidden">{`, `}</Box>
-                    <Badge position={isInVRExperiment ? 'top' : undefined} text={badge.text} type={badge.type || 'info'} />
+                    <Badge
+                      position={isInVRExperiment ? 'top' : undefined}
+                      text={badge.text}
+                      type={badge.type || 'info'}
+                    />
                   </Box>
                 )}
               </Fragment>
             )}
           </Flex>
-          {option.subtext && (
+          {option.subtext && isInVRExperiment ? (
+            <TextUI color="subtle" size="xs">
+              {option.subtext}
+            </TextUI>
+          ) : null}
+          {option.subtext && !isInVRExperiment ? (
             <Text color="subtle" size="200">
               {option.subtext}
             </Text>
-          )}
+          ) : null}
         </Flex>
         <Box
           alignItems="center"
