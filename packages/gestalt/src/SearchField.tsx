@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import layout from './Layout.css';
@@ -115,6 +116,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
+
+  const { accessibilityClearButtonLabel: accessibilityDefaultClearButtonLabel } =
+    useDefaultLabelContext('SearchField');
 
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
@@ -242,7 +246,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
         {hasValue && (
           <div className={styles.clear}>
             <IconButton
-              accessibilityLabel={accessibilityClearButtonLabel || ''}
+              accessibilityLabel={
+                accessibilityClearButtonLabel ?? accessibilityDefaultClearButtonLabel
+              }
               bgColor="transparent"
               icon="cancel"
               onClick={({ event }) => {

@@ -77,6 +77,9 @@ const labels = {
     accessibilityGrabberLabel: myI18nTranslator('Grabber'),
     accessibilityLabel: myI18nTranslator('Bottom sheet'),
   },
+  SearchField: {
+    accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
+  },
   SideNavigation: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
     accessibilityCollapseButtonLabel: myI18nTranslator(
