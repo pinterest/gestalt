@@ -53,6 +53,8 @@ export default function wrapWithComponent<P>({
   return isElementOfType(element, Component) ? (
     element
   ) : (
-    <Component key={index} {...props}>{element}</Component>
+    <Component key={index} {...props}>
+      {element}
+    </Component>
   );
 }
