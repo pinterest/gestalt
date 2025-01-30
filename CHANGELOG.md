@@ -1,3 +1,9 @@
+## 170.0.0 (Jan 30, 2025)
+
+### Major
+
+- SearchField, DefaultLabelProvider: add default accessibility label for clean input button ([#3959](https://github.com/pinterest/gestalt/pull/3959)) - [Preview link](https://deploy-preview-3959--gestalt.netlify.app?devexample=true)
+
 ## 169.3.0 (Jan 29, 2025)
 
 ### Minor
