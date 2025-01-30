@@ -8,7 +8,7 @@ import { GetGraphPositionsReturn, NodeData, Position } from './types';
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
-type GridSizeConfig = { 'sm': number, 'md': number, '_lg1'?: number, 'lg': number, 'xl': number }
+type GridSizeConfig = { 'sm': number; 'md': number; '_lg1'?: number; 'lg': number; 'xl': number };
 type GridSize = keyof GridSizeConfig;
 
 export type ColumnSpanConfig = number | GridSizeConfig;
