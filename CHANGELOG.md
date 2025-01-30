@@ -1,3 +1,9 @@
+## 171.0.1 (Jan 30, 2025)
+
+### Patch
+
+- Internal: Fix key prop error on Flex Component for React 19 ([#3965](https://github.com/pinterest/gestalt/pull/3965)) - [Preview link](https://deploy-preview-3965--gestalt.netlify.app?devexample=true)
+
 ## 171.0.0 (Jan 30, 2025)
 
 ### Major
