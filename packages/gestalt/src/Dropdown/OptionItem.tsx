@@ -13,7 +13,9 @@ import Link from '../Link';
 import styles from '../TapArea.css';
 import Text from '../Text';
 import { FontWeight } from '../textTypes';
+import TextUI from '../TextUI';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 
 export type OptionItemType = {
   label: string;
@@ -111,6 +113,11 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       [styles.noDrop]: disabled,
     });
 
+    const isInVRExperiment = useInExperiment({
+      webExperimentName: 'web_gestalt_visualrefresh',
+      mwebExperimentName: 'web_gestalt_visualrefresh',
+    });
+
     const textColor = disabled ? 'subtle' : 'default';
 
     const optionItemContent = (
@@ -119,20 +126,32 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           <Flex alignItems="center">
             {children || (
               <Fragment>
-                <Text
-                  color={textColor}
-                  inline
-                  lineClamp={1}
-                  title={disabled ? '' : undefined}
-                  weight={textWeight}
-                >
-                  {option?.label}
-                </Text>
+                {isInVRExperiment ? (
+                  <TextUI
+                    color={textColor}
+                    inline
+                    lineClamp={1}
+                    size="md"
+                    title={disabled ? '' : undefined}
+                  >
+                    {option?.label}
+                  </TextUI>
+                ) : (
+                  <Text
+                    color={textColor}
+                    inline
+                    lineClamp={1}
+                    title={disabled ? '' : undefined}
+                    weight={textWeight}
+                  >
+                    {option?.label}
+                  </Text>
+                )}
                 {badge && !disabled && (
                   <Box marginStart={2} marginTop={1}>
                     {/* Adds a pause for screen reader users between the text content */}
                     <Box display="visuallyHidden">{`, `}</Box>
-                    <Badge text={badge.text} type={badge.type || 'info'} />
+                    <Badge position={isInVRExperiment ? 'top' : undefined} text={badge.text} type={badge.type || 'info'} />
                   </Box>
                 )}
               </Fragment>
