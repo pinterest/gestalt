@@ -26,8 +26,19 @@ export default function DropdownSection({ label, children }: Props) {
   });
   return (
     <div aria-label={label} className={styles.DropdownSection}>
-      <Box display="flex" padding={2} role="presentation">
-        {isInVRExperiment ? <TextUI color="subtle" size="xs">{label}</TextUI> : <Text size="100">{label} </Text>}
+      <Box
+        display="flex"
+        paddingX={isInVRExperiment ? 3 : 2}
+        paddingY={isInVRExperiment ? 2 : 2}
+        role="presentation"
+      >
+        {isInVRExperiment ? (
+          <TextUI color="subtle" size="xs">
+            {label}
+          </TextUI>
+        ) : (
+          <Text size="100">{label} </Text>
+        )}
       </Box>
       {children}
     </div>

@@ -118,7 +118,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       mwebExperimentName: 'web_gestalt_visualrefresh',
     });
 
-    const textColor = disabled ? 'subtle' : 'default';
+    const textColor = disabled ? 'disabled' : 'default';
 
     const optionItemContent = (
       <Flex>
@@ -167,7 +167,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             </TextUI>
           ) : null}
           {option.subtext && !isInVRExperiment ? (
-            <Text color="subtle" size="200">
+            <Text color={disabled ? 'disabled' : 'subtle'} size="200">
               {option.subtext}
             </Text>
           ) : null}
@@ -181,7 +181,12 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           minWidth={12}
         >
           {isSelectedItem && !iconEnd ? (
-            <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
+            <Icon
+              accessibilityLabel="Selected item"
+              color="default"
+              icon="check"
+              size={isInVRExperiment ? 16 : 12}
+            />
           ) : (
             <Box minWidth={12} />
           )}
@@ -195,7 +200,11 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
             marginStart={2}
           >
-            <AccessibilityLinkActionIcon color={textColor} icon={iconEnd} size={12} />
+            <AccessibilityLinkActionIcon
+              color={textColor}
+              icon={iconEnd}
+              size={isInVRExperiment ? 16 : 12}
+            />
           </Box>
         )}
       </Flex>
@@ -235,7 +244,8 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           color={index === hoveredItemIndex && !disabled ? 'secondary' : 'transparent'}
           direction="column"
           display="flex"
-          padding={2}
+          paddingX={isInVRExperiment ? 3 : 2}
+          paddingY={isInVRExperiment ? 2 : 2}
           rounding={2}
         >
           {href && !disabled ? (
