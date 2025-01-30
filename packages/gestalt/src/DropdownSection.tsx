@@ -25,7 +25,10 @@ export default function DropdownSection({ label, children }: Props) {
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
   return (
-    <div aria-label={label} className={styles.DropdownSection}>
+    <div
+      aria-label={label}
+      className={isInVRExperiment ? styles.VRDropdownSection : styles.DropdownSection}
+    >
       <Box
         display="flex"
         paddingX={isInVRExperiment ? 3 : 2}

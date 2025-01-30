@@ -5,3 +5,7 @@
 .DropdownSection:not(:first-child) {
   margin-top: var(--space-400);
 }
+
+.VRDropdownSection:not(:first-child) {
+  margin-top: var(--sema-space-200);
+}
