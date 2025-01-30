@@ -8,14 +8,16 @@ import { GetGraphPositionsReturn, NodeData, Position } from './types';
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
-type GridSize = 'sm' | 'md' | 'lg' | 'xl';
+type GridSize = 'sm' | 'md' | 'lg' | '_lg1' | '_lg2' | 'xl';
 
 export type ColumnSpanConfig = number | { [Size in GridSize]: number };
 
 // maps the number of columns to a grid breakpoint
 // sm: 2 columns
 // md: 3-4 columns
-// lg: 5-8 columns
+// _lg1: 5-6 columns (Experimental)
+// _lg2: 7-8 columns (Experimental)
+// lg: 5-8 columns (To be removed in favor of experimental _lg1 and _lg2)
 // xl: 9+ columns
 export function columnCountToGridSize(columnCount: number): GridSize {
   if (columnCount <= 2) {
@@ -24,8 +26,11 @@ export function columnCountToGridSize(columnCount: number): GridSize {
   if (columnCount <= 4) {
     return 'md';
   }
+  if (columnCount <= 6) {
+    return '_lg1';
+  }
   if (columnCount <= 8) {
-    return 'lg';
+    return '_lg2';
   }
   return 'xl';
 }
@@ -39,6 +44,16 @@ function getPositionsOnly<T>(
   return positions.map(({ position }) => position);
 }
 
+function getColumnSpanFromGridSize(columnSpanConfig: ColumnSpanConfig, gridSize: GridSize): number {
+  if (typeof columnSpanConfig === 'number') {
+    return columnSpanConfig;
+  }
+  if (gridSize === '_lg1' || gridSize === '_lg2') {
+    return columnSpanConfig[gridSize] ?? columnSpanConfig.lg ?? 1;
+  }
+  return columnSpanConfig[gridSize] ?? 1;
+}
+
 function calculateActualColumnSpan<T>(props: {
   columnCount: number;
   item: T;
@@ -47,8 +62,7 @@ function calculateActualColumnSpan<T>(props: {
   const { columnCount, item, _getColumnSpanConfig } = props;
   const columnSpanConfig = _getColumnSpanConfig(item);
   const gridSize = columnCountToGridSize(columnCount);
-  const columnSpan =
-    typeof columnSpanConfig === 'number' ? columnSpanConfig : columnSpanConfig[gridSize] ?? 1;
+  const columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
   // a multi column item can never span more columns than there are in the grid
   return Math.min(columnSpan, columnCount);
 }
