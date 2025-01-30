@@ -1,3 +1,9 @@
+## 171.0.0 (Jan 30, 2025)
+
+### Major
+
+- BannerOverlay: VR changes ([#3960](https://github.com/pinterest/gestalt/pull/3960)) - [Preview link](https://deploy-preview-3960--gestalt.netlify.app?devexample=true)
+
 ## 170.1.0 (Jan 30, 2025)
 
 ### Minor
