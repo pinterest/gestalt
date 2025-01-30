@@ -39,10 +39,12 @@ export default function wrapWithComponent<P>({
   element,
   Component,
   props,
+  index,
 }: {
   element: ReactNode | null | undefined;
   Component: ComponentType<P>;
   props: P;
+  index: number;
 }) {
   if (element === null || element === undefined) {
     return null;
@@ -51,6 +53,6 @@ export default function wrapWithComponent<P>({
   return isElementOfType(element, Component) ? (
     element
   ) : (
-    <Component {...props}>{element}</Component>
+    <Component key={index} {...props}>{element}</Component>
   );
 }
