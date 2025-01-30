@@ -910,9 +910,8 @@ describe('responsive module layout test cases', () => {
             ? {
                 sm: 2,
                 md: 3,
-                lg: 5,
                 _lg1: 5,
-                _lg2: 6,
+                lg: 6,
                 xl: 9,
               }
             : 1,

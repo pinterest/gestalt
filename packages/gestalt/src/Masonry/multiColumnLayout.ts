@@ -8,16 +8,16 @@ import { GetGraphPositionsReturn, NodeData, Position } from './types';
 // This may need to be tweaked to balance the tradeoff of delayed rendering vs having enough possible layouts
 export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 
-type GridSize = 'sm' | 'md' | 'lg' | '_lg1' | '_lg2' | 'xl';
+type GridSizeConfig = { 'sm': number, 'md': number, '_lg1'?: number, 'lg': number, 'xl': number }
+type GridSize = keyof GridSizeConfig;
 
-export type ColumnSpanConfig = number | { [Size in GridSize]: number };
+export type ColumnSpanConfig = number | GridSizeConfig;
 
 // maps the number of columns to a grid breakpoint
 // sm: 2 columns
 // md: 3-4 columns
 // _lg1: 5-6 columns (Experimental)
-// _lg2: 7-8 columns (Experimental)
-// lg: 5-8 columns (To be removed in favor of experimental _lg1 and _lg2)
+// lg: 5-8 columns (To be removed in favor of experimental _lg1)
 // xl: 9+ columns
 export function columnCountToGridSize(columnCount: number): GridSize {
   if (columnCount <= 2) {
@@ -30,7 +30,7 @@ export function columnCountToGridSize(columnCount: number): GridSize {
     return '_lg1';
   }
   if (columnCount <= 8) {
-    return '_lg2';
+    return 'lg';
   }
   return 'xl';
 }
@@ -48,7 +48,7 @@ function getColumnSpanFromGridSize(columnSpanConfig: ColumnSpanConfig, gridSize:
   if (typeof columnSpanConfig === 'number') {
     return columnSpanConfig;
   }
-  if (gridSize === '_lg1' || gridSize === '_lg2') {
+  if (gridSize === '_lg1') {
     return columnSpanConfig[gridSize] ?? columnSpanConfig.lg ?? 1;
   }
   return columnSpanConfig[gridSize] ?? 1;
