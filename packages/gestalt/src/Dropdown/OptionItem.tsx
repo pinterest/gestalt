@@ -162,7 +162,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             )}
           </Flex>
           {option.subtext && isInVRExperiment ? (
-            <TextUI color="subtle" size="xs">
+            <TextUI color={disabled ? 'disabled' : 'subtle'} size="xs">
               {option.subtext}
             </TextUI>
           ) : null}
