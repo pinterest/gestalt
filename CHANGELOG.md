@@ -1,3 +1,9 @@
+## 170.1.0 (Jan 30, 2025)
+
+### Minor
+
+- SearchField: support onClear prop ([#3961](https://github.com/pinterest/gestalt/pull/3961)) - [Preview link](https://deploy-preview-3961--gestalt.netlify.app?devexample=true)
+
 ## 170.0.0 (Jan 30, 2025)
 
 ### Major
