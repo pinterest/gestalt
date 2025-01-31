@@ -127,7 +127,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderColor = styles.BorderDisabledChecked;
   } else if (!disabled && checked) {
     borderColor = styles.BorderSelected;
-  } else if (!disabled && hovered) {
+  } else if (!disabled && hovered && !isInVRExperiment) {
     borderColor = styles.BorderHovered;
   }
 
