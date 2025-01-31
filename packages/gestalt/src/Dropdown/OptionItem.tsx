@@ -13,7 +13,9 @@ import Link from '../Link';
 import styles from '../TapArea.css';
 import Text from '../Text';
 import { FontWeight } from '../textTypes';
+import TextUI from '../TextUI';
 import useFocusVisible from '../useFocusVisible';
+import useInExperiment from '../useInExperiment';
 
 export type OptionItemType = {
   label: string;
@@ -111,7 +113,12 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       [styles.noDrop]: disabled,
     });
 
-    const textColor = disabled ? 'subtle' : 'default';
+    const isInVRExperiment = useInExperiment({
+      webExperimentName: 'web_gestalt_visualrefresh',
+      mwebExperimentName: 'web_gestalt_visualrefresh',
+    });
+
+    const textColor = disabled ? 'disabled' : 'default';
 
     const optionItemContent = (
       <Flex>
@@ -119,30 +126,51 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           <Flex alignItems="center">
             {children || (
               <Fragment>
-                <Text
-                  color={textColor}
-                  inline
-                  lineClamp={1}
-                  title={disabled ? '' : undefined}
-                  weight={textWeight}
-                >
-                  {option?.label}
-                </Text>
+                {isInVRExperiment ? (
+                  <TextUI
+                    color={textColor}
+                    inline
+                    lineClamp={1}
+                    size="md"
+                    title={disabled ? '' : undefined}
+                  >
+                    {option?.label}
+                  </TextUI>
+                ) : (
+                  <Text
+                    color={textColor}
+                    inline
+                    lineClamp={1}
+                    title={disabled ? '' : undefined}
+                    weight={textWeight}
+                  >
+                    {option?.label}
+                  </Text>
+                )}
                 {badge && !disabled && (
                   <Box marginStart={2} marginTop={1}>
                     {/* Adds a pause for screen reader users between the text content */}
                     <Box display="visuallyHidden">{`, `}</Box>
-                    <Badge text={badge.text} type={badge.type || 'info'} />
+                    <Badge
+                      position={isInVRExperiment ? 'top' : undefined}
+                      text={badge.text}
+                      type={badge.type || 'info'}
+                    />
                   </Box>
                 )}
               </Fragment>
             )}
           </Flex>
-          {option.subtext && (
-            <Text color="subtle" size="200">
+          {option.subtext && isInVRExperiment ? (
+            <TextUI color={disabled ? 'disabled' : 'subtle'} size="xs">
+              {option.subtext}
+            </TextUI>
+          ) : null}
+          {option.subtext && !isInVRExperiment ? (
+            <Text color={disabled ? 'disabled' : 'subtle'} size="200">
               {option.subtext}
             </Text>
-          )}
+          ) : null}
         </Flex>
         <Box
           alignItems="center"
@@ -153,7 +181,12 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           minWidth={12}
         >
           {isSelectedItem && !iconEnd ? (
-            <Icon accessibilityLabel="Selected item" color="default" icon="check" size={12} />
+            <Icon
+              accessibilityLabel="Selected item"
+              color="default"
+              icon="check"
+              size={isInVRExperiment ? 16 : 12}
+            />
           ) : (
             <Box minWidth={12} />
           )}
@@ -167,7 +200,11 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             // marginStart is for spacing relative to Badge, should not be moved to parent Flex's gap
             marginStart={2}
           >
-            <AccessibilityLinkActionIcon color={textColor} icon={iconEnd} size={12} />
+            <AccessibilityLinkActionIcon
+              color={textColor}
+              icon={iconEnd}
+              size={isInVRExperiment ? 16 : 12}
+            />
           </Box>
         )}
       </Flex>
@@ -207,7 +244,8 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           color={index === hoveredItemIndex && !disabled ? 'secondary' : 'transparent'}
           direction="column"
           display="flex"
-          padding={2}
+          paddingX={isInVRExperiment ? 3 : 2}
+          paddingY={isInVRExperiment ? 2 : 2}
           rounding={2}
         >
           {href && !disabled ? (
