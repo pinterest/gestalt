@@ -183,6 +183,9 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     },
   );
 
+  let margin = size === 'md' ? '2px' : '-1px'
+  margin = isInVRExperiment ? '0px' : margin;
+
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
       <Box paddingX={1}>
@@ -233,7 +236,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
               <Box
                 dangerouslySetInlineStyle={{
-                  __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+                  __style: { marginTop: margin },
                 }}
                 paddingX={1}
               >
