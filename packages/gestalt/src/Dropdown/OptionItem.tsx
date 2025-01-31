@@ -9,8 +9,8 @@ import Flex from '../Flex';
 import focusStyles from '../Focus.css';
 import getRoundingClassName from '../getRoundingClassName';
 import Icon from '../Icon';
-import Link from '../Link';
 import styles from '../TapArea.css';
+import TapAreaLink from '../TapAreaLink';
 import Text from '../Text';
 import { FontWeight } from '../textTypes';
 import TextUI from '../TextUI';
@@ -43,6 +43,7 @@ type Props = {
   children?: ReactNode;
   dataTestId?: string;
   disabled?: boolean;
+  focusedItemIndex: number | null | undefined;
   hoveredItemIndex: number | null | undefined;
   href?: string;
   id: string;
@@ -56,7 +57,8 @@ type Props = {
   onSelect?: (arg1: { item: OptionItemType; event: React.ChangeEvent<HTMLInputElement> }) => void;
   option: OptionItemType;
   selected?: OptionItemType | ReadonlyArray<OptionItemType> | null;
-  setHoveredItemIndex: (arg1: number) => void;
+  setHoveredItemIndex: (arg1: number | null | undefined) => void;
+  setFocusedItemIndex: (arg1: number | null | undefined) => void;
   textWeight?: FontWeight;
 };
 
@@ -68,7 +70,9 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       dataTestId,
       disabled,
       onSelect,
+      focusedItemIndex,
       hoveredItemIndex,
+      setFocusedItemIndex,
       href,
       id,
       index,
@@ -104,10 +108,9 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
 
     const { isFocusVisible } = useFocusVisible();
 
-    const className = classnames(getRoundingClassName(2), {
-      [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
-      [focusStyles.accessibilityOutlineFocusWithin]: isFocusVisible,
+    const className = classnames(getRoundingClassName(2), focusStyles.hideOutlineWithin, {
+      [focusStyles.hideOutline]: index !== focusedItemIndex || index === hoveredItemIndex,
+      [focusStyles.accessibilityOutlineFocus]: index === focusedItemIndex && isFocusVisible,
       [styles.fullWidth]: true,
       [styles.pointer]: !disabled,
       [styles.noDrop]: disabled,
@@ -188,7 +191,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
               size={isInVRExperiment ? 16 : 12}
             />
           ) : (
-            <Box minWidth={12} />
+            <Box minWidth={isInVRExperiment ? 16 : 12} />
           )}
         </Box>
         {iconEnd && (
@@ -233,6 +236,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
         }}
         onMouseEnter={() => {
           if (!disabled) {
+            setFocusedItemIndex(null);
             setHoveredItemIndex(index);
           }
         }}
@@ -244,14 +248,16 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           color={index === hoveredItemIndex && !disabled ? 'secondary' : 'transparent'}
           direction="column"
           display="flex"
+          height="100%"
           paddingX={isInVRExperiment ? 3 : 2}
           paddingY={isInVRExperiment ? 2 : 2}
           rounding={2}
+          width="100%"
         >
           {href && !disabled ? (
-            <Link
+            <TapAreaLink
               href={href}
-              onClick={({ event, dangerouslyDisableOnNavigation }) =>
+              onTap={({ event, dangerouslyDisableOnNavigation }) =>
                 onClick?.({
                   event,
                   dangerouslyDisableOnNavigation,
@@ -259,10 +265,9 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
                 })
               }
               target={iconEnd === 'visit' ? 'blank' : 'self'}
-              underline="none"
             >
               {optionItemContent}
-            </Link>
+            </TapAreaLink>
           ) : (
             optionItemContent
           )}
