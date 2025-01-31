@@ -50,6 +50,10 @@
   background-color: var(--color-background-formfield-disabled);
 }
 
+.BgDisabledVR {
+  background-color: var(--sema-color-background-disabled);
+}
+
 .BgEnabled {
   background-color: var(--color-background-formfield-primary);
 }

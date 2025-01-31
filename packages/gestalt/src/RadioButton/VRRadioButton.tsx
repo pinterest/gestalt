@@ -1,15 +1,14 @@
 import { ComponentProps, forwardRef, ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import Badge from './Badge';
-import Box from './Box';
-import focusStyles from './Focus.css';
-import Label from './Label';
-import styles from './RadioButton.css';
-import VRRadioButton from './RadioButton/VRRadioButton';
-import controlStyles from './RadioButtonCheckbox.css';
-import Text from './Text';
-import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import Badge from '../Badge';
+import Box from '../Box';
+import Flex from '../Flex';
+import focusStyles from '../Focus.css';
+import Label from '../Label';
+import styles from '../RadioButton.css';
+import controlStyles from '../RadioButtonCheckbox.css';
+import Text from '../Text';
+import useFocusVisible from '../useFocusVisible';
 
 type Props = {
   /**
@@ -57,7 +56,7 @@ type Props = {
    */
   value: string;
   /**
-   * badge.
+   * Add a label that indicates status or importance.
    */
   badge?: ComponentProps<typeof Badge>;
 };
@@ -83,7 +82,7 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
   ref,
 ) {
   const [focused, setFocused] = useState(false);
-  const [hovered, setHover] = useState(false);
+  // const [hovered, setHover] = useState(false);
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => unknown = (event) =>
     onChange({ checked: event.target.checked, event });
@@ -92,15 +91,13 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
 
   const handleFocus: () => void = () => setFocused(true);
 
-  const handleHover: (isHovered: boolean) => void = (isHovered: boolean) => setHover(isHovered);
+  // const handleHover: (isHovered: boolean) => void = (isHovered: boolean) => setHover(isHovered);
 
   let borderStyle = styles.Border;
   if (disabled && checked) {
     borderStyle = styles.BorderDisabledChecked;
   } else if (!disabled && checked) {
     borderStyle = styles.BorderSelected;
-  } else if (!disabled && hovered) {
-    borderStyle = styles.BorderHovered;
   }
 
   let borderWidth = styles.BorderUnchecked;
@@ -114,36 +111,14 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
 
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
-  const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
+  const bgStyle = disabled && !checked ? styles.BgDisabledVR : styles.BgEnabled;
 
   const { isFocusVisible } = useFocusVisible();
-
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-  if (isInVRExperiment) {
-    return (
-      <VRRadioButton
-        badge={badge}
-        checked={checked}
-        disabled={disabled}
-        id={id}
-        image={image}
-        label={label}
-        name={name}
-        onChange={onChange}
-        size={size}
-        subtext={subtext}
-        value={value}
-      />
-    );
-  }
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
       <Label htmlFor={id}>
-        <Box paddingX={1}>
+        <Box marginEnd={1}>
           <div
             className={classnames(
               bgStyle,
@@ -170,8 +145,6 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
               onBlur={handleBlur}
               onChange={handleChange}
               onFocus={handleFocus}
-              onMouseEnter={() => handleHover(true)}
-              onMouseLeave={() => handleHover(false)}
               type="radio"
               value={value}
             />
@@ -189,14 +162,29 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
               }}
               paddingX={1}
             >
-              <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
-                {label}
-              </Text>
+              <Flex gap={2}>
+                <Text
+                  color={disabled ? 'disabled' : undefined}
+                  size={size === 'sm' ? '200' : '300'}
+                >
+                  {label}
+                </Text>
+                {badge ? (
+                  <Box>
+                    <Badge
+                      position={badge.position || 'middle'}
+                      text={badge.text}
+                      tooltip={badge.tooltip}
+                      type={badge.type}
+                    />
+                  </Box>
+                ) : null}
+              </Flex>
             </Box>
           </Label>
         )}
         {label && subtext && (
-          <Box padding={1}>
+          <Box padding={0.5}>
             <Text color="subtle" size={size === 'sm' ? '200' : '300'}>
               {subtext}
             </Text>

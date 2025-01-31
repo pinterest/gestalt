@@ -1,16 +1,14 @@
 import { ReactNode } from 'react';
 import classnames from 'classnames';
-import boxStyles from './Box.css';
-import boxWhitespaceStyles from './boxWhitespace.css';
-import VRFieldset from './Fieldset/VRFieldset';
-import labelStyles from './Label/InternalLabel.css';
-import formStyles from './sharedSubcomponents/FormElement.css';
-import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
-import FormHelperText from './sharedSubcomponents/FormHelperText';
-import formLabelStyles from './sharedSubcomponents/FormLabel.css';
-import Text from './Text';
-import useInExperiment from './useInExperiment';
-import whitespaceStyles from './Whitespace.css';
+import fieldsetStyles from './VRFieldset.css';
+import boxStyles from '../Box.css';
+import boxWhitespaceStyles from '../boxWhitespace.css';
+import labelStyles from '../Label/InternalLabel.css';
+import formStyles from '../sharedSubcomponents/FormElement.css';
+import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
+import FormHelperText from '../sharedSubcomponents/FormHelperText';
+import Text from '../Text';
+import whitespaceStyles from '../Whitespace.css';
 
 type Props = {
   /**
@@ -35,7 +33,6 @@ type Props = {
   legendDisplay?: 'visible' | 'hidden';
   /**
    * Adds an help message below the group of radio buttons.
-   *
    */
   helperText?: string;
 };
@@ -47,7 +44,7 @@ type Props = {
  * ![Fieldset dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Fieldset-dark.spec.ts-snapshots/Fieldset-dark-chromium-darwin.png)
  *
  */
-export default function Fieldset({
+export default function VRFieldset({
   id = '',
   errorMessage,
   legend,
@@ -55,28 +52,9 @@ export default function Fieldset({
   children,
   helperText,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   if (errorMessage && id === '') {
     // eslint-disable-next-line no-console
     console.error('Please provide an id property to <Fieldset />');
-  }
-
-  if (isInVRExperiment) {
-    return (
-      <VRFieldset
-        errorMessage={errorMessage}
-        helperText={helperText}
-        id={id}
-        legend={legend}
-        legendDisplay={legendDisplay}
-      >
-        {children}
-      </VRFieldset>
-    );
   }
 
   return (
@@ -87,11 +65,10 @@ export default function Fieldset({
       <legend
         className={classnames(
           labelStyles.label,
+          fieldsetStyles.marginBottom,
           boxWhitespaceStyles.paddingX0, // Needed to remove the default legend  padding
           {
             [boxStyles.visuallyHidden]: legendDisplay === 'hidden',
-            [formLabelStyles.formLabel]: !isInVRExperiment,
-            [formLabelStyles.vrFormLabel]: isInVRExperiment,
           },
         )}
       >
@@ -108,9 +85,7 @@ export default function Fieldset({
         />
       )}
 
-      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
+      {errorMessage && <FormErrorMessage id={`${id}-error`} marginTop text={errorMessage} />}
     </fieldset>
   );
 }
-
-Fieldset.displayName = 'Fieldset';
