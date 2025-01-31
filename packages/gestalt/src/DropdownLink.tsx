@@ -80,13 +80,21 @@ export default function DropdownLink({
 }: Props) {
   return (
     <DropdownContextConsumer>
-      {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
+      {({
+        id,
+        hoveredItemIndex,
+        setHoveredItemIndex,
+        setOptionRef,
+        focusedItemIndex,
+        setFocusedItemIndex,
+      }) => (
         <OptionItem
           key={`${option.value + _index}`}
           ref={setOptionRef}
           badge={badge}
           dataTestId={dataTestId}
           disabled={disabled}
+          focusedItemIndex={focusedItemIndex}
           hoveredItemIndex={hoveredItemIndex}
           href={href}
           iconEnd={iconEnd}
@@ -94,6 +102,7 @@ export default function DropdownLink({
           index={_index}
           onClick={onClick}
           option={option}
+          setFocusedItemIndex={setFocusedItemIndex}
           setHoveredItemIndex={setHoveredItemIndex}
           textWeight="bold"
         >

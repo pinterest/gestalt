@@ -632,6 +632,11 @@ describe('Dropdown', () => {
     fireEvent.keyDown(window.document, {
       keyCode: DOWN_ARROW,
     });
+
+    fireEvent.keyDown(window.document, {
+      keyCode: ENTER,
+    });
+
     // eslint-disable-next-line testing-library/no-node-access -- Please fix the next time this file is touched!
     expect(document.activeElement).toHaveAttribute('href', 'https://pinterest.com/today');
 

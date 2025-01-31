@@ -4,6 +4,7 @@ import OptionItem from './OptionItem';
 describe('OptionItem', () => {
   const props = {
     hoveredItemIndex: null,
+    focusedItemIndex: null,
     id: 'optionItemId',
     index: 0,
     option: {
@@ -12,6 +13,8 @@ describe('OptionItem', () => {
     },
     // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
     setHoveredItemIndex: jest.fn<[number], undefined>(),
+    // @ts-expect-error - TS2344 - Type 'undefined' does not satisfy the constraint 'any[]'.
+    setFocusedItemIndex: jest.fn<[number], undefined>(),
   } as const;
 
   it('Should render correctly', () => {

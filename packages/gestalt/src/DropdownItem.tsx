@@ -88,19 +88,28 @@ export default function DropdownItem({
 }: Props) {
   return (
     <DropdownContextConsumer>
-      {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
+      {({
+        id,
+        hoveredItemIndex,
+        setHoveredItemIndex,
+        setOptionRef,
+        focusedItemIndex,
+        setFocusedItemIndex,
+      }) => (
         <OptionItem
           key={`${option.value + _index}`}
           ref={setOptionRef}
           badge={badge}
           dataTestId={dataTestId}
           disabled={disabled}
+          focusedItemIndex={focusedItemIndex}
           hoveredItemIndex={hoveredItemIndex}
           id={id}
           index={_index}
           onSelect={onSelect}
           option={option}
           selected={selected}
+          setFocusedItemIndex={setFocusedItemIndex}
           setHoveredItemIndex={setHoveredItemIndex}
           textWeight="bold"
         >
