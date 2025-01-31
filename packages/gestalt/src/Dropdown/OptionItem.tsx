@@ -98,15 +98,6 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
     const isSelectedItem =
       matches.length > 0 || JSON.stringify(option) === JSON.stringify(selected);
 
-    const handleOnTap = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (!href && !children) {
-        event.preventDefault();
-      }
-
-      if (disabled) return;
-      onSelect?.({ event, item: option });
-    };
-
     const { isFocusVisible } = useFocusVisible();
 
     const isInVRExperiment = useInExperiment({
@@ -225,7 +216,11 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
         id={`${id}-item-${index}`}
         onBlur={(event) => event.stopPropagation()}
         // @ts-expect-error - TS2322 - Type '(event: React.ChangeEvent<HTMLInputElement>) => void' is not assignable to type 'MouseEventHandler<HTMLDivElement>'.
-        onClick={handleOnTap}
+        onClick={(event: React.ChangeEvent<HTMLInputElement>) => {
+          if (!href && !children) event.preventDefault();
+          if (disabled) return;
+          onSelect?.({ event, item: option });
+        }}
         // This event.stopPropagation is important so interactive anchors don't compress with the onMouseDown event
         onFocus={(event) => event.stopPropagation()}
         onKeyPress={(event) => {
