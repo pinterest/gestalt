@@ -1,6 +1,7 @@
 import { Children, ComponentProps, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './BannerUpsell.css';
+import VRBannerUpsell from './BannerUpsell/VRBannerUpsell';
 import BannerUpsellForm from './BannerUpsellForm';
 import Box from './Box';
 import Button from './Button';
@@ -11,6 +12,7 @@ import IconButton from './IconButton';
 import Image from './Image';
 import Mask from './Mask';
 import Text from './Text';
+import useInExperiment from './useInExperiment';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 
 export type ActionDataType =
@@ -148,7 +150,10 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
+  });
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
@@ -175,6 +180,20 @@ export default function BannerUpsell({
       <span className={classnames(textColorOverrideStyles, textAligmentOverrideStyles)}>
         {message}
       </span>
+    );
+  }
+  if (isInVRExperiment) {
+    return (
+      <VRBannerUpsell
+        dismissButton={dismissButton}
+        imageData={imageData}
+        message={message}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
+        title={title}
+      >
+        {children}
+      </VRBannerUpsell>
     );
   }
 

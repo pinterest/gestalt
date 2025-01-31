@@ -1,3 +1,7 @@
+.paddingRightSM {
+  padding-right: var(--sema-space-500);
+}
+
 html[dir="rtl"] .rtlPos {
   left: 0;
   position: absolute;
