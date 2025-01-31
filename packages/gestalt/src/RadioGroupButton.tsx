@@ -131,7 +131,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderColor = styles.BorderHovered;
   }
 
-  let borderWidth = styles.BorderUnchecked;
+  let borderWidth = isInVRExperiment ? styles.BorderUncheckedVR : styles.BorderUnchecked;
   if (disabled && !checked) {
     borderWidth = styles.BorderDisabled;
   } else if (checked && size === 'sm') {
@@ -140,7 +140,15 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderWidth = styles.BorderCheckedMd;
   }
 
-  const uncheckedBorderWidth = disabled ? styles.BorderDisabled : styles.BorderUnchecked;
+  let uncheckedBorderWidth = styles.BorderDisabled;
+
+  if (!isInVRExperiment) {
+    uncheckedBorderWidth = disabled ? styles.BorderDisabled : styles.BorderUnchecked;
+  } else {
+    uncheckedBorderWidth = !disabled ? styles.BorderUncheckedVR : uncheckedBorderWidth;
+    uncheckedBorderWidth =
+      hovered && !disabled ? styles.BorderUncheckedHoverVR : styles.BorderUncheckedVR;
+  }
 
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
@@ -183,7 +191,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     },
   );
 
-  let margin = size === 'md' ? '2px' : '-1px'
+  let margin = size === 'md' ? '2px' : '-1px';
   margin = isInVRExperiment ? '0px' : margin;
 
   return (
