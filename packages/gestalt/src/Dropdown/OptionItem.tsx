@@ -208,7 +208,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
     return (
       <div
         // @ts-expect-error - TS2322 - Type 'ForwardedRef<HTMLElement | null | undefined>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
-        ref={index === hoveredItemIndex ? ref : null}
+        ref={index === hoveredItemIndex || index === focusedItemIndex ? ref : null}
         aria-disabled={disabled}
         className={className}
         data-test-id={dataTestId}
@@ -248,11 +248,9 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
           }
           direction="column"
           display="flex"
-          height="100%"
           paddingX={isInVRExperiment ? 3 : 2}
           paddingY={isInVRExperiment ? 2 : 2}
           rounding={2}
-          width="100%"
         >
           {href && !disabled ? (
             <TapAreaLink
