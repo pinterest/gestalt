@@ -1,3 +1,9 @@
+## 171.1.2 (Jan 31, 2025)
+
+### Patch
+
+- Dropdown: VR changes and overall fixes ([#3967](https://github.com/pinterest/gestalt/pull/3967)) - [Preview link](https://deploy-preview-3967--gestalt.netlify.app?devexample=true)
+
 ## 171.1.1 (Jan 31, 2025)
 
 ### Patch
