@@ -1,7 +1,8 @@
-import { forwardRef, Fragment, ReactNode } from 'react';
+import { ComponentProps, forwardRef, Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
 import AccessibilityLinkActionIcon from '../accessibility/AccessibilityLinkActionIcon';
 import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameContext';
+import Avatar from '../Avatar';
 import Badge from '../Badge';
 import Box from '../Box';
 import { useDeviceType } from '../contexts/DeviceTypeProvider';
@@ -40,6 +41,9 @@ type BadgeType = {
 type IconEndType = 'visit' | 'directional-arrow-right' | 'download';
 
 type Props = {
+  avatar?: Omit<ComponentProps<typeof Avatar>, 'size' | 'verified' | 'outline'> & {
+    size: 'sm' | 'md';
+  };
   badge?: BadgeType;
   children?: ReactNode;
   dataTestId?: string;
@@ -66,6 +70,7 @@ type Props = {
 const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Props>(
   function OptionItem(
     {
+      avatar,
       badge,
       children,
       dataTestId,
@@ -123,6 +128,19 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       <Flex>
         <Flex direction="column" flex="grow" gap={{ column: 1, row: 0 }}>
           <Flex alignItems="center">
+            {avatar ? (
+              <Box marginEnd={2}>
+                <Avatar
+                  accessibilityLabel={avatar.accessibilityLabel}
+                  color={avatar.color}
+                  name={avatar.name}
+                  size={avatar.size}
+                  src={avatar.src}
+                />
+                {/* Adds a pause for screen reader users between the text content */}
+                <Box display="visuallyHidden">{`, `}</Box>
+              </Box>
+            ) : null}
             {children || (
               <Fragment>
                 {isInVRExperiment ? (

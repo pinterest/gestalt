@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ComponentProps, ReactNode } from 'react';
+import Avatar from './Avatar';
 import { DropdownContextConsumer } from './Dropdown/Context';
 import OptionItem from './Dropdown/OptionItem';
 
@@ -22,6 +23,12 @@ type OptionItemType = {
 };
 
 type Props = {
+  /**
+   * When supplied, will display an [Avatar](https://gestalt.pinterest.systems/web/avatar) next to the item's label. See the [Avatar](https://gestalt.pinterest.systems/web/dropdown#Avatar) variant to learn more.
+   */
+  avatar?: Omit<ComponentProps<typeof Avatar>, 'size' | 'verified' | 'outline'> & {
+    size: 'sm' | 'md';
+  };
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/dropdown#Badges) variant to learn more.
    */
@@ -77,6 +84,7 @@ type Props = {
  * Use [Dropdown.Item](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Item) for action & selection, when the Dropdown item triggers an action or selects an option.
  */
 export default function DropdownItem({
+  avatar,
   badge,
   children,
   dataTestId,
@@ -99,6 +107,7 @@ export default function DropdownItem({
         <OptionItem
           key={`${option.value + _index}`}
           ref={setOptionRef}
+          avatar={avatar}
           badge={badge}
           dataTestId={dataTestId}
           disabled={disabled}
