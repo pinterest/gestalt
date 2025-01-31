@@ -39,6 +39,11 @@
   outline-offset: 0;
 }
 
+.accessibilityVROutlineFocus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
 .hideOutline:focus {
   outline: 0;
 }

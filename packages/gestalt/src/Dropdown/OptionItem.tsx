@@ -108,17 +108,20 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
 
     const { isFocusVisible } = useFocusVisible();
 
-    const className = classnames(getRoundingClassName(2), focusStyles.hideOutlineWithin, {
-      [focusStyles.hideOutline]: index !== focusedItemIndex || index === hoveredItemIndex,
-      [focusStyles.accessibilityOutlineFocus]: index === focusedItemIndex && isFocusVisible,
-      [styles.fullWidth]: true,
-      [styles.pointer]: !disabled,
-      [styles.noDrop]: disabled,
-    });
-
     const isInVRExperiment = useInExperiment({
       webExperimentName: 'web_gestalt_visualrefresh',
       mwebExperimentName: 'web_gestalt_visualrefresh',
+    });
+
+    const className = classnames(getRoundingClassName(2), focusStyles.hideOutlineWithin, {
+      [focusStyles.hideOutline]: index !== focusedItemIndex || index === hoveredItemIndex,
+      [focusStyles.accessibilityOutlineFocus]:
+        !isInVRExperiment && index === focusedItemIndex && isFocusVisible,
+      [focusStyles.accessibilityVROutlineFocus]:
+        isInVRExperiment && index === focusedItemIndex && isFocusVisible,
+      [styles.fullWidth]: true,
+      [styles.pointer]: !disabled,
+      [styles.noDrop]: disabled,
     });
 
     const textColor = disabled ? 'disabled' : 'default';
