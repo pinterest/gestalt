@@ -220,17 +220,16 @@ exports[`renders correctly with drawer 1`] = `
                       }
                     }
                   >
-                    <span
-                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-                    />
-                    <span
-                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-                    >
-                      Test BannerSlim
-                    </span>
-                    <span
-                      className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-                    />
+                    <div>
+                      <span
+                        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+                      />
+                      <span
+                        className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+                      >
+                        Test BannerSlim
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
