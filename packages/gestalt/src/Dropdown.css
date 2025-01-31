@@ -1,4 +1,5 @@
-.DropdownSection {
+.DropdownSection,
+.VRDropdownSection {
   width: 100%;
 }
 
