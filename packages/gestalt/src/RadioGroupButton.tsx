@@ -144,8 +144,9 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
-  const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
-
+  let bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
+  bgStyle = isInVRExperiment && !checked  ? styles.BgDisabledVR : bgStyle;
+  
   const { isFocusVisible } = useFocusVisible();
 
   const { parentName } = useRadioGroupContext();
