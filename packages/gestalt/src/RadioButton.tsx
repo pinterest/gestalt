@@ -1,15 +1,12 @@
-import { ComponentProps, forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
 import classnames from 'classnames';
-import Badge from './Badge';
 import Box from './Box';
 import focusStyles from './Focus.css';
 import Label from './Label';
 import styles from './RadioButton.css';
-import VRRadioButton from './RadioButton/VRRadioButton';
 import controlStyles from './RadioButtonCheckbox.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -56,10 +53,6 @@ type Props = {
    * The value of the input.
    */
   value: string;
-  /**
-   * badge.
-   */
-  badge?: ComponentProps<typeof Badge>;
 };
 
 /**
@@ -78,7 +71,6 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
     subtext,
     value,
     size = 'md',
-    badge,
   }: Props,
   ref,
 ) {
@@ -117,28 +109,6 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
   const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
   const { isFocusVisible } = useFocusVisible();
-
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-  if (isInVRExperiment) {
-    return (
-      <VRRadioButton
-        badge={badge}
-        checked={checked}
-        disabled={disabled}
-        id={id}
-        image={image}
-        label={label}
-        name={name}
-        onChange={onChange}
-        size={size}
-        subtext={subtext}
-        value={value}
-      />
-    );
-  }
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
