@@ -1,3 +1,9 @@
+## 171.1.0 (Jan 31, 2025)
+
+### Minor
+
+- Masonry: Experimental breakpoints for gridSize ([#3964](https://github.com/pinterest/gestalt/pull/3964)) - [Preview link](https://deploy-preview-3964--gestalt.netlify.app?devexample=true)
+
 ## 171.0.1 (Jan 30, 2025)
 
 ### Patch
