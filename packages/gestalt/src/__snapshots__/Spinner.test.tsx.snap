@@ -1,6 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spinner does not render by default 1`] = `<div />`;
+exports[`Spinner does not render by default 1`] = `null`;
+
+exports[`Spinner renders label 1`] = `
+<div
+  className="box paddingX100 paddingY100"
+>
+  <div
+    className="Flex rowGap600 columnGap600 xsDirectionColumn"
+  >
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box justifyAround overflowHidden xsDisplayFlex"
+      >
+        <div
+          className="icon delay"
+        >
+          <svg
+            aria-describedby=":r2:"
+            aria-hidden={null}
+            aria-label="Test"
+            className="subtle icon iconBlock"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="test-file-stub"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box"
+        style={
+          Object {
+            "minWidth": 200,
+          }
+        }
+      >
+        <div
+          className="default alignCenter breakWord Text fontWeightSemiBold fontSize200"
+          id=":r2:"
+        >
+          Label
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Spinner renders when passed show 1`] = `
 <div
