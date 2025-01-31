@@ -1,3 +1,9 @@
+## 171.3.0 (Jan 31, 2025)
+
+### Minor
+
+- Dropdown: support to `avatar` ([#3969](https://github.com/pinterest/gestalt/pull/3969)) - [Preview link](https://deploy-preview-3969--gestalt.netlify.app?devexample=true)
+
 ## 171.2.0 (Jan 31, 2025)
 
 ### Minor
