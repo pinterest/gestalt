@@ -1,3 +1,9 @@
+## 171.2.0 (Jan 31, 2025)
+
+### Minor
+
+- BannerUpsell: VR changes ([#3922](https://github.com/pinterest/gestalt/pull/3922)) - [Preview link](https://deploy-preview-3922--gestalt.netlify.app?devexample=true)
+
 ## 171.1.2 (Jan 31, 2025)
 
 ### Patch
