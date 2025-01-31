@@ -1,3 +1,9 @@
+## 171.3.1 (Jan 31, 2025)
+
+### Patch
+
+- BannerSlim: adjustments ([#3970](https://github.com/pinterest/gestalt/pull/3970)) - [Preview link](https://deploy-preview-3970--gestalt.netlify.app?devexample=true)
+
 ## 171.3.0 (Jan 31, 2025)
 
 ### Minor
