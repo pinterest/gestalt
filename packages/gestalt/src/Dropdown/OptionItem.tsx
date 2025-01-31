@@ -156,14 +156,10 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
                   </Text>
                 )}
                 {badge && !disabled && (
-                  <Box marginStart={2} marginTop={1}>
+                  <Box marginStart={2} marginTop={isInVRExperiment ? undefined : 1}>
                     {/* Adds a pause for screen reader users between the text content */}
                     <Box display="visuallyHidden">{`, `}</Box>
-                    <Badge
-                      position={isInVRExperiment ? 'top' : undefined}
-                      text={badge.text}
-                      type={badge.type || 'info'}
-                    />
+                    <Badge text={badge.text} type={badge.type || 'info'} />
                   </Box>
                 )}
               </Fragment>
