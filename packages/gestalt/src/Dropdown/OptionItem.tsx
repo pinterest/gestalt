@@ -5,11 +5,12 @@ import { useRequestAnimationFrame } from '../animation/RequestAnimationFrameCont
 import Badge from '../Badge';
 import Box from '../Box';
 import { useDeviceType } from '../contexts/DeviceTypeProvider';
+import styles from '../Dropdown.css';
 import Flex from '../Flex';
 import focusStyles from '../Focus.css';
 import getRoundingClassName from '../getRoundingClassName';
 import Icon from '../Icon';
-import styles from '../TapArea.css';
+import tapAreaStyles from '../TapArea.css';
 import TapAreaLink from '../TapAreaLink';
 import Text from '../Text';
 import { FontWeight } from '../textTypes';
@@ -114,14 +115,15 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
     });
 
     const className = classnames(getRoundingClassName(2), focusStyles.hideOutlineWithin, {
+      [styles.hovered]: isInVRExperiment && index === hoveredItemIndex,
       [focusStyles.hideOutline]: index !== focusedItemIndex || index === hoveredItemIndex,
       [focusStyles.accessibilityOutlineFocus]:
         !isInVRExperiment && index === focusedItemIndex && isFocusVisible,
       [focusStyles.accessibilityVROutlineFocus]:
         isInVRExperiment && index === focusedItemIndex && isFocusVisible,
-      [styles.fullWidth]: true,
-      [styles.pointer]: !disabled,
-      [styles.noDrop]: disabled,
+      [tapAreaStyles.fullWidth]: true,
+      [tapAreaStyles.pointer]: !disabled,
+      [tapAreaStyles.noDrop]: disabled,
     });
 
     const textColor = disabled ? 'disabled' : 'default';
@@ -248,7 +250,11 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
         tabIndex={isMobile && !disabled ? 0 : -1}
       >
         <Box
-          color={index === hoveredItemIndex && !disabled ? 'secondary' : 'transparent'}
+          color={
+            index === hoveredItemIndex && !disabled && !isInVRExperiment
+              ? 'secondary'
+              : 'transparent'
+          }
           direction="column"
           display="flex"
           height="100%"

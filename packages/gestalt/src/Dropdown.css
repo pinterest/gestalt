@@ -10,3 +10,11 @@
 .VRDropdownSection:not(:first-child) {
   margin-top: var(--sema-space-200);
 }
+
+.hovered:hover {
+  background-color: var(--sema-color-hover-background-elevation);
+}
+
+.hovered:active {
+  background-color: var(--sema-color-pressed-background-elevation);
+}
