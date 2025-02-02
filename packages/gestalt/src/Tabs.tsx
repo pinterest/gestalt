@@ -1,5 +1,6 @@
 import { LegacyRef, ReactNode } from 'react';
 import Flex from './Flex';
+import icons from './icons/index';
 import Tab from './Tabs/Tab';
 import useInExperiment from './useInExperiment';
 
@@ -31,6 +32,7 @@ type Props = {
     notificationAccessibilityLabel?: string;
     href: string;
     id?: string;
+    icon?: keyof typeof icons;
     indicator?: 'dot' | number;
     ref?: LegacyRef<HTMLDivElement> | undefined;
     text: ReactNode;
@@ -68,13 +70,14 @@ export default function Tabs({
       justifyContent="start"
       wrap={wrap}
     >
-      {tabs.map(({ href, id, indicator, ref, text }, index) => (
+      {tabs.map(({ href, id, indicator, ref, text, icon }, index) => (
         <Tab
           key={id || `${href}_${index}`}
           ref={ref}
           bgColor={bgColor}
           dataTestId={dataTestId}
           href={href}
+          icon={icon}
           id={id}
           index={index}
           indicator={indicator}

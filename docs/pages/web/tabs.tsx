@@ -14,6 +14,7 @@ import dontFilterContent from '../../examples/tabs/dontFilterContent';
 import dontHide from '../../examples/tabs/dontHide';
 import dontTruncateLabels from '../../examples/tabs/dontTruncateLabels';
 import doOrderByRelevance from '../../examples/tabs/doOrderByRelevance';
+import icon from '../../examples/tabs/icon';
 import indicator from '../../examples/tabs/indicator';
 import mainExample from '../../examples/tabs/mainExample';
 import wrapping from '../../examples/tabs/wrapping';
@@ -198,6 +199,22 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 code={indicator}
                 layout="column"
                 name="Indicator"
+                previewHeight={250}
+              />
+            }
+          />
+        </MainSection.Subsection>
+          <MainSection.Subsection
+          description="Tabs support an icon displayed next to the label"
+          title="Icon"
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample
+                code={icon}
+                layout="column"
+                name="Icon"
                 previewHeight={250}
               />
             }

@@ -12,6 +12,8 @@ import {
 import Box from '../Box';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
+import Icon from '../Icon';
+import icons from '../icons/index';
 import Indicator from '../Indicator';
 import style from '../Tabs.css';
 import TapAreaLink from '../TapAreaLink';
@@ -31,6 +33,7 @@ type TabType = {
 type TabProps = TabType & {
   bgColor: 'default' | 'transparent';
   dataTestId?: string;
+  icon?: keyof typeof icons;
   index: number;
   isActive: boolean;
   onChange: (arg1: {
@@ -60,6 +63,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     href,
     indicator,
     id,
+    icon,
     index,
     isActive,
     onChange,
@@ -147,6 +151,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
               height={isInVRExperiment ? '100%' : undefined}
               justifyContent="center"
             >
+              {icon ? <Icon accessibilityLabel="" color="default" icon={icon} size={12} /> : null}
               <TextUI color="default" overflow="noWrap" size="md">
                 {text}
               </TextUI>
