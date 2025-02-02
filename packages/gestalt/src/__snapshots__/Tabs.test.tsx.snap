@@ -318,6 +318,190 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
 </div>
 `;
 
+exports[`<Tabs /> matches snapshot with icons 1`] = `
+<div
+  className="Flex rowGap400 columnGap0 xsDirectionRow xsItemsCenter"
+>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="paddingY"
+    >
+      <a
+        aria-current="page"
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+      >
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+        >
+          <div
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
+              }
+            }
+          >
+            <div
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
+            >
+              <div
+                className="FlexItem"
+              >
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="default icon iconBlock"
+                  height={12}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={12}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                >
+                  News
+                </div>
+              </div>
+            </div>
+            <div
+              className="absolute box"
+              style={
+                Object {
+                  "bottom": -3,
+                  "left": undefined,
+                  "right": undefined,
+                  "width": "calc(100% - 16px)",
+                }
+              }
+            >
+              <div
+                className="box selected"
+                style={
+                  Object {
+                    "borderRadius": 1.5,
+                    "height": 3,
+                    "width": "100%",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div
+    className="FlexItem"
+  >
+    <div
+      className="paddingY"
+    >
+      <a
+        className="noOutline inheritColor noUnderline tapTransition rounding2 accessibilityOutline block fullWidth pointer"
+        href="#"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyPress={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        rel=""
+        tabIndex={0}
+      >
+        <div
+          className="Flex rowGap0 columnGap0 xsDirectionColumn xsItemsCenter"
+        >
+          <div
+            className="box paddingX200 paddingY200 relative rounding2 userSelectNone"
+            style={
+              Object {
+                "backgroundColor": "var(--color-background-tabs-default-base)",
+                "height": undefined,
+              }
+            }
+          >
+            <div
+              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "height": undefined,
+                }
+              }
+            >
+              <div
+                className="FlexItem"
+              >
+                <svg
+                  aria-hidden={true}
+                  aria-label=""
+                  className="default icon iconBlock"
+                  height={12}
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width={12}
+                >
+                  <path
+                    d="test-file-stub"
+                  />
+                </svg>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                >
+                  You
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<Tabs /> matches snapshot with wrap 1`] = `
 <div
   className="Flex rowGap400 columnGap0 flexWrap xsDirectionRow xsItemsCenter"
