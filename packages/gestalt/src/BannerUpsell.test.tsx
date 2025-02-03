@@ -5,7 +5,9 @@ import TextField from './TextField';
 
 describe('<BannerUpsell />', () => {
   test('Basic BannerUpsell', () => {
-    const tree = create(<BannerUpsell message="Insert a clever upsell message here" title="title" />).toJSON();
+    const tree = create(
+      <BannerUpsell message="Insert a clever upsell message here" title="title" />,
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

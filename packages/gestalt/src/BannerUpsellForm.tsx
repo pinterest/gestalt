@@ -60,7 +60,7 @@ export default function BannerUpsellForm({
             {children}
           </Box>
         </Flex.Item>
-        <Flex.Item flex='none'>
+        <Flex.Item flex="none">
           <Button
             accessibilityLabel={submitButtonAccessibilityLabel}
             color="red"
