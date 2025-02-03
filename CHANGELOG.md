@@ -1,3 +1,9 @@
+## 172.0.1 (Feb 3, 2025)
+
+### Patch
+
+- BannerOverlay: fix examples with logo ([#3975](https://github.com/pinterest/gestalt/pull/3975)) - [Preview link](https://deploy-preview-3975--gestalt.netlify.app?devexample=true)
+
 ## 172.0.0 (Feb 3, 2025)
 
 ### Major
