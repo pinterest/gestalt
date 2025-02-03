@@ -20,7 +20,7 @@ export default function Example() {
           setShowComponent(false);
         }}
         thumbnail={{
-        icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
+          icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
         }}
         title="More to explore"
         zIndex={new FixedZIndex(100)}
@@ -40,7 +40,7 @@ export default function Example() {
           accessibilityLabel: 'Get the app',
         }}
         thumbnail={{
-        icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
+          icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
         }}
         title="Mmmmm...tasty!"
         zIndex={new FixedZIndex(100)}

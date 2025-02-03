@@ -36,7 +36,7 @@ export default function Example() {
           accessibilityLabel: 'Get the app',
         }}
         thumbnail={{
-        icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
+          icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
         }}
         title="More to Explore"
         zIndex={new FixedZIndex(100)}
