@@ -1,3 +1,9 @@
+## 172.0.0 (Feb 3, 2025)
+
+### Major
+
+- BannerUpsell: VR fixes & title as required ([#3974](https://github.com/pinterest/gestalt/pull/3974)) - [Preview link](https://deploy-preview-3974--gestalt.netlify.app?devexample=true)
+
 ## 171.6.0 (Feb 3, 2025)
 
 ### Minor
