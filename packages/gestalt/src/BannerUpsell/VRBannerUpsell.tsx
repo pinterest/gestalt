@@ -1,6 +1,11 @@
 import { Children, ComponentProps, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
-import { TOKEN_SPACE_500, TOKEN_SPACE_800, TOKEN_SPACE_1000, TOKEN_SPACE_1300 } from 'gestalt-design-tokens';
+import {
+  TOKEN_SPACE_500,
+  TOKEN_SPACE_800,
+  TOKEN_SPACE_1000,
+  TOKEN_SPACE_1300,
+} from 'gestalt-design-tokens';
 import styles from '../BannerUpsell.css';
 import BannerUpsellForm from '../BannerUpsellForm';
 import Box from '../Box';
@@ -442,7 +447,8 @@ export default function BannerUpsell({
         display="none"
         lgDisplay="block"
         paddingY={8}
-        smDisplay="none"         width="100%"
+        smDisplay="none"
+        width="100%"
         wrap
       >
         <Box
