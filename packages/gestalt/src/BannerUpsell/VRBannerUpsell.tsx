@@ -1,5 +1,6 @@
 import { Children, ComponentProps, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
+import { TOKEN_SPACE_500, TOKEN_SPACE_800, TOKEN_SPACE_1000, TOKEN_SPACE_1300 } from 'gestalt-design-tokens';
 import styles from '../BannerUpsell.css';
 import BannerUpsellForm from '../BannerUpsellForm';
 import Box from '../Box';
@@ -190,134 +191,148 @@ export default function BannerUpsell({
     );
   }
 
+  const isRTL = document.documentElement.dir === 'rtl';
+
   return (
     <Box
-      borderStyle="shadow"
+      borderStyle="sm"
       color={isDarkMode ? 'elevationFloating' : 'default'}
       direction="column"
       display="flex"
-      mdPaddingX={8}
-      mdPaddingY={8}
-      paddingX={5}
-      paddingY={5}
       position="relative"
       rounding={4}
     >
       {/*
             SM BREAKPOINT
       */}
-      <div className={classnames(styles.paddingRightSM)}>
-        <Box display="block" lgDisplay="none" smDisplay="none" width="100%" wrap>
+      <Box
+        dangerouslySetInlineStyle={{
+          __style: {
+            paddingRight: isRTL ? TOKEN_SPACE_500 : TOKEN_SPACE_1000,
+            paddingLeft: isRTL ? TOKEN_SPACE_1000 : TOKEN_SPACE_500,
+          },
+        }}
+        display="block"
+        lgDisplay="none"
+        paddingY={5}
+        smDisplay="none"
+        width="100%"
+        wrap
+      >
+        <Box
+          alignItems="start"
+          direction="column"
+          display="flex"
+          flex={children ? 'grow' : 'shrink'}
+          justifyContent="center"
+          smDirection="row"
+        >
           <Box
-            alignItems="start"
+            alignItems="center"
             direction="column"
             display="flex"
             flex={children ? 'grow' : 'shrink'}
-            justifyContent="center"
-            smDirection="row"
+            marginBottom="auto"
+            marginEnd={0}
+            marginStart={0}
+            smDisplay="block"
+            smMarginEnd={6}
+            smMarginStart={imageData ? 6 : 0}
           >
-            <Box
-              alignItems="center"
-              direction="column"
-              display="flex"
-              flex={children ? 'grow' : 'shrink'}
-              marginBottom="auto"
-              marginEnd={0}
-              marginStart={0}
-              smDisplay="block"
-              smMarginEnd={6}
-              smMarginStart={imageData ? 6 : 0}
-            >
-              <Box alignItems="start" maxWidth={648}>
-                {title && (
-                  <Box marginBottom={2}>
-                    {imageData && (
-                      <Box
-                        display="flex"
-                        flex="none"
-                        width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
-                      >
-                        <Flex>
-                          <Box marginEnd={3}>
-                            <Mask
-                              rounding={imageData.mask?.rounding || 0}
-                              wash={imageData.mask?.wash || false}
-                              width={32}
-                            >
-                              {imageData.component}
-                            </Mask>
-                          </Box>
+            <Box alignItems="start" maxWidth={648}>
+              {title && (
+                <Box marginBottom={2}>
+                  {imageData && (
+                    <Box
+                      display="flex"
+                      flex="none"
+                      width={isImage ? Math.min(imageData.width || 128, 128) : undefined}
+                    >
+                      <Flex>
+                        <Box marginEnd={3}>
+                          <Mask
+                            rounding={imageData.mask?.rounding || 0}
+                            wash={imageData.mask?.wash || false}
+                            width={32}
+                          >
+                            {imageData.component}
+                          </Mask>
+                        </Box>
 
-                          <Heading align="start" size="400">
-                            {title}
-                          </Heading>
-                        </Flex>
-                      </Box>
-                    )}
-                  </Box>
-                )}
-                {messageElement}
-              </Box>
-              {children && (
-                <Box
-                  flex="grow"
-                  justifyContent="end"
-                  marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
-                  smDisplay="flex"
-                  smMarginEnd={4}
-                  smPaddingY={3}
-                  width="100%"
-                >
-                  {children}
+                        <Heading align="start" size="400">
+                          {title}
+                        </Heading>
+                      </Flex>
+                    </Box>
+                  )}
                 </Box>
               )}
+              {messageElement}
             </Box>
-            {!children && hasActions && (
+            {children && (
               <Box
-                dangerouslySetInlineStyle={{ __style: { width: '100%' } }}
-                direction="row"
-                display="flex"
-                marginTop={5}
+                flex="grow"
+                justifyContent="end"
+                marginTop={responsiveMinWidth === 'xs' ? 2 : undefined}
+                smDisplay="flex"
+                smMarginEnd={4}
+                smPaddingY={3}
+                width="100%"
               >
-                {secondaryAction && responsiveMinWidth !== 'xs' && (
-                  <UpsellAction
-                    data={secondaryAction}
-                    size="sm"
-                    twoButtons={!!secondaryAction && !!primaryAction}
-                    type="secondary"
-                  />
-                )}
-                {primaryAction && (
-                  <UpsellAction
-                    data={primaryAction}
-                    size="sm"
-                    twoButtons={!!secondaryAction && !!primaryAction}
-                    type="primary"
-                  />
-                )}
-                {secondaryAction && responsiveMinWidth === 'xs' && (
-                  <UpsellAction
-                    data={secondaryAction}
-                    size="sm"
-                    stacked={!secondaryAction}
-                    twoButtons={!!secondaryAction && !!primaryAction}
-                    type="secondary"
-                  />
-                )}
+                {children}
               </Box>
             )}
           </Box>
+          {!children && hasActions && (
+            <Box
+              dangerouslySetInlineStyle={{ __style: { width: '100%' } }}
+              direction="row"
+              display="flex"
+              marginTop={5}
+            >
+              {secondaryAction && responsiveMinWidth !== 'xs' && (
+                <UpsellAction
+                  data={secondaryAction}
+                  size="sm"
+                  twoButtons={!!secondaryAction && !!primaryAction}
+                  type="secondary"
+                />
+              )}
+              {primaryAction && (
+                <UpsellAction
+                  data={primaryAction}
+                  size="sm"
+                  twoButtons={!!secondaryAction && !!primaryAction}
+                  type="primary"
+                />
+              )}
+              {secondaryAction && responsiveMinWidth === 'xs' && (
+                <UpsellAction
+                  data={secondaryAction}
+                  size="sm"
+                  stacked={!secondaryAction}
+                  twoButtons={!!secondaryAction && !!primaryAction}
+                  type="secondary"
+                />
+              )}
+            </Box>
+          )}
         </Box>
-      </div>
+      </Box>
       {/*
       MD BREAKPOINT
       */}
       <Box
+        dangerouslySetInlineStyle={{
+          __style: {
+            paddingRight: isRTL ? TOKEN_SPACE_800 : TOKEN_SPACE_1300,
+            paddingLeft: isRTL ? TOKEN_SPACE_1000 : TOKEN_SPACE_800,
+          },
+        }}
         display="none"
         lgDisplay="none"
+        paddingY={8}
         smDisplay="block"
-        smMarginBottom={-3}
-        smMarginTop={-3}
         width="100%"
         wrap
       >
@@ -330,7 +345,6 @@ export default function BannerUpsell({
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
           smDirection="row"
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
-          smPaddingY={3}
         >
           {imageData && (
             <Box
@@ -415,17 +429,20 @@ export default function BannerUpsell({
           </Box>
         )}
       </Box>
-
       {/*
       LG BREAKPOINT
       */}
       <Box
+        dangerouslySetInlineStyle={{
+          __style: {
+            paddingRight: isRTL ? TOKEN_SPACE_800 : TOKEN_SPACE_1300,
+            paddingLeft: isRTL ? TOKEN_SPACE_1000 : TOKEN_SPACE_800,
+          },
+        }}
         display="none"
         lgDisplay="block"
-        smDisplay="none"
-        smMarginBottom={-3}
-        smMarginTop={-3}
-        width="100%"
+        paddingY={8}
+        smDisplay="none"         width="100%"
         wrap
       >
         <Box
@@ -437,7 +454,6 @@ export default function BannerUpsell({
           marginBottom={primaryAction || secondaryAction ? 4 : undefined}
           smDirection="row"
           smMarginBottom={primaryAction || secondaryAction ? 0 : undefined}
-          smPaddingY={3}
         >
           {imageData && (
             <Box
@@ -516,15 +532,13 @@ export default function BannerUpsell({
           )}
         </Box>
       </Box>
-
       {dismissButton && (
-        <div className={classnames(styles.rtlPos)}>
+        <div className={classnames(styles.VRrtlPos)}>
           <IconButton
             accessibilityLabel={dismissButton.accessibilityLabel ?? accessibilityDismissButtonLabel}
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}
-            padding={4}
             size="sm"
           />
         </div>

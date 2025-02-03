@@ -53,14 +53,14 @@ export default function BannerUpsellForm({
         direction={isXsWidth ? 'column' : 'row'}
         gap={isXsWidth ? { column: 2, row: 0 } : { row: 2, column: 0 }}
         justifyContent="end"
-        wrap
+        wrap={!!isXsWidth}
       >
         <Flex.Item flex={isXsWidth ? 'shrink' : 'grow'}>
           <Box marginBottom={0} smMarginBottom={2}>
             {children}
           </Box>
         </Flex.Item>
-        <Flex.Item>
+        <Flex.Item flex='none'>
           <Button
             accessibilityLabel={submitButtonAccessibilityLabel}
             color="red"

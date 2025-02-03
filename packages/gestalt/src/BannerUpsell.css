@@ -1,7 +1,3 @@
-.paddingRightSM {
-  padding-right: var(--sema-space-500);
-}
-
 html[dir="rtl"] .rtlPos {
   left: 0;
   position: absolute;
@@ -12,6 +8,18 @@ html:not([dir="rtl"]) .rtlPos {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+html[dir="rtl"] .VRrtlPos {
+  left: var(--sema-space-200);
+  position: absolute;
+  top: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .VRrtlPos {
+  position: absolute;
+  right: var(--sema-space-200);
+  top: var(--sema-space-200);
 }
 
 .textColorOverrideLight * {
