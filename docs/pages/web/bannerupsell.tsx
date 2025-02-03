@@ -21,7 +21,6 @@ import multipleTextField from '../../examples/bannerupsell/multipleTextField';
 import placeAtTopOfPage from '../../examples/bannerupsell/placeAtTopOfPage';
 import planTiming from '../../examples/bannerupsell/planTiming';
 import singleTextField from '../../examples/bannerupsell/singleTextField';
-import textVariant from '../../examples/bannerupsell/textVariant';
 import useForMarketing from '../../examples/bannerupsell/useForMarketing';
 
 const DOC_NAMES = ['BannerUpsell', 'BannerUpsellForm'] as const;
@@ -223,22 +222,6 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
       </MainSection>
 
       <MainSection name="Variants">
-        <MainSection.Subsection
-          description="Used to convey a short message that requires no action, except dismiss."
-          title="Text-only"
-        >
-          <MainSection.Card
-            cardSize="lg"
-            sandpackExample={
-              <SandpackExample
-                code={textVariant}
-                layout="column"
-                name="Text-Only for Short Message with Dismiss"
-              />
-            }
-          />
-        </MainSection.Subsection>
-
         <MainSection.Subsection
           description="The Icon is used to add additional meaning to the BannerUpsell. The icon can reference a Pinterest product, feature or an action from our [Icon library](/web/icon)."
           title="Icon"

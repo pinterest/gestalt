@@ -125,7 +125,7 @@ type Props = {
   /**
    * Brief title summarizing the BannerUpsell. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization).
    */
-  title?: string;
+  title: string;
 };
 
 /**
@@ -294,7 +294,7 @@ export default function BannerUpsell({
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}
-            padding={4}
+            padding={isInVRExperiment ? undefined : 4}
             size="sm"
           />
         </div>
