@@ -46,8 +46,20 @@
   composes: sizeLg from "./Borders.css";
 }
 
+.BorderUncheckedVR {
+  composes: sizeLgVR from "./Borders.css";
+}
+
+.BorderUncheckedHoverVR {
+  composes: sizeLgHoverVR from "./Borders.css";
+}
+
 .BgDisabled {
   background-color: var(--color-background-formfield-disabled);
+}
+
+.BgDisabledVR {
+  background-color: var(--sema-color-background-disabled);
 }
 
 .BgEnabled {

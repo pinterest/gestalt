@@ -15,6 +15,7 @@ type Props = {
   text?: ReactNode;
   size?: SizeType;
   noPadding?: boolean;
+  marginTop?: boolean;
 };
 
 export default function FormErrorMessage({
@@ -22,6 +23,7 @@ export default function FormErrorMessage({
   size,
   text = '',
   noPadding: noStartPadding,
+  marginTop,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
@@ -31,6 +33,7 @@ export default function FormErrorMessage({
   return (
     <div
       className={classnames({
+        [helperTextStyles.marginTop]: marginTop,
         // none
         [helperTextStyles.noStartPadding]: noStartPadding,
         // sm
