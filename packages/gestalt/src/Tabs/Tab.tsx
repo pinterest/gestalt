@@ -145,35 +145,36 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
             rounding={isInVRExperiment ? 4 : 2}
             userSelect="none"
           >
-            <Flex
-              alignItems="center"
-              gap={{ row: 2, column: 0 }}
-              height={isInVRExperiment ? '100%' : undefined}
-              justifyContent="center"
-            >
-              {icon ? <Icon accessibilityLabel="" color="default" icon={icon} size={12} /> : null}
-              <TextUI color="default" overflow="noWrap" size="md">
-                {text}
-              </TextUI>
+            <Box paddingX={isInVRExperiment ? 3 : 2}>
+              <Flex
+                alignItems="center"
+                gap={{ row: 2, column: 0 }}
+                height={isInVRExperiment ? '100%' : undefined}
+                justifyContent="center"
+              >
+                {icon ? <Icon accessibilityLabel="" color="default" icon={icon} size={12} /> : null}
+                <TextUI color="default" overflow="noWrap" size="md">
+                  {text}
+                </TextUI>
 
-              {indicator === 'dot' && (
-                <Indicator
-                  accessibilityLabel={
-                    notificationAccessibilityLabel ?? accessibilityNotificationLabel
-                  }
-                />
-              )}
-              {/* Number.isFinite will return false for a string or undefined */}
-              {typeof indicator === 'number' && Number.isFinite(indicator) && (
-                <Indicator
-                  accessibilityLabel={
-                    notificationAccessibilityLabel ?? accessibilityNotificationLabel
-                  }
-                  count={indicator}
-                />
-              )}
-            </Flex>
-
+                {indicator === 'dot' && (
+                  <Indicator
+                    accessibilityLabel={
+                      notificationAccessibilityLabel ?? accessibilityNotificationLabel
+                    }
+                  />
+                )}
+                {/* Number.isFinite will return false for a string or undefined */}
+                {typeof indicator === 'number' && Number.isFinite(indicator) && (
+                  <Indicator
+                    accessibilityLabel={
+                      notificationAccessibilityLabel ?? accessibilityNotificationLabel
+                    }
+                    count={indicator}
+                  />
+                )}
+              </Flex>
+            </Box>
             {isActive && (
               <Box
                 dangerouslySetInlineStyle={{

@@ -204,19 +204,14 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             }
           />
         </MainSection.Subsection>
-          <MainSection.Subsection
+        <MainSection.Subsection
           description="Tabs support an icon displayed next to the label"
           title="Icon"
         >
           <MainSection.Card
             cardSize="md"
             sandpackExample={
-              <SandpackExample
-                code={icon}
-                layout="column"
-                name="Icon"
-                previewHeight={250}
-              />
+              <SandpackExample code={icon} layout="column" name="Icon" previewHeight={250} />
             }
           />
         </MainSection.Subsection>
