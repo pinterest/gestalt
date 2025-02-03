@@ -1,3 +1,9 @@
+## 171.6.0 (Feb 3, 2025)
+
+### Minor
+
+- Tabs: support new icon prop #3972 ([#3973](https://github.com/pinterest/gestalt/pull/3973)) - [Preview link](https://deploy-preview-3973--gestalt.netlify.app?devexample=true)
+
 ## 171.5.0 (Feb 3, 2025)
 
 ### Minor
