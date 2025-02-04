@@ -59,9 +59,7 @@ describe('Dropdown.Item', () => {
     expect(error.mock.calls[0]![0]).toEqual(
       expect.stringContaining('Warning: React does not recognize the `%s` prop on a DOM element'),
     );
-    expect(error.mock.calls[0]![1]).toEqual(
-      expect.stringContaining('fetchPriority'),
-    );
+    expect(error.mock.calls[0]![1]).toEqual(expect.stringContaining('fetchPriority'));
     expect(screen.getByAltText('Ayesha avatar')).toBeInTheDocument();
   });
 
