@@ -46,12 +46,32 @@
   composes: sizeLg from "./Borders.css";
 }
 
+.outerFocusedOutline {
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
+}
+
+.innerBorderFocused {
+  border: 2px solid var(--sema-color-border-focus-inner-default);
+}
+
+.innerBorderDisabled {
+  border: 2px solid var(--sema-color-background-disabled);
+}
+
+.innerBorderChecked {
+  border: 2px solid var(--sema-color-background-selected);
+}
+
+.innerBorderUnchecked {
+  border: 2px solid var(--sema-color-border-focus-inner-default);
+}
+
 .BorderUncheckedVR {
-  composes: sizeLgVR from "./Borders.css";
+  border-width: 1px;
 }
 
 .BorderUncheckedHoverVR {
-  composes: sizeLgHoverVR from "./Borders.css";
+  border-width: 1.5px;
 }
 
 .BgDisabled {

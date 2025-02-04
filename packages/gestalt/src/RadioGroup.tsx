@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
-import Fieldset from './Fieldset';
+import InternalFieldset from './Fieldset/InternalFieldset';
 import Flex from './Flex';
 import { RadioGroupContextProvider } from './RadioGroup/Context';
 import RadioGroupButton from './RadioGroupButton';
@@ -73,12 +73,13 @@ function RadioGroup({
 
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
-      <Fieldset
+      <InternalFieldset
         errorMessage={errorMessage}
         helperText={helperText}
         id={id}
         legend={legend}
         legendDisplay={legendDisplay}
+        marginTop
       >
         <Flex
           direction={direction}
@@ -90,7 +91,7 @@ function RadioGroup({
         >
           {children}
         </Flex>
-      </Fieldset>
+      </InternalFieldset>
     </RadioGroupContextProvider>
   );
 }

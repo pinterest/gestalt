@@ -1,9 +1,8 @@
-import { ComponentProps, forwardRef, Fragment, ReactNode, useState } from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Badge from './Badge';
 import borderStyles from './Borders.css';
 import Box from './Box';
-import boxStyles from './Box.css';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Label from './Label';
@@ -16,6 +15,7 @@ import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useTapScaleAnimation from './utils/useTapScaleAnimation';
+import VRRadioGroupButton from './VRRadioGroupButton';
 
 type BadgeType = {
   text: string;
@@ -110,8 +110,32 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
+  const { parentName } = useRadioGroupContext();
+
+  const tapScaleAnimation = useTapScaleAnimation();
+
+  const { isFocusVisible } = useFocusVisible();
+
   const [focused, setFocused] = useState(false);
   const [hovered, setHover] = useState(false);
+
+  if (isInVRExperiment) {
+    return (
+      <VRRadioGroupButton
+        badge={badge}
+        checked={checked}
+        disabled={disabled}
+        helperText={helperText}
+        id={id}
+        image={image}
+        label={label}
+        name={name}
+        onChange={onChange}
+        size={size}
+        value={value}
+      />
+    );
+  }
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) =>
     onChange({ checked: event.target.checked, event });
@@ -131,7 +155,8 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderColor = styles.BorderHovered;
   }
 
-  let borderWidth = isInVRExperiment ? styles.BorderUncheckedVR : styles.BorderUnchecked;
+  let borderWidth = styles.BorderUnchecked;
+
   if (disabled && !checked) {
     borderWidth = styles.BorderDisabled;
   } else if (checked && size === 'sm') {
@@ -140,26 +165,9 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderWidth = styles.BorderCheckedMd;
   }
 
-  let uncheckedBorderWidth = styles.BorderDisabled;
-
-  if (!isInVRExperiment) {
-    uncheckedBorderWidth = disabled ? styles.BorderDisabled : styles.BorderUnchecked;
-  } else {
-    uncheckedBorderWidth = !disabled ? styles.BorderUncheckedVR : uncheckedBorderWidth;
-    uncheckedBorderWidth =
-      hovered && !disabled ? styles.BorderUncheckedHoverVR : styles.BorderUncheckedVR;
-  }
-
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
-  let bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
-  bgStyle = isInVRExperiment && !checked ? styles.BgDisabledVR : bgStyle;
-
-  const { isFocusVisible } = useFocusVisible();
-
-  const { parentName } = useRadioGroupContext();
-
-  const tapScaleAnimation = useTapScaleAnimation();
+  const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
   if (parentName !== 'RadioGroup') {
     throw new Error(
@@ -169,54 +177,20 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
   const radioButtonStyles = isInVRExperiment
     ? classnames(styleSize, layoutStyles.relative, borderStyles.circle, tapScaleAnimation.classes, {
-        [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
+        [styles.outerFocusedOutline]: !disabled && focused && isFocusVisible,
+        [styles.innerBorderFocused]: checked && !disabled && focused && isFocusVisible,
+        [styles.innerBorderDisabled]: disabled,
+        [styles.innerBorderChecked]: checked && !disabled && !focused,
+        [styles.innerBorderUnchecked]: !checked && !disabled && !focused,
       })
     : classnames(bgStyle, borderColor, borderWidth, styleSize, styles.RadioButton, {
         [focusStyles.accessibilityOutlineFocus]: focused && isFocusVisible,
       });
 
-  const sharedBorderStyles = classnames(styles.VRRadioButton, borderColor, bgStyle, styleSize);
-
-  const checkedBorderStyles = classnames(sharedBorderStyles, styles.checked, borderWidth, {
-    [styles.noTransitionDelay]: checked,
-  });
-
-  const uncheckedBorderStyles = classnames(
-    sharedBorderStyles,
-    styles.unchecked,
-    uncheckedBorderWidth,
-    {
-      [boxStyles.opacity0]: checked || disabled,
-      [styles.noTransition]: checked,
-    },
-  );
-
-  let margin: ComponentProps<typeof Box>['marginTop'] = size === 'md' ? 0.5 : -0.25;
-  if (isInVRExperiment) {
-    margin = size === 'sm' ? 0 : 0.25;
-  }
-
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
-      <Box marginTop={isInVRExperiment && size === 'sm' ? 0.5 : undefined} paddingX={1}>
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-        <div
-          ref={tapScaleAnimation.elementRef}
-          className={radioButtonStyles}
-          onMouseDown={() => {
-            if (isInVRExperiment) tapScaleAnimation.handleMouseDown();
-          }}
-          onMouseUp={() => {
-            if (isInVRExperiment) tapScaleAnimation.handleMouseUp();
-          }}
-        >
-          {isInVRExperiment && (
-            <Fragment>
-              <div className={checkedBorderStyles} />
-              <div className={uncheckedBorderStyles} />
-            </Fragment>
-          )}
-
+      <Box marginTop={size === 'sm' ? 0.25 : undefined} paddingX={1}>
+        <div ref={tapScaleAnimation.elementRef} className={radioButtonStyles}>
           <input
             // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
             ref={ref}
@@ -243,7 +217,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         <Flex direction="row">
           {label && (
             <Label htmlFor={id}>
-              <Box marginTop={margin} paddingX={1}>
+              <Box marginTop={size === 'sm' ? 0 : 0.5} paddingX={1}>
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
