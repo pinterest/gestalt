@@ -84,7 +84,7 @@ exports[`<Toast /> Text + _dangerouslySetPrimaryAction 1`] = `
             className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Saved to
-             
+
             <a
               className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
@@ -188,7 +188,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
               <img
                 alt=""
                 className="img"
-                fetchpriority="auto"
+                fetchPriority="auto"
                 loading="auto"
                 onError={[Function]}
                 onLoad={[Function]}
@@ -208,7 +208,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
             className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Saved to
-             
+
             <a
               className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"
@@ -312,7 +312,7 @@ exports[`<Toast /> Text + Image 1`] = `
               <img
                 alt=""
                 className="img"
-                fetchpriority="auto"
+                fetchPriority="auto"
                 loading="auto"
                 onError={[Function]}
                 onLoad={[Function]}
@@ -332,7 +332,7 @@ exports[`<Toast /> Text + Image 1`] = `
             className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
           >
             Saved to
-             
+
             <a
               className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverUnderline noUnderline outlineFocus"
               href="https://www.pinterest.com/search/pins/?q=home%20decor"

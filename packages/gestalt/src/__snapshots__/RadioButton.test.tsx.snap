@@ -308,7 +308,7 @@ exports[`RadioButton with image 1`] = `
         <img
           alt=""
           className="img"
-          fetchpriority="auto"
+          fetchPriority="auto"
           loading="auto"
           onError={[Function]}
           onLoad={[Function]}
