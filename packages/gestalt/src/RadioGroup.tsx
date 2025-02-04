@@ -62,11 +62,6 @@ function RadioGroup({
     radioGroupHandlers: undefined,
   };
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   useEffect(() => {
     if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
   }, [radioGroupHandlers]);
@@ -86,7 +81,7 @@ function RadioGroup({
           gap={
             direction === 'row'
               ? { row: 4, column: 0 }
-              : { column: isInVRExperiment ? 3 : 2, row: 0 }
+              : { column: 2, row: 0 }
           }
         >
           {children}

@@ -134,11 +134,10 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     },
   );
 
-  const margin: ComponentProps<typeof Box>['marginTop'] = size === 'sm' ? 0 : 0.25;
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
-      <Box marginTop={size === 'sm' ? 0.5 : undefined} paddingX={1}>
+      <Box paddingX={1}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
           ref={tapScaleAnimation.elementRef}
@@ -174,7 +173,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         <Flex direction="row">
           {label && (
             <Label htmlFor={id}>
-              <Box marginTop={margin} paddingX={1}>
+              <Box marginTop={size === 'sm' ? 0 : 0.5} paddingX={1}>
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
