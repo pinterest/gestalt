@@ -1,4 +1,4 @@
-import { forwardRef, Fragment, ReactNode, useState } from 'react';
+import { ComponentProps, forwardRef, Fragment, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Badge from './Badge';
 import borderStyles from './Borders.css';
@@ -191,12 +191,14 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     },
   );
 
-  let margin = size === 'md' ? '2px' : '-1px';
-  margin = isInVRExperiment ? '0px' : margin;
+  let margin: ComponentProps<typeof Box>['marginTop'] = size === 'md' ? 0.5 : -0.25;
+  if (isInVRExperiment) {
+    margin = size === 'sm' ? 0 : 0.25;
+  }
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
-      <Box paddingX={1}>
+      <Box marginTop={isInVRExperiment && size === 'sm' ? 0.5 : undefined} paddingX={1}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
         <div
           ref={tapScaleAnimation.elementRef}
@@ -241,13 +243,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         <Flex direction="row">
           {label && (
             <Label htmlFor={id}>
-              {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
-              <Box
-                dangerouslySetInlineStyle={{
-                  __style: { marginTop: margin },
-                }}
-                paddingX={1}
-              >
+              <Box marginTop={margin} paddingX={1}>
                 <Text color={disabled ? 'subtle' : undefined} size={size === 'sm' ? '200' : '300'}>
                   {label}
                 </Text>
