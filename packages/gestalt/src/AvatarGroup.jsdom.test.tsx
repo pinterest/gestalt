@@ -54,6 +54,7 @@ describe('AvatarGroup', () => {
     );
 
   it('renders xs display-only AvatarGroup with image', () => {
+    const error = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { baseElement } = renderCmp({
       collaborators: [
         {
@@ -63,6 +64,12 @@ describe('AvatarGroup', () => {
       ],
       size: 'xs',
     });
+    expect(error.mock.calls[0]![0]).toEqual(
+      expect.stringContaining('Warning: React does not recognize the `%s` prop on a DOM element'),
+    );
+    expect(error.mock.calls[0]![1]).toEqual(
+      expect.stringContaining('fetchPriority'),
+    );
     expect(baseElement).toMatchSnapshot();
   });
 
