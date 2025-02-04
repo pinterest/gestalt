@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import Badge from './Badge';
 import borderStyles from './Borders.css';
@@ -133,7 +133,6 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
       [styles.noTransition]: checked,
     },
   );
-
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
