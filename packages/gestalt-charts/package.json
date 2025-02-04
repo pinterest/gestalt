@@ -1,6 +1,6 @@
 {
   "name": "gestalt-charts",
-  "version": "169.2.2",
+  "version": "172.0.1",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A React UI chart component which enforces Pinterest's design language",
@@ -17,8 +17,8 @@
   },
   "peerDependencies": {
     "gestalt": ">0.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",

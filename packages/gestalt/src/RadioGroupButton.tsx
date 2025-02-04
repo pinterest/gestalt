@@ -127,11 +127,11 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderColor = styles.BorderDisabledChecked;
   } else if (!disabled && checked) {
     borderColor = styles.BorderSelected;
-  } else if (!disabled && hovered) {
+  } else if (!disabled && hovered && !isInVRExperiment) {
     borderColor = styles.BorderHovered;
   }
 
-  let borderWidth = styles.BorderUnchecked;
+  let borderWidth = isInVRExperiment ? styles.BorderUncheckedVR : styles.BorderUnchecked;
   if (disabled && !checked) {
     borderWidth = styles.BorderDisabled;
   } else if (checked && size === 'sm') {
@@ -140,11 +140,20 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     borderWidth = styles.BorderCheckedMd;
   }
 
-  const uncheckedBorderWidth = disabled ? styles.BorderDisabled : styles.BorderUnchecked;
+  let uncheckedBorderWidth = styles.BorderDisabled;
+
+  if (!isInVRExperiment) {
+    uncheckedBorderWidth = disabled ? styles.BorderDisabled : styles.BorderUnchecked;
+  } else {
+    uncheckedBorderWidth = !disabled ? styles.BorderUncheckedVR : uncheckedBorderWidth;
+    uncheckedBorderWidth =
+      hovered && !disabled ? styles.BorderUncheckedHoverVR : styles.BorderUncheckedVR;
+  }
 
   const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
 
-  const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
+  let bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
+  bgStyle = isInVRExperiment && !checked ? styles.BgDisabledVR : bgStyle;
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -181,6 +190,9 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
       [styles.noTransition]: checked,
     },
   );
+
+  let margin = size === 'md' ? '2px' : '-1px';
+  margin = isInVRExperiment ? '0px' : margin;
 
   return (
     <Box alignItems="start" display="flex" justifyContent="start" marginEnd={-1} marginStart={-1}>
@@ -232,7 +244,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               {/* marginTop: '-1px'/'2px' is needed to  visually align the label text & radiobutton input */}
               <Box
                 dangerouslySetInlineStyle={{
-                  __style: { marginTop: size === 'md' ? '2px' : '-1px' },
+                  __style: { marginTop: margin },
                 }}
                 paddingX={1}
               >

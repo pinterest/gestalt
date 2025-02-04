@@ -77,13 +77,15 @@ export default function Spinner({
     );
   }
 
-  return show ? (
-    <Box padding={label ? 1 : undefined}>
+  if (!show) return null;
+
+  return label ? (
+    <Box padding={1}>
       <Flex direction="column" gap={6}>
         <Box display="flex" justifyContent="around" overflow="hidden">
           <div className={classnames(styles.icon, { [styles.delay]: delay })}>
             <InternalIcon
-              accessibilityDescribedby={label ? id : undefined}
+              accessibilityDescribedby={id}
               accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
               // map non-classic colors to subtle
               color={color === 'default' || color === 'subtle' ? color : 'subtle'}
@@ -92,17 +94,25 @@ export default function Spinner({
             />
           </div>
         </Box>
-        {label && (
-          <Box minWidth={200}>
-            <TextUI align="center" id={id} size="sm">
-              {label}
-            </TextUI>
-          </Box>
-        )}
-      </Flex>{' '}
+        <Box minWidth={200}>
+          <TextUI align="center" id={id} size="sm">
+            {label}
+          </TextUI>
+        </Box>
+      </Flex>
     </Box>
   ) : (
-    <div />
+    <Box display="flex" justifyContent="around" overflow="hidden">
+      <div className={classnames(styles.icon, { [styles.delay]: delay })}>
+        <InternalIcon
+          accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
+          // map non-classic colors to subtle
+          color={color === 'default' || color === 'subtle' ? color : 'subtle'}
+          icon="knoop"
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      </div>
+    </Box>
   );
 }
 

@@ -119,11 +119,11 @@ export default function Spinner({
 
   if (!show) return null;
 
-  return (
-    <Box padding={label ? 1 : undefined}>
+  return label ? (
+    <Box padding={1}>
       <Flex direction="column" gap={6}>
         <SpinnerBody
-          accessibilityDescribedby={label ? id : undefined}
+          accessibilityDescribedby={id}
           accessibilityLabel={accessibilityLabel ?? label ?? accessibilityLabelDefault}
           color={color}
           delay={delay}
@@ -131,15 +131,22 @@ export default function Spinner({
           show={showProp}
           size={size}
         />
-        {label && (
-          <Box minWidth={200}>
-            <TextUI align="center" id={id} size="sm">
-              {label}
-            </TextUI>
-          </Box>
-        )}
+        <Box minWidth={200}>
+          <TextUI align="center" id={id} size="sm">
+            {label}
+          </TextUI>
+        </Box>
       </Flex>
     </Box>
+  ) : (
+    <SpinnerBody
+      accessibilityLabel={accessibilityLabel ?? accessibilityLabelDefault}
+      color={color}
+      delay={delay}
+      onExitAnimationEnd={unmountSpinner}
+      show={showProp}
+      size={size}
+    />
   );
 }
 

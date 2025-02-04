@@ -41,6 +41,23 @@ describe('Dropdown.Item', () => {
     expect(screen.queryByText('Beta Badge')).toBeInTheDocument();
   });
 
+  test('adds avatar', () => {
+    render(
+      <Dropdown.Item
+        avatar={{
+          name: 'Ayesha',
+          accessibilityLabel: 'Ayesha avatar',
+          src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+          color: 1,
+          size: 'sm',
+        }}
+        onSelect={onSelectMock}
+        option={{ value: 'item 4', label: 'Item 4' }}
+      />,
+    );
+    expect(screen.getByAltText('Ayesha avatar')).toBeInTheDocument();
+  });
+
   test('adds selected icon when item is selected', () => {
     render(
       <Dropdown.Item

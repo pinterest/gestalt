@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BannerOverlay, Button, FixedZIndex, Image, Link, Text } from 'gestalt';
+import { BannerOverlay, Button, FixedZIndex, Icon, Link, Text } from 'gestalt';
 
 export default function Example() {
   const [showComponent, setShowComponent] = useState(true);
@@ -27,14 +27,7 @@ export default function Example() {
         setShowComponent(false);
       }}
       thumbnail={{
-        image: (
-          <Image
-            alt="Pinterest Logo"
-            naturalHeight={1}
-            naturalWidth={1}
-            src="https://i.ibb.co/LQc8ynn/image.png"
-          />
-        ),
+        icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
       }}
       title="More to Explore"
       zIndex={new FixedZIndex(100)}

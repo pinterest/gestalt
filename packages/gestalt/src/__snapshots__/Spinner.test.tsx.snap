@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spinner does not render by default 1`] = `<div />`;
+exports[`Spinner does not render by default 1`] = `null`;
 
-exports[`Spinner renders when passed show 1`] = `
+exports[`Spinner renders label 1`] = `
 <div
-  className="box paddingXNaN paddingYNaN"
+  className="box paddingX100 paddingY100"
 >
   <div
     className="Flex rowGap600 columnGap600 xsDirectionColumn"
@@ -19,6 +19,7 @@ exports[`Spinner renders when passed show 1`] = `
           className="icon delay"
         >
           <svg
+            aria-describedby=":r2:"
             aria-hidden={null}
             aria-label="Test"
             className="subtle icon iconBlock"
@@ -34,118 +35,121 @@ exports[`Spinner renders when passed show 1`] = `
         </div>
       </div>
     </div>
+    <div
+      className="FlexItem"
+    >
+      <div
+        className="box"
+        style={
+          Object {
+            "minWidth": 200,
+          }
+        }
+      >
+        <div
+          className="default alignCenter breakWord Text fontWeightSemiBold fontSize200"
+          id=":r2:"
+        >
+          Label
+        </div>
+      </div>
+    </div>
   </div>
-   
+</div>
+`;
+
+exports[`Spinner renders when passed show 1`] = `
+<div
+  className="box justifyAround overflowHidden xsDisplayFlex"
+>
+  <div
+    className="icon delay"
+  >
+    <svg
+      aria-hidden={null}
+      aria-label="Test"
+      className="subtle icon iconBlock"
+      height={40}
+      role="img"
+      viewBox="0 0 24 24"
+      width={40}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
 exports[`Spinner renders with medium size 1`] = `
 <div
-  className="box paddingXNaN paddingYNaN"
+  className="box justifyAround overflowHidden xsDisplayFlex"
 >
   <div
-    className="Flex rowGap600 columnGap600 xsDirectionColumn"
+    className="icon delay"
   >
-    <div
-      className="FlexItem"
+    <svg
+      aria-hidden={null}
+      aria-label="Test"
+      className="subtle icon iconBlock"
+      height={40}
+      role="img"
+      viewBox="0 0 24 24"
+      width={40}
     >
-      <div
-        className="box justifyAround overflowHidden xsDisplayFlex"
-      >
-        <div
-          className="icon delay"
-        >
-          <svg
-            aria-hidden={null}
-            aria-label="Test"
-            className="subtle icon iconBlock"
-            height={40}
-            role="img"
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
-   
 </div>
 `;
 
 exports[`Spinner renders with no delay 1`] = `
 <div
-  className="box paddingXNaN paddingYNaN"
+  className="box justifyAround overflowHidden xsDisplayFlex"
 >
   <div
-    className="Flex rowGap600 columnGap600 xsDirectionColumn"
+    className="icon"
   >
-    <div
-      className="FlexItem"
+    <svg
+      aria-hidden={null}
+      aria-label="Test"
+      className="subtle icon iconBlock"
+      height={40}
+      role="img"
+      viewBox="0 0 24 24"
+      width={40}
     >
-      <div
-        className="box justifyAround overflowHidden xsDisplayFlex"
-      >
-        <div
-          className="icon"
-        >
-          <svg
-            aria-hidden={null}
-            aria-label="Test"
-            className="subtle icon iconBlock"
-            height={40}
-            role="img"
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
-   
 </div>
 `;
 
 exports[`Spinner renders with small size 1`] = `
 <div
-  className="box paddingXNaN paddingYNaN"
+  className="box justifyAround overflowHidden xsDisplayFlex"
 >
   <div
-    className="Flex rowGap600 columnGap600 xsDirectionColumn"
+    className="icon delay"
   >
-    <div
-      className="FlexItem"
+    <svg
+      aria-hidden={null}
+      aria-label="Test"
+      className="subtle icon iconBlock"
+      height={32}
+      role="img"
+      viewBox="0 0 24 24"
+      width={32}
     >
-      <div
-        className="box justifyAround overflowHidden xsDisplayFlex"
-      >
-        <div
-          className="icon delay"
-        >
-          <svg
-            aria-hidden={null}
-            aria-label="Test"
-            className="subtle icon iconBlock"
-            height={32}
-            role="img"
-            viewBox="0 0 24 24"
-            width={32}
-          >
-            <path
-              d="test-file-stub"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
-   
 </div>
 `;

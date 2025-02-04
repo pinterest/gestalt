@@ -1,6 +1,8 @@
 :root {
   --g-border-width: 1px;
   --g-border-width-lg: 2px;
+  --g-border-width-lg-vr: 1px;
+  --g-border-width-lg-vr-hover: 1.5px;
 }
 
 /* Border lines */
@@ -117,6 +119,14 @@ html[dir="rtl"] .borderLeft {
 
 .sizeLg {
   border-width: var(--g-border-width-lg);
+}
+
+.sizeLgVR {
+  border-width: var(--g-border-width-lg-vr);
+}
+
+.sizeLgHoverVR {
+  border-width: var(--g-border-width-lg-vr-hover);
 }
 
 .solid {
