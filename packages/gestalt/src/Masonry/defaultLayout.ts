@@ -45,6 +45,7 @@ const defaultLayout =
     width,
     measurementCache,
     _getColumnSpanConfig,
+    _multiColPositionAlgoV2,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -57,6 +58,7 @@ const defaultLayout =
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+    _multiColPositionAlgoV2?: boolean;
     earlyBailout?: (columnSpan: number) => number;
     logWhitespace?: (
       additionalWhitespace: ReadonlyArray<number>,
@@ -93,6 +95,7 @@ const defaultLayout =
           gutter,
           measurementCache,
           _getColumnSpanConfig,
+          _multiColPositionAlgoV2,
           ...otherProps,
         })
       : items.map((item) => {

@@ -370,6 +370,7 @@ function useLayout<T>({
   _useRAF,
   _getColumnSpanConfig,
   _earlyBailout,
+  _multiColPositionAlgoV2,
 }: {
   align: Align;
   columnWidth: number;
@@ -390,6 +391,7 @@ function useLayout<T>({
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _earlyBailout?: (columnSpan: number) => number;
+  _multiColPositionAlgoV2?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -409,6 +411,7 @@ function useLayout<T>({
     _getColumnSpanConfig,
     _logTwoColWhitespace,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   });
 
   const hasMultiColumnItems =

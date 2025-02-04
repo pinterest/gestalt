@@ -86,6 +86,7 @@ export default function TestPage({
     virtualize,
     virtualBoundsTop,
     virtualBoundsBottom,
+    multiColPositionAlgoV2,
   } = router.query;
 
   // Generate a sample of realistic pin heights
@@ -111,6 +112,8 @@ export default function TestPage({
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
         {/* @ts-expect-error - TS2769 - No overload matches this call. */}
         <MasonryContainer
+          // @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
+          _multiColPositionAlgoV2={booleanize(multiColPositionAlgoV2)}
           // @ts-expect-error - TS2345 - Argument of type 'string | string[] | undefined' is not assignable to parameter of type 'string'.
           constrained={booleanize(constrained)}
           dynamicHeights={dynamicHeights}
