@@ -1,3 +1,9 @@
+## 172.2.0 (Feb 5, 2025)
+
+### Minor
+
+- RadioGroup: VR changes ([#3978](https://github.com/pinterest/gestalt/pull/3978)) - [Preview link](https://deploy-preview-3978--gestalt.netlify.app?devexample=true)
+
 ## 172.1.0 (Feb 5, 2025)
 
 ### Minor
