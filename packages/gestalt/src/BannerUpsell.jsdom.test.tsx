@@ -11,6 +11,7 @@ test('BannerUpsell handles onDismiss callback', () => {
         onDismiss: mockOnDismiss,
       }}
       message="Insert a clever upsell message here"
+      title="title"
     />,
   );
   screen.getByLabelText('Dismiss banner').click();

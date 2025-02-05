@@ -19,6 +19,15 @@ exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
+          className="box marginBottom200"
+        >
+          <div
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+          >
+            title
+          </div>
+        </div>
+        <div
           className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           Insert a clever upsell message here
@@ -110,7 +119,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 flexWrap justifyEnd xsDirectionRow"
+              className="Flex rowGap200 columnGap0 justifyEnd xsDirectionRow"
             >
               <div
                 className="FlexItem flexGrow"
@@ -141,7 +150,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
                 </div>
               </div>
               <div
-                className="FlexItem"
+                className="FlexItem flexNone"
               >
                 <button
                   aria-label="Submit button"

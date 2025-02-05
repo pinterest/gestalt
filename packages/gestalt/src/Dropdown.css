@@ -1,7 +1,20 @@
-.DropdownSection {
+.DropdownSection,
+.VRDropdownSection {
   width: 100%;
 }
 
 .DropdownSection:not(:first-child) {
   margin-top: var(--space-400);
+}
+
+.VRDropdownSection:not(:first-child) {
+  margin-top: var(--sema-space-200);
+}
+
+.hovered:hover {
+  background-color: var(--sema-color-hover-background-elevation);
+}
+
+.hovered:active {
+  background-color: var(--sema-color-pressed-background-elevation);
 }

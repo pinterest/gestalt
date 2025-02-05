@@ -5,6 +5,10 @@
   padding-right: var(--space-0);
 }
 
+.marginTop {
+  margin-top: var(--sema-space-300);
+}
+
 /* sm */
 
 .sm_topPadding {

@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import { Avatar, BannerOverlay, Button, FixedZIndex, Image } from 'gestalt';
+import { BannerOverlay, Button, FixedZIndex, Icon } from 'gestalt';
 
 export default function Example() {
   const [showComponent, setShowComponent] = useState(true);
@@ -20,7 +20,7 @@ export default function Example() {
           setShowComponent(false);
         }}
         thumbnail={{
-          avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+          icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
         }}
         title="More to explore"
         zIndex={new FixedZIndex(100)}
@@ -40,14 +40,7 @@ export default function Example() {
           accessibilityLabel: 'Get the app',
         }}
         thumbnail={{
-          image: (
-            <Image
-              alt="Pinterest Logo"
-              naturalHeight={1}
-              naturalWidth={1}
-              src="https://i.ibb.co/LQc8ynn/image.png"
-            />
-          ),
+          icon: <Icon accessibilityLabel="" color="brandPrimary" icon="pinterest" />,
         }}
         title="Mmmmm...tasty!"
         zIndex={new FixedZIndex(100)}

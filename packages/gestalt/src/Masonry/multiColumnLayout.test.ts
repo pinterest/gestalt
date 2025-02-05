@@ -970,16 +970,32 @@ describe('responsive module layout test cases', () => {
             ? {
                 sm: 2,
                 md: 3,
-                lg: 5,
+                _lg1: 5,
+                lg: 6,
                 xl: 9,
               }
             : 1,
       });
 
+    const getExpectedColumnSpan = (columnCount: number): number => {
+      if (columnCount <= 2) {
+        return 2;
+      }
+      if (columnCount <= 4) {
+        return 3;
+      }
+      if (columnCount <= 6) {
+        return 5;
+      }
+      if (columnCount <= 8) {
+        return 6;
+      }
+      return 9;
+    };
+
     const breakpoints = [2, 3, 4, 5, 6, 7, 8, 9, 10].map((columnCount) => ({
       columnCount,
-      // eslint-disable-next-line no-nested-ternary
-      expectedColumnSpan: columnCount < 3 ? 2 : columnCount < 5 ? 3 : columnCount < 9 ? 5 : 9,
+      expectedColumnSpan: getExpectedColumnSpan(columnCount),
     }));
 
     breakpoints.forEach(({ columnCount, expectedColumnSpan }) => {

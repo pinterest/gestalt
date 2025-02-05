@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import layout from './Layout.css';
@@ -58,6 +59,10 @@ type Props = {
     event: React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>;
   }) => void;
   /**
+   * Callback when user clicks on clear button.
+   */
+  onClear?: () => void;
+  /**
    *
    */
   onFocus?: (arg1: { value: string; event: React.FocusEvent<HTMLInputElement> }) => void;
@@ -102,6 +107,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     labelDisplay = 'visible',
     onBlur,
     onChange,
+    onClear,
     onFocus,
     onKeyDown,
     placeholder,
@@ -115,6 +121,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
+
+  const { accessibilityClearButtonLabel: accessibilityDefaultClearButtonLabel } =
+    useDefaultLabelContext('SearchField');
 
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
@@ -183,6 +192,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
         labelDisplay={labelDisplay}
         onBlur={onBlur}
         onChange={onChange}
+        onClear={onClear}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
@@ -242,12 +252,15 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
         {hasValue && (
           <div className={styles.clear}>
             <IconButton
-              accessibilityLabel={accessibilityClearButtonLabel || ''}
+              accessibilityLabel={
+                accessibilityClearButtonLabel ?? accessibilityDefaultClearButtonLabel
+              }
               bgColor="transparent"
               icon="cancel"
               onClick={({ event }) => {
                 inputRef?.current?.focus();
                 onChange({ value: '', event });
+                onClear?.();
               }}
               padding={size === 'md' ? 1 : undefined}
               selected={focused}

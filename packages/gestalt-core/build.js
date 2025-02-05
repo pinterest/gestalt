@@ -160,7 +160,11 @@ export const plugins = (name) => [
     babelrc: false,
     exclude: 'node_modules/**',
     rootMode: 'upward',
-    presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/preset-typescript'],
+    presets: [
+      ['@babel/preset-env', { targets: { node: true } }],
+      '@babel/preset-typescript',
+      '@babel/preset-react',
+    ],
     shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
   }),
   commonjs(),

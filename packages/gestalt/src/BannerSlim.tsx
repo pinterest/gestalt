@@ -264,10 +264,10 @@ export default function BannerSlim({
                 </Text>
               </div>
             ) : null}
-            {message && typeof message !== 'string' ? (
+            {typeof message !== 'string' ? (
               <div>
                 <Text ref={referenceRef} inline />
-                {cloneElement(message, { ref: targetRef })}
+                {typeof message !== 'string' && cloneElement(message, { ref: targetRef })}
               </div>
             ) : null}
           </Box>
