@@ -17,17 +17,17 @@ import { Children, Component, ReactNode } from 'react';
 type Props = {
   children?: ReactNode;
   onScroll: (event: Event) => void;
-  scrollContainer: HTMLElement | null | undefined | (() => HTMLElement | null | undefined);
+  scrollContainer: HTMLElement | null | undefined | (() => HTMLElement | Window | null | undefined);
 };
 
 function getScrollContainer(
-  scrollContainer?: HTMLElement | (() => HTMLElement | null | undefined) | null,
+  scrollContainer?: HTMLElement | (() => HTMLElement | Window | null | undefined) | null,
 ) {
   return typeof scrollContainer === 'function' ? scrollContainer() : scrollContainer;
 }
 
 export default class ScrollContainer extends Component<Props> {
-  scrollContainer: HTMLElement | null | undefined;
+  scrollContainer: HTMLElement | Window | null | undefined;
 
   componentDidMount() {
     const scrollContainer = getScrollContainer(this.props.scrollContainer);
@@ -51,13 +51,13 @@ export default class ScrollContainer extends Component<Props> {
 
   // This is used in Masonry
   // eslint-disable-next-line react/no-unused-class-component-methods
-  getScrollContainerRef: () => HTMLElement | null | undefined = () => this.scrollContainer;
+  getScrollContainerRef: () => HTMLElement| Window | null | undefined = () => this.scrollContainer;
 
   handleScroll: (event: Event) => void = (event: Event) => {
     this.props.onScroll(event);
   };
 
-  updateScrollContainer(scrollContainer: HTMLElement) {
+  updateScrollContainer(scrollContainer: HTMLElement | Window) {
     if (this.scrollContainer) {
       // cleanup existing scroll container if it exists
       this.scrollContainer.removeEventListener('scroll', this.handleScroll);
