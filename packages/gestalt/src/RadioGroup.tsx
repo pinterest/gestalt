@@ -4,7 +4,6 @@ import InternalFieldset from './Fieldset/InternalFieldset';
 import Flex from './Flex';
 import { RadioGroupContextProvider } from './RadioGroup/Context';
 import RadioGroupButton from './RadioGroupButton';
-import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
