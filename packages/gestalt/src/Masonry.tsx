@@ -95,7 +95,7 @@ type Props<T> = {
    *
    * This is required if the grid is expected to be scrollable.
    */
-  scrollContainer?: () => HTMLElement;
+  scrollContainer?: () => HTMLElement | Window;
   /**
    * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
    */
