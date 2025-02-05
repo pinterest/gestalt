@@ -1,6 +1,26 @@
 :root {
   --g-border-sm: 6px;
   --g-border-md: 8px;
+  --g-size-sm: var(--space-400);
+  --g-size-md: var(--space-600);
+}
+
+.input {
+  composes: absolute from "./Layout.css";
+  composes: m0 from "./Whitespace.css";
+  appearance: none;
+  opacity: var(--opacity-0);
+  outline: 0;
+}
+
+.sizeSm {
+  height: var(--g-size-sm);
+  width: var(--g-size-sm);
+}
+
+.sizeMd {
+  height: var(--g-size-md);
+  width: var(--g-size-md);
 }
 
 .RadioButton {

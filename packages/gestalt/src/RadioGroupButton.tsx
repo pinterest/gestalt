@@ -8,7 +8,6 @@ import focusStyles from './Focus.css';
 import Label from './Label';
 import layoutStyles from './Layout.css';
 import styles from './RadioButton.css';
-import controlStyles from './RadioButtonCheckbox.css';
 import { useRadioGroupContext } from './RadioGroup/Context';
 import RadioButton from './RadioGroup/RadioButton';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
@@ -167,7 +166,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
       borderWidth = styles.BorderCheckedMd;
     }
 
-    const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
+    const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
 
     const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
@@ -204,7 +203,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
               ref={ref}
               aria-describedby={helperText && focused ? `${id}-helperText` : undefined}
               checked={checked}
-              className={classnames(controlStyles.input, styleSize, {
+              className={classnames(styles.input, styleSize, {
                 [styles.InputEnabled]: !disabled,
               })}
               disabled={disabled}
