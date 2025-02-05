@@ -81,9 +81,10 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         [styles.outerContainerMd]: size === 'md',
 
         [styles.focusedOutline]: !disabled && isFocused && isFocusVisible,
+        [styles.focusedCheckedBorder]: !disabled && checked && isFocused && isFocusVisible,
 
         [styles.disabledBorder]: disabled,
-        [styles.checkedBorder]: !disabled && checked,
+        [styles.checkedBorder]: !disabled && checked && !isFocused,
 
         [styles.uncheckedBorder]: !disabled && !checked && !isFocused,
         [styles.uncheckedBorderHovered]: !disabled && !checked && isHovered && !isFocused,
@@ -99,12 +100,12 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         className={classnames(styles.radio, styles.checkedTransitionAnimation, {
           [styles.disabledUncheckedRadio]: disabled && !checked,
           [styles.disabledRadio]: disabled && checked,
-
           [styles.uncheckedRadio]: !disabled && !checked,
           [styles.checkedRadio]: !disabled && checked,
           [styles.borderRadioSm]: checked && size === 'sm',
           [styles.borderRadioMd]: checked && size === 'md',
-
+          [styles.focusedBorderRadioSm]: checked && size === 'sm' && isFocused && isFocusVisible,
+          [styles.focusedBorderRadioMd]: checked && size === 'md' && isFocused && isFocusVisible,
           [styles.noTransitionAnimationDelay]: checked,
         })}
       />

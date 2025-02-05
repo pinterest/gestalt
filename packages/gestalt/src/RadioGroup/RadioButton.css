@@ -25,6 +25,10 @@
   border-width: 0;
 }
 
+.focusedCheckedBorder {
+  border: 2px solid var(--sema-color-border-focus-inner-default);
+}
+
 .disabledBorder,
 .checkedBorder {
   border-width: 0;
@@ -77,6 +81,17 @@
   border-style: solid;
   border-width: 8px;
 }
+
+.focusedBorderRadioSm {
+  border-style: solid;
+  border-width: 4px;
+}
+
+.focusedBorderRadioMd {
+  border-style: solid;
+  border-width: 6px;
+}
+
 
 .checkedTransitionAnimation {
   transition: border var(--comp-radiogroupbutton-motion-border-scale-duration)
