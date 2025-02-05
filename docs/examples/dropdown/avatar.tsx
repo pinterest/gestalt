@@ -41,28 +41,35 @@ export default function CustomIconButtonPopoverExample() {
           onDismiss={() => setOpen(false)}
           zIndex={new CompositeZIndex([PAGE_HEADER_ZINDEX])}
         >
-          <Dropdown.Section label="Create">
+          <Dropdown.Section label="Account management">
             <Dropdown.Item
               onSelect={onSelect}
-              option={{ value: 'Pin', label: 'Pin' }}
+              option={{ value: 'accounts', label: 'Claimed accounts' }}
               selected={selected}
             />
             <Dropdown.Item
+              avatar={{
+                name: 'Ayesha',
+                src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+                color: 1,
+                size: 'sm',
+              }}
+              badge={{ text: 'New' }}
               onSelect={onSelect}
-              option={{ value: 'Story Pin', label: 'Story Pin' }}
+              option={{ value: 'pins', label: 'Your Pins' }}
               selected={selected}
             />
           </Dropdown.Section>
-          <Dropdown.Section label="Add">
+          <Dropdown.Section label="User profiles">
             <Dropdown.Item
-              badge={{ text: 'New' }}
+              avatar={{
+                name: 'Ayesha',
+                src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+                color: 1,
+                size: 'md',
+              }}
               onSelect={onSelect}
-              option={{ value: 'Note', label: 'Note' }}
-              selected={selected}
-            />
-            <Dropdown.Item
-              onSelect={onSelect}
-              option={{ value: 'Section', label: 'Section' }}
+              option={{ value: 'user', label: 'Your profile' }}
               selected={selected}
             />
           </Dropdown.Section>

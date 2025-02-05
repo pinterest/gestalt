@@ -1,3 +1,4 @@
+const BASE_URL = 'http://localhost:8888';
 const BASE_PATH = '/integration-test/masonry';
 
 const normalizeValue = (val: boolean | number) => {
@@ -43,7 +44,7 @@ const getServerURL = (options?: Options | null): string => {
       .join('&');
   }
 
-  return `${BASE_PATH}?${serializedOptions}`;
+  return `${process.env.CI ? '' : BASE_URL}${BASE_PATH}?${serializedOptions}`;
 };
 
 export default getServerURL;

@@ -168,7 +168,6 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'Popover',
       'PopoverEducational',
       'Pulsar',
-      'RadioButton',
       'RadioGroup',
       'SearchField',
       'SearchGuide',
