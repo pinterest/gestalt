@@ -1,3 +1,9 @@
+## 172.2.1 (Feb 5, 2025)
+
+### Patch
+
+- Checkbox: background fix on VR ([#3979](https://github.com/pinterest/gestalt/pull/3979)) - [Preview link](https://deploy-preview-3979--gestalt.netlify.app?devexample=true)
+
 ## 172.2.0 (Feb 5, 2025)
 
 ### Minor
