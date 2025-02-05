@@ -1,3 +1,9 @@
+## 172.1.0 (Feb 5, 2025)
+
+### Minor
+
+- Masonry: Adding Window type to scroll container ([#3977](https://github.com/pinterest/gestalt/pull/3977)) - [Preview link](https://deploy-preview-3977--gestalt.netlify.app?devexample=true)
+
 ## 172.0.1 (Feb 3, 2025)
 
 ### Patch
