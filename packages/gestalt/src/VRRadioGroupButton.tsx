@@ -118,14 +118,23 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     },
   );
 
-  const sharedBorderStyles = classnames(styles.VRRadioButton, borderColor, bgStyle, styleSize);
-
-  const checkedBorderStyles = classnames(sharedBorderStyles, styles.checked, borderWidth, {
-    [styles.noTransitionDelay]: checked,
-  });
+  const checkedBorderStyles = classnames(
+    styles.VRRadioButton,
+    borderColor,
+    bgStyle,
+    styleSize,
+    styles.checked,
+    borderWidth,
+    {
+      [styles.noTransitionDelay]: checked,
+    },
+  );
 
   const uncheckedBorderStyles = classnames(
-    sharedBorderStyles,
+    styles.VRRadioButton,
+    borderColor,
+    bgStyle,
+    styleSize,
     styles.unchecked,
     uncheckedBorderWidth,
     {

@@ -120,23 +120,24 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
     const [focused, setFocused] = useState(false);
     const [hovered, setHover] = useState(false);
 
-  if (isInVRExperiment) {
-    return (
-      <RadioButton
-        badge={badge}
-        checked={checked}
-        disabled={disabled}
-        helperText={helperText}
-        id={id}
-        image={image}
-        label={label}
-        name={name}
-        onChange={onChange}
-        size={size}
-        value={value}
-      />
-    );
-  }
+    if (isInVRExperiment) {
+      return (
+        <RadioButton
+          ref={ref}
+          badge={badge}
+          checked={checked}
+          disabled={disabled}
+          helperText={helperText}
+          id={id}
+          image={image}
+          label={label}
+          name={name}
+          onChange={onChange}
+          size={size}
+          value={value}
+        />
+      );
+    }
 
     const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) =>
       onChange({ checked: event.target.checked, event });

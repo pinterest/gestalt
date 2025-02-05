@@ -1,10 +1,4 @@
-.input {
-  appearance: none;
-  margin: 0;
-  opacity: var(--sema-opacity-0);
-  outline: 0;
-  position: absolute;
-}
+/* outer container */
 
 .outerContainer {
   border-radius: var(--sema-rounding-circle);
@@ -23,16 +17,12 @@
   width: 24px;
 }
 
-.uncheckedBorder {
-  border: 1px solid var(--sema-color-border-interactive);
+.focusedOutline {
+  outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
-.uncheckedBorder:hover {
-  border: 1.5px solid var(--sema-color-hover-border-interactive);
-}
-
-.uncheckedBorder:active {
-  border: 1.5px solid var(--sema-color-pressed-border-interactive);
+.focusedUncheckedBorder {
+  border-width: 0;
 }
 
 .disabledBorder,
@@ -40,11 +30,93 @@
   border-width: 0;
 }
 
-.focusedOutline {
-  outline: 2px solid var(--sema-color-border-focus-outer-default);
+.uncheckedBorder {
+  border: 1px solid var(--sema-color-border-interactive);
 }
 
+.uncheckedBorderHovered {
+  border: 1.5px solid var(--sema-color-hover-border-interactive);
+}
 
-.focusedBorder:active {
-  border: 2px solid var(--sema-color-border-focus-inner-default);
+.uncheckedBorderActive {
+  border: 1.5px solid var(--sema-color-pressed-border-interactive);
+}
+
+/* radio */
+
+.radio {
+  border-radius: var(--sema-rounding-circle);
+  box-sizing: border-box;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.uncheckedRadio {
+  border-width: 0;
+}
+
+.checkedRadio {
+  border-color: var(--sema-color-background-selected);
+}
+
+.disabledRadio {
+  border-color: var(--sema-color-background-disabled);
+}
+
+.disabledUncheckedRadio {
+  background-color: var(--sema-color-background-disabled);
+}
+
+.borderRadioSm {
+  border-style: solid;
+  border-width: 6px;
+}
+
+.borderRadioMd {
+  border-style: solid;
+  border-width: 8px;
+}
+
+.checkedTransitionAnimation {
+  transition: border var(--comp-radiogroupbutton-motion-border-scale-duration)
+    var(--comp-radiogroupbutton-motion-border-scale-easing)
+    var(--comp-radiogroupbutton-motion-border-scale-duration);
+}
+
+.uncheckedTransitionAnimation {
+  transition-duration: 150ms;
+  transition-property: opacity;
+  transition-timing-function: var(
+    --comp-radiogroupbutton-motion-border-fade-easing
+  );
+}
+
+.noTransitionAnimation {
+  transition: none;
+}
+
+.noTransitionAnimationDelay {
+  transition-delay: var(--sema-motion-opacity-duration-instant);
+}
+
+/* input */
+
+.input {
+  appearance: none;
+  box-sizing: border-box;
+  margin: 0;
+  opacity: var(--sema-opacity-0);
+  outline: 0;
+  position: absolute;
+}
+
+.inputSm {
+  height: 16px;
+  width: 16px;
+}
+
+.inputMd {
+  height: 24px;
+  width: 24px;
 }

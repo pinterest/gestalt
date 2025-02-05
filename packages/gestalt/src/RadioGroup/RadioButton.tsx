@@ -45,19 +45,7 @@ type Props = {
 };
 
 const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function RadioButton(
-  {
-    checked = false,
-    disabled = false,
-    id,
-    image,
-    label,
-    name,
-    onChange,
-    helperText,
-    value,
-    badge,
-    size = 'md',
-  }: Props,
+  { checked, disabled, id, image, label, name, onChange, helperText, value, badge, size }: Props,
   ref,
 ) {
   const { isFocusVisible } = useFocusVisible();
@@ -93,19 +81,53 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
         [styles.outerContainerMd]: size === 'md',
 
         [styles.focusedOutline]: !disabled && isFocused && isFocusVisible,
-        [styles.focusedBorder]: !disabled && isFocused && isFocusVisible,
 
         [styles.disabledBorder]: disabled,
         [styles.checkedBorder]: !disabled && checked,
 
         [styles.uncheckedBorder]: !disabled && !checked && !isFocused,
+        [styles.uncheckedBorderHovered]: !disabled && !checked && isHovered && !isFocused,
+        [styles.uncheckedBorderActive]: !disabled && !checked && isPressed,
+
+        [styles.focusedUncheckedBorder]: !disabled && !checked && isFocused && isFocusVisible,
       })}
       onMouseDown={() => tapScaleAnimation.handleMouseDown()}
       onMouseUp={() => tapScaleAnimation.handleMouseUp()}
     >
+      {/* checked */}
+      <div
+        className={classnames(styles.radio, styles.checkedTransitionAnimation, {
+          [styles.disabledUncheckedRadio]: disabled && !checked,
+          [styles.disabledRadio]: disabled && checked,
+
+          [styles.uncheckedRadio]: !disabled && !checked,
+          [styles.checkedRadio]: !disabled && checked,
+          [styles.borderRadioSm]: checked && size === 'sm',
+          [styles.borderRadioMd]: checked && size === 'md',
+
+          [styles.noTransitionAnimationDelay]: checked,
+        })}
+      />
+      <div
+        className={classnames(styles.radio, styles.uncheckedTransitionAnimation, {
+          // [styles.borderInputSm]: size === 'sm',
+          // [styles.borderInputMd]: size === 'md',
+
+          [styles.noTransitionAnimation]: checked,
+        })}
+      />
+
       <input
         ref={ref}
-        className={classnames(styles.input)}
+        checked={checked}
+        className={classnames(styles.input, {
+          [styles.disabledInput]: disabled,
+          [styles.inputSm]: size === 'sm',
+          [styles.inputMd]: size === 'md',
+        })}
+        disabled={disabled}
+        id={id}
+        name={name}
         onBlur={handleOnBlur}
         onChange={(event) => onChange({ checked: event.target.checked, event })}
         onFocus={handleOnFocus}
