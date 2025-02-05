@@ -136,7 +136,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           value={value}
         />
       </div>
-      {Boolean(image) && <Box>{image}</Box>}
+      {Boolean(image) && <Box marginEnd={2}>{image}</Box>}
       <Flex direction="column">
         <Flex direction="row" gap={1}>
           {label && (
