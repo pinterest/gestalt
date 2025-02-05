@@ -1,8 +1,26 @@
+.container {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.wrapper .container:not(:first-child) {
+  margin-top: var(--sema-space-300);
+}
+
 /* outer container */
 
 .outerContainer {
   border-radius: var(--sema-rounding-circle);
   position: relative;
+}
+
+html[dir="rtl"] .outerContainer {
+  margin-left: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .outerContainer {
+  margin-right: var(--sema-space-200);
 }
 
 .outerContainerSm {
@@ -91,7 +109,6 @@
   border-style: solid;
   border-width: 6px;
 }
-
 
 .checkedTransitionAnimation {
   transition: border var(--comp-radiogroupbutton-motion-border-scale-duration)

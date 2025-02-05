@@ -3,7 +3,9 @@ import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerPro
 import InternalFieldset from './Fieldset/InternalFieldset';
 import Flex from './Flex';
 import { RadioGroupContextProvider } from './RadioGroup/Context';
+import style from './RadioGroup/RadioButton.css';
 import RadioGroupButton from './RadioGroupButton';
+import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -65,6 +67,11 @@ function RadioGroup({
     if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
   }, [radioGroupHandlers]);
 
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
+  });
+
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
       <InternalFieldset
@@ -77,13 +84,13 @@ function RadioGroup({
       >
         <Flex
           direction={direction}
-          gap={
-            direction === 'row'
-              ? { row: 4, column: 0 }
-              : { column: 2, row: 0 }
-          }
+          gap={direction === 'row' ? { column: 0, row: 4 } : { column: 2, row: 0 }}
         >
-          {children}
+          {isInVRExperiment && direction === 'column' ? (
+            <div className={style.wrapper}>{children}</div>
+          ) : (
+            children
+          )}
         </Flex>
       </InternalFieldset>
     </RadioGroupContextProvider>
