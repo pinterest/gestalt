@@ -161,7 +161,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           {badge && (
             <Flex.Item alignSelf="end" minWidth={0}>
               <Box dangerouslySetInlineStyle={{ __style: { top: '1px' } }} position="relative">
-                <Badge text={badge.text} type={badge.type || 'info'} />
+                <Badge position="top" text={badge.text} type={badge.type || 'info'} />
               </Box>
             </Flex.Item>
           )}

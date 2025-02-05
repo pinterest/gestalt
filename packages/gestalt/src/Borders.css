@@ -119,8 +119,6 @@ html[dir="rtl"] .borderLeft {
   border-width: var(--g-border-width-lg);
 }
 
-
-
 .solid {
   border-style: solid;
 }
