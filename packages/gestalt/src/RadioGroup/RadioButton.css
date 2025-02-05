@@ -25,6 +25,7 @@ html:not([dir="rtl"]) .outerContainer {
 
 .outerContainerSm {
   box-sizing: border-box;
+  margin-top: var(--sema-space-50);
   min-height: 16px;
   min-width: 16px;
 }
