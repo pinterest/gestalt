@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import classnames from 'classnames';
 import style from './InternalFieldset.css';
 import boxStyles from '../Box.css';
-import boxWhitespaceStyles from '../boxWhitespace.css';
 import formStyles from '../sharedSubcomponents/FormElement.css';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
