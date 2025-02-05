@@ -70,6 +70,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
   return (
     <div className={classnames(styles.container)}>
+      {/* OUTER CONTAINER */}
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         ref={tapScaleAnimation.elementRef}
@@ -77,24 +78,30 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           [styles.outerContainerSm]: size === 'sm',
           [styles.outerContainerMd]: size === 'md',
 
+          // disabled
           [styles.disabledBorder]: disabled,
 
+          // outer/inner focus with keyboard navigation
           [styles.focusedOutline]: !disabled && isFocused && isFocusVisible,
           [styles.focusedCheckedBorder]: !disabled && checked && isFocused && isFocusVisible,
+          // we remove this border when the RADIO element diplays as checked
           [styles.checkedBorder]: !disabled && checked && !isFocused,
 
+          // unchecked states
           [styles.uncheckedBorder]: !disabled && !checked && !isFocused,
           [styles.uncheckedBorderHovered]: !disabled && !checked && isHovered && !isFocused,
           [styles.uncheckedBorderActive]: !disabled && !checked && isPressed,
 
+          // We remove the border when we keyboard navigate into the RadioGroup for the first time
           [styles.focusedUncheckedBorderVisible]:
             !disabled && !checked && isFocused && isFocusVisible,
+          // this supports the edge case when we click on input, set focus, but we don't pass the check true value. It's an implementation mistake but it would break the UI
           [styles.focusedUncheckedBorder]: !disabled && !checked && isFocused && !isFocusVisible,
         })}
         onMouseDown={() => tapScaleAnimation.handleMouseDown()}
         onMouseUp={() => tapScaleAnimation.handleMouseUp()}
       >
-        {/* checked */}
+        {/* RADIO */}
         <div
           className={classnames(styles.radio, {
             [styles.checkedTransitionAnimation]: checked,
@@ -108,12 +115,15 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
             [styles.uncheckedRadio]: !disabled && !checked,
             [styles.checkedRadio]: !disabled && checked,
+
+            // we decrease the border width when it's displayed along the inner white border to keep the same size for the inner hole
             [styles.focusedBorderRadioSm]:
               !disabled && checked && size === 'sm' && isFocused && isFocusVisible,
             [styles.focusedBorderRadioMd]:
               !disabled && checked && size === 'md' && isFocused && isFocusVisible,
           })}
         />
+        {/* INPUT */}
         <input
           ref={ref}
           checked={checked}
