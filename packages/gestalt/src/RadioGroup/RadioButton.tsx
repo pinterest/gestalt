@@ -70,88 +70,72 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
 
   return (
     <div className={classnames(styles.container)}>
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
+      <div
+        ref={tapScaleAnimation.elementRef}
+        className={classnames(styles.outerContainer, tapScaleAnimation.classes, {
+          [styles.outerContainerSm]: size === 'sm',
+          [styles.outerContainerMd]: size === 'md',
+
+          [styles.disabledBorder]: disabled,
+
+          [styles.focusedOutline]: !disabled && isFocused && isFocusVisible,
+          [styles.focusedCheckedBorder]: !disabled && checked && isFocused && isFocusVisible,
+          [styles.checkedBorder]: !disabled && checked && !isFocused,
+
+          [styles.uncheckedBorder]: !disabled && !checked && !isFocused,
+          [styles.uncheckedBorderHovered]: !disabled && !checked && isHovered && !isFocused,
+          [styles.uncheckedBorderActive]: !disabled && !checked && isPressed,
+
+          [styles.focusedUncheckedBorderVisible]:
+            !disabled && !checked && isFocused && isFocusVisible,
+          [styles.focusedUncheckedBorder]: !disabled && !checked && isFocused && !isFocusVisible,
+        })}
+        onMouseDown={() => tapScaleAnimation.handleMouseDown()}
+        onMouseUp={() => tapScaleAnimation.handleMouseUp()}
+      >
+        {/* checked */}
         <div
-          ref={tapScaleAnimation.elementRef}
-          className={classnames(styles.outerContainer, tapScaleAnimation.classes, {
-            [styles.outerContainerSm]: size === 'sm',
-            [styles.outerContainerMd]: size === 'md',
+          className={classnames(styles.radio, {
+            [styles.checkedTransitionAnimation]: checked,
+            [styles.noTransitionAnimationDelay]: checked,
 
-            [styles.focusedOutline]: !disabled && isFocused && isFocusVisible,
-            [styles.focusedCheckedBorder]: !disabled && checked && isFocused && isFocusVisible,
+            [styles.borderRadioSm]: checked && size === 'sm',
+            [styles.borderRadioMd]: checked && size === 'md',
 
-            [styles.disabledBorder]: disabled,
-            [styles.checkedBorder]: !disabled && checked && !isFocused,
+            [styles.disabledUncheckedRadio]: disabled && !checked,
+            [styles.disabledRadio]: disabled && checked,
 
-            [styles.uncheckedBorder]: !disabled && !checked && !isFocused,
-            [styles.uncheckedBorderHovered]: !disabled && !checked && isHovered && !isFocused,
-            [styles.uncheckedBorderActive]: !disabled && !checked && isPressed,
-
-            [styles.focusedUncheckedBorder]: !disabled && !checked && isFocused && isFocusVisible,
+            [styles.uncheckedRadio]: !disabled && !checked,
+            [styles.checkedRadio]: !disabled && checked,
+            [styles.focusedBorderRadioSm]:
+              !disabled && checked && size === 'sm' && isFocused && isFocusVisible,
+            [styles.focusedBorderRadioMd]:
+              !disabled && checked && size === 'md' && isFocused && isFocusVisible,
           })}
-          onMouseDown={() => tapScaleAnimation.handleMouseDown()}
-          onMouseUp={() => tapScaleAnimation.handleMouseUp()}
-        >
-          {/* checked */}
-          <div
-            className={classnames(styles.radio, {
-              [styles.checkedTransitionAnimation]: checked,
-              [styles.noTransitionAnimationDelay]: checked,
-
-              [styles.disabledUncheckedRadio]: disabled && !checked,
-              [styles.disabledRadio]: disabled && checked,
-              [styles.uncheckedRadio]: !disabled && !checked,
-              [styles.checkedRadio]: !disabled && checked,
-              [styles.borderRadioSm]: checked && size === 'sm',
-              [styles.borderRadioMd]: checked && size === 'md',
-              [styles.focusedBorderRadioSm]:
-                checked && size === 'sm' && isFocused && isFocusVisible,
-              [styles.focusedBorderRadioMd]:
-                checked && size === 'md' && isFocused && isFocusVisible,
-            })}
-          />
-          {/* unchecked */}
-          <div
-            className={classnames(styles.radio, {
-              [styles.uncheckedTransitionAnimation]: checked,
-              [styles.noTransitionAnimation]: checked,
-              [styles.checkedOpacityTransitionAnimation]: checked ?? disabled,
-
-              [styles.disabledUncheckedRadio]: disabled && !checked,
-              [styles.disabledRadio]: disabled && checked,
-              [styles.uncheckedRadio]: !disabled && !checked,
-              [styles.checkedRadio]: !disabled && checked,
-              [styles.borderRadioSm]: checked && size === 'sm',
-              [styles.borderRadioMd]: checked && size === 'md',
-              [styles.focusedBorderRadioSm]:
-                checked && size === 'sm' && isFocused && isFocusVisible,
-              [styles.focusedBorderRadioMd]:
-                checked && size === 'md' && isFocused && isFocusVisible,
-              [styles.noTransitionAnimation]: checked,
-            })}
-          />
-          <input
-            ref={ref}
-            checked={checked}
-            className={classnames(styles.input, {
-              [styles.disabledInput]: disabled,
-              [styles.inputSm]: size === 'sm',
-              [styles.inputMd]: size === 'md',
-            })}
-            disabled={disabled}
-            id={id}
-            name={name}
-            onBlur={handleOnBlur}
-            onChange={(event) => onChange({ checked: event.target.checked, event })}
-            onFocus={handleOnFocus}
-            onMouseDown={handleOnMouseDown}
-            onMouseEnter={handleOnMouseEnter}
-            onMouseLeave={handleOnMouseLeave}
-            onMouseUp={handleOnMouseUp}
-            type="radio"
-            value={value}
-          />
-        </div>
+        />
+        <input
+          ref={ref}
+          checked={checked}
+          className={classnames(styles.input, {
+            [styles.disabledInput]: disabled,
+            [styles.inputSm]: size === 'sm',
+            [styles.inputMd]: size === 'md',
+          })}
+          disabled={disabled}
+          id={id}
+          name={name}
+          onBlur={handleOnBlur}
+          onChange={(event) => onChange({ checked: event.target.checked, event })}
+          onFocus={handleOnFocus}
+          onMouseDown={handleOnMouseDown}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          onMouseUp={handleOnMouseUp}
+          type="radio"
+          value={value}
+        />
+      </div>
       {Boolean(image) && <Box>{image}</Box>}
       <Flex direction="column">
         <Flex direction="row" gap={1}>

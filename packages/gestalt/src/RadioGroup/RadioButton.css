@@ -25,22 +25,34 @@ html:not([dir="rtl"]) .outerContainer {
 
 .outerContainerSm {
   box-sizing: border-box;
-  height: 16px;
-  width: 16px;
+  min-height: 16px;
+  min-width: 16px;
 }
 
 .outerContainerMd {
   box-sizing: border-box;
-  height: 24px;
-  width: 24px;
+  min-height: 24px;
+  min-width: 24px;
 }
 
 .focusedOutline {
   outline: 2px solid var(--sema-color-border-focus-outer-default);
 }
 
-.focusedUncheckedBorder {
+.focusedUncheckedBorderVisible {
   border-width: 0;
+}
+
+.focusedUncheckedBorder {
+  border: 1px solid var(--sema-color-border-interactive);
+}
+
+.focusedUncheckedBorder:hover {
+  border: 1.5px solid var(--sema-color-hover-border-interactive);
+}
+
+.focusedUncheckedBorder:active {
+  border: 1.5px solid var(--sema-color-pressed-border-interactive);
 }
 
 .focusedCheckedBorder {
