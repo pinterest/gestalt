@@ -51,7 +51,7 @@ export default class ScrollContainer extends Component<Props> {
 
   // This is used in Masonry
   // eslint-disable-next-line react/no-unused-class-component-methods
-  getScrollContainerRef: () => HTMLElement| Window | null | undefined = () => this.scrollContainer;
+  getScrollContainerRef: () => HTMLElement | Window | null | undefined = () => this.scrollContainer;
 
   handleScroll: (event: Event) => void = (event: Event) => {
     this.props.onScroll(event);
