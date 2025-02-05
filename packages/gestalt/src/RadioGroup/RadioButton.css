@@ -107,6 +107,10 @@
   );
 }
 
+.checkedOpacityTransitionAnimation {
+  opacity: var(--opacity-0);
+}
+
 .noTransitionAnimation {
   transition: none;
 }

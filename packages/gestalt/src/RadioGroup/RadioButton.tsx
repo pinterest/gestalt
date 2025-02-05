@@ -76,7 +76,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       ref={tapScaleAnimation.elementRef}
-      className={classnames(styles.outerContainer, {
+      className={classnames(styles.outerContainer, tapScaleAnimation.classes, {
         [styles.outerContainerSm]: size === 'sm',
         [styles.outerContainerMd]: size === 'md',
 
@@ -97,7 +97,10 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
     >
       {/* checked */}
       <div
-        className={classnames(styles.radio, styles.checkedTransitionAnimation, {
+        className={classnames(styles.radio, {
+          [styles.checkedTransitionAnimation]: checked,
+          [styles.noTransitionAnimationDelay]: checked,
+
           [styles.disabledUncheckedRadio]: disabled && !checked,
           [styles.disabledRadio]: disabled && checked,
           [styles.uncheckedRadio]: !disabled && !checked,
@@ -106,18 +109,26 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
           [styles.borderRadioMd]: checked && size === 'md',
           [styles.focusedBorderRadioSm]: checked && size === 'sm' && isFocused && isFocusVisible,
           [styles.focusedBorderRadioMd]: checked && size === 'md' && isFocused && isFocusVisible,
-          [styles.noTransitionAnimationDelay]: checked,
         })}
       />
-      <div
-        className={classnames(styles.radio, styles.uncheckedTransitionAnimation, {
-          // [styles.borderInputSm]: size === 'sm',
-          // [styles.borderInputMd]: size === 'md',
 
+      <div
+        className={classnames(styles.radio, {
+          [styles.uncheckedTransitionAnimation]: checked,
+          [styles.noTransitionAnimation]: checked,
+          [styles.checkedOpacityTransitionAnimation]: checked ?? disabled,
+
+          [styles.disabledUncheckedRadio]: disabled && !checked,
+          [styles.disabledRadio]: disabled && checked,
+          [styles.uncheckedRadio]: !disabled && !checked,
+          [styles.checkedRadio]: !disabled && checked,
+          [styles.borderRadioSm]: checked && size === 'sm',
+          [styles.borderRadioMd]: checked && size === 'md',
+          [styles.focusedBorderRadioSm]: checked && size === 'sm' && isFocused && isFocusVisible,
+          [styles.focusedBorderRadioMd]: checked && size === 'md' && isFocused && isFocusVisible,
           [styles.noTransitionAnimation]: checked,
         })}
       />
-
       <input
         ref={ref}
         checked={checked}
