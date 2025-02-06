@@ -55,7 +55,7 @@ Array [
                     <img
                       alt=""
                       className="img"
-                      fetchpriority="auto"
+                      fetchPriority="auto"
                       loading="auto"
                       onError={[Function]}
                       onLoad={[Function]}
@@ -170,7 +170,7 @@ Array [
                 <img
                   alt=""
                   className="img"
-                  fetchpriority="auto"
+                  fetchPriority="auto"
                   loading="auto"
                   onError={[Function]}
                   onLoad={[Function]}
@@ -295,7 +295,7 @@ Array [
                     <img
                       alt=""
                       className="img"
-                      fetchpriority="auto"
+                      fetchPriority="auto"
                       loading="auto"
                       onError={[Function]}
                       onLoad={[Function]}
@@ -410,7 +410,7 @@ Array [
                 <img
                   alt=""
                   className="img"
-                  fetchpriority="auto"
+                  fetchPriority="auto"
                   loading="auto"
                   onError={[Function]}
                   onLoad={[Function]}

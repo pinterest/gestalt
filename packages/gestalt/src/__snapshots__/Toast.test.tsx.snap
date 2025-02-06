@@ -188,7 +188,7 @@ exports[`<Toast /> Text + Image + Button 1`] = `
               <img
                 alt=""
                 className="img"
-                fetchpriority="auto"
+                fetchPriority="auto"
                 loading="auto"
                 onError={[Function]}
                 onLoad={[Function]}
@@ -312,7 +312,7 @@ exports[`<Toast /> Text + Image 1`] = `
               <img
                 alt=""
                 className="img"
-                fetchpriority="auto"
+                fetchPriority="auto"
                 loading="auto"
                 onError={[Function]}
                 onLoad={[Function]}
