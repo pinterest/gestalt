@@ -92,6 +92,7 @@ declare const icons: Readonly<{
     code: any;
     'code-check': any;
     cog: any;
+    'cog-fill': any;
     collage: any;
     collapse: any;
     color: any;
@@ -100,6 +101,7 @@ declare const icons: Readonly<{
     'color-solid': any;
     'color-split': any;
     compass: any;
+    'compass-fill': any;
     compose: any;
     contrast: any;
     'conversion-tag': any;
@@ -138,6 +140,7 @@ declare const icons: Readonly<{
     'face-tryon': any;
     facebook: any;
     fade: any;
+    'ferris-wheel': any;
     'file-box': any;
     'file-unknown': any;
     'fill-opaque': any;

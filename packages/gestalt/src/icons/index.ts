@@ -91,6 +91,7 @@ import cloudServer from './cloud-server.svg';
 import code from './code.svg';
 import codeCheck from './code-check.svg';
 import cog from './cog.svg';
+import cogFill from './cog-fill.svg';
 import collage from './collage.svg';
 import collapse from './collapse.svg';
 import color from './color.svg';
@@ -99,6 +100,7 @@ import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
 import compass from './compass.svg';
+import compassFill from './compass-fill.svg';
 import compose from './compose.svg';
 import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
@@ -137,6 +139,7 @@ import faceSmileyPlus from './face-smiley-plus.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
 import fade from './fade.svg';
+import ferrisWheel from './ferris-wheel.svg';
 import fileBox from './file-box.svg';
 import fileUnknown from './file-unknown.svg';
 import fillOpaque from './fill-opaque.svg';
@@ -469,6 +472,7 @@ const icons = Object.freeze({
   'code': code,
   'code-check': codeCheck,
   'cog': cog,
+  'cog-fill': cogFill,
   'collage': collage,
   'collapse': collapse,
   'color': color,
@@ -477,6 +481,7 @@ const icons = Object.freeze({
   'color-solid': colorSolid,
   'color-split': colorSplit,
   'compass': compass,
+  'compass-fill': compassFill,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,
@@ -515,6 +520,7 @@ const icons = Object.freeze({
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
+  'ferris-wheel': ferrisWheel,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,

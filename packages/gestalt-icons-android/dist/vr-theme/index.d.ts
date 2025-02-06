@@ -138,6 +138,7 @@ declare const icons: Readonly<{
     'face-tryon': any;
     facebook: any;
     fade: any;
+    'ferris-wheel': any;
     'file-box': any;
     'file-unknown': any;
     'fill-opaque': any;

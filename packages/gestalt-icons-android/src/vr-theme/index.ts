@@ -137,6 +137,7 @@ import faceSmileyPlus from './ic_vr_face-smiley-plus_gestalt.svg';
 import faceTryon from './ic_vr_face-tryon_gestalt.svg';
 import facebook from './ic_vr_facebook_gestalt.svg';
 import fade from './ic_vr_fade_gestalt.svg';
+import ferrisWheel from './ic_vr_ferris-wheel_gestalt.svg';
 import fileBox from './ic_vr_file-box_gestalt.svg';
 import fileUnknown from './ic_vr_file-unknown_gestalt.svg';
 import fillOpaque from './ic_vr_fill-opaque_gestalt.svg';
@@ -515,6 +516,7 @@ const icons = Object.freeze({
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
+  'ferris-wheel': ferrisWheel,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
