@@ -1,3 +1,9 @@
+## 172.2.2 (Feb 6, 2025)
+
+### Patch
+
+- Masonry: Fixing type bug ([#3981](https://github.com/pinterest/gestalt/pull/3981)) - [Preview link](https://deploy-preview-3981--gestalt.netlify.app?devexample=true)
+
 ## 172.2.1 (Feb 5, 2025)
 
 ### Patch
