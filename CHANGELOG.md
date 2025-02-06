@@ -1,3 +1,9 @@
+## 172.2.3 (Feb 6, 2025)
+
+### Patch
+
+- Internal: Revert "Internal: Fix error in React 19 with fetchpriority ([#3976](https://github.com/pinterest/gestalt/pull/3976)) - [Preview link](https://deploy-preview-3976--gestalt.netlify.app?devexample=true)" ([#3982](https://github.com/pinterest/gestalt/pull/3982)) - [Preview link](https://deploy-preview-3982--gestalt.netlify.app?devexample=true)
+
 ## 172.2.2 (Feb 6, 2025)
 
 ### Patch
