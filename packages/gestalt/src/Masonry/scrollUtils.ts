@@ -21,7 +21,7 @@ export function getWindowScrollPos(): number {
 }
 
 export function getRelativeScrollTop(element: HTMLElement | Window): number {
-  return element instanceof Window
+  return element === window || element instanceof Window
     ? getWindowScrollPos()
     : element.scrollTop - element.getBoundingClientRect().top;
 }
@@ -34,6 +34,5 @@ export function getScrollHeight(element: HTMLElement): number {
 }
 
 export function getScrollPos(element: HTMLElement | Window): number {
-  // @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap.
-  return element === window ? getWindowScrollPos() : element.scrollTop;
+  return element === window || element instanceof Window ? getWindowScrollPos() : element.scrollTop;
 }
