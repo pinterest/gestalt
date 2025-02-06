@@ -219,7 +219,7 @@ export default class Image extends PureComponent<Props> {
           className={imageStyles}
           crossOrigin={crossOrigin}
           decoding={decoding}
-          fetchPriority={fetchPriority}
+          fetchpriority={fetchPriority}
           // @ts-expect-error - TS2322 - Type '"auto" | "lazy" | "eager" | undefined' is not assignable to type '"lazy" | "eager" | undefined'.
           loading={loading}
           onError={this.handleError}
