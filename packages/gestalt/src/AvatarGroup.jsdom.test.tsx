@@ -64,6 +64,7 @@ describe('AvatarGroup', () => {
       ],
       size: 'xs',
     });
+    // This error is expected because of a change in React 19 that now only accepts fetchPriority in camel case while in react 18 it only accepts it in lowercase
     expect(error.mock.calls[0]![0]).toEqual(
       expect.stringContaining('Warning: React does not recognize the `%s` prop on a DOM element'),
     );
