@@ -311,6 +311,8 @@ declare const icons: Readonly<{
     'speed-2x': any;
     'speed-3x': any;
     spread: any;
+    'square-plus': any;
+    'square-plus-fill': any;
     star: any;
     'star-half': any;
     'star-outline': any;

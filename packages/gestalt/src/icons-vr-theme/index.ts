@@ -91,6 +91,7 @@ import cloudServer from './cloud-server.svg';
 import code from './code.svg';
 import codeCheck from './code-check.svg';
 import cog from './cog.svg';
+import cogFill from './cog-fill.svg';
 import collage from './collage.svg';
 import collapse from './collapse.svg';
 import color from './color.svg';
@@ -99,6 +100,7 @@ import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
 import compass from './compass.svg';
+import compassFill from './compass-fill.svg';
 import compose from './compose.svg';
 import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
@@ -308,6 +310,8 @@ import speed1X from './speed-1x.svg';
 import speedDoubleX from './speed-2x.svg';
 import speedTripleX from './speed-3x.svg';
 import spread from './spread.svg';
+import squarePlus from './square-plus.svg';
+import squarePlusFill from './square-plus-fill.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
 import starOutline from './star-outline.svg';
@@ -470,6 +474,7 @@ const icons = Object.freeze({
   'code': code,
   'code-check': codeCheck,
   'cog': cog,
+  'cog-fill': cogFill,
   'collage': collage,
   'collapse': collapse,
   'color': color,
@@ -478,6 +483,7 @@ const icons = Object.freeze({
   'color-solid': colorSolid,
   'color-split': colorSplit,
   'compass': compass,
+  'compass-fill': compassFill,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,
@@ -687,6 +693,8 @@ const icons = Object.freeze({
   'speed-2x': speedDoubleX,
   'speed-3x': speedTripleX,
   'spread': spread,
+  'square-plus': squarePlus,
+  'square-plus-fill': squarePlusFill,
   'star': star,
   'star-half': starHalf,
   'star-outline': starOutline,
