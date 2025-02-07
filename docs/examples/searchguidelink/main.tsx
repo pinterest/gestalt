@@ -11,10 +11,20 @@ export default function Example() {
           'rgb(255, 228, 193)',
         ]}
         href="https://pinterest.com"
-        onClick={({ event }) => event.preventDefault()}
+        onClick={({ event, dangerouslyDisableOnNavigation }) => {
+          event.preventDefault();
+          dangerouslyDisableOnNavigation();
+        }}
         text="Gradient"
       />
-      <SearchGuideLink href="https://pinterest.com" text="Save" />
+      <SearchGuideLink
+        href="https://pinterest.com"
+        onClick={({ event, dangerouslyDisableOnNavigation }) => {
+          event.preventDefault();
+          dangerouslyDisableOnNavigation();
+        }}
+        text="Save"
+      />
       <SearchGuideLink
         accessibilityLabel="Fatima"
         color="02"
