@@ -32,7 +32,19 @@ type Props = {
    * The background color of SearchGuide.
    * See the [color variant](https://gestalt.pinterest.systems/web/searchguide#Colors) for implementation guidance.
    */
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11';
+  color?:
+    | '01'
+    | '02'
+    | '03'
+    | '04'
+    | '05'
+    | '06'
+    | '07'
+    | '08'
+    | '09'
+    | '10'
+    | '11'
+    | Array<string>;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -118,23 +130,23 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     '11': 'color11',
   };
 
+  const colorClassname = typeof color === 'string' ? styles[colorClass[color]!] : null;
+
   const buttonClasses = isInVRExperiment
     ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
         [styles.selectedVr]: selected,
       })
-    : classnames(styles.searchguide, touchableStyles.tapTransition, [styles[colorClass[color]!]], {
+    : classnames(styles.searchguide, touchableStyles.tapTransition, colorClassname, {
         [styles.selected]: selected,
         [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       });
   const childrenDivClasses = classnames(
     styles.childrenDiv,
-    isInVRExperiment && {
-      [styles[`color${color}`]]: !selected,
-      [styles.selectedVr]: selected,
-    },
+    isInVRExperiment && selected && styles.selectedVr,
+    isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
   );
 
   const textComponent =
@@ -178,16 +190,6 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       icon="arrow-down"
       size={12}
     />
-  );
-
-  const selectedVariant = selected && isInVRExperiment && (
-    <Box paddingX={5}>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {checkIcon}
-        {textComponent}
-        {expandable ? expandableIcon : null}
-      </Flex>
-    </Box>
   );
 
   const thumbnailVariant = thumbnail && (
@@ -240,9 +242,8 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     </Box>
   );
 
-  const defaultVariant =
-    thumbnail &&
-    (selected || !('avatar' in thumbnail || 'avatarGroup' in thumbnail) || !isInVRExperiment)
+  const variant =
+    thumbnail
       ? thumbnailVariant
       : textVariant;
 
@@ -257,14 +258,36 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       className={buttonClasses}
       data-test-id={dataTestId}
       onClick={(event) => onClick?.({ event })}
+      style={
+        typeof color !== 'string' && Array.isArray(color)
+          ? {
+              backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
+            }
+          : undefined
+      }
       type="button"
     >
-      <div className={childrenDivClasses}>
-        {selected &&
-        !(thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail)) &&
-        isInVRExperiment
-          ? selectedVariant
-          : defaultVariant}
+      <div
+        className={childrenDivClasses}
+        style={
+          isInVRExperiment && !selected && typeof color !== 'string' && Array.isArray(color)
+            ? {
+                backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
+              }
+            : undefined
+        }
+      >
+        {!thumbnail ? (
+          <Box paddingX={5}>
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+              {checkIcon}
+              {textComponent}
+              {expandable ? expandableIcon : null}
+            </Flex>
+          </Box>
+        ) : (
+          variant
+        )}
       </div>
     </button>
   );
