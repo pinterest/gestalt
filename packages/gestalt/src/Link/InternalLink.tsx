@@ -304,8 +304,15 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      style={{
+        ...(!isInVRExperiment && typeof colorClass !== 'string' && Array.isArray(colorClass)
+          ? {
+              backgroundImage: `linear-gradient(0.25turn, ${colorClass.join(', ')})`,
+            }
+          : {}),
+        ...(tapStyle === 'compress' && compressStyle && !disabled ? compressStyle : {}),
+      }}
       tabIndex={disabled ? undefined : tabIndex}
-      {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       target={target ? `_${target}` : undefined}
       {...(download ? { download } : {})}
     >

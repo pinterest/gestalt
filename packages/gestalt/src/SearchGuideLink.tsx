@@ -183,7 +183,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
         })
       : undefined;
 
-  const colorClassname = typeof color === 'string' ? styles[colorClass[color]!] : null;
+  const colorClassname = typeof color === 'string' ? styles[colorClass[color]!] : color;
 
   return (
     <InternalLink
