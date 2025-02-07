@@ -201,7 +201,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
       <div
         className={classnames(
           styles.childrenDiv,
-          isInVRExperiment && typeof color === 'string' && styles[colorClass[color]!] ,
+          isInVRExperiment && typeof color === 'string' && styles[colorClass[color]!],
         )}
         style={
           isInVRExperiment && typeof color !== 'string' && Array.isArray(color)
