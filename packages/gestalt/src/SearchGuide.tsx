@@ -137,6 +137,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
         [styles.selectedVr]: selected,
+        [styles.gradient]: typeof color !== 'string' && Array.isArray(color) && !isFocusVisible && !selected,
       })
     : classnames(styles.searchguide, touchableStyles.tapTransition, colorClassname, {
         [styles.selected]: selected,
@@ -159,22 +160,6 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         {text}
       </TextUI>
     ) : null;
-
-  const checkIcon = isInVRExperiment ? (
-    <IconCompact
-      accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      icon="compact-check"
-      size={12}
-    />
-  ) : (
-    <Icon
-      accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      icon="check"
-      size={12}
-    />
-  );
 
   const expandableIcon = isInVRExperiment ? (
     <IconCompact
@@ -242,10 +227,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     </Box>
   );
 
-  const variant =
-    thumbnail
-      ? thumbnailVariant
-      : textVariant;
+  const variant = thumbnail ? thumbnailVariant : textVariant;
 
   return (
     <button
@@ -259,7 +241,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       data-test-id={dataTestId}
       onClick={(event) => onClick?.({ event })}
       style={
-        typeof color !== 'string' && Array.isArray(color)
+        !isInVRExperiment && typeof color !== 'string' && Array.isArray(color)
           ? {
               backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
             }
@@ -280,7 +262,6 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         {!thumbnail ? (
           <Box paddingX={5}>
             <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-              {checkIcon}
               {textComponent}
               {expandable ? expandableIcon : null}
             </Flex>
