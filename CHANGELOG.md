@@ -1,3 +1,9 @@
+## 172.4.0 (Feb 7, 2025)
+
+### Minor
+
+- SearchField: support tabIndex ([#3986](https://github.com/pinterest/gestalt/pull/3986)) - [Preview link](https://deploy-preview-3986--gestalt.netlify.app?devexample=true)
+
 ## 172.3.0 (Feb 7, 2025)
 
 ### Minor
