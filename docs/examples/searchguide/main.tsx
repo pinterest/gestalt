@@ -106,7 +106,10 @@ export default function Example() {
           anchor={ref && ref.current}
           id="popover"
           idealDirection="down"
-          onDismiss={() => setShowPopover(false)}
+          onDismiss={() => {
+            setShowSelected(null);
+            setShowPopover(false);
+          }}
           size="flexible"
         >
           <Box minHeight={100} minWidth={200} />
