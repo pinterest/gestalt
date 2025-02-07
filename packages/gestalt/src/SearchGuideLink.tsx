@@ -111,7 +111,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const colorClass: { [key: string]: keyof typeof styles } = {
+  const colorClass: { [key: string]: string } = {
     '01': 'color01',
     '02': 'color02',
     '03': 'color03',
