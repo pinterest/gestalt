@@ -44,6 +44,7 @@ type Props = {
   size?: SizeType;
   value?: string;
   readOnly?: boolean;
+  tabIndex?: -1 | 0;
 };
 
 const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
@@ -62,6 +63,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
     onFocus,
     onKeyDown,
     placeholder,
+    tabIndex,
     size = 'md',
     value,
     readOnly,
@@ -208,6 +210,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           placeholder={placeholder}
           readOnly={readOnly}
           role="searchbox"
+          tabIndex={tabIndex}
           value={value}
         />
         {isClearIconButtonVisible ? (
