@@ -255,22 +255,22 @@ Also consider:
           />
         </MainSection.Subsection>
 
-         <MainSection.Subsection
-                  description={`Use the \`color\` prop to apply a color gradient to SearchGuide.`}
-                  title="Color gradation"
-                >
-                  <MainSection.Card
-                    cardSize="lg"
-                    sandpackExample={
-                      <SandpackExample
-                        code={gradient}
-                        layout="column"
-                        name="Color gradation"
-                        previewHeight={500}
-                      />
-                    }
-                  />
-                </MainSection.Subsection>
+        <MainSection.Subsection
+          description={`Use the \`color\` prop to apply a color gradient to SearchGuide.`}
+          title="Color gradation"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={gradient}
+                layout="column"
+                name="Color gradation"
+                previewHeight={500}
+              />
+            }
+          />
+        </MainSection.Subsection>
 
         <MainSection.Subsection
           description={`
