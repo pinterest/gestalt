@@ -10,6 +10,7 @@ import touchableStyles from './TapArea.css';
 import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
+import useTapFeedback from './useTapFeedback';
 
 type Props = {
   /**
@@ -223,8 +224,24 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     </Box>
   );
 
-  const variant = thumbnail ? thumbnailVariant : textVariant;
+  const {
+    compressStyle,
+    handleBlur,
+    handleMouseDown,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchCancel,
+    handleTouchEnd,
+    isTapping,
+  } = useTapFeedback({
+    height: innerRef?.current?.clientHeight,
+    width: innerRef?.current?.clientWidth,
+  });
 
+  const variant = thumbnail ? thumbnailVariant : textVariant;
+  const inBackgroundGradient =
+    !isInVRExperiment && typeof color !== 'string' && Array.isArray(color);
   return (
     <button
       ref={innerRef}
@@ -235,14 +252,28 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       aria-pressed={selected}
       className={buttonClasses}
       data-test-id={dataTestId}
+      onBlur={handleBlur}
       onClick={(event) => onClick?.({ event })}
-      style={
-        !isInVRExperiment && typeof color !== 'string' && Array.isArray(color)
-          ? {
-              backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
-            }
-          : undefined
-      }
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+      onTouchMove={handleTouchMove}
+      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+      onTouchStart={handleTouchStart}
+      {...(inBackgroundGradient || compressStyle
+        ? {
+            style: {
+              ...(inBackgroundGradient
+                ? {
+                    backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
+                  }
+                : {}),
+              ...(compressStyle || {}),
+            },
+          }
+        : {})}
       type="button"
     >
       <div
@@ -250,6 +281,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
           styles.childrenDiv,
           isInVRExperiment && selected && styles.selectedVr,
           isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
+          { [touchableStyles.tapCompress]: isTapping },
         )}
         style={
           isInVRExperiment && !selected && typeof color !== 'string' && Array.isArray(color)
