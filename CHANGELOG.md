@@ -1,3 +1,9 @@
+## 172.3.0 (Feb 7, 2025)
+
+### Minor
+
+- SearchField: support readOnly ([#3985](https://github.com/pinterest/gestalt/pull/3985)) - [Preview link](https://deploy-preview-3985--gestalt.netlify.app?devexample=true)
+
 ## 172.2.3 (Feb 6, 2025)
 
 ### Patch
