@@ -1,4 +1,4 @@
-import { type MutableRefObject,useRef, useState } from 'react';
+import { type MutableRefObject, useRef, useState } from 'react';
 import { AvatarGroup, Box, Flex, Icon, Image, Popover, SearchGuide, Text } from 'gestalt';
 
 export default function Example() {
@@ -109,9 +109,7 @@ export default function Example() {
           onDismiss={() => setShowPopover(false)}
           size="flexible"
         >
-          <Box padding={4}>
-            <Text>More SearchFields</Text>
-          </Box>
+          <Box minHeight={100} minWidth={200} />
         </Popover>
       )}
     </Flex>
