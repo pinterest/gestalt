@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import { Box, Flex, Heading, Icon, Image, Mask, Table, Text } from 'gestalt';
+import rtlIconListJson from 'gestalt-design-tokens/src/utils/rtlIconList.json';
 import { DOCS_COPY_MAX_WIDTH_PX } from '../../../../docs-components/consts';
 import MainSection from '../../../../docs-components/MainSection';
 import Markdown from '../../../../docs-components/Markdown';
@@ -9,32 +10,18 @@ import PageHeader from '../../../../docs-components/PageHeader';
 
 type IconName = React.ComponentProps<typeof Icon>['icon'];
 export default function FormsLayoutOverview() {
-  const RTLIcons: IconName[] = [
-    'arrow-back',
-    'arrow-forward',
-    'arrow-circle-back',
-    'arrow-circle-forward',
-    'arrow-start',
-    'arrow-end',
-    'arrow-left-curved',
-    'chevron-down-circle',
-    'chevron-left-circle',
-    'directional-arrow-left',
-    'directional-arrow-right',
-    'list-numbered',
-    'indent',
-    'outdent',
-    'move-pin',
-    'reorder-images',
-    'send',
-    'visit',
-  ];
+  const flipOnRtlIconNames = rtlIconListJson.flipOnRtlIconNames as ReadonlyArray<
+    IconName | undefined
+  >;
+  const swapOnRtlIconNames = rtlIconListJson.swapOnRtlIconNames as ReadonlyArray<
+    IconName | undefined
+  >;
+  const rtlIcons = [...flipOnRtlIconNames, ...swapOnRtlIconNames].sort();
 
   const generateIconRow = (iconName: IconName) => {
     if (!iconName) return null;
-    const swapIcons = ['list-numbered'];
 
-    const shouldSwapIcon = swapIcons.includes(iconName);
+    const shouldSwapIcon = swapOnRtlIconNames.includes(iconName);
 
     return (
       <Table.Row>
@@ -125,7 +112,7 @@ Back and forward buttons and arrows are mirrored:
                   ))}
                 </Table.Row>
               </Table.Header>
-              <Table.Body>{RTLIcons.map((iconName) => generateIconRow(iconName))}</Table.Body>
+              <Table.Body>{rtlIcons.map((iconName) => generateIconRow(iconName))}</Table.Body>
             </Table>
           </Box>
         </Box>
