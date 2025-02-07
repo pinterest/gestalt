@@ -11,13 +11,18 @@
 .searchguideVr {
   background: transparent;
   border-color: transparent;
-  border-radius: calc(var(--rounding-400) + var(--g-border-width-lg));
+  border-radius: var(--sema-rounding-400);
   border-style: solid;
   border-width: 2px;
   box-sizing: border-box;
   display: inherit;
-  padding: var(--space-0) var(--space-0);
+  padding: var(--sema-space-0) var(--sema-space-0);
   text-wrap: balance;
+}
+
+.gradient {
+  border-width: 0;
+  margin: var(--sema-space-25);
 }
 
 .parentSearchGuide {
