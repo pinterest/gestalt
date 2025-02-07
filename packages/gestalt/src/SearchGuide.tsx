@@ -137,18 +137,14 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
         [styles.selectedVr]: selected,
-        [styles.gradient]: typeof color !== 'string' && Array.isArray(color) && !isFocusVisible && !selected,
+        [styles.gradient]:
+          typeof color !== 'string' && Array.isArray(color) && !isFocusVisible && !selected,
       })
     : classnames(styles.searchguide, touchableStyles.tapTransition, colorClassname, {
         [styles.selected]: selected,
         [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       });
-  const childrenDivClasses = classnames(
-    styles.childrenDiv,
-    isInVRExperiment && selected && styles.selectedVr,
-    isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
-  );
 
   const textComponent =
     text.length > 0 ? (
@@ -250,7 +246,11 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       type="button"
     >
       <div
-        className={childrenDivClasses}
+        className={classnames(
+          styles.childrenDiv,
+          isInVRExperiment && selected && styles.selectedVr,
+          isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
+        )}
         style={
           isInVRExperiment && !selected && typeof color !== 'string' && Array.isArray(color)
             ? {

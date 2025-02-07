@@ -9,6 +9,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import colors from '../../examples/searchguidelink/colors';
+import gradient from '../../examples/searchguidelink/gradient';
 import hideLowQualityDo from '../../examples/searchguidelink/hideLowQualityDo';
 import main from '../../examples/searchguidelink/main';
 import noScrollDo from '../../examples/searchguidelink/noScrollDo';
@@ -253,6 +254,23 @@ Also consider:
             }
           />
         </MainSection.Subsection>
+
+         <MainSection.Subsection
+                  description={`Use the \`color\` prop to apply a color gradient to SearchGuide.`}
+                  title="Color gradation"
+                >
+                  <MainSection.Card
+                    cardSize="lg"
+                    sandpackExample={
+                      <SandpackExample
+                        code={gradient}
+                        layout="column"
+                        name="Color gradation"
+                        previewHeight={500}
+                      />
+                    }
+                  />
+                </MainSection.Subsection>
 
         <MainSection.Subsection
           description={`
