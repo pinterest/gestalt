@@ -244,6 +244,10 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       onClick({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
+
+  const inBackgroundGradient =
+    !isInVRExperiment && typeof colorClass !== 'string' && Array.isArray(colorClass);
+  const isCompressed = tapStyle === 'compress' && compressStyle && !disabled;
   return (
     <a
       ref={innerRef}
@@ -304,14 +308,18 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
-      style={{
-        ...(!isInVRExperiment && typeof colorClass !== 'string' && Array.isArray(colorClass)
-          ? {
-              backgroundImage: `linear-gradient(0.25turn, ${colorClass.join(', ')})`,
-            }
-          : {}),
-        ...(tapStyle === 'compress' && compressStyle && !disabled ? compressStyle : {}),
-      }}
+      {...(inBackgroundGradient || isCompressed
+        ? {
+            style: {
+              ...(inBackgroundGradient
+                ? {
+                    backgroundImage: `linear-gradient(0.25turn, ${colorClass.join(', ')})`,
+                  }
+                : {}),
+              ...(isCompressed ? compressStyle : {}),
+            },
+          }
+        : {})}
       tabIndex={disabled ? undefined : tabIndex}
       target={target ? `_${target}` : undefined}
       {...(download ? { download } : {})}
