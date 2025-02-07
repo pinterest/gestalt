@@ -1,3 +1,9 @@
+## 172.6.0 (Feb 7, 2025)
+
+### Minor
+
+- SearchGuide: support to gradient background + overall fixes ([#3984](https://github.com/pinterest/gestalt/pull/3984)) - [Preview link](https://deploy-preview-3984--gestalt.netlify.app?devexample=true)
+
 ## 172.5.0 (Feb 7, 2025)
 
 ### Minor
