@@ -43,6 +43,7 @@ type Props = {
   placeholder?: string;
   size?: SizeType;
   value?: string;
+  readOnly?: boolean;
 };
 
 const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
@@ -63,6 +64,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
     placeholder,
     size = 'md',
     value,
+    readOnly,
   }: Props,
   ref,
 ) {
@@ -75,7 +77,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
   const hasErrorMessage = Boolean(errorMessage);
 
   const isLabelVisible = labelDisplay === 'visible';
-  const isClearIconButtonVisible = !!value;
+  const isClearIconButtonVisible = !!value && !readOnly;
 
   const isMD = size === 'md';
   const isLG = size === 'lg';
@@ -204,6 +206,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           }}
           onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
           placeholder={placeholder}
+          readOnly={readOnly}
           role="searchbox"
           value={value}
         />
