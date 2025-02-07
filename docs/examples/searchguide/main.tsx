@@ -1,5 +1,5 @@
 import { type MutableRefObject, useRef, useState } from 'react';
-import { AvatarGroup, Box, Flex, Icon, Image, Popover, SearchGuide, Text } from 'gestalt';
+import { AvatarGroup, Box, Flex, Icon, Image, Popover, SearchGuide } from 'gestalt';
 
 export default function Example() {
   const [showSelected, setShowSelected] = useState<number | null>(null);
