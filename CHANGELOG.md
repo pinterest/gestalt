@@ -1,3 +1,9 @@
+## 172.5.0 (Feb 7, 2025)
+
+### Minor
+
+- Icon: New and Updated Icons [Gestalt-8748] ([#3980](https://github.com/pinterest/gestalt/pull/3980)) - [Preview link](https://deploy-preview-3980--gestalt.netlify.app?devexample=true)
+
 ## 172.4.0 (Feb 7, 2025)
 
 ### Minor
