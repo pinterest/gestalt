@@ -190,7 +190,8 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
   if (isInVRExperiment) {
     return (
       <VRSearchField
-        ref={ref}
+        ref={ref} accessibilityClearButtonLabel={accessibilityClearButtonLabel}
+        accessibilityLabel={accessibilityLabel}
         autoComplete={autoComplete}
         dataTestId={dataTestId}
         errorMessage={errorMessage}
