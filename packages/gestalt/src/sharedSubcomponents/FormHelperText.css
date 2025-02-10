@@ -6,7 +6,7 @@
 }
 
 .marginTop {
-  margin-top: var(--sema-space-300);
+  margin-top: var(--space-300);
 }
 
 /* sm */

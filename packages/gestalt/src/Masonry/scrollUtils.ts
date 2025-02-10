@@ -4,9 +4,8 @@
  * utils abstract away these differences.
  */
 
-export function getElementHeight(element: HTMLElement): number {
-  // @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap. | TS2339 - Property 'innerHeight' does not exist on type 'never'.
-  return element === window ? window.innerHeight : element.clientHeight;
+export function getElementHeight(element: HTMLElement | Window): number {
+  return element instanceof Window ? window.innerHeight : element.clientHeight;
 }
 
 export function getWindowScrollPos(): number {
@@ -21,9 +20,8 @@ export function getWindowScrollPos(): number {
   return 0;
 }
 
-export function getRelativeScrollTop(element: HTMLElement): number {
-  // @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap.
-  return element === window
+export function getRelativeScrollTop(element: HTMLElement | Window): number {
+  return element === window || element instanceof Window
     ? getWindowScrollPos()
     : element.scrollTop - element.getBoundingClientRect().top;
 }
@@ -35,7 +33,6 @@ export function getScrollHeight(element: HTMLElement): number {
     : element.scrollHeight;
 }
 
-export function getScrollPos(element: HTMLElement): number {
-  // @ts-expect-error - TS2367 - This condition will always return 'false' since the types 'HTMLElement' and 'Window & typeof globalThis' have no overlap.
-  return element === window ? getWindowScrollPos() : element.scrollTop;
+export function getScrollPos(element: HTMLElement | Window): number {
+  return element === window || element instanceof Window ? getWindowScrollPos() : element.scrollTop;
 }

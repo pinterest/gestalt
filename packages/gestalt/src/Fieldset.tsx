@@ -1,16 +1,5 @@
 import { ReactNode } from 'react';
-import classnames from 'classnames';
-import boxStyles from './Box.css';
-import boxWhitespaceStyles from './boxWhitespace.css';
-import VRFieldset from './Fieldset/VRFieldset';
-import labelStyles from './Label/InternalLabel.css';
-import formStyles from './sharedSubcomponents/FormElement.css';
-import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
-import FormHelperText from './sharedSubcomponents/FormHelperText';
-import formLabelStyles from './sharedSubcomponents/FormLabel.css';
-import Text from './Text';
-import useInExperiment from './useInExperiment';
-import whitespaceStyles from './Whitespace.css';
+import InternalFieldset from './Fieldset/InternalFieldset';
 
 type Props = {
   /**
@@ -55,61 +44,21 @@ export default function Fieldset({
   children,
   helperText,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   if (errorMessage && id === '') {
     // eslint-disable-next-line no-console
     console.error('Please provide an id property to <Fieldset />');
   }
 
-  if (isInVRExperiment) {
-    return (
-      <VRFieldset
-        errorMessage={errorMessage}
-        helperText={helperText}
-        id={id}
-        legend={legend}
-        legendDisplay={legendDisplay}
-      >
-        {children}
-      </VRFieldset>
-    );
-  }
-
   return (
-    <fieldset
-      aria-describedby={errorMessage ? `${id}-error` : undefined}
-      className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
+    <InternalFieldset
+      errorMessage={errorMessage}
+      helperText={helperText}
+      id={id}
+      legend={legend}
+      legendDisplay={legendDisplay}
     >
-      <legend
-        className={classnames(
-          labelStyles.label,
-          boxWhitespaceStyles.paddingX0, // Needed to remove the default legend  padding
-          {
-            [boxStyles.visuallyHidden]: legendDisplay === 'hidden',
-            [formLabelStyles.formLabel]: !isInVRExperiment,
-            [formLabelStyles.vrFormLabel]: isInVRExperiment,
-          },
-        )}
-      >
-        <Text size="100">{legend}</Text>
-      </legend>
       {children}
-      {helperText && (
-        <FormHelperText
-          disabled={false}
-          id={`${id}-helperText`}
-          marginTop
-          noPadding
-          text={helperText}
-        />
-      )}
-
-      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
-    </fieldset>
+    </InternalFieldset>
   );
 }
 
