@@ -1,8 +1,9 @@
 import { ReactNode, useEffect } from 'react';
 import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerProvider';
-import Fieldset from './Fieldset';
+import InternalFieldset from './Fieldset/InternalFieldset';
 import Flex from './Flex';
 import { RadioGroupContextProvider } from './RadioGroup/Context';
+import style from './RadioGroup/RadioButton.css';
 import RadioGroupButton from './RadioGroupButton';
 import useInExperiment from './useInExperiment';
 
@@ -62,35 +63,36 @@ function RadioGroup({
     radioGroupHandlers: undefined,
   };
 
+  useEffect(() => {
+    if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
+  }, [radioGroupHandlers]);
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
-  useEffect(() => {
-    if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
-  }, [radioGroupHandlers]);
-
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
-      <Fieldset
+      <InternalFieldset
         errorMessage={errorMessage}
         helperText={helperText}
         id={id}
         legend={legend}
         legendDisplay={legendDisplay}
+        marginTop
       >
         <Flex
           direction={direction}
-          gap={
-            direction === 'row'
-              ? { row: 4, column: 0 }
-              : { column: isInVRExperiment ? 3 : 2, row: 0 }
-          }
+          gap={direction === 'row' ? { column: 0, row: 4 } : { column: 2, row: 0 }}
         >
-          {children}
+          {isInVRExperiment && direction === 'column' ? (
+            <div className={style.wrapper}>{children}</div>
+          ) : (
+            children
+          )}
         </Flex>
-      </Fieldset>
+      </InternalFieldset>
     </RadioGroupContextProvider>
   );
 }

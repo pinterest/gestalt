@@ -128,6 +128,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             [styles.vrBorderRadiusMd]: size === 'md',
             [styles.focus]: isFocused && isFocusVisible,
             // bg
+            [styles.enabled]: !disabled && unchecked,
             [styles.disabled]: disabled,
             [styles.checked]: !unchecked && !disabled,
             [styles.error]: errorMessage && unchecked,
