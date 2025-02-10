@@ -1,3 +1,9 @@
+## 172.6.1 (Feb 10, 2025)
+
+### Patch
+
+- SearchField: VR API fixes ([#3987](https://github.com/pinterest/gestalt/pull/3987)) - [Preview link](https://deploy-preview-3987--gestalt.netlify.app?devexample=true)
+
 ## 172.6.0 (Feb 7, 2025)
 
 ### Minor
