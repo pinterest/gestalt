@@ -232,7 +232,7 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
       wrappedComponent="tapArea"
     >
       {children}
-      { !accessibilityLabel && <NewTabAccessibilityLabel target={target} /> }
+      {!accessibilityLabel && <NewTabAccessibilityLabel target={target} />}
     </InternalLink>
   );
 });
