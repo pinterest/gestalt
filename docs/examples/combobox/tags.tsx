@@ -114,7 +114,7 @@ export default function Example() {
           onKeyDown={handleOnKeyDown}
           onSelect={handleOnSelect}
           options={suggestedOptions}
-          placeholder={selected.length > 0 ? '' : 'OSDSOFNWOFAFUH I IWHWEUFH LQAIURWHF wefh ;I UEHF;wf IUEHF'}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
           size="sm"
           tags={renderedTags}
         />
@@ -132,7 +132,7 @@ export default function Example() {
           onKeyDown={handleOnKeyDown}
           onSelect={handleOnSelect}
           options={suggestedOptions}
-          placeholder={selected.length > 0 ? '' : 'OSDSOFNWOFAFUH I IWHWEUFH LQAIURWHF wefh ;I UEHF;wf IUEHF'}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
           size="md"
           tags={renderedTags}
         />
@@ -150,7 +150,7 @@ export default function Example() {
           onKeyDown={handleOnKeyDown}
           onSelect={handleOnSelect}
           options={suggestedOptions}
-          placeholder={selected.length > 0 ? '' : 'Add your prwefioqwhf oqiwhf qowfquf  2ouygonouns'}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
           size="lg"
           tags={renderedTags}
         />
@@ -169,7 +169,7 @@ export default function Example() {
           onKeyDown={handleOnKeyDown}
           onSelect={handleOnSelect}
           options={suggestedOptions}
-          placeholder={selected.length > 0 ? '' : 'OSDSOFNWOFAFUH I IWHWEUFH LQAIURWHF wefh ;I UEHF;wf IUEHF'}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
           size="sm"
           tags={renderedTags}
         />
@@ -187,7 +187,7 @@ export default function Example() {
           onKeyDown={handleOnKeyDown}
           onSelect={handleOnSelect}
           options={suggestedOptions}
-          placeholder={selected.length > 0 ? '' : 'OSDSOFNWOFAFUH I IWHWEUFH LQAIURWHF wefh ;I UEHF;wf IUEHF'}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
           readOnly
           size="sm"
           tags={renderedTags}
@@ -207,7 +207,7 @@ export default function Example() {
           onKeyDown={handleOnKeyDown}
           onSelect={handleOnSelect}
           options={suggestedOptions}
-          placeholder={selected.length > 0 ? '' : 'OSDSOFNWOFAFUH I IWHWEUFH LQAIURWHF wefh ;I UEHF;wf IUEHF'}
+          placeholder={selected.length > 0 ? '' : 'Add your pronouns'}
           size="sm"
           tags={renderedTags}
         />
