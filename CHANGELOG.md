@@ -1,3 +1,9 @@
+## 172.6.2 (Feb 11, 2025)
+
+### Patch
+
+- TapAreaLink: fix duplication in aria label for target blank ([#3988](https://github.com/pinterest/gestalt/pull/3988)) - [Preview link](https://deploy-preview-3988--gestalt.netlify.app?devexample=true)
+
 ## 172.6.1 (Feb 10, 2025)
 
 ### Patch
