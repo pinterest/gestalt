@@ -1,3 +1,9 @@
+## 172.6.3 (Feb 11, 2025)
+
+### Patch
+
+- ComboBox: fix placeholder width when Tags are used ([#3989](https://github.com/pinterest/gestalt/pull/3989)) - [Preview link](https://deploy-preview-3989--gestalt.netlify.app?devexample=true)
+
 ## 172.6.2 (Feb 11, 2025)
 
 ### Patch
