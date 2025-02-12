@@ -128,13 +128,6 @@ function Header() {
       paddingY={3}
       role="navigation"
     >
-      <Box color="successBase" display="block" height="50px" smDisplay="none" width="100%" />
-      <Box color="successWeak" display="block" height="50px" mdDisplay="none"  width="100%"/>
-      <Box color="infoBase" display="block" height="50px" lgDisplay="none"  width="100%"/>
-      <Box color="infoWeak" display="block" height="50px" width="100%" xlDisplay="none" />
-      <Box color="errorBase" display="block" height="50px" width="100%" xxlDisplay="none" />
-      <Box color="errorWeak" display="block" height="50px" width="100%" xxxlDisplay="none" />
-
       <Box alignItems="center" display="flex" marginStart={-2}>
         {/* Small-screen menu button */}
         <Box
