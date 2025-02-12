@@ -16,6 +16,7 @@ type Props = {
   currentLength?: number;
   size?: SizeType;
   disabled?: boolean;
+  marginTop?: boolean;
 };
 
 export default function FormHelperText({
@@ -26,6 +27,7 @@ export default function FormHelperText({
   maxLength,
   size,
   noPadding: noStartPadding,
+  marginTop,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
@@ -37,6 +39,7 @@ export default function FormHelperText({
 
     <div
       className={classnames({
+        [styles.marginTop]: marginTop,
         // none
         [styles.noStartPadding]: !isInVRExperiment && noStartPadding,
         // sm

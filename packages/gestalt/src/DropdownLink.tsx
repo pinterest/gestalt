@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ComponentProps, ReactNode } from 'react';
+import Avatar from './Avatar';
 import { DropdownContextConsumer } from './Dropdown/Context';
 import OptionItem from './Dropdown/OptionItem';
 
@@ -22,6 +23,12 @@ type OptionItemType = {
 };
 
 type Props = {
+  /**
+   * When supplied, will display an [Avatar](https://gestalt.pinterest.systems/web/avatar) next to the item's label. See the [Avatar](https://gestalt.pinterest.systems/web/dropdown#Avatar) variant to learn more.
+   */
+  avatar?: Omit<ComponentProps<typeof Avatar>, 'size' | 'verified' | 'outline'> & {
+    size: 'sm' | 'md';
+  };
   /**
    * When supplied, will display a [Badge](https://gestalt.pinterest.systems/web/badge) next to the item's label. See the [Badges](https://gestalt.pinterest.systems/web/dropdown#Badges) variant to learn more.
    */
@@ -68,6 +75,7 @@ type Props = {
  * Use [Dropdown.Link](https://gestalt.pinterest.systems/dropdownDropdown.Link) for navigation, when the Dropdown item navigates to a new page.
  */
 export default function DropdownLink({
+  avatar,
   badge,
   children,
   dataTestId,
@@ -80,13 +88,22 @@ export default function DropdownLink({
 }: Props) {
   return (
     <DropdownContextConsumer>
-      {({ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }) => (
+      {({
+        id,
+        hoveredItemIndex,
+        setHoveredItemIndex,
+        setOptionRef,
+        focusedItemIndex,
+        setFocusedItemIndex,
+      }) => (
         <OptionItem
           key={`${option.value + _index}`}
           ref={setOptionRef}
+          avatar={avatar}
           badge={badge}
           dataTestId={dataTestId}
           disabled={disabled}
+          focusedItemIndex={focusedItemIndex}
           hoveredItemIndex={hoveredItemIndex}
           href={href}
           iconEnd={iconEnd}
@@ -94,6 +111,7 @@ export default function DropdownLink({
           index={_index}
           onClick={onClick}
           option={option}
+          setFocusedItemIndex={setFocusedItemIndex}
           setHoveredItemIndex={setHoveredItemIndex}
           textWeight="bold"
         >

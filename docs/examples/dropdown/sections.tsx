@@ -10,7 +10,7 @@ export default function CustomIconButtonPopoverExample() {
     subtext?: string;
     value: string;
   }>(null);
-  const anchorRef = useRef<null | HTMLElement>(null);
+  const anchorRef = useRef<null | HTMLButtonElement>(null);
   const onSelect: ComponentProps<typeof Dropdown.Item>['onSelect'] = ({ item }) =>
     setSelected(item);
 
@@ -19,7 +19,6 @@ export default function CustomIconButtonPopoverExample() {
       <Flex height="100%" justifyContent="center" width="100%">
         <Box margin={2}>
           <IconButton
-            // @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
             ref={anchorRef}
             accessibilityControls="sections-dropdown-example"
             accessibilityExpanded={open}

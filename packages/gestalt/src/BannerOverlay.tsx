@@ -12,7 +12,6 @@ import Flex from './Flex';
 import Heading from './Heading';
 import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import {
-  AvatarThumbnail,
   IconThumbnail,
   ImageThumbnail,
   Message,
@@ -95,10 +94,7 @@ type Props = {
   /**
    * An optional thumbnail to display next to the text.
    */
-  thumbnail?:
-    | { image: ReactElement; avatar?: never; icon?: never }
-    | { image?: never; avatar: ReactElement; icon?: never }
-    | { image?: never; avatar?: never; icon: ReactElement };
+  thumbnail?: { image: ReactElement; icon?: never } | { image?: never; icon: ReactElement };
   /**
    *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
@@ -213,9 +209,6 @@ export default function BannerOverlay({
               {thumbnail?.icon && checkDisplayName(thumbnail.icon, 'Icon') ? (
                 <IconThumbnail thumbnail={thumbnail.icon} />
               ) : null}
-              {thumbnail?.avatar && checkDisplayName(thumbnail.avatar, 'Avatar') ? (
-                <AvatarThumbnail thumbnail={thumbnail.avatar} />
-              ) : null}
               <Flex.Item flex="grow">
                 <Flex direction="row" gap={4} justifyContent="between">
                   {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
@@ -321,15 +314,12 @@ export default function BannerOverlay({
           width={`calc(100% - ${TOKEN_SPACE_800}`}
           zIndex={zIndex}
         >
-          <Flex gap={4}>
+          <Flex alignItems="center" gap={4}>
             {thumbnail?.image && checkDisplayName(thumbnail.image, 'Image') ? (
               <ImageThumbnail thumbnail={thumbnail.image} />
             ) : null}
             {thumbnail?.icon && checkDisplayName(thumbnail.icon, 'Icon') ? (
               <IconThumbnail thumbnail={thumbnail.icon} />
-            ) : null}
-            {thumbnail?.avatar && checkDisplayName(thumbnail.avatar, 'Avatar') ? (
-              <AvatarThumbnail thumbnail={thumbnail.avatar} />
             ) : null}
             <Flex.Item flex="grow">
               <Flex direction="column">

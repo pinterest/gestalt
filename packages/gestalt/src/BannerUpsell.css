@@ -10,6 +10,18 @@ html:not([dir="rtl"]) .rtlPos {
   top: 0;
 }
 
+html[dir="rtl"] .VRrtlPos {
+  left: var(--sema-space-200);
+  position: absolute;
+  top: var(--sema-space-200);
+}
+
+html:not([dir="rtl"]) .VRrtlPos {
+  position: absolute;
+  right: var(--sema-space-200);
+  top: var(--sema-space-200);
+}
+
 .textColorOverrideLight * {
   /* stylelint-disable-next-line declaration-no-important */
   color: var(--color-text-dark) !important;

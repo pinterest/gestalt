@@ -1,14 +1,5 @@
 import { ReactNode } from 'react';
-import classnames from 'classnames';
-import boxStyles from './Box.css';
-import boxWhitespaceStyles from './boxWhitespace.css';
-import labelStyles from './Label/InternalLabel.css';
-import formStyles from './sharedSubcomponents/FormElement.css';
-import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
-import formLabelStyles from './sharedSubcomponents/FormLabel.css';
-import Text from './Text';
-import useInExperiment from './useInExperiment';
-import whitespaceStyles from './Whitespace.css';
+import InternalFieldset from './Fieldset/InternalFieldset';
 
 type Props = {
   /**
@@ -31,6 +22,11 @@ type Props = {
    * Whether the legend should be visible or not. If `hidden`, the legend is still available for screen reader users, but does not appear visually. See the [legend visibility variant](https://gestalt.pinterest.systems#Legend-visibility) for more info.
    */
   legendDisplay?: 'visible' | 'hidden';
+  /**
+   * Adds an help message below the group of radio buttons.
+   *
+   */
+  helperText?: string;
 };
 
 /**
@@ -46,38 +42,23 @@ export default function Fieldset({
   legend,
   legendDisplay = 'visible',
   children,
+  helperText,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   if (errorMessage && id === '') {
     // eslint-disable-next-line no-console
     console.error('Please provide an id property to <Fieldset />');
   }
 
   return (
-    <fieldset
-      aria-describedby={errorMessage ? `${id}-error` : undefined}
-      className={classnames(formStyles.unstyled, whitespaceStyles.p0, whitespaceStyles.m0)}
+    <InternalFieldset
+      errorMessage={errorMessage}
+      helperText={helperText}
+      id={id}
+      legend={legend}
+      legendDisplay={legendDisplay}
     >
-      <legend
-        className={classnames(
-          labelStyles.label,
-          boxWhitespaceStyles.paddingX0, // Needed to remove the default legend  padding
-          {
-            [boxStyles.visuallyHidden]: legendDisplay === 'hidden',
-            [formLabelStyles.formLabel]: !isInVRExperiment,
-            [formLabelStyles.vrFormLabel]: isInVRExperiment,
-          },
-        )}
-      >
-        <Text size="100">{legend}</Text>
-      </legend>
       {children}
-      {errorMessage && <FormErrorMessage id={`${id}-error`} text={errorMessage} />}
-    </fieldset>
+    </InternalFieldset>
   );
 }
 

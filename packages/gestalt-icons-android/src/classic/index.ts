@@ -91,6 +91,7 @@ import cloudServer from './ic_cloud-server_gestalt.svg';
 import code from './ic_code_gestalt.svg';
 import codeCheck from './ic_code-check_gestalt.svg';
 import cog from './ic_cog_gestalt.svg';
+import cogFill from './ic_cog-fill_gestalt.svg';
 import collage from './ic_collage_gestalt.svg';
 import collapse from './ic_collapse_gestalt.svg';
 import color from './ic_color_gestalt.svg';
@@ -99,6 +100,7 @@ import colorPicker from './ic_color-picker_gestalt.svg';
 import colorSolid from './ic_color-solid_gestalt.svg';
 import colorSplit from './ic_color-split_gestalt.svg';
 import compass from './ic_compass_gestalt.svg';
+import compassFill from './ic_compass-fill_gestalt.svg';
 import compose from './ic_compose_gestalt.svg';
 import contrast from './ic_contrast_gestalt.svg';
 import conversionTag from './ic_conversion-tag_gestalt.svg';
@@ -137,6 +139,7 @@ import faceSmileyPlus from './ic_face-smiley-plus_gestalt.svg';
 import faceTryon from './ic_face-tryon_gestalt.svg';
 import facebook from './ic_facebook_gestalt.svg';
 import fade from './ic_fade_gestalt.svg';
+import ferrisWheel from './ic_ferris-wheel_gestalt.svg';
 import fileBox from './ic_file-box_gestalt.svg';
 import fileUnknown from './ic_file-unknown_gestalt.svg';
 import fillOpaque from './ic_fill-opaque_gestalt.svg';
@@ -307,6 +310,8 @@ import speed1X from './ic_speed-1x_gestalt.svg';
 import speedDoubleX from './ic_speed-2x_gestalt.svg';
 import speedTripleX from './ic_speed-3x_gestalt.svg';
 import spread from './ic_spread_gestalt.svg';
+import squarePlus from './ic_square-plus_gestalt.svg';
+import squarePlusFill from './ic_square-plus-fill_gestalt.svg';
 import star from './ic_star_gestalt.svg';
 import starHalf from './ic_star-half_gestalt.svg';
 import starOutline from './ic_star-outline_gestalt.svg';
@@ -469,6 +474,7 @@ const icons = Object.freeze({
   'code': code,
   'code-check': codeCheck,
   'cog': cog,
+  'cog-fill': cogFill,
   'collage': collage,
   'collapse': collapse,
   'color': color,
@@ -477,6 +483,7 @@ const icons = Object.freeze({
   'color-solid': colorSolid,
   'color-split': colorSplit,
   'compass': compass,
+  'compass-fill': compassFill,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,
@@ -515,6 +522,7 @@ const icons = Object.freeze({
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
+  'ferris-wheel': ferrisWheel,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
@@ -685,6 +693,8 @@ const icons = Object.freeze({
   'speed-2x': speedDoubleX,
   'speed-3x': speedTripleX,
   'spread': spread,
+  'square-plus': squarePlus,
+  'square-plus-fill': squarePlusFill,
   'star': star,
   'star-half': starHalf,
   'star-outline': starOutline,

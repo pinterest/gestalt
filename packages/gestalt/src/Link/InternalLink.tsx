@@ -18,7 +18,7 @@ type Props = {
   accessibilityCurrent?: AriaCurrent;
   accessibilityLabel?: string;
   children?: ReactNode;
-  colorClass?: string;
+  colorClass?: string | Array<string>;
   dataTestId?: string;
   disabled?: boolean;
   download?: boolean | string;
@@ -219,7 +219,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       : {},
     isSearchGuide && !isInVRExperiment
       ? {
-          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]:
+            typeof colorClass === 'string',
           [searchGuideStyles.searchguide]: true,
           [focusStyles.hideOutline]: !isFocusVisible,
           [focusStyles.accessibilityOutline]: isFocusVisible,
@@ -244,6 +245,10 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       onClick({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
+
+  const inBackgroundGradient =
+    !isInVRExperiment && typeof colorClass !== 'string' && Array.isArray(colorClass);
+  const isCompressed = tapStyle === 'compress' && compressStyle && !disabled;
   return (
     <a
       ref={innerRef}
@@ -304,6 +309,18 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      {...(inBackgroundGradient || isCompressed
+        ? {
+            style: {
+              ...(inBackgroundGradient
+                ? {
+                    backgroundImage: `linear-gradient(0.25turn, ${colorClass.join(', ')})`,
+                  }
+                : {}),
+              ...(isCompressed ? compressStyle : {}),
+            },
+          }
+        : {})}
       tabIndex={disabled ? undefined : tabIndex}
       {...(tapStyle === 'compress' && !isInVRExperiment && compressStyle && !disabled
         ? { style: compressStyle }

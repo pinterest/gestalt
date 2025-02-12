@@ -139,6 +139,46 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
     };
   }, [label, checkEllipsisActive]);
 
+  const inputElement = (
+    <input
+      aria-activedescendant={accessibilityActiveDescendant}
+      aria-controls={accessibilityControls}
+      // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
+      aria-describedby={isFocused ? ariaDescribedby : undefined}
+      aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+      className={classnames(styles.input, {
+        // sm
+        [styles.sm_input_text]: isSM,
+        // md
+        [styles.md_input_text]: isMD,
+        // lg
+        [styles.lg_input_text]: isLG,
+      })}
+      data-test-id={dataTestId}
+      disabled={disabled}
+      id={id}
+      maxLength={maxLength?.characterCount}
+      name={name}
+      onBlur={(event) => {
+        handleOnBlur();
+        onBlur?.({ event, value: event.currentTarget.value });
+      }}
+      onChange={(event) => {
+        setCurrentLength(event.currentTarget.value?.length ?? 0);
+        onChange({ event, value: event.currentTarget.value });
+      }}
+      onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
+      onFocus={(event) => {
+        handleOnFocus();
+        onFocus?.({ event, value: event.currentTarget.value });
+      }}
+      onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      value={value}
+    />
+  );
+
   return (
     <Fragment>
       <div ref={innerRef} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
@@ -207,66 +247,32 @@ const TagAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function Ta
               </TextUI>
             </label>
           )}
-          <Flex gap={1}>
-            <Flex wrap>
-              {tags.map((tag, tagIndex) => (
-                <Box
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={tagIndex}
-                  dangerouslySetInlineStyle={{
-                    __style: {
-                      marginBottom: size === 'sm' || size === 'md' ? '2px' : TOKEN_SPACE_100,
-                    },
-                  }}
-                  marginEnd={1}
-                >
-                  {cloneElement(tag, {
-                    size: size === 'lg' ? 'md' : 'sm',
-                    disabled: disabled || readOnly,
-                  })}
-                </Box>
-              ))}
-              <Flex.Item flex="grow">
-                <input
-                  aria-activedescendant={accessibilityActiveDescendant}
-                  aria-controls={accessibilityControls}
-                  // checking for "focused" is not required by screenreaders but it prevents a11y integration tests to complain about missing label, as aria-describedby seems to shadow label in tests though it's a W3 accepeted pattern https://www.w3.org/TR/WCAG20-TECHS/ARIA1.html
-                  aria-describedby={isFocused ? ariaDescribedby : undefined}
-                  aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
-                  className={classnames(styles.input, {
-                    // sm
-                    [styles.sm_input_text]: isSM,
-                    // md
-                    [styles.md_input_text]: isMD,
-                    // lg
-                    [styles.lg_input_text]: isLG,
-                  })}
-                  data-test-id={dataTestId}
-                  disabled={disabled}
-                  id={id}
-                  maxLength={maxLength?.characterCount}
-                  name={name}
-                  onBlur={(event) => {
-                    handleOnBlur();
-                    onBlur?.({ event, value: event.currentTarget.value });
-                  }}
-                  onChange={(event) => {
-                    setCurrentLength(event.currentTarget.value?.length ?? 0);
-                    onChange({ event, value: event.currentTarget.value });
-                  }}
-                  onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
-                  onFocus={(event) => {
-                    handleOnFocus();
-                    onFocus?.({ event, value: event.currentTarget.value });
-                  }}
-                  onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
-                  placeholder={placeholder}
-                  readOnly={readOnly}
-                  value={value}
-                />
-              </Flex.Item>
+          {tags.length > 0 ? (
+            <Flex gap={1}>
+              <Flex wrap>
+                {tags.map((tag, tagIndex) => (
+                  <Box
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={tagIndex}
+                    dangerouslySetInlineStyle={{
+                      __style: {
+                        marginBottom: size === 'sm' || size === 'md' ? '2px' : TOKEN_SPACE_100,
+                      },
+                    }}
+                    marginEnd={1}
+                  >
+                    {cloneElement(tag, {
+                      size: size === 'lg' ? 'md' : 'sm',
+                      disabled: disabled || readOnly,
+                    })}
+                  </Box>
+                ))}
+                <Flex.Item flex="grow">{inputElement}</Flex.Item>
+              </Flex>
             </Flex>
-          </Flex>
+          ) : (
+            inputElement
+          )}
           {!disabled && !readOnlyNoIconButton && iconButton}
         </div>
       </div>

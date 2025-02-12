@@ -172,9 +172,8 @@ const FlexWithForwardRef = forwardRef<HTMLDivElement, Props>(
           return wrapWithComponent({
             element: child,
             Component: FlexItem,
-            props: {
-              key: index,
-            },
+            props: {},
+            index,
           });
         }).filter(Boolean)
       : childrenProp;

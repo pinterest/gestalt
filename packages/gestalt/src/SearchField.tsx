@@ -1,6 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
+import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Icon from './Icon';
 import IconButton from './IconButton';
 import layout from './Layout.css';
@@ -58,6 +59,10 @@ type Props = {
     event: React.SyntheticEvent<HTMLInputElement | HTMLButtonElement>;
   }) => void;
   /**
+   * Callback when user clicks on clear button.
+   */
+  onClear?: () => void;
+  /**
    *
    */
   onFocus?: (arg1: { value: string; event: React.FocusEvent<HTMLInputElement> }) => void;
@@ -70,13 +75,18 @@ type Props = {
    */
   placeholder?: string;
   /**
+   * Indicate if the input is readOnly.
+   */
+  readOnly?: boolean;
+  /**
    * Ref that is forwarded to the underlying input element.
    */
   ref?: UnionRefs; // eslint-disable-line react/no-unused-prop-types,
-  /**
-   * md: 40px, lg: 48px
-   */
   size?: 'md' | 'lg';
+  /**
+   * Use "-1" to remove SearchField from keyboard navigation.
+   */
+  tabIndex?: -1 | 0;
   /**
    * The current value of the input.
    */
@@ -102,12 +112,15 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     labelDisplay = 'visible',
     onBlur,
     onChange,
+    onClear,
     onFocus,
     onKeyDown,
     placeholder,
     size = 'md',
     value,
     errorMessage,
+    readOnly,
+    tabIndex,
   }: Props,
   ref,
 ) {
@@ -115,6 +128,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
+
+  const { accessibilityClearButtonLabel: accessibilityDefaultClearButtonLabel } =
+    useDefaultLabelContext('SearchField');
 
   const [hovered, setHovered] = useState<boolean>(false);
   const [focused, setFocused] = useState<boolean>(false);
@@ -175,6 +191,8 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     return (
       <VRSearchField
         ref={ref}
+        accessibilityClearButtonLabel={accessibilityClearButtonLabel}
+        accessibilityLabel={accessibilityLabel}
         autoComplete={autoComplete}
         dataTestId={dataTestId}
         errorMessage={errorMessage}
@@ -183,10 +201,13 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
         labelDisplay={labelDisplay}
         onBlur={onBlur}
         onChange={onChange}
+        onClear={onClear}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
+        readOnly={readOnly}
         size={size}
+        tabIndex={tabIndex}
         value={value}
       />
     );
@@ -234,20 +255,25 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
+          readOnly={readOnly}
           role="searchbox"
+          tabIndex={tabIndex}
           type="search"
           value={value}
         />
 
-        {hasValue && (
+        {hasValue && !readOnly && (
           <div className={styles.clear}>
             <IconButton
-              accessibilityLabel={accessibilityClearButtonLabel || ''}
+              accessibilityLabel={
+                accessibilityClearButtonLabel ?? accessibilityDefaultClearButtonLabel
+              }
               bgColor="transparent"
               icon="cancel"
               onClick={({ event }) => {
                 inputRef?.current?.focus();
                 onChange({ value: '', event });
+                onClear?.();
               }}
               padding={size === 'md' ? 1 : undefined}
               selected={focused}

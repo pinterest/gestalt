@@ -402,7 +402,6 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
         }
       }
     } else {
-      // @ts-expect-error - TS2322 - Type '() => Window | undefined' is not assignable to type '() => HTMLElement'.
       dynamicGridProps.scrollContainer = typeof window === 'undefined' ? undefined : () => window;
     }
 
