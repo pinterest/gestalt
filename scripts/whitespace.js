@@ -182,5 +182,23 @@ console.log(
       '--g-lg',
       [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'lg')), []),
     ),
+
+    atrule('--g-xl', autoRules('xl')),
+    atrule(
+      '--g-xl',
+      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'xl')), []),
+    ),
+
+    atrule('--g-xxl', autoRules('xxl')),
+    atrule(
+      '--g-xxl',
+      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'xxl')), []),
+    ),
+
+    atrule('--g-xxxl', autoRules('xxxl')),
+    atrule(
+      '--g-xxxl',
+      [0, ...SCALE].reduce((arr, i) => arr.concat(rules(i, 'xxxl')), []),
+    ),
   ]),
 );

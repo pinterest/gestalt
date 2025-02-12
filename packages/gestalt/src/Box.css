@@ -117,6 +117,73 @@
   }
 }
 
+@media (--g-xl) {
+  .xlDisplayNone {
+    display: none;
+  }
+
+  .xlDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .xlDisplayBlock {
+    display: block;
+  }
+
+  .xlDisplayInlineBlock {
+    display: inline-block;
+  }
+
+  .xlDisplayVisuallyHidden {
+    composes: visuallyHidden;
+  }
+}
+@media (--g-xxl) {
+  .xxlDisplayNone {
+    display: none;
+  }
+
+  .xxlDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .xxlDisplayBlock {
+    display: block;
+  }
+
+  .xxlDisplayInlineBlock {
+    display: inline-block;
+  }
+
+  .xxlDisplayVisuallyHidden {
+    composes: visuallyHidden;
+  }
+}
+@media (--g-xxxl) {
+  .xxxlDisplayNone {
+    display: none;
+  }
+
+  .xxxlDisplayFlex {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .xxxlDisplayBlock {
+    display: block;
+  }
+
+  .xxxlDisplayInlineBlock {
+    display: inline-block;
+  }
+
+  .xxxlDisplayVisuallyHidden {
+    composes: visuallyHidden;
+  }
+}
+
 /* Direction */
 
 .xsDirectionRow {
@@ -153,6 +220,36 @@
   }
 
   .lgDirectionColumn {
+    flex-direction: column;
+  }
+}
+
+@media (--g-xl) {
+  .xlDirectionRow {
+    flex-direction: row;
+  }
+
+  .xlDirectionColumn {
+    flex-direction: column;
+  }
+}
+
+@media (--g-xxl) {
+  .xxlDirectionRow {
+    flex-direction: row;
+  }
+
+  .xxlDirectionColumn {
+    flex-direction: column;
+  }
+}
+
+@media (--g-xxxl) {
+  .xxxlDirectionRow {
+    flex-direction: row;
+  }
+
+  .xxxlDirectionColumn {
     flex-direction: column;
   }
 }
@@ -372,6 +469,169 @@
     composes: lgCol12 from "./Column.css";
   }
 }
+
+@media (--g-xl) {
+  .xlCol0 {
+    width: 0;
+  }
+
+  .xlCol1 {
+    composes: xlCol1 from "./Column.css";
+  }
+
+  .xlCol2 {
+    composes: xlCol2 from "./Column.css";
+  }
+
+  .xlCol3 {
+    composes: xlCol3 from "./Column.css";
+  }
+
+  .xlCol4 {
+    composes: xlCol4 from "./Column.css";
+  }
+
+  .xlCol5 {
+    composes: xlCol5 from "./Column.css";
+  }
+
+  .xlCol6 {
+    composes: xlCol6 from "./Column.css";
+  }
+
+  .xlCol7 {
+    composes: xlCol7 from "./Column.css";
+  }
+
+  .xlCol8 {
+    composes: xlCol8 from "./Column.css";
+  }
+
+  .xlCol9 {
+    composes: xlCol9 from "./Column.css";
+  }
+
+  .xlCol10 {
+    composes: xlCol10 from "./Column.css";
+  }
+
+  .xlCol11 {
+    composes: xlCol11 from "./Column.css";
+  }
+
+  .xlCol12 {
+    composes: xlCol12 from "./Column.css";
+  }
+}
+
+@media (--g-xxl) {
+  .xxlCol0 {
+    width: 0;
+  }
+
+  .xxlCol1 {
+    composes: xxlCol1 from "./Column.css";
+  }
+
+  .xxlCol2 {
+    composes: xxlCol2 from "./Column.css";
+  }
+
+  .xxlCol3 {
+    composes: xxlCol3 from "./Column.css";
+  }
+
+  .xxlCol4 {
+    composes: xxlCol4 from "./Column.css";
+  }
+
+  .xxlCol5 {
+    composes: xxlCol5 from "./Column.css";
+  }
+
+  .xxlCol6 {
+    composes: xxlCol6 from "./Column.css";
+  }
+
+  .xxlCol7 {
+    composes: xxlCol7 from "./Column.css";
+  }
+
+  .xxlCol8 {
+    composes: xxlCol8 from "./Column.css";
+  }
+
+  .xxlCol9 {
+    composes: xxlCol9 from "./Column.css";
+  }
+
+  .xxlCol10 {
+    composes: xxlCol10 from "./Column.css";
+  }
+
+  .xxlCol11 {
+    composes: xxlCol11 from "./Column.css";
+  }
+
+  .xxlCol12 {
+    composes: xxlCol12 from "./Column.css";
+  }
+}
+
+@media (--g-xxxl) {
+  .xxxlCol0 {
+    width: 0;
+  }
+
+  .xxxlCol1 {
+    composes: xxxlCol1 from "./Column.css";
+  }
+
+  .xxxlCol2 {
+    composes: xxxlCol2 from "./Column.css";
+  }
+
+  .xxxlCol3 {
+    composes: xxxlCol3 from "./Column.css";
+  }
+
+  .xxxlCol4 {
+    composes: xxxlCol4 from "./Column.css";
+  }
+
+  .xxxlCol5 {
+    composes: xxxlCol5 from "./Column.css";
+  }
+
+  .xxxlCol6 {
+    composes: xxxlCol6 from "./Column.css";
+  }
+
+  .xxxlCol7 {
+    composes: xxxlCol7 from "./Column.css";
+  }
+
+  .xxxlCol8 {
+    composes: xxxlCol8 from "./Column.css";
+  }
+
+  .xxxlCol9 {
+    composes: xxxlCol9 from "./Column.css";
+  }
+
+  .xxxlCol10 {
+    composes: xxxlCol10 from "./Column.css";
+  }
+
+  .xxxlCol11 {
+    composes: xxxlCol11 from "./Column.css";
+  }
+
+  .xxxlCol12 {
+    composes: xxxlCol12 from "./Column.css";
+  }
+}
+
 
 /* Opacity */
 

@@ -134,21 +134,15 @@ type Props = BoxPassthroughProps & {
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
    * Default: 'stretch'
    *
-   * Also available in responsive sizes: `smAlignItems`, `mdAlignItems`, `lgAlignItems`. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
+   * Also available in responsive sizes: `smAlignItems`, `mdAlignItems`, `lgAlignItems`, `xlAlignItems`, `xxlAlignItems`, `xxxlAlignItems`. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
    */
   alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  /**
-   * The alignItems style in sm or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
-   */
   smAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  /**
-   * The alignItems style in md or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
-   */
   mdAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  /**
-   * The alignItems style in lg or larger viewports. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
-   */
   lgAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  xlAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  xxlAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  xxxlAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
   /**
    * Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
    *
@@ -221,67 +215,43 @@ type Props = BoxPassthroughProps & {
   /**
    * See the [column layout](https://gestalt.pinterest.systems/web/box#Column-layout) variant for more info.
    *
-   * Also available in responsive sizes: `smColumn`, `mdColumn`, `lgColumn`
+   * Also available in responsive sizes: `smColumn`, `mdColumn`, `lgColumn`, `xlColumn`, `xxlColumn`, `xxxlColumn`
    */
   column?: Column;
-  /**
-   * See the [column layout](https://gestalt.pinterest.systems/web/box#Column-layout) variant for more info.
-   */
   smColumn?: Column;
-  /**
-   * See the [column layout](https://gestalt.pinterest.systems/web/box#Column-layout) variant for more info.
-   */
   mdColumn?: Column;
-  /**
-   * See the [column layout](https://gestalt.pinterest.systems/web/box#Column-layout) variant for more info.
-   */
   lgColumn?: Column;
+  xlColumn?: Column;
+  xxlColumn?: Column;
+  xxxlColumn?: Column;
   /**
    * Establishes the main-axis, thus defining the direction flex items are placed in the flex container.
    *
    * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
    *
-   * Also available in responsive sizes: `smDirection`, `mdDirection`, `lgDirection`
+   * Also available in responsive sizes: `smDirection`, `mdDirection`, `lgDirection`, `xlDirection`, `xxlDirection`, `xxxlDirection`
    * Default: 'row'
    */
   direction?: Direction;
-  /**
-   * Establishes the main-axis, thus defining the direction flex items are placed in the flex container in sm or larger viewports.
-   *
-   * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
-   */
   smDirection?: Direction;
-  /**
-   * Establishes the main-axis, thus defining the direction flex items are placed in the flex container in md or larger viewports.
-   *
-   * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
-   */
   mdDirection?: Direction;
-  /**
-   * Establishes the main-axis, thus defining the direction flex items are placed in the flex container in lg or larger viewports.
-   *
-   * Learn more about Flexbox layouts on [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox). If you're using Box strictly for Flexbox layouts, check out [Flex](https://gestalt.pinterest.systems/web/flex)!
-   */
   lgDirection?: Direction;
+  xlDirection?: Direction;
+  xxlDirection?: Direction;
+  xxxlDirection?: Direction;
   /**
    * The display style. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/box#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
    *
-   * Also available in responsive sizes: `smDisplay`, `mdDisplay`, `lgDisplay`
+   * Also available in responsive sizes: `smDisplay`, `mdDisplay`, `lgDisplay`, `xlDisplay`, `xxlDisplay`, `xxxlDisplay`
    * Default: 'block'
    */
   display?: Display;
-  /**
-   * The display style in sm or larger viewports. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/box#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
-   */
   smDisplay?: Display;
-  /**
-   * The display style in md or larger viewports. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/box#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
-   */
   mdDisplay?: Display;
-  /**
-   * The display style in lg or larger viewports. See the [Accessibility guidelines](https://gestalt.pinterest.systems/web/box#Visually-hidden-content) to learn more about using \`visuallyHidden\`.
-   */
   lgDisplay?: Display;
+  xlDisplay?: Display;
+  xxlDisplay?: Display;
+  xxxlDisplay?: Display;
   /**
    * Sets the max-width of the Box to 100%. See the [sizing](https://gestalt.pinterest.systems/web/box#Sizing) variant for more info.
    * Default: false
@@ -313,106 +283,70 @@ type Props = BoxPassthroughProps & {
   /**
    * Scale is in 4px increments so a `margin` of 2 is 8px.
    *
-   * Also available in responsive sizes: `smMargin`, `mdMargin`, `lgMargin`
+   * Also available in responsive sizes: `smMargin`, `mdMargin`, `lgMargin`, `xlMargin`, `xxlMargin`, `xxxlMargin`
    * Default: 0
    */
   margin?: Margin;
-  /**
-   * Scale is in 4px increments so a `margin` of 2 is 8px. For viewports of size sm and larger.
-   */
   smMargin?: Margin;
-  /**
-   * Scale is in 4px increments so a `margin` of 2 is 8px. For viewports of size md and larger.
-   */
   mdMargin?: Margin;
-  /**
-   * Scale is in 4px increments so a `margin` of 2 is 8px. For viewports of size lg and larger.
-   */
   lgMargin?: Margin;
+  xlMargin?: Margin;
+  xxlMargin?: Margin;
+  xxxlMargin?: Margin;
   /**
    * Scale is in 4px increments so a `marginTop` of 2 is 8px.
    *
-   * Also available in responsive sizes: `smMarginTop`, `mdMarginTop`, `lgMarginTop`
+   * Also available in responsive sizes: `smMarginTop`, `mdMarginTop`, `lgMarginTop`, `xlMarginTop`, `xxlMarginTop`, `xxxlMarginTop`
    * Default: 0
    */
   marginTop?: Margin;
-  /**
-   * Scale is in 4px increments so a `marginTop` of 2 is 8px. For viewports of size sm and larger.
-   */
   smMarginTop?: Margin;
-  /**
-   * Scale is in 4px increments so a `marginTop` of 2 is 8px. For viewports of size md and larger.
-   */
   mdMarginTop?: Margin;
-  /**
-   * Scale is in 4px increments so a `marginTop` of 2 is 8px. For viewports of size lg and larger.
-   */
   lgMarginTop?: Margin;
+  xlMarginTop?: Margin;
+  xxlMarginTop?: Margin;
+  xxxlMarginTop?: Margin;
   /**
    * Scale is in 4px increments so a `marginBottom` of 2 is 8px.
    *
-   * Also available in responsive sizes: `smMarginBottom`, `mdMarginBottom`, `lgMarginBottom`
+   * Also available in responsive sizes: `smMarginBottom`, `mdMarginBottom`, `lgMarginBottom`, `xlMarginBottom`, `xxlMarginBottom`, `xxxlMarginBottom`
    * Default: 0
    */
   marginBottom?: Margin;
-  /**
-   * Scale is in 4px increments so a `marginBottom` of 2 is 8px. For viewports of size sm and larger.
-   */
   smMarginBottom?: Margin;
-  /**
-   * Scale is in 4px increments so a `marginBottom` of 2 is 8px. For viewports of size md and larger.
-   */
   mdMarginBottom?: Margin;
-  /**
-   * Scale is in 4px increments so a `marginBottom` of 2 is 8px. For viewports of size lg and larger.
-   */
   lgMarginBottom?: Margin;
+  xlMarginBottom?: Margin;
+  xxlMarginBottom?: Margin;
+  xxxlMarginBottom?: Margin;
   /**
    * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginStart`.
    * Scale is in 4px increments so a `marginStart` of 2 is 8px.
    *
-   * Also available in responsive sizes: `smMarginStart`, `mdMarginStart`, `lgMarginStart`
+   * Also available in responsive sizes: `smMarginStart`, `mdMarginStart`, `lgMarginStart`, `xlMarginStart`, `xxlMarginStart`, `xxxlMarginStart`
    * Default: 0
    */
   marginStart?: Margin;
-  /**
-   * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginStart`.
-   * Scale is in 4px increments so a `marginStart` of 2 is 8px. For viewports of size sm and larger.
-   */
   smMarginStart?: Margin;
-  /**
-   * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginStart`.
-   * Scale is in 4px increments so a `marginStart` of 2 is 8px. For viewports of size md and larger.
-   */
   mdMarginStart?: Margin;
-  /**
-   * Applies margin to the left in left-to-right languages, and to the right in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginStart`.
-   * Scale is in 4px increments so a `marginStart` of 2 is 8px. For viewports of size lg and larger.
-   */
   lgMarginStart?: Margin;
+  xlMarginStart?: Margin;
+  xxlMarginStart?: Margin;
+  xxxlMarginStart?: Margin;
   /**
    * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginEnd`.
    * Scale is in 4px increments so a marginEnd of 2 is 8px.
    *
-   * Also available in responsive sizes: `smMarginEnd`, `mdMarginEnd`, `lgMarginEnd`
+   * Also available in responsive sizes: `smMarginEnd`, `mdMarginEnd`, `lgMarginEnd`, `xlMarginEnd`, `xxlMarginEnd`, `xxxlMarginEnd`
    * Default: 0
    */
   marginEnd?: Margin;
-  /**
-   * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginEnd`.
-   * Scale is in 4px increments so a marginEnd of 2 is 8px. For viewports of size sm and larger.
-   */
   smMarginEnd?: Margin;
-  /**
-   * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginEnd`.
-   * Scale is in 4px increments so a marginEnd of 2 is 8px. For viewports of size md and larger.
-   */
   mdMarginEnd?: Margin;
-  /**
-   * Applies margin to the right in left-to-right languages, and to the left in right-to-left languages. See the [Localization guidelines](https://gestalt.pinterest.systems/web/box#Page-direction) to learn more about using `marginEnd`.
-   * Scale is in 4px increments so a marginEnd of 2 is 8px. For viewports of size lg and larger.
-   */
   lgMarginEnd?: Margin;
+  xlMarginEnd?: Margin;
+  xxlMarginEnd?: Margin;
+  xxxlMarginEnd?: Margin;
   /**
    * Use numbers for pixels: maxHeight={100} and strings for percentages: maxHeight="100%". See the [sizing](https://gestalt.pinterest.systems/web/box#Sizing) variant for more info.
    */
@@ -441,60 +375,42 @@ type Props = BoxPassthroughProps & {
   /**
    * Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](https://gestalt.pinterest.systems/web/box#Responsive-padding) variant for more info.
    *
-   * Also available in responsive sizes: `smPadding`, `mdPadding`, `lgPadding`
+   * Also available in responsive sizes: `smPadding`, `mdPadding`, `lgPadding`, `xlPadding`, `xxlPadding`, `xxxlPadding`
    * Default: 0
    */
   padding?: Padding;
-  /**
-   * Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](https://gestalt.pinterest.systems/web/box#Responsive-padding) variant for more info.
-   */
   smPadding?: Padding;
-  /**
-   * Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](https://gestalt.pinterest.systems/web/box#Responsive-padding) variant for more info.
-   */
   mdPadding?: Padding;
-  /**
-   * Supports 3 responsive breakpoints: sm, md, lg. Each sets the padding from that breakpoint and up. See the [responsive padding](https://gestalt.pinterest.systems/web/box#Responsive-padding) variant for more info.
-   */
   lgPadding?: Padding;
+  xlPadding?: Padding;
+  xxlPadding?: Padding;
+  xxxlPadding?: Padding;
   /**
    * Horizontal padding (left/right).
    *
-   * Also available in responsive sizes: `smPaddingX`, `mdPaddingX`, `lgPaddingX`
+   * Also available in responsive sizes: `smPaddingX`, `mdPaddingX`, `lgPaddingX`, `xlPaddingX`, `xxlPaddingX`, `xxxlPaddingX`
    * Default: 0
    */
   paddingX?: Padding;
-  /**
-   * Horizontal padding (left/right). For viewports of size sm and larger.
-   */
   smPaddingX?: Padding;
-  /**
-   * Horizontal padding (left/right). For viewports of size md and larger.
-   */
   mdPaddingX?: Padding;
-  /**
-   * Horizontal padding (left/right). For viewports of size lg and larger.
-   */
   lgPaddingX?: Padding;
+  xlPaddingX?: Padding;
+  xxlPaddingX?: Padding;
+  xxxlPaddingX?: Padding;
   /**
    * Vertical padding (top/bottom).
    *
-   * Also available in responsive sizes: `smPaddingY`, `mdPaddingY`, `lgPaddingY`
+   * Also available in responsive sizes: `smPaddingY`, `mdPaddingY`, `lgPaddingY`, `xlPaddingY`, `xxlPaddingY`, `xxxlPaddingY`
    * Default: 0
    */
   paddingY?: Padding;
-  /**
-   * Vertical padding (top/bottom). For viewports of size sm and larger.
-   */
   smPaddingY?: Padding;
-  /**
-   * Vertical padding (top/bottom). For viewports of size md and larger.
-   */
   mdPaddingY?: Padding;
-  /**
-   * Vertical padding (top/bottom). For viewports of size lg and larger.
-   */
   lgPaddingY?: Padding;
+  xlPaddingY?: Padding;
+  xxlPaddingY?: Padding;
+  xxxlPaddingY?: Padding;
   /**
    * See the [absolute positioning](https://gestalt.pinterest.systems/web/box#Absolute-positioning) variant for more info.
    * Default: 'static'
@@ -564,13 +480,7 @@ const disallowedProps = [
   // We're currently also explicitly disallowing the deprecated marginLeft/Right
   // props, as they're not RTL-friendly.
   'marginLeft',
-  'smMarginLeft',
-  'mdMarginLeft',
-  'lgMarginLeft',
   'marginRight',
-  'smMarginRight',
-  'mdMarginRight',
-  'lgMarginRight',
 ];
 
 /**
