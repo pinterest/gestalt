@@ -139,6 +139,7 @@
     composes: visuallyHidden;
   }
 }
+
 @media (--g-xxl) {
   .xxlDisplayNone {
     display: none;
@@ -161,6 +162,7 @@
     composes: visuallyHidden;
   }
 }
+
 @media (--g-xxxl) {
   .xxxlDisplayNone {
     display: none;
