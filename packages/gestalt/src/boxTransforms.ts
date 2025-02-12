@@ -126,6 +126,63 @@ const lgDirection: Functor<Direction> = mapping({
   column: styles.lgDirectionColumn,
 });
 
+const xlAlignItems: Functor<AlignItems> = mapping({
+  start: layout.xlItemsStart,
+  end: layout.xlItemsEnd,
+  center: layout.xlItemsCenter,
+  baseline: layout.xlItemsBaseline,
+});
+const xlDisplay: Functor<Display> = mapping({
+  none: styles.xlDisplayNone,
+  flex: styles.xlDisplayFlex,
+  block: styles.xlDisplayBlock,
+  inlineBlock: styles.xlDisplayInlineBlock,
+  visuallyHidden: styles.xlDisplayVisuallyHidden,
+});
+const xlColumn: Functor<Column> = bind(range('xlCol'), styles);
+const xlDirection: Functor<Direction> = mapping({
+  row: styles.xlDirectionRow,
+  column: styles.xlDirectionColumn,
+});
+
+const xxlAlignItems: Functor<AlignItems> = mapping({
+  start: layout.xxlItemsStart,
+  end: layout.xxlItemsEnd,
+  center: layout.xxlItemsCenter,
+  baseline: layout.xxlItemsBaseline,
+});
+const xxlDisplay: Functor<Display> = mapping({
+  none: styles.xxlDisplayNone,
+  flex: styles.xxlDisplayFlex,
+  block: styles.xxlDisplayBlock,
+  inlineBlock: styles.xxlDisplayInlineBlock,
+  visuallyHidden: styles.xxlDisplayVisuallyHidden,
+});
+const xxlColumn: Functor<Column> = bind(range('xxlCol'), styles);
+const xxlDirection: Functor<Direction> = mapping({
+  row: styles.xxlDirectionRow,
+  column: styles.xxlDirectionColumn,
+});
+
+const xxxlAlignItems: Functor<AlignItems> = mapping({
+  start: layout.xxxlItemsStart,
+  end: layout.xxxlItemsEnd,
+  center: layout.xxxlItemsCenter,
+  baseline: layout.xxxlItemsBaseline,
+});
+const xxxlDisplay: Functor<Display> = mapping({
+  none: styles.xxxlDisplayNone,
+  flex: styles.xxxlDisplayFlex,
+  block: styles.xxxlDisplayBlock,
+  inlineBlock: styles.xxxlDisplayInlineBlock,
+  visuallyHidden: styles.xxxlDisplayVisuallyHidden,
+});
+const xxxlColumn: Functor<Column> = bind(range('lgCol'), styles);
+const xxxlDirection: Functor<Direction> = mapping({
+  row: styles.xxxlDirectionRow,
+  column: styles.xxxlDirectionColumn,
+});
+
 /* ***************************************** */
 
 const alignContent: Functor<AlignContent> = mapping({
@@ -255,6 +312,34 @@ const lgMarginTop: MarginFunctorType = transformNumberOrPassthrough('lgMarginTop
 const lgMarginBottom: MarginFunctorType = transformNumberOrPassthrough('lgMarginBottom');
 const lgMargin: MarginFunctorType = union(lgMarginTop, lgMarginBottom, lgMarginStart, lgMarginEnd);
 
+const xlMarginStart: MarginFunctorType = transformNumberOrPassthrough('xlMarginStart');
+const xlMarginEnd: MarginFunctorType = transformNumberOrPassthrough('xlMarginEnd');
+const xlMarginTop: MarginFunctorType = transformNumberOrPassthrough('xlMarginTop');
+const xlMarginBottom: MarginFunctorType = transformNumberOrPassthrough('xlMarginBottom');
+const xlMargin: MarginFunctorType = union(xlMarginTop, xlMarginBottom, xlMarginStart, xlMarginEnd);
+
+const xxlMarginStart: MarginFunctorType = transformNumberOrPassthrough('xxlMarginStart');
+const xxlMarginEnd: MarginFunctorType = transformNumberOrPassthrough('xxlMarginEnd');
+const xxlMarginTop: MarginFunctorType = transformNumberOrPassthrough('xxlMarginTop');
+const xxlMarginBottom: MarginFunctorType = transformNumberOrPassthrough('xxlMarginBottom');
+const xxlMargin: MarginFunctorType = union(
+  xxlMarginTop,
+  xxlMarginBottom,
+  xxlMarginStart,
+  xxlMarginEnd,
+);
+
+const xxxlMarginStart: MarginFunctorType = transformNumberOrPassthrough('xxxlgMarginStart');
+const xxxlMarginEnd: MarginFunctorType = transformNumberOrPassthrough('xxxlMarginEnd');
+const xxxlMarginTop: MarginFunctorType = transformNumberOrPassthrough('xxxlMarginTop');
+const xxxlMarginBottom: MarginFunctorType = transformNumberOrPassthrough('xxxlMarginBottom');
+const xxxlMargin: MarginFunctorType = union(
+  xxxlMarginTop,
+  xxxlMarginBottom,
+  xxxlMarginStart,
+  xxxlMarginEnd,
+);
+
 /* ***************************************** */
 
 const maxHeight: Functor<Dimension> = (d) => fromInlineStyle({ maxHeight: d });
@@ -298,6 +383,18 @@ const mdPadding: PaddingFunctor = union(mdPaddingX, mdPaddingY);
 const lgPaddingX: PaddingFunctor = bind(rangeWithZero('lgPaddingX'), whitespace);
 const lgPaddingY: PaddingFunctor = bind(rangeWithZero('lgPaddingY'), whitespace);
 const lgPadding: PaddingFunctor = union(lgPaddingX, lgPaddingY);
+
+const xlPaddingX: PaddingFunctor = bind(rangeWithZero('xlPaddingX'), whitespace);
+const xlPaddingY: PaddingFunctor = bind(rangeWithZero('xlPaddingY'), whitespace);
+const xlPadding: PaddingFunctor = union(xlPaddingX, xlPaddingY);
+
+const xxlPaddingX: PaddingFunctor = bind(rangeWithZero('xxlPaddingX'), whitespace);
+const xxlPaddingY: PaddingFunctor = bind(rangeWithZero('xxlPaddingY'), whitespace);
+const xxlPadding: PaddingFunctor = union(xxlPaddingX, xxlPaddingY);
+
+const xxxlPaddingX: PaddingFunctor = bind(rangeWithZero('xxxlPaddingX'), whitespace);
+const xxxlPaddingY: PaddingFunctor = bind(rangeWithZero('xxxlPaddingY'), whitespace);
+const xxxlPadding: PaddingFunctor = union(xxxlPaddingX, xxxlPaddingY);
 
 /* ***************************************** */
 
@@ -354,6 +451,21 @@ export const propToFn = {
   lgColumn,
   lgDirection,
 
+  xlAlignItems,
+  xlDisplay,
+  xlColumn,
+  xlDirection,
+
+  xxlAlignItems,
+  xxlDisplay,
+  xxlColumn,
+  xxlDirection,
+
+  xxxlAlignItems,
+  xxxlDisplay,
+  xxxlColumn,
+  xxxlDirection,
+
   alignContent,
   alignSelf,
   bottom,
@@ -390,6 +502,24 @@ export const propToFn = {
   lgMarginStart,
   lgMarginEnd,
 
+  xlMargin,
+  xlMarginTop,
+  xlMarginBottom,
+  xlMarginStart,
+  xlMarginEnd,
+
+  xxlMargin,
+  xxlMarginTop,
+  xxlMarginBottom,
+  xxlMarginStart,
+  xxlMarginEnd,
+
+  xxxlMargin,
+  xxxlMarginTop,
+  xxxlMarginBottom,
+  xxxlMarginStart,
+  xxxlMarginEnd,
+
   maxHeight,
   maxWidth,
   minHeight,
@@ -409,6 +539,15 @@ export const propToFn = {
   lgPadding,
   lgPaddingX,
   lgPaddingY,
+  xlPadding,
+  xlPaddingX,
+  xlPaddingY,
+  xxlPadding,
+  xxlPaddingX,
+  xxlPaddingY,
+  xxxlPadding,
+  xxxlPaddingX,
+  xxxlPaddingY,
 
   position,
   right,
