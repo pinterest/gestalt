@@ -51,7 +51,6 @@ const alignItems: Functor<AlignItems> = mapping({
   end: layout.xsItemsEnd,
   center: layout.xsItemsCenter,
   baseline: layout.xsItemsBaseline,
-  // default: stretch
 });
 const display: Functor<Display> = mapping({
   none: styles.xsDisplayNone,
@@ -71,7 +70,6 @@ const smAlignItems: Functor<AlignItems> = mapping({
   end: layout.smItemsEnd,
   center: layout.smItemsCenter,
   baseline: layout.smItemsBaseline,
-  // default: stretch
 });
 const smDisplay: Functor<Display> = mapping({
   none: styles.smDisplayNone,
@@ -91,7 +89,6 @@ const mdAlignItems: Functor<AlignItems> = mapping({
   end: layout.mdItemsEnd,
   center: layout.mdItemsCenter,
   baseline: layout.mdItemsBaseline,
-  // default: stretch
 });
 const mdDisplay: Functor<Display> = mapping({
   none: styles.mdDisplayNone,
@@ -111,7 +108,6 @@ const lgAlignItems: Functor<AlignItems> = mapping({
   end: layout.lgItemsEnd,
   center: layout.lgItemsCenter,
   baseline: layout.lgItemsBaseline,
-  // default: stretch
 });
 const lgDisplay: Functor<Display> = mapping({
   none: styles.lgDisplayNone,
@@ -177,7 +173,7 @@ const xxxlDisplay: Functor<Display> = mapping({
   inlineBlock: styles.xxxlDisplayInlineBlock,
   visuallyHidden: styles.xxxlDisplayVisuallyHidden,
 });
-const xxxlColumn: Functor<Column> = bind(range('lgCol'), styles);
+const xxxlColumn: Functor<Column> = bind(range('xxxlCol'), styles);
 const xxxlDirection: Functor<Direction> = mapping({
   row: styles.xxxlDirectionRow,
   column: styles.xxxlDirectionColumn,
@@ -192,7 +188,6 @@ const alignContent: Functor<AlignContent> = mapping({
   between: layout.contentBetween,
   around: layout.contentAround,
   evenly: layout.contentEvenly,
-  // default: stretch
 });
 const alignSelf: Functor<AlignSelf> = mapping({
   start: layout.selfStart,
@@ -200,7 +195,6 @@ const alignSelf: Functor<AlignSelf> = mapping({
   center: layout.selfCenter,
   baseline: layout.selfBaseline,
   stretch: layout.selfStretch,
-  // default: auto
 });
 const bottom: Functor<boolean> = toggle(layout.bottom0);
 const borderStyle: Functor<BorderStyle> = (value) => {
@@ -254,7 +248,6 @@ const fit: Functor<boolean> = toggle(layout.fit);
 const flex: Functor<Flex> = mapping({
   grow: layout.flexGrow,
   none: layout.flexNone,
-  // default: shrink
 });
 const flexBasis: Functor<number | string> = (v) => fromInlineStyle({ flexBasis: v });
 const height: Functor<Dimension> = (h) => fromInlineStyle({ height: h });
@@ -264,7 +257,6 @@ const justifyContent: Functor<JustifyContent> = mapping({
   between: layout.justifyBetween,
   around: layout.justifyAround,
   evenly: layout.justifyEvenly,
-  // default: start
 });
 const left: Functor<boolean> = toggle(layout.left0);
 
@@ -530,21 +522,27 @@ export const propToFn = {
   padding,
   paddingX,
   paddingY,
+
   smPadding,
   smPaddingX,
   smPaddingY,
+
   mdPadding,
   mdPaddingX,
   mdPaddingY,
+
   lgPadding,
   lgPaddingX,
   lgPaddingY,
+
   xlPadding,
   xlPaddingX,
   xlPaddingY,
+
   xxlPadding,
   xxlPaddingX,
   xxlPaddingY,
+
   xxxlPadding,
   xxxlPaddingX,
   xxxlPaddingY,
