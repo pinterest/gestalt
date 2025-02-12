@@ -53,16 +53,6 @@
   padding: var(--sema-space-150) var(--sema-space-300);
 }
 
-a.smVr:focus {
-  padding: var(--sema-space-100)
-    calc(var(--sema-space-200) + var(--g-border-width-lg));
-}
-
-a.lgVr:focus {
-  padding: var(--sema-space-150)
-    calc(var(--sema-space-300) + var(--g-border-width-lg));
-}
-
 .lgVr {
   border-radius: var(--rounding-400);
   min-height: 48px;
