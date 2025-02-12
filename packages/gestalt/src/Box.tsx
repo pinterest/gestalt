@@ -33,6 +33,7 @@ extra runtime typechecks in the transformers for performance.
 // to work, we had to copy those types here. Ideally we can undo that copying in the
 // future if we figure out how to get docgen to resolve types defined elsewhere. =(
 
+type AlignItems = 'start' | 'end' | 'center' | 'baseline' | 'stretch';
 type Column = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type Dimension = number | string;
 type Direction = 'row' | 'column';
@@ -136,13 +137,13 @@ type Props = BoxPassthroughProps & {
    *
    * Also available in responsive sizes: `smAlignItems`, `mdAlignItems`, `lgAlignItems`, `xlAlignItems`, `xxlAlignItems`, `xxxlAlignItems`. See the [Screen size page](https://gestalt.pinterest.systems/foundations/screen_sizes#Web-(px)) to learn more about viewport breakpoints in web.
    */
-  alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  smAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  mdAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  lgAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  xlAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  xxlAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
-  xxxlAlignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  alignItems?: AlignItems;
+  smAlignItems?: AlignItems;
+  mdAlignItems?: AlignItems;
+  lgAlignItems?: AlignItems;
+  xlAlignItems?: AlignItems;
+  xxlAlignItems?: AlignItems;
+  xxxlAlignItems?: AlignItems;
   /**
    * Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.
    *
