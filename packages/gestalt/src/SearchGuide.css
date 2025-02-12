@@ -48,8 +48,8 @@
 }
 
 .imageDivVr {
-  border-end-start-radius: calc(var(--rounding-400));
-  border-start-start-radius: calc(var(--rounding-400));
+  border-end-start-radius: var(--rounding-400);
+  border-start-start-radius: var(--rounding-400);
   height: 48px;
   overflow: hidden;
   position: relative;
