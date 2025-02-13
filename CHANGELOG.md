@@ -1,3 +1,9 @@
+## 172.7.0 (Feb 13, 2025)
+
+### Minor
+
+- Box, Flex: support to `xl`, `xxl`, `xxxl` breakpoints ([#3992](https://github.com/pinterest/gestalt/pull/3992)) - [Preview link](https://deploy-preview-3992--gestalt.netlify.app?devexample=true)
+
 ## 172.6.4 (Feb 12, 2025)
 
 ### Patch
