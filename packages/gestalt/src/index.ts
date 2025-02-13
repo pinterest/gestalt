@@ -12,6 +12,7 @@ import Box from './Box';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import ButtonLink from './ButtonLink';
+import ButtonSocial from './ButtonSocial';
 import ButtonToggle from './ButtonToggle';
 import Checkbox from './Checkbox';
 import Collage from './Collage';
@@ -107,6 +108,7 @@ export {
   Button,
   ButtonGroup,
   ButtonLink,
+  ButtonSocial,
   ButtonToggle,
   Checkbox,
   Collage,

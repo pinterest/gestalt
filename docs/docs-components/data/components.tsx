@@ -23,6 +23,7 @@ import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
+import ButtonSocial from '../../graphics/general/ButtonSocial.svg';
 import ButtonToggle from '../../graphics/general/ButtonToggle.svg';
 import Card from '../../graphics/general/Card.svg';
 import ChartGraph from '../../graphics/general/ChartGraph.svg';
@@ -548,6 +549,26 @@ const componentData: ReadonlyArray<ComponentData> = [
           status: 'ready',
         },
       },
+    },
+  },
+  {
+    id: 'ButtonSocial',
+    platform: {
+      web: {
+        name: 'ButtonSocial',
+        visual: {
+          svg: <ButtonSocial />,
+        },
+        alias: ['Social', 'Action Button'],
+        description:
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'ready',
+        },
+      }
     },
   },
   {

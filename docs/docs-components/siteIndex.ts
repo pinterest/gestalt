@@ -128,6 +128,7 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'Button',
       'ButtonLink',
       'ButtonGroup',
+      'ButtonSocial',
       'ButtonToggle',
       'ChartGraph',
       'Checkbox',
