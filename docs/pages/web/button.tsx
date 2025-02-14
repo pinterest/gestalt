@@ -410,7 +410,9 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
 
         <MainSection.Subsection title="Truncation">
           <MainSection.Card
-            sandpackExample={<SandpackExample code={lineclamp} layout='column' name="Truncation example"  />}
+            sandpackExample={
+              <SandpackExample code={lineclamp} layout="column" name="Truncation example" />
+            }
           />
         </MainSection.Subsection>
 
