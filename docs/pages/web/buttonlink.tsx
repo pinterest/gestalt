@@ -17,6 +17,7 @@ import focus from '../../examples/buttonlink/focus';
 import iconEndExample from '../../examples/buttonlink/iconEnd';
 import iconTooltipToExplainDo from '../../examples/buttonlink/iconTooltipToExplainDo';
 import iconTooltipToExplainDont from '../../examples/buttonlink/iconTooltipToExplainDont';
+import lineclamp from '../../examples/buttonlink/lineclamp';
 import localizationLabels from '../../examples/buttonlink/localizationLabels';
 import main from '../../examples/buttonlink/main';
 import placePrimaryButtonDo from '../../examples/buttonlink/placePrimaryButtonDo';
@@ -321,6 +322,13 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
             }
           />
         </MainSection.Subsection>
+
+        <MainSection.Subsection title="Truncation">
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={lineclamp} layout='column' name="Truncation example"  />}
+          />
+        </MainSection.Subsection>
+
 
         <MainSection.Subsection title="Focus style">
           <MainSection.Card

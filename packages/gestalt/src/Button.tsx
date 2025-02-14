@@ -1,9 +1,9 @@
 import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
 import styles from './Button.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
-import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
@@ -91,8 +91,13 @@ type Props = {
    */
   iconStart?: keyof typeof icons;
   /**
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [overflow and truncation variant](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) for more details.
+   */
+  lineClamp?: 1;
+  /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
+
   name?: string;
   /**
    * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.
@@ -125,52 +130,43 @@ type Props = {
 };
 
 function InternalButtonContent({
+  iconStart,
+  iconEnd,
+  size = 'md',
   target,
   text,
   textColor,
-  iconStart,
-  iconEnd,
-  size,
 }: {
   target?: Target;
   text: ReactNode;
   textColor: IconColor;
   iconStart?: keyof typeof icons;
   iconEnd?: keyof typeof icons;
-  size: string;
+  size?: 'sm' | 'md' | 'lg';
 }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   return (
     <Fragment>
-      <Flex
-        alignItems="center"
-        gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
-        justifyContent="center"
-      >
-        {iconStart && (
+      {iconStart && (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginEnd={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor as IconColor}
             icon={iconStart}
-            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        )}
-        {text}
-        {iconEnd ? (
+        </Box>
+      )}
+      {text}
+      {iconEnd ? (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginStart={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor}
             icon={iconEnd}
-            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        ) : null}
-      </Flex>
+        </Box>
+      ) : null}
       <NewTabAccessibilityLabel target={target} />
     </Fragment>
   );
@@ -198,6 +194,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     iconEnd,
     iconStart,
     name,
+    lineClamp,
     onClick,
     selected = false,
     size = 'md',
@@ -312,11 +309,24 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     DEFAULT_TEXT_COLORS[color];
 
   const buttonText = isInVRExperiment ? (
-    <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
+    <TextUI
+      align="center"
+      color={textColor}
+      lineClamp={lineClamp}
+      overflow="normal"
+      size={textSizesVR[size]}
+    >
       {text}
     </TextUI>
   ) : (
-    <Text align="center" color={textColor} overflow="normal" size={textSizes[size]} weight="bold">
+    <Text
+      align="center"
+      color={textColor}
+      lineClamp={lineClamp}
+      overflow="normal"
+      size={textSizes[size]}
+      weight="bold"
+    >
       {text}
     </Text>
   );

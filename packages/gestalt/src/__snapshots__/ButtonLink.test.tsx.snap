@@ -22,17 +22,9 @@ exports[`ButtonLink renders 1`] = `
   target="_blank"
 >
   <div
-    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+    className="default alignCenter Text fontSize300 fontWeightSemiBold"
   >
-    <div
-      className="FlexItem"
-    >
-      <div
-        className="default alignCenter Text fontSize300 fontWeightSemiBold"
-      >
-        Visit Pinterest
-      </div>
-    </div>
+    Visit Pinterest
   </div>
   <div
     className="box relative"
@@ -71,17 +63,9 @@ exports[`ButtonLink renders disabled 1`] = `
   target="_blank"
 >
   <div
-    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+    className="disabled alignCenter Text fontSize300 fontWeightSemiBold"
   >
-    <div
-      className="FlexItem"
-    >
-      <div
-        className="disabled alignCenter Text fontSize300 fontWeightSemiBold"
-      >
-        Visit Pinterest
-      </div>
-    </div>
+    Visit Pinterest
   </div>
   <div
     className="box relative"
@@ -122,34 +106,32 @@ exports[`ButtonLink renders with icon on the right 1`] = `
   target="_blank"
 >
   <div
-    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+    className="default alignCenter Text fontSize300 fontWeightSemiBold"
   >
-    <div
-      className="FlexItem"
+    Visit Pinterest
+  </div>
+  <div
+    className="box marginStart150"
+    style={
+      Object {
+        "height": 12,
+        "width": 12,
+      }
+    }
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="rtlSupport default icon iconBlock"
+      height={12}
+      role="img"
+      viewBox="0 0 24 24"
+      width={12}
     >
-      <div
-        className="default alignCenter Text fontSize300 fontWeightSemiBold"
-      >
-        Visit Pinterest
-      </div>
-    </div>
-    <div
-      className="FlexItem"
-    >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="rtlSupport default icon iconBlock"
-        height={12}
-        role="img"
-        viewBox="0 0 24 24"
-        width={12}
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
   <div
     className="box relative"
