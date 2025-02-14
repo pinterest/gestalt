@@ -1,3 +1,9 @@
+## 172.8.1 (Feb 14, 2025)
+
+### Patch
+
+- SearchGuide: adjust selected state in Classic ([#3996](https://github.com/pinterest/gestalt/pull/3996)) - [Preview link](https://deploy-preview-3996--gestalt.netlify.app?devexample=true)
+
 ## 172.8.0 (Feb 14, 2025)
 
 ### Minor
