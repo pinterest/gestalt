@@ -8,7 +8,11 @@ import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  ColumnSpanConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+  ResponsiveModuleConfig,
+} from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -131,6 +135,18 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * Experimental prop to define the minimum and maximum limit a flexible width module could span.
+   * This used to enable multi-column flexible width support ONLY ON SECOND ITEM OF THE ARRAY OF ITEMS.
+   * _getResponsiveModuleConfigForSecondItem is a function that takes an individual grid item as an input and returns a ResponsiveModuleConfig.
+   * ResponsiveModuleConfig can be one of two things:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which sets the minimum and maximum limits a multi-column item could span filling the empty columns in the first row of the grid (flexible width).
+   * If this prop is set for the second item in the array of items, the flexible width will work. Otherwise, it will fallback to the _getColumnSpanConfig behavior.
+   *
+   * This is an experimental prop and may be removed or changed in the future.
+   */
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
@@ -567,6 +583,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       scrollContainer,
       _logTwoColWhitespace,
       _getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem,
       _earlyBailout,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
@@ -583,6 +600,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       minCols,
       width,
       _getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem,
       _logTwoColWhitespace,
       _earlyBailout,
     });
