@@ -17,8 +17,8 @@
     "@floating-ui/react": "^0.25.4",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.12.0",
-    "@mui/x-date-pickers": "^6.18.2",
+    "@mui/material": "^6.4.4",
+    "@mui/x-date-pickers": "7.26.0",
     "classnames": "^2.2.6",
     "react-datepicker": "7.5.0"
   },
