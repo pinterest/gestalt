@@ -1,3 +1,9 @@
+## 172.8.0 (Feb 14, 2025)
+
+### Minor
+
+- Button, ButtonLink: support lineClamp ([#3995](https://github.com/pinterest/gestalt/pull/3995)) - [Preview link](https://deploy-preview-3995--gestalt.netlify.app?devexample=true)
+
 ## 172.7.0 (Feb 13, 2025)
 
 ### Minor
