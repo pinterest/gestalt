@@ -91,7 +91,7 @@ type Props = {
    */
   iconStart?: keyof typeof icons;
   /**
-   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [overflow and truncation variant](https://gestalt.pinterest.systems/web/text#Overflow-and-truncation) for more details.
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [truncation variant](https://gestalt.pinterest.systems/web/button#Truncation) for more details.
    */
   lineClamp?: 1;
   /**
