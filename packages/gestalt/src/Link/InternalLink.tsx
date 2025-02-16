@@ -133,7 +133,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     isTapArea ? getRoundingClassName(rounding || 0) : undefined,
     !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
     {
-      [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
+      [touchableStyles.tapCompress]:
+        !disabled && tapStyle === 'compress' && !isInVRExperiment && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
       [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
     },
@@ -321,6 +322,9 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           }
         : {})}
       tabIndex={disabled ? undefined : tabIndex}
+      {...(tapStyle === 'compress' && !isInVRExperiment && compressStyle && !disabled
+        ? { style: compressStyle }
+        : {})}
       target={target ? `_${target}` : undefined}
       {...(download ? { download } : {})}
     >
