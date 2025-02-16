@@ -2,6 +2,9 @@
 set -x
 set -e
 
+
+yarn config set network-timeout 600000 -g
+
 (cd packages/gestalt-design-tokens && yarn build)
 (cd packages/gestalt && yarn build)
 (cd packages/gestalt-charts && yarn build)

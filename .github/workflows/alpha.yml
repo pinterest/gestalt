@@ -35,7 +35,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.ALBERTO_NPM_PERSONAL_TOKEN }}
         run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
       - name: Install dependencies
-        run: yarn install
+        run: yarn install && cd docs && yarn install && cd ..
       - name: Setup GitHub access tokens
         env:
           ALBERTO_GITHUB_PERSONAL_TOKEN: ${{ secrets.ALBERTO_GITHUB_PERSONAL_TOKEN }}
