@@ -1,11 +1,13 @@
 .searchguide {
-  composes: borderBox minWidth60 from "./Layout.css";
-  composes: noBorder from "./Borders.css";
-  composes: pointer from "./Cursor.css";
-  composes: large from "./Layout.css";
-  composes: paddingX100 from "./boxWhitespace.css";
+  border: 0;
   border-radius: var(--rounding-600);
+  box-sizing: border-box;
+  cursor: pointer;
   display: flex;
+  height: 48px;
+  min-width: 60px;
+  padding-left: var(--space-100);
+  padding-right: var(--space-100);
 }
 
 .searchguideVr {
@@ -48,8 +50,8 @@
 }
 
 .imageDivVr {
-  border-end-start-radius: calc(var(--rounding-400));
-  border-start-start-radius: calc(var(--rounding-400));
+  border-end-start-radius: var(--rounding-400);
+  border-start-start-radius: var(--rounding-400);
   height: 48px;
   overflow: hidden;
   position: relative;
@@ -69,10 +71,7 @@
 /* STATES */
 
 .selected {
-  composes: sizeLg borderColorSelected from "./Borders.css";
-  outline: var(--g-border-width-lg) solid;
-  outline-color: var(--color-background-button-selected-default);
-  outline-offset: var(--g-border-width-lg);
+  background-color: var(--color-background-selected-base);
 }
 
 .selectedVr {

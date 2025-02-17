@@ -45,7 +45,7 @@ type Props = {
     | '09'
     | '10'
     | '11'
-    | Array<string>;
+    | ReadonlyArray<string>;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -141,7 +141,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         [styles.gradient]:
           typeof color !== 'string' && Array.isArray(color) && !isFocusVisible && !selected,
       })
-    : classnames(styles.searchguide, touchableStyles.tapTransition, colorClassname, {
+    : classnames(styles.searchguide, touchableStyles.tapTransition, !selected && colorClassname, {
         [styles.selected]: selected,
         [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
@@ -149,11 +149,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
 
   const textComponent =
     text.length > 0 ? (
-      <TextUI
-        align="center"
-        color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-        overflow="noWrap"
-      >
+      <TextUI align="center" color={selected ? 'inverse' : 'dark'} overflow="noWrap">
         {text}
       </TextUI>
     ) : null;
@@ -161,17 +157,12 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   const expandableIcon = isInVRExperiment ? (
     <IconCompact
       accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      color={selected ? 'inverse' : 'dark'}
       icon="compact-chevron-down"
       size={12}
     />
   ) : (
-    <Icon
-      accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      icon="arrow-down"
-      size={12}
-    />
+    <Icon accessibilityLabel="" color={selected ? 'inverse' : 'dark'} icon="arrow-down" size={12} />
   );
 
   const thumbnailVariant = thumbnail && (
@@ -205,7 +196,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         {'icon' in thumbnail && (
           <Box marginStart={3}>
             {cloneElement(thumbnail.icon, {
-              color: isInVRExperiment && selected ? 'inverse' : 'dark',
+              color: selected ? 'inverse' : 'dark',
             })}
           </Box>
         )}
@@ -265,7 +256,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       {...(inBackgroundGradient || compressStyle
         ? {
             style: {
-              ...(inBackgroundGradient
+              ...(inBackgroundGradient && !selected
                 ? {
                     backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
                   }
