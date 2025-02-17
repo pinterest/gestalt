@@ -1,3 +1,39 @@
+## 172.8.1 (Feb 14, 2025)
+
+### Patch
+
+- SearchGuide: adjust selected state in Classic ([#3996](https://github.com/pinterest/gestalt/pull/3996)) - [Preview link](https://deploy-preview-3996--gestalt.netlify.app?devexample=true)
+
+## 172.8.0 (Feb 14, 2025)
+
+### Minor
+
+- Button, ButtonLink: support lineClamp ([#3995](https://github.com/pinterest/gestalt/pull/3995)) - [Preview link](https://deploy-preview-3995--gestalt.netlify.app?devexample=true)
+
+## 172.7.0 (Feb 13, 2025)
+
+### Minor
+
+- Box, Flex: support to `xl`, `xxl`, `xxxl` breakpoints ([#3992](https://github.com/pinterest/gestalt/pull/3992)) - [Preview link](https://deploy-preview-3992--gestalt.netlify.app?devexample=true)
+
+## 172.6.4 (Feb 12, 2025)
+
+### Patch
+
+- SearchGuide: fix border radius in VR image variant ([#3991](https://github.com/pinterest/gestalt/pull/3991)) - [Preview link](https://deploy-preview-3991--gestalt.netlify.app?devexample=true)
+
+## 172.6.3 (Feb 11, 2025)
+
+### Patch
+
+- ComboBox: fix placeholder width when Tags are used ([#3989](https://github.com/pinterest/gestalt/pull/3989)) - [Preview link](https://deploy-preview-3989--gestalt.netlify.app?devexample=true)
+
+## 172.6.2 (Feb 11, 2025)
+
+### Patch
+
+- TapAreaLink: fix duplication in aria label for target blank ([#3988](https://github.com/pinterest/gestalt/pull/3988)) - [Preview link](https://deploy-preview-3988--gestalt.netlify.app?devexample=true)
+
 ## 172.6.1 (Feb 10, 2025)
 
 ### Patch

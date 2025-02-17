@@ -203,3 +203,153 @@
     width: calc(12 / var(--g-ncols) * 100%);
   }
 }
+
+@media (--g-xl) {
+  .xlCol1 {
+    width: calc(1 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol2 {
+    width: calc(2 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol3 {
+    width: calc(3 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol4 {
+    width: calc(4 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol5 {
+    width: calc(5 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol6 {
+    width: calc(6 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol7 {
+    width: calc(7 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol8 {
+    width: calc(8 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol9 {
+    width: calc(9 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol10 {
+    width: calc(10 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol11 {
+    width: calc(11 / var(--g-ncols) * 100%);
+  }
+
+  .xlCol12 {
+    width: calc(12 / var(--g-ncols) * 100%);
+  }
+}
+
+@media (--g-xxl) {
+  .xxlCol1 {
+    width: calc(1 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol2 {
+    width: calc(2 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol3 {
+    width: calc(3 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol4 {
+    width: calc(4 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol5 {
+    width: calc(5 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol6 {
+    width: calc(6 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol7 {
+    width: calc(7 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol8 {
+    width: calc(8 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol9 {
+    width: calc(9 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol10 {
+    width: calc(10 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol11 {
+    width: calc(11 / var(--g-ncols) * 100%);
+  }
+
+  .xxlCol12 {
+    width: calc(12 / var(--g-ncols) * 100%);
+  }
+}
+
+@media (--g-xxxl) {
+  .xxxlCol1 {
+    width: calc(1 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol2 {
+    width: calc(2 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol3 {
+    width: calc(3 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol4 {
+    width: calc(4 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol5 {
+    width: calc(5 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol6 {
+    width: calc(6 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol7 {
+    width: calc(7 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol8 {
+    width: calc(8 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol9 {
+    width: calc(9 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol10 {
+    width: calc(10 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol11 {
+    width: calc(11 / var(--g-ncols) * 100%);
+  }
+
+  .xxxlCol12 {
+    width: calc(12 / var(--g-ncols) * 100%);
+  }
+}

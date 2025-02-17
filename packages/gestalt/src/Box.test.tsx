@@ -32,6 +32,9 @@ test('Box has correct *-inline-block classes when display is inlineBlock', () =>
       lgDisplay="inlineBlock"
       mdDisplay="inlineBlock"
       smDisplay="inlineBlock"
+      xlDisplay="inlineBlock"
+      xxlDisplay="inlineBlock"
+      xxxlDisplay="inlineBlock"
     />,
   ).toJSON();
   expect(tree).toMatchSnapshot();

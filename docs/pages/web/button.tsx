@@ -20,6 +20,7 @@ import iconTooltipToExplainDo from '../../examples/button/iconTooltipToExplainDo
 import iconTooltipToExplainDont from '../../examples/button/iconTooltipToExplainDont';
 import keepSimpleTextDo from '../../examples/button/keepSimpleTextDo';
 import keepSimpleTextDont from '../../examples/button/keepSimpleTextDont';
+import lineclamp from '../../examples/button/lineclamp';
 import main from '../../examples/button/main';
 import placePrimaryButtonDo from '../../examples/button/placePrimaryButtonDo';
 import placePrimaryButtonDont from '../../examples/button/placePrimaryButtonDont';
@@ -403,6 +404,14 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
                 name="Icon end of button example."
                 previewHeight={PREVIEW_HEIGHT}
               />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection title="Truncation">
+          <MainSection.Card
+            sandpackExample={
+              <SandpackExample code={lineclamp} layout="column" name="Truncation example" />
             }
           />
         </MainSection.Subsection>
