@@ -18,7 +18,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.12.0",
-    "@mui/x-date-pickers": "^6.18.2",
+    "@mui/x-date-pickers": "^6.20.0",
     "classnames": "^2.2.6",
     "react-datepicker": "7.5.0"
   },
