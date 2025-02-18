@@ -138,11 +138,12 @@ type Props<T> = {
   /**
    * Experimental prop to define the minimum and maximum limit a flexible width module could span.
    * This used to enable multi-column flexible width support ONLY ON SECOND ITEM OF THE ARRAY OF ITEMS.
+   * Also, for the flexible width to work, the _getColumnSpanConfig prop should be set.
    * _getResponsiveModuleConfigForSecondItem is a function that takes an individual grid item as an input and returns a ResponsiveModuleConfig.
-   * ResponsiveModuleConfig can be one of two things:
+   * ResponsiveModuleConfig can be one of the following:
    * - A number, which indicates a static number of columns the item should span
    * - An object, which sets the minimum and maximum limits a multi-column item could span filling the empty columns in the first row of the grid (flexible width).
-   * If this prop is set for the second item in the array of items, the flexible width will work. Otherwise, it will fallback to the _getColumnSpanConfig behavior.
+   * - Undefined, which is used to indicate that this prop isn't set.
    *
    * This is an experimental prop and may be removed or changed in the future.
    */

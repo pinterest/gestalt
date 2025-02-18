@@ -25,6 +25,7 @@ describe('one column layout test cases', () => {
       items,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -48,6 +49,7 @@ describe('one column layout test cases', () => {
       columnCount: 3,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -76,6 +78,7 @@ describe('one column layout test cases', () => {
       columnCount: 2,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -109,6 +112,7 @@ describe('one column layout test cases', () => {
       columnCount: 4,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -151,6 +155,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -250,6 +255,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -361,6 +367,7 @@ describe('multi column layout test cases', () => {
         measurementCache: measurementStore,
         positionCache,
         earlyBailout,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -401,6 +408,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -473,6 +481,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 92,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -545,6 +554,7 @@ describe('multi column layout test cases', () => {
         columnCount: 4,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -580,6 +590,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -650,6 +661,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 92,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -715,6 +727,7 @@ describe('multi column layout test cases', () => {
           centerOffset: 30,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
         });
@@ -774,6 +787,7 @@ describe('multi column layout test cases', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
         });
@@ -842,6 +856,7 @@ describe('multi column layout test cases', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
           logWhitespace,
@@ -885,6 +900,7 @@ describe('responsive module layout test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) => (item.name === 'Pin 10' ? 2 : 1),
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -925,6 +941,7 @@ describe('responsive module layout test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 10'
             ? {
@@ -996,6 +1013,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 0'
             ? {
@@ -1044,6 +1062,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 0'
             ? {
@@ -1092,6 +1111,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 0'
             ? {
@@ -1150,6 +1170,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 0'
             ? {
@@ -1202,6 +1223,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 1'
             ? {
@@ -1253,6 +1275,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 1'
             ? {
@@ -1305,6 +1328,7 @@ describe('flex-width module test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: () => 1,
         _getResponsiveModuleConfigForSecondItem: (item: Item) =>
           item.name === 'Pin 1' ? { min: 2, max: 5 } : undefined,
@@ -1364,6 +1388,7 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -1401,6 +1426,7 @@ describe('initializeHeightsArray', () => {
       gutter,
       items,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -1451,6 +1477,7 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -1488,6 +1515,7 @@ describe('initializeHeightsArray', () => {
       gutter,
       items,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -1578,6 +1606,7 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -1615,6 +1644,7 @@ describe('initializeHeightsArray', () => {
       gutter,
       items,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
@@ -1630,6 +1660,7 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache: positionCacheInt,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
@@ -1641,6 +1672,7 @@ describe('initializeHeightsArray', () => {
       gutter,
       items,
       positionCache: positionCacheInt,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });

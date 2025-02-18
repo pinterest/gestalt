@@ -4,7 +4,6 @@ import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig, ResponsiveModuleConfig } from './multiColumnLayout';
 import { Align, Layout, Position } from './types';
 
-const defaultGetColumnSpanConfig = (): ColumnSpanConfig => 1;
 const defaultGetResponsiveModuleConfig = (): ResponsiveModuleConfig => undefined;
 
 const calculateCenterOffset = ({
@@ -58,6 +57,7 @@ const defaultLayout =
     minCols?: number;
     rawItemCount: number;
     width?: number | null | undefined;
+    originalItems: ReadonlyArray<T>;
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
@@ -89,7 +89,7 @@ const defaultLayout =
       width,
     });
 
-    return _getColumnSpanConfig || _getResponsiveModuleConfigForSecondItem
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -97,7 +97,7 @@ const defaultLayout =
           centerOffset,
           gutter,
           measurementCache,
-          _getColumnSpanConfig: _getColumnSpanConfig ?? defaultGetColumnSpanConfig,
+          _getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem:
             _getResponsiveModuleConfigForSecondItem ?? defaultGetResponsiveModuleConfig,
           ...otherProps,

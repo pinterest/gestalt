@@ -4,7 +4,6 @@ import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig, ResponsiveModuleConfig } from './multiColumnLayout';
 import { Position } from './types';
 
-const defaultGetColumnSpanConfig = (): ColumnSpanConfig => 1;
 const defaultGetResponsiveModuleConfig = (): ResponsiveModuleConfig => undefined;
 
 const fullWidthLayout = <T>({
@@ -23,6 +22,7 @@ const fullWidthLayout = <T>({
   width?: number | null | undefined;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
+  originalItems: ReadonlyArray<T>;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   earlyBailout?: (columnSpan: number) => number;
@@ -53,7 +53,7 @@ const fullWidthLayout = <T>({
 
   return (items: ReadonlyArray<T>) => {
     const heights = new Array<number>(columnCount).fill(0);
-    return _getColumnSpanConfig || _getResponsiveModuleConfigForSecondItem
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -61,7 +61,7 @@ const fullWidthLayout = <T>({
           centerOffset,
           gutter,
           measurementCache,
-          _getColumnSpanConfig: _getColumnSpanConfig ?? defaultGetColumnSpanConfig,
+          _getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem:
             _getResponsiveModuleConfigForSecondItem ?? defaultGetResponsiveModuleConfig,
           ...otherProps,
