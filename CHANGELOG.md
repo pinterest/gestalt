@@ -1,3 +1,9 @@
+## 172.8.2 (Feb 18, 2025)
+
+### Patch
+
+- IconButton: fix focus ring on visible in VR ([#3998](https://github.com/pinterest/gestalt/pull/3998)) - [Preview link](https://deploy-preview-3998--gestalt.netlify.app?devexample=true)
+
 ## 172.8.1 (Feb 14, 2025)
 
 ### Patch
