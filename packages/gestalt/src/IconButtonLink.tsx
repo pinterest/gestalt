@@ -132,7 +132,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   });
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
-    const { isFocusVisible } = useFocusVisible();
+  const { isFocusVisible } = useFocusVisible();
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
