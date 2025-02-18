@@ -6,6 +6,7 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
@@ -131,6 +132,8 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   });
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
+    const { isFocusVisible } = useFocusVisible();
+
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
@@ -184,7 +187,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         focusColor={focusColor}
-        focused={isInVRExperiment && isFocused}
+        focused={isInVRExperiment && isFocused && isFocusVisible}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}
