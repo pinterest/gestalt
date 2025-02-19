@@ -114,7 +114,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       left: 'left',
     } as const;
 
-    // This logic is making the component uncontrolled and causes unexpected behaviour. We need to deprecate when all instances of DatePicker set _overrideRangeDateFix to true
+    // This logic is making the component uncontrolled and causes unexpected behaviour. We need to deprecate it when all instances of DatePicker set _overrideRangeDateFix to true
     const controlledMaxDate = rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate;
     const controlledMinDate = rangeSelector === 'start' ? minDate : rangeStartDate || minDate;
 
