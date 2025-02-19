@@ -141,7 +141,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
-          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.justifyCenter]: size !== 'social',
           [layoutStyles.xsItemsCenter]: true,
           [buttonStyles.button]: true,
           [buttonStyles.disabled]: disabled,

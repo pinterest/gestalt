@@ -1,6 +1,7 @@
 import { ComponentProps, forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
 import VRButtonSocial from './ButtonSocial/VRButtonSocial';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
@@ -128,6 +129,8 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       break;
   }
 
+  const textWithService = TEXT_OPTIONS[text] + SERVICES_OPTIONS[service];
+
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
@@ -191,12 +194,24 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       target={target}
       wrappedComponent="button"
     >
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {iconService}
-        <Text align="center" color="default" size="300" weight="bold">
-          {TEXT_OPTIONS[text]} {SERVICES_OPTIONS[service]}
-        </Text>
-      </Flex>
+    <Box>
+        <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+          <Box marginStart={4}>{iconService}</Box>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                position: 'absolute',
+                left: '50%',
+                transform: ' translate(-50%, -50%)',
+              },
+            }}
+          >
+            <Text align="center" color="default" size="300">
+              {textWithService}
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
       <NewTabAccessibilityLabel target={target} />
     </InternalLink>
   );
