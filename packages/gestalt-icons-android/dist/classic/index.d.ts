@@ -285,6 +285,7 @@ declare const icons: Readonly<{
     shapes: any;
     share: any;
     'shopping-bag': any;
+    'shopping-bag-fill': any;
     shrink: any;
     shuffles: any;
     skintone: any;
@@ -360,6 +361,7 @@ declare const icons: Readonly<{
     'video-camera': any;
     'video-rewind-10-seconds': any;
     'view-type-default': any;
+    'view-type-default-fill': any;
     'view-type-dense': any;
     'view-type-list': any;
     'view-type-sparse': any;
