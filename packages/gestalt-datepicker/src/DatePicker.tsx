@@ -284,7 +284,8 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                       rangeSelector={rangeSelector}
                       rangeStartDate={rangeStartDate}
                       selectLists={selectLists}
-                      size={size} value={value}
+                      size={size}
+                      value={value}
                     />
                   </Flex>
                 )}
