@@ -95,6 +95,7 @@ function calculateActualColumnSpan<T>(props: {
   const responsiveModuleConfig = _getResponsiveModuleConfigForSecondItem(item);
   // By design, a responsive module should always be placed at the second position in the grid
   const isFlexibleWidthItem = !!responsiveModuleConfig && idxInOriginalItems === 1;
+  let columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
 
   if (isFlexibleWidthItem) {
     const firstItemColumnSpanConfig = _getColumnSpanConfig(firstItem);
@@ -105,11 +106,9 @@ function calculateActualColumnSpan<T>(props: {
       responsiveModuleConfig,
     );
 
-    // A responsive module item can never span more columns than there are in the grid
-    return Math.min(responsiveModuleColumnSpan, columnCount);
+    columnSpan = responsiveModuleColumnSpan;
   }
 
-  const columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
   // a multi column item can never span more columns than there are in the grid
   return Math.min(columnSpan, columnCount);
 }
