@@ -1,3 +1,9 @@
+## 172.8.3 (Feb 19, 2025)
+
+### Patch
+
+- Internal: change v.pinimg.com to v1.pinimg.com ([#4001](https://github.com/pinterest/gestalt/pull/4001)) - [Preview link](https://deploy-preview-4001--gestalt.netlify.app?devexample=true)
+
 ## 172.8.2 (Feb 18, 2025)
 
 ### Patch
