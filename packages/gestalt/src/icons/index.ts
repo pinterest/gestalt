@@ -162,6 +162,7 @@ import gift from './gift.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
 import gmail from './gmail.svg';
+import google from './google.svg';
 import graphBar from './graph-bar.svg';
 import graphPie from './graph-pie.svg';
 import hand from './hand.svg';
@@ -540,6 +541,7 @@ const icons = Object.freeze({
   'globe': globe,
   'globe-checked': globeChecked,
   'gmail': gmail,
+  'google': google,
   'graph-bar': graphBar,
   'graph-pie': graphPie,
   'hand': hand,

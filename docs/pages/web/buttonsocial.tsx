@@ -1,4 +1,3 @@
-
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { type DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';

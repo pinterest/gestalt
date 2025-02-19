@@ -52,7 +52,7 @@ type Props = {
   tabIndex: -1 | 0;
   rounding?: Rounding;
   selected?: boolean;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'social';
   tapStyle?: 'none' | 'compress';
   target?: null | 'self' | 'blank';
   wrappedComponent: 'button' | 'iconButton' | 'tapArea' | 'searchGuide';
@@ -149,13 +149,14 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.sm]: size === 'sm',
           [buttonStyles.md]: size === 'md',
           [buttonStyles.lg]: size === 'lg',
+          [buttonStyles.social]: size === 'social',
         }
       : {},
     isButton && isInVRExperiment
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
-          [layoutStyles.justifyCenter]: true,
+          [layoutStyles.justifyCenter]: size !== 'social',
           [layoutStyles.xsItemsCenter]: true,
           [buttonStyles.buttonVr]: true,
           [buttonStyles.disabled]: disabled,
@@ -163,6 +164,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.smVr]: size === 'sm',
           [buttonStyles.mdVr]: size === 'md',
           [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.socialVR]: size === 'social',
           [buttonStyles.vrFocused]: !disabled && isFocusVisible,
           [buttonStyles.defaultFocus]:
             !disabled && isFocusVisible && focusColor === 'lightBackground',

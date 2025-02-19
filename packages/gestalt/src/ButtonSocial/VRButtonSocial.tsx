@@ -1,18 +1,17 @@
-import { ComponentProps, forwardRef, useImperativeHandle, useRef } from 'react';
-import getAriaLabel from './accessibility/getAriaLabel';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
-import VRButtonSocial from './ButtonSocial/VRButtonSocial';
-import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Flex from './Flex';
-import Icon from './Icon';
-import InternalLink from './Link/InternalLink';
-import Text from './Text';
-import useInExperiment from './useInExperiment';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
+import getAriaLabel from '../accessibility/getAriaLabel';
+import NewTabAccessibilityLabel from '../accessibility/NewTabAccessibilityLabel';
+import Box from '../Box';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import Flex from '../Flex';
+import Icon from '../Icon';
+import InternalLink from '../Link/InternalLink';
+import Text from '../Text';
 
 const TEXT_OPTIONS = {
-  1: 'Login with',
-  2: 'Continue with',
-  3: 'Sign up with',
+  1: 'Login with ',
+  2: 'Continue with ',
+  3: 'Sign up with ',
 };
 
 const SERVICES_OPTIONS = {
@@ -112,26 +111,25 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
 
   switch (service) {
     case 1:
-      iconService = <Icon accessibilityLabel="" color="default" icon="apple" size={20} />;
+      iconService = <Icon accessibilityLabel="apple" color="default" icon="apple" size={20} />;
       break;
     case 2:
-      iconService = <Icon accessibilityLabel="" color="default" icon="facebook" size={20} />;
+      iconService = (
+        <Icon accessibilityLabel="facebook" color="default" icon="facebook" size={20} />
+      );
       break;
     case 3:
-      iconService = <Icon accessibilityLabel="" color="default" icon="google" size={20} />;
+      iconService = <Icon accessibilityLabel="google" color="default" icon="google" size={20} />;
       break;
     case 4:
-      iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
+      iconService = <Icon accessibilityLabel="gmail" color="default" icon="gmail" size={20} />;
       break;
     default:
-      iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
+      iconService = <Icon accessibilityLabel="gmail" color="default" icon="gmail" size={20} />;
       break;
   }
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const textWithService = TEXT_OPTIONS[text] + SERVICES_OPTIONS[service];
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
@@ -155,24 +153,6 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
         })
       : undefined;
 
-  if (isInVRExperiment) {
-    return (
-      <VRButtonSocial
-        accessibilityLabel={accessibilityLabel}
-        dataTestId={dataTestId}
-        focusColor={focusColor}
-        fullWidth={fullWidth}
-        href={href}
-        onClick={onClick}
-        rel={rel}
-        service={service}
-        tabIndex={tabIndex}
-        target={target}
-        text={text}
-      />
-    );
-  }
-
   return (
     <InternalLink
       ref={innerRef}
@@ -191,12 +171,24 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       target={target}
       wrappedComponent="button"
     >
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {iconService}
-        <Text align="center" color="default" size="300" weight="bold">
-          {TEXT_OPTIONS[text]} {SERVICES_OPTIONS[service]}
-        </Text>
-      </Flex>
+      <Box>
+        <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+          <Box marginStart={4}>{iconService}</Box>
+          <Box
+            dangerouslySetInlineStyle={{
+              __style: {
+                position: 'absolute',
+                left: '50%',
+                transform: ' translate(-50%, -50%)',
+              },
+            }}
+          >
+            <Text align="center" color="default" size="300">
+              {textWithService}
+            </Text>
+          </Box>
+        </Flex>
+      </Box>
       <NewTabAccessibilityLabel target={target} />
     </InternalLink>
   );

@@ -561,14 +561,14 @@ const componentData: ReadonlyArray<ComponentData> = [
         },
         alias: ['Social', 'Action Button'],
         description:
-          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+          'ButtonSocial should be used only to enable users to sign-up or sign-in to Pinterest using other trusted services.',
         category: ['Actions'],
         status: {
           documentation: 'ready',
           figmaStatus: 'ready',
           status: 'ready',
         },
-      }
+      },
     },
   },
   {

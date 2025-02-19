@@ -1,4 +1,4 @@
-import { ButtonSocial,ColorSchemeProvider } from 'gestalt';
+import { ButtonSocial, ColorSchemeProvider } from 'gestalt';
 
 export default function Snapshot() {
   return (
