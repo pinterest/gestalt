@@ -33,7 +33,7 @@ export default function Example() {
             onVolumeChange={(e) => setVolume(e.volume)}
             playing={playing}
             poster="https://i.pinimg.com/videos/thumbnails/originals/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4.0000000.jpg"
-            src="https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
+            src="https://v1.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4"
             volume={volume}
           >
             {!showControls ? (
