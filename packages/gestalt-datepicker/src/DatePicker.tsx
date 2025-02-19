@@ -133,6 +133,7 @@ export type Props = {
    * DatePicker can be a controlled component. `value` sets the current value of the input. See the [controlled component date example](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) to learn more.
    */
   value?: Date | null;
+  _overrideRangeDateFix?: boolean;
 };
 
 /**
@@ -170,6 +171,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     selectLists,
     size,
     value,
+    _overrideRangeDateFix = false,
   }: Props,
   ref,
 ) {
@@ -198,6 +200,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
       <Fragment>
         <InternalDatePicker
           ref={innerInputRef}
+          _overrideRangeDateFix={_overrideRangeDateFix}
           disabled={disabled}
           errorMessage={errorMessage}
           excludeDates={excludeDates}
@@ -264,6 +267,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                     width="100%"
                   >
                     <InternalDatePicker
+                      _overrideRangeDateFix={_overrideRangeDateFix}
                       errorMessage={errorMessage}
                       excludeDates={excludeDates}
                       id={id}
@@ -280,8 +284,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                       rangeSelector={rangeSelector}
                       rangeStartDate={rangeStartDate}
                       selectLists={selectLists}
-                      size={size}
-                      value={value}
+                      size={size} value={value}
                     />
                   </Flex>
                 )}
@@ -296,6 +299,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   return (
     <InternalDatePicker
       ref={innerInputRef}
+      _overrideRangeDateFix={_overrideRangeDateFix}
       disabled={disabled}
       errorMessage={errorMessage}
       excludeDates={excludeDates}
