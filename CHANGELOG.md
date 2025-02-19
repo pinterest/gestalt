@@ -1,3 +1,9 @@
+## 172.8.4 (Feb 19, 2025)
+
+### Patch
+
+- Link: fix a warning from accessibility pause in AccessibilityLinkActionIcon ([#4002](https://github.com/pinterest/gestalt/pull/4002)) - [Preview link](https://deploy-preview-4002--gestalt.netlify.app?devexample=true)
+
 ## 172.8.3 (Feb 19, 2025)
 
 ### Patch
