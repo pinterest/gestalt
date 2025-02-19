@@ -37,9 +37,11 @@ export default function AccessibilityLinkActionIcon({ size, color, icon = 'visit
     titleLabel = accessibilityDownloadLabel;
   }
 
+  titleLabel = `, ${titleLabel}`;
+
   return (
     <svg className={classNames} height={size} role="img" viewBox="0 0 24 24" width={size}>
-      <title>, {titleLabel}</title>
+      <title>{titleLabel}</title>
       <path d={(isInExperiment ? vrIcons : icons)[icon ?? 'visit']} />
     </svg>
   );
