@@ -1,3 +1,9 @@
+## 172.8.6 (Feb 20, 2025)
+
+### Patch
+
+- SegmentedControl: fix VR colors in dark mode ([#4004](https://github.com/pinterest/gestalt/pull/4004)) - [Preview link](https://deploy-preview-4004--gestalt.netlify.app?devexample=true)
+
 ## 172.8.5 (Feb 20, 2025)
 
 ### Patch
