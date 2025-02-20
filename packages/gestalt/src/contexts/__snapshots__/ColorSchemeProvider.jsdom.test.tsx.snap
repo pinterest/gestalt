@@ -3488,6 +3488,8 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-searchguide-active-07: #1a321a;
   --color-background-searchguide-active-08: #6b381a;
   --color-background-searchguide-active-09: #530909;
+  --color-background-segmentedcontrol-container: #2e2e2d;
+  --color-background-segmentedcontrol-tab-selected: #000000;
   --color-background-switch-default-unselected: #000000;
   --color-background-switch-default-selected: #e8e7e1;
   --color-background-switch-disabled-unselected: #000000;
@@ -4516,6 +4518,8 @@ exports[`visual refresh tokens uses visual refresh light mode theme when specifi
   --color-background-searchguide-active-07: #a7b97e;
   --color-background-searchguide-active-08: #f4cc95;
   --color-background-searchguide-active-09: #f4a8a4;
+  --color-background-segmentedcontrol-container: #efefef;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-border-container: #c7c6c1;
   --color-border-default: #757570;
   --color-border-error: #b2001a;
@@ -5532,6 +5536,8 @@ exports[`visual refresh tokens uses visual refresh with ck line height 1`] = `
   --color-background-searchguide-active-07: #a7b97e;
   --color-background-searchguide-active-08: #f4cc95;
   --color-background-searchguide-active-09: #f4a8a4;
+  --color-background-segmentedcontrol-container: #efefef;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-border-container: #c7c6c1;
   --color-border-default: #757570;
   --color-border-error: #b2001a;
@@ -6548,6 +6554,8 @@ exports[`visual refresh tokens uses visual refresh with ja line height 1`] = `
   --color-background-searchguide-active-07: #a7b97e;
   --color-background-searchguide-active-08: #f4cc95;
   --color-background-searchguide-active-09: #f4a8a4;
+  --color-background-segmentedcontrol-container: #efefef;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-border-container: #c7c6c1;
   --color-border-default: #757570;
   --color-border-error: #b2001a;
@@ -7564,6 +7572,8 @@ exports[`visual refresh tokens uses visual refresh with tall line height 1`] = `
   --color-background-searchguide-active-07: #a7b97e;
   --color-background-searchguide-active-08: #f4cc95;
   --color-background-searchguide-active-09: #f4a8a4;
+  --color-background-segmentedcontrol-container: #efefef;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-border-container: #c7c6c1;
   --color-border-default: #757570;
   --color-border-error: #b2001a;
@@ -8580,6 +8590,8 @@ exports[`visual refresh tokens uses visual refresh with th line height 1`] = `
   --color-background-searchguide-active-07: #a7b97e;
   --color-background-searchguide-active-08: #f4cc95;
   --color-background-searchguide-active-09: #f4a8a4;
+  --color-background-segmentedcontrol-container: #efefef;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-border-container: #c7c6c1;
   --color-border-default: #757570;
   --color-border-error: #b2001a;
@@ -9596,6 +9608,8 @@ exports[`visual refresh tokens uses visual refresh with vi line height 1`] = `
   --color-background-searchguide-active-07: #a7b97e;
   --color-background-searchguide-active-08: #f4cc95;
   --color-background-searchguide-active-09: #f4a8a4;
+  --color-background-segmentedcontrol-container: #efefef;
+  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-border-container: #c7c6c1;
   --color-border-default: #757570;
   --color-border-error: #b2001a;
