@@ -1,3 +1,9 @@
+## 172.8.5 (Feb 20, 2025)
+
+### Patch
+
+- DatePicker: add private prop \_overrideRangeDateFix to enable correct logic in date ranges ([#4000](https://github.com/pinterest/gestalt/pull/4000)) - [Preview link](https://deploy-preview-4000--gestalt.netlify.app?devexample=true)
+
 ## 172.8.4 (Feb 19, 2025)
 
 ### Patch
