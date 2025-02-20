@@ -1829,7 +1829,6 @@ Object {
 :root {
   --color-border-popover-secondary: #111111;
   --color-border-popover-primary: #ffffff;
-  --color-background-segmentedcontrol-tab-selected: #ffffff;
   --color-background-segmentedcontrol-container: #efefef;
   --color-background-iconbutton-semitransparentdark-disabled-default: rgba(0, 0, 0, 0.39);
   --color-background-button-semitransparentdark-disabled: rgba(0, 0, 0, 0.39);
@@ -2691,6 +2690,7 @@ Object {
   --color-border-error: var(--sema-color-border-error);
   --color-border-default: var(--sema-color-border-interactive);
   --color-border-container: var(--sema-color-border-decorative);
+  --color-background-segmentedcontrol-tab-selected: var(--sema-color-background-default);
   --color-background-tabs-transparent-active: var(--sema-color-pressed-background-default);
   --color-background-tabs-transparent-hover: var(--sema-color-hover-background-default);
   --color-background-tabs-default-active: var(--sema-color-pressed-background-default);

@@ -522,7 +522,7 @@
         },
         "tab": {
           "selected": {
-            "value": "#fff"
+            "value": "{sema.color.background.default.value}"
           }
         }
       }
