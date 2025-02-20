@@ -43,13 +43,13 @@
 
 .smVr {
   border-radius: var(--rounding-200);
-  min-height: 24px;
+  min-height: 28px;
   padding: var(--sema-space-100) var(--sema-space-200);
 }
 
 .mdVr {
   border-radius: var(--rounding-300);
-  min-height: 32px;
+  min-height: 36px;
   padding: var(--sema-space-150) var(--sema-space-300);
 }
 
@@ -65,7 +65,7 @@ a.lgVr:focus {
 
 .lgVr {
   border-radius: var(--rounding-400);
-  min-height: 44px;
+  min-height: 48px;
   padding: var(--sema-space-200) var(--sema-space-400);
 }
 
@@ -80,6 +80,10 @@ a.lgVr:focus {
 
 .enabled {
   composes: pointer from "./Cursor.css";
+}
+
+.border{
+  border: 0px;
 }
 
 /* STATES */
