@@ -515,6 +515,16 @@
             "value": "{base.color.pressed.grayscale.100.value}"
           }
         }
+      },
+      "segmentedcontrol": {
+        "container": {
+          "value": "#efefef"
+        },
+        "tab": {
+          "selected": {
+            "value": "#fff"
+          }
+        }
       }
     },
     "border": {
