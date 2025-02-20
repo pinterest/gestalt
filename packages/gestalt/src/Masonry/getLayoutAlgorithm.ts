@@ -1,7 +1,7 @@
 import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
-import { ColumnSpanConfig } from './multiColumnLayout';
+import { ColumnSpanConfig, ResponsiveModuleConfig } from './multiColumnLayout';
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
@@ -16,6 +16,7 @@ export default function getLayoutAlgorithm<T>({
   positionStore,
   width,
   _getColumnSpanConfig,
+  _getResponsiveModuleConfigForSecondItem,
   _logTwoColWhitespace,
   _earlyBailout,
 }: {
@@ -29,6 +30,7 @@ export default function getLayoutAlgorithm<T>({
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _logTwoColWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
@@ -44,8 +46,10 @@ export default function getLayoutAlgorithm<T>({
       minCols,
       idealColumnWidth: columnWidth,
       width,
+      originalItems: items,
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem,
       earlyBailout: _earlyBailout,
     });
   }
@@ -70,7 +74,9 @@ export default function getLayoutAlgorithm<T>({
     minCols,
     rawItemCount: items.length,
     width,
+    originalItems: items,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     earlyBailout: _earlyBailout,
   });
 }

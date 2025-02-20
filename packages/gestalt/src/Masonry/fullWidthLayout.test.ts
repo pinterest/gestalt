@@ -34,6 +34,7 @@ describe.each([undefined, getColumnSpanConfig])(
         idealColumnWidth: 240,
         minCols: 2,
         width: 1000,
+        originalItems: items,
         _getColumnSpanConfig,
       });
       expect(layout(items)).toEqual([
@@ -68,6 +69,7 @@ describe.each([undefined, getColumnSpanConfig])(
         idealColumnWidth: 240,
         minCols: 2,
         width: 1000,
+        originalItems: items,
         _getColumnSpanConfig,
       });
       expect(
@@ -101,6 +103,7 @@ describe.each([undefined, getColumnSpanConfig])(
         idealColumnWidth: 240,
         minCols: 2,
         width: 1000,
+        originalItems: items,
         _getColumnSpanConfig,
       });
 

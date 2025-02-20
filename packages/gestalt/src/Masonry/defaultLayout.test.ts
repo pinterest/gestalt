@@ -32,6 +32,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       layout: 'basic',
       minCols: 2,
       rawItemCount: items.length,
+      originalItems: items,
       width: 8000,
       _getColumnSpanConfig,
     });
@@ -63,6 +64,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       layout: 'basic',
       minCols: 2,
       rawItemCount: items.length,
+      originalItems: items,
       width: 8000,
       _getColumnSpanConfig,
     });
@@ -95,6 +97,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       layout: 'basicCentered',
       minCols: 2,
       rawItemCount: items.length,
+      originalItems: items,
       width: 8000,
       _getColumnSpanConfig,
     });
@@ -127,6 +130,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       layout: 'basic',
       minCols: 2,
       rawItemCount: items.length,
+      originalItems: items,
       width: 8000,
       _getColumnSpanConfig,
     });
@@ -158,6 +162,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       positionCache,
       layout: 'basic',
       rawItemCount: items.length,
+      originalItems: items,
       width: 501,
       _getColumnSpanConfig,
     });
@@ -189,6 +194,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       positionCache,
       layout: 'basic',
       rawItemCount: items.length,
+      originalItems: items,
       width: 200,
       _getColumnSpanConfig,
     });
@@ -223,6 +229,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
         gutter: 0,
         layout: align === 'center' ? 'basicCentered' : 'basic',
         rawItemCount: items.length,
+        originalItems: items,
         width: 1000,
         _getColumnSpanConfig,
       })(items);
@@ -271,6 +278,7 @@ describe.each([undefined, getColumnSpanConfig])('default layout tests', (_getCol
       layout: 'basic',
       minCols: 2,
       rawItemCount: items.length,
+      originalItems: items,
       width: 1000,
       _getColumnSpanConfig,
     });
