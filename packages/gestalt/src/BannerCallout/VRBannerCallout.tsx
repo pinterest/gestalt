@@ -188,7 +188,7 @@ export default function BannerCallout({
             </Flex.Item>
 
             {(primaryAction || secondaryAction) && (
-              <Flex.Item>
+              <Flex.Item flex="none">
                 <Footer
                   buttonSize="lg"
                   marginTop={0}
