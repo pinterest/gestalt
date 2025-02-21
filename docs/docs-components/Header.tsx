@@ -122,7 +122,7 @@ function Header() {
       alignItems="center"
       borderStyle="raisedTopShadow"
       color="default"
-      direction="column"
+      direction="row"
       display="flex"
       paddingX={4}
       paddingY={3}
