@@ -270,6 +270,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       <div
         className={classnames(
           styles.childrenDiv,
+          thumbnail && 'image' in thumbnail && styles.imageThumbnailMask,
           isInVRExperiment && selected && styles.selectedVr,
           isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
           { [touchableStyles.tapCompress]: isTapping },

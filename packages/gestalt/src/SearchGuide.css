@@ -41,6 +41,11 @@
   min-height: 48px;
 }
 
+.imageThumbnailMask {
+  border-radius: var(--sema-rounding-400);
+  overflow: hidden;
+}
+
 .imageDiv {
   background-color: var(--opacity-100);
   border-radius: 99px;
@@ -50,10 +55,7 @@
 }
 
 .imageDivVr {
-  border-end-start-radius: var(--rounding-400);
-  border-start-start-radius: var(--rounding-400);
   height: 48px;
-  overflow: hidden;
   position: relative;
   width: 44px;
 }
