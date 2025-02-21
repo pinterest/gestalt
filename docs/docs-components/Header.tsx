@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import {
   Badge,
-  BannerCallout,
   Box,
   ButtonToggle,
   CompositeZIndex,
@@ -123,7 +122,7 @@ function Header() {
       alignItems="center"
       borderStyle="raisedTopShadow"
       color="default"
-      direction="row"
+      direction="column"
       display="flex"
       paddingX={4}
       paddingY={3}
