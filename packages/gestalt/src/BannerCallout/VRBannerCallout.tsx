@@ -199,7 +199,9 @@ export default function BannerCallout({
                   marginTop={isWrapped ? 6 : 0}
                   primaryAction={primaryAction}
                   secondaryAction={secondaryAction}
-                  selfAlign="center" type={type} wrap={false}
+                  selfAlign="center"
+                  type={type}
+                  wrap={false}
                 />
               </Flex.Item>
             )}
