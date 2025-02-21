@@ -1,3 +1,9 @@
+## 172.9.1 (Feb 21, 2025)
+
+### Patch
+
+- SearchGuide: fix border radius in VR image variant ([#4006](https://github.com/pinterest/gestalt/pull/4006)) - [Preview link](https://deploy-preview-4006--gestalt.netlify.app?devexample=true)
+
 ## 172.9.0 (Feb 20, 2025)
 
 ### Minor
