@@ -123,24 +123,12 @@ function Header() {
       alignItems="center"
       borderStyle="raisedTopShadow"
       color="default"
-      direction="column"
+      direction="row"
       display="flex"
       paddingX={4}
       paddingY={3}
       role="navigation"
     >
-
-      <BannerCallout
-        dismissButton={{
-          accessibilityLabel: 'Dismiss this banner',
-          onDismiss: () => {},
-        }}
-        iconAccessibilityLabel="Info"
-        message="BannerCallout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention, BannerCallout is a banner displaying short messages with helpful information for a task on the page, or something that requires the user’s attention"
-       
-        title="Your business account was created!"
-        type="info"
-      />
       <Box alignItems="center" display="flex" marginStart={-2}>
         {/* Small-screen menu button */}
         <Box
