@@ -1,3 +1,9 @@
+## 172.9.2 (Feb 21, 2025)
+
+### Patch
+
+- BannerCallout: message width adjustments ([#4007](https://github.com/pinterest/gestalt/pull/4007)) - [Preview link](https://deploy-preview-4007--gestalt.netlify.app?devexample=true)
+
 ## 172.9.1 (Feb 21, 2025)
 
 ### Patch
