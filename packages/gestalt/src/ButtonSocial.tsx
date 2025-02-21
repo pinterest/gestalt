@@ -1,4 +1,4 @@
-import { ComponentProps, forwardRef, useImperativeHandle, useRef } from 'react';
+import {  forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
 import Box from './Box';
