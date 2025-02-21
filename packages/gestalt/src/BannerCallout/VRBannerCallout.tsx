@@ -178,10 +178,10 @@ export default function BannerCallout({
         width="100%"
       >
         <Box position="relative">
-          <Flex height="100%" width="100%" wrap>
-            <Flex.Item flex={isWrapped ? 'grow' : undefined} minWidth={isWrapped ? undefined : 0}>
+          <Flex height="100%" width="100%">
+            <Flex.Item flex="grow" minWidth={isWrapped ? undefined : 0}>
               <HeaderSection
-                fullWidth={isWrapped}
+                fullWidth
                 gap={6}
                 iconAccessibilityLabel={iconAccessibilityLabel}
                 iconSize={32}
@@ -192,14 +192,14 @@ export default function BannerCallout({
             </Flex.Item>
 
             {(primaryAction || secondaryAction) && (
-              <Flex.Item ref={wrappedRef} flex="grow">
+              <Flex.Item ref={wrappedRef}>
                 <Footer
                   buttonSize="lg"
                   fullHeight={isWrapped}
                   marginTop={isWrapped ? 6 : 0}
                   primaryAction={primaryAction}
                   secondaryAction={secondaryAction}
-                  type={type}
+                  selfAlign="center" type={type} wrap={false}
                 />
               </Flex.Item>
             )}
