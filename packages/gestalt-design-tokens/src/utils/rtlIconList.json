@@ -1,0 +1,32 @@
+{
+  "flipOnRtlIconNames": [
+    "ads-overview",
+    "ads-stats",
+    "arrow-back",
+    "arrow-circle-forward",
+    "arrow-end",
+    "arrow-forward",
+    "arrow-start",
+    "arrow-up-right",
+    "chevron-left-circle",
+    "chevron-right-circle",
+    "compose",
+    "directional-arrow-left",
+    "directional-arrow-right",
+    "flip-vertical",
+    "hand-pointing",
+    "link",
+    "mute",
+    "redo",
+    "reorder-images",
+    "send",
+    "sound",
+    "speech-ellipsis",
+    "speech",
+    "switch-account",
+    "text-size",
+    "undo",
+    "visit"
+  ],
+  "swapOnRtlIconNames": ["list-numbered"]
+}
