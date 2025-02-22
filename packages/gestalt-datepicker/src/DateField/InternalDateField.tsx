@@ -178,8 +178,8 @@ function CustomDateField({ inputRef: externalInputRef, ...textFieldProps }: Cust
     // @ts-expect-error - TS2739 - Type '{ onKeyDown: KeyboardEventHandler<Element>; onMouseUp: MouseEventHandler<Element>; onPaste: ClipboardEventHandler<HTMLInputElement>; ... 11 more ...; autoComplete: "off"; }' is missing the following properties from type 'CustomTextFieldProps': disabled, InputProps, focused, ownerState
     <CustomTextField
       {...useDateField({
+        // @ts-expect-error - TS2353
         props: textFieldProps,
-        // @ts-expect-error - TS2322 - Type '{ ref: { current: HTMLElement | null | undefined; }; }' is not assignable to type 'Ref<HTMLInputElement> | undefined'.
         inputRef: externalInputRef,
       })}
     />
@@ -317,7 +317,9 @@ function InternalDateField({
               disablePast={disableRange === 'disablePast'}
               errorMessage={!!errorMessage}
               formatDensity="spacious"
+              // @ts-expect-error - TS2322
               maxDate={maxDate}
+              // @ts-expect-error - TS2322
               minDate={minDate}
               onChange={(dateValue) => onChange({ value: dateValue })}
               // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string'.
@@ -334,11 +336,8 @@ function InternalDateField({
                 size,
               }}
               readOnly={readOnly}
-              // @ts-expect-error - TS2322 - Type '({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) => Element' is not assignable to type 'ComponentType<BaseSingleInputFieldProps<Date | null, Date | null, FieldSection, any>> | undefined'.
               slots={{ field: CustomDateField }}
               value={value}
-              // @ts-expect-error - TS2322 - Type 'null' is not assignable to type 'Partial<PickerViewRendererLookup<Date | null, DateView, DateViewRendererProps<Date | null, DateView>, {}>> | undefined'.
-              viewRenderers={null}
             />
           </Box>
           {helperText && !errorMessage ? (
