@@ -32,7 +32,6 @@ import width from '../../examples/button/width';
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
-
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
