@@ -49,7 +49,7 @@
 
 .smLinkVr {
   border-radius: var(--rounding-200);
-  min-height: 32px;
+  min-height: 28px;
   padding: var(--sema-space-100) var(--sema-space-200);
 }
 
@@ -61,7 +61,7 @@
 
 .mdLinkVr {
   border-radius: var(--rounding-300);
-  min-height: 40px;
+  min-height: 36px;
   padding: var(--sema-space-150) var(--sema-space-300);
 }
 
