@@ -77,7 +77,7 @@ function calculateActualColumnSpan<T>(props: {
   columnCount: number;
   item: T;
   firstItem: T;
-  idxInOriginalItems: number;
+  isFlexibleWidthItem: boolean;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
   _getResponsiveModuleConfigForSecondItem: (item: T) => ResponsiveModuleConfig;
 }): number {
@@ -85,7 +85,7 @@ function calculateActualColumnSpan<T>(props: {
     columnCount,
     item,
     firstItem,
-    idxInOriginalItems,
+    isFlexibleWidthItem,
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
   } = props;
@@ -94,7 +94,6 @@ function calculateActualColumnSpan<T>(props: {
 
   const responsiveModuleConfig = _getResponsiveModuleConfigForSecondItem(item);
   // By design, a responsive module should always be placed at the second position in the grid
-  const isFlexibleWidthItem = !!responsiveModuleConfig && idxInOriginalItems === 1;
   let columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
 
   if (isFlexibleWidthItem) {
@@ -224,7 +223,8 @@ export function initializeHeightsArray<T>({
         columnCount,
         item,
         firstItem: originalItems[0]!,
-        idxInOriginalItems: originalItems.indexOf(item),
+        isFlexibleWidthItem:
+          !!_getResponsiveModuleConfigForSecondItem(item) && originalItems.indexOf(item) === 1,
         _getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem,
       });
@@ -595,7 +595,8 @@ function getPositionsWithMultiColumnItem<T>({
         columnCount,
         item,
         firstItem: originalItems[0]!,
-        idxInOriginalItems: originalItems.indexOf(item),
+        isFlexibleWidthItem:
+          !!_getResponsiveModuleConfigForSecondItem(item) && originalItems.indexOf(item) === 1,
         _getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem,
       }) === 1,
@@ -609,7 +610,9 @@ function getPositionsWithMultiColumnItem<T>({
     columnCount,
     item: multiColumnItem,
     firstItem: originalItems[0]!,
-    idxInOriginalItems: originalItems.indexOf(multiColumnItem),
+    isFlexibleWidthItem:
+      !!_getResponsiveModuleConfigForSecondItem(multiColumnItem) &&
+      originalItems.indexOf(multiColumnItem) === 1,
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
   });
@@ -747,7 +750,8 @@ const multiColumnLayout = <T>({
         columnCount,
         item,
         firstItem: originalItems[0]!,
-        idxInOriginalItems: originalItems.indexOf(item),
+        isFlexibleWidthItem:
+          !!_getResponsiveModuleConfigForSecondItem(item) && originalItems.indexOf(item) === 1,
         _getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem,
       });
@@ -783,7 +787,8 @@ const multiColumnLayout = <T>({
         columnCount,
         item,
         firstItem: originalItems[0]!,
-        idxInOriginalItems: originalItems.indexOf(item),
+        isFlexibleWidthItem:
+          !!_getResponsiveModuleConfigForSecondItem(item) && originalItems.indexOf(item) === 1,
         _getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem,
       }) > 1,
