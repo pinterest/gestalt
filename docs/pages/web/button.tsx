@@ -286,37 +286,6 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Button is available in 3 fixed sizes. ${
-            isInExperiment ? `` : `The Button text has always a fixed size of 16px`
-          }:
-1. \`lg\` (48px)
-    Large is the only size that should be used on Pinner surfaces. ${
-      isInExperiment ? 'The text size is 16px.' : ''
-    }
-2. \`md\` (${isInExperiment ? '36' : '40'}px)
-    Medium is used on more dense UI such as business surfaces or internal tools. ${
-      isInExperiment ? 'The text size is 14px.' : ''
-    }
-3. \`sm\` (${isInExperiment ? '28' : '32'}px)
-    Small should be used sparingly and only in places where the UI is very dense. ${
-      isInExperiment ? 'The text size is 12px.' : ''
-    }`}
-          title="Size"
-        >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew size={['sm', 'md', 'lg']}>
-            {({ size }) => (
-              <Button
-                accessibilityLabel={`Example size ${size}`}
-                color="red"
-                size={size}
-                text="Save"
-              />
-            )}
-          </CombinationNew>
-        </MainSection.Subsection>
-
-        <MainSection.Subsection
           description={`
 #### On white backgrounds
 
