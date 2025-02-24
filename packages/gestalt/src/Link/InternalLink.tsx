@@ -160,9 +160,9 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.buttonVr]: true,
           [buttonStyles.disabled]: disabled,
           [buttonStyles.selected]: !disabled && selected,
-          [buttonStyles.smVr]: size === 'sm',
-          [buttonStyles.mdVr]: size === 'md',
-          [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.smLinkVr]: size === 'sm',
+          [buttonStyles.mdLinkVr]: size === 'md',
+          [buttonStyles.lgLinkVr]: size === 'lg',
           [buttonStyles.vrFocused]: !disabled && isFocusVisible,
           [buttonStyles.defaultFocus]:
             !disabled && isFocusVisible && focusColor === 'lightBackground',
