@@ -234,7 +234,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   const inBackgroundGradient =
     !isInVRExperiment && typeof color !== 'string' && Array.isArray(color);
 
-    return (
+  return (
     <button
       ref={innerRef}
       aria-controls={accessibilityControls}
