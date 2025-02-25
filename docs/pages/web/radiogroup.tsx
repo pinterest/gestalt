@@ -7,7 +7,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import SandpackExample from '../../docs-components/SandpackExample';
 import badge from '../../examples/radiogroup/addingABadgeExample';
-import addingAPopoverExample from '../../examples/radiogroup/addingAPopoverExample';
 import directionExample from '../../examples/radiogroup/directionExample';
 import dontUseToSelectMultipleItems from '../../examples/radiogroup/dontUseToSelectMultipleItems';
 import dontUseToToggleStateOnMobile from '../../examples/radiogroup/dontUseToToggleStateOnMobile';
@@ -271,18 +270,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: Generat
           <MainSection.Card
             sandpackExample={
               <SandpackExample code={legendVisibilityExample} name="Legend visibility example" />
-            }
-          />
-        </MainSection.Subsection>
-        <MainSection.Subsection
-          description={`
-    \`RadioButton\` with an anchor ref to a Popover component doesn't pass the correct positioning to the Popover. Instead set the anchor ref to the parent container.
-  `}
-          title="Adding a Popover"
-        >
-          <MainSection.Card
-            sandpackExample={
-              <SandpackExample code={addingAPopoverExample} name="Adding a popover example" />
             }
           />
         </MainSection.Subsection>

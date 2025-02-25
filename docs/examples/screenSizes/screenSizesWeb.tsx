@@ -60,6 +60,9 @@ export default function ScreenSizesWeb() {
                 <Text>sm: 576px</Text>
                 <Text>md: 768px</Text>
                 <Text>lg: 1312px</Text>
+                <Text>xl: 1440px</Text>
+                <Text>xxl: 1680px</Text>
+                <Text>xxxl: 2048px</Text>
               </Flex>
             </Table.Cell>
           </Table.Row>

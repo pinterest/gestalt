@@ -1,10 +1,10 @@
 import { ComponentProps, forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
 import Button from './Button';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Flex from './Flex';
 import Icon from './Icon';
 import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
@@ -69,6 +69,10 @@ type ButtonProps = {
    */
   fullWidth?: boolean;
   /**
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [truncation variant](https://gestalt.pinterest.systems/web/buttonlink#Truncation) for more details.
+   */
+  lineClamp?: 1;
+  /**
    * Use "-1" to remove ButtonLink from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
    */
   tabIndex?: -1 | 0;
@@ -88,7 +92,6 @@ type ButtonProps = {
    * Callback fired when a mouse pointer moves out a ButtonLink component.
    */
   _onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
-
   /**
    * sm: 32px, md: 40px, lg: 48px
    */
@@ -135,7 +138,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     onClick,
     _onMouseEnter,
     _onMouseLeave,
-
+    lineClamp,
     tabIndex = 0,
     size = 'md',
     text,
@@ -224,39 +227,48 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       target={target}
       wrappedComponent="button"
     >
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {iconStart ? (
+      {iconStart ? (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginEnd={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor}
             icon={iconStart}
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        ) : null}
-        {isInVRExperiment ? (
-          <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
-            {text}
-          </TextUI>
-        ) : (
-          <Text
-            align="center"
-            color={textColor}
-            overflow="normal"
-            size={size === 'sm' ? '200' : '300'}
-            weight="bold"
-          >
-            {text}
-          </Text>
-        )}
-        {iconEnd ? (
+        </Box>
+      ) : null}
+      {isInVRExperiment ? (
+        <TextUI
+          align="center"
+          color={textColor}
+          lineClamp={lineClamp}
+          overflow="normal"
+          size={textSizesVR[size]}
+        >
+          {text}
+        </TextUI>
+      ) : (
+        <Text
+          align="center"
+          color={textColor}
+          lineClamp={lineClamp}
+          overflow="normal"
+          size={size === 'sm' ? '200' : '300'}
+          weight="bold"
+        >
+          {text}
+        </Text>
+      )}
+      {iconEnd ? (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginStart={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor}
             icon={iconEnd}
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        ) : null}
-      </Flex>
+        </Box>
+      ) : null}
       <NewTabAccessibilityLabel target={target} />
     </InternalLink>
   );

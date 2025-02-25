@@ -1,3 +1,99 @@
+## 172.8.1 (Feb 14, 2025)
+
+### Patch
+
+- SearchGuide: adjust selected state in Classic ([#3996](https://github.com/pinterest/gestalt/pull/3996)) - [Preview link](https://deploy-preview-3996--gestalt.netlify.app?devexample=true)
+
+## 172.8.0 (Feb 14, 2025)
+
+### Minor
+
+- Button, ButtonLink: support lineClamp ([#3995](https://github.com/pinterest/gestalt/pull/3995)) - [Preview link](https://deploy-preview-3995--gestalt.netlify.app?devexample=true)
+
+## 172.7.0 (Feb 13, 2025)
+
+### Minor
+
+- Box, Flex: support to `xl`, `xxl`, `xxxl` breakpoints ([#3992](https://github.com/pinterest/gestalt/pull/3992)) - [Preview link](https://deploy-preview-3992--gestalt.netlify.app?devexample=true)
+
+## 172.6.4 (Feb 12, 2025)
+
+### Patch
+
+- SearchGuide: fix border radius in VR image variant ([#3991](https://github.com/pinterest/gestalt/pull/3991)) - [Preview link](https://deploy-preview-3991--gestalt.netlify.app?devexample=true)
+
+## 172.6.3 (Feb 11, 2025)
+
+### Patch
+
+- ComboBox: fix placeholder width when Tags are used ([#3989](https://github.com/pinterest/gestalt/pull/3989)) - [Preview link](https://deploy-preview-3989--gestalt.netlify.app?devexample=true)
+
+## 172.6.2 (Feb 11, 2025)
+
+### Patch
+
+- TapAreaLink: fix duplication in aria label for target blank ([#3988](https://github.com/pinterest/gestalt/pull/3988)) - [Preview link](https://deploy-preview-3988--gestalt.netlify.app?devexample=true)
+
+## 172.6.1 (Feb 10, 2025)
+
+### Patch
+
+- SearchField: VR API fixes ([#3987](https://github.com/pinterest/gestalt/pull/3987)) - [Preview link](https://deploy-preview-3987--gestalt.netlify.app?devexample=true)
+
+## 172.6.0 (Feb 7, 2025)
+
+### Minor
+
+- SearchGuide: support to gradient background + overall fixes ([#3984](https://github.com/pinterest/gestalt/pull/3984)) - [Preview link](https://deploy-preview-3984--gestalt.netlify.app?devexample=true)
+
+## 172.5.0 (Feb 7, 2025)
+
+### Minor
+
+- Icon: New and Updated Icons [Gestalt-8748] ([#3980](https://github.com/pinterest/gestalt/pull/3980)) - [Preview link](https://deploy-preview-3980--gestalt.netlify.app?devexample=true)
+
+## 172.4.0 (Feb 7, 2025)
+
+### Minor
+
+- SearchField: support tabIndex ([#3986](https://github.com/pinterest/gestalt/pull/3986)) - [Preview link](https://deploy-preview-3986--gestalt.netlify.app?devexample=true)
+
+## 172.3.0 (Feb 7, 2025)
+
+### Minor
+
+- SearchField: support readOnly ([#3985](https://github.com/pinterest/gestalt/pull/3985)) - [Preview link](https://deploy-preview-3985--gestalt.netlify.app?devexample=true)
+
+## 172.2.3 (Feb 6, 2025)
+
+### Patch
+
+- Internal: Revert "Internal: Fix error in React 19 with fetchpriority ([#3976](https://github.com/pinterest/gestalt/pull/3976)) - [Preview link](https://deploy-preview-3976--gestalt.netlify.app?devexample=true)" ([#3982](https://github.com/pinterest/gestalt/pull/3982)) - [Preview link](https://deploy-preview-3982--gestalt.netlify.app?devexample=true)
+
+## 172.2.2 (Feb 6, 2025)
+
+### Patch
+
+- Masonry: Fixing type bug ([#3981](https://github.com/pinterest/gestalt/pull/3981)) - [Preview link](https://deploy-preview-3981--gestalt.netlify.app?devexample=true)
+
+## 172.2.1 (Feb 5, 2025)
+
+### Patch
+
+- Checkbox: background fix on VR ([#3979](https://github.com/pinterest/gestalt/pull/3979)) - [Preview link](https://deploy-preview-3979--gestalt.netlify.app?devexample=true)
+
+## 172.2.0 (Feb 5, 2025)
+
+### Minor
+
+- RadioGroup: VR changes ([#3978](https://github.com/pinterest/gestalt/pull/3978)) - [Preview link](https://deploy-preview-3978--gestalt.netlify.app?devexample=true)
+
+## 172.1.0 (Feb 5, 2025)
+
+### Minor
+
+- Masonry: Adding Window type to scroll container ([#3977](https://github.com/pinterest/gestalt/pull/3977)) - [Preview link](https://deploy-preview-3977--gestalt.netlify.app?devexample=true)
+
 ## 172.0.1 (Feb 3, 2025)
 
 ### Patch

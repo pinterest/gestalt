@@ -101,7 +101,7 @@ type Props<T> = {
    *
    * This is required if the grid is expected to be scrollable.
    */
-  scrollContainer?: () => HTMLElement;
+  scrollContainer?: () => HTMLElement | Window;
   /**
    * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
    */
@@ -234,7 +234,7 @@ function useScrollContainer({
   scrollContainer,
 }: {
   gridWrapper: HTMLElement | null | undefined;
-  scrollContainer: HTMLElement | null | undefined;
+  scrollContainer: HTMLElement | Window | null | undefined;
 }) {
   const containerHeight = useRef(0);
   const containerOffset = useRef(0);
@@ -324,7 +324,7 @@ function useFetchOnScroll({
       | undefined,
   ) => void;
   scrollTop: number;
-  scrollContainerElement: HTMLElement | null | undefined;
+  scrollContainerElement: HTMLElement | Window | null | undefined;
   width: number | null | undefined;
 }) {
   const isFetching = useRef<boolean>(false);
@@ -511,7 +511,7 @@ function useViewport({
 }: {
   containerHeight: number;
   containerOffset: number;
-  scrollContainer: HTMLElement | null | undefined;
+  scrollContainer: HTMLElement | Window | null | undefined;
   scrollTop: number;
   virtualBufferFactor: number;
   virtualBoundsTop: number | null | undefined;

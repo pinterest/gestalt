@@ -467,6 +467,12 @@
       "keywords": ["settings", "gear", "nut"]
     },
     {
+      "name": "cog-fill",
+      "categories": ["Controls"],
+      "description": "Indicates setting options are available.",
+      "keywords": ["settings", "gear", "nut"]
+    },
+    {
       "name": "collapse",
       "categories": [],
       "description": "Description pending",
@@ -518,6 +524,12 @@
       "name": "compass",
       "categories": ["Utility and tools"],
       "description": "Indicates directions",
+      "keywords": ["direction", "explore"]
+    },
+    {
+      "name": "compass-fill",
+      "categories": ["Object"],
+      "description": "Indicates directions or exploration",
       "keywords": ["direction", "explore"]
     },
     {
@@ -706,6 +718,12 @@
       "categories": [],
       "description": "Description pending",
       "keywords": []
+    },
+    {
+      "name": "ferris-wheel",
+      "categories": ["Object"],
+      "description": "Indicates Coachella",
+      "keywords": ["festival"]
     },
     {
       "name": "file-box",
@@ -1558,6 +1576,18 @@
       "categories": [],
       "description": "Description pending",
       "keywords": []
+    },
+    {
+      "name": "square-plus",
+      "categories": ["navigation"],
+      "description": "Indicates the ability to create or add content.",
+      "keywords": ["add", "create", "new"]
+    },
+    {
+      "name": "square-plus-fill",
+      "categories": ["navigation"],
+      "description": "Indicates the ability to create or add content.",
+      "keywords": ["add", "create", "new"]
     },
     {
       "name": "star",
