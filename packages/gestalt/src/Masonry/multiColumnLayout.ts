@@ -82,15 +82,6 @@ function getAdjacentColumnHeightDeltas(
   columnSpan: number,
   _multiColPositionAlgoV2?: boolean,
 ): ReadonlyArray<number> {
-  const adjacentHeightDeltas = [];
-  for (let i = 0; i < heights.length - 1; i += 1) {
-    adjacentHeightDeltas.push(Math.abs(heights[i]! - heights[i + 1]!));
-  }
-
-  if (columnSpan === 2) {
-    return adjacentHeightDeltas;
-  }
-
   if (_multiColPositionAlgoV2) {
     const adjacentDelataArea = [];
     for (let i = 0; i < heights.length - (columnSpan - 1); i += 1) {
@@ -101,6 +92,15 @@ function getAdjacentColumnHeightDeltas(
     }
 
     return adjacentDelataArea;
+  }
+
+  const adjacentHeightDeltas = [];
+  for (let i = 0; i < heights.length - 1; i += 1) {
+    adjacentHeightDeltas.push(Math.abs(heights[i]! - heights[i + 1]!));
+  }
+
+  if (columnSpan === 2) {
+    return adjacentHeightDeltas;
   }
 
   // When column span is more than 2 the deltas are not enough to know the best placement,
