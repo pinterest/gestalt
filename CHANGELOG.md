@@ -1,3 +1,9 @@
+## 172.9.4 (Feb 25, 2025)
+
+### Patch
+
+- SearchGuide: fix stacking context bug with isolation='isolate' ([#4011](https://github.com/pinterest/gestalt/pull/4011)) - [Preview link](https://deploy-preview-4011--gestalt.netlify.app?devexample=true)
+
 ## 172.9.3 (Feb 22, 2025)
 
 ### Patch
