@@ -1,3 +1,63 @@
+## 172.9.4 (Feb 25, 2025)
+
+### Patch
+
+- SearchGuide: fix stacking context bug with isolation='isolate' ([#4011](https://github.com/pinterest/gestalt/pull/4011)) - [Preview link](https://deploy-preview-4011--gestalt.netlify.app?devexample=true)
+
+## 172.9.3 (Feb 22, 2025)
+
+### Patch
+
+- DateField: upgrade dependency to 6.20.2 ([#4008](https://github.com/pinterest/gestalt/pull/4008)) - [Preview link](https://deploy-preview-4008--gestalt.netlify.app?devexample=true)
+
+## 172.9.2 (Feb 21, 2025)
+
+### Patch
+
+- BannerCallout: message width adjustments ([#4007](https://github.com/pinterest/gestalt/pull/4007)) - [Preview link](https://deploy-preview-4007--gestalt.netlify.app?devexample=true)
+
+## 172.9.1 (Feb 21, 2025)
+
+### Patch
+
+- SearchGuide: fix border radius in VR image variant ([#4006](https://github.com/pinterest/gestalt/pull/4006)) - [Preview link](https://deploy-preview-4006--gestalt.netlify.app?devexample=true)
+
+## 172.9.0 (Feb 20, 2025)
+
+### Minor
+
+- Icon: New Icons [GESTALT-8749] ([#4003](https://github.com/pinterest/gestalt/pull/4003)) - [Preview link](https://deploy-preview-4003--gestalt.netlify.app?devexample=true)
+
+## 172.8.6 (Feb 20, 2025)
+
+### Patch
+
+- SegmentedControl: fix VR colors in dark mode ([#4004](https://github.com/pinterest/gestalt/pull/4004)) - [Preview link](https://deploy-preview-4004--gestalt.netlify.app?devexample=true)
+
+## 172.8.5 (Feb 20, 2025)
+
+### Patch
+
+- DatePicker: add private prop \_overrideRangeDateFix to enable correct logic in date ranges ([#4000](https://github.com/pinterest/gestalt/pull/4000)) - [Preview link](https://deploy-preview-4000--gestalt.netlify.app?devexample=true)
+
+## 172.8.4 (Feb 19, 2025)
+
+### Patch
+
+- Link: fix a warning from accessibility pause in AccessibilityLinkActionIcon ([#4002](https://github.com/pinterest/gestalt/pull/4002)) - [Preview link](https://deploy-preview-4002--gestalt.netlify.app?devexample=true)
+
+## 172.8.3 (Feb 19, 2025)
+
+### Patch
+
+- Internal: change v.pinimg.com to v1.pinimg.com ([#4001](https://github.com/pinterest/gestalt/pull/4001)) - [Preview link](https://deploy-preview-4001--gestalt.netlify.app?devexample=true)
+
+## 172.8.2 (Feb 18, 2025)
+
+### Patch
+
+- IconButton: fix focus ring on visible in VR ([#3998](https://github.com/pinterest/gestalt/pull/3998)) - [Preview link](https://deploy-preview-3998--gestalt.netlify.app?devexample=true)
+
 ## 172.8.1 (Feb 14, 2025)
 
 ### Patch

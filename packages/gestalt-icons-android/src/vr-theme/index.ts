@@ -284,6 +284,7 @@ import shadows from './ic_vr_shadows_gestalt.svg';
 import shapes from './ic_vr_shapes_gestalt.svg';
 import share from './ic_vr_share_gestalt.svg';
 import shoppingBag from './ic_vr_shopping-bag_gestalt.svg';
+import shoppingBagFill from './ic_vr_shopping-bag-fill_gestalt.svg';
 import shrink from './ic_vr_shrink_gestalt.svg';
 import shuffles from './ic_vr_shuffles_gestalt.svg';
 import skintone from './ic_vr_skintone_gestalt.svg';
@@ -359,6 +360,7 @@ import videoAdvance10Seconds from './ic_vr_video-advance-10-seconds_gestalt.svg'
 import videoCamera from './ic_vr_video-camera_gestalt.svg';
 import videoRewind10Seconds from './ic_vr_video-rewind-10-seconds_gestalt.svg';
 import viewTypeDefault from './ic_vr_view-type-default_gestalt.svg';
+import viewTypeDefaultFill from './ic_vr_view-type-default-fill_gestalt.svg';
 import viewTypeDense from './ic_vr_view-type-dense_gestalt.svg';
 import viewTypeList from './ic_vr_view-type-list_gestalt.svg';
 import viewTypeSparse from './ic_vr_view-type-sparse_gestalt.svg';
@@ -667,6 +669,7 @@ const icons = Object.freeze({
   'shapes': shapes,
   'share': share,
   'shopping-bag': shoppingBag,
+  'shopping-bag-fill': shoppingBagFill,
   'shrink': shrink,
   'shuffles': shuffles,
   'skintone': skintone,
@@ -742,6 +745,7 @@ const icons = Object.freeze({
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
+  'view-type-default-fill': viewTypeDefaultFill,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-sparse': viewTypeSparse,
