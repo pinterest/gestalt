@@ -146,6 +146,8 @@ type TextFieldComponent = ((
 const TextField = forwardRef(
   (
     {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      enableAccessibleFieldDOMStructure,
       readOnly,
       ownerState,
       focused,
@@ -170,20 +172,35 @@ const TextField = forwardRef(
       disabled ? styles.formElementDisabled : styles.formElementEnabled,
       ownerState?.errorMessage && !focused ? styles.formElementErrored : styles.formElementNormal,
     );
-    console.log(other);
 
     return (
-      <Box ref={handleRef} alignItems="center" display="flex" height="auto" id={id}>
+      <Box
+        ref={handleRef}
+        alignItems="center"
+        display="flex"
+        height="auto"
+        id={id}
+        position="relative"
+      >
         <input
           {...other}
           ref={inputRef}
           className={styledClasses}
           disabled={disabled}
           inputMode="numeric"
+          onError={(error) => other.onError?.({ errorMessage: error ?? "", value: other.value })}
         />
+
         {!disabled && !readOnly && ownerState?.onClearInput ? (
           <div className={classnames(styles.actionButtonWrapper)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
+            <Box
+              alignItems="center"
+              display="flex"
+              height="100%"
+              marginEnd={2}
+              position="relative"
+              rounding="circle"
+            >
               <TapArea
                 accessibilityLabel="Clear date"
                 onBlur={() => setIconFocused(false)}
@@ -215,10 +232,7 @@ const TextField = forwardRef(
 ) as TextFieldComponent;
 
 const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
-  const fieldResponse = useDateField({
-    ...props,
-    enableAccessibleFieldDOMStructure: false,
-  });
+  const fieldResponse = useDateField({ ...props });
 
   return <TextField ref={ref} {...fieldResponse} />;
 });
@@ -272,7 +286,7 @@ function InternalDateField({ localeData, ...props }: InternalDateFieldProps) {
           {props.errorMessage ? (
             <Box marginTop={2}>
               <Text color="error" size="100">
-                <span className={styles.formErrorMessage} id={`${id}-error`}>
+                <span className={styles.formErrorMessage} id={`${props.id}-error`}>
                   <Box role="alert">
                     <Flex gap={2}>
                       <Status type="problem" />
