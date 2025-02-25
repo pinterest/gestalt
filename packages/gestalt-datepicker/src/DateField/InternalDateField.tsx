@@ -1,7 +1,8 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
-import { forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, ReactNode, type Ref, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { unstable_useForkRef as useForkRef } from '@mui/utils';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -12,10 +13,6 @@ import classnames from 'classnames';
 import { Locale } from 'date-fns/locale';
 import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
 import styles from '../DateField.css';
-
-const ENTER: number = 13;
-const SPACE: number = 32;
-const TAB: number = 9;
 
 // We need this map to provide full locale coverage because @mui/x-date-pickers/locales doesn't have all supported locales
 const TRANSLATIONS_MAP = {
@@ -39,152 +36,9 @@ const TRANSLATIONS_MAP = {
   'uk-UA': ['P', 'MM', 'ДД'],
 } as const;
 
-type CustomTextFieldProps = {
-  disabled: boolean;
-  InputProps: {
-    ref: {
-      current: HTMLElement | null | undefined;
-    };
-  };
-  focused: boolean;
-  placeholder: string;
-  value: string;
-  readOnly: boolean;
-  onClick: () => void;
-  onPaste: () => void;
-  onChange: () => void;
-  onKeyDown: () => void;
-  onMouseUp: () => void;
-  ownerState: {
-    passthroughProps: {
-      autoComplete: 'bday' | 'off';
-      id: string;
-      errorMessage: boolean;
-      enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
-      name: string;
-      onBlur: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-      onClearInput: () => void;
-      onFocus: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-      size: 'md' | 'lg';
-    };
-  };
-};
-
-const CustomTextField = forwardRef(
-  // @ts-expect-error - TS2345 - Argument of type '({ disabled, InputProps: { ref: containerRef }, focused, placeholder, value, readOnly, onClick, onPaste, onChange, onKeyDown, onMouseUp, ownerState, }: CustomTextFieldProps, inputRef: { current: null | HTMLInputElement; } | ((arg1: null | HTMLInputElement) => unknown)) => JSX.Element' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, CustomTextFieldProps>'.
-  (
-    {
-      disabled,
-      InputProps: { ref: containerRef } = { ref: { current: undefined } },
-      focused,
-      placeholder,
-      value,
-      readOnly,
-      onClick,
-      onPaste,
-      onChange,
-      onKeyDown,
-      onMouseUp,
-      ownerState,
-    }: CustomTextFieldProps,
-    inputRef:
-      | ((arg1: null | HTMLInputElement) => unknown)
-      | {
-          current: null | HTMLInputElement;
-        },
-  ) => {
-    const [iconFocused, setIconFocused] = useState(false);
-
-    const styledClasses = classnames(
-      styles.textField,
-      styles.formElementBase,
-      styles.typographyTruncate,
-      styles.actionButton,
-      ownerState?.passthroughProps?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
-      disabled ? styles.formElementDisabled : styles.formElementEnabled,
-      ownerState?.passthroughProps?.errorMessage && !focused
-        ? styles.formElementErrored
-        : styles.formElementNormal,
-    );
-
-    return (
-      // @ts-expect-error - TS2322 - Type '{ current: HTMLElement | null | undefined; }' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
-      <Box ref={containerRef} display="flex" flex="grow" position="relative" rounding={4}>
-        <input
-          ref={inputRef}
-          autoComplete={ownerState?.passthroughProps?.autoComplete ?? 'off'}
-          className={styledClasses}
-          disabled={disabled}
-          enterKeyHint={ownerState?.passthroughProps?.enterKeyHint}
-          id={ownerState?.passthroughProps?.id}
-          inputMode="numeric"
-          onBlur={(event) => ownerState?.passthroughProps?.onBlur?.({ event, value })}
-          onChange={onChange}
-          onClick={onClick}
-          onFocus={(event) => ownerState?.passthroughProps?.onFocus?.({ event, value })}
-          onKeyDown={onKeyDown}
-          onMouseUp={onMouseUp}
-          onPaste={onPaste}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          value={value}
-        />
-        {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
-          <div className={classnames(styles.actionButtonWrapper)}>
-            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
-              <TapArea
-                accessibilityLabel="Clear date"
-                onBlur={() => setIconFocused(false)}
-                onFocus={() => setIconFocused(true)}
-                onKeyDown={({ event }) => {
-                  if ([ENTER, SPACE].includes(event.keyCode))
-                    ownerState?.passthroughProps?.onClearInput();
-                  if (event.keyCode !== TAB) event.preventDefault();
-                }}
-                onMouseEnter={() => setIconFocused(true)}
-                onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState.passthroughProps.onClearInput()}
-                rounding="circle"
-                tapStyle="compress"
-              >
-                <Pog
-                  accessibilityLabel=""
-                  bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                  icon="cancel"
-                  iconColor="darkGray"
-                  size="xs"
-                />
-              </TapArea>
-            </Box>
-          </div>
-        ) : null}
-      </Box>
-    );
-  },
-);
-
-type CustomDateFieldProps = {
-  inputRef: {
-    ref: {
-      current: HTMLElement | null | undefined;
-    };
-  };
-  slots: string;
-  slotProps: string;
-};
-
-function CustomDateField({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) {
-  return (
-    // @ts-expect-error - TS2739 - Type '{ onKeyDown: KeyboardEventHandler<Element>; onMouseUp: MouseEventHandler<Element>; onPaste: ClipboardEventHandler<HTMLInputElement>; ... 11 more ...; autoComplete: "off"; }' is missing the following properties from type 'CustomTextFieldProps': disabled, InputProps, focused, ownerState
-    <CustomTextField
-      {...useDateField({
-        // @ts-expect-error - TS2353
-        props: textFieldProps,
-        inputRef: externalInputRef,
-      })}
-    />
-  );
-}
+const ENTER: number = 13;
+const SPACE: number = 32;
+const TAB: number = 9;
 
 const getTranslationsFromMUIJS: (arg1?: Locale | null | undefined) =>
   | {
@@ -260,29 +114,120 @@ type InternalDateFieldProps = {
   value: Date | null;
 };
 
-function InternalDateField({
-  autoComplete,
-  disabled = false,
-  disableRange,
-  errorMessage,
-  helperText,
-  id,
-  label,
-  labelDisplay = 'visible',
-  localeData,
-  maxDate,
-  minDate,
-  mobileEnterKeyHint,
-  name,
-  onBlur,
-  onChange,
-  onClearInput,
-  onError,
-  onFocus,
-  readOnly = false,
-  size,
-  value,
-}: InternalDateFieldProps) {
+interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  label?: React.ReactNode;
+  inputRef?: React.Ref<any>;
+  InputProps?: {
+    ref?: React.Ref<any>;
+    endAdornment?: React.ReactNode;
+    startAdornment?: React.ReactNode;
+  };
+  error?: boolean;
+  focused?: boolean;
+  sx?: any;
+  enableAccessibleFieldDOMStructure: boolean;
+  ownerState?: {
+    autoComplete: 'bday' | 'off';
+    id: string;
+    errorMessage: boolean;
+    enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+    name: string;
+    onBlur: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+    onClearInput: () => void;
+    onFocus: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+    size: 'md' | 'lg';
+  };
+}
+
+type TextFieldComponent = ((
+  props: TextFieldProps & React.RefAttributes<HTMLDivElement>,
+) => React.JSX.Element) & { propTypes?: any };
+
+const TextField = forwardRef(
+  (
+    {
+      readOnly,
+      ownerState,
+      focused,
+      disabled,
+      id,
+      inputRef,
+      InputProps: { ref: containerRef } = {},
+      ...other
+    }: TextFieldProps,
+    ref: React.Ref<HTMLDivElement>,
+  ) => {
+    const handleRef = useForkRef(containerRef, ref);
+
+    const [iconFocused, setIconFocused] = useState(false);
+
+    const styledClasses = classnames(
+      styles.textField,
+      styles.formElementBase,
+      styles.typographyTruncate,
+      styles.actionButton,
+      ownerState?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
+      disabled ? styles.formElementDisabled : styles.formElementEnabled,
+      ownerState?.errorMessage && !focused ? styles.formElementErrored : styles.formElementNormal,
+    );
+    console.log(other);
+
+    return (
+      <Box ref={handleRef} alignItems="center" display="flex" height="auto" id={id}>
+        <input
+          {...other}
+          ref={inputRef}
+          className={styledClasses}
+          disabled={disabled}
+          inputMode="numeric"
+        />
+        {!disabled && !readOnly && ownerState?.onClearInput ? (
+          <div className={classnames(styles.actionButtonWrapper)}>
+            <Box alignItems="center" display="flex" height="100%" marginEnd={2} rounding="circle">
+              <TapArea
+                accessibilityLabel="Clear date"
+                onBlur={() => setIconFocused(false)}
+                onFocus={() => setIconFocused(true)}
+                onKeyDown={({ event }) => {
+                  if ([ENTER, SPACE].includes(event.keyCode)) ownerState?.onClearInput();
+                  if (event.keyCode !== TAB) event.preventDefault();
+                }}
+                onMouseEnter={() => setIconFocused(true)}
+                onMouseLeave={() => setIconFocused(false)}
+                onTap={() => ownerState.onClearInput()}
+                rounding="circle"
+                tapStyle="compress"
+              >
+                <Pog
+                  accessibilityLabel=""
+                  bgColor={iconFocused ? 'lightGray' : 'transparent'}
+                  icon="cancel"
+                  iconColor="darkGray"
+                  size="xs"
+                />
+              </TapArea>
+            </Box>
+          </div>
+        ) : null}
+      </Box>
+    );
+  },
+) as TextFieldComponent;
+
+const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
+  const fieldResponse = useDateField({
+    ...props,
+    enableAccessibleFieldDOMStructure: false,
+  });
+
+  return <TextField ref={ref} {...fieldResponse} />;
+});
+
+const MUIDateField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => (
+  <MUIDatePicker ref={ref} {...props} slots={{ ...props.slots, field: MUITextField }} />
+));
+
+function InternalDateField({ localeData, ...props }: InternalDateFieldProps) {
   let translations = getTranslationsFromMUIJS(localeData);
 
   if (!translations) {
@@ -298,69 +243,40 @@ function InternalDateField({
         localeText={translations}
       >
         <Box>
-          {label ? (
+          {props.label ? (
             <label
               className={classnames(styles.label, {
-                [styles.visuallyHidden]: labelDisplay === 'hidden',
+                [styles.visuallyHidden]: props.labelDisplay === 'hidden',
               })}
-              htmlFor={id}
+              htmlFor={props.id}
             >
               <div className={styles.formLabel}>
-                <Text size="100">{label}</Text>
+                <Text size="100">{props.label}</Text>
               </div>
             </label>
           ) : null}
-          <Box alignItems="center" display="flex" position="relative">
-            <MUIDatePicker
-              disabled={disabled}
-              disableFuture={disableRange === 'disableFuture'}
-              disablePast={disableRange === 'disablePast'}
-              errorMessage={!!errorMessage}
-              formatDensity="spacious"
-              // @ts-expect-error - TS2322
-              maxDate={maxDate}
-              // @ts-expect-error - TS2322
-              minDate={minDate}
-              onChange={(dateValue) => onChange({ value: dateValue })}
-              // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string'.
-              onError={(error) => onError?.({ errorMessage: error, value })}
-              passthroughProps={{
-                autoComplete,
-                id,
-                errorMessage: !!errorMessage,
-                enterKeyHint: mobileEnterKeyHint,
-                name,
-                onBlur,
-                onFocus,
-                onClearInput,
-                size,
-              }}
-              readOnly={readOnly}
-              slots={{ field: CustomDateField }}
-              value={value}
-            />
-          </Box>
-          {helperText && !errorMessage ? (
-            <Box id={`${id}-helperText`} marginTop={2}>
+          <MUIDateField {...props} />
+          {props.helperText && !props.errorMessage ? (
+            <Box id={`${props.id}-helperText`} marginTop={2}>
               <Flex gap={4}>
                 <Flex.Item flex="grow">
-                  {helperText ? (
+                  {props.helperText ? (
                     <Text color="subtle" size="100">
-                      {helperText}
+                      {props.helperText}
                     </Text>
                   ) : null}
                 </Flex.Item>
               </Flex>
             </Box>
           ) : null}
-          {errorMessage ? (
+          {props.errorMessage ? (
             <Box marginTop={2}>
               <Text color="error" size="100">
                 <span className={styles.formErrorMessage} id={`${id}-error`}>
                   <Box role="alert">
                     <Flex gap={2}>
                       <Status type="problem" />
-                      {errorMessage}
+                      {props.errorMessage}
                     </Flex>
                   </Box>
                 </span>
