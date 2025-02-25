@@ -3,6 +3,7 @@
  */
 import { Cache } from './Cache';
 import { Position } from './types';
+import Masonry from '../Masonry';
 
 function isBelowArea(area: { left: number; right: number }, position: Position) {
   return position.left < area.right && position.left + position.width > area.left;
@@ -100,6 +101,11 @@ function recalcHeights<T>({
   gutterWidth: number;
 }): boolean {
   const changedItemPosition = positionStore.get(changedItem);
+  const positionStoreStatic: Cache<T, Position> = Masonry.createMeasurementStore();
+  items.forEach((item) => {
+    const position = positionStore.get(item);
+    positionStoreStatic.set(item, { ...position } as Position);
+  });
 
   if (
     !changedItemPosition ||
@@ -146,9 +152,10 @@ function recalcHeights<T>({
           // Check all items above to check if movement is necessary
           const allPreviousItems = items
             .map((i) => {
-              const p = positionStore.get(i);
-              return p && p.top < multicolumCurrentPosition.top
-                ? { item: i, position: p }
+              const prevPosition = positionStoreStatic.get(i);
+              const newPosition = positionStore.get(i) as Position;
+              return prevPosition && prevPosition.top < multicolumCurrentPosition.top
+                ? { item: i, position: newPosition }
                 : undefined;
             })
             .filter((itemPosition) => !!itemPosition)
