@@ -1,4 +1,6 @@
+import { ButtonLink } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
+import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import InternalDocumentationSection from '../../docs-components/InternalDocumentationSection';
@@ -211,6 +213,33 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
             }
             title="Disabled"
           />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`ButtonLink is available in 3 fixed sizes:
+1. \`lg\` 
+    Large is the only size that should be used on Pinner surfaces.
+2. \`md\` 
+    Medium is used on more dense UI such as business surfaces or internal tools.
+3. \`sm\` 
+    Small should be used sparingly and only in places where the UI is very dense.`}
+          title="Size"
+        >
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          <CombinationNew size={['sm', 'md', 'lg']}>
+            {({ size }) => {
+              const sizeCopy: 'sm' | 'md' | 'lg' = size as 'sm' | 'md' | 'lg';
+              return (
+                <ButtonLink
+                  accessibilityLabel={`Example size ${size}`}
+                  color="red"
+                  href=""
+                  size={sizeCopy}
+                  text="Visit"
+                />
+              );
+            }}
+          </CombinationNew>
         </MainSection.Subsection>
 
         <MainSection.Subsection
