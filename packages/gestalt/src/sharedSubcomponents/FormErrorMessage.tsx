@@ -76,7 +76,7 @@ export default function FormErrorMessage({
                   size={isInVRExperiment || size === 'sm' ? 12 : 16}
                 />
               </Box>
-              {text} 
+              {text}
             </Flex>
           </Box>
         </span>

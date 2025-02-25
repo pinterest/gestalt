@@ -154,15 +154,13 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       </TextUI>
     ) : null;
 
-  const expandableIcon = isInVRExperiment ? (
+  const expandableIcon = (
     <IconCompact
       accessibilityLabel=""
       color={selected ? 'inverse' : 'dark'}
       icon="compact-chevron-down"
       size={12}
     />
-  ) : (
-    <Icon accessibilityLabel="" color={selected ? 'inverse' : 'dark'} icon="arrow-down" size={12} />
   );
 
   const thumbnailVariant = thumbnail && (

@@ -33,7 +33,8 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
   const maxLengthReached = (currentLength ?? 0) >= (maxLength.characterCount ?? 0);
 
   let icon: 'workflow-status-warning' | 'workflow-status-problem' = 'workflow-status-warning';
-  const iconVR: 'compact-workflow-status-warning' | 'compact-workflow-status-problem' = 'compact-workflow-status-warning';
+  let iconVR: 'compact-workflow-status-warning' | 'compact-workflow-status-problem' =
+    'compact-workflow-status-warning';
   let textColor: 'warning' | 'error' | 'disabled' = 'warning';
 
   if (
@@ -70,22 +71,11 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
               {maxLength?.errorAccessibilityLabel}
             </Box>
             <Box alignItems="center" aria-hidden display="flex" height="100%">
-              {isInVRExperiment  ? (
-                  <IconCompact
-                  accessibilityLabel=""
-                  color={textColor}
-                  icon={iconVR}
-                  size={12}
-                />
+              {isInVRExperiment ? (
+                <IconCompact accessibilityLabel="" color={textColor} icon={iconVR} size={12} />
               ) : (
-                <Icon
-                accessibilityLabel=""
-                color={textColor}
-                icon={icon}
-                size={ 16}
-              />
+                <Icon accessibilityLabel="" color={textColor} icon={icon} size={16} />
               )}
-             
             </Box>
           </Fragment>
         ) : (
