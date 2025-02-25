@@ -133,7 +133,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
 
   const colorClassname = typeof color === 'string' ? styles[colorClass[color]!] : null;
 
-  const buttonClasses = isInVRExperiment
+  const style = isInVRExperiment
     ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
@@ -233,6 +233,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   const variant = thumbnail ? thumbnailVariant : textVariant;
   const inBackgroundGradient =
     !isInVRExperiment && typeof color !== 'string' && Array.isArray(color);
+
   return (
     <button
       ref={innerRef}
@@ -241,7 +242,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       aria-haspopup={accessibilityHaspopup || expandable}
       aria-label={accessibilityLabel}
       aria-pressed={selected}
-      className={buttonClasses}
+      className={style}
       data-test-id={dataTestId}
       onBlur={handleBlur}
       onClick={(event) => onClick?.({ event })}
