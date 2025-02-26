@@ -90,30 +90,6 @@ const getLocalTranslations: (arg1?: Locale | null | undefined) =>
   return undefined;
 };
 
-type InternalDateFieldProps = {
-  autoComplete?: 'bday' | 'off';
-  disabled?: boolean;
-  disableRange?: 'disableFuture' | 'disablePast';
-  errorMessage?: ReactNode;
-  helperText?: string;
-  id: string;
-  label?: string;
-  labelDisplay?: 'visible' | 'hidden';
-  localeData?: Locale | null | undefined;
-  maxDate?: Date | null;
-  minDate?: Date | null;
-  mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
-  name?: string;
-  onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-  onChange: (arg1: { value: Date | null }) => void;
-  onClearInput?: () => void;
-  onError?: (arg1: { errorMessage: string; value: Date | null }) => void;
-  onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-  readOnly?: boolean;
-  size?: 'md' | 'lg';
-  value: Date | null;
-};
-
 interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: React.ReactNode;
   inputRef?: React.Ref<any>;
@@ -188,7 +164,6 @@ const TextField = forwardRef(
           className={styledClasses}
           disabled={disabled}
           inputMode="numeric"
-          onError={(error) => other.onError?.({ errorMessage: error ?? "", value: other.value })}
         />
 
         {!disabled && !readOnly && ownerState?.onClearInput ? (
@@ -231,17 +206,55 @@ const TextField = forwardRef(
   },
 ) as TextFieldComponent;
 
+// MUITextField injects hook props into a regular custom TextField component
 const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
   const fieldResponse = useDateField({ ...props });
 
   return <TextField ref={ref} {...fieldResponse} />;
 });
 
+// MUIDateField uses MUITextField in the field slot to override the build in input
+
+// we need props: any so the component works, DatePickerProps break the component
+
 const MUIDateField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => (
-  <MUIDatePicker ref={ref} {...props} slots={{ ...props.slots, field: MUITextField }} />
+  <MUIDatePicker ref={ref} {...props} slots={{ field: MUITextField }} />
 ));
 
-function InternalDateField({ localeData, ...props }: InternalDateFieldProps) {
+type InternalDateFieldProps = {
+  autoComplete?: 'bday' | 'off';
+  disabled?: boolean;
+  disableRange?: 'disableFuture' | 'disablePast';
+  errorMessage?: ReactNode;
+  helperText?: string;
+  id: string;
+  label?: string;
+  labelDisplay?: 'visible' | 'hidden';
+  localeData?: Locale | null | undefined;
+  maxDate?: Date | null;
+  minDate?: Date | null;
+  mobileEnterKeyHint?: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+  name?: string;
+  onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+  onChange: (arg1: { value: Date | null }) => void;
+  onClearInput?: () => void;
+  onError?: (arg1: { errorMessage: string; value: Date | null }) => void;
+  onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+  readOnly?: boolean;
+  size?: 'md' | 'lg';
+  value: Date | null;
+};
+
+// InternalDateField adds the providers and the subcomponents to MUIDateField
+function InternalDateField({
+  localeData,
+  label,
+  labelDisplay,
+  helperText,
+  ...props
+}: InternalDateFieldProps) {
+  const { errorMessage, id } = props;
+
   let translations = getTranslationsFromMUIJS(localeData);
 
   if (!translations) {
@@ -257,40 +270,39 @@ function InternalDateField({ localeData, ...props }: InternalDateFieldProps) {
         localeText={translations}
       >
         <Box>
-          {props.label ? (
+          {/* LABEL */}
+          {label ? (
             <label
               className={classnames(styles.label, {
-                [styles.visuallyHidden]: props.labelDisplay === 'hidden',
+                [styles.visuallyHidden]: labelDisplay === 'hidden',
               })}
-              htmlFor={props.id}
+              htmlFor={id}
             >
               <div className={styles.formLabel}>
-                <Text size="100">{props.label}</Text>
+                <Text size="100">{label}</Text>
               </div>
             </label>
           ) : null}
+          {/* MUI DATEFIELD + GESTALT TEXTFIELD */}
+          {/* we need to pass {...props}, we cannot put in a {{ passthroughProps: { ...props }} */}
           <MUIDateField {...props} />
-          {props.helperText && !props.errorMessage ? (
-            <Box id={`${props.id}-helperText`} marginTop={2}>
-              <Flex gap={4}>
-                <Flex.Item flex="grow">
-                  {props.helperText ? (
-                    <Text color="subtle" size="100">
-                      {props.helperText}
-                    </Text>
-                  ) : null}
-                </Flex.Item>
-              </Flex>
+          {/* HELPER TEXT */}
+          {helperText && !errorMessage ? (
+            <Box id={`${id}-helperText`} marginTop={2} width="100%">
+              <Text color="subtle" size="100">
+                {helperText}
+              </Text>
             </Box>
           ) : null}
-          {props.errorMessage ? (
+          {/* ERROR MESSAGE */}
+          {errorMessage ? (
             <Box marginTop={2}>
               <Text color="error" size="100">
-                <span className={styles.formErrorMessage} id={`${props.id}-error`}>
+                <span className={styles.formErrorMessage} id={`${id}-error`}>
                   <Box role="alert">
                     <Flex gap={2}>
                       <Status type="problem" />
-                      {props.errorMessage}
+                      {errorMessage}
                     </Flex>
                   </Box>
                 </span>
