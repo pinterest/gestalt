@@ -97,7 +97,9 @@ interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
   error?: boolean;
   focused?: boolean;
   sx?: any;
+  placeholder?: string;
   ownerState?: {
+    readOnly?: boolean;
     autoComplete: 'bday' | 'off';
     id: string;
     errorMessage: boolean;
@@ -107,20 +109,19 @@ interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
     onClearInput: () => void;
     onFocus: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
     size: 'md' | 'lg';
+    disabled?: boolean;
   };
 }
 
 const TextField = forwardRef(
   (
     {
-      readOnly,
       ownerState,
       focused,
-      disabled,
       id,
       inputRef,
       InputProps: { ref: containerRef } = {},
-      ...other
+      ...props
     }: TextFieldProps,
     ref: React.Ref<HTMLDivElement>,
   ) => {
@@ -128,7 +129,22 @@ const TextField = forwardRef(
 
     const [iconFocused, setIconFocused] = useState(false);
 
-    console.log(23, other)
+    console.log(45678, props, ownerState);
+
+    const {
+      autoComplete,
+      disabled,
+      name,
+      onBlur,
+      onChange,
+      onClick,
+      onFocus,
+      onKeyDown,
+      onPaste,
+      placeholder,
+      readOnly,
+      value,
+    } = props;
 
     return (
       <Box
@@ -140,8 +156,8 @@ const TextField = forwardRef(
         position="relative"
       >
         <input
-          {...other}
           ref={inputRef}
+          autoComplete={autoComplete}
           className={classnames(
             styles.textField,
             styles.formElementBase,
@@ -155,6 +171,16 @@ const TextField = forwardRef(
           )}
           disabled={disabled}
           inputMode="numeric"
+          name={name}
+          onBlur={onBlur}
+          onChange={onChange}
+          onClick={onClick}
+          onFocus={onFocus}
+          onKeyDown={onKeyDown}
+          onPaste={onPaste}
+          placeholder={placeholder}
+          readOnly={readOnly}
+          value={value}
         />
 
         {!disabled && !readOnly && ownerState?.onClearInput ? (
