@@ -18,7 +18,7 @@ export default function Example() {
           onPlay={() => setPlaying(true)}
           onPlayError={({ error }) => error && setPlaying(false)}
           playing={playing}
-          src="https://v.pinimg.com/videos/mc/720p/f4/5c/51/f45c5182f7721c660309948a973c6408.mp4"
+          src="https://v1.pinimg.com/videos/mc/720p/f4/5c/51/f45c5182f7721c660309948a973c6408.mp4"
         />
       </Box>
       <Text align="center" italic>

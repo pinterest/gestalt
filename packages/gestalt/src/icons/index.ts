@@ -284,6 +284,7 @@ import shadows from './shadows.svg';
 import shapes from './shapes.svg';
 import share from './share.svg';
 import shoppingBag from './shopping-bag.svg';
+import shoppingBagFill from './shopping-bag-fill.svg';
 import shrink from './shrink.svg';
 import shuffles from './shuffles.svg';
 import skintone from './skintone.svg';
@@ -359,6 +360,7 @@ import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
 import videoRewind10Seconds from './video-rewind-10-seconds.svg';
 import viewTypeDefault from './view-type-default.svg';
+import viewTypeDefaultFill from './view-type-default-fill.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 import viewTypeSparse from './view-type-sparse.svg';
@@ -667,6 +669,7 @@ const icons = Object.freeze({
   'shapes': shapes,
   'share': share,
   'shopping-bag': shoppingBag,
+  'shopping-bag-fill': shoppingBagFill,
   'shrink': shrink,
   'shuffles': shuffles,
   'skintone': skintone,
@@ -742,6 +745,7 @@ const icons = Object.freeze({
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
+  'view-type-default-fill': viewTypeDefaultFill,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-sparse': viewTypeSparse,

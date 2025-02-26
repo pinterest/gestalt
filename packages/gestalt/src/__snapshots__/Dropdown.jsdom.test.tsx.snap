@@ -745,8 +745,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         width="12"
                       >
                         <title>
-                          , 
-                          Opens a new tab
+                          , Opens a new tab
                         </title>
                         <path
                           d="test-file-stub"
@@ -928,8 +927,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         width="12"
                       >
                         <title>
-                          , 
-                          Opens a new tab
+                          , Opens a new tab
                         </title>
                         <path
                           d="test-file-stub"
@@ -1008,8 +1006,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         width="12"
                       >
                         <title>
-                          , 
-                          Opens a new tab
+                          , Opens a new tab
                         </title>
                         <path
                           d="test-file-stub"
