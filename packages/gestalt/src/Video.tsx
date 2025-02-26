@@ -707,7 +707,7 @@ export default class Video extends PureComponent<Props, State> {
         >
           {Array.isArray(src) &&
             src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
-          <track kind="captions" src={captions} />
+          <track kind="captions" src={captions || undefined} />
         </video>
         {Boolean(children) && (
           <Box bottom left overflow="hidden" position="absolute" right top>
