@@ -1,3 +1,9 @@
+## 172.9.5 (Feb 26, 2025)
+
+### Patch
+
+- Masonry: Fix bug on edge case while using dynamicHeightsV2 ([#4012](https://github.com/pinterest/gestalt/pull/4012)) - [Preview link](https://deploy-preview-4012--gestalt.netlify.app?devexample=true)
+
 ## 172.9.4 (Feb 25, 2025)
 
 ### Patch
