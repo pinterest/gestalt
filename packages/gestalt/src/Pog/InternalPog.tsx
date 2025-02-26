@@ -1,7 +1,9 @@
 import classnames from 'classnames';
 import styles from './InternalPog.css';
 import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import icons from '../icons/index';
+import compactIconsVR from '../icons-vr-theme/compact/index';
 import useInExperiment from '../useInExperiment';
 
 type Props = {
@@ -24,7 +26,7 @@ type Props = {
   };
   focused?: boolean;
   hovered?: boolean;
-  icon?: keyof typeof icons;
+  icon?: keyof typeof icons | keyof typeof compactIconsVR;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   padding?: 1 | 2 | 3 | 4 | 5;
   rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
@@ -110,6 +112,8 @@ export default function InternalPog({
 
   const sizeInPx = iconSizeInPx + paddingInPx * 2;
 
+  const isCompact = icon && icon in compactIconsVR
+
   const inlineStyle = {
     height: sizeInPx,
     width: sizeInPx,
@@ -165,6 +169,29 @@ export default function InternalPog({
 
   return (
     <div className={isInVRExperiment ? vrClasses : classes} style={inlineStyle}>
+      {isCompact ? (
+
+      <IconCompact
+      accessibilityLabel={accessibilityLabel || ''}
+      color={
+        isInVRExperiment &&
+        // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
+        disabled &&
+        !(
+          !selected &&
+          (bgColor === 'washLight' || bgColor === 'transparentDarkGray') &&
+          (color === 'white' || color === 'light')
+        )
+          ? 'disabled'
+          : OLD_TO_NEW_COLOR_MAP[color]
+      }
+      dangerouslySetSvgPath={dangerouslySetSvgPath}
+      icon={icon as keyof typeof compactIconsVR}
+      size={iconSizeInPx}
+    />
+        ):
+        (
+
       <Icon
         accessibilityLabel={accessibilityLabel || ''}
         color={
@@ -180,9 +207,11 @@ export default function InternalPog({
             : OLD_TO_NEW_COLOR_MAP[color]
         }
         dangerouslySetSvgPath={dangerouslySetSvgPath}
-        icon={icon}
+        icon={icon as keyof typeof icons}
         size={iconSizeInPx}
       />
+    )}
+
     </div>
   );
 }

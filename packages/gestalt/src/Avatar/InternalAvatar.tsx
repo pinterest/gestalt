@@ -4,7 +4,7 @@ import { TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER } from 'gestalt-design-tokens
 import avatarStyles from './AvatarFoundation.css';
 import DefaultAvatar from './DefaultAvatar';
 import Box from '../Box';
-import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import Image from '../Image';
 import Mask from '../Mask';
 import useInExperiment from '../useInExperiment';
@@ -110,7 +110,7 @@ function InternalAvatar(props: Props) {
           width="25%"
         >
           <Box color="default" height="100%" rounding="circle" width="100%">
-            <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
+            <IconCompact accessibilityLabel="" color="brandPrimary" icon="compact-check-circle-fill" size="100%" />
           </Box>
         </Box>
       )}
