@@ -48,5 +48,5 @@ export default function generateMultiColumnExampleItems({
     columnSpan: 3,
   } as const;
 
-  return [pin1, pin2, pin3, pin4, pin5]
+  return [pin1, pin2, pin3, pin4, pin5];
 }
