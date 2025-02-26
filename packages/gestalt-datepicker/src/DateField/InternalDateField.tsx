@@ -135,13 +135,10 @@ const TextField = forwardRef(
 
     const [iconFocused, setIconFocused] = useState(false);
 
-    console.log(3333, props, ownerState);
-
     const {
       autoComplete = 'off',
       disabled,
       name,
-      onChange,
       onClick,
       onKeyDown,
       onPaste,
@@ -179,7 +176,7 @@ const TextField = forwardRef(
           inputMode="numeric"
           name={name}
           onBlur={(event) => ownerState?.onBlur?.({ event, value })}
-          onChange={onChange}
+          onChange={() => {}}
           onClick={onClick}
           onFocus={(event) => ownerState?.onFocus?.({ event, value })}
           onKeyDown={onKeyDown}
@@ -317,7 +314,10 @@ function InternalDateField({
             disablePast={disableRange === 'disablePast'}
             errorMessage={!!errorMessage}
             formatDensity="spacious"
-            onChange={(dateValue: any) => onChange({ value: dateValue })}
+            onChange={(dateValue: any) => {
+              console.log('MUIDateField', dateValue);
+              onChange({ value: dateValue });
+            }}
             onError={(error: any) => onError?.({ errorMessage: error, value })}
           />
           {/* HELPER TEXT */}

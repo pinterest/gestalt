@@ -14,12 +14,9 @@ export default function Example() {
         id="mainExample"
         label="Date of birth"
         name="bday_datefield"
-        onChange={(value) => {
-          console.log('value', value)
-          setDateValue(value);
-        }}
+        onChange={({ value }) => setDateValue(value)}
         onClearInput={() => setDateValue(null)}
-        onError={(p) => { console.log(p)}}
+        onError={({ errorMessage }) => setErrorText(errorMessage)}
         value={dateValue}
       />
     </Box>
