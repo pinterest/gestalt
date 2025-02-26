@@ -1,4 +1,4 @@
-import { BannerSlim, Button, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { BannerSlim, Button } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
@@ -33,10 +33,6 @@ import width from '../../examples/button/width';
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
-  const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
 
   return (
     <Page title={generatedDocGen?.displayName}>
