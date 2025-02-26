@@ -135,17 +135,7 @@ const TextField = forwardRef(
 
     const [iconFocused, setIconFocused] = useState(false);
 
-    const {
-      autoComplete = 'off',
-      disabled,
-      name,
-      onClick,
-      onKeyDown,
-      onPaste,
-      placeholder,
-      readOnly,
-      value,
-    } = props;
+    const { disabled, readOnly, value } = props;
 
     return (
       <Box
@@ -158,7 +148,7 @@ const TextField = forwardRef(
       >
         <input
           ref={inputRef}
-          autoComplete={autoComplete}
+          {...props}
           className={classnames(
             styles.textField,
             styles.formElementBase,
@@ -170,20 +160,11 @@ const TextField = forwardRef(
               ? styles.formElementErrored
               : styles.formElementNormal,
           )}
-          disabled={disabled}
           enterKeyHint={ownerState?.mobileEnterKeyHint}
           id={ownerState?.id}
           inputMode="numeric"
-          name={name}
           onBlur={(event) => ownerState?.onBlur?.({ event, value })}
-          onChange={() => {}}
-          onClick={onClick}
           onFocus={(event) => ownerState?.onFocus?.({ event, value })}
-          onKeyDown={onKeyDown}
-          onPaste={onPaste}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          value={value}
         />
 
         {!disabled && !readOnly && ownerState?.onClearInput ? (
@@ -228,7 +209,7 @@ const TextField = forwardRef(
 
 // MUITextField injects hook props into a regular custom TextField component
 const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
-  const fieldResponse = useDateField({ ...props });
+  const fieldResponse = useDateField({ ...props, enableAccessibleFieldDOMStructure: false });
 
   return <TextField ref={ref} {...fieldResponse} />;
 });
@@ -307,17 +288,13 @@ function InternalDateField({
             </label>
           ) : null}
           {/* MUI DATEFIELD + GESTALT TEXTFIELD */}
-          {/* we need to pass {...props}, we cannot put in a {{ passthroughProps: { ...props }} */}
           <MUIDateField
             {...props}
             disableFuture={disableRange === 'disableFuture'}
             disablePast={disableRange === 'disablePast'}
             errorMessage={!!errorMessage}
             formatDensity="spacious"
-            onChange={(dateValue: any) => {
-              console.log('MUIDateField', dateValue);
-              onChange({ value: dateValue });
-            }}
+            onChange={(dateValue: any) => onChange?.({ value: dateValue })}
             onError={(error: any) => onError?.({ errorMessage: error, value })}
           />
           {/* HELPER TEXT */}
