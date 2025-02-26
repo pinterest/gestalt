@@ -93,15 +93,10 @@ const getLocalTranslations: (arg1?: Locale | null | undefined) =>
 interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: React.ReactNode;
   inputRef?: React.Ref<any>;
-  InputProps?: {
-    ref?: React.Ref<any>;
-    endAdornment?: React.ReactNode;
-    startAdornment?: React.ReactNode;
-  };
+  InputProps?: { ref?: React.Ref<any> };
   error?: boolean;
   focused?: boolean;
   sx?: any;
-  enableAccessibleFieldDOMStructure: boolean;
   ownerState?: {
     autoComplete: 'bday' | 'off';
     id: string;
@@ -115,15 +110,9 @@ interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
   };
 }
 
-type TextFieldComponent = ((
-  props: TextFieldProps & React.RefAttributes<HTMLDivElement>,
-) => React.JSX.Element) & { propTypes?: any };
-
 const TextField = forwardRef(
   (
     {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      enableAccessibleFieldDOMStructure,
       readOnly,
       ownerState,
       focused,
@@ -139,15 +128,7 @@ const TextField = forwardRef(
 
     const [iconFocused, setIconFocused] = useState(false);
 
-    const styledClasses = classnames(
-      styles.textField,
-      styles.formElementBase,
-      styles.typographyTruncate,
-      styles.actionButton,
-      ownerState?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
-      disabled ? styles.formElementDisabled : styles.formElementEnabled,
-      ownerState?.errorMessage && !focused ? styles.formElementErrored : styles.formElementNormal,
-    );
+    console.log(23, other)
 
     return (
       <Box
@@ -161,7 +142,17 @@ const TextField = forwardRef(
         <input
           {...other}
           ref={inputRef}
-          className={styledClasses}
+          className={classnames(
+            styles.textField,
+            styles.formElementBase,
+            styles.typographyTruncate,
+            styles.actionButton,
+            ownerState?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
+            disabled ? styles.formElementDisabled : styles.formElementEnabled,
+            ownerState?.errorMessage && !focused
+              ? styles.formElementErrored
+              : styles.formElementNormal,
+          )}
           disabled={disabled}
           inputMode="numeric"
         />
@@ -204,7 +195,7 @@ const TextField = forwardRef(
       </Box>
     );
   },
-) as TextFieldComponent;
+);
 
 // MUITextField injects hook props into a regular custom TextField component
 const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
