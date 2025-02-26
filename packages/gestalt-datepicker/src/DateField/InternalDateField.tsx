@@ -137,6 +137,19 @@ const TextField = forwardRef(
 
     const { disabled, readOnly, value } = props;
 
+    const updatedProps = Object.fromEntries(
+      Object.entries(props).filter(
+        ([key]) =>
+          ![
+            'slotProps',
+            'onClear',
+            'error',
+            'clearable',
+            'enableAccessibleFieldDOMStructure',
+          ].includes(key),
+      ),
+    );
+
     return (
       <Box
         ref={handleRef}
@@ -148,7 +161,7 @@ const TextField = forwardRef(
       >
         <input
           ref={inputRef}
-          {...props}
+          {...updatedProps}
           className={classnames(
             styles.textField,
             styles.formElementBase,
@@ -209,7 +222,7 @@ const TextField = forwardRef(
 
 // MUITextField injects hook props into a regular custom TextField component
 const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
-  const fieldResponse = useDateField({ ...props, enableAccessibleFieldDOMStructure: false });
+  const fieldResponse = useDateField({ ...props });
 
   return <TextField ref={ref} {...fieldResponse} />;
 });
