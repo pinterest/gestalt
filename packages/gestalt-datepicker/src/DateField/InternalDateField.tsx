@@ -103,11 +103,17 @@ interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
     autoComplete: 'bday' | 'off';
     id: string;
     errorMessage: boolean;
-    enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+    mobileEnterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
     name: string;
-    onBlur: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+    onBlur: (arg1: {
+      event: React.FocusEvent<HTMLInputElement>;
+      value: string | number | readonly string[] | undefined;
+    }) => void;
     onClearInput: () => void;
-    onFocus: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
+    onFocus: (arg1: {
+      event: React.FocusEvent<HTMLInputElement>;
+      value: string | number | readonly string[] | undefined;
+    }) => void;
     size: 'md' | 'lg';
     disabled?: boolean;
   };
@@ -129,16 +135,14 @@ const TextField = forwardRef(
 
     const [iconFocused, setIconFocused] = useState(false);
 
-    console.log(45678, props, ownerState);
+    console.log(3333, props, ownerState);
 
     const {
-      autoComplete,
+      autoComplete = 'off',
       disabled,
       name,
-      onBlur,
       onChange,
       onClick,
-      onFocus,
       onKeyDown,
       onPaste,
       placeholder,
@@ -170,12 +174,14 @@ const TextField = forwardRef(
               : styles.formElementNormal,
           )}
           disabled={disabled}
+          enterKeyHint={ownerState?.mobileEnterKeyHint}
+          id={ownerState?.id}
           inputMode="numeric"
           name={name}
-          onBlur={onBlur}
+          onBlur={(event) => ownerState?.onBlur?.({ event, value })}
           onChange={onChange}
           onClick={onClick}
-          onFocus={onFocus}
+          onFocus={(event) => ownerState?.onFocus?.({ event, value })}
           onKeyDown={onKeyDown}
           onPaste={onPaste}
           placeholder={placeholder}
@@ -266,11 +272,14 @@ type InternalDateFieldProps = {
 function InternalDateField({
   localeData,
   label,
-  labelDisplay,
   helperText,
+  disableRange,
+  onChange,
+  onError,
+  labelDisplay = 'visible',
   ...props
 }: InternalDateFieldProps) {
-  const { errorMessage, id } = props;
+  const { errorMessage, id, value } = props;
 
   let translations = getTranslationsFromMUIJS(localeData);
 
@@ -283,7 +292,7 @@ function InternalDateField({
       <LocalizationProvider
         adapterLocale={localeData}
         dateAdapter={AdapterDateFns}
-        // @ts-expect-error - TS2322 - Type '{ fieldYearPlaceholder: (params: { digitAmount: number; }) => string; fieldMonthPlaceholder: (params: { contentType: string; }) => string; fieldDayPlaceholder: () => string; } | null | undefined' is not assignable to type 'Partial<PickersLocaleText<Date>> | undefined'.
+        // @ts-expect-error - TS2322
         localeText={translations}
       >
         <Box>
@@ -302,7 +311,15 @@ function InternalDateField({
           ) : null}
           {/* MUI DATEFIELD + GESTALT TEXTFIELD */}
           {/* we need to pass {...props}, we cannot put in a {{ passthroughProps: { ...props }} */}
-          <MUIDateField {...props} />
+          <MUIDateField
+            {...props}
+            disableFuture={disableRange === 'disableFuture'}
+            disablePast={disableRange === 'disablePast'}
+            errorMessage={!!errorMessage}
+            formatDensity="spacious"
+            onChange={(dateValue: any) => onChange({ value: dateValue })}
+            onError={(error: any) => onError?.({ errorMessage: error, value })}
+          />
           {/* HELPER TEXT */}
           {helperText && !errorMessage ? (
             <Box id={`${id}-helperText`} marginTop={2} width="100%">

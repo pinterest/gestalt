@@ -48,7 +48,6 @@ type CustomTextFieldProps = {
   readOnly: boolean;
   onClick: () => void;
   onPaste: () => void;
-  onChange: () => void;
   onKeyDown: () => void;
   onMouseUp: () => void;
   ownerState: {
@@ -78,7 +77,6 @@ const CustomTextField = forwardRef(
       readOnly,
       onClick,
       onPaste,
-      onChange,
       onKeyDown,
       onMouseUp,
       ownerState,
@@ -154,7 +152,6 @@ const CustomTextField = forwardRef(
           id={ownerState?.passthroughProps?.id}
           inputMode="numeric"
           onBlur={(event) => ownerState?.passthroughProps?.onBlur?.({ event, value })}
-          onChange={onChange}
           onClick={onClick}
           onFocus={(event) => ownerState?.passthroughProps?.onFocus?.({ event, value })}
           onKeyDown={onKeyDown}
