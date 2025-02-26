@@ -101,10 +101,10 @@ function recalcHeights<T>({
   gutterWidth: number;
 }): boolean {
   const changedItemPosition = positionStore.get(changedItem);
-  const positionStoreStatic: Cache<T, Position> = Masonry.createMeasurementStore();
+  const positionStoreOriginal: Cache<T, Position> = Masonry.createMeasurementStore();
   items.forEach((item) => {
     const position = positionStore.get(item);
-    positionStoreStatic.set(item, { ...position } as Position);
+    positionStoreOriginal.set(item, { ...position } as Position);
   });
 
   if (
@@ -152,9 +152,11 @@ function recalcHeights<T>({
           // Check all items above to check if movement is necessary
           const allPreviousItems = items
             .map((i) => {
-              const prevPosition = positionStoreStatic.get(i);
-              const newPosition = positionStore.get(i) as Position;
-              return prevPosition && prevPosition.top < multicolumCurrentPosition.top
+              const originalPosition = positionStoreOriginal.get(i);
+              const newPosition = positionStore.get(i);
+              return originalPosition &&
+                newPosition &&
+                originalPosition.top < multicolumCurrentPosition.top
                 ? { item: i, position: newPosition }
                 : undefined;
             })
