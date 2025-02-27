@@ -226,7 +226,7 @@ export default class Image extends PureComponent<Props> {
           onLoad={this.handleLoad}
           role={role === 'presentation' ? 'presentation' : undefined}
           sizes={sizes}
-          src={src || undefined}
+          src={typeof src === 'string' && src !== '' ? src : undefined}
           srcSet={srcSet}
           {...conditionalProps}
         />
