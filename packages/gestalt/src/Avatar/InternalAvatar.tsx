@@ -110,7 +110,12 @@ function InternalAvatar(props: Props) {
           width="25%"
         >
           <Box color="default" height="100%" rounding="circle" width="100%">
-            <IconCompact accessibilityLabel="" color="brandPrimary" icon="compact-check-circle-fill" size="100%" />
+            <IconCompact
+              accessibilityLabel=""
+              color="brandPrimary"
+              icon="compact-check-circle-fill"
+              size="100%"
+            />
           </Box>
         </Box>
       )}
