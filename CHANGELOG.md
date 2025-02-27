@@ -1,3 +1,9 @@
+## 172.10.0 (Feb 27, 2025)
+
+### Minor
+
+- Button, ButtonLink: Fixing VR height ([#4005](https://github.com/pinterest/gestalt/pull/4005)) - [Preview link](https://deploy-preview-4005--gestalt.netlify.app?devexample=true)
+
 ## 172.9.6 (Feb 27, 2025)
 
 ### Patch
