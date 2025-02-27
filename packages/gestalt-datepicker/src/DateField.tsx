@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Locale } from 'date-fns/locale';
 import { useDangerouslyInGestaltExperiment, useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField';
-import VRInternalDateField from './DateField/VRInternalDateField';
+import VR2InternalDateField from './DateField/VR2InternalDateField';
 
 export type Props = {
   /**
@@ -138,7 +138,7 @@ function DateField({
 
   if (isInVRExperiment) {
     return (
-      <VRInternalDateField
+      <VR2InternalDateField
         autoComplete={autoComplete}
         disabled={disabled}
         disableRange={disableRange}

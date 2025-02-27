@@ -11,8 +11,10 @@ import * as locales from '@mui/x-date-pickers/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import classnames from 'classnames';
 import { Locale } from 'date-fns/locale';
-import { Box, Flex, Pog, Status, TapArea, Text } from 'gestalt';
-import styles from './DateField.css';
+import { Box, Pog, TapArea, TextUI } from 'gestalt';
+import stylesTextfield from './VRInternalDateField.css';
+import ErrorMessage from '../subcomponents/ErrorMessage';
+import HelperText from '../subcomponents/HelperText';
 
 // We need this map to provide full locale coverage because @mui/x-date-pickers/locales doesn't have all supported locales
 const TRANSLATIONS_MAP = {
@@ -100,6 +102,8 @@ interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
   placeholder?: string;
   ownerState?: {
     readOnly?: boolean;
+    label: string;
+    labelDisplay: string;
     autoComplete: 'bday' | 'off';
     id: string;
     errorMessage: boolean;
@@ -121,19 +125,18 @@ interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement
 
 const TextField = forwardRef(
   (
-    {
-      ownerState,
-      focused,
-      id,
-      inputRef,
-      InputProps: { ref: containerRef } = {},
-      ...props
-    }: TextFieldProps,
+    { ownerState, inputRef, InputProps: { ref: containerRef } = {}, ...props }: TextFieldProps,
     ref: React.Ref<HTMLDivElement>,
   ) => {
     const handleRef = useForkRef(containerRef, ref);
 
     const [iconFocused, setIconFocused] = useState(false);
+
+    const isLabelVisible = ownerState?.labelDisplay === 'visible';
+    const hasErrorMessage = Boolean(ownerState?.errorMessage);
+
+    const isMD = ownerState?.size === 'md';
+    const isLG = ownerState?.size === 'lg';
 
     const { disabled, readOnly, value } = props;
 
@@ -151,28 +154,51 @@ const TextField = forwardRef(
     );
 
     return (
-      <Box
-        ref={handleRef}
-        alignItems="center"
-        display="flex"
-        height="auto"
-        id={id}
-        position="relative"
-      >
+      <div ref={handleRef} className={classnames(stylesTextfield.inputParent)}>
+        {ownerState?.label && (
+          <label
+            className={classnames(stylesTextfield.label, {
+              [stylesTextfield.visuallyHidden]: !isLabelVisible,
+              // md
+              [stylesTextfield.md_labelTopPosition]: isMD,
+              [stylesTextfield.md_labelPosition]: isMD,
+              // lg
+              [stylesTextfield.lg_labelTopPosition]: isLG,
+              [stylesTextfield.lg_labelPosition]: isLG,
+            })}
+            htmlFor={ownerState?.id}
+          >
+            <TextUI color={disabled ? 'disabled' : 'default'} lineClamp={1} size="xs">
+              {ownerState?.label}
+            </TextUI>
+          </label>
+        )}
         <input
           ref={inputRef}
           {...updatedProps}
-          className={classnames(
-            styles.textField,
-            styles.formElementBase,
-            styles.typographyTruncate,
-            styles.actionButton,
-            ownerState?.size === 'lg' ? styles.layoutLarge : styles.layoutMedium,
-            disabled ? styles.formElementDisabled : styles.formElementEnabled,
-            ownerState?.errorMessage && !focused
-              ? styles.formElementErrored
-              : styles.formElementNormal,
-          )}
+          className={classnames(stylesTextfield.input, {
+            [stylesTextfield.enabled]: !disabled,
+            [stylesTextfield.enabledText]: !disabled,
+            [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
+            [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
+            [stylesTextfield.disabled]: disabled,
+            [stylesTextfield.disabledText]: disabled,
+            [stylesTextfield.disabledBorder]: disabled,
+            // md
+            [stylesTextfield.md_input]: isMD,
+            [stylesTextfield.md_inputEndButtonEndPadding]: isMD,
+            [stylesTextfield.md_inputLabelPadding]: isMD && ownerState?.label && isLabelVisible,
+            [stylesTextfield.md_inputNoLabelPadding]:
+              isMD && (!ownerState?.label || (ownerState?.label && !isLabelVisible)),
+            [stylesTextfield.md_inputStartPadding]: isMD,
+            // lg
+            [stylesTextfield.lg_input]: isLG,
+            [stylesTextfield.lg_inputEndButtonEndPadding]: isLG,
+            [stylesTextfield.lg_inputLabelPadding]: isLG && ownerState?.label && isLabelVisible,
+            [stylesTextfield.lg_inputNoLabelPadding]:
+              isLG && (!ownerState?.label || (ownerState?.label && !isLabelVisible)),
+            [stylesTextfield.lg_inputStartPadding]: isLG,
+          })}
           enterKeyHint={ownerState?.mobileEnterKeyHint}
           id={ownerState?.id}
           inputMode="numeric"
@@ -181,41 +207,39 @@ const TextField = forwardRef(
         />
 
         {!disabled && !readOnly && ownerState?.onClearInput ? (
-          <div className={classnames(styles.actionButtonWrapper)}>
-            <Box
-              alignItems="center"
-              display="flex"
-              height="100%"
-              marginEnd={2}
-              position="relative"
-              rounding="circle"
+          <div
+            className={classnames(stylesTextfield.endIconContainer, {
+              [stylesTextfield.md_endIconContainer]: isMD,
+              [stylesTextfield.lg_endIconContainer]: isLG,
+            })}
+          >
+            <TapArea
+              accessibilityLabel="Clear date"
+              fullHeight={false}
+              fullWidth={false}
+              onBlur={() => setIconFocused(false)}
+              onFocus={() => setIconFocused(true)}
+              onKeyDown={({ event }) => {
+                if ([ENTER, SPACE].includes(event.keyCode)) ownerState?.onClearInput();
+                if (event.keyCode !== TAB) event.preventDefault();
+              }}
+              onMouseEnter={() => setIconFocused(true)}
+              onMouseLeave={() => setIconFocused(false)}
+              onTap={() => ownerState?.onClearInput()}
+              rounding={2}
+              tapStyle="none"
             >
-              <TapArea
-                accessibilityLabel="Clear date"
-                onBlur={() => setIconFocused(false)}
-                onFocus={() => setIconFocused(true)}
-                onKeyDown={({ event }) => {
-                  if ([ENTER, SPACE].includes(event.keyCode)) ownerState?.onClearInput();
-                  if (event.keyCode !== TAB) event.preventDefault();
-                }}
-                onMouseEnter={() => setIconFocused(true)}
-                onMouseLeave={() => setIconFocused(false)}
-                onTap={() => ownerState.onClearInput()}
-                rounding="circle"
-                tapStyle="compress"
-              >
-                <Pog
-                  accessibilityLabel=""
-                  bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                  icon="cancel"
-                  iconColor="darkGray"
-                  size="xs"
-                />
-              </TapArea>
-            </Box>
+              <Pog
+                accessibilityLabel=""
+                bgColor={iconFocused ? 'lightGray' : 'transparent'}
+                icon="cancel"
+                iconColor="darkGray"
+                size="xs"
+              />
+            </TapArea>
           </div>
         ) : null}
-      </Box>
+      </div>
     );
   },
 );
@@ -262,15 +286,14 @@ type InternalDateFieldProps = {
 // InternalDateField adds the providers and the subcomponents to MUIDateField
 function InternalDateField({
   localeData,
-  label,
   helperText,
   disableRange,
   onChange,
   onError,
-  labelDisplay = 'visible',
   ...props
 }: InternalDateFieldProps) {
-  const { errorMessage, id, value } = props;
+  const { errorMessage, id, value, disabled, size } = props;
+  const hasErrorMessage = Boolean(errorMessage);
 
   let translations = getTranslationsFromMUIJS(localeData);
 
@@ -286,54 +309,26 @@ function InternalDateField({
         // @ts-expect-error - TS2322
         localeText={translations}
       >
-        <Box>
-          {/* LABEL */}
-          {label ? (
-            <label
-              className={classnames(styles.label, {
-                [styles.visuallyHidden]: labelDisplay === 'hidden',
-              })}
-              htmlFor={id}
-            >
-              <div className={styles.formLabel}>
-                <Text size="100">{label}</Text>
-              </div>
-            </label>
+        <div className={classnames(stylesTextfield.outerWrapper)}>
+          <Box alignItems="center" display="flex" position="relative" width="100%">
+            {/* MUI DATEFIELD + GESTALT TEXTFIELD */}
+            <MUIDateField
+              {...props}
+              disableFuture={disableRange === 'disableFuture'}
+              disablePast={disableRange === 'disablePast'}
+              errorMessage={!!errorMessage}
+              formatDensity="spacious"
+              onChange={(dateValue: any) => onChange?.({ value: dateValue })}
+              onError={(error: any) => onError?.({ errorMessage: error, value })}
+            />
+          </Box>
+          {helperText && !hasErrorMessage ? (
+            <HelperText disabled={disabled} id={`${id}-helperText`} size={size} text={helperText} />
           ) : null}
-          {/* MUI DATEFIELD + GESTALT TEXTFIELD */}
-          <MUIDateField
-            {...props}
-            disableFuture={disableRange === 'disableFuture'}
-            disablePast={disableRange === 'disablePast'}
-            errorMessage={!!errorMessage}
-            formatDensity="spacious"
-            onChange={(dateValue: any) => onChange?.({ value: dateValue })}
-            onError={(error: any) => onError?.({ errorMessage: error, value })}
-          />
-          {/* HELPER TEXT */}
-          {helperText && !errorMessage ? (
-            <Box id={`${id}-helperText`} marginTop={2} width="100%">
-              <Text color="subtle" size="100">
-                {helperText}
-              </Text>
-            </Box>
+          {!disabled && hasErrorMessage ? (
+            <ErrorMessage id={`${id}-error`} size={size} text={errorMessage} />
           ) : null}
-          {/* ERROR MESSAGE */}
-          {errorMessage ? (
-            <Box marginTop={2}>
-              <Text color="error" size="100">
-                <span className={styles.formErrorMessage} id={`${id}-error`}>
-                  <Box role="alert">
-                    <Flex gap={2}>
-                      <Status type="problem" />
-                      {errorMessage}
-                    </Flex>
-                  </Box>
-                </span>
-              </Text>
-            </Box>
-          ) : null}
-        </Box>
+        </div>
       </LocalizationProvider>
     </StyledEngineProvider>
   );
