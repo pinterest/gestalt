@@ -1,7 +1,8 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
-import { forwardRef, ReactNode, useState } from 'react';
+import { forwardRef, ReactNode, Ref, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { unstable_useForkRef as useForkRef } from '@mui/utils';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
 import { unstable_useDateField as useDateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -14,10 +15,6 @@ import { Box, Pog, TapArea, TextUI } from 'gestalt';
 import stylesTextfield from './VRInternalDateField.css';
 import ErrorMessage from '../subcomponents/ErrorMessage';
 import HelperText from '../subcomponents/HelperText';
-
-const ENTER: number = 13;
-const SPACE: number = 32;
-const TAB: number = 9;
 
 // We need this map to provide full locale coverage because @mui/x-date-pickers/locales doesn't have all supported locales
 const TRANSLATIONS_MAP = {
@@ -41,190 +38,9 @@ const TRANSLATIONS_MAP = {
   'uk-UA': ['P', 'MM', 'ДД'],
 } as const;
 
-type CustomTextFieldProps = {
-  disabled: boolean;
-  placeholder: string;
-  value: string;
-  readOnly: boolean;
-  onClick: () => void;
-  onPaste: () => void;
-  onChange: () => void;
-  onKeyDown: () => void;
-  onMouseUp: () => void;
-  ownerState: {
-    passthroughProps: {
-      autoComplete: 'bday' | 'off';
-      id: string;
-      errorMessage: boolean;
-      enterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
-      name: string;
-      onBlur: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-      onClearInput: () => void;
-      onFocus: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-      size: 'md' | 'lg';
-      label?: string;
-      labelDisplay?: 'visible' | 'hidden';
-    };
-  };
-};
-
-const CustomTextField = forwardRef(
-  // @ts-expect-error - TS2345 - Argument of type '({ disabled, InputProps: { ref: containerRef }, focused, placeholder, value, readOnly, onClick, onPaste, onChange, onKeyDown, onMouseUp, ownerState, }: CustomTextFieldProps, inputRef: { current: null | HTMLInputElement; } | ((arg1: null | HTMLInputElement) => unknown)) => JSX.Element' is not assignable to parameter of type 'ForwardRefRenderFunction<HTMLInputElement, CustomTextFieldProps>'.
-  (
-    {
-      disabled,
-      placeholder,
-      value,
-      readOnly,
-      onClick,
-      onPaste,
-      onChange,
-      onKeyDown,
-      onMouseUp,
-      ownerState,
-    }: CustomTextFieldProps,
-    inputRef:
-      | ((arg1: null | HTMLInputElement) => unknown)
-      | {
-          current: null | HTMLInputElement;
-        },
-  ) => {
-    const [iconFocused, setIconFocused] = useState(false);
-
-    const isLabelVisible = ownerState?.passthroughProps?.labelDisplay === 'visible';
-    const hasErrorMessage = Boolean(ownerState?.passthroughProps?.errorMessage);
-
-    const isMD = ownerState?.passthroughProps?.size === 'md';
-    const isLG = ownerState?.passthroughProps?.size === 'lg';
-
-    return (
-      <div className={classnames(stylesTextfield.inputParent)}>
-        {ownerState?.passthroughProps?.label && (
-          <label
-            className={classnames(stylesTextfield.label, {
-              [stylesTextfield.visuallyHidden]: !isLabelVisible,
-              // md
-              [stylesTextfield.md_labelTopPosition]: isMD,
-              [stylesTextfield.md_labelPosition]: isMD,
-              // lg
-              [stylesTextfield.lg_labelTopPosition]: isLG,
-              [stylesTextfield.lg_labelPosition]: isLG,
-            })}
-            htmlFor={ownerState?.passthroughProps?.id}
-          >
-            <TextUI color={disabled ? 'disabled' : 'default'} lineClamp={1} size="xs">
-              {ownerState?.passthroughProps?.label}
-            </TextUI>
-          </label>
-        )}
-        <input
-          ref={inputRef}
-          autoComplete={ownerState?.passthroughProps?.autoComplete ?? 'off'}
-          className={classnames(stylesTextfield.input, {
-            [stylesTextfield.enabled]: !disabled,
-            [stylesTextfield.enabledText]: !disabled,
-            [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
-            [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
-            [stylesTextfield.disabled]: disabled,
-            [stylesTextfield.disabledText]: disabled,
-            [stylesTextfield.disabledBorder]: disabled,
-            // md
-            [stylesTextfield.md_input]: isMD,
-            [stylesTextfield.md_inputEndButtonEndPadding]: isMD,
-            [stylesTextfield.md_inputLabelPadding]:
-              isMD && ownerState?.passthroughProps?.label && isLabelVisible,
-            [stylesTextfield.md_inputNoLabelPadding]:
-              isMD &&
-              (!ownerState?.passthroughProps?.label ||
-                (ownerState?.passthroughProps?.label && !isLabelVisible)),
-            [stylesTextfield.md_inputStartPadding]: isMD,
-            // lg
-            [stylesTextfield.lg_input]: isLG,
-            [stylesTextfield.lg_inputEndButtonEndPadding]: isLG,
-            [stylesTextfield.lg_inputLabelPadding]:
-              isLG && ownerState?.passthroughProps?.label && isLabelVisible,
-            [stylesTextfield.lg_inputNoLabelPadding]:
-              isLG &&
-              (!ownerState?.passthroughProps?.label ||
-                (ownerState?.passthroughProps?.label && !isLabelVisible)),
-            [stylesTextfield.lg_inputStartPadding]: isLG,
-          })}
-          disabled={disabled}
-          enterKeyHint={ownerState?.passthroughProps?.enterKeyHint}
-          id={ownerState?.passthroughProps?.id}
-          inputMode="numeric"
-          onBlur={(event) => ownerState?.passthroughProps?.onBlur?.({ event, value })}
-          onChange={onChange}
-          onClick={onClick}
-          onFocus={(event) => ownerState?.passthroughProps?.onFocus?.({ event, value })}
-          onKeyDown={onKeyDown}
-          onMouseUp={onMouseUp}
-          onPaste={onPaste}
-          placeholder={placeholder}
-          readOnly={readOnly}
-          value={value}
-        />
-        {!disabled && !readOnly && ownerState?.passthroughProps?.onClearInput ? (
-          <div
-            className={classnames(stylesTextfield.endIconContainer, {
-              [stylesTextfield.md_endIconContainer]: isMD,
-              [stylesTextfield.lg_endIconContainer]: isLG,
-            })}
-          >
-            <TapArea
-              accessibilityLabel="Clear date"
-              fullHeight={false}
-              fullWidth={false}
-              onBlur={() => setIconFocused(false)}
-              onFocus={() => setIconFocused(true)}
-              onKeyDown={({ event }) => {
-                if ([ENTER, SPACE].includes(event.keyCode))
-                  ownerState?.passthroughProps?.onClearInput();
-                if (event.keyCode !== TAB) event.preventDefault();
-              }}
-              onMouseEnter={() => setIconFocused(true)}
-              onMouseLeave={() => setIconFocused(false)}
-              onTap={() => ownerState.passthroughProps.onClearInput()}
-              rounding={2}
-              tapStyle="none"
-            >
-              <Pog
-                accessibilityLabel=""
-                bgColor={iconFocused ? 'lightGray' : 'transparent'}
-                icon="cancel"
-                iconColor="darkGray"
-                size="xs"
-              />
-            </TapArea>
-          </div>
-        ) : null}
-      </div>
-    );
-  },
-);
-
-type CustomDateFieldProps = {
-  inputRef: {
-    ref: {
-      current: HTMLElement | null | undefined;
-    };
-  };
-  slots: string;
-  slotProps: string;
-};
-
-function CustomDateField({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) {
-  return (
-    // @ts-expect-error - TS2739 - Type '{ onKeyDown: KeyboardEventHandler<Element>; onMouseUp: MouseEventHandler<Element>; onPaste: ClipboardEventHandler<HTMLInputElement>; ... 11 more ...; autoComplete: "off"; }' is missing the following properties from type 'CustomTextFieldProps': disabled, InputProps, focused, ownerState
-    <CustomTextField
-      {...useDateField({
-        props: textFieldProps,
-        // @ts-expect-error - TS2322 - Type '{ ref: { current: HTMLElement | null | undefined; }; }' is not assignable to type 'Ref<HTMLInputElement> | undefined'.
-        inputRef: externalInputRef,
-      })}
-    />
-  );
-}
+const ENTER: number = 13;
+const SPACE: number = 32;
+const TAB: number = 9;
 
 const getTranslationsFromMUIJS: (arg1?: Locale | null | undefined) =>
   | {
@@ -276,6 +92,173 @@ const getLocalTranslations: (arg1?: Locale | null | undefined) =>
   return undefined;
 };
 
+interface TextFieldProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  label?: React.ReactNode;
+  inputRef?: React.Ref<any>;
+  InputProps?: { ref?: React.Ref<any> };
+  error?: boolean;
+  focused?: boolean;
+  sx?: any;
+  placeholder?: string;
+  ownerState?: {
+    readOnly?: boolean;
+    label: string;
+    labelDisplay: string;
+    autoComplete: 'bday' | 'off';
+    id: string;
+    errorMessage: boolean;
+    mobileEnterKeyHint: 'enter' | 'done' | 'go' | 'next' | 'previous' | 'search' | 'send';
+    name: string;
+    onBlur: (arg1: {
+      event: React.FocusEvent<HTMLInputElement>;
+      value: string | number | readonly string[] | undefined;
+    }) => void;
+    onClearInput: () => void;
+    onFocus: (arg1: {
+      event: React.FocusEvent<HTMLInputElement>;
+      value: string | number | readonly string[] | undefined;
+    }) => void;
+    size: 'md' | 'lg';
+    disabled?: boolean;
+  };
+}
+
+const TextField = forwardRef(
+  (
+    { ownerState, inputRef, InputProps: { ref: containerRef } = {}, ...props }: TextFieldProps,
+    ref: React.Ref<HTMLDivElement>,
+  ) => {
+    const handleRef = useForkRef(containerRef, ref);
+
+    const [iconFocused, setIconFocused] = useState(false);
+
+    const isLabelVisible = ownerState?.labelDisplay === 'visible';
+    const hasErrorMessage = Boolean(ownerState?.errorMessage);
+
+    const isMD = ownerState?.size === 'md';
+    const isLG = ownerState?.size === 'lg';
+
+    const { disabled, readOnly, value } = props;
+
+    const updatedProps = Object.fromEntries(
+      Object.entries(props).filter(
+        ([key]) =>
+          ![
+            'slotProps',
+            'onClear',
+            'error',
+            'clearable',
+            'enableAccessibleFieldDOMStructure',
+          ].includes(key),
+      ),
+    );
+
+    return (
+      <div ref={handleRef} className={classnames(stylesTextfield.inputParent)}>
+        {ownerState?.label && (
+          <label
+            className={classnames(stylesTextfield.label, {
+              [stylesTextfield.visuallyHidden]: !isLabelVisible,
+              // md
+              [stylesTextfield.md_labelTopPosition]: isMD,
+              [stylesTextfield.md_labelPosition]: isMD,
+              // lg
+              [stylesTextfield.lg_labelTopPosition]: isLG,
+              [stylesTextfield.lg_labelPosition]: isLG,
+            })}
+            htmlFor={ownerState?.id}
+          >
+            <TextUI color={disabled ? 'disabled' : 'default'} lineClamp={1} size="xs">
+              {ownerState?.label}
+            </TextUI>
+          </label>
+        )}
+        <input
+          ref={inputRef}
+          {...updatedProps}
+          className={classnames(stylesTextfield.input, {
+            [stylesTextfield.enabled]: !disabled,
+            [stylesTextfield.enabledText]: !disabled,
+            [stylesTextfield.enabledBorder]: !disabled && !hasErrorMessage,
+            [stylesTextfield.errorBorder]: !disabled && hasErrorMessage,
+            [stylesTextfield.disabled]: disabled,
+            [stylesTextfield.disabledText]: disabled,
+            [stylesTextfield.disabledBorder]: disabled,
+            // md
+            [stylesTextfield.md_input]: isMD,
+            [stylesTextfield.md_inputEndButtonEndPadding]: isMD,
+            [stylesTextfield.md_inputLabelPadding]: isMD && ownerState?.label && isLabelVisible,
+            [stylesTextfield.md_inputNoLabelPadding]:
+              isMD && (!ownerState?.label || (ownerState?.label && !isLabelVisible)),
+            [stylesTextfield.md_inputStartPadding]: isMD,
+            // lg
+            [stylesTextfield.lg_input]: isLG,
+            [stylesTextfield.lg_inputEndButtonEndPadding]: isLG,
+            [stylesTextfield.lg_inputLabelPadding]: isLG && ownerState?.label && isLabelVisible,
+            [stylesTextfield.lg_inputNoLabelPadding]:
+              isLG && (!ownerState?.label || (ownerState?.label && !isLabelVisible)),
+            [stylesTextfield.lg_inputStartPadding]: isLG,
+          })}
+          enterKeyHint={ownerState?.mobileEnterKeyHint}
+          id={ownerState?.id}
+          inputMode="numeric"
+          onBlur={(event) => ownerState?.onBlur?.({ event, value })}
+          onFocus={(event) => ownerState?.onFocus?.({ event, value })}
+        />
+
+        {!disabled && !readOnly && ownerState?.onClearInput ? (
+          <div
+            className={classnames(stylesTextfield.endIconContainer, {
+              [stylesTextfield.md_endIconContainer]: isMD,
+              [stylesTextfield.lg_endIconContainer]: isLG,
+            })}
+          >
+            <TapArea
+              accessibilityLabel="Clear date"
+              fullHeight={false}
+              fullWidth={false}
+              onBlur={() => setIconFocused(false)}
+              onFocus={() => setIconFocused(true)}
+              onKeyDown={({ event }) => {
+                if ([ENTER, SPACE].includes(event.keyCode)) ownerState?.onClearInput();
+                if (event.keyCode !== TAB) event.preventDefault();
+              }}
+              onMouseEnter={() => setIconFocused(true)}
+              onMouseLeave={() => setIconFocused(false)}
+              onTap={() => ownerState?.onClearInput()}
+              rounding={2}
+              tapStyle="none"
+            >
+              <Pog
+                accessibilityLabel=""
+                bgColor={iconFocused ? 'lightGray' : 'transparent'}
+                icon="cancel"
+                iconColor="darkGray"
+                size="xs"
+              />
+            </TapArea>
+          </div>
+        ) : null}
+      </div>
+    );
+  },
+);
+
+// MUITextField injects hook props into a regular custom TextField component
+const MUITextField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => {
+  const fieldResponse = useDateField({ ...props });
+
+  return <TextField ref={ref} {...fieldResponse} />;
+});
+
+// MUIDateField uses MUITextField in the field slot to override the build in input
+
+// we need props: any so the component works, DatePickerProps break the component
+
+const MUIDateField = forwardRef((props: any, ref: Ref<HTMLDivElement>) => (
+  <MUIDatePicker ref={ref} {...props} slots={{ field: MUITextField }} />
+));
+
 type InternalDateFieldProps = {
   autoComplete?: 'bday' | 'off';
   disabled?: boolean;
@@ -300,29 +283,16 @@ type InternalDateFieldProps = {
   value: Date | null;
 };
 
+// InternalDateField adds the providers and the subcomponents to MUIDateField
 function InternalDateField({
-  autoComplete,
-  disabled = false,
-  disableRange,
-  errorMessage,
-  helperText,
-  id,
-  label,
-  labelDisplay = 'visible',
   localeData,
-  maxDate,
-  minDate,
-  mobileEnterKeyHint,
-  name,
-  onBlur,
+  helperText,
+  disableRange,
   onChange,
-  onClearInput,
   onError,
-  onFocus,
-  readOnly = false,
-  size,
-  value,
+  ...props
 }: InternalDateFieldProps) {
+  const { errorMessage, id, value, disabled, size } = props;
   const hasErrorMessage = Boolean(errorMessage);
 
   let translations = getTranslationsFromMUIJS(localeData);
@@ -336,41 +306,20 @@ function InternalDateField({
       <LocalizationProvider
         adapterLocale={localeData}
         dateAdapter={AdapterDateFns}
-        // @ts-expect-error - TS2322 - Type '{ fieldYearPlaceholder: (params: { digitAmount: number; }) => string; fieldMonthPlaceholder: (params: { contentType: string; }) => string; fieldDayPlaceholder: () => string; } | null | undefined' is not assignable to type 'Partial<PickersLocaleText<Date>> | undefined'.
+        // @ts-expect-error - TS2322
         localeText={translations}
       >
         <div className={classnames(stylesTextfield.outerWrapper)}>
           <Box alignItems="center" display="flex" position="relative" width="100%">
-            <MUIDatePicker
-              disabled={disabled}
+            {/* MUI DATEFIELD + GESTALT TEXTFIELD */}
+            <MUIDateField
+              {...props}
               disableFuture={disableRange === 'disableFuture'}
               disablePast={disableRange === 'disablePast'}
               errorMessage={!!errorMessage}
               formatDensity="spacious"
-              maxDate={maxDate}
-              minDate={minDate}
-              onChange={(dateValue) => onChange({ value: dateValue })}
-              // @ts-expect-error - TS2322 - Type 'string | null' is not assignable to type 'string'.
-              onError={(error) => onError?.({ errorMessage: error, value })}
-              passthroughProps={{
-                autoComplete,
-                id,
-                errorMessage: !!errorMessage,
-                enterKeyHint: mobileEnterKeyHint,
-                name,
-                onBlur,
-                onFocus,
-                onClearInput,
-                size,
-                label,
-                labelDisplay,
-              }}
-              readOnly={readOnly}
-              // @ts-expect-error - TS2322 - Type '({ inputRef: externalInputRef, ...textFieldProps }: CustomDateFieldProps) => Element' is not assignable to type 'ComponentType<BaseSingleInputFieldProps<Date | null, Date | null, FieldSection, any>> | undefined'.
-              slots={{ field: CustomDateField }}
-              value={value}
-              // @ts-expect-error - TS2322 - Type 'null' is not assignable to type 'Partial<PickerViewRendererLookup<Date | null, DateView, DateViewRendererProps<Date | null, DateView>, {}>> | undefined'.
-              viewRenderers={null}
+              onChange={(dateValue: any) => onChange?.({ value: dateValue })}
+              onError={(error: any) => onError?.({ errorMessage: error, value })}
             />
           </Box>
           {helperText && !hasErrorMessage ? (
