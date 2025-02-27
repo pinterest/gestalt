@@ -42,12 +42,24 @@
 }
 
 .smVr {
-  border-radius: var(--rounding-200);
+  border-radius: var(--sema-rounding-200);
+  min-height: 24px;
+  padding: var(--sema-space-100) var(--sema-space-200);
+}
+
+.smLinkVr {
+  border-radius: var(--sema-rounding-200);
   min-height: 28px;
   padding: var(--sema-space-100) var(--sema-space-200);
 }
 
 .mdVr {
+  border-radius: var(--sema-rounding-300);
+  min-height: 32px;
+  padding: var(--sema-space-150) var(--sema-space-300);
+}
+
+.mdLinkVr {
   border-radius: var(--rounding-300);
   min-height: 36px;
   padding: var(--sema-space-150) var(--sema-space-300);
@@ -64,7 +76,13 @@ a.lgVr:focus {
 }
 
 .lgVr {
-  border-radius: var(--rounding-400);
+  border-radius: var(--sema-rounding-400);
+  min-height: 44px;
+  padding: var(--sema-space-200) var(--sema-space-400);
+}
+
+.lgLinkVr {
+  border-radius: var(--sema-rounding-400);
   min-height: 48px;
   padding: var(--sema-space-200) var(--sema-space-400);
 }

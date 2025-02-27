@@ -1,4 +1,4 @@
-import { BannerSlim, Button, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { BannerSlim, Button } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
@@ -33,11 +33,6 @@ import width from '../../examples/button/width';
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
-  const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -286,21 +281,13 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`Button is available in 3 fixed sizes. ${
-            isInExperiment ? `` : `The Button text has always a fixed size of 16px`
-          }:
-1. \`lg\` (48px)
-    Large is the only size that should be used on Pinner surfaces. ${
-      isInExperiment ? 'The text size is 16px.' : ''
-    }
-2. \`md\` (${isInExperiment ? '36' : '40'}px)
-    Medium is used on more dense UI such as business surfaces or internal tools. ${
-      isInExperiment ? 'The text size is 14px.' : ''
-    }
-3. \`sm\` (${isInExperiment ? '28' : '32'}px)
-    Small should be used sparingly and only in places where the UI is very dense. ${
-      isInExperiment ? 'The text size is 12px.' : ''
-    }`}
+          description={`Button is available in 3 fixed sizes. :
+1. \`lg\` 
+    Large is the only size that should be used on Pinner surfaces. 
+2. \`md\` 
+    Medium is used on more dense UI such as business surfaces or internal tools.
+3. \`sm\` 
+    Small should be used sparingly and only in places where the UI is very dense. `}
           title="Size"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}

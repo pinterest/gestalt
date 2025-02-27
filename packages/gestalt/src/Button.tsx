@@ -259,6 +259,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         [styles.smVr]: size === 'sm',
         [styles.mdVr]: size === 'md',
         [styles.lgVr]: size === 'lg',
+        [styles.border]: true,
         [styles.inline]: !fullWidth,
         [styles.block]: fullWidth,
         [focusStyles.hideOutline]: !disabled && !isFocusVisible,
