@@ -154,8 +154,6 @@ const TextField = forwardRef(
       ),
     );
 
-    console.log(updatedProps);
-
     return (
       <Box
         ref={handleRef}
