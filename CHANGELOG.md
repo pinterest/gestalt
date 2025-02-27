@@ -1,3 +1,9 @@
+## 172.10.1 (Feb 27, 2025)
+
+### Patch
+
+- DateField: fix to exclude more (unrecognized) attributes to reach input html ([#4018](https://github.com/pinterest/gestalt/pull/4018)) - [Preview link](https://deploy-preview-4018--gestalt.netlify.app?devexample=true)
+
 ## 172.10.0 (Feb 27, 2025)
 
 ### Minor
