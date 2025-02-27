@@ -147,6 +147,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _earlyBailout?: (columnSpan: number) => number;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type State<T> = {
@@ -568,6 +572,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _logTwoColWhitespace,
       _getColumnSpanConfig,
       _earlyBailout,
+      _multiColPositionAlgoV2,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -585,6 +590,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _logTwoColWhitespace,
       _earlyBailout,
+      _multiColPositionAlgoV2,
     });
 
     let gridBody;
