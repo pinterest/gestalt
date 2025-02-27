@@ -1,3 +1,9 @@
+## 172.9.6 (Feb 27, 2025)
+
+### Patch
+
+- DateField: upgrade dependency to 7.0.0 ([#4009](https://github.com/pinterest/gestalt/pull/4009)) - [Preview link](https://deploy-preview-4009--gestalt.netlify.app?devexample=true)
+
 ## 172.9.5 (Feb 26, 2025)
 
 ### Patch
