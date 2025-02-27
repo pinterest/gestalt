@@ -1,6 +1,5 @@
 import {
   cloneElement,
-  ComponentProps,
   forwardRef,
   Fragment,
   ReactElement,
@@ -16,7 +15,6 @@ import {
 import Box from './Box';
 import ComboBoxItem, { ComboBoxItemType } from './ComboBox/Item';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Icon from './Icon';
 import { DOWN_ARROW, ENTER, ESCAPE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';

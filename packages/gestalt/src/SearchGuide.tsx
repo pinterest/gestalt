@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import Box from './Box';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Icon from './Icon';
 import IconCompact from './IconCompact';
 import styles from './SearchGuide.css';
 import touchableStyles from './TapArea.css';
