@@ -144,6 +144,10 @@ const TextField = forwardRef(
       Object.entries(props).filter(
         ([key]) =>
           ![
+            'className',
+            'slots',
+            'sx',
+            'inputProps',
             'slotProps',
             'onClear',
             'error',

@@ -141,6 +141,10 @@ const TextField = forwardRef(
       Object.entries(props).filter(
         ([key]) =>
           ![
+            'className',
+            'slots',
+            'sx',
+            'inputProps',
             'slotProps',
             'onClear',
             'error',
@@ -149,6 +153,8 @@ const TextField = forwardRef(
           ].includes(key),
       ),
     );
+
+    console.log(updatedProps);
 
     return (
       <Box
