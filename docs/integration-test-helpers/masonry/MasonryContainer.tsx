@@ -45,6 +45,8 @@ type Props<T> = {
   manualFetch?: boolean;
   // External measurement store.
   measurementStore: MasonryProps<T>['measurementStore'];
+  // Tests multicolumn item position inside the feed.
+  multiColTest?: boolean;
   // Prevent scrolling on Masonry
   noScroll?: boolean;
   // Positions the element inside of a relative container, offset from the top.
