@@ -1,6 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/display-name */
-import { forwardRef, ReactNode, type Ref, useState } from 'react';
+import { forwardRef, ReactNode, Ref, useState } from 'react';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { unstable_useForkRef as useForkRef } from '@mui/utils';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3';
