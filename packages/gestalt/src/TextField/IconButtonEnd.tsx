@@ -2,6 +2,7 @@ import { ComponentProps, ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalTextField.css';
 import Box from '../Box';
+import Icon from '../Icon';
 import { ENTER, SPACE, TAB } from '../keyCodes';
 import Pog from '../Pog';
 import TapArea from '../TapArea';
@@ -28,7 +29,7 @@ type Props = {
   accessibilityHidden?: boolean;
   accessibilityLabel?: string;
   hoverStyle?: 'default' | 'none';
-  icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide';
+  icon: 'arrow-down' | 'cancel' | 'eye' | 'eye-hide' | 'compact-chevron-down' | 'compact-cancel';
   onClick: () => void;
   pogPadding?: 1 | 2;
   role?: 'switch';
@@ -82,7 +83,7 @@ export default function IconButtonEnd({
             <Pog
               accessibilityLabel=""
               bgColor={focused && hoverStyle === 'default' ? 'lightGray' : 'transparent'}
-              icon={icon}
+              icon={icon as ComponentProps<typeof Icon>['icon']}
               iconColor="darkGray"
               padding={pogPadding}
               size="xs"

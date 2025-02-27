@@ -319,7 +319,7 @@ exports[`AccordionExpandableItem renders correctly with error 1`] = `
                     className="error icon iconBlock"
                     height={16}
                     role="img"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 16 16"
                     width={16}
                   >
                     <path
@@ -415,7 +415,7 @@ exports[`AccordionExpandableItem renders correctly with icon 1`] = `
                     className="default icon iconBlock"
                     height={16}
                     role="img"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 16 16"
                     width={16}
                   >
                     <path

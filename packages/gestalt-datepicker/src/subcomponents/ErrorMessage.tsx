@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import classnames from 'classnames';
-import { Box, Flex, Icon, Text } from 'gestalt';
+import { Box, Flex, IconCompact, Text } from 'gestalt';
 import styles from './HelperText.css';
 
 type SizeType = 'sm' | 'md' | 'lg';
@@ -12,7 +12,7 @@ type Props = {
   noPadding?: boolean;
 };
 
-const icon = 'workflow-status-problem';
+const icon = 'compact-workflow-status-problem';
 const color = 'error';
 
 export default function FormErrorMessage({
@@ -50,7 +50,7 @@ export default function FormErrorMessage({
                   __style: { marginTop: '2px' },
                 }}
               >
-                <Icon accessibilityLabel="" color={color} icon={icon} size={12} />
+                <IconCompact accessibilityLabel="" color={color} icon={icon} size={12} />
               </Box>
               {text}
             </Flex>

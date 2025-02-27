@@ -31,7 +31,7 @@ exports[`FormErrorMessage with errorMessage 1`] = `
                 className="error icon iconBlock"
                 height={16}
                 role="img"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 width={16}
               >
                 <path
@@ -83,7 +83,7 @@ exports[`FormErrorMessage with no errorMessage 1`] = `
                 className="error icon iconBlock"
                 height={16}
                 role="img"
-                viewBox="0 0 24 24"
+                viewBox="0 0 16 16"
                 width={16}
               >
                 <path

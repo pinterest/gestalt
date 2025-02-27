@@ -16,7 +16,7 @@ exports[`Status renders with accessibilityLabel 1`] = `
         className="default icon iconBlock"
         height={16}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         width={16}
       >
         <path
@@ -44,7 +44,7 @@ exports[`Status renders with basic title 1`] = `
         className="default icon iconBlock"
         height={16}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         width={16}
       >
         <path
@@ -81,7 +81,7 @@ exports[`Status renders with rich title 1`] = `
         className="default icon iconBlock"
         height={16}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         width={16}
       >
         <path
@@ -141,7 +141,7 @@ exports[`Status renders with title and subtext 1`] = `
         className="default icon iconBlock"
         height={16}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         width={16}
       >
         <path

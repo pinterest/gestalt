@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
-import Icon from './Icon';
+import IconCompact from './IconCompact';
 import layout from './Layout.css';
 import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup';
@@ -202,10 +202,10 @@ function SelectList({
           right
           top
         >
-          <Icon
+          <IconCompact
             accessibilityLabel=""
             color={disabled ? 'subtle' : 'default'}
-            icon="arrow-down"
+            icon="compact-chevron-down"
             size={12}
           />
         </Box>

@@ -469,13 +469,13 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
                   accessibilityLabel={
                     accessibilityClearButtonLabel ?? accessibilityClearButtonLabelDefault
                   }
-                  icon="cancel"
+                  icon="compact-cancel"
                   onClick={handleOnClickIconButtonClear}
                 />
               ) : (
                 <IconButtonEnd
                   accessibilityHidden
-                  icon="arrow-down"
+                  icon="compact-chevron-down"
                   onClick={handleSetShowOptionsList}
                 />
               )

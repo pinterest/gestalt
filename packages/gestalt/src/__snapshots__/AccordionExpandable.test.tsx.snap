@@ -301,7 +301,7 @@ exports[`Module Expandable renders correctly with multiple items 1`] = `
                       className="error icon iconBlock"
                       height={16}
                       role="img"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 16 16"
                       width={16}
                     >
                       <path
@@ -823,7 +823,7 @@ exports[`renders correctly with multiple items with expandedId 1`] = `
                       className="error icon iconBlock"
                       height={16}
                       role="img"
-                      viewBox="0 0 24 24"
+                      viewBox="0 0 16 16"
                       width={16}
                     >
                       <path

@@ -1,12 +1,12 @@
 import { create } from 'react-test-renderer';
-import Icon from './Icon';
+import IconCompact from './IconCompact';
 import SearchGuide from './SearchGuide';
 
 describe('<SearchGuide />', () => {
   test('expandable', () => {
     const instance = create(<SearchGuide expandable text="Menu" />).root;
     // eslint-disable-next-line testing-library/await-async-query -- Please fix the next time this file is touched!
-    expect(instance.findByType(Icon).props.icon).toBe('arrow-down');
+    expect(instance.findByType(IconCompact).props.icon).toBe('compact-chevron-down');
   });
 
   test('accessibilityControls', () => {

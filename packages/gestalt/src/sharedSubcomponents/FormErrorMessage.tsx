@@ -4,7 +4,7 @@ import styles from './FormErrorMessage.css';
 import helperTextStyles from './FormHelperText.css';
 import Box from '../Box';
 import Flex from '../Flex';
-import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import Text from '../Text';
 import useInExperiment from '../useInExperiment';
 
@@ -69,10 +69,10 @@ export default function FormErrorMessage({
                   __style: isInVRExperiment ? { marginTop: '2px' } : {},
                 }}
               >
-                <Icon
+                <IconCompact
                   accessibilityLabel=""
                   color="error"
-                  icon="workflow-status-problem"
+                  icon="compact-workflow-status-problem"
                   size={isInVRExperiment || size === 'sm' ? 12 : 16}
                 />
               </Box>
