@@ -76,7 +76,6 @@ export default function InternalPopover({
       accessibilityLabel={accessibilityLabel}
       anchor={anchor}
       bgColor={color}
-      border
       caret={showCaret}
       disablePortal={disablePortal}
       forceDirection={forceDirection}
