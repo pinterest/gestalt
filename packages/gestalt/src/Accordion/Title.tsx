@@ -61,7 +61,7 @@ export default function AccordionTitle(props: {
               accessibilityLabel={iconAccessibilityLabel}
               color={textAndIconColor}
               dataTestId={dataTestIdIcon}
-              icon={hasError ? 'workflow-status-problem' : props.icon}
+              icon={props.icon}
             />
           )}
         </Flex.Item>
