@@ -1,3 +1,9 @@
+## 172.10.4 (Feb 28, 2025)
+
+### Patch
+
+- Popover: remove border options ([#4020](https://github.com/pinterest/gestalt/pull/4020)) - [Preview link](https://deploy-preview-4020--gestalt.netlify.app?devexample=true)
+
 ## 172.10.3 (Feb 28, 2025)
 
 ### Patch
