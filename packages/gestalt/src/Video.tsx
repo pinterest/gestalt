@@ -6,6 +6,7 @@ import VideoControls from './Video/Controls';
 
 type Source =
   | string
+  | undefined
   | ReadonlyArray<{
       type: 'video/m3u8' | 'video/mp4' | 'video/ogg';
       src: string;
@@ -28,7 +29,7 @@ type Props = {
   /**
    * The URL of the captions track for the video (.vtt file). See the [accessibility section](https://gestalt.pinterest.systems/web/video#Captions) to learn more.
    */
-  captions?: string;
+  captions?: string | undefined;
   /**
    * This `children` prop is not same as children inside the native html `video` element. Instead, it serves to add overlays on top of the html video element, while still being under the video controls. See [children example](https://gestalt.pinterest.systems/web/video#video-with-children) for more details.
    */
@@ -263,7 +264,7 @@ const isNewSource = (oldSource: Source, newSource: Source): boolean => {
     return true;
   }
   if (Array.isArray(newSource)) {
-    if (oldSource.length !== newSource.length) {
+    if (oldSource?.length !== newSource.length) {
       // If the sources are both an Array, and the lengths
       // do not match we evaluate as a new source
       return true;
@@ -703,11 +704,19 @@ export default class Video extends PureComponent<Props, State> {
           playsInline={playsInline}
           poster={poster}
           preload={preload}
-          src={typeof src === 'string' ? src : undefined}
+          src={(() => {
+            if (typeof src === 'string') {
+              return src === '' ? undefined : src;
+            }
+            return undefined;
+          })()}
         >
           {Array.isArray(src) &&
             src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
-          <track kind="captions" src={captions} />
+          <track
+            kind="captions"
+            src={typeof captions === 'string' && captions === '' ? undefined : captions}
+          />
         </video>
         {Boolean(children) && (
           <Box bottom left overflow="hidden" position="absolute" right top>

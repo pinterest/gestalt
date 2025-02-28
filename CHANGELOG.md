@@ -1,3 +1,9 @@
+## 172.10.5 (Feb 28, 2025)
+
+### Patch
+
+- Image, Video: if image or track `src` is empty string "" then set as undefined ([#4013](https://github.com/pinterest/gestalt/pull/4013)) - [Preview link](https://deploy-preview-4013--gestalt.netlify.app?devexample=true)
+
 ## 172.10.4 (Feb 28, 2025)
 
 ### Patch
