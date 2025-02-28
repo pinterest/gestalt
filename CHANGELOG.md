@@ -1,3 +1,9 @@
+## 172.10.3 (Feb 28, 2025)
+
+### Patch
+
+- DateField, DateRange: upgrade @mui/x-date-pickers to 7.27.2 ([#4019](https://github.com/pinterest/gestalt/pull/4019)) - [Preview link](https://deploy-preview-4019--gestalt.netlify.app?devexample=true)
+
 ## 172.10.2 (Feb 28, 2025)
 
 ### Patch
