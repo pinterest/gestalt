@@ -61,7 +61,7 @@ export type Props = {
    */
   label?: string;
   /**
-   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more.
+   * DatePicker accepts imported locales from the open source date utility library date-fns. See the [locales example](https://gestalt.pinterest.systems/web/datepicker#localeData) to learn more. Type is Locale from 'date-fns/locale'.
    */
   localeData?: Locale;
   /**
@@ -85,7 +85,10 @@ export type Props = {
   /**
    * Callback triggered when the user selects a date.
    */
-  onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: Date | null }) => void;
+  onChange: (arg1: {
+    event: React.MouseEvent<HTMLElement, MouseEvent> | React.KeyboardEvent<HTMLElement> | undefined;
+    value: Date | null;
+  }) => void;
   /**
    * Placeholder text shown if the user has not yet input a value. The default placeholder value shows the date format for each locale, e.g. MM/DD/YYYY.
    */
@@ -130,6 +133,7 @@ export type Props = {
    * DatePicker can be a controlled component. `value` sets the current value of the input. See the [controlled component date example](https://gestalt.pinterest.systems/web/datepicker#Controlled-component) to learn more.
    */
   value?: Date | null;
+  _overrideRangeDateFix?: boolean;
 };
 
 /**
@@ -167,6 +171,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
     selectLists,
     size,
     value,
+    _overrideRangeDateFix = false,
   }: Props,
   ref,
 ) {
@@ -195,6 +200,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
       <Fragment>
         <InternalDatePicker
           ref={innerInputRef}
+          _overrideRangeDateFix={_overrideRangeDateFix}
           disabled={disabled}
           errorMessage={errorMessage}
           excludeDates={excludeDates}
@@ -261,6 +267,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
                     width="100%"
                   >
                     <InternalDatePicker
+                      _overrideRangeDateFix={_overrideRangeDateFix}
                       errorMessage={errorMessage}
                       excludeDates={excludeDates}
                       id={id}
@@ -293,6 +300,7 @@ const DatePickerWithForwardRef = forwardRef<HTMLInputElement, Props>(function Da
   return (
     <InternalDatePicker
       ref={innerInputRef}
+      _overrideRangeDateFix={_overrideRangeDateFix}
       disabled={disabled}
       errorMessage={errorMessage}
       excludeDates={excludeDates}

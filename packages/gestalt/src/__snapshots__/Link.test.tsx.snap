@@ -9,6 +9,54 @@ exports[`default 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+>
+  Link
+</a>
+`;
+
+exports[`download string 1`] = `
+<a
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
+  download="file"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel=""
+>
+  Link
+</a>
+`;
+
+exports[`download true 1`] = `
+<a
+  className="noOutline inheritColor rounding0 block tapTransition hoverUnderline noUnderline outlineFocus"
+  download={true}
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -29,6 +77,8 @@ exports[`external link with nofollow 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -48,8 +98,7 @@ exports[`external link with nofollow 1`] = `
       width={16}
     >
       <title>
-        , 
-        Opens a new tab
+        , Opens a new tab
       </title>
       <path
         d="test-file-stub"
@@ -68,6 +117,8 @@ exports[`inline and auto underline 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -88,6 +139,8 @@ exports[`inline and overriden underline="hover" 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -108,6 +161,8 @@ exports[`inline and overriden underline="none" 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -128,6 +183,8 @@ exports[`regular 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -148,6 +205,8 @@ exports[`target blank 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -169,6 +228,8 @@ exports[`target null 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -189,6 +250,8 @@ exports[`target self 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -210,6 +273,8 @@ exports[`with custom rounding, and tapStyle 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}
@@ -230,6 +295,8 @@ exports[`with onClick 1`] = `
   onFocus={[Function]}
   onKeyPress={[Function]}
   onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   onMouseUp={[Function]}
   onTouchCancel={[Function]}
   onTouchEnd={[Function]}

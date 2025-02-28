@@ -28,5 +28,3 @@ export type Layout =
   | 'serverRenderedFlexible'
   | 'uniformRow'
   | 'uniformRowFlexible';
-
-export type LoadingStateItem = { height: number };

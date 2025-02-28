@@ -64,8 +64,8 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
   const { openCalendar } = useDefaultLabel('DatePicker');
 
   const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   if (isInVRExperiment) {
@@ -80,10 +80,10 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
         name={name}
         onBlur={(data) => onBlur?.(data.event)}
         onChange={(data) => onChange?.(data.event)}
+        onClick={onClick}
         onFocus={(data) => {
           onPassthroughFocus?.();
           onFocus?.(data.event);
-          onClick?.();
         }}
         onKeyDown={(data) => onKeyDown?.(data.event)}
         placeholder={placeholder}
@@ -114,10 +114,10 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
           name={name}
           onBlur={(data) => onBlur?.(data.event)}
           onChange={(data) => onChange?.(data.event)}
+          onClick={onClick}
           onFocus={(data) => {
             onPassthroughFocus?.();
             onFocus?.(data.event);
-            onClick?.();
           }}
           onKeyDown={(data) => onKeyDown?.(data.event)}
           placeholder={placeholder}

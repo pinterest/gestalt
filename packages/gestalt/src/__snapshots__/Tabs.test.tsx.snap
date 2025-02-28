@@ -43,20 +43,29 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="box paddingXNaN"
               style={
                 Object {
-                  "height": undefined,
+                  "height": "100%",
                 }
               }
             >
               <div
-                className="FlexItem"
+                className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": undefined,
+                  }
+                }
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="FlexItem"
                 >
-                  News
+                  <div
+                    className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  >
+                    News
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,20 +134,29 @@ exports[`<Tabs /> matches snapshot with default props 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="box paddingXNaN"
               style={
                 Object {
-                  "height": undefined,
+                  "height": "100%",
                 }
               }
             >
               <div
-                className="FlexItem"
+                className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": undefined,
+                  }
+                }
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="FlexItem"
                 >
-                  You
+                  <div
+                    className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  >
+                    You
+                  </div>
                 </div>
               </div>
             </div>
@@ -193,35 +211,39 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="box paddingXNaN"
               style={
                 Object {
-                  "height": undefined,
+                  "height": "100%",
                 }
               }
             >
               <div
-                className="FlexItem"
-              >
-                <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
-                >
-                  News
-                </div>
-              </div>
-              <div
-                className="FlexItem"
-              >
-                <div
-                  className="box circle primary"
-                  style={
-                    Object {
-                      "height": 6,
-                      "marginTop": "1px",
-                      "width": 6,
-                    }
+                className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": undefined,
                   }
-                />
+                }
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  >
+                    News
+                  </div>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    aria-label="This tab is displaying a notification indicator"
+                    className="notification placementMiddle"
+                    role="status"
+                  />
+                </div>
               </div>
             </div>
             <div
@@ -289,35 +311,39 @@ exports[`<Tabs /> matches snapshot with dot indicators 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="box paddingXNaN"
               style={
                 Object {
-                  "height": undefined,
+                  "height": "100%",
                 }
               }
             >
               <div
-                className="FlexItem"
-              >
-                <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
-                >
-                  You
-                </div>
-              </div>
-              <div
-                className="FlexItem"
-              >
-                <div
-                  className="box circle primary"
-                  style={
-                    Object {
-                      "height": 6,
-                      "marginTop": "1px",
-                      "width": 6,
-                    }
+                className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": undefined,
                   }
-                />
+                }
+              >
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  >
+                    You
+                  </div>
+                </div>
+                <div
+                  className="FlexItem"
+                >
+                  <div
+                    aria-label="This tab is displaying a notification indicator"
+                    className="notification placementMiddle"
+                    role="status"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -371,20 +397,29 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="box paddingXNaN"
               style={
                 Object {
-                  "height": undefined,
+                  "height": "100%",
                 }
               }
             >
               <div
-                className="FlexItem"
+                className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": undefined,
+                  }
+                }
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="FlexItem"
                 >
-                  News
+                  <div
+                    className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  >
+                    News
+                  </div>
                 </div>
               </div>
             </div>
@@ -453,20 +488,29 @@ exports[`<Tabs /> matches snapshot with wrap 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+              className="box paddingXNaN"
               style={
                 Object {
-                  "height": undefined,
+                  "height": "100%",
                 }
               }
             >
               <div
-                className="FlexItem"
+                className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                style={
+                  Object {
+                    "height": undefined,
+                  }
+                }
               >
                 <div
-                  className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  className="FlexItem"
                 >
-                  You
+                  <div
+                    className="default alignStart noWrap Text fontWeightSemiBold fontSize300"
+                  >
+                    You
+                  </div>
                 </div>
               </div>
             </div>

@@ -1,11 +1,27 @@
-import { forwardRef, ReactElement, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  ComponentProps,
+  forwardRef,
+  ReactElement,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { Icon, useDeviceType } from 'gestalt';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
 
+enum DateRangeType {
+  Primary,
+  Secondary,
+}
+
 type ModifiedProps = Props & {
   onChange: (arg1: { startDate: Date; endDate: Date }) => void;
+  selectedRange: DateRangeType;
+  secondaryRangeStartDate?: Date | null;
+  secondaryRangeEndDate?: Date | null;
 };
 
 const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedProps>(
@@ -20,6 +36,9 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
       onChange,
       rangeEndDate,
       rangeStartDate,
+      secondaryRangeStartDate,
+      secondaryRangeEndDate,
+      selectedRange,
     }: ModifiedProps,
     ref,
   ): ReactElement {
@@ -33,13 +52,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
     // in the month and we need to keep the popover pointed at the input correctly
     const [, setMonth] = useState<number | null | undefined>();
-    const [format, setFormat] = useState<string | null | undefined>();
-    const [updatedLocale, setUpdatedLocale] = useState<string | null | undefined>();
-    const [initRangeHighlight, setInitRangeHighlight] = useState<Date | null | undefined>();
-
-    useEffect(() => {
-      setInitRangeHighlight(rangeStartDate || rangeEndDate);
-    }, [rangeStartDate, rangeEndDate]);
+    const [format, setFormat] = useState<string | string[] | undefined>();
+    const [updatedLocale, setUpdatedLocale] = useState<
+      ComponentProps<typeof ReactDatePicker>['locale'] | undefined
+    >();
 
     useEffect(() => {
       if (localeData && localeData.code) {
@@ -55,10 +71,45 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
       }
     }, [localeData]);
 
+    function getDatesArray(startDate: Date, endDate: Date) {
+      // Ensure the input dates are valid Date objects
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+
+      // Check if the start date is after the end date
+      if (start > end) {
+        return [];
+      }
+
+      const dates = [];
+      const currentDate = start;
+
+      // Loop through all dates from start to end
+      while (currentDate <= end) {
+        // Push the current date to the array
+        dates.push(new Date(currentDate));
+        // Increment the current date by one day
+        currentDate.setDate(currentDate.getDate() + 1);
+      }
+
+      return dates;
+    }
+
+    function generateHighlights(
+      startDate: Date | null | undefined,
+      endDate: Date | null | undefined,
+    ) {
+      const datesArray = startDate && endDate ? getDatesArray(startDate, endDate) : [];
+      return [
+        {
+          [styles['react-datepicker__day--in-range-secondary']]: datesArray,
+        },
+      ];
+    }
+
     return (
       <div className="_gestalt">
         <div className={isMobile ? undefined : '_gestalt_daterange'}>
-          {/* @ts-expect-error - TS2769 - No overload matches this call. | TS2786 - 'ReactDatePicker' cannot be used as a JSX component. */}
           <ReactDatePicker
             ref={(refElement) => {
               if (!innerInputRef || !refElement) {
@@ -73,9 +124,17 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
             calendarClassName={styles['react-datepicker-inline']}
             dateFormat={format}
             dayClassName={() => styles['react-datepicker__days']}
-            endDate={rangeEndDate ?? undefined}
+            endDate={
+              selectedRange === DateRangeType.Primary
+                ? rangeEndDate ?? undefined
+                : secondaryRangeEndDate ?? undefined
+            }
             excludeDates={excludeDates && [...excludeDates]}
-            highlightDates={initRangeHighlight ? [initRangeHighlight] : []}
+            highlightDates={
+              selectedRange === DateRangeType.Primary
+                ? generateHighlights(secondaryRangeStartDate, secondaryRangeEndDate)
+                : generateHighlights(rangeStartDate, rangeEndDate)
+            }
             id={id}
             includeDates={includeDates && [...includeDates]}
             inline
@@ -95,9 +154,17 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, ModifiedPr
             previousMonthButtonLabel={
               <Icon accessibilityLabel="" color="default" icon="arrow-back" size={16} />
             }
-            selected={rangeStartDate ?? undefined}
+            selected={
+              selectedRange === DateRangeType.Primary
+                ? rangeStartDate ?? undefined
+                : secondaryRangeStartDate ?? undefined
+            }
             selectsRange
-            startDate={rangeStartDate ?? undefined}
+            startDate={
+              selectedRange === DateRangeType.Primary
+                ? rangeStartDate ?? undefined
+                : secondaryRangeStartDate ?? undefined
+            }
           />
         </div>
       </div>

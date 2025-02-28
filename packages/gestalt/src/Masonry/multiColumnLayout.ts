@@ -63,6 +63,29 @@ function getColumnSpanFromGridSize(columnSpanConfig: ColumnSpanConfig, gridSize:
   return columnSpanConfig[gridSize] ?? 1;
 }
 
+export function getColumnSpanFromGridSize(
+  columnSpanConfig: ColumnSpanConfig,
+  gridSize: GridSize,
+): number {
+  if (typeof columnSpanConfig === 'number') {
+    return columnSpanConfig;
+  }
+  if (gridSize === '_lg1') {
+    return columnSpanConfig[gridSize] ?? columnSpanConfig.lg ?? 1;
+  }
+  return columnSpanConfig[gridSize] ?? 1;
+}
+
+function getColumnSpanFromGridSize(columnSpanConfig: ColumnSpanConfig, gridSize: GridSize): number {
+  if (typeof columnSpanConfig === 'number') {
+    return columnSpanConfig;
+  }
+  if (gridSize === '_lg1') {
+    return columnSpanConfig[gridSize] ?? columnSpanConfig.lg ?? 1;
+  }
+  return columnSpanConfig[gridSize] ?? 1;
+}
+
 export function calculateActualColumnSpan<T>(props: {
   columnCount: number;
   item: T;

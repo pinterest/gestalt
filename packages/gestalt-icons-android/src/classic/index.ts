@@ -91,6 +91,7 @@ import cloudServer from './ic_cloud-server_gestalt.svg';
 import code from './ic_code_gestalt.svg';
 import codeCheck from './ic_code-check_gestalt.svg';
 import cog from './ic_cog_gestalt.svg';
+import cogFill from './ic_cog-fill_gestalt.svg';
 import collage from './ic_collage_gestalt.svg';
 import collapse from './ic_collapse_gestalt.svg';
 import color from './ic_color_gestalt.svg';
@@ -99,12 +100,14 @@ import colorPicker from './ic_color-picker_gestalt.svg';
 import colorSolid from './ic_color-solid_gestalt.svg';
 import colorSplit from './ic_color-split_gestalt.svg';
 import compass from './ic_compass_gestalt.svg';
+import compassFill from './ic_compass-fill_gestalt.svg';
 import compose from './ic_compose_gestalt.svg';
 import contrast from './ic_contrast_gestalt.svg';
 import conversionTag from './ic_conversion-tag_gestalt.svg';
 import copyToClipboard from './ic_copy-to-clipboard_gestalt.svg';
 import creditCard from './ic_credit-card_gestalt.svg';
 import crop from './ic_crop_gestalt.svg';
+import crystalBall from './ic_crystal-ball_gestalt.svg';
 import cutout from './ic_cutout_gestalt.svg';
 import dash from './ic_dash_gestalt.svg';
 import dataSource from './ic_data-source_gestalt.svg';
@@ -136,6 +139,7 @@ import faceSmileyPlus from './ic_face-smiley-plus_gestalt.svg';
 import faceTryon from './ic_face-tryon_gestalt.svg';
 import facebook from './ic_facebook_gestalt.svg';
 import fade from './ic_fade_gestalt.svg';
+import ferrisWheel from './ic_ferris-wheel_gestalt.svg';
 import fileBox from './ic_file-box_gestalt.svg';
 import fileUnknown from './ic_file-unknown_gestalt.svg';
 import fillOpaque from './ic_fill-opaque_gestalt.svg';
@@ -280,6 +284,7 @@ import shadows from './ic_shadows_gestalt.svg';
 import shapes from './ic_shapes_gestalt.svg';
 import share from './ic_share_gestalt.svg';
 import shoppingBag from './ic_shopping-bag_gestalt.svg';
+import shoppingBagFill from './ic_shopping-bag-fill_gestalt.svg';
 import shrink from './ic_shrink_gestalt.svg';
 import shuffles from './ic_shuffles_gestalt.svg';
 import skintone from './ic_skintone_gestalt.svg';
@@ -306,6 +311,8 @@ import speed1X from './ic_speed-1x_gestalt.svg';
 import speedDoubleX from './ic_speed-2x_gestalt.svg';
 import speedTripleX from './ic_speed-3x_gestalt.svg';
 import spread from './ic_spread_gestalt.svg';
+import squarePlus from './ic_square-plus_gestalt.svg';
+import squarePlusFill from './ic_square-plus-fill_gestalt.svg';
 import star from './ic_star_gestalt.svg';
 import starHalf from './ic_star-half_gestalt.svg';
 import starOutline from './ic_star-outline_gestalt.svg';
@@ -341,16 +348,19 @@ import thumbsUp from './ic_thumbs-up_gestalt.svg';
 import timer from './ic_timer_gestalt.svg';
 import timer3 from './ic_timer-3_gestalt.svg';
 import timer10 from './ic_timer-10_gestalt.svg';
+import tint from './ic_tint_gestalt.svg';
 import trashCan from './ic_trash-can_gestalt.svg';
 import trending from './ic_trending_gestalt.svg';
 import undo from './ic_undo_gestalt.svg';
 import unlock from './ic_unlock_gestalt.svg';
 import uploadFeed from './ic_upload-feed_gestalt.svg';
 import viber from './ic_viber_gestalt.svg';
+import vibrance from './ic_vibrance_gestalt.svg';
 import videoAdvance10Seconds from './ic_video-advance-10-seconds_gestalt.svg';
 import videoCamera from './ic_video-camera_gestalt.svg';
 import videoRewind10Seconds from './ic_video-rewind-10-seconds_gestalt.svg';
 import viewTypeDefault from './ic_view-type-default_gestalt.svg';
+import viewTypeDefaultFill from './ic_view-type-default-fill_gestalt.svg';
 import viewTypeDense from './ic_view-type-dense_gestalt.svg';
 import viewTypeList from './ic_view-type-list_gestalt.svg';
 import viewTypeSparse from './ic_view-type-sparse_gestalt.svg';
@@ -466,6 +476,7 @@ const icons = Object.freeze({
   'code': code,
   'code-check': codeCheck,
   'cog': cog,
+  'cog-fill': cogFill,
   'collage': collage,
   'collapse': collapse,
   'color': color,
@@ -474,12 +485,14 @@ const icons = Object.freeze({
   'color-solid': colorSolid,
   'color-split': colorSplit,
   'compass': compass,
+  'compass-fill': compassFill,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
   'crop': crop,
+  'crystal-ball': crystalBall,
   'cutout': cutout,
   'dash': dash,
   'data-source': dataSource,
@@ -511,6 +524,7 @@ const icons = Object.freeze({
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
+  'ferris-wheel': ferrisWheel,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
@@ -655,6 +669,7 @@ const icons = Object.freeze({
   'shapes': shapes,
   'share': share,
   'shopping-bag': shoppingBag,
+  'shopping-bag-fill': shoppingBagFill,
   'shrink': shrink,
   'shuffles': shuffles,
   'skintone': skintone,
@@ -681,6 +696,8 @@ const icons = Object.freeze({
   'speed-2x': speedDoubleX,
   'speed-3x': speedTripleX,
   'spread': spread,
+  'square-plus': squarePlus,
+  'square-plus-fill': squarePlusFill,
   'star': star,
   'star-half': starHalf,
   'star-outline': starOutline,
@@ -716,16 +733,19 @@ const icons = Object.freeze({
   'timer': timer,
   'timer-10': timer10,
   'timer-3': timer3,
+  'tint': tint,
   'trash-can': trashCan,
   'trending': trending,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,
   'viber': viber,
+  'vibrance': vibrance,
   'video-advance-10-seconds': videoAdvance10Seconds,
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
+  'view-type-default-fill': viewTypeDefaultFill,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-sparse': viewTypeSparse,

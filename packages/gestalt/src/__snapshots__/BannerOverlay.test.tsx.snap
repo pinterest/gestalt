@@ -97,6 +97,8 @@ Array [
                     onFocus={[Function]}
                     onKeyPress={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     onMouseUp={[Function]}
                     onTouchCancel={[Function]}
                     onTouchEnd={[Function]}
@@ -138,7 +140,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -205,6 +207,8 @@ Array [
                   onFocus={[Function]}
                   onKeyPress={[Function]}
                   onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                   onMouseUp={[Function]}
                   onTouchCancel={[Function]}
                   onTouchEnd={[Function]}
@@ -333,6 +337,8 @@ Array [
                     onFocus={[Function]}
                     onKeyPress={[Function]}
                     onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
                     onMouseUp={[Function]}
                     onTouchCancel={[Function]}
                     onTouchEnd={[Function]}
@@ -374,7 +380,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -441,6 +447,8 @@ Array [
                   onFocus={[Function]}
                   onKeyPress={[Function]}
                   onMouseDown={[Function]}
+                  onMouseEnter={[Function]}
+                  onMouseLeave={[Function]}
                   onMouseUp={[Function]}
                   onTouchCancel={[Function]}
                   onTouchEnd={[Function]}
@@ -555,7 +563,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"
@@ -681,7 +689,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"
@@ -807,7 +815,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"
@@ -933,7 +941,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"

@@ -19,7 +19,7 @@ test.describe('Masonry: virtualization with scroll container', () => {
 
     // Virtualization should prevent all items from showing initially.
     const initialGridItems = await getGridItems(page);
-    expect(initialGridItems.length).toBeLessThan(20);
+    expect(initialGridItems.length).toBe(0);
 
     await page.evaluate(
       ({ scrollToY, selector }) => {
@@ -42,20 +42,22 @@ test.describe('Masonry: virtualization with scroll container', () => {
   test('calculates correct virtual bounds when masonry is offset and scrolled', async ({
     page,
   }) => {
+    const targetItems = 20;
     await page.setViewportSize({ width: 800, height: 800 });
     await page.goto(
       getServerURL({
         virtualize: true,
         scrollContainer: true,
-        virtualBoundsTop: 300,
-        virtualBoundsBottom: 300,
+        virtualBoundsTop: VIRTUALIZED_TOP + 300,
+        virtualBoundsBottom: VIRTUALIZED_TOP + 300,
         offsetTop: VIRTUALIZED_TOP,
       }),
     );
 
     // Should not render anything initially
     const initialGridItems = await getGridItems(page);
-    expect(initialGridItems.length).toBeLessThan(20);
+    expect(initialGridItems.length).toBeGreaterThan(0);
+    expect(initialGridItems.length).toBeLessThan(targetItems);
 
     await page.evaluate(
       ({ scrollToY, selector }) => {
@@ -67,8 +69,8 @@ test.describe('Masonry: virtualization with scroll container', () => {
       },
       { scrollToY: VIRTUALIZED_TOP, selector: selectors.scrollContainer },
     );
-    await waitForRenderedItems(page, { targetItems: 20 });
+    await waitForRenderedItems(page, { targetItems });
     const afterGridItems = await getGridItems(page);
-    expect(afterGridItems.length).toBe(20);
+    expect(afterGridItems.length).toBe(targetItems);
   });
 });

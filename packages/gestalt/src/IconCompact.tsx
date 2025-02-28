@@ -63,15 +63,15 @@ type Props = {
 const IconNames: ReadonlyArray<keyof typeof compactIconsVR> = Object.keys(compactIconsVR);
 
 /**
- * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability.
+ * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability. These icons have a 16x16 viewboxes and are used in places where space is limited. Refer to your designer for guidance on when to use Compact Icons.
+
  *
  * See the [Iconography and SVG guidelines](https://gestalt.pinterest.systems/foundations/iconography/library) to explore the full icon library.
  *
- * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list.spec.ts-snapshots/Icon-list-chromium-darwin.png)
- * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.ts-snapshots/Icon-list-dark-chromium-darwin.png)
+ * ![Icon light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list.spec.ts-snapshots/IconCompact-list-chromium-darwin.png)
+ * ![Icon dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Icon-list-dark.spec.ts-snapshots/IconCompact-list-dark-chromium-darwin.png)
  *
  */
-
 function IconCompact({
   accessibilityLabel,
   color = 'subtle',

@@ -13,8 +13,6 @@ import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
-type Position = 'middle' | 'top';
-
 type TooltipProps = {
   accessibilityLabel?: string;
   idealDirection?: 'up' | 'right' | 'down' | 'left';
@@ -50,7 +48,7 @@ type Props = {
   /**
    * Badge position relative to its parent element. See the [positioning](https://gestalt.pinterest.systems/web/badge#Positioning) variant to learn more.
    */
-  position?: Position;
+  position?: 'middle' | 'top';
   /**
    * Text displayed inside of the Badge. Sentence case is preferred.
    */
@@ -80,8 +78,8 @@ export default function Badge({
   tooltip,
 }: Props) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
   const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
   const dataTestIdText = dataTestId && `${dataTestId}-text`;

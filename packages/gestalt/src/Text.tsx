@@ -43,6 +43,10 @@ type Props = {
    */
   dataTestId?: string;
   /**
+   * A unique identifier for the element.
+   */
+  id?: string;
+  /**
    * Indicates how the text should flow with the surrounding content. See the [block vs inline variant](https://gestalt.pinterest.systems/web/text#Block-vs.-inline) for more details.
    */
   inline?: boolean;
@@ -92,6 +96,7 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     children,
     color = 'default',
     dataTestId,
+    id,
     inline = false,
     italic = false,
     lineClamp,
@@ -106,8 +111,8 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
   const colorClass = semanticColors.includes(color) && styles[color];
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const getWordBreakStyle = (): string | undefined => {
@@ -170,6 +175,7 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     <Tag
       className={cs}
       data-test-id={dataTestId}
+      id={id}
       title={
         title ?? (isNotNullish(lineClamp) && typeof children === 'string' ? children : undefined)
       }

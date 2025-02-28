@@ -1,10 +1,10 @@
 import { ComponentProps, forwardRef, useImperativeHandle, useRef } from 'react';
 import getAriaLabel from './accessibility/getAriaLabel';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
 import Button from './Button';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
-import Flex from './Flex';
 import Icon from './Icon';
 import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
@@ -20,6 +20,8 @@ const DEFAULT_TEXT_COLORS = {
   semiTransparentWhite: 'default',
   transparentWhiteText: 'inverse',
   white: 'default',
+  light: 'dark',
+  dark: 'light',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -46,6 +48,10 @@ type ButtonProps = {
    */
   disabled?: boolean;
   /**
+   * When supplied, the target (the file specified in the href attribute) will be downloaded when a user clicks on the hyperlink. If the value is a string, the string value will define the filename
+   */
+  download?: boolean | string;
+  /**
    * Indicates whether this component is hosted in a light or dark container.
    * Used for improving focus ring color contrast.
    */
@@ -63,6 +69,10 @@ type ButtonProps = {
    */
   fullWidth?: boolean;
   /**
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [truncation variant](https://gestalt.pinterest.systems/web/buttonlink#Truncation) for more details.
+   */
+  lineClamp?: 1;
+  /**
    * Use "-1" to remove ButtonLink from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
    */
   tabIndex?: -1 | 0;
@@ -74,6 +84,14 @@ type ButtonProps = {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
+  /**
+   * Callback fired when a mouse pointer moves in a ButtonLink component.
+   */
+  _onMouseEnter?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
+  /**
+   * Callback fired when a mouse pointer moves out a ButtonLink component.
+   */
+  _onMouseLeave?: (arg1: { event: React.MouseEvent<HTMLAnchorElement> }) => void;
   /**
    * sm: 32px, md: 40px, lg: 48px
    */
@@ -112,11 +130,15 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     color = 'gray',
     dataTestId,
     disabled = false,
+    download,
     focusColor,
     fullWidth = false,
     iconEnd,
     iconStart,
     onClick,
+    _onMouseEnter,
+    _onMouseLeave,
+    lineClamp,
     tabIndex = 0,
     size = 'md',
     text,
@@ -142,8 +164,8 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   useImperativeHandle(ref, () => innerRef.current);
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
@@ -176,6 +198,14 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
         })
       : undefined;
 
+  const handleOnMouseEnter: ComponentProps<typeof InternalLink>['onMouseEnter'] = ({ event }) => {
+    // @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
+    _onMouseEnter?.({ event });
+  };
+  const handleOnMouseLeave: ComponentProps<typeof InternalLink>['onMouseLeave'] = ({ event }) =>
+    // @ts-expect-error - TS2322 - Type 'MouseEvent<HTMLAnchorElement, MouseEvent> | MouseEvent<HTMLDivElement, MouseEvent>' is not assignable to type 'MouseEvent<HTMLAnchorElement, MouseEvent>'.
+    _onMouseLeave?.({ event });
+
   return (
     <InternalLink
       ref={innerRef}
@@ -183,10 +213,13 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       colorClass={color}
       dataTestId={dataTestId}
       disabled={disabled}
+      download={download}
       focusColor={focusColor}
       fullWidth={fullWidth}
       href={href}
       onClick={handleClick}
+      onMouseEnter={handleOnMouseEnter}
+      onMouseLeave={handleOnMouseLeave}
       rel={rel}
       selected={false}
       size={size}
@@ -194,39 +227,48 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       target={target}
       wrappedComponent="button"
     >
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {iconStart ? (
+      {iconStart ? (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginEnd={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor}
             icon={iconStart}
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        ) : null}
-        {isInVRExperiment ? (
-          <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
-            {text}
-          </TextUI>
-        ) : (
-          <Text
-            align="center"
-            color={textColor}
-            overflow="normal"
-            size={size === 'sm' ? '200' : '300'}
-            weight="bold"
-          >
-            {text}
-          </Text>
-        )}
-        {iconEnd ? (
+        </Box>
+      ) : null}
+      {isInVRExperiment ? (
+        <TextUI
+          align="center"
+          color={textColor}
+          lineClamp={lineClamp}
+          overflow="normal"
+          size={textSizesVR[size]}
+        >
+          {text}
+        </TextUI>
+      ) : (
+        <Text
+          align="center"
+          color={textColor}
+          lineClamp={lineClamp}
+          overflow="normal"
+          size={size === 'sm' ? '200' : '300'}
+          weight="bold"
+        >
+          {text}
+        </Text>
+      )}
+      {iconEnd ? (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginStart={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor}
             icon={iconEnd}
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        ) : null}
-      </Flex>
+        </Box>
+      ) : null}
       <NewTabAccessibilityLabel target={target} />
     </InternalLink>
   );

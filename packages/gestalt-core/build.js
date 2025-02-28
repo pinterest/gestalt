@@ -46,6 +46,9 @@ const cssModules = (options = {}) => {
     '--g-sm': '(min-width: 576px)',
     '--g-md': '(min-width: 768px)',
     '--g-lg': '(min-width: 1312px)',
+    '--g-xl': '(min-width: 1440px)',
+    '--g-xxl': '(min-width: 1680px)',
+    '--g-xxxl': '(min-width: 2048px)',
   };
 
   const modulesPlugin = postcssModules({
@@ -160,7 +163,11 @@ export const plugins = (name) => [
     babelrc: false,
     exclude: 'node_modules/**',
     rootMode: 'upward',
-    presets: [['@babel/preset-env', { targets: { node: true } }], '@babel/preset-typescript'],
+    presets: [
+      ['@babel/preset-env', { targets: { node: true } }],
+      '@babel/preset-typescript',
+      '@babel/preset-react',
+    ],
     shouldPrintComment: (comment) => /[#@]__PURE__/.exec(comment),
   }),
   commonjs(),

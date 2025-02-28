@@ -27,7 +27,7 @@ exports[`PopoverEducational renders 1`] = `
         </div>
         <div
           aria-label="test"
-          class="relative maxDimensions minDimensions border education rounding4"
+          class="relative maxDimensions minDimensions education rounding4"
           role="dialog"
           style="max-width: 230px; overflow: auto;"
         >

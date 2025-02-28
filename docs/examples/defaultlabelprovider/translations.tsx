@@ -77,6 +77,9 @@ const labels = {
     accessibilityGrabberLabel: myI18nTranslator('Grabber'),
     accessibilityLabel: myI18nTranslator('Bottom sheet'),
   },
+  SearchField: {
+    accessibilityClearButtonLabel: myI18nTranslator('Clear input'),
+  },
   SideNavigation: {
     accessibilityDismissButtonLabel: myI18nTranslator('Dismiss side navigation'),
     accessibilityCollapseButtonLabel: myI18nTranslator(
@@ -102,6 +105,11 @@ const labels = {
   },
   TableOfContents: {
     accessibilityLabel: myI18nTranslator('Table of contents'),
+  },
+  Tabs: {
+    accessibilityNotificationLabel: myI18nTranslator(
+      'This tab is displaying a notification indicator',
+    ),
   },
   Tag: {
     accessibilityErrorIconLabel: myI18nTranslator('Error'),

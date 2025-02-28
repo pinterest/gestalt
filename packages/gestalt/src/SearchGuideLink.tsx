@@ -16,7 +16,19 @@ type Props = {
    * The background color of SearchGuideLink.
    * See the [color variant](https://gestalt.pinterest.systems/web/searchguide#Colors) for implementation guidance.
    */
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11';
+  color?:
+    | '01'
+    | '02'
+    | '03'
+    | '04'
+    | '05'
+    | '06'
+    | '07'
+    | '08'
+    | '09'
+    | '10'
+    | '11'
+    | Array<string>;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -88,8 +100,8 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   ref,
 ) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const innerRef = useRef<null | HTMLAnchorElement>(null);
@@ -99,7 +111,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const colorClass: { [key: string]: keyof typeof styles } = {
+  const colorClass: { [key: string]: string } = {
     '01': 'color01',
     '02': 'color02',
     '03': 'color03',
@@ -113,17 +125,12 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     '11': 'color11',
   };
 
-  const childrenDivClasses = classnames(
-    styles.childrenDiv,
-    isInVRExperiment && {
-      [styles[`color${color}`]]: true,
-    },
-  );
   const textComponent = (
     <TextUI align="center" color="dark" overflow="noWrap">
       {text}
     </TextUI>
   );
+
   const thumbnailVariant = thumbnail && (
     <Box marginEnd={3}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
@@ -153,6 +160,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
       </Flex>
     </Box>
   );
+
   const defaultVariant = (
     <Box paddingX={5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
@@ -175,11 +183,13 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
         })
       : undefined;
 
+  const colorClassname = typeof color === 'string' ? colorClass[color]! : color;
+
   return (
     <InternalLink
       ref={innerRef}
       aria-label={accessibilityLabel}
-      colorClass={isInVRExperiment ? undefined : (colorClass[color] as string)}
+      colorClass={isInVRExperiment ? undefined : colorClassname}
       dataTestId={dataTestId}
       href={href}
       onClick={handleClick}
@@ -188,7 +198,21 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
       target={target}
       wrappedComponent="searchGuide"
     >
-      <div className={childrenDivClasses}>{thumbnail ? thumbnailVariant : defaultVariant}</div>
+      <div
+        className={classnames(
+          styles.childrenDiv,
+          isInVRExperiment && typeof color === 'string' && styles[colorClass[color]!],
+        )}
+        style={
+          isInVRExperiment && typeof color !== 'string' && Array.isArray(color)
+            ? {
+                backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
+              }
+            : undefined
+        }
+      >
+        {thumbnail ? thumbnailVariant : defaultVariant}
+      </div>
     </InternalLink>
   );
 });

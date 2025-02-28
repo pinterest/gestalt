@@ -43,8 +43,8 @@ export function Message({
   type?: 'default' | 'success' | 'error' | 'progress';
 }) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
   const isError = type === 'error';
   const textRef = useRef<null | HTMLDivElement>(null);
@@ -133,8 +133,8 @@ export function Message({
 
 export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   return (
@@ -158,8 +158,8 @@ export function IconThumbnail({
   overrideColor?: IconColor;
 }) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
   return (
     <Box aria-hidden>
@@ -183,8 +183,8 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
     accessibilityProcessingLabel,
   } = useDefaultLabelContext('Toast');
   const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   return (

@@ -19,6 +19,15 @@ exports[`<BannerUpsell /> Basic BannerUpsell 1`] = `
         className="box marginBottomAuto marginEnd0 marginStart0 marginTopAuto smDisplayBlock smMarginEnd600 smMarginStart0 xsDirectionColumn xsDisplayFlex xsItemsCenter"
       >
         <div
+          className="box marginBottom200"
+        >
+          <div
+            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+          >
+            title
+          </div>
+        </div>
+        <div
           className="default alignStart breakWord Text fontSize300 fontWeightNormal"
         >
           Insert a clever upsell message here
@@ -110,7 +119,7 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
             }
           >
             <div
-              className="Flex rowGap200 columnGap0 flexWrap justifyEnd xsDirectionRow"
+              className="Flex rowGap200 columnGap0 justifyEnd xsDirectionRow"
             >
               <div
                 className="FlexItem flexGrow"
@@ -141,11 +150,11 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
                 </div>
               </div>
               <div
-                className="FlexItem"
+                className="FlexItem flexNone"
               >
                 <button
                   aria-label="Submit button"
-                  className="button inline accessibilityOutline tapTransition md red enabled"
+                  className="button inline accessibilityOutline parentButton"
                   disabled={false}
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -159,16 +168,12 @@ exports[`<BannerUpsell /> message + title + dismissButton + image + form 1`] = `
                   type="submit"
                 >
                   <div
-                    className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+                    className="button inline accessibilityOutline tapTransition md red enabled childrenDiv"
                   >
                     <div
-                      className="FlexItem"
+                      className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
                     >
-                      <div
-                        className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
-                      >
-                        Submit
-                      </div>
+                      Submit
                     </div>
                   </div>
                 </button>
@@ -324,17 +329,9 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton + imag
           tabIndex={0}
         >
           <div
-            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
           >
-            <div
-              className="FlexItem"
-            >
-              <div
-                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
-              >
-                Visit Pinterest
-              </div>
-            </div>
+            Visit Pinterest
           </div>
         </a>
       </div>
@@ -453,17 +450,9 @@ exports[`<BannerUpsell /> message + title + primaryAction + dismissButton 1`] = 
           tabIndex={0}
         >
           <div
-            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
           >
-            <div
-              className="FlexItem"
-            >
-              <div
-                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
-              >
-                Visit Pinterest
-              </div>
-            </div>
+            Visit Pinterest
           </div>
         </a>
       </div>
@@ -582,17 +571,9 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
           tabIndex={0}
         >
           <div
-            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="default alignCenter Text fontSize300 fontWeightSemiBold"
           >
-            <div
-              className="FlexItem"
-            >
-              <div
-                className="default alignCenter Text fontSize300 fontWeightSemiBold"
-              >
-                Learn more
-              </div>
-            </div>
+            Learn more
           </div>
         </a>
       </div>
@@ -620,17 +601,9 @@ exports[`<BannerUpsell /> message + title + primaryAction + secondaryAction 1`] 
           tabIndex={0}
         >
           <div
-            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
           >
-            <div
-              className="FlexItem"
-            >
-              <div
-                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
-              >
-                Visit Pinterest
-              </div>
-            </div>
+            Visit Pinterest
           </div>
         </a>
       </div>
@@ -700,17 +673,9 @@ exports[`<BannerUpsell /> message + title + primaryAction with href 1`] = `
           tabIndex={0}
         >
           <div
-            className="Flex rowGap200 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+            className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
           >
-            <div
-              className="FlexItem"
-            >
-              <div
-                className="inverse alignCenter Text fontSize300 fontWeightSemiBold"
-              >
-                Visit Pinterest
-              </div>
-            </div>
+            Visit Pinterest
           </div>
         </a>
       </div>

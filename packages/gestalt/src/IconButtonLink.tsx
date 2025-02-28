@@ -6,6 +6,7 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
@@ -16,9 +17,9 @@ type Props = {
    */
   accessibilityLabel: string;
   /**
-   * When set to 'page' or 'section', it displays the item in "active" state. See the [active state](https://gestalt.pinterest.systems/web/iconbuttonlink#Active-state) guidelines to learn more.
+   * When set to 'page', it displays the item in "active" state. See the [active state](https://gestalt.pinterest.systems/web/iconbuttonlink#Active-state) guidelines to learn more.
    */
-  active?: 'page' | 'section';
+  active?: 'page';
   /**
    * Primary colors to apply to the IconButtonLink background.
    */
@@ -126,10 +127,12 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   ref,
 ) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
   const innerRef = useRef<null | HTMLAnchorElement>(null);
+
+  const { isFocusVisible } = useFocusVisible();
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
@@ -184,7 +187,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         focusColor={focusColor}
-        focused={isInVRExperiment && isFocused}
+        focused={isInVRExperiment && isFocused && isFocusVisible}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

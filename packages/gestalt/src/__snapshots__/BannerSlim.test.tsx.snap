@@ -2,7 +2,7 @@
 
 exports[`BannerSlim renders an icon with accessibility label 1`] = `
 <div
-  className="box errorWeak mdDirectionRow paddingX400 paddingY0 paddingY400 rounding4 xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box errorWeak mdDirectionRow paddingX400 paddingY400 rounding4 smPaddingY400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -18,7 +18,7 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
     }
   >
     <div
-      className="FlexItem selfStart"
+      className="FlexItem"
     >
       <svg
         aria-hidden={null}
@@ -45,11 +45,16 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
           }
         }
       >
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        >
-          test
-        </span>
+        <div>
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          />
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -58,7 +63,7 @@ exports[`BannerSlim renders an icon with accessibility label 1`] = `
 
 exports[`BannerSlim renders complex message 1`] = `
 <div
-  className="box mdDirectionRow paddingX400 paddingY0 paddingY400 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box mdDirectionRow paddingX400 paddingY400 rounding4 secondary smPaddingY400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -79,38 +84,45 @@ exports[`BannerSlim renders complex message 1`] = `
       <div
         className="box"
       >
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        >
-          The campaign
-           
+        <div>
           <span
-            className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          />
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
-            Back to School
+            The campaign
+             
+            <span
+              className="default alignStart breakWord Text fontSize300 fontWeightSemiBold"
+            >
+              Back to School
+            </span>
+             
+            is regularly hitting its
+             
+            <a
+              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
+              href="http://www.pinterest.com"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onKeyPress={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              onMouseUp={[Function]}
+              onTouchCancel={[Function]}
+              onTouchEnd={[Function]}
+              onTouchMove={[Function]}
+              onTouchStart={[Function]}
+              rel=""
+            >
+              daily cap
+            </a>
+            . Consider raising daily caps to increase scale for a similar CPC and CTR.
           </span>
-           
-          is regularly hitting its
-           
-          <a
-            className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
-            href="http://www.pinterest.com"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            rel=""
-          >
-            daily cap
-          </a>
-          . Consider raising daily caps to increase scale for a similar CPC and CTR.
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -119,7 +131,7 @@ exports[`BannerSlim renders complex message 1`] = `
 
 exports[`BannerSlim renders neutral type with message 1`] = `
 <div
-  className="box mdDirectionRow paddingX400 paddingY0 paddingY400 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box mdDirectionRow paddingX400 paddingY400 rounding4 secondary smPaddingY400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -140,11 +152,16 @@ exports[`BannerSlim renders neutral type with message 1`] = `
       <div
         className="box"
       >
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        >
-          test
-        </span>
+        <div>
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          />
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -153,7 +170,7 @@ exports[`BannerSlim renders neutral type with message 1`] = `
 
 exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
 <div
-  className="box mdDirectionRow paddingX0 paddingY0 paddingY100 rounding4 transparent xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box mdDirectionRow paddingX0 paddingY0 rounding4 smPaddingY100 transparent xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -169,7 +186,7 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
     }
   >
     <div
-      className="FlexItem selfStart"
+      className="FlexItem"
     >
       <svg
         aria-hidden={null}
@@ -196,11 +213,16 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
           }
         }
       >
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        >
-          test
-        </span>
+        <div>
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          />
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -209,7 +231,7 @@ exports[`BannerSlim renders non-neutral compact with accessibility label 1`] = `
 
 exports[`BannerSlim renders primary action and dismiss button 1`] = `
 <div
-  className="box mdDirectionRow paddingX400 paddingY0 paddingY400 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box mdDirectionRow paddingX400 paddingY400 rounding4 secondary smPaddingY400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -230,11 +252,16 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
       <div
         className="box"
       >
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        >
-          test
-        </span>
+        <div>
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          />
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          >
+            test
+          </span>
+        </div>
       </div>
     </div>
     <div
@@ -362,7 +389,7 @@ exports[`BannerSlim renders primary action and dismiss button 1`] = `
 
 exports[`BannerSlim renders simple message with helper link 1`] = `
 <div
-  className="box mdDirectionRow paddingX400 paddingY0 paddingY400 rounding4 secondary xsDirectionColumn xsDisplayFlex xsItemsCenter"
+  className="box mdDirectionRow paddingX400 paddingY400 rounding4 secondary smPaddingY400 xsDirectionColumn xsDisplayFlex xsItemsCenter"
   style={
     Object {
       "width": "100%",
@@ -383,34 +410,41 @@ exports[`BannerSlim renders simple message with helper link 1`] = `
       <div
         className="box"
       >
-        <span
-          className="default alignStart breakWord Text fontSize300 fontWeightNormal"
-        >
-          test
-           
+        <div>
+          <span
+            className="default alignStart breakWord Text fontSize300 fontWeightNormal"
+          />
           <span
             className="default alignStart breakWord Text fontSize300 fontWeightNormal"
           >
-            <a
-              aria-label="Learn more Pinterest.com"
-              className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
-              href="http://www.pinterest.com"
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyPress={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              rel=""
+            test
+             
+            <span
+              className="default alignStart breakWord Text fontSize300 fontWeightNormal"
             >
-              Learn more
-            </a>
+              <a
+                aria-label="Learn more Pinterest.com"
+                className="noOutline inheritColor rounding0 inlineBlock tapTransition hoverNoUnderline underline outlineFocus"
+                href="http://www.pinterest.com"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyPress={[Function]}
+                onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchCancel={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                rel=""
+              >
+                Learn more
+              </a>
+            </span>
           </span>
-        </span>
+        </div>
       </div>
     </div>
   </div>

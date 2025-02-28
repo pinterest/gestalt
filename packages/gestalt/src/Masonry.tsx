@@ -577,7 +577,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       scrollContainer,
       _logTwoColWhitespace,
       _getColumnSpanConfig,
-      _getModulePositioningConfig,
+      _loadingStateItems = [],
+      _renderLoadingStateItems,
+      _earlyBailout,
     } = this.props;
     const { gutter, hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -594,7 +596,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       width,
       _getColumnSpanConfig,
       _logTwoColWhitespace,
-      _getModulePositioningConfig,
+      _loadingStateItems,
+      renderLoadingState,
+      _earlyBailout,
     });
 
     let gridBody;

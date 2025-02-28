@@ -243,3 +243,53 @@ exports[`renders inline Button 1`] = `
   InternalLink
 </a>
 `;
+
+exports[`renders with download string 1`] = `
+<a
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button"
+  download="file"
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="nofollow"
+  tabIndex={0}
+>
+  InternalLink
+</a>
+`;
+
+exports[`renders with download true 1`] = `
+<a
+  className="noOutline inheritColor noUnderline tapTransition pill accessibilityOutline inlineFlex justifyCenter xsItemsCenter button"
+  download={true}
+  href="https://example.com"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  rel="nofollow"
+  tabIndex={0}
+>
+  InternalLink
+</a>
+`;

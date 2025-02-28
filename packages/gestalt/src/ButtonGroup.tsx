@@ -1,6 +1,6 @@
 import { Children, ReactNode } from 'react';
-import { Flex } from '.';
 import Box from './Box';
+import Flex from './Flex';
 import useInExperiment from './useInExperiment';
 
 type Props = {
@@ -19,8 +19,8 @@ type Props = {
  */
 function ButtonGroup({ children }: Props) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   if (Children.count(children) === 0) {

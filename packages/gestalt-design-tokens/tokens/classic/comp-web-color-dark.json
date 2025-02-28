@@ -249,6 +249,28 @@
             "value": "#1f1f1f"
           }
         },
+        "dark": {
+          "default": {
+            "value": "{color.background.dark}"
+          },
+          "hover": {
+            "value": "#000000"
+          },
+          "active": {
+            "value": "#000000"
+          }
+        },
+        "light": {
+          "default": {
+            "value": "{color.background.light}"
+          },
+          "hover": {
+            "value": "#F8F7F2"
+          },
+          "active": {
+            "value": "#F8F7F2"
+          }
+        },
         "gray": {
           "default": {
             "value": "{color.background.neutral.value}"
@@ -389,6 +411,9 @@
             "value": "#e0e0e0"
           }
         }
+      },
+      "indicator": {
+        "value": "{color.background.primary.base.value}"
       },
       "mask": {
         "wash": {
@@ -741,6 +766,9 @@
         "disabled": {
           "value": "#404040"
         }
+      },
+      "indicator": {
+        "value": "#000000"
       },
       "popover": {
         "primary": {

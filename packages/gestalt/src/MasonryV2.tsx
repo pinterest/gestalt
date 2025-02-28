@@ -334,7 +334,7 @@ function useFetchOnScroll({
       | undefined,
   ) => void;
   scrollTop: number;
-  scrollContainerElement: HTMLElement | Window | null | undefined;
+  scrollContainerElement: HTMLElement | Window | Window | null | undefined;
   width: number | null | undefined;
 }) {
   const isFetching = useRef<boolean>(false);

@@ -96,8 +96,14 @@ export type DefaultLabelContextType = {
     iconAccessibilityLabelWarning: string;
     iconAccessibilityLabelSuccess: string;
   };
+  SearchField: {
+    accessibilityClearButtonLabel: string;
+  };
   Spinner: {
     accessibilityLabel: string;
+  };
+  Tabs: {
+    accessibilityNotificationLabel: string;
   };
   TableOfContents: {
     accessibilityLabel: string;
@@ -185,6 +191,9 @@ export const fallbackLabels: DefaultLabelContextType = {
     cancelText: 'Cancel',
     applyText: 'Apply',
   },
+  HelpButton: {
+    tooltipMessage: 'Click to learn more',
+  },
   Link: {
     accessibilityNewTabLabel: 'Opens a new tab',
     accessibilityDownloadLabel: 'Downloads a file',
@@ -223,11 +232,20 @@ export const fallbackLabels: DefaultLabelContextType = {
     iconAccessibilityLabelWarning: 'Warning',
     iconAccessibilityLabelSuccess: 'Success',
   },
+  BannerUpsell: {
+    accessibilityDismissButtonLabel: 'Dismiss banner',
+  },
+  SearchField: {
+    accessibilityClearButtonLabel: 'Clear input',
+  },
   Spinner: {
     accessibilityLabel: 'Loading',
   },
   TableOfContents: {
     accessibilityLabel: 'Table of contents',
+  },
+  Tabs: {
+    accessibilityNotificationLabel: 'This tab is displaying a notification indicator',
   },
   Tag: {
     accessibilityErrorIconLabel: 'Error',
@@ -241,18 +259,14 @@ export const fallbackLabels: DefaultLabelContextType = {
     accessibilityHidePasswordLabel: 'Hide password',
     accessibilityShowPasswordLabel: 'Show password',
   },
-  HelpButton: {
-    tooltipMessage: 'Click to learn more',
-  },
+
   Toast: {
     accessibilityDismissButtonLabel: 'Dismiss message',
     accessibilityIconSuccessLabel: 'Success message',
     accessibilityIconErrorLabel: 'Error message',
     accessibilityProcessingLabel: 'Processing message',
   },
-  BannerUpsell: {
-    accessibilityDismissButtonLabel: 'Dismiss banner',
-  },
+
   Video: {
     accessibilityMaximizeLabel: 'Maximize',
     accessibilityMinimizeLabel: 'Minimize',

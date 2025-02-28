@@ -1,0 +1,7 @@
+.label {
+  composes: block from "../Layout.css";
+  composes: pointer from "../Cursor.css";
+  padding-bottom: var(--space-200);
+  padding-left: var(--space-0);
+  padding-right: var(--space-0);
+}

@@ -89,8 +89,8 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
   ref,
 ) {
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const {
@@ -103,7 +103,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     href,
     onClick,
     role,
-    size = isInVRExperiment ? 'md' : 'fit',
+    size = 'fit',
   } = props;
 
   const isDisplayOnly = !role;

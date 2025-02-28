@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ReactElement } from 'react';
+import { ComponentProps, ReactElement } from 'react';
 import classnames from 'classnames';
 import styles from './BannerCallout.css';
 import VRBannerCallout from './BannerCallout/VRBannerCallout';
@@ -197,8 +197,8 @@ export default function BannerCallout({
   } = useDefaultLabelContext('BannerCallout');
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const getDefaultIconAccessibilityLabel = () => {
@@ -287,11 +287,7 @@ export default function BannerCallout({
               {typeof message === 'string' && (
                 <Text align={responsiveMinWidth === 'xs' ? 'center' : undefined}>{message}</Text>
               )}
-              {typeof message !== 'string' &&
-              // @ts-expect-error - TS2339
-              Children.only<ReactElement>(message).type.displayName === 'Text'
-                ? message
-                : null}
+              {message && typeof message !== 'string' && message}
             </Box>
           </Box>
         </Box>

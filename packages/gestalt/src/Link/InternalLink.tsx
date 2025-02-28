@@ -18,9 +18,10 @@ type Props = {
   accessibilityCurrent?: AriaCurrent;
   accessibilityLabel?: string;
   children?: ReactNode;
-  colorClass?: string;
+  colorClass?: string | Array<string>;
   dataTestId?: string;
   disabled?: boolean;
+  download?: boolean | string;
   focusColor?: 'lightBackground' | 'darkBackground';
   fullHeight?: boolean;
   fullWidth?: boolean;
@@ -65,6 +66,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     colorClass,
     dataTestId,
     disabled,
+    download,
     focusColor = 'lightBackground',
     fullHeight,
     fullWidth,
@@ -112,8 +114,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   });
 
   const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualRefresh',
-    mwebExperimentName: 'web_gestalt_visualRefresh',
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
   const { isFocusVisible } = useFocusVisible();
@@ -158,9 +160,9 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.buttonVr]: true,
           [buttonStyles.disabled]: disabled,
           [buttonStyles.selected]: !disabled && selected,
-          [buttonStyles.smVr]: size === 'sm',
-          [buttonStyles.mdVr]: size === 'md',
-          [buttonStyles.lgVr]: size === 'lg',
+          [buttonStyles.smLinkVr]: size === 'sm',
+          [buttonStyles.mdLinkVr]: size === 'md',
+          [buttonStyles.lgLinkVr]: size === 'lg',
           [buttonStyles.vrFocused]: !disabled && isFocusVisible,
           [buttonStyles.defaultFocus]:
             !disabled && isFocusVisible && focusColor === 'lightBackground',
@@ -216,7 +218,8 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       : {},
     isSearchGuide && !isInVRExperiment
       ? {
-          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]: true,
+          [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]:
+            typeof colorClass === 'string',
           [searchGuideStyles.searchguide]: true,
           [focusStyles.hideOutline]: !isFocusVisible,
           [focusStyles.accessibilityOutline]: isFocusVisible,
@@ -241,6 +244,10 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
       onClick({ event, dangerouslyDisableOnNavigation: () => {} });
     }
   };
+
+  const inBackgroundGradient =
+    !isInVRExperiment && typeof colorClass !== 'string' && Array.isArray(colorClass);
+  const isCompressed = tapStyle === 'compress' && compressStyle && !disabled;
   return (
     <a
       ref={innerRef}
@@ -250,7 +257,6 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           : undefined
       }
       aria-label={accessibilityLabel}
-      aria-selected={accessibilityCurrent && accessibilityCurrent === 'section' ? true : undefined}
       className={isSearchGuide ? searchGuideClassNames : className}
       data-test-id={dataTestId}
       href={disabled ? undefined : href}
@@ -302,9 +308,21 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         ...(target === 'blank' ? ['noopener', 'noreferrer'] : []),
         ...(rel === 'nofollow' ? ['nofollow'] : []),
       ].join(' ')}
+      {...(inBackgroundGradient || isCompressed
+        ? {
+            style: {
+              ...(inBackgroundGradient
+                ? {
+                    backgroundImage: `linear-gradient(0.25turn, ${colorClass.join(', ')})`,
+                  }
+                : {}),
+              ...(isCompressed ? compressStyle : {}),
+            },
+          }
+        : {})}
       tabIndex={disabled ? undefined : tabIndex}
-      {...(tapStyle === 'compress' && compressStyle && !disabled ? { style: compressStyle } : {})}
       target={target ? `_${target}` : undefined}
+      {...(download ? { download } : {})}
     >
       {children}
     </a>

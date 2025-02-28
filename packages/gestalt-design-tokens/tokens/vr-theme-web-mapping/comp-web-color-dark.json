@@ -115,6 +115,28 @@
             }
           }
         },
+        "dark": {
+          "default": {
+            "value": "{sema.color.background.dark.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.dark.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.dark.value}"
+          }
+        },
+        "light": {
+          "default": {
+            "value": "{sema.color.background.light.value}"
+          },
+          "hover": {
+            "value": "{sema.color.hover.background.light.value}"
+          },
+          "active": {
+            "value": "{sema.color.pressed.background.light.value}"
+          }
+        },
         "elevation": {
           "default": {
             "value": "{sema.color.background.elevation.value}"
@@ -129,7 +151,6 @@
             "value": "{sema.color.background.disabled.value}"
           }
         },
-
         "gray": {
           "default": {
             "value": "{sema.color.background.tertiary.value}"
@@ -258,7 +279,9 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "error": {
+              "value": "{sema.color.background.error.default.value}"
+            }
           }
         },
         "disabled": {
@@ -332,6 +355,14 @@
               "value": "{sema.color.background.disabled.value}"
             }
           }
+        }
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "searchguide": {
@@ -441,6 +472,16 @@
           }
         }
       },
+      "segmentedcontrol": {
+        "container": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "tab": {
+          "selected": {
+            "value": "{sema.color.background.default.value}"
+          }
+        }
+      },
       "switch": {
         "default": {
           "unselected": {
@@ -515,7 +556,7 @@
             "value": "{sema.color.background.selected.value}"
           },
           "error": {
-            "value": "{sema.color.background.error.weak.value}"
+            "value": "{sema.color.background.error.default.value}"
           }
         },
         "disabled": {
@@ -531,6 +572,17 @@
           "hover": {
             "value": "{sema.color.hover.border.interactive.value}"
           }
+        }
+      },
+      "indicator": {
+        "value": "{sema.color.border.inverse.value}"
+      },
+      "popover": {
+        "primary": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "education": {
+          "value": "{sema.color.background.education.value}"
         }
       },
       "switch": {

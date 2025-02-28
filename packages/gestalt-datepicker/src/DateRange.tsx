@@ -206,6 +206,12 @@ function DateRange({
     if (dateRangeHandlers?.onRender) dateRangeHandlers?.onRender();
   }, [dateRangeHandlers]);
 
+  useEffect(() => {
+    if (secondaryDateValue === undefined) {
+      setSelectedRange(DateRangeType.Primary);
+    }
+  }, [secondaryDateValue]);
+
   if (!dateValue.startDate && dateValue.endDate) {
     onDateChange({ value: null }, { value: null });
   }
@@ -238,14 +244,7 @@ function DateRange({
   });
 
   return (
-    <Box
-      borderStyle="shadow"
-      color="default"
-      display="inlineBlock"
-      minHeight={425}
-      overflow="hidden"
-      rounding={4}
-    >
+    <Box borderStyle="shadow" color="default" display="inlineBlock" minHeight={425} rounding={4}>
       <Flex>
         {radioGroup &&
         // @ts-expect-error - TS2339
@@ -272,12 +271,14 @@ function DateRange({
                 const { startDate, endDate } = dateValues;
                 const isInputSelected = selectedRange === key;
                 const shouldHighlight = secondaryDateValue && isInputSelected;
+                const multipleRanges = dateInputs.length > 1;
 
                 return (
                   <div
                     key={key}
                     className={classnames(borderStyles.dateFieldSection, {
                       [borderStyles.dateFieldSectionActive]: shouldHighlight,
+                      [borderStyles.dateFieldSectionTopLeftBorder]: !radioGroup,
                     })}
                   >
                     <div
@@ -285,7 +286,7 @@ function DateRange({
                         [borderStyles.dateFieldSectionLeftBorder]: shouldHighlight,
                       })}
                     />
-                    <TapArea disabled={false} onTap={() => setSelectedRange(key)}>
+                    <TapArea disabled={!multipleRanges} onTap={() => setSelectedRange(key)}>
                       <Flex gap={3}>
                         <Box width={isMobile ? MOBILE_DATEFIELD_WIDTH : DATEFIELD_WIDTH}>
                           <InternalDateField
@@ -358,16 +359,11 @@ function DateRange({
                     onSecondaryDateChange({ value: startDate }, { value: endDate });
                   }
                 }}
-                rangeEndDate={
-                  selectedRange === DateRangeType.Primary
-                    ? dateValue.endDate
-                    : secondaryDateValue?.endDate
-                }
-                rangeStartDate={
-                  selectedRange === DateRangeType.Primary
-                    ? dateValue.startDate
-                    : secondaryDateValue?.startDate
-                }
+                rangeEndDate={dateValue.endDate}
+                rangeStartDate={dateValue.startDate}
+                secondaryRangeEndDate={secondaryDateValue?.endDate}
+                secondaryRangeStartDate={secondaryDateValue?.startDate}
+                selectedRange={selectedRange}
               />
             </Box>
             {onSubmit && onCancel ? (

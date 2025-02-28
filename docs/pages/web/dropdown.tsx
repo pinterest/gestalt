@@ -9,6 +9,7 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import action from '../../examples/dropdown/action';
+import avatar from '../../examples/dropdown/avatar';
 import badges from '../../examples/dropdown/badges';
 import composability from '../../examples/dropdown/composability';
 import customHeader from '../../examples/dropdown/customHeader';
@@ -279,6 +280,16 @@ When the text of the Dropdown.Item becomes longer than the width of the menu, ei
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={badges} name="Badges example" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description="An [Avatar](/web/avatar) can be used to indicate a user profile item."
+          title="Avatar"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={avatar} name="Avatar example" />}
           />
         </MainSection.Subsection>
         <MainSection.Subsection

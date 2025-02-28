@@ -1,5 +1,7 @@
 import { forwardRef, ReactElement, ReactNode } from 'react';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
+import VRInternalCheckbox from './Checkbox/VRInternalCheckbox';
+import useInExperiment from './useInExperiment';
 
 type Props = {
   /**
@@ -86,6 +88,32 @@ const CheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Chec
   }: Props,
   ref,
 ) {
+  const isInVRExperiment = useInExperiment({
+    webExperimentName: 'web_gestalt_visualrefresh',
+    mwebExperimentName: 'web_gestalt_visualrefresh',
+  });
+
+  if (isInVRExperiment) {
+    return (
+      <VRInternalCheckbox
+        ref={ref}
+        checked={checked}
+        disabled={disabled}
+        errorMessage={errorMessage}
+        helperText={helperText}
+        id={id}
+        image={image}
+        indeterminate={indeterminate}
+        label={label}
+        labelDisplay={labelDisplay}
+        name={name}
+        onChange={onChange}
+        onClick={onClick}
+        size={size}
+      />
+    );
+  }
+
   return (
     <InternalCheckbox
       ref={ref}
