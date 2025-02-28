@@ -20,7 +20,7 @@ import {
 } from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
-import { Align, Layout, LoadingStateItem, Position } from './Masonry/types';
+import { Align, Layout, Position } from './Masonry/types';
 import throttle, { ThrottleReturn } from './throttle';
 
 const RESIZE_DEBOUNCE = 300;
@@ -104,7 +104,7 @@ type Props<T> = {
    *
    * This is required if the grid is expected to be scrollable.
    */
-  scrollContainer?: () => HTMLElement;
+  scrollContainer?: () => HTMLElement | Window;
   /**
    * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
    */
@@ -140,19 +140,6 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
-  /**
-   * An array of items to display that contains the data to be rendered by `_renderLoadingStateItems`.
-   */
-  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
-  /**
-   * Experimental prop to render a loading state
-   *
-   * A function that renders the loading state items you would like displayed in the grid. This function is passed two props: the item's data and the item's index in the grid.
-   */
-  _renderLoadingStateItems?: (arg1: {
-    readonly data: LoadingStateItem;
-    readonly itemIdx: number;
-  }) => ReactNode;
   /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
@@ -579,40 +566,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     return virtualize ? (isVisible && itemComponent) || null : itemComponent;
   };
 
-  renderLoadingStateComponent: ({
-    itemData,
-    idx,
-    position,
-  }: {
-    itemData: LoadingStateItem;
-    idx: number;
-    position: Position;
-  }) => ReactNode = ({ itemData, idx, position }) => {
-    const { _renderLoadingStateItems } = this.props;
-    const { top, left, width, height } = position;
-
-    if (_renderLoadingStateItems) {
-      return (
-        <div
-          key={`item-${idx}`}
-          className={[styles.Masonry__Item, styles.Masonry__Item__Mounted].join(' ')}
-          data-grid-item
-          role="listitem"
-          style={{
-            top,
-            left,
-            width: layoutNumberToCssDimension(width),
-            height: layoutNumberToCssDimension(height),
-          }}
-        >
-          {_renderLoadingStateItems({ data: itemData, itemIdx: idx })}
-        </div>
-      );
-    }
-
-    return null;
-  };
-
   render() {
     const {
       align = 'center',
@@ -624,15 +577,10 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       scrollContainer,
       _logTwoColWhitespace,
       _getColumnSpanConfig,
-      _loadingStateItems = [],
-      _renderLoadingStateItems,
       _getModulePositioningConfig,
     } = this.props;
     const { gutter, hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
-    const renderLoadingState = Boolean(
-      items.length === 0 && _loadingStateItems && _renderLoadingStateItems,
-    );
 
     const getPositions = getLayoutAlgorithm({
       align,
@@ -646,8 +594,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       width,
       _getColumnSpanConfig,
       _logTwoColWhitespace,
-      _loadingStateItems,
-      renderLoadingState,
       _getModulePositioningConfig,
     });
 
@@ -715,25 +661,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       // When the width is empty (usually after a re-mount) render an empty
       // div to collect the width for layout
       gridBody = <div ref={this.setGridWrapperRef} style={{ width: '100%' }} />;
-    } else if (renderLoadingState) {
-      const positions = getPositions(_loadingStateItems);
-      const height = positions.length
-        ? Math.max(...positions.map((pos) => pos.top + pos.height))
-        : 0;
-
-      gridBody = (
-        <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
-          <div className={styles.Masonry} role="list" style={{ height, width }}>
-            {_loadingStateItems.map((itemData, idx) =>
-              this.renderLoadingStateComponent({
-                itemData,
-                idx,
-                position: positions[idx]!,
-              }),
-            )}
-          </div>
-        </div>
-      );
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));

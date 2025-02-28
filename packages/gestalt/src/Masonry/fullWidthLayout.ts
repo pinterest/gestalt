@@ -1,10 +1,9 @@
 import { Cache } from './Cache';
 import getColumnCount, { FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH } from './getColumnCount';
 import { getHeightAndGutter } from './layoutHelpers';
-import { isLoadingStateItem, isLoadingStateItems } from './loadingStateUtils';
 import mindex from './mindex';
 import multiColumnLayout, { ColumnSpanConfig, ModulePositioningConfig } from './multiColumnLayout';
-import { Layout, LoadingStateItem, Position } from './types';
+import { Layout, Position } from './types';
 
 const fullWidthLayout = <T>({
   width,
@@ -15,7 +14,6 @@ const fullWidthLayout = <T>({
   measurementCache,
   _getColumnSpanConfig,
   _getModulePositioningConfig,
-  renderLoadingState,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -32,8 +30,7 @@ const fullWidthLayout = <T>({
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
-  renderLoadingState?: boolean;
-}): ((items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position>) => {
+}): ((items: ReadonlyArray<T>) => ReadonlyArray<Position>) => {
   if (width == null) {
     return (items) =>
       items.map(() => ({
@@ -51,13 +48,13 @@ const fullWidthLayout = <T>({
     minCols,
     layout,
   });
-  const columnWidth = Math.floor(width / columnCount) - gutter;
+  const columnWidth = width / columnCount - gutter;
   const columnWidthAndGutter = columnWidth + gutter;
   const centerOffset = gutter / 2;
 
-  return (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => {
+  return (items: ReadonlyArray<T>) => {
     const heights = new Array<number>(columnCount).fill(0);
-    return _getColumnSpanConfig && !isLoadingStateItems(items, renderLoadingState)
+    return _getColumnSpanConfig
       ? multiColumnLayout({
           items,
           columnWidth,
@@ -71,9 +68,7 @@ const fullWidthLayout = <T>({
         })
       : items.reduce<Array<any>>((acc, item) => {
           const positions = acc;
-          const height = isLoadingStateItem(item, renderLoadingState)
-            ? item.height
-            : measurementCache.get(item);
+          const height = measurementCache.get(item);
           let position;
 
           if (height == null) {

@@ -2,7 +2,7 @@ import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
 import { ColumnSpanConfig, ModulePositioningConfig } from './multiColumnLayout';
-import { Align, Layout, LoadingStateItem, Position } from './types';
+import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
 export default function getLayoutAlgorithm<T>({
@@ -17,8 +17,6 @@ export default function getLayoutAlgorithm<T>({
   width,
   _getColumnSpanConfig,
   _logTwoColWhitespace,
-  _loadingStateItems = [],
-  renderLoadingState,
   _getModulePositioningConfig,
 }: {
   align: Align;
@@ -37,9 +35,7 @@ export default function getLayoutAlgorithm<T>({
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
-  _loadingStateItems?: ReadonlyArray<LoadingStateItem>;
-  renderLoadingState?: boolean;
-}): (items: ReadonlyArray<T> | ReadonlyArray<LoadingStateItem>) => ReadonlyArray<Position> {
+}): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
       gutter,
@@ -52,7 +48,6 @@ export default function getLayoutAlgorithm<T>({
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
       _getModulePositioningConfig,
-      renderLoadingState,
     });
   }
   if (layout.startsWith('uniformRow')) {
@@ -63,7 +58,6 @@ export default function getLayoutAlgorithm<T>({
       flexible: layout === 'uniformRowFlexible',
       minCols,
       width,
-      renderLoadingState,
     });
   }
   return defaultLayout({
@@ -75,10 +69,9 @@ export default function getLayoutAlgorithm<T>({
     layout,
     logWhitespace: _logTwoColWhitespace,
     minCols,
-    rawItemCount: renderLoadingState ? _loadingStateItems.length : items.length,
+    rawItemCount: items.length,
     width,
     _getColumnSpanConfig,
     _getModulePositioningConfig,
-    renderLoadingState,
   });
 }

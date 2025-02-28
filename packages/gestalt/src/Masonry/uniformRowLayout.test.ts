@@ -141,28 +141,3 @@ describe.each([false, true])('Uniform Row layout tests', (flexible) => {
     expect(layout(['a', 'b', 'c', 'd'])).toEqual(expectedPositions);
   });
 });
-
-describe('loadingStateItems', () => {
-  test("uses the loadingStateItem's height", () => {
-    const loadingStateItems = [
-      { 'name': 'Pin 0', 'height': 100 },
-      { 'name': 'Pin 1', 'height': 120 },
-      { 'name': 'Pin 2', 'height': 80 },
-      { 'name': 'Pin 3', 'height': 100 },
-    ];
-
-    const layout = uniformRowLayout({
-      cache: stubCache(),
-      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
-      width: 500,
-      renderLoadingState: true,
-    });
-
-    expect(layout(loadingStateItems)).toEqual([
-      { top: 0, height: 100, left: 0, width: 236 },
-      { top: 0, height: 120, left: 250, width: 236 },
-      { top: 0, height: 80, left: 500, width: 236 },
-      { top: 134, height: 100, left: 0, width: 236 },
-    ]);
-  });
-});

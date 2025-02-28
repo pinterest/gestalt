@@ -11,9 +11,10 @@ export const MULTI_COL_ITEMS_MEASURE_BATCH_SIZE = 5;
 // We limit DAG iterations to 1MM to avoid running into obvious performance issues (or having the user waiting to much to see modules)
 const DAG_ITERATIONS_HARD_LIMIT = 1000;
 
-type GridSize = 'sm' | 'md' | 'lg' | 'xl';
+type GridSizeConfig = { 'sm': number; 'md': number; '_lg1'?: number; 'lg': number; 'xl': number };
+type GridSize = keyof GridSizeConfig;
 
-export type ColumnSpanConfig = number | { [Size in GridSize]: number };
+export type ColumnSpanConfig = number | GridSizeConfig;
 
 export type ModulePositioningConfig = {
   itemsBatchSize: number; // Maximum number of items used to position a module
@@ -24,7 +25,8 @@ export type ModulePositioningConfig = {
 // maps the number of columns to a grid breakpoint
 // sm: 2 columns
 // md: 3-4 columns
-// lg: 5-8 columns
+// _lg1: 5-6 columns (Experimental)
+// lg: 5-8 columns (To be removed in favor of experimental _lg1)
 // xl: 9+ columns
 export function columnCountToGridSize(columnCount: number): GridSize {
   if (columnCount <= 2) {
@@ -32,6 +34,9 @@ export function columnCountToGridSize(columnCount: number): GridSize {
   }
   if (columnCount <= 4) {
     return 'md';
+  }
+  if (columnCount <= 6) {
+    return '_lg1';
   }
   if (columnCount <= 8) {
     return 'lg';
@@ -48,6 +53,16 @@ function getPositionsOnly<T>(
   return positions.map(({ position }) => position);
 }
 
+function getColumnSpanFromGridSize(columnSpanConfig: ColumnSpanConfig, gridSize: GridSize): number {
+  if (typeof columnSpanConfig === 'number') {
+    return columnSpanConfig;
+  }
+  if (gridSize === '_lg1') {
+    return columnSpanConfig[gridSize] ?? columnSpanConfig.lg ?? 1;
+  }
+  return columnSpanConfig[gridSize] ?? 1;
+}
+
 export function calculateActualColumnSpan<T>(props: {
   columnCount: number;
   item: T;
@@ -56,8 +71,7 @@ export function calculateActualColumnSpan<T>(props: {
   const { columnCount, item, _getColumnSpanConfig } = props;
   const columnSpanConfig = _getColumnSpanConfig(item);
   const gridSize = columnCountToGridSize(columnCount);
-  const columnSpan =
-    typeof columnSpanConfig === 'number' ? columnSpanConfig : columnSpanConfig[gridSize] ?? 1;
+  const columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
   // a multi column item can never span more columns than there are in the grid
   return Math.min(columnSpan, columnCount);
 }
@@ -164,7 +178,9 @@ export function initializeHeightsArray<T>({
   items.forEach((item) => {
     const position = positionCache?.get(item);
     if (position) {
-      const col = (position.left - centerOffset) / columnWidthAndGutter;
+      // we do Math.round here because both position.left and columnWidthAndGutter can be floating point numbers
+      // in the case of fullWidthLayout (i.e. fluid grid)
+      const col = Math.round((position.left - centerOffset) / columnWidthAndGutter);
       const columnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
       // the height of the column is just the sum of the top and height of the item
       const absoluteHeight = position.top + position.height + gutter;
