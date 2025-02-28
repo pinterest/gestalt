@@ -704,13 +704,13 @@ export default class Video extends PureComponent<Props, State> {
           playsInline={playsInline}
           poster={poster}
           preload={preload}
-          src={typeof src === 'string' && src !== '' ? src : undefined}
+          src={typeof src === 'string' && src === '' ? undefined : src}
         >
           {Array.isArray(src) &&
             src.map((source) => <source key={source.src} src={source.src} type={source.type} />)}
           <track
             kind="captions"
-            src={typeof captions === 'string' && captions !== '' ? captions : undefined}
+            src={typeof captions === 'string' && captions === '' ? undefined : captions}
           />
         </video>
         {Boolean(children) && (

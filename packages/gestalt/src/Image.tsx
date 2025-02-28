@@ -137,7 +137,9 @@ export default class Image extends PureComponent<Props> {
       image.onload = this.handleLoad;
       // @ts-expect-error - TS2322 - Type '(event: SyntheticEvent<HTMLImageElement, Event>) => void' is not assignable to type 'OnErrorEventHandler'.
       image.onerror = this.handleError;
-      image.src = this.props.src;
+      if (this.props.src) {
+        image.src = this.props.src;
+      }
     }
   }
 
@@ -226,7 +228,7 @@ export default class Image extends PureComponent<Props> {
           onLoad={this.handleLoad}
           role={role === 'presentation' ? 'presentation' : undefined}
           sizes={sizes}
-          src={typeof src === 'string' && src !== '' ? src : undefined}
+          src={typeof src === 'string' && src === '' ? undefined : src}
           srcSet={srcSet}
           {...conditionalProps}
         />
