@@ -140,11 +140,10 @@ export default function TestPage({
       });
     }
     return generateExampleItems({ name: 'InitialPin' });
-  }
-
+  };
 
   return (
-    <ColorSchemeProvider colorScheme={darkModeValue ? "dark" : "light"}>
+    <ColorSchemeProvider colorScheme={darkModeValue ? 'dark' : 'light'}>
       <MaybeLazyHydrate ssrOnly={ssrOnly}>
         <MasonryContainer
           constrained={constrainedValue}
