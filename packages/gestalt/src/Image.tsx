@@ -73,7 +73,7 @@ type Props = {
   /**
    * The URL for the image.
    */
-  src: string;
+  src: string | undefined;
   /**
    * A comma-separated list of one or more strings indicating a set of possible image sources for the user agent to use.
    */
