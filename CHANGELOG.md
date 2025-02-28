@@ -1,3 +1,9 @@
+## 172.10.2 (Feb 28, 2025)
+
+### Patch
+
+- Masonry: Code cleanup and new test for masonry testing page ([#4014](https://github.com/pinterest/gestalt/pull/4014)) - [Preview link](https://deploy-preview-4014--gestalt.netlify.app?devexample=true)
+
 ## 172.10.1 (Feb 27, 2025)
 
 ### Patch
