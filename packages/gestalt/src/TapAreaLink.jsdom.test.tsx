@@ -238,8 +238,6 @@ describe('TapAreaLink', () => {
       </TapAreaLink>,
     );
     const anchorTagElement = screen.getByRole('link');
-    expect(
-      anchorTagElement.getAttribute('title'),
-    ).toBe(TEST_TITLE);
+    expect(anchorTagElement.getAttribute('title')).toBe(TEST_TITLE);
   });
 });
