@@ -1,3 +1,9 @@
+## 172.10.6 (Mar 3, 2025)
+
+### Patch
+
+- Internal: Upgrade mui-material ([#4023](https://github.com/pinterest/gestalt/pull/4023)) - [Preview link](https://deploy-preview-4023--gestalt.netlify.app?devexample=true)
+
 ## 172.10.5 (Feb 28, 2025)
 
 ### Patch
