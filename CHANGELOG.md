@@ -1,3 +1,9 @@
+## 172.10.7 (Mar 3, 2025)
+
+### Patch
+
+- TapAreaLink: support to `title` prop ([#4022](https://github.com/pinterest/gestalt/pull/4022)) - [Preview link](https://deploy-preview-4022--gestalt.netlify.app?devexample=true)
+
 ## 172.10.6 (Mar 3, 2025)
 
 ### Patch
