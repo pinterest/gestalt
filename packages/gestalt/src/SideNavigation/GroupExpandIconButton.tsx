@@ -37,7 +37,7 @@ export default function SideNavigationGroupExpandIconButton({
         <IconCompact
           accessibilityLabel=""
           color={active ? 'inverse' : 'default'}
-          icon={expanded ? 'compact-chevron-down' : 'compact-chevron-up'}
+          icon={expanded ? 'compact-chevron-up' : 'compact-chevron-down'}
           size={12}
         />
       </Box>
