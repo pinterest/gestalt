@@ -1,4 +1,4 @@
-import { ComponentProps, ReactElement } from 'react';
+import { ComponentProps, ReactElement, useRef } from 'react';
 import {
   SEMA_SPACE_800,
   SEMA_SPACE_1200,
@@ -6,6 +6,7 @@ import {
 import DismissButton from './DismissButton';
 import Footer from './Footer';
 import HeaderSection from './HeaderSection';
+import useIsWrappedContainer from './useIsWrappedContainer';
 import Box from '../Box';
 import Button from '../Button';
 import ButtonLink from '../ButtonLink';
@@ -74,6 +75,9 @@ export default function BannerCallout({
     : { paddingRight: SEMA_SPACE_1200, paddingLeft: SEMA_SPACE_800 };
 
   const backgroundColor = MESSAGING_TYPE_ATTRIBUTES[type]?.backgroundColor;
+
+  const wrappedRef = useRef<null | HTMLDivElement>(null);
+  const isWrapped = useIsWrappedContainer(wrappedRef, true);
 
   return (
     <Box width="100%">
@@ -174,10 +178,10 @@ export default function BannerCallout({
         width="100%"
       >
         <Box position="relative">
-          <Flex height="100%" width="100%">
-            <Flex.Item flex="grow" minWidth={0}>
+          <Flex height="100%" width="100%" wrap>
+            <Flex.Item flex={isWrapped ? 'grow' : undefined} minWidth={isWrapped ? undefined : 0}>
               <HeaderSection
-                fullWidth
+                fullWidth={isWrapped}
                 gap={6}
                 iconAccessibilityLabel={iconAccessibilityLabel}
                 iconSize={32}
@@ -188,15 +192,14 @@ export default function BannerCallout({
             </Flex.Item>
 
             {(primaryAction || secondaryAction) && (
-              <Flex.Item flex="none">
+              <Flex.Item ref={wrappedRef} flex="grow">
                 <Footer
                   buttonSize="lg"
-                  marginTop={0}
+                  fullHeight={isWrapped}
+                  marginTop={isWrapped ? 6 : 0}
                   primaryAction={primaryAction}
                   secondaryAction={secondaryAction}
-                  selfAlign="center"
                   type={type}
-                  wrap={false}
                 />
               </Flex.Item>
             )}

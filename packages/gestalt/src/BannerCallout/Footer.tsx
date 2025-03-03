@@ -116,8 +116,6 @@ type Props = {
   marginTop: 0 | 4 | 6;
   buttonSize: 'md' | 'lg';
   fullHeight?: boolean;
-  wrap?: boolean;
-  selfAlign?: 'center';
 };
 
 export default function Footer({
@@ -128,8 +126,6 @@ export default function Footer({
   checkWrapped = false,
   marginTop,
   buttonSize,
-  wrap = true,
-  selfAlign,
 }: Props) {
   const wrappedRef = useRef<null | HTMLDivElement>(null);
 
@@ -144,14 +140,14 @@ export default function Footer({
       marginTop={marginTop}
       position="relative"
     >
-      <Flex alignContent="center" gap={2} justifyContent="end" wrap={wrap}>
+      <Flex alignContent="center" gap={2} justifyContent="end" wrap>
         {secondaryAction && (
-          <Flex.Item alignSelf={selfAlign} flex={isWrapped && checkWrapped ? 'grow' : undefined}>
+          <Flex.Item flex={isWrapped && checkWrapped ? 'grow' : undefined}>
             <Action data={secondaryAction} level="secondary" size={buttonSize} type={type} />
           </Flex.Item>
         )}
         {primaryAction && (
-          <Flex.Item alignSelf={selfAlign} flex={isWrapped && checkWrapped ? 'grow' : undefined}>
+          <Flex.Item flex={isWrapped && checkWrapped ? 'grow' : undefined}>
             <Box ref={wrappedRef} width="100%">
               <Action data={primaryAction} level="primary" size={buttonSize} type={type} />
             </Box>
