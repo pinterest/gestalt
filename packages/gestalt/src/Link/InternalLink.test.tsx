@@ -160,3 +160,19 @@ it('renders Button with onClick', () =>
       )
       .toJSON(),
   ).toMatchSnapshot());
+
+it('renders with a title prop', () =>
+  expect(
+    renderer
+      .create(
+        <InternalLink
+          href="https://example.com"
+          tabIndex={0}
+          title="title with more information"
+          wrappedComponent="tapArea"
+        >
+          InternalLink
+        </InternalLink>,
+      )
+      .toJSON(),
+  ).toMatchSnapshot());
