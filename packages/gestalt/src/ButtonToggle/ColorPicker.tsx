@@ -46,7 +46,7 @@ const skinColor = {
   skinTone16: '#4F2221',
 };
 
-export type SkinColor = keyof typeof skinColor;
+export type SkinColor = keyof typeof skinColor | string;
 
 function getOutlineColor(hovered: boolean, selected: boolean, focused: boolean) {
   // Selection state takes precedence
@@ -129,7 +129,9 @@ export default function ColorPicker({ colors, selected, isHovered, isFocused, si
             // eslint-disable-next-line react/no-array-index-key
             key={`${color}-${index}`}
             dangerouslySetInlineStyle={{
-              __style: { backgroundColor: skinColor[color as SkinColor] },
+              __style: {
+                backgroundColor: skinColor[color as SkinColor] ?? color,
+              },
             }}
             height={filtersContainerHeightPx / 2}
             width={filtersContainerWidthPx / 2}
