@@ -55,6 +55,7 @@ type Props = {
   size?: 'sm' | 'md' | 'lg';
   tapStyle?: 'none' | 'compress';
   target?: null | 'self' | 'blank';
+  title?: string;
   wrappedComponent: 'button' | 'iconButton' | 'tapArea' | 'searchGuide';
 };
 
@@ -89,6 +90,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     size,
     tapStyle = 'compress',
     target,
+    title,
     wrappedComponent,
   }: Props,
   ref,
@@ -322,6 +324,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
         : {})}
       tabIndex={disabled ? undefined : tabIndex}
       target={target ? `_${target}` : undefined}
+      title={title}
       {...(download ? { download } : {})}
     >
       {children}
