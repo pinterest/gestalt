@@ -1,3 +1,9 @@
+## 172.10.8 (Mar 3, 2025)
+
+### Patch
+
+- BannerCallout: Revert BannerCallout: message width adjustments ([#4007](https://github.com/pinterest/gestalt/pull/4007)) - [Preview link](https://deploy-preview-4007--gestalt.netlify.app?devexample=true) ([#4024](https://github.com/pinterest/gestalt/pull/4024)) - [Preview link](https://deploy-preview-4024--gestalt.netlify.app?devexample=true)
+
 ## 172.10.7 (Mar 3, 2025)
 
 ### Patch
