@@ -145,18 +145,34 @@ it('renders with download string', () =>
       .toJSON(),
   ).toMatchSnapshot());
 
-it('renders Button with onClick', () =>
-  expect(
-    renderer
+  it('renders Button with onClick', () =>
+    expect(
+      renderer
       .create(
         <InternalLink
-          href="https://example.com"
-          onClick={() => {}}
-          tabIndex={0}
-          wrappedComponent="button"
+        href="https://example.com"
+        onClick={() => {}}
+        tabIndex={0}
+        wrappedComponent="button"
         >
           InternalLink
         </InternalLink>,
       )
       .toJSON(),
-  ).toMatchSnapshot());
+    ).toMatchSnapshot());
+
+  it('renders with a title prop', () =>
+      expect(
+        renderer
+          .create(
+            <InternalLink
+              href="https://example.com"
+              tabIndex={0}
+              title="title with more information"
+              wrappedComponent="tapArea"
+            >
+              InternalLink
+            </InternalLink>,
+          )
+          .toJSON(),
+      ).toMatchSnapshot());
