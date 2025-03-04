@@ -337,6 +337,9 @@
           }
         }
       },
+      "chartgraph": {
+        "neutral": { "value": "#CDCDCD" }
+      },
       "combobox": {
         "item": {
           "default": {
@@ -719,6 +722,9 @@
         },
         "12": {
           "value": "{color.data-visualization.12.value}1A"
+        },
+        "neutral": {
+          "value": "{color.background.chartgraph.neutral.value}1A"
         },
         "hover": {
           "value": "{color.background.secondary.base.value}"

@@ -24,7 +24,20 @@ type Props = {
     type: 'line' | 'bar';
     axis?: 'left' | 'right' | 'bottom' | 'top';
     id: string;
-    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12';
+    color?:
+      | '01'
+      | '02'
+      | '03'
+      | '04'
+      | '05'
+      | '06'
+      | '07'
+      | '08'
+      | '09'
+      | '10'
+      | '11'
+      | '12'
+      | 'neutral';
     precision?: 'exact' | 'estimate';
   }>;
   layout: 'horizontal' | 'vertical' | 'horizontalBiaxial' | 'verticalBiaxial';

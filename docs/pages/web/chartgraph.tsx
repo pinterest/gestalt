@@ -1,4 +1,4 @@
-import { BannerSlim, Box } from 'gestalt';
+import { BannerSlim, Box, useColorScheme } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,
   TOKEN_COLOR_DATA_VISUALIZATION_02,
@@ -45,6 +45,7 @@ import legend from '../../examples/chartgraph/legend';
 import line from '../../examples/chartgraph/line';
 import localizationLabels from '../../examples/chartgraph/localizationLabels';
 import main from '../../examples/chartgraph/main';
+import neutral from '../../examples/chartgraph/neutral';
 import precision from '../../examples/chartgraph/precision';
 import range from '../../examples/chartgraph/range';
 import referenceArea from '../../examples/chartgraph/referenceArea';
@@ -65,6 +66,9 @@ export default function ComponentPage({ generatedDocGen }: { generatedDocGen: Ge
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
   const EXTRA_LARGE_HEIGHT = 500;
+
+  const { colorSchemeName } = useColorScheme();
+  const isDarkMode = colorSchemeName === 'darkMode';
 
   return (
     <Page title={generatedDocGen.ChartGraph?.displayName}>
@@ -481,7 +485,7 @@ If different graphs need to be compared simultaneously, see example below, color
         `}
           title="Colors"
         >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; cardSize: "xs"; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 */}
           <CombinationNew cardSize="xs" color={['01', '02', '03', '04', '05', '06']}>
             {({ color }) => {
               function getToken(value: string): string {
@@ -516,7 +520,7 @@ If different graphs need to be compared simultaneously, see example below, color
               );
             }}
           </CombinationNew>
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; cardSize: "xs"; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 */}
           <CombinationNew cardSize="xs" color={['07', '08', '09', '10', '11', '12']}>
             {({ color }) => {
               function getToken(value: string): string {
@@ -551,6 +555,20 @@ If different graphs need to be compared simultaneously, see example below, color
               );
             }}
           </CombinationNew>
+          {/* @ts-expect-error - TS2322 */}
+          <CombinationNew cardSize="xs" color={['neutral']}>
+            {() => (
+              <Box
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    backgroundColor: isDarkMode ? '#CDCDCD' : '#767676',
+                  },
+                }}
+                height={80}
+                width={80}
+              />
+            )}
+          </CombinationNew>
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -558,6 +576,18 @@ If different graphs need to be compared simultaneously, see example below, color
                 code={colors}
                 layout="column"
                 name="Colors"
+                previewHeight={EXTRA_LARGE_HEIGHT}
+              />
+            }
+          />
+
+        <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={neutral}
+                layout="column"
+                name="Neutral colors"
                 previewHeight={EXTRA_LARGE_HEIGHT}
               />
             }

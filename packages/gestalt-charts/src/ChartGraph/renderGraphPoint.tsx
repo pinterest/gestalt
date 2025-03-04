@@ -14,6 +14,7 @@ export function GraphPoint({ color, cx, cy, noReposition = false }: Props) {
   const hexColor = useHexColor();
 
   const decalDotCoordCorrection = {
+    'neutral': { coordinate: [4, 4] },
     '01': { coordinate: [4, 4] },
     '02': { coordinate: [0, 4], fill: 'empty' },
     '03': { coordinate: [4, 4] },

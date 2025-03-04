@@ -57,6 +57,7 @@ function LegendIcon({ payloadData }: Props) {
 
   const source = colorSchemeName === 'lightMode' ? lightColorDesignTokens : darkColorDesignTokens;
   const colorMap = Object.entries({
+    'neutral': source['color-background-chartgraph-neutral'],
     '01': source['color-data-visualization-01'],
     '02': source['color-data-visualization-02'],
     '03': source['color-data-visualization-03'],

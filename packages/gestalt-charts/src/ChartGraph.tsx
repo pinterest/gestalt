@@ -58,7 +58,7 @@ type Props = {
    */
   elements: ReadonlyArray<{
     axis?: 'left' | 'right' | 'bottom' | 'top';
-    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12';
+    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12' | 'neutral';
     id: string;
     precision?: 'exact' | 'estimate';
     type: 'line' | 'bar';
