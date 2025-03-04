@@ -1,3 +1,9 @@
+## 172.11.0 (Mar 4, 2025)
+
+### Minor
+
+- Internal: Compact Icon Swap ([#4010](https://github.com/pinterest/gestalt/pull/4010)) - [Preview link](https://deploy-preview-4010--gestalt.netlify.app?devexample=true)
+
 ## 172.10.8 (Mar 3, 2025)
 
 ### Patch
