@@ -1,5 +1,6 @@
 import { BannerSlim, Box, useColorScheme } from 'gestalt';
 import {
+  TOKEN_COLOR_BACKGROUND_CHARTGRAPH_NEUTRAL,
   TOKEN_COLOR_DATA_VISUALIZATION_01,
   TOKEN_COLOR_DATA_VISUALIZATION_02,
   TOKEN_COLOR_DATA_VISUALIZATION_03,
@@ -561,7 +562,7 @@ If different graphs need to be compared simultaneously, see example below, color
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {
-                    backgroundColor: isDarkMode ? '#CDCDCD' : '#767676',
+                    backgroundColor: TOKEN_COLOR_BACKGROUND_CHARTGRAPH_NEUTRAL,
                   },
                 }}
                 height={80}
