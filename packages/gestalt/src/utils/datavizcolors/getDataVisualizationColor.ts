@@ -14,10 +14,8 @@ export default function getDataVisualizationColor(
   if (vizColor === 'neutral') {
     hex =
       theme === 'lightMode'
-        ? // @ts-expect-error - TS7053
-          lightColorDesignTokens['color-background-chartgraph-neutral']
-        : // @ts-expect-error - TS7053
-          darkColorDesignTokens['color-background-chartgraph-neutral'];
+        ? lightColorDesignTokens['color-background-chartgraph-neutral']
+        : darkColorDesignTokens['color-background-chartgraph-neutral'];
   } else {
     hex =
       theme === 'lightMode'
