@@ -4,6 +4,7 @@ import Badge from '../Badge';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import icons from '../icons/index';
 import Text from '../Text';
 
@@ -48,12 +49,21 @@ export default function AccordionTitle(props: {
     <Flex alignItems="center" gap={{ row: titleGap, column: 0 }}>
       {hasIcon && (
         <Flex.Item minWidth={0}>
-          <Icon
-            accessibilityLabel={iconAccessibilityLabel}
-            color={textAndIconColor}
-            dataTestId={dataTestIdIcon}
-            icon={hasError ? 'workflow-status-problem' : props.icon}
-          />
+          {hasError || props.icon === 'lock' ? (
+            <IconCompact
+              accessibilityLabel={iconAccessibilityLabel}
+              color={textAndIconColor}
+              dataTestId={dataTestIdIcon}
+              icon={hasError ? 'compact-workflow-status-problem' : 'compact-lock'}
+            />
+          ) : (
+            <Icon
+              accessibilityLabel={iconAccessibilityLabel}
+              color={textAndIconColor}
+              dataTestId={dataTestIdIcon}
+              icon={props.icon}
+            />
+          )}
         </Flex.Item>
       )}
 

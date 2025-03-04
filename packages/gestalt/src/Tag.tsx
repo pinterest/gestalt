@@ -4,6 +4,7 @@ import Box from './Box';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import focusStyles from './Focus.css';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 import styles from './Tag.css';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
@@ -22,8 +23,8 @@ const foregroundColorByType = Object.freeze({
 });
 
 const iconsByType = Object.freeze({
-  error: 'workflow-status-problem',
-  warning: 'workflow-status-warning',
+  error: 'compact-workflow-status-problem',
+  warning: 'compact-workflow-status-warning',
 });
 
 type Props = {
@@ -158,7 +159,7 @@ export default function Tag({
       <Box alignItems="center" display="flex" height="100%" marginEnd={disabled ? 0 : 5}>
         {(type === 'error' || type === 'warning') && (
           <Box marginEnd={1} marginStart={1}>
-            <Icon
+            <IconCompact
               accessibilityLabel={accessibilityLabels[type]}
               color={fgColor}
               icon={iconsByType[type]}
