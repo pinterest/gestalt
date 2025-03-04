@@ -1,4 +1,4 @@
-import { BannerSlim, Box, useColorScheme } from 'gestalt';
+import { BannerSlim, Box } from 'gestalt';
 import {
   TOKEN_COLOR_BACKGROUND_CHARTGRAPH_NEUTRAL,
   TOKEN_COLOR_DATA_VISUALIZATION_01,
@@ -67,9 +67,6 @@ export default function ComponentPage({ generatedDocGen }: { generatedDocGen: Ge
   const SMALL_HEIGHT = 250;
   const LARGE_HEIGHT = 400;
   const EXTRA_LARGE_HEIGHT = 500;
-
-  const { colorSchemeName } = useColorScheme();
-  const isDarkMode = colorSchemeName === 'darkMode';
 
   return (
     <Page title={generatedDocGen.ChartGraph?.displayName}>
@@ -483,6 +480,9 @@ Props: \`elements=[{..., type:'line', precision='estimate'}]\`
           description={`Colors on data series are set automatically for best contrast.
 
 If different graphs need to be compared simultaneously, see example below, color in time series can be set in the \`elements\` prop setting each color \`color='01'\` individually.
+
+
+Use neutral tones for less prioritized data, it can help other colors stand out and guide users' attention to key data points.
         `}
           title="Colors"
         >
@@ -582,7 +582,7 @@ If different graphs need to be compared simultaneously, see example below, color
             }
           />
 
-        <MainSection.Card
+          <MainSection.Card
             cardSize="lg"
             sandpackExample={
               <SandpackExample
