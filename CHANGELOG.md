@@ -1,3 +1,9 @@
+## 172.13.2 (Mar 5, 2025)
+
+### Patch
+
+- ChartGraph: fix time series interval and padding issues ([#4028](https://github.com/pinterest/gestalt/pull/4028)) - [Preview link](https://deploy-preview-4028--gestalt.netlify.app?devexample=true)
+
 ## 172.13.1 (Mar 5, 2025)
 
 ### Patch
