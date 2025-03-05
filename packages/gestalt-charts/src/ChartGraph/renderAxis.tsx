@@ -84,15 +84,15 @@ export default function renderAxis({
           <XAxis
             axisLine={false}
             dataKey="name"
-            // @ts-expect-error - TS2322 - Type 'false | [number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number), number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number)] | undefined' is not assignable to type 'AxisDomain | undefined'.
+            // @ts-expect-error - TS2322
             domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
             orientation="bottom"
             padding={isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined}
             reversed={isRtl}
             scale={isTimeSeries ? 'time' : undefined}
-            // @ts-expect-error - TS2322 - Type '{ readonly fontSize: "var(--font-size-100)"; readonly fontFamily: "var(--font-family-default-latin)"; readonly fontWeight: "var(--font-weight-normal)"; }' is not assignable to type 'Properties<string | number, string & {}>'.
+            // @ts-expect-error - TS2322
             style={FONT_STYLE_CATEGORIES}
-            // @ts-expect-error - TS2322 - Type '((arg1: number, arg2: number) => string | number) | ((value: string) => string) | undefined' is not assignable to type '((value: any, index: number) => string) | undefined'.
+            // @ts-expect-error - TS2322
             tickFormatter={
               isTimeSeries
                 ? tickFormatter?.xAxisBottom || tickFormatter?.timeseries
@@ -106,10 +106,10 @@ export default function renderAxis({
             axisLine={false}
             domain={Array.isArray(range) ? range : range?.yAxisLeft}
             orientation={isRtl ? 'right' : 'left'}
-            // @ts-expect-error - TS2322 - Type '{ readonly color: "var(--color-text-subtle)"; readonly fontSize: "var(--font-size-100)"; readonly fontFamily: "var(--font-family-default-latin)"; readonly fontWeight: "var(--font-weight-normal)"; }' is not assignable to type 'Properties<string | number, string & {}>'.
+            // @ts-expect-error - TS2322
             style={FONT_STYLE_VALUES}
             tickCount={tickCount}
-            // @ts-expect-error - TS2322 - Type '((arg1: number, arg2: number) => string | number) | undefined' is not assignable to type '((value: any, index: number) => string) | undefined'.
+            // @ts-expect-error - TS2322
             tickFormatter={tickFormatter?.yAxisLeft}
             tickLine={false}
             yAxisId="left"
@@ -121,10 +121,10 @@ export default function renderAxis({
           axisLine={false}
           domain={Array.isArray(range) ? range : range?.yAxisLeft}
           orientation={isRtl ? 'left' : 'right'}
-          // @ts-expect-error - TS2322 - Type '{ readonly color: "var(--color-text-subtle)"; readonly fontSize: "var(--font-size-100)"; readonly fontFamily: "var(--font-family-default-latin)"; readonly fontWeight: "var(--font-weight-normal)"; }' is not assignable to type 'Properties<string | number, string & {}>'.
+          // @ts-expect-error - TS2322
           style={FONT_STYLE_VALUES}
           tickCount={tickCount}
-          // @ts-expect-error - TS2322 - Type '((arg1: number, arg2: number) => string | number) | undefined' is not assignable to type '((value: any, index: number) => string) | undefined'.
+          // @ts-expect-error - TS2322
           tickFormatter={tickFormatter?.yAxisRight}
           tickLine={false}
           yAxisId="right"
@@ -134,14 +134,14 @@ export default function renderAxis({
         <Fragment>
           <XAxis
             axisLine={false}
-            // @ts-expect-error - TS2322 - Type '[number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number), number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number)] | { xAxisBottom?: [number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number), number | ... 3 more ... | ((arg1: number) => number)] | undefined; xAxisTop?: [...] | u...' is not assignable to type 'AxisDomain | undefined'.
+            // @ts-expect-error - TS2322
             domain={range}
             orientation="bottom"
             reversed={isRtl}
-            // @ts-expect-error - TS2322 - Type '{ readonly color: "var(--color-text-subtle)"; readonly fontSize: "var(--font-size-100)"; readonly fontFamily: "var(--font-family-default-latin)"; readonly fontWeight: "var(--font-weight-normal)"; }' is not assignable to type 'Properties<string | number, string & {}>'.
+            // @ts-expect-error - TS2322
             style={FONT_STYLE_VALUES}
             tickCount={tickCount}
-            // @ts-expect-error - TS2322 - Type '((arg1: number, arg2: number) => string | number) | undefined' is not assignable to type '((value: any, index: number) => string) | undefined'.
+            // @ts-expect-error - TS2322
             tickFormatter={tickFormatter?.xAxisBottom}
             tickLine={false}
             type="number"
@@ -151,7 +151,7 @@ export default function renderAxis({
             axisLine={false}
             dataKey="name"
             orientation={isRtl ? 'right' : 'left'}
-            // @ts-expect-error - TS2322 - Type '{ readonly fontSize: "var(--font-size-100)"; readonly fontFamily: "var(--font-family-default-latin)"; readonly fontWeight: "var(--font-weight-normal)"; }' is not assignable to type 'Properties<string | number, string & {}>'.
+            // @ts-expect-error - TS2322
             style={FONT_STYLE_CATEGORIES}
             tickFormatter={(value: string) => labelMap?.[value] || value}
             tickLine={false}
@@ -163,14 +163,14 @@ export default function renderAxis({
       {isVerticalBiaxialLayout && (
         <XAxis
           axisLine={false}
-          // @ts-expect-error - TS2322 - Type '[number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number), number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number)] | { xAxisBottom?: [number | "auto" | "dataMin" | "dataMax" | ((arg1: number) => number), number | ... 3 more ... | ((arg1: number) => number)] | undefined; xAxisTop?: [...] | u...' is not assignable to type 'AxisDomain | undefined'.
+          // @ts-expect-error - TS2322
           domain={range}
           orientation="top"
           reversed={isRtl}
-          // @ts-expect-error - TS2322 - Type '{ readonly color: "var(--color-text-subtle)"; readonly fontSize: "var(--font-size-100)"; readonly fontFamily: "var(--font-family-default-latin)"; readonly fontWeight: "var(--font-weight-normal)"; }' is not assignable to type 'Properties<string | number, string & {}>'.
+          // @ts-expect-error - TS2322
           style={FONT_STYLE_VALUES}
           tickCount={tickCount}
-          // @ts-expect-error - TS2322 - Type '((arg1: number, arg2: number) => string | number) | undefined' is not assignable to type '((value: any, index: number) => string) | undefined'.
+          // @ts-expect-error - TS2322
           tickFormatter={tickFormatter?.xAxisTop}
           tickLine={false}
           type="number"

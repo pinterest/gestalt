@@ -66,7 +66,7 @@ export default function renderElements({
     : [4, 4, 0, 0];
 
   return elements.map((values, index) => {
-    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'number' can't be used to index type '{ readonly '0': "01"; readonly '1': "02"; readonly '2': "03"; readonly '3': "04"; readonly '4': "05"; readonly '5': "06"; readonly '6': "07"; readonly '7': "08"; readonly '8': "09"; readonly '9': "10"; readonly '10': "11"; readonly '11': "12"; }'.
+    // @ts-expect-error - TS7053
     const defaultColor = colorMap[index];
     const isBarElement = values.type === 'bar';
     const isLineElement = values.type === 'line';
@@ -78,7 +78,7 @@ export default function renderElements({
       return (
         <RechartsBar
           key={values.id}
-          // @ts-expect-error - TS2769 - No overload matches this call.
+          // @ts-expect-error - TS2769
           barSize="50%"
           dataKey={values.id}
           fill={
@@ -130,12 +130,12 @@ export default function renderElements({
           key={values.id}
           activeDot={false}
           dataKey={values.id}
-          // @ts-expect-error - TS2769 - No overload matches this call.
+          // @ts-expect-error - TS2769
           dot={visualPatternSelected === 'visualPattern' ? graphPoint : false}
           isAnimationActive={false}
           legendType="line"
           stroke={hexColor(values.color || defaultColor)}
-          // @ts-expect-error - TS2454 - Variable 'strokeDasharray' is used before being assigned.
+          // @ts-expect-error - TS2454
           strokeDasharray={strokeDasharray}
           strokeWidth={values.precision === 'estimate' ? 2 : 3}
           type={values.precision === 'estimate' ? 'monotone' : undefined}
