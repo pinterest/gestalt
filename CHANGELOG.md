@@ -1,3 +1,9 @@
+## 172.13.1 (Mar 5, 2025)
+
+### Patch
+
+- ChartGraph: document is not defined issue ([#4027](https://github.com/pinterest/gestalt/pull/4027)) - [Preview link](https://deploy-preview-4027--gestalt.netlify.app?devexample=true)
+
 ## 172.13.0 (Mar 5, 2025)
 
 ### Minor
