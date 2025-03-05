@@ -1,3 +1,9 @@
+## 172.12.0 (Mar 5, 2025)
+
+### Minor
+
+- ChartGraph, TileData, TagData: support neutral dataviz color & opacity ([#4026](https://github.com/pinterest/gestalt/pull/4026)) - [Preview link](https://deploy-preview-4026--gestalt.netlify.app?devexample=true)
+
 ## 172.11.0 (Mar 4, 2025)
 
 ### Minor
