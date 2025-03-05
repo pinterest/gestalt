@@ -13,8 +13,6 @@ export default function renderAxis({
   isVerticalLayout,
   isTimeSeries,
   isVerticalBiaxialLayout,
-  isBar,
-  isCombo,
   range,
   tickFormatter,
   labelMap,
@@ -25,8 +23,6 @@ export default function renderAxis({
   isVerticalLayout: boolean;
   isVerticalBiaxialLayout: boolean;
   isTimeSeries: boolean;
-  isBar: boolean;
-  isCombo: boolean;
   range:
     | [
         number | 'auto' | 'dataMin' | 'dataMax' | ((arg1: number) => number),
