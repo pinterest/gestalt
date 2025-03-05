@@ -1,3 +1,9 @@
+## 172.13.0 (Mar 5, 2025)
+
+### Minor
+
+- ButtonToggle: color picker supports custom colors ([#4025](https://github.com/pinterest/gestalt/pull/4025)) - [Preview link](https://deploy-preview-4025--gestalt.netlify.app?devexample=true)
+
 ## 172.12.0 (Mar 5, 2025)
 
 ### Minor
