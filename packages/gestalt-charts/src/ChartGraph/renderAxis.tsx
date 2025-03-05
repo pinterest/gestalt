@@ -13,8 +13,6 @@ export default function renderAxis({
   isVerticalLayout,
   isTimeSeries,
   isVerticalBiaxialLayout,
-  isBar,
-  isCombo,
   range,
   tickFormatter,
   labelMap,
@@ -25,8 +23,6 @@ export default function renderAxis({
   isVerticalLayout: boolean;
   isVerticalBiaxialLayout: boolean;
   isTimeSeries: boolean;
-  isBar: boolean;
-  isCombo: boolean;
   range:
     | [
         number | 'auto' | 'dataMin' | 'dataMax' | ((arg1: number) => number),
@@ -86,8 +82,9 @@ export default function renderAxis({
             dataKey="name"
             // @ts-expect-error - TS2322
             domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
+            interval={0}
             orientation="bottom"
-            padding={isTimeSeries && (isBar || isCombo) ? { left: 100, right: 100 } : undefined}
+            padding="no-gap"
             reversed={isRtl}
             scale={isTimeSeries ? 'time' : undefined}
             // @ts-expect-error - TS2322
