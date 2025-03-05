@@ -287,7 +287,7 @@ function ChartGraph({
   // Internally we match Recharts for easier development and comoprehension of Recharts docs
   const layout = LAYOUT_MAP[externalLayout];
 
-  const isRtl = document?.dir === 'rtl';
+  const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
   const isVerticalLayout = ['vertical', 'verticalBiaxial'].includes(layout);
   const isHorizontalLayout = ['horizontal', 'horizontalBiaxial'].includes(layout);
