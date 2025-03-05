@@ -47,6 +47,7 @@ import line from '../../examples/chartgraph/line';
 import localizationLabels from '../../examples/chartgraph/localizationLabels';
 import main from '../../examples/chartgraph/main';
 import neutral from '../../examples/chartgraph/neutral';
+import opacity from '../../examples/chartgraph/opacity';
 import precision from '../../examples/chartgraph/precision';
 import range from '../../examples/chartgraph/range';
 import referenceArea from '../../examples/chartgraph/referenceArea';
@@ -446,6 +447,18 @@ Props: \`legend\`
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={legend} layout="column" name="Legend" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`In cases where we need another shade of a color to highlight some data, use opacity to create that variation in tint. Only available in bar charts.
+
+Props: \`data\`
+          `}
+          title="Opacity"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={opacity} layout="column" name="Opacity" />}
           />
         </MainSection.Subsection>
 

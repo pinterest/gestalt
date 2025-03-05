@@ -45,6 +45,7 @@ type Props = {
   visualPatternSelected: 'visualPattern' | 'default' | 'disabled';
   isHorizontalLayout: boolean;
   isBarRounded: boolean;
+  isDarkMode: boolean;
 };
 
 export default function renderElements({
@@ -55,6 +56,7 @@ export default function renderElements({
   visualPatternSelected,
   isHorizontalLayout,
   isBarRounded,
+  isDarkMode,
 }: Props): ReadonlyArray<ReactNode> {
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
@@ -68,6 +70,8 @@ export default function renderElements({
     const defaultColor = colorMap[index];
     const isBarElement = values.type === 'bar';
     const isLineElement = values.type === 'line';
+
+    const opacityValue = isDarkMode ? 0.6 : 0.4;
 
     // Recharts doesn't recognize wrappers on their components, therefore, needs to be build within ChartGraph
     if (isBarElement) {
@@ -88,6 +92,7 @@ export default function renderElements({
             <Rectangle
               {...props}
               height={stacked && index !== 0 && height > 0 ? height - 2 : height}
+              opacity={props.payload.opacity === 0.4 ? opacityValue : undefined}
               radius={
                 (lastElementPos !== index && stacked) || !isBarRounded
                   ? squaredRadius
