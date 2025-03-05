@@ -75,7 +75,7 @@ export default function renderAxis({
     fontWeight: TOKEN_FONT_WEIGHT_NORMAL,
   } as const;
 
-  const isRtl = document?.dir === 'rtl';
+  const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
   return (
     <Fragment>
