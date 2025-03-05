@@ -9,10 +9,16 @@ import { DataVisualizationColors } from './types';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {
   const { colorSchemeName } = useColorScheme();
-  return (vizColor: DataVisualizationColors) =>
-    colorSchemeName === 'lightMode'
+  return (vizColor: DataVisualizationColors) => {
+    if (vizColor === 'neutral') {
+      return colorSchemeName === 'lightMode'
+        ? lightColorDesignTokens['color-background-chartgraph-neutral']
+        : darkColorDesignTokens['color-background-chartgraph-neutral'];
+    }
+    return colorSchemeName === 'lightMode'
       ? lightColorDesignTokens[`color-data-visualization-${vizColor}`]
       : darkColorDesignTokens[`color-data-visualization-${vizColor}`];
+  };
 };
 
 export default function usePatterns() {
@@ -21,6 +27,10 @@ export default function usePatterns() {
   return (
     <defs>
       {/* Line series markers */}
+      <g id="points-neutral">
+        <rect height="8" width="8" />
+      </g>
+
       <g id="points-01">
         <rect height="8" width="8" />
       </g>
@@ -82,6 +92,10 @@ export default function usePatterns() {
       </g>
 
       {/* Bar pattern fills */}
+
+      <pattern height="4" id="pattern-neutral" patternUnits="userSpaceOnUse" width="4">
+        <rect fill={hexColor('neutral')} height="4" width="4" />
+      </pattern>
 
       <pattern height="4" id="pattern-01" patternUnits="userSpaceOnUse" width="4">
         <rect fill={hexColor('01')} height="4" width="4" />

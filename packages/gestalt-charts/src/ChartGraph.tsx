@@ -47,8 +47,10 @@ type Props = {
    * The additional key-values represent one or more series of data presented on ChartGraph for each category or timestamp. A sequence of source data objects generate one or more series of data across categories or timestamps.
    */
   data: ReadonlyArray<{
-    // @ts-expect-error - TS2411 - Property 'name' of type 'string | number' is not assignable to 'string' index type 'number'.
+    // @ts-expect-error - TS2411
     name: string | number;
+    // @ts-expect-error - TS2411
+    opacity?: 1 | 0.4;
     [key: string]: number;
   }>;
   /**
@@ -58,7 +60,20 @@ type Props = {
    */
   elements: ReadonlyArray<{
     axis?: 'left' | 'right' | 'bottom' | 'top';
-    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12';
+    color?:
+      | '01'
+      | '02'
+      | '03'
+      | '04'
+      | '05'
+      | '06'
+      | '07'
+      | '08'
+      | '09'
+      | '10'
+      | '11'
+      | '12'
+      | 'neutral';
     id: string;
     precision?: 'exact' | 'estimate';
     type: 'line' | 'bar';
@@ -347,6 +362,7 @@ function ChartGraph({
         // Interim true, until we have number
         isBarRounded:
           Math.sign(individualBarWidthEstimate) === -1 ? true : individualBarWidthEstimate > 10,
+        isDarkMode,
       }),
     [
       elements,
@@ -356,6 +372,7 @@ function ChartGraph({
       visualPatternSelected,
       isHorizontalLayout,
       individualBarWidthEstimate,
+      isDarkMode,
     ],
   );
 
