@@ -1421,14 +1421,15 @@ describe('initializeHeightsArray', () => {
 
     const heights = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: columnWidth + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache,
-      originalItems: items,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
-      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
 
     expect(heights.length).toEqual(9);
@@ -1510,14 +1511,15 @@ describe('initializeHeightsArray', () => {
 
     const heights = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: columnWidth + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache,
-      originalItems: items,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
-      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
 
     expect(heights.length).toEqual(9);
@@ -1639,14 +1641,15 @@ describe('initializeHeightsArray', () => {
 
     const heights = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: columnWidth + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache,
-      originalItems: items,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
-      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
 
     // calculate baseline heights using integer column width
@@ -1667,14 +1670,15 @@ describe('initializeHeightsArray', () => {
     layoutInt(items);
     const heightsInt = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: Math.floor(columnWidth) + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache: positionCacheInt,
-      originalItems: items,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
-      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
 
     expect(heights.length).toEqual(9);
