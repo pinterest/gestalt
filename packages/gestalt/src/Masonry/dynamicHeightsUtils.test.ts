@@ -44,6 +44,7 @@ describe('dynamic heights on masonry', () => {
       minCols: 2,
       rawItemCount: items.length,
       width: 236 * 4,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -100,6 +101,7 @@ describe('dynamic heights on masonry', () => {
       minCols: 2,
       rawItemCount: items.length,
       width: 236 * 2,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -152,6 +154,7 @@ describe('dynamic heights on masonry', () => {
       minCols: 2,
       rawItemCount: items.length,
       width: 236 * 2,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -208,6 +211,7 @@ describe('dynamic heights on masonry', () => {
       minCols: 2,
       rawItemCount: items.length,
       width: 236 * 2,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -291,6 +295,7 @@ describe('dynamic heights on masonry', () => {
       minCols: 3,
       rawItemCount: items.length,
       width: 236 * 3,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
