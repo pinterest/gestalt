@@ -1,3 +1,9 @@
+## 172.13.3 (Mar 6, 2025)
+
+### Patch
+
+- Masonry: Fix Multi-Column Module Positioning Bug on Dynamic Heights V2 and Optimize Height Recalculation ([#4029](https://github.com/pinterest/gestalt/pull/4029)) - [Preview link](https://deploy-preview-4029--gestalt.netlify.app?devexample=true)
+
 ## 172.13.2 (Mar 5, 2025)
 
 ### Patch
