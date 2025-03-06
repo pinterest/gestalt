@@ -1,3 +1,57 @@
+## 172.13.3 (Mar 6, 2025)
+
+### Patch
+
+- Masonry: Fix Multi-Column Module Positioning Bug on Dynamic Heights V2 and Optimize Height Recalculation ([#4029](https://github.com/pinterest/gestalt/pull/4029)) - [Preview link](https://deploy-preview-4029--gestalt.netlify.app?devexample=true)
+
+## 172.13.2 (Mar 5, 2025)
+
+### Patch
+
+- ChartGraph: fix time series interval and padding issues ([#4028](https://github.com/pinterest/gestalt/pull/4028)) - [Preview link](https://deploy-preview-4028--gestalt.netlify.app?devexample=true)
+
+## 172.13.1 (Mar 5, 2025)
+
+### Patch
+
+- ChartGraph: document is not defined issue ([#4027](https://github.com/pinterest/gestalt/pull/4027)) - [Preview link](https://deploy-preview-4027--gestalt.netlify.app?devexample=true)
+
+## 172.13.0 (Mar 5, 2025)
+
+### Minor
+
+- ButtonToggle: color picker supports custom colors ([#4025](https://github.com/pinterest/gestalt/pull/4025)) - [Preview link](https://deploy-preview-4025--gestalt.netlify.app?devexample=true)
+
+## 172.12.0 (Mar 5, 2025)
+
+### Minor
+
+- ChartGraph, TileData, TagData: support neutral dataviz color & opacity ([#4026](https://github.com/pinterest/gestalt/pull/4026)) - [Preview link](https://deploy-preview-4026--gestalt.netlify.app?devexample=true)
+
+## 172.11.0 (Mar 4, 2025)
+
+### Minor
+
+- Internal: Compact Icon Swap ([#4010](https://github.com/pinterest/gestalt/pull/4010)) - [Preview link](https://deploy-preview-4010--gestalt.netlify.app?devexample=true)
+
+## 172.10.8 (Mar 3, 2025)
+
+### Patch
+
+- BannerCallout: Revert BannerCallout: message width adjustments ([#4007](https://github.com/pinterest/gestalt/pull/4007)) - [Preview link](https://deploy-preview-4007--gestalt.netlify.app?devexample=true) ([#4024](https://github.com/pinterest/gestalt/pull/4024)) - [Preview link](https://deploy-preview-4024--gestalt.netlify.app?devexample=true)
+
+## 172.10.7 (Mar 3, 2025)
+
+### Patch
+
+- TapAreaLink: support to `title` prop ([#4022](https://github.com/pinterest/gestalt/pull/4022)) - [Preview link](https://deploy-preview-4022--gestalt.netlify.app?devexample=true)
+
+## 172.10.6 (Mar 3, 2025)
+
+### Patch
+
+- Internal: Upgrade mui-material ([#4023](https://github.com/pinterest/gestalt/pull/4023)) - [Preview link](https://deploy-preview-4023--gestalt.netlify.app?devexample=true)
+
 ## 172.10.5 (Feb 28, 2025)
 
 ### Patch

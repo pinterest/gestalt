@@ -10,4 +10,5 @@ export type DataVisualizationColors =
   | '09'
   | '10'
   | '11'
-  | '12';
+  | '12'
+  | 'neutral';

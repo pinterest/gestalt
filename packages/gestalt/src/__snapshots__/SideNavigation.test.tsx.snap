@@ -1506,7 +1506,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                                     className="default icon iconBlock"
                                     height={12}
                                     role="img"
-                                    viewBox="0 0 24 24"
+                                    viewBox="0 0 16 16"
                                     width={12}
                                   >
                                     <path
@@ -1640,7 +1640,7 @@ exports[`SideNavigation renders expandable nested directory 1`] = `
                                     className="default icon iconBlock"
                                     height={12}
                                     role="img"
-                                    viewBox="0 0 24 24"
+                                    viewBox="0 0 16 16"
                                     width={12}
                                   >
                                     <path
@@ -1841,7 +1841,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                 className="default icon iconBlock"
                                 height={12}
                                 role="img"
-                                viewBox="0 0 24 24"
+                                viewBox="0 0 16 16"
                                 width={12}
                               >
                                 <path
@@ -2028,7 +2028,7 @@ exports[`SideNavigation renders expanded group 1`] = `
                                     className="default icon iconBlock"
                                     height={12}
                                     role="img"
-                                    viewBox="0 0 24 24"
+                                    viewBox="0 0 16 16"
                                     width={12}
                                   >
                                     <path

@@ -61,8 +61,10 @@ function getNewDelta<T>({
     const currentItemLeftLimit = position.left;
     const currentItemRightLimit = position.left + position.width;
     const itemIsAboveMulticolumn =
-      multiColumnLeftLimit <= currentItemLeftLimit &&
-      multiColumnRightLimit >= currentItemRightLimit;
+      (multiColumnLeftLimit <= currentItemLeftLimit &&
+        multiColumnRightLimit > currentItemLeftLimit) ||
+      (multiColumnLeftLimit < currentItemRightLimit &&
+        multiColumnRightLimit >= currentItemRightLimit);
 
     if (itemIsAboveMulticolumn) {
       if (
