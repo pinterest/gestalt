@@ -349,4 +349,142 @@ describe('dynamic heights on masonry', () => {
       expect(newPos).toEqual(expectedPos[index]);
     });
   });
+
+  test('smaller module item that is above and in the area of a bigger module should be repositioned when the bigger module shrinks', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, ...Item[]] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#A52019', columnSpan: 3 },
+      { 'name': 'Pin 4', 'height': 350, 'color': '#CF3476', columnSpan: 2 },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultLayout({
+      gutter,
+      columnWidth: 236,
+      align: 'start',
+      measurementCache: measurementStore,
+      positionCache,
+      layout: 'basic',
+      minCols: 3,
+      rawItemCount: items.length,
+      width: 236 * 3,
+      _getColumnSpanConfig: getColumnSpanConfig,
+    });
+
+    const positions = layout(items);
+
+    const expectedOriginalPos = [
+      { top: 0, left: 0, width: 236, height: 200 },
+      { top: 0, left: 236, width: 236, height: 201 },
+      { top: 0, left: 472, width: 236, height: 202 },
+      { top: 202, left: 0, width: 708, height: 200 },
+      { top: 402, left: 0, width: 472, height: 350 },
+    ];
+
+    items.forEach((_, index) => {
+      const originalPos = positions[index]!;
+      expect(originalPos).toEqual(expectedOriginalPos[index]);
+    });
+
+    const changedItemIndex = 3; // Pin 3
+    const heightDelta = -199;
+    const changedItemIndexNewHeight = 200 + heightDelta;
+
+    recalcHeights({
+      items,
+      changedItem: items[changedItemIndex],
+      newHeight: changedItemIndexNewHeight,
+      positionStore: positionCache,
+      measurementStore,
+      gutterWidth: gutter,
+    });
+
+    const expectedPos = [
+      { top: 0, left: 0, width: 236, height: 200 },
+      { top: 0, left: 236, width: 236, height: 201 },
+      { top: 0, left: 472, width: 236, height: 202 },
+      { top: 202, left: 0, width: 708, height: 1 },
+      { top: 203, left: 0, width: 472, height: 350 },
+    ];
+
+    items.forEach((item, index) => {
+      const newPos = positionCache.get(item);
+      expect(newPos).toEqual(expectedPos[index]);
+    });
+  });
+
+  test('smaller module item that is above and in the area of a bigger module should be repositioned when the bigger module increases', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, ...Item[]] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 1, 'color': '#A52019', columnSpan: 3 },
+      { 'name': 'Pin 4', 'height': 350, 'color': '#CF3476', columnSpan: 2 },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultLayout({
+      gutter,
+      columnWidth: 236,
+      align: 'start',
+      measurementCache: measurementStore,
+      positionCache,
+      layout: 'basic',
+      minCols: 3,
+      rawItemCount: items.length,
+      width: 236 * 3,
+      _getColumnSpanConfig: getColumnSpanConfig,
+    });
+
+    const positions = layout(items);
+
+    const expectedOriginalPos = [
+      { top: 0, left: 0, width: 236, height: 200 },
+      { top: 0, left: 236, width: 236, height: 201 },
+      { top: 0, left: 472, width: 236, height: 202 },
+      { top: 202, left: 0, width: 708, height: 1 },
+      { top: 203, left: 0, width: 472, height: 350 },
+    ];
+
+    items.forEach((_, index) => {
+      const originalPos = positions[index]!;
+      expect(originalPos).toEqual(expectedOriginalPos[index]);
+    });
+
+    const changedItemIndex = 3; // Pin 3
+    const heightDelta = 500;
+    const changedItemIndexNewHeight = 1 + heightDelta;
+
+    recalcHeights({
+      items,
+      changedItem: items[changedItemIndex],
+      newHeight: changedItemIndexNewHeight,
+      positionStore: positionCache,
+      measurementStore,
+      gutterWidth: gutter,
+    });
+
+    const expectedPos = [
+      { top: 0, left: 0, width: 236, height: 200 },
+      { top: 0, left: 236, width: 236, height: 201 },
+      { top: 0, left: 472, width: 236, height: 202 },
+      { top: 202, left: 0, width: 708, height: 501 },
+      { top: 703, left: 0, width: 472, height: 350 },
+    ];
+
+    items.forEach((item, index) => {
+      const newPos = positionCache.get(item);
+      expect(newPos).toEqual(expectedPos[index]);
+    });
+  });
 });
