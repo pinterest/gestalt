@@ -61,8 +61,10 @@ function getNewDelta<T>({
     const currentItemLeftLimit = position.left;
     const currentItemRightLimit = position.left + position.width;
     const itemIsAboveMulticolumn =
-      multiColumnLeftLimit <= currentItemLeftLimit &&
-      multiColumnRightLimit >= currentItemRightLimit;
+      (multiColumnLeftLimit <= currentItemLeftLimit &&
+        multiColumnRightLimit > currentItemLeftLimit) ||
+      (multiColumnLeftLimit < currentItemRightLimit &&
+        multiColumnRightLimit >= currentItemRightLimit);
 
     if (itemIsAboveMulticolumn) {
       if (
@@ -110,7 +112,7 @@ function recalcHeights<T>({
   if (
     !changedItemPosition ||
     newHeight === 0 ||
-    Math.floor(changedItemPosition.height) === Math.floor(newHeight)
+    Math.floor(Math.abs(newHeight - changedItemPosition.height)) === 0
   ) {
     return false;
   }
