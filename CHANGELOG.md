@@ -1,3 +1,9 @@
+## 172.14.0 (Mar 6, 2025)
+
+### Minor
+
+- Masonry: Flexible width items ([#3993](https://github.com/pinterest/gestalt/pull/3993)) - [Preview link](https://deploy-preview-3993--gestalt.netlify.app?devexample=true)
+
 ## 172.13.3 (Mar 6, 2025)
 
 ### Patch
