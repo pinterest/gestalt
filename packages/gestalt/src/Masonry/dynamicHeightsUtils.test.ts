@@ -350,22 +350,15 @@ describe('dynamic heights on masonry', () => {
     });
   });
 
-  test('when the height delta is less than 1, it should not reposition the items', () => {
+  test('smaller module item that is above and in the area of a bigger module should be repositioned when the bigger module shrinks', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
     const items: readonly [Item, Item, ...Item[]] = [
-      { 'name': 'Pin 0', 'height': 230, 'color': '#E230BA' },
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
-      { 'name': 'Pin 2', 'height': 200, 'color': '#F67076' },
-      { 'name': 'Pin 3', 'height': 120, 'color': '#FAB032', columnSpan: 2 },
-      { 'name': 'Pin 4', 'height': 202, 'color': '#F67076' },
-      { 'name': 'Pin 5', 'height': 90, 'color': '#F67076' },
-      { 'name': 'Pin 6', 'height': 60, 'color': '#F67076' },
-      { 'name': 'Pin 7', 'height': 100, 'color': '#F67076', columnSpan: 2 },
-      { 'name': 'Pin 8', 'height': 400, 'color': '#F67076' },
-      { 'name': 'Pin 9', 'height': 400, 'color': '#F67076' },
-      { 'name': 'Pin 10', 'height': 400, 'color': '#F67076' },
-      { 'name': 'Pin 11', 'height': 400, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#A52019', columnSpan: 3 },
+      { 'name': 'Pin 4', 'height': 350, 'color': '#CF3476', columnSpan: 2 },
     ];
     items.forEach((item: any) => {
       measurementStore.set(item, item.height);
@@ -387,18 +380,11 @@ describe('dynamic heights on masonry', () => {
     const positions = layout(items);
 
     const expectedOriginalPos = [
-      { width: 236, left: 0, 'height': 230, 'top': 0 },
-      { width: 236, left: 236, 'height': 201, 'top': 0 },
-      { width: 236, left: 472, 'height': 200, 'top': 0 },
-      { width: 472, left: 236, 'height': 120, 'top': 201 },
-      { width: 236, left: 0, 'height': 202, 'top': 230 },
-      { width: 236, left: 236, 'height': 90, 'top': 321 },
-      { width: 236, left: 472, 'height': 60, 'top': 321 },
-      { width: 472, left: 0, 'height': 100, 'top': 432 },
-      { width: 236, left: 472, 'height': 400, 'top': 381 },
-      { width: 236, left: 0, 'height': 400, 'top': 532 },
-      { width: 236, left: 236, 'height': 400, 'top': 532 },
-      { width: 236, left: 472, 'height': 400, 'top': 781 },
+      { top: 0, left: 0, width: 236, height: 200 },
+      { top: 0, left: 236, width: 236, height: 201 },
+      { top: 0, left: 472, width: 236, height: 202 },
+      { top: 202, left: 0, width: 708, height: 200 },
+      { top: 402, left: 0, width: 472, height: 350 },
     ];
 
     items.forEach((_, index) => {
@@ -406,8 +392,8 @@ describe('dynamic heights on masonry', () => {
       expect(originalPos).toEqual(expectedOriginalPos[index]);
     });
 
-    const changedItemIndex = 2; // Pin 2
-    const heightDelta = 0.5;
+    const changedItemIndex = 3; // Pin 3
+    const heightDelta = -199;
     const changedItemIndexNewHeight = 200 + heightDelta;
 
     recalcHeights({
@@ -419,21 +405,27 @@ describe('dynamic heights on masonry', () => {
       gutterWidth: gutter,
     });
 
-    items.forEach((_, index) => {
-      const originalPos = positions[index]!;
-      expect(originalPos).toEqual(expectedOriginalPos[index]);
+    const expectedPos = [
+      { top: 0, left: 0, width: 236, height: 200 },
+      { top: 0, left: 236, width: 236, height: 201 },
+      { top: 0, left: 472, width: 236, height: 202 },
+      { top: 202, left: 0, width: 708, height: 1 },
+      { top: 203, left: 0, width: 472, height: 350 },
+    ];
+
+    items.forEach((item, index) => {
+      const newPos = positionCache.get(item);
+      expect(newPos).toEqual(expectedPos[index]);
     });
   });
 
-  test('smaller module item that is above and in the area of a bigger module should be repositioned', () => {
+  test('smaller module item that is above and in the area of a bigger module should be repositioned when the bigger module increases', () => {
     const measurementStore = new MeasurementStore<Record<any, any>, number>();
     const positionCache = new MeasurementStore<Record<any, any>, Position>();
     const items: readonly [Item, Item, ...Item[]] = [
       { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
       { 'name': 'Pin 1', 'height': 201, 'color': '#F67076' },
       { 'name': 'Pin 2', 'height': 202, 'color': '#FAB032' },
-      // { 'name': 'Pin 3', 'height': 203, 'color': '#EDF21D' },
-      // { 'name': 'Pin 4', 'height': 204, 'color': '#CF4509' },
       { 'name': 'Pin 3', 'height': 1, 'color': '#A52019', columnSpan: 3 },
       { 'name': 'Pin 4', 'height': 350, 'color': '#CF3476', columnSpan: 2 },
     ];

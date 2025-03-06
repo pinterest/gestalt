@@ -112,7 +112,7 @@ function recalcHeights<T>({
   if (
     !changedItemPosition ||
     newHeight === 0 ||
-    Math.floor(Math.abs(newHeight - changedItemPosition.height)) === 0
+    Math.floor(changedItemPosition.height) === Math.floor(newHeight)
   ) {
     return false;
   }
