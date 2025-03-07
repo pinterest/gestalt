@@ -6,7 +6,7 @@ import {
   Image,
   Label,
   Mask,
-  PopoverEducational,
+  PopoveMessage,
   Switch,
   TapArea,
   Text,
@@ -67,7 +67,7 @@ export default function Example() {
           </Box>
         </TapArea>
         {open && (
-          <PopoverEducational
+          <PopoveMessage
             accessibilityLabel={`Description of new "More ideas" feature`}
             anchor={anchorRef.current}
             id="popover-primary-action"

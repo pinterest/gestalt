@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Box, ColorSchemeProvider, Flex, IconButton, PopoverEducational } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, IconButton, PopoveMessage } from 'gestalt';
 
 export default function Snapshot() {
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
@@ -20,7 +20,7 @@ export default function Snapshot() {
           />
         </Flex>
         {open && (
-          <PopoverEducational
+          <PopoveMessage
             accessibilityLabel="Popover"
             anchor={anchorRef.current}
             message="Message"

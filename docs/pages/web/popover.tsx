@@ -260,7 +260,7 @@ Popover's positioning algorithm requires that the anchor element renders before 
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
-**[PopoverEducational](/web/popovereducational)**
+**[PopoveMessage](/web/PopoveMessage)**
 Popover used for education or onboarding experiences.
 
 **[Dropdown](/web/dropdown)**

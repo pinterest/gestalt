@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, PopoverEducational, Pulsar } from 'gestalt';
+import { Box, Button, Flex, PopoveMessage, Pulsar } from 'gestalt';
 
 export default function Example() {
   const [showEducation, setShowEducation] = useState(false);
@@ -24,7 +24,7 @@ export default function Example() {
         </Box>
 
         {showEducation && (
-          <PopoverEducational
+          <PopoveMessage
             anchor={anchorRef.current}
             idealDirection="down"
             message="Promote your newly created Pin"
