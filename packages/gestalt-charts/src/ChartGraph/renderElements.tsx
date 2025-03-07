@@ -105,6 +105,7 @@ export default function renderElements({
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
           stroke={hexColor(values.color || defaultColor)}
+          
         />
       );
     }
