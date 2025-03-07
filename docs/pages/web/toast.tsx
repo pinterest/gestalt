@@ -357,8 +357,8 @@ If  confirmation toast's text with more complex style is required, such as bold 
       **[Modal](/web/modal)**
       A generic, customizable container for modals that aren’t used as alerts or acknowledgements and need more functionality like form fields.
 
-      **[PopoveMessage](/web/PopoveMessage)**
-      PopoveMessage are used to educate users about a particular element on the screen, like a button or new UI control.
+      **[PopoverMessage](/web/PopoverMessage)**
+      PopoverMessage are used to educate users about a particular element on the screen, like a button or new UI control.
 
       **[Tooltip](/web/tooltip)**
       Tooltip provides helpful information regarding an interactive UI element, typically an IconButton. It is displayed on hover or focus of a UI element, and disappears on mouse out or blur.

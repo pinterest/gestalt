@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Flex, Icon, Image, Mask, PopoveMessage, TapArea, Text } from 'gestalt';
+import { Box, Flex, Icon, Image, Mask, PopoverMessage, TapArea, Text } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
@@ -45,7 +45,7 @@ export default function Example() {
         </Box>
       </TapArea>
       {open && (
-        <PopoveMessage
+        <PopoverMessage
           accessibilityLabel={`Description of new "More ideas" feature`}
           anchor={anchorRef.current}
           idealDirection="right"

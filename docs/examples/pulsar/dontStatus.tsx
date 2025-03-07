@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Flex, IconButton, PopoveMessage, Pulsar } from 'gestalt';
+import { Box, Flex, IconButton, PopoverMessage, Pulsar } from 'gestalt';
 
 export default function Example() {
   const [showEducation, setShowEducation] = useState(false);
@@ -19,7 +19,7 @@ export default function Example() {
         </Box>
 
         {showEducation && (
-          <PopoveMessage
+          <PopoverMessage
             anchor={anchorRef.current}
             idealDirection="down"
             message="You have a new message"

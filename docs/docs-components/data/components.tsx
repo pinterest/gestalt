@@ -53,7 +53,7 @@ import NumberField from '../../graphics/general/NumberField.svg';
 import OverlayPanel from '../../graphics/general/OverlayPanel.svg';
 import PageHeader from '../../graphics/general/PageHeader.svg';
 import Popover from '../../graphics/general/Popover.svg';
-import PopoveMessage from '../../graphics/general/PopoveMessage.svg';
+import PopoverMessage from '../../graphics/general/PopoverMessage.svg';
 import Pulsar from '../../graphics/general/Pulsar.svg';
 import RadioGroup from '../../graphics/general/RadioGroup.svg';
 import SearchField from '../../graphics/general/SearchField.svg';
@@ -1831,15 +1831,15 @@ const componentData: ReadonlyArray<ComponentData> = [
     },
   },
   {
-    id: 'PopoveMessage',
+    id: 'PopoverMessage',
     platform: {
       web: {
-        name: 'PopoveMessage',
+        name: 'PopoverMessage',
         visual: {
-          svg: <PopoveMessage />,
+          svg: <PopoverMessage />,
         },
         description:
-          'PopoveMessage is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.',
+          'PopoverMessage is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.',
         category: ['Help and guidance'],
         status: {
           accessible: {
@@ -1857,13 +1857,13 @@ const componentData: ReadonlyArray<ComponentData> = [
             {
               title: 'Caret misalignment',
               description:
-                "PopoveMessage's caret might appear misaligned when positioned below the element of reference.",
+                "PopoverMessage's caret might appear misaligned when positioned below the element of reference.",
               internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
             },
             {
               title: 'Incorrect positioning and dimensions',
               description:
-                'PopoveMessage is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
+                'PopoverMessage is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
               internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
             },
           ],

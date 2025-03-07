@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-test('PopoveMessage-dark mode visual regression check', async ({ page }) => {
-  await page.goto('/visual-test/PopoveMessage-dark');
+test('PopoverMessage-dark mode visual regression check', async ({ page }) => {
+  await page.goto('/visual-test/PopoverMessage-dark');
   const locator = page.locator('[data-test-id="visual-test"]');
   await page.locator('button').click();
-  await expect(locator).toHaveScreenshot('PopoveMessage-dark.png');
+  await expect(locator).toHaveScreenshot('PopoverMessage-dark.png');
 });

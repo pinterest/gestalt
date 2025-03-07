@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
-        <SandpackExample code={main} hideEditor name="Main PopoveMessage example" />
+        <SandpackExample code={main} hideEditor name="Main PopoverMessage example" />
       </PageHeader>
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
@@ -54,7 +54,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <MainSection name="Best practices">
         <MainSection.Subsection>
           <MainSection.Card
-            description="Use the PopoveMessage to educate users on a new or existing feature. Be sure to use a caret pointing to the feature. If there is more than one item, use a CTA button to move the user to the next popover."
+            description="Use the PopoverMessage to educate users on a new or existing feature. Be sure to use a caret pointing to the feature. If there is more than one item, use a CTA button to move the user to the next popover."
             sandpackExample={
               <SandpackExample
                 code={doEducate}
@@ -67,7 +67,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
 
           <MainSection.Card
-            description="Show more than one PopoveMessage at a time. If used for onboarding, show a next button instead, to launch the next popover."
+            description="Show more than one PopoverMessage at a time. If used for onboarding, show a next button instead, to launch the next popover."
             sandpackExample={
               <SandpackExample
                 code={dontDouble}
@@ -83,7 +83,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
         <MainSection.Subsection>
           <MainSection.Card
-            description="Position PopoveMessage appropriately on the screen. Make sure the arrow points directly to the element it is referencing."
+            description="Position PopoverMessage appropriately on the screen. Make sure the arrow points directly to the element it is referencing."
             sandpackExample={
               <SandpackExample code={doReference} hideEditor name="Do - Reference" />
             }
@@ -95,31 +95,31 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <AccessibilitySection name={generatedDocGen?.displayName}>
         <MainSection.Subsection
           description={`
-PopoveMessage doesn't behave like regular popovers where they are open/closed upon user interaction, i.e. Tooltip, Dropdown, or ComboBox. PopoveMessage visibility is not directly controlled by the user; instead, its visibility is defined as part of a broader user experience and the user interaction engagement with this experience.
+PopoverMessage doesn't behave like regular popovers where they are open/closed upon user interaction, i.e. Tooltip, Dropdown, or ComboBox. PopoverMessage visibility is not directly controlled by the user; instead, its visibility is defined as part of a broader user experience and the user interaction engagement with this experience.
 
-In most cases, PopoveMessage might be already visible on page load. See [visible on page load](#Visibility-on-page-load) to learn more. However, popover-based components rely on the component opening/dismissing event to capture focus.
+In most cases, PopoverMessage might be already visible on page load. See [visible on page load](#Visibility-on-page-load) to learn more. However, popover-based components rely on the component opening/dismissing event to capture focus.
 
-If PopoveMessage is already visible, we need its content to be keyboard accessible in sequential order. Don't use Layer to wrap PopoveMessage as it would move PopoveMessage outside the DOM hierarchy of the parent component and it will lose contextual sequencial order. The content will placed last in the keyboard navigations sequence, becoming unreachable in its content context. Moreover, make sure PopoveMessage is implemented right after the code of the anchor element so that it navigates the popover right after the anchor.
+If PopoverMessage is already visible, we need its content to be keyboard accessible in sequential order. Don't use Layer to wrap PopoverMessage as it would move PopoverMessage outside the DOM hierarchy of the parent component and it will lose contextual sequencial order. The content will placed last in the keyboard navigations sequence, becoming unreachable in its content context. Moreover, make sure PopoverMessage is implemented right after the code of the anchor element so that it navigates the popover right after the anchor.
 `}
           title="Keyboard navigation"
         />
         <MainSection.Subsection
           description={`
-To provide an accessible experience, make sure \`accessibilityLabel\` introduces the elements on the screen that PopoveMessage is providing context about. Use \`id\` paired to \`aria-describedBy\` to link PopoveMessage to the element is providing additional information about to the user.
+To provide an accessible experience, make sure \`accessibilityLabel\` introduces the elements on the screen that PopoverMessage is providing context about. Use \`id\` paired to \`aria-describedBy\` to link PopoverMessage to the element is providing additional information about to the user.
 `}
           title="ARIA attributes"
         />
         <MainSection.Subsection
           description={`
-We recommend passing the following ARIA attribute to PopoveMessage for a better screen reader experience:
+We recommend passing the following ARIA attribute to PopoverMessage for a better screen reader experience:
 
-- \`accessibilityLabel\`: describes the main purpose of a PopoveMessage for the screen reader. Should be unique and concise. For example, "Save to board" instead of "PopoveMessage".  It populates [aria-label](https://w3c.github.io/aria-practices/#dialog_roles_states_props).
+- \`accessibilityLabel\`: describes the main purpose of a PopoverMessage for the screen reader. Should be unique and concise. For example, "Save to board" instead of "PopoverMessage".  It populates [aria-label](https://w3c.github.io/aria-practices/#dialog_roles_states_props).
 
-When not passing \`children\`, PopoveMessage handles \`role\`. However, when passing \`children\` to a custom PopoveMessage, \`role\` is set to "tooltip" by default. Override \`role\` following the guidance provided.
+When not passing \`children\`, PopoverMessage handles \`role\`. However, when passing \`children\` to a custom PopoverMessage, \`role\` is set to "tooltip" by default. Override \`role\` following the guidance provided.
 
 For the \`role\` prop, use:
-- 'tooltip' if the PopoveMessage is a simple contextual text bubble that displays a description on a feature. When \`message\` is passed with no \`primaryAction\`, \`role\` is set to "tooltip".
-- 'dialog' if the PopoveMessage is a dialog that requires a response from the user. When \`primaryAction\` is passed to PopoveMessage, \`role\` is set to "dialog".
+- 'tooltip' if the PopoverMessage is a simple contextual text bubble that displays a description on a feature. When \`message\` is passed with no \`primaryAction\`, \`role\` is set to "tooltip".
+- 'dialog' if the PopoverMessage is a dialog that requires a response from the user. When \`primaryAction\` is passed to PopoverMessage, \`role\` is set to "dialog".
 `}
           title="Role"
         >
@@ -132,7 +132,7 @@ For the \`role\` prop, use:
       <MainSection name="Variants">
         <MainSection.Subsection
           description={`
-The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. PopoveMessage will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
+The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. PopoverMessage will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
 `}
           title="Message"
         >
@@ -145,7 +145,7 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
           description={`CTA buttons are used to move users through an onboarding or informational flow.
           Generally with the text “Next”.
 
-\`primaryAction\` displays a CTA button at the bottom of PopoveMessage.
+\`primaryAction\` displays a CTA button at the bottom of PopoverMessage.
 `}
           title="Primary action"
         >
@@ -157,9 +157,9 @@ The \`message\` prop accepts either a string or [Text](/web/text). Use a string 
           />
         </MainSection.Subsection>
         <MainSection.Subsection
-          description={`For more flexibility, PopoveMessage allows passing children. If passed, \`message\` and \`primaryAction\` are not rendered.
+          description={`For more flexibility, PopoverMessage allows passing children. If passed, \`message\` and \`primaryAction\` are not rendered.
 
-PopoveMessage doesn't overwrite style in children or set any padding or margin, therefore, make sure any Text's \`color\` is "light" and any Button's \`color\` is "white".`}
+PopoverMessage doesn't overwrite style in children or set any padding or margin, therefore, make sure any Text's \`color\` is "light" and any Button's \`color\` is "white".`}
           title="Custom content"
         >
           <MainSection.Card
@@ -171,7 +171,7 @@ PopoveMessage doesn't overwrite style in children or set any padding or margin, 
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`
-The maximum width of PopoveMessage. PopoveMessage has different size configurations:
+The maximum width of PopoverMessage. PopoverMessage has different size configurations:
 - \`sm\`: 230px wide by default. Height grows to accommodate
 - \`flexible\`: Without a defined maximum width. Grows to fill the container. Height grows to accommodate copy.
       `}
@@ -186,7 +186,7 @@ The maximum width of PopoveMessage. PopoveMessage has different size configurati
         </MainSection.Subsection>
         <MainSection.Subsection
           description={`
-PopoveMessage's positioning algorithm requires that the anchor element renders before PopoveMessage is rendered. If PopoveMessage should be visible on page load, use \`useEffect\` to toggle the visibility after the first render.
+PopoverMessage's positioning algorithm requires that the anchor element renders before PopoverMessage is rendered. If PopoverMessage should be visible on page load, use \`useEffect\` to toggle the visibility after the first render.
 `}
           title="Visibility on page load"
         >
@@ -199,7 +199,7 @@ PopoveMessage's positioning algorithm requires that the anchor element renders b
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description="PopoveMessage supports [zIndex](/web/zindex_classes)"
+          description="PopoverMessage supports [zIndex](/web/zindex_classes)"
           title="With z-index"
         >
           <MainSection.Card
@@ -231,6 +231,6 @@ export async function getServerSideProps(): Promise<{
   };
 }> {
   return {
-    props: { generatedDocGen: await docGen('PopoveMessage') },
+    props: { generatedDocGen: await docGen('PopoverMessage') },
   };
 }

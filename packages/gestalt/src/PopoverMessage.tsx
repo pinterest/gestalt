@@ -4,7 +4,7 @@ import Button from './Button';
 import ButtonLink from './ButtonLink';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
-import styles from './PopoveMessage.css';
+import styles from './PopoverMessage.css';
 import Text from './Text';
 import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
@@ -63,23 +63,23 @@ function PrimaryAction(props: PrimaryActionType) {
 
 type Props = {
   /**
-   * Unique label to describe each PopoveMessage. See the [accessibility section](https://gestalt.pinterest.systems/web/PopoveMessage#ARIA-attributes) for more guidance.
+   * Unique label to describe each PopoverMessage. See the [accessibility section](https://gestalt.pinterest.systems/web/PopoverMessage#ARIA-attributes) for more guidance.
    */
   accessibilityLabel?: string;
   /**
-   * The reference element that PopoveMessage uses to set its position.
+   * The reference element that PopoverMessage uses to set its position.
    */
   anchor: HTMLElement | null | undefined;
   /**
-   * The optional content shown in PopoveMessage. See the [custom content section](https://gestalt.pinterest.systems/web/PopoveMessage#Custom-content) for more guidance.
+   * The optional content shown in PopoverMessage. See the [custom content section](https://gestalt.pinterest.systems/web/PopoverMessage#Custom-content) for more guidance.
    */
   children?: ReactNode;
   /**
-   * Unique id to identify each PopoveMessage. Used for [accessibility](https://gestalt.pinterest.systems/web/PopoveMessage#ARIA-attributes) purposes.
+   * Unique id to identify each PopoverMessage. Used for [accessibility](https://gestalt.pinterest.systems/web/PopoverMessage#ARIA-attributes) purposes.
    */
   id?: string;
   /**
-   * Specifies the preferred position of PopoveMessage relative to its anchor element. See the [ideal direction variant in Popover's](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
+   * Specifies the preferred position of PopoverMessage relative to its anchor element. See the [ideal direction variant in Popover's](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left';
   /**
@@ -87,35 +87,35 @@ type Props = {
    */
   forceDirection?: boolean;
   /**
-   * Callback fired when PopoveMessage is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/PopoveMessage#Visibility-on-page-load) to learn more.
+   * Callback fired when PopoverMessage is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/PopoverMessage#Visibility-on-page-load) to learn more.
    */
   onDismiss: () => void;
   /**
-   * Main action for users to take on PopoveMessage. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * Main action for users to take on PopoverMessage. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [accessibility guidelines for Button](https://gestalt.pinterest.systems/web/button#ARIA-attributes).
-   * See the [primary action variant](https://gestalt.pinterest.systems/web/PopoveMessage#Primary-action) to learn more.
+   * See the [primary action variant](https://gestalt.pinterest.systems/web/PopoverMessage#Primary-action) to learn more.
    */
   primaryAction?: PrimaryActionType;
   /**
-   * Main text content of PopoveMessage. Content should be [localized](https://gestalt.pinterest.systems/web/PopoveMessage#Localization). See the [message variant](https://gestalt.pinterest.systems/web/PopoveMessage#Message) to learn more.
+   * Main text content of PopoverMessage. Content should be [localized](https://gestalt.pinterest.systems/web/PopoverMessage#Localization). See the [message variant](https://gestalt.pinterest.systems/web/PopoverMessage#Message) to learn more.
    *
    */
   message?: string | ReactElement;
   /**
-   * The underlying ARIA role for PopoveMessage. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/PopoveMessage#Role) for more info.
+   * The underlying ARIA role for PopoverMessage. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/PopoverMessage#Role) for more info.
    */
   role?: Role;
   /**
-   * Puts the focus on PopoveMessage when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/PopoveMessage#Keyboard-navigation) to learn more.
+   * Puts the focus on PopoverMessage when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/PopoverMessage#Keyboard-navigation) to learn more.
    */
   shouldFocus?: boolean;
   /**
-   * The maximum width of PopoveMessage. See the [size variant](https://gestalt.pinterest.systems/web/PopoveMessage#Size) to learn more.
+   * The maximum width of PopoverMessage. See the [size variant](https://gestalt.pinterest.systems/web/PopoverMessage#Size) to learn more.
    */
   size?: Size;
   /**
-   * An object representing the zIndex value of PopoveMessage. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   * An object representing the zIndex value of PopoverMessage. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable;
   /**
@@ -126,11 +126,11 @@ type Props = {
 };
 
 /**
- * [PopoveMessage](https://gestalt.pinterest.systems/web/PopoveMessageeducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.
- * ![PopoveMessage light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoveMessage.spec.ts-snapshots/PopoveMessage-chromium-darwin.png)
- * ![PopoveMessage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoveMessage-dark.spec.ts-snapshots/PopoveMessage-dark-chromium-darwin.png)
+ * [PopoverMessage](https://gestalt.pinterest.systems/web/PopoverMessageeducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.
+ * ![PopoverMessage light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverMessage.spec.ts-snapshots/PopoverMessage-chromium-darwin.png)
+ * ![PopoverMessage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverMessage-dark.spec.ts-snapshots/PopoverMessage-dark-chromium-darwin.png)
  */
-export default function PopoveMessage({
+export default function PopoverMessage({
   accessibilityLabel = 'Popover',
   anchor,
   children,
@@ -207,4 +207,4 @@ export default function PopoveMessage({
   );
 }
 
-PopoveMessage.displayName = 'PopoveMessage';
+PopoverMessage.displayName = 'PopoverMessage';

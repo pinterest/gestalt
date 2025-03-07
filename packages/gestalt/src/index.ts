@@ -54,7 +54,7 @@ import OverlayPanel from './OverlayPanel';
 import PageHeader from './PageHeader';
 import Pog from './Pog';
 import Popover from './Popover';
-import PopoveMessage from './PopoveMessage';
+import PopoverMessage from './PopoverMessage';
 import Pulsar from './Pulsar';
 import RadioButton from './RadioButton';
 import RadioGroup from './RadioGroup';
@@ -149,7 +149,7 @@ export {
   PageHeader,
   Pog,
   Popover,
-  PopoveMessage,
+  PopoverMessage,
   Pulsar,
   RadioButton,
   RadioGroup,

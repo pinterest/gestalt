@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Flex, IconButton, PopoveMessage } from 'gestalt';
+import { Flex, IconButton, PopoverMessage } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
@@ -21,11 +21,11 @@ export default function Example() {
         size="lg"
       />
       {open && (
-        <PopoveMessage
+        <PopoverMessage
           accessibilityLabel="Popover visible on initial page load"
           anchor={anchorRef.current}
           idealDirection="right"
-          message="This PopoveMessage is visible on initial page load"
+          message="This PopoverMessage is visible on initial page load"
           onDismiss={() => {}}
         />
       )}

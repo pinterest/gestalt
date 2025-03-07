@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Flex, IconButton, PopoveMessage, Text } from 'gestalt';
+import { Box, Flex, IconButton, PopoverMessage, Text } from 'gestalt';
 
 export default function Example() {
   const [openA, setOpenA] = useState(false);
@@ -25,7 +25,7 @@ export default function Example() {
           size="lg"
         />
         {openA && (
-          <PopoveMessage
+          <PopoverMessage
             accessibilityLabel="Simple message string"
             anchor={anchorRefA.current}
             idealDirection="right"
@@ -45,7 +45,7 @@ export default function Example() {
           size="lg"
         />
         {openB && (
-          <PopoveMessage
+          <PopoverMessage
             accessibilityLabel="Rich message with Text component and bold text"
             anchor={anchorRefB.current}
             idealDirection="right"

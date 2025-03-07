@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, ButtonLink, Flex, PopoveMessage, ScrollBoundaryContainer, Text } from 'gestalt';
+import { Box, ButtonLink, Flex, PopoverMessage, ScrollBoundaryContainer, Text } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
@@ -35,7 +35,7 @@ export default function Example() {
               text="Help"
             />
             {open && (
-              <PopoveMessage
+              <PopoverMessage
                 anchor={anchorRef.current}
                 idealDirection="right"
                 message="Need help with something? Check out our Help Center."
