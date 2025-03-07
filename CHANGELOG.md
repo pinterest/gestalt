@@ -1,3 +1,9 @@
+## 172.14.2 (Mar 7, 2025)
+
+### Patch
+
+- ChartGraph: padding adjusments + example fixes ([#4030](https://github.com/pinterest/gestalt/pull/4030)) - [Preview link](https://deploy-preview-4030--gestalt.netlify.app?devexample=true)
+
 ## 172.14.1 (Mar 7, 2025)
 
 ### Patch
