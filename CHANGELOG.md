@@ -1,3 +1,9 @@
+## 172.14.1 (Mar 7, 2025)
+
+### Patch
+
+- Revert "Masonry: Fix Multi-Column Module Positioning Bug on Dynamic H… ([#4031](https://github.com/pinterest/gestalt/pull/4031)) - [Preview link](https://deploy-preview-4031--gestalt.netlify.app?devexample=true)
+
 ## 172.14.0 (Mar 6, 2025)
 
 ### Minor
