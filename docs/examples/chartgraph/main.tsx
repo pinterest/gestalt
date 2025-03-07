@@ -226,6 +226,7 @@ export default function Example() {
   const axisData = {};
 
   data.forEach(({ name, totalSpend, formattedDate, showIntervalOnXAxis }) => {
+     // @ts-expect-error - TS7053
     axisData[name] = { totalSpend, formattedDate, showIntervalOnXAxis };
   });
 
@@ -242,6 +243,7 @@ export default function Example() {
       }}
       tickFormatter={{
         timeseries: (idx) => idx,
+        // @ts-expect-error - TS7053
         xAxisBottom: (idx) => axisData[idx].showIntervalOnXAxis ? axisData[idx].formattedDate : "",
       }}
       title="Clicks compared to conversions"
