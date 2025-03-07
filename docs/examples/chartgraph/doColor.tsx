@@ -39,6 +39,15 @@ export default function Example() {
         xAxisBottom: ['auto', 'auto'],
       }}
       tickFormatter={{
+        xAxisBottom: (date, index) => {
+          if (index % 2 === 0) {
+            return `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+              date,
+            )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`;
+          }
+          return '';
+        },
+
         timeseries: (date) =>
           `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
             date,

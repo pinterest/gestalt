@@ -83,13 +83,6 @@ export default function Example() {
       'Earned': 100000,
       'Converted': 7000000,
     },
-    {
-      name: new Date(2023, 11, 8).getTime(),
-      'Paid 10% per click on average': 3000000,
-      'Organic': 7000000,
-      'Earned': 200000,
-      'Converted': 3000000,
-    },
   ];
 
   return (
@@ -113,6 +106,15 @@ export default function Example() {
         xAxisBottom: ['auto', 'auto'],
       }}
       tickFormatter={{
+        xAxisBottom: (date, index) => {
+          if (index % 2 === 0) {
+            return `${new Intl.DateTimeFormat('en-US', { month: 'short' }).format(
+              date,
+            )}-${new Intl.DateTimeFormat('en-US', { day: '2-digit' }).format(date)}`;
+          }
+          return '';
+        },
+
         timeseries: (date) =>
           `${new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(date)}`,
       }}
