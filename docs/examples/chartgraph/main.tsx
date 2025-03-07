@@ -243,8 +243,8 @@ export default function Example() {
       }}
       tickFormatter={{
         timeseries: (idx) => idx,
-        // @ts-expect-error - TS7053
         xAxisBottom: (idx) =>
+          // @ts-expect-error - TS7053
           axisData[idx].showIntervalOnXAxis ? axisData[idx].formattedDate : '',
       }}
       title="Clicks compared to conversions"
