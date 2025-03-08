@@ -1818,14 +1818,6 @@ const componentData: ReadonlyArray<ComponentData> = [
           mobileAdaptive: 'planned',
           responsive: 'ready',
           status: 'ready',
-          knownIssues: [
-            {
-              title: 'Incorrect positioning and dimensions',
-              description:
-                'Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
-              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
-            },
-          ],
         },
       },
     },
@@ -1834,6 +1826,7 @@ const componentData: ReadonlyArray<ComponentData> = [
     id: 'PopoverMessage',
     platform: {
       web: {
+        alias: ['PopoverEducational', 'PopoverNotification'],
         name: 'PopoverMessage',
         visual: {
           svg: <PopoverMessage />,
@@ -1853,20 +1846,6 @@ const componentData: ReadonlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
-          knownIssues: [
-            {
-              title: 'Caret misalignment',
-              description:
-                "PopoverMessage's caret might appear misaligned when positioned below the element of reference.",
-              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
-            },
-            {
-              title: 'Incorrect positioning and dimensions',
-              description:
-                'PopoverMessage is built on top of Popover. Popover accumulates many known issues. It is a custom built component. We are in the process of exploring replacing it with a battle-tested third-party library. Check the linked document to see if your issue is already documented.',
-              internalDocUrl: 'http://pinch.pinadmin.com/popover_history',
-            },
-          ],
         },
       },
     },
