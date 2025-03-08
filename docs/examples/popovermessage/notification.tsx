@@ -10,7 +10,7 @@ export default function Example() {
   }, []);
 
   return (
-    <Box alignItems='center' display='flex' height="100%" width="100%">
+    <Box alignItems="center" display="flex" height="100%" width="100%">
       <IconButton ref={anchorRef} accessibilityLabel="Inbox" bgColor="lightGray" icon="speech" />
       {open && (
         <PopoverMessage
