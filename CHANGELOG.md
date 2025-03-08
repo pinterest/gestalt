@@ -1,3 +1,9 @@
+## 173.0.0 (Mar 8, 2025)
+
+### Major
+
+- PopoverMessage: renamed PopoverEducational to PopoverMessage + support to `type=education` and `type=notification` ([#4032](https://github.com/pinterest/gestalt/pull/4032)) - [Preview link](https://deploy-preview-4032--gestalt.netlify.app?devexample=true)
+
 ## 172.14.2 (Mar 7, 2025)
 
 ### Patch
