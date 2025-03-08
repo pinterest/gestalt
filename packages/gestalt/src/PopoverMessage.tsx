@@ -119,10 +119,9 @@ type Props = {
    */
   zIndex?: Indexable;
   /**
-   * This is an experimental prop that defines what background color is used for the popover.
    * If set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.
    */
-  _experimentalVariant?: 'notification' | 'education';
+  type?: 'notification' | 'education';
 };
 
 /**
@@ -142,9 +141,9 @@ export default function PopoverMessage({
   primaryAction,
   role = 'tooltip',
   shouldFocus = false,
+  type = 'education',
   size = 'sm',
   zIndex,
-  _experimentalVariant,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
@@ -176,7 +175,7 @@ export default function PopoverMessage({
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        color={_experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
+        color={type === 'notification' ? 'darkGray' : 'blue'}
         disableFocusTrap
         disablePortal
         forceDirection={forceDirection}
@@ -194,7 +193,7 @@ export default function PopoverMessage({
             <Box padding={4} tabIndex={0}>
               <Flex direction="column" gap={isInVRExperiment ? 4 : 3}>
                 {textElement}
-                {primaryAction ? (
+                {primaryAction && type === 'education' ? (
                   <Flex.Item alignSelf="end" flex="grow">
                     <PrimaryAction {...primaryAction} />
                   </Flex.Item>

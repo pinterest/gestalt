@@ -11,8 +11,10 @@ import customContent from '../../examples/popovermessage/customContent';
 import doEducate from '../../examples/popovermessage/doEducate';
 import dontDouble from '../../examples/popovermessage/dontDouble';
 import doReference from '../../examples/popovermessage/doReference';
+import education from '../../examples/popovermessage/education';
 import main from '../../examples/popovermessage/main';
 import message from '../../examples/popovermessage/message';
+import notification from '../../examples/popovermessage/notification';
 import primaryAction from '../../examples/popovermessage/primaryAction';
 import size from '../../examples/popovermessage/size';
 import visibility from '../../examples/popovermessage/visibility';
@@ -130,6 +132,23 @@ For the \`role\` prop, use:
       <LocalizationSection name={generatedDocGen?.displayName} noDefaultLabelProvider />
 
       <MainSection name="Variants">
+        <MainSection.Subsection
+          columns={2}
+          description={`If type is set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.`}
+          title="Type"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={education} name="Education variant" />}
+            title="Education type"
+          />
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={<SandpackExample code={notification} name="Notification variant" />}
+            title="Notification type"
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           description={`
 The \`message\` prop accepts either a string or [Text](/web/text). Use a string for simple messages without any visual style. PopoverMessage will handle the message style and adherence to design guidelines. If a message with more complex style is required, such as bold text or inline links, use Text to wrap your message with any additional Text or Link usages contained within.
