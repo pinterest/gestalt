@@ -20,7 +20,7 @@ export default function ExampleGridItem({ data = {}, itemIdx, expanded }: Props)
     setCounter((prevCounter) => prevCounter + 1);
   }
 
-  const isTwoColItem = data.columnSpan === 2;
+  const isTwoColItem = data.columnSpan > 1;
 
   return (
     <div
