@@ -1,4 +1,5 @@
-import fs from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { dirname } from 'path';
 import { expect, test } from '@playwright/test';
 import getServerURL from './utils/getServerURL';
 import waitForRenderedItems from './utils/waitForRenderedItems';
@@ -28,16 +29,13 @@ function microsecondsToMilliseconds(microseconds: number) {
   - frameDuration: This is the duration of each frame, either complete or dropped. A frame duration is calculated as the time between the DrawFrame or DroppedFrame event and the next BeginFrame event
   */
 function parseFrameData(events: ReadonlyArray<Event>) {
-  // @ts-expect-error - TS7034 - Variable 'currentFrameStartTime' implicitly has type 'any' in some locations where its type cannot be determined.
   let currentFrameStartTime;
   const droppedFrames = events.filter((e) => e.name === 'DroppedFrame').length;
   const completeFrames = events.filter((e) => e.name === 'DrawFrame').length;
   const frameDuration = events.reduce<Array<number>>((acc, event) => {
     if (event.name === 'BeginFrame') {
-      // @ts-expect-error - TS7005 - Variable 'currentFrameStartTime' implicitly has an 'any' type.
       if (currentFrameStartTime != null) {
         // ts is stored in microseconds. See: https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/edit
-        // @ts-expect-error - TS7005 - Variable 'currentFrameStartTime' implicitly has an 'any' type.
         const delta = microsecondsToMilliseconds(event.ts - currentFrameStartTime);
         acc.push(delta);
       }
@@ -60,6 +58,13 @@ function filterAndSortEvents(events: Array<Event>) {
   const firstScrollEvent = sortedEvents.find((e) => e.name === 'scrollTimingStart');
   // return all events that occur after the initial scroll
   return sortedEvents.filter((e) => e.ts > (firstScrollEvent?.ts ?? 0));
+}
+
+const scrollPerformanceResultsFilePath = 'playwright/test-results/scroll-performance-results.json';
+const dir = dirname(scrollPerformanceResultsFilePath);
+
+if (!existsSync(dir)) {
+  mkdirSync(dir, { recursive: true });
 }
 
 test.describe('Masonry: scrolls', () => {
@@ -148,10 +153,7 @@ test.describe('Masonry: scrolls', () => {
     console.log('Test results', results);
 
     // This is temp until we understand the numbers on ci environment
-    fs.writeFileSync(
-      'playwright/test-results/scroll-performance-results.json',
-      JSON.stringify(results, null, 2),
-    );
+    writeFileSync(scrollPerformanceResultsFilePath, JSON.stringify(results, null, 2));
 
     // just setting some initial assertion until we gather more data
     expect(results.fps).toBeGreaterThan(0);
