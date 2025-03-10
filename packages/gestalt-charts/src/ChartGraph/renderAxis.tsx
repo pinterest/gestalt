@@ -84,7 +84,6 @@ export default function renderAxis({
             domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
             interval={0}
             orientation="bottom"
-            padding="no-gap"
             reversed={isRtl}
             scale={isTimeSeries ? 'time' : undefined}
             // @ts-expect-error - TS2322

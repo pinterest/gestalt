@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, IconButton, PopoverEducational, Text } from 'gestalt';
+import { Box, Button, Flex, IconButton, PopoverMessage, Text } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function Example() {
         size="lg"
       />
       {open && (
-        <PopoverEducational
+        <PopoverMessage
           accessibilityLabel={`Description of new "More ideas" feature`}
           anchor={anchorRefA.current}
           idealDirection="down"
@@ -37,7 +37,7 @@ export default function Example() {
               </Flex.Item>
             </Flex>
           </Box>
-        </PopoverEducational>
+        </PopoverMessage>
       )}
     </Flex>
   );

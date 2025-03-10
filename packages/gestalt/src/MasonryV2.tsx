@@ -29,6 +29,7 @@ import {
   ColumnSpanConfig,
   ModulePositioningConfig,
   MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+  ResponsiveModuleConfig,
 } from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -154,6 +155,19 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * Experimental prop to define the minimum and maximum limit a flexible width module could span.
+   * This used to enable multi-column flexible width support ONLY ON SECOND ITEM OF THE ARRAY OF ITEMS.
+   * Also, for the flexible width to work, the _getColumnSpanConfig prop should be set.
+   * _getResponsiveModuleConfigForSecondItem is a function that takes an individual grid item as an input and returns a ResponsiveModuleConfig.
+   * ResponsiveModuleConfig can be one of the following:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which sets the minimum and maximum limits a multi-column item could span filling the empty columns in the first row of the grid (flexible width).
+   * - Undefined, which is used to indicate that this prop isn't set.
+   *
+   * This is an experimental prop and may be removed or changed in the future.
+   */
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
@@ -379,6 +393,7 @@ function useLayout<T>({
   _measureAll,
   _useRAF,
   _getColumnSpanConfig,
+  _getResponsiveModuleConfigForSecondItem,
   _getModulePositioningConfig,
 }: {
   align: Align;
@@ -400,6 +415,8 @@ function useLayout<T>({
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
+  _earlyBailout?: (columnSpan: number) => number;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -417,6 +434,7 @@ function useLayout<T>({
     minCols,
     width,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     _logTwoColWhitespace,
     _getModulePositioningConfig,
   });
@@ -670,6 +688,7 @@ function Masonry<T>(
     _measureAll,
     _useRAF,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     _dynamicHeights,
     _dynamicHeightsV2Experiment,
     _getModulePositioningConfig,
@@ -815,6 +834,7 @@ function Masonry<T>(
     _measureAll,
     _useRAF,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     _getModulePositioningConfig,
   });
 

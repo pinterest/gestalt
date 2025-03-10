@@ -2,8 +2,14 @@ import { Cache } from './Cache';
 import getColumnCount, { FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH } from './getColumnCount';
 import { getHeightAndGutter } from './layoutHelpers';
 import mindex from './mindex';
-import multiColumnLayout, { ColumnSpanConfig, ModulePositioningConfig } from './multiColumnLayout';
+import multiColumnLayout, {
+  ColumnSpanConfig,
+  ModulePositioningConfig,
+  ResponsiveModuleConfig,
+} from './multiColumnLayout';
 import { Layout, Position } from './types';
+
+const defaultGetResponsiveModuleConfig = (): ResponsiveModuleConfig => undefined;
 
 const fullWidthLayout = <T>({
   width,
@@ -14,6 +20,7 @@ const fullWidthLayout = <T>({
   measurementCache,
   _getColumnSpanConfig,
   _getModulePositioningConfig,
+  _getResponsiveModuleConfigForSecondItem,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -23,7 +30,9 @@ const fullWidthLayout = <T>({
   width?: number | null | undefined;
   positionCache: Cache<T, Position>;
   measurementCache: Cache<T, number>;
+  originalItems: ReadonlyArray<T>;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
@@ -64,6 +73,8 @@ const fullWidthLayout = <T>({
           measurementCache,
           _getColumnSpanConfig,
           _getModulePositioningConfig,
+          _getResponsiveModuleConfigForSecondItem:
+            _getResponsiveModuleConfigForSecondItem ?? defaultGetResponsiveModuleConfig,
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {

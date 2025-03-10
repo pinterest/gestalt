@@ -1,3 +1,33 @@
+## 173.1.0 (Mar 10, 2025)
+
+### Minor
+
+- Masonry: Fix Multi-Column Module Positioning Bug on Dynamic Heights V2 ([#4033](https://github.com/pinterest/gestalt/pull/4033)) - [Preview link](https://deploy-preview-4033--gestalt.netlify.app?devexample=true)
+
+## 173.0.0 (Mar 8, 2025)
+
+### Major
+
+- PopoverMessage: renamed PopoverEducational to PopoverMessage + support to `type=education` and `type=notification` ([#4032](https://github.com/pinterest/gestalt/pull/4032)) - [Preview link](https://deploy-preview-4032--gestalt.netlify.app?devexample=true)
+
+## 172.14.2 (Mar 7, 2025)
+
+### Patch
+
+- ChartGraph: padding adjusments + example fixes ([#4030](https://github.com/pinterest/gestalt/pull/4030)) - [Preview link](https://deploy-preview-4030--gestalt.netlify.app?devexample=true)
+
+## 172.14.1 (Mar 7, 2025)
+
+### Patch
+
+- Revert "Masonry: Fix Multi-Column Module Positioning Bug on Dynamic H… ([#4031](https://github.com/pinterest/gestalt/pull/4031)) - [Preview link](https://deploy-preview-4031--gestalt.netlify.app?devexample=true)
+
+## 172.14.0 (Mar 6, 2025)
+
+### Minor
+
+- Masonry: Flexible width items ([#3993](https://github.com/pinterest/gestalt/pull/3993)) - [Preview link](https://deploy-preview-3993--gestalt.netlify.app?devexample=true)
+
 ## 172.13.3 (Mar 6, 2025)
 
 ### Patch
