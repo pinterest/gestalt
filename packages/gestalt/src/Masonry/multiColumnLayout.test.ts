@@ -1309,3 +1309,134 @@ describe('initializeHeightsArray', () => {
     expect(newTops).toEqual(heights);
   });
 });
+
+describe('dynamic batch sizing', () => {
+  test.each([
+    {
+      columnCount: 4,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 20,
+      iterationsLimit: 10000,
+      expectedWhitespace: [35, 20, 0],
+    },
+    {
+      columnCount: 5,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 20,
+      iterationsLimit: 10000,
+      expectedWhitespace: [5, 0, 20],
+    },
+    {
+      columnCount: 7,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 20,
+      iterationsLimit: 10000,
+      expectedWhitespace: [0, 30, 35],
+    },
+    {
+      columnCount: 9,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 20,
+      iterationsLimit: 10000,
+      expectedWhitespace: [0, 115, 185],
+    },
+  ])(
+    'the batch sizing is changed dinamically',
+    ({
+      columnCount,
+      columnSpan,
+      itemsBatchSize,
+      whitespaceThreshold,
+      iterationsLimit,
+      expectedWhitespace,
+    }: {
+      columnCount: number;
+      columnSpan: number;
+      itemsBatchSize: number;
+      whitespaceThreshold: number;
+      iterationsLimit: number;
+      expectedWhitespace: ReadonlyArray<number>;
+    }) => {
+      const measurementStore = new MeasurementStore<Record<any, any>, number>();
+      const positionCache = new MeasurementStore<Record<any, any>, Position>();
+      const items = [
+        { name: 'Pin 0', height: 450, color: '#E230BA' },
+        { name: 'Pin 1', height: 500, color: '#FAB032' },
+        { name: 'Pin 2', height: 700, color: '#EDF21D' },
+        { name: 'Pin 3', height: 440, color: '#CF4509' },
+        { name: 'Pin 4', height: 580, color: '#230BAF' },
+        { name: 'Pin 5', height: 700, color: '#67076F' },
+        { name: 'Pin 6', height: 615, color: '#AB032E' },
+        { name: 'Pin 7', height: 500, color: '#DF21DC' },
+        { name: 'Pin 8', height: 430, color: '#F45098' },
+        { name: 'Pin 9', height: 630, color: '#A67406' },
+        { name: 'Pin 10', height: 350, color: '#F67076' },
+        { name: 'Pin 11', height: 640, color: '#7D8471' },
+        { name: 'Pin 12', height: 500, color: '#3B3C36' },
+        { name: 'Pin 13', height: 660, color: '#015D52' },
+        { name: 'Pin 14', height: 450, color: '#4A192C', columnSpan },
+      ];
+
+      items.forEach((item: any) => {
+        measurementStore.set(item, item.height);
+      });
+
+      const gutter = 15;
+
+      const getModulePositioningConfig = (_gridSize: number, _moduleSize: number) => ({
+        itemsBatchSize,
+        whitespaceThreshold,
+        iterationsLimit,
+      });
+      const logWhitespace = jest.fn();
+
+      const layoutWithoutDinamicBatchSize = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter,
+          columnWidth: 240,
+          columnCount,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          logWhitespace,
+        });
+      const layoutWithDinamicBatchSize = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter,
+          columnWidth: 240,
+          columnCount,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          logWhitespace,
+          _getModulePositioningConfig: getModulePositioningConfig,
+        });
+
+      layoutWithoutDinamicBatchSize(items);
+      positionCache.reset();
+      layoutWithDinamicBatchSize(items);
+
+      const totalWhitespaceStatic = logWhitespace.mock.calls[0][0].reduce(
+        (acc: number, whitespace: number) => acc + whitespace,
+        0,
+      );
+      const totalWhitespaceDynamic = logWhitespace.mock.calls[1][0].reduce(
+        (acc: number, whitespace: number) => acc + whitespace,
+        0,
+      );
+
+      expect(logWhitespace.mock.calls).toHaveLength(2);
+      expect(logWhitespace.mock.calls[0][0]).toHaveLength(columnSpan);
+      expect(logWhitespace.mock.calls[1][0]).toStrictEqual(expectedWhitespace);
+      expect(totalWhitespaceStatic).toBeGreaterThanOrEqual(totalWhitespaceDynamic);
+    },
+  );
+});
