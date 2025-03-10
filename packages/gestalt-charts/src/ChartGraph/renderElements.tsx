@@ -61,7 +61,9 @@ export default function renderElements({
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
   const squaredRadius: [number, number, number, number] = [0, 0, 0, 0];
-  const roundedRadius: [number, number, number, number] = ['vertical', 'verticalBiaxial'].includes(layout)
+  const roundedRadius: [number, number, number, number] = ['vertical', 'verticalBiaxial'].includes(
+    layout,
+  )
     ? [0, 4, 4, 0]
     : [4, 4, 0, 0];
 
@@ -86,9 +88,9 @@ export default function renderElements({
               : hexColor(values.color || defaultColor)
           }
           isAnimationActive={false}
-
           // @ts-expect-error - TS2769 - No overload matches this call.
-          shape={({ height, ...props }) => ( // eslint-disable-line react/no-unstable-nested-components
+          // eslint-disable-next-line react/no-unstable-nested-components
+          shape={({ height, ...props }) => (
             <Rectangle
               {...props}
               height={stacked && index !== 0 && height > 0 ? height - 2 : height}
