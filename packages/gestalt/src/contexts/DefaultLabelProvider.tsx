@@ -31,6 +31,20 @@ export type DefaultLabelContextType = {
     iconAccessibilityLabelWarning: string;
     iconAccessibilityLabelSuccess: string;
   };
+  ButtonSocial: {
+    textLoginEmail:  string;
+    textLoginFacebook:  string;
+    textLoginGoogle:  string;
+    textLoginApple: string;
+    textContinueEmail:  string;
+    textContinueFacebook:  string;
+    textContinueGoogle: string;
+    textContinueApple: string;
+    textSignupEmail:  string;
+    textSignupFacebook:  string;
+    textSignupGoogle:  string;
+    textSignupApple:  string;
+  };
   ChartGraph: {
     accessibilityLabelPrefixText: string;
     defaultViewText: string;
@@ -160,6 +174,20 @@ export const fallbackLabels: DefaultLabelContextType = {
     iconAccessibilityLabelRecommendation: 'Recommendation',
     iconAccessibilityLabelWarning: 'Warning',
     iconAccessibilityLabelSuccess: 'Success',
+  },
+  ButtonSocial: {
+    textLoginEmail:  'Login with Email',
+    textLoginFacebook:  'Login with Facebook',
+    textLoginGoogle:  'Login with Google',
+    textLoginApple:  'Login with Apple',
+    textContinueEmail:  'Continue with Email',
+    textContinueFacebook:  'Continue with Facebook',
+    textContinueGoogle:  'Continue with Google',
+    textContinueApple:  'Continue with Apple',
+    textSignupEmail:  'Sign up with Email',
+    textSignupFacebook:  'Sign up with Facebook',
+    textSignupGoogle:  'Sign up with Google',
+    textSignupApple:  'Sign up with Apple',  
   },
   ChartGraph: {
     accessibilityLabelPrefixText: 'ChartGraph',

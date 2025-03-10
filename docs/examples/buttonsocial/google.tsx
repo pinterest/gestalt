@@ -6,9 +6,9 @@ export default function Example() {
       <ButtonSocial
         accessibilityLabel="Login in Pinterest"
         href="https://pinterest.com"
-        service={1}
+        service={3}
         target="blank"
-        text={1}
+        text={2}
       />
     </Flex>
   );

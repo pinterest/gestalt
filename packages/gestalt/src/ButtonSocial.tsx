@@ -38,15 +38,15 @@ type ButtonProps = {
    */
   focusColor?: 'lightBackground' | 'darkBackground';
   /**
-   * Default Buttons are sized by the text within the ButtonLink whereas full-width Buttons expand to the full width of their container.
+   * Default Buttons are sized by the text within the ButtonSocial whereas full-width Buttons expand to the full width of their container.
    */
   fullWidth?: boolean;
   /**
-   * Use "-1" to remove ButtonLink from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
+   * Use "-1" to remove ButtonSocial from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
    */
   tabIndex?: -1 | 0;
   /**
-     * Callback invoked when the user clicks (press and release) on ButtonLink with the mouse or keyboard.
+     * Callback invoked when the user clicks (press and release) on ButtonSocial with the mouse or keyboard.
        See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
      */
   onClick?: (arg1: {
@@ -54,11 +54,11 @@ type ButtonProps = {
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
   /**
-   * Text to render inside the ButtonLink to convey the function and purpose of the ButtonLink.
+   * Text to render inside the ButtonSocial to convey the function and purpose of the ButtonSocial.
    */
   text: keyof typeof TEXT_OPTIONS;
   /**
-   * Text to render inside the ButtonLink to convey the function and purpose of the ButtonLink.
+   * Text to render inside the ButtonSocial to convey the function and purpose of the ButtonSocial.
    */
   service: keyof typeof SERVICES_OPTIONS;
   /**
@@ -79,13 +79,13 @@ type ButtonProps = {
 };
 
 /**
- * [ButtonLink](https://gestalt.pinterest.systems/buttonlink) should be used only to enable users to sign-up or sign-in to Pinterest using other trusted services.
+ * [ButtonSocial](https://gestalt.pinterest.systems/buttonlink) should be used only to enable users to sign-up or sign-in to Pinterest using other trusted services.
  *
- * ![ButtonLink light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink.spec.ts-snapshots/ButtonLink-chromium-darwin.png)
- * ![ButtonLink dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink-dark.spec.ts-snapshots/ButtonLink-dark-chromium-darwin.png)
+ * ![ButtonSocial light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonSocial.spec.ts-snapshots/ButtonSocial-chromium-darwin.png)
+ * ![ButtonSocial dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonSocial-dark.spec.ts-snapshots/ButtonSocial-dark-chromium-darwin.png)
  */
 
-const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(function ButtonLink(
+const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(function ButtonSocial(
   {
     accessibilityLabel,
     dataTestId,
@@ -104,7 +104,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
-  // that renders <ButtonLink ref={inputRef} /> to call inputRef.current.focus()
+  // that renders <ButtonSocial ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
   const color = 'white';
@@ -116,7 +116,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       iconService = <Icon accessibilityLabel="" color="default" icon="apple" size={20} />;
       break;
     case 2:
-      iconService = <Icon accessibilityLabel="" color="default" icon="facebook" size={20} />;
+      iconService = <Icon accessibilityLabel="" color="default" icon="facebook-color" size={20} />;
       break;
     case 3:
       iconService = <Icon accessibilityLabel="" color="default" icon="google" size={20} />;
@@ -129,14 +129,73 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       break;
   }
 
-  const textWithService = TEXT_OPTIONS[text] + SERVICES_OPTIONS[service];
-
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
+  const textWithService = TEXT_OPTIONS[text] + SERVICES_OPTIONS[service];
+
+  const { 
+    textLoginEmail,
+    textLoginFacebook,
+    textLoginGoogle,
+    textLoginApple,
+    textContinueEmail,
+    textContinueFacebook,
+    textContinueGoogle,
+    textContinueApple,
+    textSignupEmail,
+    textSignupFacebook,
+    textSignupGoogle,
+    textSignupApple,
+   } = useDefaultLabelContext('ButtonSocial');
+
+   let textWithServiceTranslated = '';
+
+   switch (textWithService) {
+    case 'Login with Apple':
+      textWithServiceTranslated = textLoginApple;
+      break;
+    case 'Login with Facebook':
+      textWithServiceTranslated = textLoginFacebook;
+      break;
+    case 'Login with Google':
+      textWithServiceTranslated = textLoginGoogle;
+      break;
+    case 'Login with Email':
+      textWithServiceTranslated = textLoginEmail;
+      break;
+    case 'Continue with Apple':
+      textWithServiceTranslated = textContinueApple;
+      break;
+    case 'Continue with Facebook':
+      textWithServiceTranslated = textContinueFacebook;
+      break;
+    case 'Continue with Google':
+      textWithServiceTranslated = textContinueGoogle;
+      break;
+    case 'Continue with Email':
+      textWithServiceTranslated = textContinueEmail;
+      break;
+    case 'Sign up with Apple':
+      textWithServiceTranslated = textSignupApple;
+      break;
+    case 'Sign up with Facebook':
+      textWithServiceTranslated = textSignupFacebook;
+      break;
+    case 'Sign up with Google':
+      textWithServiceTranslated = textSignupGoogle;
+      break;
+    case 'Sign up with Email':
+      textWithServiceTranslated = textSignupEmail;
+      break;
+    default:
+      textWithServiceTranslated = textSignupEmail;
+      break;
+   }
+
+   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
   const ariaLabel = getAriaLabel({
     target,
@@ -207,7 +266,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
             }}
           >
             <Text align="center" color="default" size="300">
-              {textWithService}
+              {textWithServiceTranslated}
             </Text>
           </Box>
         </Flex>
