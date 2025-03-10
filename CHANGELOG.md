@@ -1,3 +1,9 @@
+## 173.1.1 (Mar 10, 2025)
+
+### Patch
+
+- ChartGraph: Upgrade recharts for ChartGraph to support React 19 ([#4034](https://github.com/pinterest/gestalt/pull/4034)) - [Preview link](https://deploy-preview-4034--gestalt.netlify.app?devexample=true)
+
 ## 173.1.0 (Mar 10, 2025)
 
 ### Minor
