@@ -24,7 +24,7 @@ type Props = {
    */
   children?: ReactNode;
   /**
-   * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
+   * This field is deprecated and will be removed soon. Please do not use. See [PopoverMessage](https://gestalt.pinterest.systems/web/PopoverMessage).
    */
   color?: Color;
   /**
@@ -64,7 +64,7 @@ type Props = {
    */
   shouldFocus?: boolean;
   /**
-   * This field is deprecated and will be removed soon. Please do not use. See [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducational).
+   * This field is deprecated and will be removed soon. Please do not use. See [PopoverMessage](https://gestalt.pinterest.systems/web/PopoverMessage).
    */
   _deprecatedShowCaret?: boolean;
   /**

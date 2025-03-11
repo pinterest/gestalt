@@ -128,6 +128,10 @@ type Props = {
   - 'compress' scales down TapArea.
      */
   tapStyle?: 'none' | 'compress';
+  /**
+   * Value for the title general attribute on the anchor tag to provide additional information about the link.
+   */
+  title?: string;
 };
 
 /**
@@ -162,6 +166,7 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
     rounding = 0,
     tapStyle = 'none',
     target = null,
+    title,
   }: Props,
   ref,
 ) {
@@ -229,6 +234,7 @@ const TapAreaLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function 
       tabIndex={tabIndex}
       tapStyle={tapStyle}
       target={target}
+      title={title}
       wrappedComponent="tapArea"
     >
       {children}

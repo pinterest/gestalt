@@ -95,7 +95,7 @@ exports[`OverlayPanel renders OverlayPanel with confirmation modal 1`] = `
             >
               <div
                 aria-label="Popover"
-                class="relative maxDimensions minDimensions border primary rounding4"
+                class="relative maxDimensions minDimensions primary rounding4"
                 role="dialog"
                 style="max-width: 284px; overflow: auto;"
               >

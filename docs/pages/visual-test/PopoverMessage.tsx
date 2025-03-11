@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react';
-import { Box, ColorSchemeProvider, Flex, IconButton, PopoverEducational } from 'gestalt';
+import { Box, ColorSchemeProvider, Flex, IconButton, PopoverMessage } from 'gestalt';
 
 export default function Snapshot() {
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);
 
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="light">
       <Box color="default" display="inlineBlock" height={200} padding={1} width={300}>
         <Flex justifyContent="center" width="100%">
           <IconButton
@@ -20,7 +20,7 @@ export default function Snapshot() {
           />
         </Flex>
         {open && (
-          <PopoverEducational
+          <PopoverMessage
             accessibilityLabel="Popover"
             anchor={anchorRef.current}
             message="Message"

@@ -21,7 +21,7 @@ exports[`Popover renders correctly 1`] = `
     >
       <div
         aria-label="text"
-        class="relative maxDimensions minDimensions border primary rounding4"
+        class="relative maxDimensions minDimensions primary rounding4"
         role="dialog"
         style="max-width: 230px; overflow: auto;"
       >
@@ -72,7 +72,7 @@ exports[`Popover renders correctly with portal 1`] = `
       >
         <div
           aria-label="text"
-          class="relative maxDimensions minDimensions border primary rounding4"
+          class="relative maxDimensions minDimensions primary rounding4"
           role="dialog"
           style="max-width: 230px; overflow: auto;"
         >
