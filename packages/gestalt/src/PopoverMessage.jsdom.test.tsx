@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
-import PopoverEducational from './PopoverEducational';
+import PopoverMessage from './PopoverMessage';
 
-test('PopoverEducational renders', () => {
+test('PopoverMessage renders', () => {
   const element = document.createElement('div');
   const { container } = render(
-    <PopoverEducational
+    <PopoverMessage
       accessibilityLabel="test"
       anchor={element}
       message="text"

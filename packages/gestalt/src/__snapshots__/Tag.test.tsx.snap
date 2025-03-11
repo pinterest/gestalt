@@ -200,7 +200,7 @@ exports[`Tag renders a tag with a warning state 1`] = `
         className="inverse icon iconBlock"
         height={12}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         width={12}
       >
         <path
@@ -284,7 +284,7 @@ exports[`Tag renders a tag with an error state 1`] = `
         className="inverse icon iconBlock"
         height={12}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         width={12}
       >
         <path

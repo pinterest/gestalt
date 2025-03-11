@@ -267,6 +267,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/web/popovereducational',
+    destination: '/web/popovermessage',
+    permanent: true,
+  },
+  {
     source: '/web/card',
     destination: '/web/washanimated',
     permanent: true,

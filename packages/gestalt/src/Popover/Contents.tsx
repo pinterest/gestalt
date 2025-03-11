@@ -26,7 +26,6 @@ type Props = {
   accessibilityLabel?: string;
   anchor: HTMLElement;
   bgColor?: 'blue' | 'darkGray' | 'white';
-  border?: boolean;
   caret?: boolean;
   children?: ReactNode;
   id: string | undefined;
@@ -48,7 +47,6 @@ export default function Contents({
   accessibilityLabel,
   anchor,
   bgColor,
-  border = true,
   caret = true,
   children,
   id,
@@ -156,7 +154,6 @@ export default function Contents({
           aria-label={accessibilityLabel}
           className={classnames(layoutStyles.relative, styles.maxDimensions, {
             [styles.minDimensions]: width != null,
-            [styles.border]: border,
             [styles.primary]: bgColor === 'white',
             [styles.secondary]: bgColor === 'darkGray',
             [styles.education]: bgColor === 'blue',

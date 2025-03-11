@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Flex, Image, Mask, PopoverEducational, TapArea, Text } from 'gestalt';
+import { Box, Flex, Image, Mask, PopoverMessage, TapArea, Text } from 'gestalt';
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
+  const anchorRef = useRef<HTMLDivElement | HTMLAnchorElement | null>(null);
 
   useEffect(() => {
     setOpen(true);
   }, []);
 
   return (
-    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+    <Box alignItems="center" display="flex" height="100%" justifyContent="center" width="100%">
       {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'. */}
       <TapArea ref={anchorRef} fullWidth={false} rounding={3}>
         <Box color="secondary" height={75} padding={3} rounding={3} width={200}>
@@ -33,18 +33,18 @@ export default function Example() {
             </Flex>
           </Flex>
         </Box>
+        {open && (
+          <PopoverMessage
+            accessibilityLabel={`Description of new "More ideas" feature`}
+            anchor={anchorRef.current}
+            id="popover-primary-action"
+            idealDirection="right"
+            message="Tap to tag a product or press and hold to see product details"
+            onDismiss={() => {}}
+            primaryAction={{ text: 'Next', role: 'button' }}
+          />
+        )}
       </TapArea>
-      {open && (
-        <PopoverEducational
-          accessibilityLabel={`Description of new "More ideas" feature`}
-          anchor={anchorRef.current}
-          id="popover-primary-action"
-          idealDirection="down"
-          message="Tap to tag a product or press and hold to see product details"
-          onDismiss={() => {}}
-          primaryAction={{ text: 'Next', role: 'button' }}
-        />
-      )}
-    </Flex>
+    </Box>
   );
 }

@@ -1,3 +1,141 @@
+## 173.1.1 (Mar 10, 2025)
+
+### Patch
+
+- ChartGraph: Upgrade recharts for ChartGraph to support React 19 ([#4034](https://github.com/pinterest/gestalt/pull/4034)) - [Preview link](https://deploy-preview-4034--gestalt.netlify.app?devexample=true)
+
+## 173.1.0 (Mar 10, 2025)
+
+### Minor
+
+- Masonry: Fix Multi-Column Module Positioning Bug on Dynamic Heights V2 ([#4033](https://github.com/pinterest/gestalt/pull/4033)) - [Preview link](https://deploy-preview-4033--gestalt.netlify.app?devexample=true)
+
+## 173.0.0 (Mar 8, 2025)
+
+### Major
+
+- PopoverMessage: renamed PopoverEducational to PopoverMessage + support to `type=education` and `type=notification` ([#4032](https://github.com/pinterest/gestalt/pull/4032)) - [Preview link](https://deploy-preview-4032--gestalt.netlify.app?devexample=true)
+
+## 172.14.2 (Mar 7, 2025)
+
+### Patch
+
+- ChartGraph: padding adjusments + example fixes ([#4030](https://github.com/pinterest/gestalt/pull/4030)) - [Preview link](https://deploy-preview-4030--gestalt.netlify.app?devexample=true)
+
+## 172.14.1 (Mar 7, 2025)
+
+### Patch
+
+- Revert "Masonry: Fix Multi-Column Module Positioning Bug on Dynamic H… ([#4031](https://github.com/pinterest/gestalt/pull/4031)) - [Preview link](https://deploy-preview-4031--gestalt.netlify.app?devexample=true)
+
+## 172.14.0 (Mar 6, 2025)
+
+### Minor
+
+- Masonry: Flexible width items ([#3993](https://github.com/pinterest/gestalt/pull/3993)) - [Preview link](https://deploy-preview-3993--gestalt.netlify.app?devexample=true)
+
+## 172.13.3 (Mar 6, 2025)
+
+### Patch
+
+- Masonry: Fix Multi-Column Module Positioning Bug on Dynamic Heights V2 and Optimize Height Recalculation ([#4029](https://github.com/pinterest/gestalt/pull/4029)) - [Preview link](https://deploy-preview-4029--gestalt.netlify.app?devexample=true)
+
+## 172.13.2 (Mar 5, 2025)
+
+### Patch
+
+- ChartGraph: fix time series interval and padding issues ([#4028](https://github.com/pinterest/gestalt/pull/4028)) - [Preview link](https://deploy-preview-4028--gestalt.netlify.app?devexample=true)
+
+## 172.13.1 (Mar 5, 2025)
+
+### Patch
+
+- ChartGraph: document is not defined issue ([#4027](https://github.com/pinterest/gestalt/pull/4027)) - [Preview link](https://deploy-preview-4027--gestalt.netlify.app?devexample=true)
+
+## 172.13.0 (Mar 5, 2025)
+
+### Minor
+
+- ButtonToggle: color picker supports custom colors ([#4025](https://github.com/pinterest/gestalt/pull/4025)) - [Preview link](https://deploy-preview-4025--gestalt.netlify.app?devexample=true)
+
+## 172.12.0 (Mar 5, 2025)
+
+### Minor
+
+- ChartGraph, TileData, TagData: support neutral dataviz color & opacity ([#4026](https://github.com/pinterest/gestalt/pull/4026)) - [Preview link](https://deploy-preview-4026--gestalt.netlify.app?devexample=true)
+
+## 172.11.0 (Mar 4, 2025)
+
+### Minor
+
+- Internal: Compact Icon Swap ([#4010](https://github.com/pinterest/gestalt/pull/4010)) - [Preview link](https://deploy-preview-4010--gestalt.netlify.app?devexample=true)
+
+## 172.10.8 (Mar 3, 2025)
+
+### Patch
+
+- BannerCallout: Revert BannerCallout: message width adjustments ([#4007](https://github.com/pinterest/gestalt/pull/4007)) - [Preview link](https://deploy-preview-4007--gestalt.netlify.app?devexample=true) ([#4024](https://github.com/pinterest/gestalt/pull/4024)) - [Preview link](https://deploy-preview-4024--gestalt.netlify.app?devexample=true)
+
+## 172.10.7 (Mar 3, 2025)
+
+### Patch
+
+- TapAreaLink: support to `title` prop ([#4022](https://github.com/pinterest/gestalt/pull/4022)) - [Preview link](https://deploy-preview-4022--gestalt.netlify.app?devexample=true)
+
+## 172.10.6 (Mar 3, 2025)
+
+### Patch
+
+- Internal: Upgrade mui-material ([#4023](https://github.com/pinterest/gestalt/pull/4023)) - [Preview link](https://deploy-preview-4023--gestalt.netlify.app?devexample=true)
+
+## 172.10.5 (Feb 28, 2025)
+
+### Patch
+
+- Image, Video: if image or track `src` is empty string "" then set as undefined ([#4013](https://github.com/pinterest/gestalt/pull/4013)) - [Preview link](https://deploy-preview-4013--gestalt.netlify.app?devexample=true)
+
+## 172.10.4 (Feb 28, 2025)
+
+### Patch
+
+- Popover: remove border options ([#4020](https://github.com/pinterest/gestalt/pull/4020)) - [Preview link](https://deploy-preview-4020--gestalt.netlify.app?devexample=true)
+
+## 172.10.3 (Feb 28, 2025)
+
+### Patch
+
+- DateField, DateRange: upgrade @mui/x-date-pickers to 7.27.2 ([#4019](https://github.com/pinterest/gestalt/pull/4019)) - [Preview link](https://deploy-preview-4019--gestalt.netlify.app?devexample=true)
+
+## 172.10.2 (Feb 28, 2025)
+
+### Patch
+
+- Masonry: Code cleanup and new test for masonry testing page ([#4014](https://github.com/pinterest/gestalt/pull/4014)) - [Preview link](https://deploy-preview-4014--gestalt.netlify.app?devexample=true)
+
+## 172.10.1 (Feb 27, 2025)
+
+### Patch
+
+- DateField: fix to exclude more (unrecognized) attributes to reach input html ([#4018](https://github.com/pinterest/gestalt/pull/4018)) - [Preview link](https://deploy-preview-4018--gestalt.netlify.app?devexample=true)
+
+## 172.10.0 (Feb 27, 2025)
+
+### Minor
+
+- Button, ButtonLink: Fixing VR height ([#4005](https://github.com/pinterest/gestalt/pull/4005)) - [Preview link](https://deploy-preview-4005--gestalt.netlify.app?devexample=true)
+
+## 172.9.6 (Feb 27, 2025)
+
+### Patch
+
+- DateField: upgrade dependency to 7.0.0 ([#4009](https://github.com/pinterest/gestalt/pull/4009)) - [Preview link](https://deploy-preview-4009--gestalt.netlify.app?devexample=true)
+
+## 172.9.5 (Feb 26, 2025)
+
+### Patch
+
+- Masonry: Fix bug on edge case while using dynamicHeightsV2 ([#4012](https://github.com/pinterest/gestalt/pull/4012)) - [Preview link](https://deploy-preview-4012--gestalt.netlify.app?devexample=true)
+
 ## 172.9.4 (Feb 25, 2025)
 
 ### Patch

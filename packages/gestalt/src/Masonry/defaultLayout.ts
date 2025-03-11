@@ -1,8 +1,10 @@
 import { Cache } from './Cache';
 import { getHeightAndGutter, offscreen } from './layoutHelpers';
 import mindex from './mindex';
-import multiColumnLayout, { ColumnSpanConfig } from './multiColumnLayout';
+import multiColumnLayout, { ColumnSpanConfig, ResponsiveModuleConfig } from './multiColumnLayout';
 import { Align, Layout, Position } from './types';
+
+const defaultGetResponsiveModuleConfig = (): ResponsiveModuleConfig => undefined;
 
 const calculateCenterOffset = ({
   align,
@@ -45,6 +47,7 @@ const defaultLayout =
     width,
     measurementCache,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -54,9 +57,11 @@ const defaultLayout =
     minCols?: number;
     rawItemCount: number;
     width?: number | null | undefined;
+    originalItems: ReadonlyArray<T>;
     positionCache: Cache<T, Position>;
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+    _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
     earlyBailout?: (columnSpan: number) => number;
     logWhitespace?: (
       additionalWhitespace: ReadonlyArray<number>,
@@ -93,6 +98,8 @@ const defaultLayout =
           gutter,
           measurementCache,
           _getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem:
+            _getResponsiveModuleConfigForSecondItem ?? defaultGetResponsiveModuleConfig,
           ...otherProps,
         })
       : items.map((item) => {

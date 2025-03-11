@@ -15,14 +15,23 @@ type DataVisualizationColors =
   | '09'
   | '10'
   | '11'
-  | '12';
+  | '12'
+  | 'neutral';
 
 export const useHexColor: () => (arg1: DataVisualizationColors) => string = () => {
   const { colorSchemeName } = useColorScheme();
-  return (vizColor: DataVisualizationColors) =>
-    colorSchemeName === 'lightMode'
+
+  return (vizColor: DataVisualizationColors) => {
+    if (vizColor === 'neutral') {
+      return colorSchemeName === 'lightMode'
+        ? lightColorDesignTokens['color-background-chartgraph-neutral']
+        : darkColorDesignTokens['color-background-chartgraph-neutral'];
+    }
+
+    return colorSchemeName === 'lightMode'
       ? lightColorDesignTokens[`color-data-visualization-${vizColor}`]
       : darkColorDesignTokens[`color-data-visualization-${vizColor}`];
+  };
 };
 
 export default function PatternBarFill() {

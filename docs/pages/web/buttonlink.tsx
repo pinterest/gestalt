@@ -216,12 +216,12 @@ Used to block user interaction such as hover, focus and click. Disabled Buttons 
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`ButtonLink is available in 3 fixed sizes. The ButtonLink text has always a fixed size of 16px:
-1. \`lg\` (48px)
+          description={`ButtonLink is available in 3 fixed sizes:
+1. \`lg\` 
     Large is the only size that should be used on Pinner surfaces.
-2. \`md\` (40px)
+2. \`md\` 
     Medium is used on more dense UI such as business surfaces or internal tools.
-3. \`sm\` (32px)
+3. \`sm\` 
     Small should be used sparingly and only in places where the UI is very dense.`}
           title="Size"
         >
