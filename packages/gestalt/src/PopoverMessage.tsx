@@ -4,7 +4,7 @@ import Button from './Button';
 import ButtonLink from './ButtonLink';
 import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
-import styles from './PopoverEducational.css';
+import styles from './PopoverMessage.css';
 import Text from './Text';
 import useInExperiment from './useInExperiment';
 import { Indexable } from './zIndex';
@@ -63,23 +63,23 @@ function PrimaryAction(props: PrimaryActionType) {
 
 type Props = {
   /**
-   * Unique label to describe each PopoverEducational. See the [accessibility section](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) for more guidance.
+   * Unique label to describe each PopoverMessage. See the [accessibility section](https://gestalt.pinterest.systems/web/PopoverMessage#ARIA-attributes) for more guidance.
    */
   accessibilityLabel?: string;
   /**
-   * The reference element that PopoverEducational uses to set its position.
+   * The reference element that PopoverMessage uses to set its position.
    */
   anchor: HTMLElement | null | undefined;
   /**
-   * The optional content shown in PopoverEducational. See the [custom content section](https://gestalt.pinterest.systems/web/popovereducational#Custom-content) for more guidance.
+   * The optional content shown in PopoverMessage. See the [custom content section](https://gestalt.pinterest.systems/web/PopoverMessage#Custom-content) for more guidance.
    */
   children?: ReactNode;
   /**
-   * Unique id to identify each PopoverEducational. Used for [accessibility](https://gestalt.pinterest.systems/web/popovereducational#ARIA-attributes) purposes.
+   * Unique id to identify each PopoverMessage. Used for [accessibility](https://gestalt.pinterest.systems/web/PopoverMessage#ARIA-attributes) purposes.
    */
   id?: string;
   /**
-   * Specifies the preferred position of PopoverEducational relative to its anchor element. See the [ideal direction variant in Popover's](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
+   * Specifies the preferred position of PopoverMessage relative to its anchor element. See the [ideal direction variant in Popover's](https://gestalt.pinterest.systems/web/popover#Ideal-direction) to learn more.
    */
   idealDirection?: 'up' | 'right' | 'down' | 'left';
   /**
@@ -87,50 +87,49 @@ type Props = {
    */
   forceDirection?: boolean;
   /**
-   * Callback fired when PopoverEducational is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/popovereducational#Visibility-on-page-load) to learn more.
+   * Callback fired when PopoverMessage is closed. Must be used to control Popover’s on/off display state. See the [visibility on page load variant](https://gestalt.pinterest.systems/web/PopoverMessage#Visibility-on-page-load) to learn more.
    */
   onDismiss: () => void;
   /**
-   * Main action for users to take on PopoverEducational. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
+   * Main action for users to take on PopoverMessage. If `href` is supplied, the action will serve as a link. See [GlobalEventsHandlerProvider](https://gestalt.pinterest.systems/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
    * If no `href` is supplied, the action will be a button.
    * The `accessibilityLabel` should follow the [accessibility guidelines for Button](https://gestalt.pinterest.systems/web/button#ARIA-attributes).
-   * See the [primary action variant](https://gestalt.pinterest.systems/web/popovereducational#Primary-action) to learn more.
+   * See the [primary action variant](https://gestalt.pinterest.systems/web/PopoverMessage#Primary-action) to learn more.
    */
   primaryAction?: PrimaryActionType;
   /**
-   * Main text content of PopoverEducational. Content should be [localized](https://gestalt.pinterest.systems/web/popovereducational#Localization). See the [message variant](https://gestalt.pinterest.systems/web/popovereducational#Message) to learn more.
+   * Main text content of PopoverMessage. Content should be [localized](https://gestalt.pinterest.systems/web/PopoverMessage#Localization). See the [message variant](https://gestalt.pinterest.systems/web/PopoverMessage#Message) to learn more.
    *
    */
   message?: string | ReactElement;
   /**
-   * The underlying ARIA role for PopoverEducational. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Role) for more info.
+   * The underlying ARIA role for PopoverMessage. See the [role section in Accessibility](https://gestalt.pinterest.systems/web/PopoverMessage#Role) for more info.
    */
   role?: Role;
   /**
-   * Puts the focus on PopoverEducational when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/popovereducational#Keyboard-navigation) to learn more.
+   * Puts the focus on PopoverMessage when it’s triggered. See the [keyboard navigation section in Accessibility](https://gestalt.pinterest.systems/web/PopoverMessage#Keyboard-navigation) to learn more.
    */
   shouldFocus?: boolean;
   /**
-   * The maximum width of PopoverEducational. See the [size variant](https://gestalt.pinterest.systems/web/popovereducational#Size) to learn more.
+   * The maximum width of PopoverMessage. See the [size variant](https://gestalt.pinterest.systems/web/PopoverMessage#Size) to learn more.
    */
   size?: Size;
   /**
-   * An object representing the zIndex value of PopoverEducational. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
+   * An object representing the zIndex value of PopoverMessage. Learn more about [zIndex classes](https://gestalt.pinterest.systems/web/zindex_classes)
    */
   zIndex?: Indexable;
   /**
-   * This is an experimental prop that defines what background color is used for the popover.
    * If set to 'notification', the background color will be darkGray, and if set to 'education', background color will be blue.
    */
-  _experimentalVariant?: 'notification' | 'education';
+  type?: 'notification' | 'education';
 };
 
 /**
- * [PopoverEducational](https://gestalt.pinterest.systems/web/popovereducationaleducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.
- * ![PopoverEducational light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational.spec.ts-snapshots/PopoverEducational-chromium-darwin.png)
- * ![PopoverEducational dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverEducational-dark.spec.ts-snapshots/PopoverEducational-dark-chromium-darwin.png)
+ * [PopoverMessage](https://gestalt.pinterest.systems/web/PopoverMessageeducational) is a floating container that introduces users to elements on the screen. Used for education or onboarding experiences.
+ * ![PopoverMessage light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverMessage.spec.ts-snapshots/PopoverMessage-chromium-darwin.png)
+ * ![PopoverMessage dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/PopoverMessage-dark.spec.ts-snapshots/PopoverMessage-dark-chromium-darwin.png)
  */
-export default function PopoverEducational({
+export default function PopoverMessage({
   accessibilityLabel = 'Popover',
   anchor,
   children,
@@ -142,9 +141,9 @@ export default function PopoverEducational({
   primaryAction,
   role = 'tooltip',
   shouldFocus = false,
+  type = 'education',
   size = 'sm',
   zIndex,
-  _experimentalVariant,
 }: Props) {
   const isInVRExperiment = useInExperiment({
     webExperimentName: 'web_gestalt_visualrefresh',
@@ -176,7 +175,7 @@ export default function PopoverEducational({
       <InternalPopover
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
-        color={_experimentalVariant === 'notification' ? 'darkGray' : 'blue'}
+        color={type === 'notification' ? 'darkGray' : 'blue'}
         disableFocusTrap
         disablePortal
         forceDirection={forceDirection}
@@ -194,7 +193,7 @@ export default function PopoverEducational({
             <Box padding={4} tabIndex={0}>
               <Flex direction="column" gap={isInVRExperiment ? 4 : 3}>
                 {textElement}
-                {primaryAction ? (
+                {primaryAction && type === 'education' ? (
                   <Flex.Item alignSelf="end" flex="grow">
                     <PrimaryAction {...primaryAction} />
                   </Flex.Item>
@@ -207,4 +206,4 @@ export default function PopoverEducational({
   );
 }
 
-PopoverEducational.displayName = 'PopoverEducational';
+PopoverMessage.displayName = 'PopoverMessage';

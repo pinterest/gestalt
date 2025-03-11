@@ -1,6 +1,6 @@
 {
   "name": "gestalt-datepicker",
-  "version": "172.10.5",
+  "version": "173.1.1",
   "license": "Apache-2.0",
   "homepage": "https://gestalt.pinterest.systems/",
   "description": "A React UI datepicker component which enforces Pinterest's design language",
@@ -17,7 +17,7 @@
     "@floating-ui/react": "^0.25.4",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.15.14",
+    "@mui/material": "^5.16.12",
     "@mui/x-date-pickers": "^7.27.1",
     "classnames": "^2.2.6",
     "react-datepicker": "7.5.0"

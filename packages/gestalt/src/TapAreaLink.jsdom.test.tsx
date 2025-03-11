@@ -224,4 +224,20 @@ describe('TapAreaLink', () => {
       }),
     ).toBeVisible();
   });
+
+  it('renders with a provided title', () => {
+    const TEST_TITLE = 'test title';
+    render(
+      <TapAreaLink
+        accessibilityLabel="Visit Pinterest"
+        href="https://www.pinterest.com"
+        target="blank"
+        title={TEST_TITLE}
+      >
+        Visit Pinterest
+      </TapAreaLink>,
+    );
+    const anchorTagElement = screen.getByRole('link');
+    expect(anchorTagElement.getAttribute('title')).toBe(TEST_TITLE);
+  });
 });

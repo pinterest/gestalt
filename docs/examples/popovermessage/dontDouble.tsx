@@ -1,22 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Flex, Icon, Image, Mask, PopoverEducational, TapArea, Text } from 'gestalt';
+import { Box, Flex, Icon, Image, Mask, PopoverMessage, TapArea, Text } from 'gestalt';
 
 export default function Example() {
   const [openA, setOpenA] = useState(false);
   const [openB, setOpenB] = useState(false);
 
-  const anchorRefA = useRef<null | HTMLDivElement>(null);
+  const anchorRefA = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
   const anchorRefB = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     setOpenA(true);
-    setOpenB(false);
+    setOpenB(true);
   }, []);
 
   return (
     <Box height="100%" padding={12} width="100%">
       <Flex alignItems="start" direction="column" height="100%" justifyContent="between">
         <Box>
+          {/* @ts-expect-error - TS2322 - Type 'MutableRefObject<HTMLDivElement | HTMLAnchorElement | null>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'. */}
           <TapArea ref={anchorRefA} fullWidth={false} rounding={3}>
             <Box color="secondary" height={75} padding={3} rounding={3} width={200}>
               <Flex gap={2}>
@@ -40,20 +41,12 @@ export default function Example() {
             </Box>
           </TapArea>
           {openA && (
-            <PopoverEducational
+            <PopoverMessage
               accessibilityLabel={`Description of new "More ideas" feature`}
               anchor={anchorRefA.current}
               idealDirection="right"
               message="Tap to tag a product to see product details"
               onDismiss={() => {}}
-              primaryAction={{
-                text: 'Next',
-                onClick: () => {
-                  setOpenA(false);
-                  setOpenB(true);
-                },
-                role: 'button',
-              }}
             />
           )}
         </Box>
@@ -93,16 +86,12 @@ export default function Example() {
             </Box>
           </TapArea>
           {openB && (
-            <PopoverEducational
+            <PopoverMessage
               accessibilityLabel={`Description of new "Ideas for you" feature`}
               anchor={anchorRefB.current}
               idealDirection="right"
               message="Explore your recent searches in more details"
-              onDismiss={() => {
-                setOpenA(true);
-                setOpenB(false);
-              }}
-              shouldFocus
+              onDismiss={() => {}}
             />
           )}
         </Box>

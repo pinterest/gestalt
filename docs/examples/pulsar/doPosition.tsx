@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Button, Flex, PopoverEducational, Pulsar } from 'gestalt';
+import { Box, Button, Flex, PopoverMessage, Pulsar } from 'gestalt';
 
 export default function Example() {
   const [showEducation, setShowEducation] = useState(false);
@@ -28,7 +28,7 @@ export default function Example() {
           <Pulsar size={30} />
         </Box>
         {showEducation && (
-          <PopoverEducational
+          <PopoverMessage
             anchor={anchorRef.current}
             idealDirection="down"
             message="Our 3-step ad creation tool makes setting up an ad even faster"
