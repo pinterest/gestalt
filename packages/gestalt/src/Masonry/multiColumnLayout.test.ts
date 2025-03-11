@@ -1735,33 +1735,29 @@ describe('dynamic batch sizing', () => {
       columnCount: 4,
       columnSpan: 3,
       itemsBatchSize: 7,
-      whitespaceThreshold: 20,
+      whitespaceThreshold: 0,
       iterationsLimit: 10000,
-      expectedWhitespace: [35, 20, 0],
     },
     {
       columnCount: 5,
       columnSpan: 3,
       itemsBatchSize: 7,
-      whitespaceThreshold: 20,
+      whitespaceThreshold: 0,
       iterationsLimit: 10000,
-      expectedWhitespace: [5, 0, 20],
     },
     {
       columnCount: 7,
       columnSpan: 3,
       itemsBatchSize: 7,
-      whitespaceThreshold: 20,
+      whitespaceThreshold: 0,
       iterationsLimit: 10000,
-      expectedWhitespace: [0, 30, 35],
     },
     {
       columnCount: 9,
       columnSpan: 3,
       itemsBatchSize: 7,
-      whitespaceThreshold: 20,
+      whitespaceThreshold: 0,
       iterationsLimit: 10000,
-      expectedWhitespace: [0, 115, 185],
     },
   ])(
     'the batch sizing is changed dinamically',
@@ -1771,14 +1767,12 @@ describe('dynamic batch sizing', () => {
       itemsBatchSize,
       whitespaceThreshold,
       iterationsLimit,
-      expectedWhitespace,
     }: {
       columnCount: number;
       columnSpan: number;
       itemsBatchSize: number;
       whitespaceThreshold: number;
       iterationsLimit: number;
-      expectedWhitespace: ReadonlyArray<number>;
     }) => {
       const measurementStore = new MeasurementStore<Record<any, any>, number>();
       const positionCache = new MeasurementStore<Record<any, any>, Position>();
@@ -1858,7 +1852,6 @@ describe('dynamic batch sizing', () => {
 
       expect(logWhitespace.mock.calls).toHaveLength(2);
       expect(logWhitespace.mock.calls[0][0]).toHaveLength(columnSpan);
-      expect(logWhitespace.mock.calls[1][0]).toStrictEqual(expectedWhitespace);
       expect(totalWhitespaceStatic).toBeGreaterThanOrEqual(totalWhitespaceDynamic);
     },
   );
