@@ -1822,8 +1822,10 @@ describe('dynamic batch sizing', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
-          _getColumnSpanConfig: getColumnSpanConfig,
           logWhitespace,
+          originalItems: items,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
         });
       const layoutWithDinamicBatchSize = (itemsToLayout: Item[]) =>
         multiColumnLayout({
@@ -1834,9 +1836,11 @@ describe('dynamic batch sizing', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
-          _getColumnSpanConfig: getColumnSpanConfig,
           logWhitespace,
+          originalItems: items,
+          _getColumnSpanConfig: getColumnSpanConfig,
           _getModulePositioningConfig: getModulePositioningConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
         });
 
       layoutWithoutDinamicBatchSize(items);

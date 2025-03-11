@@ -408,7 +408,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: changedItemIndexNewHeight,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const expectedPos = [
@@ -478,7 +478,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: changedItemIndexNewHeight,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const expectedPos = [

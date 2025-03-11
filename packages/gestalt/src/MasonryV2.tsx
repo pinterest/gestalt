@@ -446,10 +446,17 @@ function useLayout<T>({
   if (nextMultiColumnItem) {
     if (width) {
       const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
+      const responsiveModuleConfigForSecondItem =
+        _getResponsiveModuleConfigForSecondItem && items[1]
+          ? _getResponsiveModuleConfigForSecondItem(items[1])
+          : undefined;
 
       const moduleSize = calculateActualColumnSpan({
         columnCount: gridSize,
+        firstItem: items[0]!,
+        isFlexibleWidthItem: layout === 'flexible',
         item: nextMultiColumnItem,
+        responsiveModuleConfigForSecondItem,
         _getColumnSpanConfig,
       });
 

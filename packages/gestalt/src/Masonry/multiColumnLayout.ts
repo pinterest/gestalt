@@ -70,7 +70,7 @@ export function getColumnSpanFromGridSize(
 function getColumnSpanFromResponsiveModuleConfig(
   columnCount: number,
   firstItemColumnSpan: number,
-  responsiveModuleConfig: ResponsiveModuleConfig,
+  responsiveModuleConfig?: ResponsiveModuleConfig,
 ): number {
   if (typeof responsiveModuleConfig === 'number') {
     return responsiveModuleConfig;
