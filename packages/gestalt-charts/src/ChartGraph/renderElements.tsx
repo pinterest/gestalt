@@ -60,8 +60,10 @@ export default function renderElements({
 }: Props): ReadonlyArray<ReactNode> {
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
-  const squaredRadius = [0, 0, 0, 0];
-  const roundedRadius = ['vertical', 'verticalBiaxial'].includes(layout)
+  const squaredRadius: [number, number, number, number] = [0, 0, 0, 0];
+  const roundedRadius: [number, number, number, number] = ['vertical', 'verticalBiaxial'].includes(
+    layout,
+  )
     ? [0, 4, 4, 0]
     : [4, 4, 0, 0];
 
@@ -78,7 +80,6 @@ export default function renderElements({
       return (
         <RechartsBar
           key={values.id}
-          // @ts-expect-error - TS2769
           barSize="50%"
           dataKey={values.id}
           fill={
@@ -87,6 +88,7 @@ export default function renderElements({
               : hexColor(values.color || defaultColor)
           }
           isAnimationActive={false}
+          // @ts-expect-error - TS2769 - No overload matches this call.
           // eslint-disable-next-line react/no-unstable-nested-components
           shape={({ height, ...props }) => (
             <Rectangle
