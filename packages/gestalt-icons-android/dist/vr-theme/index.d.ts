@@ -92,6 +92,7 @@ declare const icons: Readonly<{
     code: any;
     'code-check': any;
     cog: any;
+    'cog-fill': any;
     collage: any;
     collapse: any;
     color: any;
@@ -100,6 +101,7 @@ declare const icons: Readonly<{
     'color-solid': any;
     'color-split': any;
     compass: any;
+    'compass-fill': any;
     compose: any;
     contrast: any;
     'conversion-tag': any;
@@ -138,6 +140,7 @@ declare const icons: Readonly<{
     'face-tryon': any;
     facebook: any;
     fade: any;
+    'ferris-wheel': any;
     'file-box': any;
     'file-unknown': any;
     'fill-opaque': any;
@@ -282,6 +285,7 @@ declare const icons: Readonly<{
     shapes: any;
     share: any;
     'shopping-bag': any;
+    'shopping-bag-fill': any;
     shrink: any;
     shuffles: any;
     skintone: any;
@@ -308,6 +312,8 @@ declare const icons: Readonly<{
     'speed-2x': any;
     'speed-3x': any;
     spread: any;
+    'square-plus': any;
+    'square-plus-fill': any;
     star: any;
     'star-half': any;
     'star-outline': any;
@@ -355,6 +361,7 @@ declare const icons: Readonly<{
     'video-camera': any;
     'video-rewind-10-seconds': any;
     'view-type-default': any;
+    'view-type-default-fill': any;
     'view-type-dense': any;
     'view-type-list': any;
     'view-type-sparse': any;

@@ -2,7 +2,7 @@ import { ComponentProps } from 'react';
 import ItemContent from './ItemContent';
 import { ItemIconButton } from './PrimaryActionIconButton';
 import Box from '../Box';
-import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import TapArea from '../TapArea';
 
 type Props = {
@@ -34,10 +34,10 @@ export default function SideNavigationGroupExpandIconButton({
         tabIndex={-1}
         width={24}
       >
-        <Icon
+        <IconCompact
           accessibilityLabel=""
           color={active ? 'inverse' : 'default'}
-          icon={expanded ? 'arrow-up' : 'arrow-down'}
+          icon={expanded ? 'compact-chevron-up' : 'compact-chevron-down'}
           size={12}
         />
       </Box>

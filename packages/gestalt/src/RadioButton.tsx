@@ -4,7 +4,6 @@ import Box from './Box';
 import focusStyles from './Focus.css';
 import Label from './Label';
 import styles from './RadioButton.css';
-import controlStyles from './RadioButtonCheckbox.css';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 
@@ -104,7 +103,7 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
     borderWidth = styles.BorderCheckedMd;
   }
 
-  const styleSize = size === 'sm' ? controlStyles.sizeSm : controlStyles.sizeMd;
+  const styleSize = size === 'sm' ? styles.sizeSm : styles.sizeMd;
 
   const bgStyle = disabled && !checked ? styles.BgDisabled : styles.BgEnabled;
 
@@ -131,7 +130,7 @@ const RadioButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(function R
               ref={ref}
               aria-describedby={subtext && focused ? `${id}-helperText` : undefined}
               checked={checked}
-              className={classnames(controlStyles.input, styleSize, {
+              className={classnames(styles.input, styleSize, {
                 [styles.InputEnabled]: !disabled,
               })}
               disabled={disabled}

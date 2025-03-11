@@ -46,6 +46,9 @@ const cssModules = (options = {}) => {
     '--g-sm': '(min-width: 576px)',
     '--g-md': '(min-width: 768px)',
     '--g-lg': '(min-width: 1312px)',
+    '--g-xl': '(min-width: 1440px)',
+    '--g-xxl': '(min-width: 1680px)',
+    '--g-xxxl': '(min-width: 2048px)',
   };
 
   const modulesPlugin = postcssModules({

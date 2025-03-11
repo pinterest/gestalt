@@ -10,6 +10,7 @@ import {
 import classnames from 'classnames';
 import styles from './VRSearchField.css';
 import boxStyles from '../Box.css';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Icon from '../Icon';
 import Pog from '../Pog';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
@@ -29,6 +30,8 @@ type Props = {
   id: string;
   onChange: (arg1: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => void;
   // OPTIONAL
+  accessibilityLabel: string;
+  accessibilityClearButtonLabel?: string;
   autoComplete?: autoCompleteType;
   dataTestId?: string;
   errorMessage?: ReactNode;
@@ -36,18 +39,21 @@ type Props = {
   label?: string;
   labelDisplay?: 'visible' | 'hidden';
   onBlur?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
-  onClick?: (arg1: { event: React.MouseEvent<HTMLInputElement>; value: string }) => void;
   onClear?: () => void;
   onFocus?: (arg1: { event: React.FocusEvent<HTMLInputElement>; value: string }) => void;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLInputElement>; value: string }) => void;
   placeholder?: string;
   size?: SizeType;
   value?: string;
+  readOnly?: boolean;
+  tabIndex?: -1 | 0;
 };
 
 const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function TextField(
   {
     autoComplete,
+    accessibilityLabel,
+    accessibilityClearButtonLabel,
     dataTestId,
     errorMessage,
     hasError = false,
@@ -57,12 +63,13 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
     onBlur,
     onClear,
     onChange,
-    onClick,
     onFocus,
     onKeyDown,
     placeholder,
+    tabIndex,
     size = 'md',
     value,
+    readOnly,
   }: Props,
   ref,
 ) {
@@ -75,7 +82,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
   const hasErrorMessage = Boolean(errorMessage);
 
   const isLabelVisible = labelDisplay === 'visible';
-  const isClearIconButtonVisible = !!value;
+  const isClearIconButtonVisible = !!value && !readOnly;
 
   const isMD = size === 'md';
   const isLG = size === 'lg';
@@ -86,6 +93,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
   const [iconFocused, setIconFocused] = useState(false);
 
   // ==== A11Y ====
+
+  const { accessibilityClearButtonLabel: accessibilityDefaultClearButtonLabel } =
+    useDefaultLabelContext('SearchField');
 
   const ariaDescribedby = hasErrorMessage ? `${id}-error` : undefined;
 
@@ -159,6 +169,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           ref={innerRef}
           aria-describedby={focused ? ariaDescribedby : undefined}
           aria-invalid={hasErrorMessage || hasError ? 'true' : 'false'}
+          aria-label={accessibilityLabel}
           autoComplete={autoComplete}
           className={classnames(
             styles.input,
@@ -197,14 +208,15 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
           onChange={(event) => {
             onChange({ event, value: event.currentTarget.value });
           }}
-          onClick={(event) => onClick?.({ event, value: event.currentTarget.value })}
           onFocus={(event) => {
             setFocused(true);
             onFocus?.({ event, value: event.currentTarget.value });
           }}
           onKeyDown={(event) => onKeyDown?.({ event, value: event.currentTarget.value })}
           placeholder={placeholder}
+          readOnly={readOnly}
           role="searchbox"
+          tabIndex={tabIndex}
           value={value}
         />
         {isClearIconButtonVisible ? (
@@ -215,7 +227,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function T
             })}
           >
             <TapArea
-              accessibilityLabel="Clear date"
+              accessibilityLabel={
+                accessibilityClearButtonLabel ?? accessibilityDefaultClearButtonLabel
+              }
               onBlur={() => setIconFocused(false)}
               onFocus={() => setIconFocused(true)}
               onKeyDown={({ event }) => {

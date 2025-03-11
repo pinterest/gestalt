@@ -81,3 +81,7 @@
 .dataVisualizationColor12 {
   background-color: var(--color-background-tiledata-12);
 }
+
+.dataVisualizationColorneutral {
+  background-color: var(--color-background-tiledata-neutral);
+}

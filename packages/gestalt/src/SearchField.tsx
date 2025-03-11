@@ -75,13 +75,18 @@ type Props = {
    */
   placeholder?: string;
   /**
+   * Indicate if the input is readOnly.
+   */
+  readOnly?: boolean;
+  /**
    * Ref that is forwarded to the underlying input element.
    */
   ref?: UnionRefs; // eslint-disable-line react/no-unused-prop-types,
-  /**
-   * md: 40px, lg: 48px
-   */
   size?: 'md' | 'lg';
+  /**
+   * Use "-1" to remove SearchField from keyboard navigation.
+   */
+  tabIndex?: -1 | 0;
   /**
    * The current value of the input.
    */
@@ -114,6 +119,8 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     size = 'md',
     value,
     errorMessage,
+    readOnly,
+    tabIndex,
   }: Props,
   ref,
 ) {
@@ -184,6 +191,8 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     return (
       <VRSearchField
         ref={ref}
+        accessibilityClearButtonLabel={accessibilityClearButtonLabel}
+        accessibilityLabel={accessibilityLabel}
         autoComplete={autoComplete}
         dataTestId={dataTestId}
         errorMessage={errorMessage}
@@ -196,7 +205,9 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={placeholder}
+        readOnly={readOnly}
         size={size}
+        tabIndex={tabIndex}
         value={value}
       />
     );
@@ -244,12 +255,14 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
+          readOnly={readOnly}
           role="searchbox"
+          tabIndex={tabIndex}
           type="search"
           value={value}
         />
 
-        {hasValue && (
+        {hasValue && !readOnly && (
           <div className={styles.clear}>
             <IconButton
               accessibilityLabel={

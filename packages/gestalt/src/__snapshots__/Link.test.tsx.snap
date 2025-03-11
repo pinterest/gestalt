@@ -98,8 +98,7 @@ exports[`external link with nofollow 1`] = `
       width={16}
     >
       <title>
-        , 
-        Opens a new tab
+        , Opens a new tab
       </title>
       <path
         d="test-file-stub"

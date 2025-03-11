@@ -3,12 +3,12 @@ import { Box, Button, Flex, Label, Text, TextField, Video } from 'gestalt';
 
 export default function Example() {
   const [input, setInput] = useState(
-    'https://v.pinimg.com/videos/mc/expMp4/ce/b4/cc/ceb4cc8c4889a86432a65884c147021f_t1.mp4',
+    'https://v1.pinimg.com/videos/mc/expMp4/ce/b4/cc/ceb4cc8c4889a86432a65884c147021f_t1.mp4',
   );
   const [playbackRate, setPlaybackRate] = useState(1);
   const [playing, setPlaying] = useState(false);
   const [src, setSrc] = useState(
-    'https://v.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4',
+    'https://v1.pinimg.com/videos/mc/expMp4/c8/37/71/c83771d856bc1ee12e2d2f81083df9d4_t1.mp4',
   );
   const [volume, setVolume] = useState(1);
 

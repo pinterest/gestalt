@@ -43,7 +43,7 @@ exports[`Box has correct *-hide classes when display is false 1`] = `
 
 exports[`Box has correct *-inline-block classes when display is inlineBlock 1`] = `
 <div
-  className="box lgDisplayInlineBlock mdDisplayInlineBlock smDisplayInlineBlock xsDisplayInlineBlock"
+  className="box lgDisplayInlineBlock mdDisplayInlineBlock smDisplayInlineBlock xlDisplayInlineBlock xsDisplayInlineBlock xxlDisplayInlineBlock xxxlDisplayInlineBlock"
 />
 `;
 

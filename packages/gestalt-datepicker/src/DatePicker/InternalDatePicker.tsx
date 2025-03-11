@@ -62,6 +62,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       selectLists,
       size,
       value: controlledValue,
+      _overrideRangeDateFix,
     }: InternalProps,
     ref,
   ): ReactElement {
@@ -113,6 +114,10 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       left: 'left',
     } as const;
 
+    // This logic is making the component uncontrolled and causes unexpected behaviour. We need to deprecate it when all instances of DatePicker set _overrideRangeDateFix to true
+    const controlledMaxDate = rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate;
+    const controlledMinDate = rangeSelector === 'start' ? minDate : rangeStartDate || minDate;
+
     return (
       <div className="_gestalt">
         {label && !isInVRExperiment && !inline && (
@@ -151,8 +156,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
           includeDates={includeDates && [...includeDates]}
           inline={inline}
           locale={updatedLocale}
-          maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
-          minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
+          maxDate={_overrideRangeDateFix ? maxDate : controlledMaxDate}
+          minDate={_overrideRangeDateFix ? minDate : controlledMinDate}
           nextMonthButtonLabel={
             <Icon accessibilityLabel={nextMonth} color="default" icon="arrow-forward" size={16} />
           }

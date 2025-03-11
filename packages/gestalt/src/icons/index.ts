@@ -91,6 +91,7 @@ import cloudServer from './cloud-server.svg';
 import code from './code.svg';
 import codeCheck from './code-check.svg';
 import cog from './cog.svg';
+import cogFill from './cog-fill.svg';
 import collage from './collage.svg';
 import collapse from './collapse.svg';
 import color from './color.svg';
@@ -99,6 +100,7 @@ import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
 import compass from './compass.svg';
+import compassFill from './compass-fill.svg';
 import compose from './compose.svg';
 import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
@@ -137,6 +139,7 @@ import faceSmileyPlus from './face-smiley-plus.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
 import fade from './fade.svg';
+import ferrisWheel from './ferris-wheel.svg';
 import fileBox from './file-box.svg';
 import fileUnknown from './file-unknown.svg';
 import fillOpaque from './fill-opaque.svg';
@@ -281,6 +284,7 @@ import shadows from './shadows.svg';
 import shapes from './shapes.svg';
 import share from './share.svg';
 import shoppingBag from './shopping-bag.svg';
+import shoppingBagFill from './shopping-bag-fill.svg';
 import shrink from './shrink.svg';
 import shuffles from './shuffles.svg';
 import skintone from './skintone.svg';
@@ -307,6 +311,8 @@ import speed1X from './speed-1x.svg';
 import speedDoubleX from './speed-2x.svg';
 import speedTripleX from './speed-3x.svg';
 import spread from './spread.svg';
+import squarePlus from './square-plus.svg';
+import squarePlusFill from './square-plus-fill.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
 import starOutline from './star-outline.svg';
@@ -354,6 +360,7 @@ import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
 import videoRewind10Seconds from './video-rewind-10-seconds.svg';
 import viewTypeDefault from './view-type-default.svg';
+import viewTypeDefaultFill from './view-type-default-fill.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 import viewTypeSparse from './view-type-sparse.svg';
@@ -469,6 +476,7 @@ const icons = Object.freeze({
   'code': code,
   'code-check': codeCheck,
   'cog': cog,
+  'cog-fill': cogFill,
   'collage': collage,
   'collapse': collapse,
   'color': color,
@@ -477,6 +485,7 @@ const icons = Object.freeze({
   'color-solid': colorSolid,
   'color-split': colorSplit,
   'compass': compass,
+  'compass-fill': compassFill,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,
@@ -515,6 +524,7 @@ const icons = Object.freeze({
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
+  'ferris-wheel': ferrisWheel,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
@@ -659,6 +669,7 @@ const icons = Object.freeze({
   'shapes': shapes,
   'share': share,
   'shopping-bag': shoppingBag,
+  'shopping-bag-fill': shoppingBagFill,
   'shrink': shrink,
   'shuffles': shuffles,
   'skintone': skintone,
@@ -685,6 +696,8 @@ const icons = Object.freeze({
   'speed-2x': speedDoubleX,
   'speed-3x': speedTripleX,
   'spread': spread,
+  'square-plus': squarePlus,
+  'square-plus-fill': squarePlusFill,
   'star': star,
   'star-half': starHalf,
   'star-outline': starOutline,
@@ -732,6 +745,7 @@ const icons = Object.freeze({
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
+  'view-type-default-fill': viewTypeDefaultFill,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-sparse': viewTypeSparse,

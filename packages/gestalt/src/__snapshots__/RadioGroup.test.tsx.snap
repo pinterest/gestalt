@@ -5,7 +5,7 @@ exports[`RadioGroup renders 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label paddingX0 formLabel"
+    className="label"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -27,8 +27,6 @@ exports[`RadioGroup renders 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
           >
             <input
               checked={false}
@@ -64,7 +62,7 @@ exports[`RadioGroup renders a hidden legend 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label paddingX0 visuallyHidden formLabel"
+    className="label visuallyHidden"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -86,8 +84,6 @@ exports[`RadioGroup renders a hidden legend 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
           >
             <input
               checked={false}
@@ -124,7 +120,7 @@ exports[`RadioGroup renders an error 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label paddingX0 formLabel"
+    className="label"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -146,8 +142,6 @@ exports[`RadioGroup renders an error 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
           >
             <input
               checked={false}
@@ -176,7 +170,7 @@ exports[`RadioGroup renders an error 1`] = `
     </div>
   </div>
   <div
-    className=""
+    className="marginTop"
     id="testingErrorEx-error"
   >
     <div
@@ -205,7 +199,7 @@ exports[`RadioGroup renders an error 1`] = `
                   className="error icon iconBlock"
                   height={16}
                   role="img"
-                  viewBox="0 0 24 24"
+                  viewBox="0 0 16 16"
                   width={16}
                 >
                   <path
@@ -232,7 +226,7 @@ exports[`RadioGroup renders in different direction 1`] = `
   className="unstyled p0 m0"
 >
   <legend
-    className="label paddingX0 visuallyHidden formLabel"
+    className="label visuallyHidden"
   >
     <div
       className="default alignStart breakWord Text fontSize100 fontWeightNormal"
@@ -254,8 +248,6 @@ exports[`RadioGroup renders in different direction 1`] = `
         >
           <div
             className="BgEnabled Border BorderUnchecked sizeMd RadioButton"
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
           >
             <input
               checked={false}

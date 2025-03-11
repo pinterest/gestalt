@@ -26,7 +26,7 @@ exports[`Dropdown renders a menu of 3 items conditionally 1`] = `
       >
         <div
           aria-label="Dropdown"
-          class="relative maxDimensions minDimensions border primary rounding4"
+          class="relative maxDimensions minDimensions primary rounding4"
           id="ex-1"
           role="menu"
           style="max-width: 360px; overflow: auto;"
@@ -593,7 +593,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
       >
         <div
           aria-label="Dropdown"
-          class="relative maxDimensions minDimensions border primary rounding4"
+          class="relative maxDimensions minDimensions primary rounding4"
           id="ex-1"
           role="menu"
           style="max-width: 360px; overflow: auto;"
@@ -745,8 +745,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         width="12"
                       >
                         <title>
-                          , 
-                          Opens a new tab
+                          , Opens a new tab
                         </title>
                         <path
                           d="test-file-stub"
@@ -928,8 +927,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         width="12"
                       >
                         <title>
-                          , 
-                          Opens a new tab
+                          , Opens a new tab
                         </title>
                         <path
                           d="test-file-stub"
@@ -1008,8 +1006,7 @@ exports[`Dropdown renders a menu of 6 items 1`] = `
                         width="12"
                       >
                         <title>
-                          , 
-                          Opens a new tab
+                          , Opens a new tab
                         </title>
                         <path
                           d="test-file-stub"

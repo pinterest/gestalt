@@ -13,7 +13,8 @@ type DataVisualizationColors =
   | '09'
   | '10'
   | '11'
-  | '12';
+  | '12'
+  | 'neutral';
 
 export default function Example() {
   const allColors: ReadonlyArray<DataVisualizationColors> = [
@@ -28,6 +29,7 @@ export default function Example() {
     '10',
     '11',
     '12',
+    'neutral',
   ];
 
   const [selectedColors, setSelectedColors] = useState(allColors);

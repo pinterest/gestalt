@@ -472,6 +472,16 @@
           }
         }
       },
+      "segmentedcontrol": {
+        "container": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "tab": {
+          "selected": {
+            "value": "{sema.color.background.default.value}"
+          }
+        }
+      },
       "switch": {
         "default": {
           "unselected": {

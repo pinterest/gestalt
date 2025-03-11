@@ -3,13 +3,13 @@ import classnames from 'classnames';
 import Box from './Box';
 import Flex from './Flex';
 import focusStyles from './Focus.css';
-import Icon from './Icon';
 import IconCompact from './IconCompact';
 import styles from './SearchGuide.css';
 import touchableStyles from './TapArea.css';
 import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
+import useTapFeedback from './useTapFeedback';
 
 type Props = {
   /**
@@ -32,7 +32,19 @@ type Props = {
    * The background color of SearchGuide.
    * See the [color variant](https://gestalt.pinterest.systems/web/searchguide#Colors) for implementation guidance.
    */
-  color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11';
+  color?:
+    | '01'
+    | '02'
+    | '03'
+    | '04'
+    | '05'
+    | '06'
+    | '07'
+    | '08'
+    | '09'
+    | '10'
+    | '11'
+    | ReadonlyArray<string>;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -118,76 +130,36 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     '11': 'color11',
   };
 
-  const buttonClasses = isInVRExperiment
+  const colorClassname = typeof color === 'string' ? styles[colorClass[color]!] : null;
+
+  const style = isInVRExperiment
     ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
         [styles.selectedVr]: selected,
+        [styles.gradient]:
+          typeof color !== 'string' && Array.isArray(color) && !isFocusVisible && !selected,
       })
-    : classnames(styles.searchguide, touchableStyles.tapTransition, [styles[colorClass[color]!]], {
+    : classnames(styles.searchguide, touchableStyles.tapTransition, !selected && colorClassname, {
         [styles.selected]: selected,
         [focusStyles.hideOutline]: !isFocusVisible && !selected,
         [focusStyles.accessibilityOutline]: isFocusVisible,
       });
-  const childrenDivClasses = classnames(
-    styles.childrenDiv,
-    isInVRExperiment && {
-      [styles[`color${color}`]]: !selected,
-      [styles.selectedVr]: selected,
-    },
-  );
 
   const textComponent =
     text.length > 0 ? (
-      <TextUI
-        align="center"
-        color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-        overflow="noWrap"
-      >
+      <TextUI align="center" color={selected ? 'inverse' : 'dark'} overflow="noWrap">
         {text}
       </TextUI>
     ) : null;
 
-  const checkIcon = isInVRExperiment ? (
+  const expandableIcon = (
     <IconCompact
       accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      icon="compact-check"
-      size={12}
-    />
-  ) : (
-    <Icon
-      accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      icon="check"
-      size={12}
-    />
-  );
-
-  const expandableIcon = isInVRExperiment ? (
-    <IconCompact
-      accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
+      color={selected ? 'inverse' : 'dark'}
       icon="compact-chevron-down"
       size={12}
     />
-  ) : (
-    <Icon
-      accessibilityLabel=""
-      color={isInVRExperiment && selected ? 'inverse' : 'dark'}
-      icon="arrow-down"
-      size={12}
-    />
-  );
-
-  const selectedVariant = selected && isInVRExperiment && (
-    <Box paddingX={5}>
-      <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-        {checkIcon}
-        {textComponent}
-        {expandable ? expandableIcon : null}
-      </Flex>
-    </Box>
   );
 
   const thumbnailVariant = thumbnail && (
@@ -221,7 +193,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
         {'icon' in thumbnail && (
           <Box marginStart={3}>
             {cloneElement(thumbnail.icon, {
-              color: isInVRExperiment && selected ? 'inverse' : 'dark',
+              color: selected ? 'inverse' : 'dark',
             })}
           </Box>
         )}
@@ -240,11 +212,24 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     </Box>
   );
 
-  const defaultVariant =
-    thumbnail &&
-    (selected || !('avatar' in thumbnail || 'avatarGroup' in thumbnail) || !isInVRExperiment)
-      ? thumbnailVariant
-      : textVariant;
+  const {
+    compressStyle,
+    handleBlur,
+    handleMouseDown,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchCancel,
+    handleTouchEnd,
+    isTapping,
+  } = useTapFeedback({
+    height: innerRef?.current?.clientHeight,
+    width: innerRef?.current?.clientWidth,
+  });
+
+  const variant = thumbnail ? thumbnailVariant : textVariant;
+  const inBackgroundGradient =
+    !isInVRExperiment && typeof color !== 'string' && Array.isArray(color);
 
   return (
     <button
@@ -254,17 +239,58 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       aria-haspopup={accessibilityHaspopup || expandable}
       aria-label={accessibilityLabel}
       aria-pressed={selected}
-      className={buttonClasses}
+      className={style}
       data-test-id={dataTestId}
+      onBlur={handleBlur}
       onClick={(event) => onClick?.({ event })}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onTouchCancel={handleTouchCancel}
+      onTouchEnd={handleTouchEnd}
+      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+      onTouchMove={handleTouchMove}
+      // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
+      onTouchStart={handleTouchStart}
+      {...(inBackgroundGradient || compressStyle
+        ? {
+            style: {
+              ...(inBackgroundGradient && !selected
+                ? {
+                    backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
+                  }
+                : {}),
+              ...(compressStyle || {}),
+            },
+          }
+        : {})}
       type="button"
     >
-      <div className={childrenDivClasses}>
-        {selected &&
-        !(thumbnail && ('avatar' in thumbnail || 'avatarGroup' in thumbnail)) &&
-        isInVRExperiment
-          ? selectedVariant
-          : defaultVariant}
+      <div
+        className={classnames(
+          styles.childrenDiv,
+          isInVRExperiment && thumbnail && 'image' in thumbnail && styles.imageThumbnailMask,
+          isInVRExperiment && selected && styles.selectedVr,
+          isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
+          { [touchableStyles.tapCompress]: isTapping },
+        )}
+        style={
+          isInVRExperiment && !selected && typeof color !== 'string' && Array.isArray(color)
+            ? {
+                backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
+              }
+            : undefined
+        }
+      >
+        {!thumbnail ? (
+          <Box paddingX={5}>
+            <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
+              {textComponent}
+              {expandable ? expandableIcon : null}
+            </Flex>
+          </Box>
+        ) : (
+          variant
+        )}
       </div>
     </button>
   );

@@ -157,7 +157,6 @@ export default function InternalTooltip({
           <Controller
             anchor={anchor}
             bgColor={isInVRExperiment ? undefined : 'darkGray'}
-            border={false}
             caret={false}
             disablePortal
             hideWhenReferenceHidden

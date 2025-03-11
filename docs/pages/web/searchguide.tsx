@@ -13,6 +13,7 @@ import avatarGroup from '../../examples/searchguide/avatargroup';
 import colors from '../../examples/searchguide/colors';
 import expandable from '../../examples/searchguide/expandable';
 import expandableVariants from '../../examples/searchguide/expandableVariants';
+import gradient from '../../examples/searchguide/gradient';
 import hideLowQualityDo from '../../examples/searchguide/hideLowQualityDo';
 import icon from '../../examples/searchguide/icon';
 import image from '../../examples/searchguide/image';
@@ -256,6 +257,23 @@ Also consider:
             cardSize="lg"
             sandpackExample={
               <SandpackExample code={colors} layout="column" name="Colors" previewHeight={500} />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`Use the \`color\` prop to apply a color gradient to SearchGuide.`}
+          title="Color gradation"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={gradient}
+                layout="column"
+                name="Color gradation"
+                previewHeight={500}
+              />
             }
           />
         </MainSection.Subsection>
