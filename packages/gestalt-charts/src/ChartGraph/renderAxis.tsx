@@ -77,18 +77,16 @@ export default function renderAxis({
     <Fragment>
       {isHorizontalLayout && (
         <Fragment>
+          {/* @ts-expect-error - TS2769 - No overload matches this call. */}
           <XAxis
             axisLine={false}
             dataKey="name"
-            // @ts-expect-error - TS2322
             domain={isTimeSeries ? !Array.isArray(range) && range?.xAxisBottom : undefined}
             interval={0}
             orientation="bottom"
             reversed={isRtl}
             scale={isTimeSeries ? 'time' : undefined}
-            // @ts-expect-error - TS2322
             style={FONT_STYLE_CATEGORIES}
-            // @ts-expect-error - TS2322
             tickFormatter={
               isTimeSeries
                 ? tickFormatter?.xAxisBottom || tickFormatter?.timeseries
@@ -98,14 +96,13 @@ export default function renderAxis({
             type={isTimeSeries ? 'number' : 'category'}
             // DO NOT SET xAxisId here (it breaks the component, opaque behavior from Recharts)
           />
+          {/* @ts-expect-error - TS2769 - No overload matches this call. */}
           <YAxis
             axisLine={false}
             domain={Array.isArray(range) ? range : range?.yAxisLeft}
             orientation={isRtl ? 'right' : 'left'}
-            // @ts-expect-error - TS2322
             style={FONT_STYLE_VALUES}
             tickCount={tickCount}
-            // @ts-expect-error - TS2322
             tickFormatter={tickFormatter?.yAxisLeft}
             tickLine={false}
             yAxisId="left"
@@ -113,14 +110,13 @@ export default function renderAxis({
         </Fragment>
       )}
       {isHorizontalBiaxialLayout && (
+        // @ts-expect-error - TS2769 - No overload matches this call.
         <YAxis
           axisLine={false}
           domain={Array.isArray(range) ? range : range?.yAxisLeft}
           orientation={isRtl ? 'left' : 'right'}
-          // @ts-expect-error - TS2322
           style={FONT_STYLE_VALUES}
           tickCount={tickCount}
-          // @ts-expect-error - TS2322
           tickFormatter={tickFormatter?.yAxisRight}
           tickLine={false}
           yAxisId="right"
@@ -128,16 +124,14 @@ export default function renderAxis({
       )}
       {isVerticalLayout && (
         <Fragment>
+          {/* @ts-expect-error - TS2769 - No overload matches this call. */}
           <XAxis
             axisLine={false}
-            // @ts-expect-error - TS2322
             domain={range}
             orientation="bottom"
             reversed={isRtl}
-            // @ts-expect-error - TS2322
             style={FONT_STYLE_VALUES}
             tickCount={tickCount}
-            // @ts-expect-error - TS2322
             tickFormatter={tickFormatter?.xAxisBottom}
             tickLine={false}
             type="number"
@@ -157,16 +151,14 @@ export default function renderAxis({
         </Fragment>
       )}
       {isVerticalBiaxialLayout && (
+        // @ts-expect-error - TS2769 - No overload matches this call.
         <XAxis
           axisLine={false}
-          // @ts-expect-error - TS2322
           domain={range}
           orientation="top"
           reversed={isRtl}
-          // @ts-expect-error - TS2322
           style={FONT_STYLE_VALUES}
           tickCount={tickCount}
-          // @ts-expect-error - TS2322
           tickFormatter={tickFormatter?.xAxisTop}
           tickLine={false}
           type="number"
