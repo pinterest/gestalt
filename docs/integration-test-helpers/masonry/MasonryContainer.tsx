@@ -1,4 +1,8 @@
 import { Component, ComponentProps, createRef, ReactElement } from 'react';
+import {
+  ColumnSpanConfig,
+  ResponsiveModuleConfig,
+} from 'packages/gestalt/src/Masonry/multiColumnLayout';
 import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
 import getClassicGridServerStyles from './getClassicGridServerStyles';
@@ -418,8 +422,12 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
             _dynamicHeights={dynamicHeights || dynamicHeightsV2}
             _dynamicHeightsV2Experiment={dynamicHeightsV2}
             _getColumnSpanConfig={(item) => {
-              const columnSpan = item.columnSpan as number | undefined;
+              const columnSpan = item.columnSpan as ColumnSpanConfig | undefined;
               return columnSpan ?? 1;
+            }}
+            _getResponsiveModuleConfigForSecondItem={(item) => {
+              const responsiveModuleConfig = item.responsiveModuleConfig as ResponsiveModuleConfig;
+              return responsiveModuleConfig ?? 1;
             }}
             _logTwoColWhitespace={
               logWhitespace

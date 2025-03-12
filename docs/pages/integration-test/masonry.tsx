@@ -1,5 +1,6 @@
 import { ReactElement, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
+import generateResPonsiveModuleItems from 'docs/integration-test-helpers/masonry/items-utils/generateResponsiveModuleItems';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, Masonry, MasonryV2 } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
@@ -84,6 +85,9 @@ export default function TestPage({
     noScroll,
     offsetTop,
     realisticPinHeights,
+    responsiveModuleSecondItem,
+    responsiveModuleInsertIntermediate,
+    responsiveModuleRemoveMulticolumn,
     scrollContainer,
     twoColItems,
     virtualBoundsBottom,
@@ -106,6 +110,13 @@ export default function TestPage({
   const noScrollValue = booleanize(noScroll ?? '');
   const offsetTopValue = Number(offsetTop);
   const realisticPinHeightsValue = booleanize(realisticPinHeights ?? '');
+  const responsiveModuleSecondItemValue = booleanize(responsiveModuleSecondItem ?? '');
+  const responsiveModuleInsertIntermediateValue = booleanize(
+    responsiveModuleInsertIntermediate ?? '',
+  );
+  const responsiveModuleRemoveMulticolumnValue = booleanize(
+    responsiveModuleRemoveMulticolumn ?? '',
+  );
   const scrollContainerValue = booleanize(scrollContainer ?? '');
   const twoColItemsValue = booleanize(twoColItems ?? '');
   const virtualBoundsBottomValue = Number(virtualBoundsBottom);
@@ -130,6 +141,13 @@ export default function TestPage({
   }, [deferMountValue]);
 
   const getInitialItems = () => {
+    if (responsiveModuleSecondItemValue) {
+      return generateResPonsiveModuleItems({
+        name: 'ResponsiveModuleItems',
+        insertIntermediateItem: responsiveModuleInsertIntermediateValue,
+        removeMulticolumnItem: responsiveModuleRemoveMulticolumnValue,
+      });
+    }
     if (multiColTestValue) {
       return generateMultiColumnExampleItems({ name: 'MultiColTest' });
     }
