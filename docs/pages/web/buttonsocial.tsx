@@ -22,7 +22,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
- <MainSection name="Usage guidelines">
+      <MainSection name="Usage guidelines">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
@@ -44,7 +44,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
         </MainSection.Subsection>
       </MainSection>
- <MainSection name="Best practices">
+      <MainSection name="Best practices">
         <MainSection.Subsection columns={2}>
           <MainSection.Card
             cardSize="md"
@@ -55,9 +55,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="md"
             description="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
-            sandpackExample={
-              <SandpackExample code={facebook} hideEditor name="Do Consistency" />
-            }
+            sandpackExample={<SandpackExample code={facebook} hideEditor name="Do Consistency" />}
             type="do"
           />
           <MainSection.Card
@@ -69,9 +67,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="md"
             description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
-            sandpackExample={
-              <SandpackExample code={main} hideEditor name="Do Confirmation" />
-            }
+            sandpackExample={<SandpackExample code={main} hideEditor name="Do Confirmation" />}
             type="do"
           />
         </MainSection.Subsection>
@@ -80,64 +76,62 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Localization" />
 
-      <MainSection name="Variants" >
-         <MainSection.Subsection
+      <MainSection name="Variants">
+        <MainSection.Subsection
           description={`ButtonSocial has 4 different services:
             1. \`Apple\`
             2. \`Facebook \` 
             3. \`Google \` 
             3. \`Email\``}
-                    title="Service"
-                  >
-                            {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-                <CombinationNew service={[1,2,3,4]}>
+          title="Service"
+        >
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          <CombinationNew service={[1, 2, 3, 4]}>
             {({ service }) => {
-              const serviceCopy:  1 | 2 | 3 | 4 = service as 1 | 2 | 3 | 4;
+              const serviceCopy: 1 | 2 | 3 | 4 = service as 1 | 2 | 3 | 4;
               return (
                 <ButtonSocial
-                accessibilityLabel="Login in Pinterest"
-                href="https://pinterest.com"
-                service={serviceCopy}
-                target="blank"
-                text={3}
-              />
+                  accessibilityLabel="Login in Pinterest"
+                  href="https://pinterest.com"
+                  service={serviceCopy}
+                  target="blank"
+                  text={3}
+                />
               );
             }}
           </CombinationNew>
-                
-                </MainSection.Subsection>
+        </MainSection.Subsection>
 
-                <MainSection.Subsection
-        description={`ButtonSocial is available with 3 different messages:
+        <MainSection.Subsection
+          description={`ButtonSocial is available with 3 different messages:
           1. \`Login with\`
           2. \`Continue with\` 
           3. \`Sign up with\``}
-                  title="Text"
-                >
-                            {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-                <CombinationNew text={[1,2,3]}>
+          title="Text"
+        >
+          {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          <CombinationNew text={[1, 2, 3]}>
             {({ text }) => {
-              const textCopy:  1 | 2 | 3  = text as 1 | 2 | 3 ;
+              const textCopy: 1 | 2 | 3 = text as 1 | 2 | 3;
               return (
                 <ButtonSocial
-                accessibilityLabel="Login in Pinterest"
-                href="https://pinterest.com"
-                service={1}
-                target="blank"
-                text={textCopy}
-              />
+                  accessibilityLabel="Login in Pinterest"
+                  href="https://pinterest.com"
+                  service={1}
+                  target="blank"
+                  text={textCopy}
+                />
               );
             }}
           </CombinationNew>
-                 
-                </MainSection.Subsection>
-              </MainSection>
+        </MainSection.Subsection>
+      </MainSection>
 
       <QualityChecklist component={generatedDocGen?.displayName} />
 
-     <MainSection name="Related">
-             <MainSection.Subsection
-               description={`
+      <MainSection name="Related">
+        <MainSection.Subsection
+          description={`
      **[ButtonLink](/web/button)**
      Use ButtonLink when an action is needed instead of a link.
      
@@ -148,9 +142,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
      Use IconButton when only an icon is needed instead of text.
      
            `}
-             />
-           </MainSection>
-     
+        />
+      </MainSection>
     </Page>
   );
 }
