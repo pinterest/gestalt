@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { Bar as RechartsBar, Line as RechartsLine, Rectangle } from 'recharts';
+import { Bar as RechartsBar, LabelList, Line as RechartsLine, Rectangle } from 'recharts';
+import BarLabel from './BarLabel';
 import renderGraphPoint from './renderGraphPoint';
 import { DataVisualizationColors } from './types';
 
@@ -46,6 +47,10 @@ type Props = {
   isHorizontalLayout: boolean;
   isBarRounded: boolean;
   isDarkMode: boolean;
+  renderLabel?:
+    | 'auto'
+    | 'none'
+    | ((arg1: { icon?: 'ribbon'; size?: 16 | 24; text?: string }) => ReactNode);
 };
 
 export default function renderElements({
@@ -57,6 +62,7 @@ export default function renderElements({
   isHorizontalLayout,
   isBarRounded,
   isDarkMode,
+  renderLabel,
 }: Props): ReadonlyArray<ReactNode> {
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
@@ -74,6 +80,32 @@ export default function renderElements({
     const isLineElement = values.type === 'line';
 
     const opacityValue = isDarkMode ? 0.6 : 0.4;
+
+    // const renderCustomizedLabel = ({
+    //   x,
+    //   y,
+    //   width,
+    //   value,
+    // }: {
+    //   x: number;
+    //   y: number;
+    //   value: string;
+    //   width: number;
+    // }) => (
+    //    <BarLabel value={value} width={width} x={x} y={y} />
+    //   );
+
+    const renderDefaultLabel = ({
+      x,
+      y,
+      width,
+      value,
+    }: {
+      x: number;
+      y: number;
+      value: string;
+      width: number;
+    }) => <BarLabel value={value} width={width} x={x} y={y} />;
 
     // Recharts doesn't recognize wrappers on their components, therefore, needs to be build within ChartGraph
     if (isBarElement) {
@@ -107,7 +139,16 @@ export default function renderElements({
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
           stroke={hexColor(values.color || defaultColor)}
-        />
+        >
+          {renderLabel === 'none' ? undefined : (
+            <LabelList
+              // @ts-expect-error - TS2769
+              content={renderDefaultLabel}
+              dataKey={values.id}
+              position={isHorizontalLayout ? 'top' : 'right'}
+            />
+          )}
+        </RechartsBar>
       );
     }
 

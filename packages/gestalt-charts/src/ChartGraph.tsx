@@ -10,6 +10,7 @@ import {
 } from 'recharts';
 import { Box, Flex, useColorScheme, useDefaultLabel } from 'gestalt';
 import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_OPACITY_100 } from 'gestalt-design-tokens';
+import BarLabel from './ChartGraph/BarLabel';
 import { ChartProvider } from './ChartGraph/ChartGraphContext';
 import EmptyBox from './ChartGraph/EmptyBox';
 import Header from './ChartGraph/Header';
@@ -81,7 +82,6 @@ type Props = {
   /**
    * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
-
   helpButton?: ReactElement;
   /**
    * Callback fired when the Accessibility IconButton in ChartGraph is clicked. ChartGraph's visual patterns is a controlled feature. `onVisualPatternChange` is used to enable/disable visual patterns in ChartGraph.
@@ -165,6 +165,15 @@ type Props = {
     yAxisId: string;
     style?: 'default';
   }>;
+  /**
+   * Displays a label above the bar.
+   *
+   * See the [label variant](https://gestalt.pinterest.systems/web/chartgraph#Label) to learn more.
+   */
+  renderLabel?:
+    | 'auto'
+    | 'none'
+    | ((arg1: { icon?: 'ribbon'; size?: 16 | 24; text?: string }) => ReactNode);
   /**
    * Displays data about the datasets on hover over each data point.
    *
@@ -252,6 +261,7 @@ function ChartGraph({
   type = 'bar',
   referenceAreas = [],
   renderTooltip = 'auto',
+  renderLabel = 'none',
 }: Props) {
   // CONSTANTS
 
@@ -363,6 +373,7 @@ function ChartGraph({
         isBarRounded:
           Math.sign(individualBarWidthEstimate) === -1 ? true : individualBarWidthEstimate > 10,
         isDarkMode,
+        renderLabel,
       }),
     [
       elements,
@@ -373,6 +384,7 @@ function ChartGraph({
       isHorizontalLayout,
       individualBarWidthEstimate,
       isDarkMode,
+      renderLabel,
     ],
   );
 
@@ -548,6 +560,7 @@ function ChartGraph({
 }
 
 ChartGraph.LegendIcon = LegendIcon;
+ChartGraph.Label = BarLabel;
 
 ChartGraph.displayName = 'ChartGraph';
 
