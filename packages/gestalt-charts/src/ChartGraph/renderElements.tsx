@@ -100,12 +100,23 @@ export default function renderElements({
       y,
       width,
       value,
+      height,
     }: {
       x: number;
       y: number;
       value: string;
       width: number;
-    }) => <BarLabel value={value} width={width} x={x} y={y} />;
+      height: number;
+    }) => (
+      <BarLabel
+        height={height}
+        isHorizontalLayout={isHorizontalLayout}
+        value={value}
+        width={width}
+        x={x}
+        y={y}
+      />
+    );
 
     // Recharts doesn't recognize wrappers on their components, therefore, needs to be build within ChartGraph
     if (isBarElement) {
