@@ -50,7 +50,7 @@ type Props = {
   renderLabel?:
     | 'auto'
     | 'none'
-    | ((arg1: { icon?: 'ribbon'; size?: 16 | 24; text?: string }) => ReactNode);
+    | ((arg1: { x: number; y: number; value: string; width: number; height: number }) => ReactNode);
 };
 
 export default function renderElements({
@@ -81,19 +81,22 @@ export default function renderElements({
 
     const opacityValue = isDarkMode ? 0.6 : 0.4;
 
-    // const renderCustomizedLabel = ({
-    //   x,
-    //   y,
-    //   width,
-    //   value,
-    // }: {
-    //   x: number;
-    //   y: number;
-    //   value: string;
-    //   width: number;
-    // }) => (
-    //    <BarLabel value={value} width={width} x={x} y={y} />
-    //   );
+    const renderCustomizedLabel = ({
+      x,
+      y,
+      width,
+      value,
+      height,
+    }: {
+      x: number;
+      y: number;
+      value: string;
+      width: number;
+      height: number;
+    }) =>
+      renderLabel !== 'none' &&
+      renderLabel !== 'auto' &&
+      renderLabel?.({ x, y, width, value, height });
 
     const renderDefaultLabel = ({
       x,
@@ -154,7 +157,7 @@ export default function renderElements({
           {renderLabel === 'none' ? undefined : (
             <LabelList
               // @ts-expect-error - TS2769
-              content={renderDefaultLabel}
+              content={renderLabel === 'auto' ? renderDefaultLabel : renderCustomizedLabel}
               dataKey={values.id}
               position={isHorizontalLayout ? 'top' : 'right'}
             />

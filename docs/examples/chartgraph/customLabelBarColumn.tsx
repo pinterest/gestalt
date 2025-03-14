@@ -26,13 +26,24 @@ export default function Example() {
         accessibilityLabel="Example of a vertical bar chart"
         // @ts-expect-error - TS2322 - Type '{ name: string; Impressions: number; CPM: number; CPC: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
-        elements={[
-          { type: 'bar', id: 'Price' },
-        ]}
+        elements={[{ type: 'bar', id: 'Price' }]}
+        layout="vertical"
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
-        } range={['auto', 'auto']}
-        renderLabel="auto"
+        }
+        range={['auto', 'auto']}
+        renderLabel={({ x, y, width, height, value }) => (
+          <ChartGraph.Label
+            height={height}
+            icon="ribbon"
+            isHorizontalLayout
+            size={16}
+            value={value}
+            width={width}
+            x={x}
+            y={y}
+          />
+        )}
         title="Age"
         type="bar"
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.

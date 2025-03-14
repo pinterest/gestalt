@@ -32,7 +32,18 @@ export default function Example() {
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         range={['auto', 'auto']}
-        renderLabel="auto"
+        renderLabel={({ x, y, width, height, value }) => (
+          <ChartGraph.Label
+            height={height}
+            icon="ribbon"
+            isHorizontalLayout={false}
+            size={16}
+            value={value}
+            width={width}
+            x={x}
+            y={y}
+          />
+        )}
         title="Age"
         type="bar"
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.
