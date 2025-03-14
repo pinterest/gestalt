@@ -180,6 +180,7 @@ import home from './home.svg';
 import homeFill from './home-fill.svg';
 import ideaPin from './idea-pin.svg';
 import imagePortrait from './image-portrait.svg';
+import imessage from './imessage.svg';
 import impressum from './impressum.svg';
 import indent from './indent.svg';
 import infoCircle from './info-circle.svg';
@@ -187,6 +188,7 @@ import information from './information.svg';
 import insightsAudience from './insights-audience.svg';
 import insightsConversion from './insights-conversion.svg';
 import instagram from './instagram.svg';
+import instagramStories from './instagram-stories.svg';
 import invoice from './invoice.svg';
 import kakaoTalk from './kakao-talk.svg';
 import key from './key.svg';
@@ -252,6 +254,7 @@ import pincode from './pincode.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
 import protect from './protect.svg';
+import qrCode from './qr-code.svg';
 import questionMark from './question-mark.svg';
 import recordLimit from './record-limit.svg';
 import recordLimit5 from './record-limit-5.svg';
@@ -343,6 +346,7 @@ import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
 import textSpacing from './text-spacing.svg';
 import textSticker from './text-sticker.svg';
+import threads from './threads.svg';
 import thumbsDown from './thumbs-down.svg';
 import thumbsUp from './thumbs-up.svg';
 import timer from './timer.svg';
@@ -565,6 +569,7 @@ const icons = Object.freeze({
   'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
+  'imessage': imessage,
   'impressum': impressum,
   'indent': indent,
   'info-circle': infoCircle,
@@ -572,6 +577,7 @@ const icons = Object.freeze({
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
+  'instagram-stories': instagramStories,
   'invoice': invoice,
   'kakao-talk': kakaoTalk,
   'key': key,
@@ -637,6 +643,7 @@ const icons = Object.freeze({
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
+  'qr-code': qrCode,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
@@ -728,6 +735,7 @@ const icons = Object.freeze({
   'text-small': textSmall,
   'text-spacing': textSpacing,
   'text-sticker': textSticker,
+  'threads': threads,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,

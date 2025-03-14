@@ -180,6 +180,7 @@ import home from './ic_vr_home_gestalt.svg';
 import homeFill from './ic_vr_home-fill_gestalt.svg';
 import ideaPin from './ic_vr_idea-pin_gestalt.svg';
 import imagePortrait from './ic_vr_image-portrait_gestalt.svg';
+import imessage from './ic_vr_imessage_gestalt.svg';
 import impressum from './ic_vr_impressum_gestalt.svg';
 import indent from './ic_vr_indent_gestalt.svg';
 import infoCircle from './ic_vr_info-circle_gestalt.svg';
@@ -187,6 +188,7 @@ import information from './ic_vr_information_gestalt.svg';
 import insightsAudience from './ic_vr_insights-audience_gestalt.svg';
 import insightsConversion from './ic_vr_insights-conversion_gestalt.svg';
 import instagram from './ic_vr_instagram_gestalt.svg';
+import instagramStories from './ic_vr_instagram-stories_gestalt.svg';
 import invoice from './ic_vr_invoice_gestalt.svg';
 import kakaoTalk from './ic_vr_kakao-talk_gestalt.svg';
 import key from './ic_vr_key_gestalt.svg';
@@ -252,6 +254,7 @@ import pincode from './ic_vr_pincode_gestalt.svg';
 import pinterest from './ic_vr_pinterest_gestalt.svg';
 import play from './ic_vr_play_gestalt.svg';
 import protect from './ic_vr_protect_gestalt.svg';
+import qrCode from './ic_vr_qr-code_gestalt.svg';
 import questionMark from './ic_vr_question-mark_gestalt.svg';
 import recordLimit from './ic_vr_record-limit_gestalt.svg';
 import recordLimit5 from './ic_vr_record-limit-5_gestalt.svg';
@@ -343,6 +346,7 @@ import textSize from './ic_vr_text-size_gestalt.svg';
 import textSmall from './ic_vr_text-small_gestalt.svg';
 import textSpacing from './ic_vr_text-spacing_gestalt.svg';
 import textSticker from './ic_vr_text-sticker_gestalt.svg';
+import threads from './ic_vr_threads_gestalt.svg';
 import thumbsDown from './ic_vr_thumbs-down_gestalt.svg';
 import thumbsUp from './ic_vr_thumbs-up_gestalt.svg';
 import timer from './ic_vr_timer_gestalt.svg';
@@ -565,6 +569,7 @@ const icons = Object.freeze({
   'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
+  'imessage': imessage,
   'impressum': impressum,
   'indent': indent,
   'info-circle': infoCircle,
@@ -572,6 +577,7 @@ const icons = Object.freeze({
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
+  'instagram-stories': instagramStories,
   'invoice': invoice,
   'kakao-talk': kakaoTalk,
   'key': key,
@@ -637,6 +643,7 @@ const icons = Object.freeze({
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
+  'qr-code': qrCode,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
@@ -728,6 +735,7 @@ const icons = Object.freeze({
   'text-small': textSmall,
   'text-spacing': textSpacing,
   'text-sticker': textSticker,
+  'threads': threads,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,

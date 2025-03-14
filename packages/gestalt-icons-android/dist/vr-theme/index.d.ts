@@ -181,6 +181,7 @@ declare const icons: Readonly<{
     'home-fill': any;
     'idea-pin': any;
     'image-portrait': any;
+    imessage: any;
     impressum: any;
     indent: any;
     'info-circle': any;
@@ -188,6 +189,7 @@ declare const icons: Readonly<{
     'insights-audience': any;
     'insights-conversion': any;
     instagram: any;
+    'instagram-stories': any;
     invoice: any;
     'kakao-talk': any;
     key: any;
@@ -253,6 +255,7 @@ declare const icons: Readonly<{
     pinterest: any;
     play: any;
     protect: any;
+    'qr-code': any;
     'question-mark': any;
     'record-limit': any;
     'record-limit-10': any;
@@ -344,6 +347,7 @@ declare const icons: Readonly<{
     'text-small': any;
     'text-spacing': any;
     'text-sticker': any;
+    threads: any;
     'thumbs-down': any;
     'thumbs-up': any;
     timer: any;

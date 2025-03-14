@@ -145,6 +145,12 @@
       "keywords": ["text", "sequence", "letter", "formatting"]
     },
     {
+      "name": "amazon",
+      "categories": ["Logo"],
+      "description": "Symbolizes amazon or its subsidiaries",
+      "keywords": ["aws"]
+    },
+    {
       "name": "android-share",
       "categories": ["Platform specific"],
       "description": "On Android, indicates the ability to share an element",
@@ -557,6 +563,12 @@
       "keywords": ["payment"]
     },
     {
+      "name": "credit-card-plus",
+      "categories": ["Commerce"],
+      "description": "Indicates the ability to add a payment method or credit/debit card.",
+      "keywords": ["debit", "add", "payment"]
+    },
+    {
       "name": "crop",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to crop an image",
@@ -953,6 +965,12 @@
       "keywords": ["orientation", "picture", "photo"]
     },
     {
+      "name": "imessage",
+      "categories": ["Logo"],
+      "description": "Indicates a message from the imessage application",
+      "keywords": ["apple", "messaging"]
+    },
+    {
       "name": "impressum",
       "categories": ["Utility and tools"],
       "description": "Indicates a legal statement of ownership/authorship",
@@ -993,6 +1011,12 @@
       "categories": ["Social"],
       "description": "Indicates the Instagram service",
       "keywords": ["social", "service", "share"]
+    },
+    {
+      "name": "instagram-stories",
+      "categories": ["Logo"],
+      "description": "Indicates branding for instagram stories",
+      "keywords": ["ig", "story"]
     },
     {
       "name": "invoice",
@@ -1317,6 +1341,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to move Pins within sections/boards",
       "keywords": ["move", "reorganize"]
+    },
+    {
+      "name": "qr-code",
+      "categories": ["Technology"],
+      "description": "Indicates a scannable qr code",
+      "keywords": ["authentication", "quick", "response", "barcode"]
     },
     {
       "name": "question-mark",
@@ -1757,6 +1787,12 @@
       "categories": ["Text"],
       "description": "Indicates the ability to change text spacing between characters",
       "keywords": ["kerning"]
+    },
+    {
+      "name": "threads",
+      "categories": ["Logo"],
+      "description": "Indicates branding for the threads app",
+      "keywords": ["ig", "instagram"]
     },
     {
       "name": "thumbs-down",
