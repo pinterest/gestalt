@@ -35,9 +35,9 @@ export default function Example() {
         renderLabel={({ x, y, width, height, value, index }) => (
           <ChartGraph.Label
             height={height}
-            icon={index === 1 ? 'ribbon' : undefined}
+            icon={index === 0 ? 'ribbon' : undefined}
             layout="horizontal"
-            size={24}
+            size={16}
             value={value}
             width={width}
             x={x}
