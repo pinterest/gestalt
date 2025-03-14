@@ -38,14 +38,14 @@ function BarLabel({
   const yVerticalPosText = props.y + 5 + props.height / 2;
 
   const xHorizontalPosText = icon
-    ? props.x + 4 + size
+    ? props.x + 4 + props.width / 2
     : props.x + props.width / 2;
   const yHorizontalPosText = props.y - 10;
 
   const xVerticalPosIcon = props.x + props.width + (size === 16 ? 7 : 7);
   const yVerticalPosIcon = props.y - (size === 16 ? 7 : 12) + props.height / 2;
 
-  const xHorizontalPosIcon = props.x;
+  const xHorizontalPosIcon = props.x + props.width /2 - size ;
   const yHorizontalPosIcon = props.y - (size === 16 ? 22 : 25);
 
   return (
