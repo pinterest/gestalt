@@ -32,10 +32,10 @@ export default function Example() {
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
         range={['auto', 'auto']}
-        renderLabel={({ x, y, width, height, value }) => (
+        renderLabel={({ x, y, width, height, value, index }) => (
           <ChartGraph.Label
             height={height}
-            icon="ribbon"
+            icon={index === 1 ? 'ribbon' : undefined}
             layout="vertical"
             size={24}
             value={value}

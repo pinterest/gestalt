@@ -50,7 +50,15 @@ type Props = {
   renderLabel?:
     | 'auto'
     | 'none'
-    | ((arg1: { x: number; y: number; value: string; width: number; height: number }) => ReactNode);
+    | ((arg1: {
+        x: number;
+        y: number;
+        value: string;
+        width: number;
+        height: number;
+        name: string;
+        index: number;
+      }) => ReactNode);
 };
 
 export default function renderElements({
@@ -73,9 +81,9 @@ export default function renderElements({
     ? [0, 4, 4, 0]
     : [4, 4, 0, 0];
 
-  return elements.map((values, index) => {
+  return elements.map((values, idx) => {
     // @ts-expect-error - TS7053
-    const defaultColor = colorMap[index];
+    const defaultColor = colorMap[idx];
     const isBarElement = values.type === 'bar';
     const isLineElement = values.type === 'line';
 
@@ -87,24 +95,22 @@ export default function renderElements({
       width,
       value,
       height,
+      name,
+      index,
     }: {
       x: number;
       y: number;
       value: string;
       width: number;
       height: number;
+      name: string;
+      index: number;
     }) =>
       renderLabel !== 'none' &&
       renderLabel !== 'auto' &&
-      renderLabel?.({ x, y, width, value, height });
+      renderLabel?.({ x, y, width, value, height, name, index });
 
-    const renderDefaultLabel = ({
-      x,
-      y,
-      width,
-      value,
-      height,
-    }: {
+    const renderDefaultLabel = (props: {
       x: number;
       y: number;
       value: string;
@@ -112,12 +118,12 @@ export default function renderElements({
       height: number;
     }) => (
       <BarLabel
-        height={height}
+        height={props.height}
         layout={isHorizontalLayout ? 'vertical' : 'horizontal'}
-        value={value}
-        width={width}
-        x={x}
-        y={y}
+        value={props.value}
+        width={props.width}
+        x={props.x}
+        y={props.y}
       />
     );
 
@@ -139,12 +145,10 @@ export default function renderElements({
           shape={({ height, ...props }) => (
             <Rectangle
               {...props}
-              height={stacked && index !== 0 && height > 0 ? height - 2 : height}
+              height={stacked && idx !== 0 && height > 0 ? height - 2 : height}
               opacity={props.payload.opacity === 0.4 ? opacityValue : undefined}
               radius={
-                (lastElementPos !== index && stacked) || !isBarRounded
-                  ? squaredRadius
-                  : roundedRadius
+                (lastElementPos !== idx && stacked) || !isBarRounded ? squaredRadius : roundedRadius
               }
             />
           )}

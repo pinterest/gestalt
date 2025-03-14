@@ -173,7 +173,15 @@ type Props = {
   renderLabel?:
     | 'auto'
     | 'none'
-    | ((arg1: { x: number; y: number; value: string; width: number; height: number }) => ReactNode);
+    | ((arg1: {
+        x: number;
+        y: number;
+        value: string;
+        width: number;
+        height: number;
+        index: number;
+        name: string;
+      }) => ReactNode);
   /**
    * Displays data about the datasets on hover over each data point.
    *
