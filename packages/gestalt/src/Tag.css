@@ -10,6 +10,18 @@
   background-color: var(--color-background-tag-primary-active);
 }
 
+.defaultVR {
+  background-color: var(--color-background-tag-primary-default);
+}
+
+.defaultVR:hover {
+  background-color: var(--color-background-tag-primary-hover);
+}
+
+.defaultVR:active {
+  background-color: var(--color-background-tag-primary-active);
+}
+
 .error {
   background-color: var(--color-background-tag-error-default);
 }
@@ -19,6 +31,18 @@
 }
 
 .error:active {
+  background-color: var(--color-background-tag-error-active);
+}
+
+.errorVR {
+  background-color: var(--color-background-error-weak);
+}
+
+.errorVR:hover {
+  background-color: var(--color-background-tag-error-hover);
+}
+
+.errorVR:active {
   background-color: var(--color-background-tag-error-active);
 }
 
@@ -32,6 +56,22 @@
 
 .warning:active {
   background-color: var(--color-background-tag-warning-active);
+}
+
+.warningVR {
+  background-color: var(--color-background-warning-weak);
+}
+
+.warningVR:hover {
+  background-color: var(--color-background-tag-warning-hover);
+}
+
+.warningVR:active {
+  background-color: var(--color-background-tag-warning-active);
+}
+
+.selected {
+  background-color: var(--color-background-selected-base);
 }
 
 .closeButton {
