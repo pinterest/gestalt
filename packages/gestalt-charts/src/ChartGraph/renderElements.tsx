@@ -113,7 +113,7 @@ export default function renderElements({
     }) => (
       <BarLabel
         height={height}
-        isHorizontalLayout={isHorizontalLayout}
+        layout={isHorizontalLayout ? 'vertical' : 'horizontal'}
         value={value}
         width={width}
         x={x}

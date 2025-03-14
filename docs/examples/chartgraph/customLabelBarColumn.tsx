@@ -36,8 +36,8 @@ export default function Example() {
           <ChartGraph.Label
             height={height}
             icon="ribbon"
-            isHorizontalLayout
-            size={16}
+            layout="vertical"
+            size={24}
             value={value}
             width={width}
             x={x}

@@ -6,13 +6,13 @@ function BarLabel({
   icon,
   size = 16,
   text,
-  isHorizontalLayout,
+  layout,
   ...props
 }: {
   icon?: 'ribbon';
   size?: 16 | 24;
   text?: string;
-  isHorizontalLayout?: boolean;
+  layout?: 'vertical' | 'horizontal';
   x: number;
   y: number;
   value: string;
@@ -34,12 +34,19 @@ function BarLabel({
       'M12 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10M9 9a3 3 0 1 1 6 0 3 3 0 0 1-6 0m10.48 5a9 9 0 1 0-14.97 0l-1.7 6.4a1.7 1.7 0 0 0 2.5 1.92l1.94-1.12 1.12 1.95a1.7 1.7 0 0 0 3.12-.42l.51-1.88.5 1.88a1.7 1.7 0 0 0 3.13.42l1.12-1.95 1.95 1.12a1.7 1.7 0 0 0 2.5-1.92zM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9m14.08 11.24-3.06-1.77-1.77 3.06-.97-3.62c1.75-.25 3.34-1 4.61-2.1zm-9.33 1.3-1.77-3.07-3.06 1.77L6.1 15.8a9 9 0 0 0 4.6 2.1z';
   }
 
-  const xVerticalPos = props.x + props.width + 20;
-  const yVerticalPos = props.y + 5 + props.height / 2;
+  const xVerticalPosText = props.x + props.width + (size === 16 ? 27 : 32);
+  const yVerticalPosText = props.y + 5 + props.height / 2;
 
-  const xHorizontalPos = icon ? props.x + 4 + size : props.x + props.width / 2;
-  const yHorizontalPos = props.y - 10;
+  const xHorizontalPosText = icon
+    ? props.x + 4 + size
+    : props.x + props.width / 2;
+  const yHorizontalPosText = props.y - 10;
 
+  const xVerticalPosIcon = props.x + props.width + (size === 16 ? 7 : 7);
+  const yVerticalPosIcon = props.y - (size === 16 ? 7 : 12) + props.height / 2;
+
+  const xHorizontalPosIcon = props.x;
+  const yHorizontalPosIcon = props.y - (size === 16 ? 22 : 25);
 
   return (
     <g>
@@ -64,8 +71,8 @@ function BarLabel({
         className={isInVRExperiment ? 'VRbodySM' : 'bodySM'}
         fill={TOKEN_COLOR_TEXT_DEFAULT}
         textAnchor={icon ? undefined : 'middle'}
-        x={isHorizontalLayout ? xHorizontalPos : xVerticalPos}
-        y={isHorizontalLayout ? yHorizontalPos : yVerticalPos}
+        x={layout === 'vertical' ? xHorizontalPosText : xVerticalPosText}
+        y={layout === 'vertical' ? yHorizontalPosText : yVerticalPosText}
       >
         {text ?? props.value}
       </text>
@@ -77,8 +84,8 @@ function BarLabel({
           role="img"
           viewBox="0 0 24 24"
           width={size}
-          x={props.x}
-          y={props.y - 22}
+          x={layout === 'vertical' ? xHorizontalPosIcon : xVerticalPosIcon}
+          y={layout === 'vertical' ? yHorizontalPosIcon : yVerticalPosIcon}
         >
           <path d={isInVRExperiment ? dPath : VRdPathVR} />
         </svg>
