@@ -1,4 +1,4 @@
-import { type ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 class EscapedCSS {
   _private_safe_value: string;
