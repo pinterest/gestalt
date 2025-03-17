@@ -147,41 +147,31 @@ exports[`Avatar renders the checkmark on verified default 1`] = `
     />
   </div>
   <div
-    className="absolute box"
+    className="absolute box circle default"
     style={
       Object {
-        "bottom": "4%",
-        "height": "25%",
-        "minHeight": 12,
-        "minWidth": 12,
-        "right": "4%",
-        "width": "25%",
+        "bottom": "var(--space-0)",
+        "height": 14,
+        "minHeight": undefined,
+        "minWidth": undefined,
+        "right": "var(--space-0)",
+        "width": 14,
       }
     }
   >
-    <div
-      className="box circle default"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="brandPrimary icon iconBlock"
+      height="100%"
+      role="img"
+      viewBox="0 0 16 16"
+      width="100%"
     >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="brandPrimary icon iconBlock"
-        height="100%"
-        role="img"
-        viewBox="0 0 16 16"
-        width="100%"
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -533,41 +523,31 @@ exports[`Avatar renders the verified icon 1`] = `
     </div>
   </div>
   <div
-    className="absolute box"
+    className="absolute box circle default"
     style={
       Object {
-        "bottom": "4%",
+        "bottom": "var(--space-0)",
         "height": "25%",
-        "minHeight": 12,
-        "minWidth": 12,
-        "right": "4%",
+        "minHeight": 14,
+        "minWidth": 14,
+        "right": "var(--space-0)",
         "width": "25%",
       }
     }
   >
-    <div
-      className="box circle default"
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="brandPrimary icon iconBlock"
+      height="100%"
+      role="img"
+      viewBox="0 0 16 16"
+      width="100%"
     >
-      <svg
-        aria-hidden={true}
-        aria-label=""
-        className="brandPrimary icon iconBlock"
-        height="100%"
-        role="img"
-        viewBox="0 0 16 16"
-        width="100%"
-      >
-        <path
-          d="test-file-stub"
-        />
-      </svg>
-    </div>
+      <path
+        d="test-file-stub"
+      />
+    </svg>
   </div>
 </div>
 `;
