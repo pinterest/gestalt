@@ -92,6 +92,13 @@
   position: absolute;
 }
 
+.closeButtonVR {
+  composes: noBorder from "./Borders.css";
+  composes: pointer from "./Cursor.css";
+  height: 100%;
+  outline: none;
+}
+
 html[dir="rtl"] .closeButton {
   left: 0;
   right: unset;

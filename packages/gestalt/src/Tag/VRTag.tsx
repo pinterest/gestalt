@@ -142,6 +142,17 @@ export default function Tag({
     styles[size],
   );
 
+
+  const removeIconClasses2 = classnames(
+    styles.closeButtonVR,
+    styles[typeClass],
+    touchableStyles.tapTransition,
+    {
+      [focusStyles.hideOutline]: !isFocusVisible,
+      [focusStyles.accessibilityOutlineVR]: isFocusVisible,
+    },
+  );
+
   const { height, rounding, paddingX, paddingY, fontSize, iconSize, removeIconSize } =
     applyDensityTheme(size);
 
@@ -164,6 +175,10 @@ export default function Tag({
       rounding={rounding}
     >
       <Box alignItems="center" display="flex" height="100%" marginEnd={disabled ? 0 : 5}>
+      {/* @ts-expect-error - TS2322 - Type '(arg1: { event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'. */}
+      <button className={removeIconClasses2} onClick={onRemove} type="button">
+      <Box alignItems="center" display="flex" height="100%">
+
         {(type === 'error' || type === 'warning') && (
           <Box marginEnd={1} marginStart={1}>
             <IconCompact
@@ -185,6 +200,9 @@ export default function Tag({
         >
           {text}
         </Text>
+        </Box>
+
+        </button>
 
         <Box>
           {!disabled && (
@@ -208,6 +226,7 @@ export default function Tag({
                   size={removeIconSize}
                 />
               </Box>
+              
             </button>
           )}
         </Box>
