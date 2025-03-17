@@ -137,7 +137,7 @@ export default function Tag({
     touchableStyles.tapTransition,
     {
       [focusStyles.hideOutline]: !isFocusVisible,
-      [focusStyles.accessibilityOutline]: isFocusVisible,
+      [focusStyles.accessibilityOutlineVR]: isFocusVisible,
     },
     styles[size],
   );

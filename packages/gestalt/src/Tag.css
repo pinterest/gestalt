@@ -2,6 +2,14 @@
   background-color: var(--color-background-tag-primary-default);
 }
 
+.default:focus {
+  border: 2px solid var(--sema-color-border-focus-inner-default);
+  border-radius: 8px;
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+  outline-offset: 0;
+}
+
 .default:hover {
   background-color: var(--color-background-tag-primary-hover);
 }
@@ -113,7 +121,7 @@ html[dir="rtl"] .sm {
 }
 
 html:not([dir="rtl"]) .sm {
-  border-radius: 0 var(--rounding-100) var(--rounding-100) 0;
+  border-radius: 8px;
 }
 
 html[dir="rtl"] .md {
@@ -121,7 +129,7 @@ html[dir="rtl"] .md {
 }
 
 html:not([dir="rtl"]) .md {
-  border-radius: 0 var(--rounding-200) var(--rounding-200) 0;
+  border-radius: 8px;
 }
 
 html[dir="rtl"] .lg {
@@ -129,5 +137,5 @@ html[dir="rtl"] .lg {
 }
 
 html:not([dir="rtl"]) .lg {
-  border-radius: 0 var(--rounding-300) var(--rounding-300) 0;
+  border-radius: 8px;
 }
