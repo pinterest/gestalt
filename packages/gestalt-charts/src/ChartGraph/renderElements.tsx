@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import { Bar as RechartsBar, Line as RechartsLine, Rectangle } from 'recharts';
+import { Bar as RechartsBar, LabelList, Line as RechartsLine, Rectangle } from 'recharts';
+import BarLabel from './BarLabel';
 import renderGraphPoint from './renderGraphPoint';
 import { DataVisualizationColors } from './types';
 
@@ -46,6 +47,18 @@ type Props = {
   isHorizontalLayout: boolean;
   isBarRounded: boolean;
   isDarkMode: boolean;
+  renderLabel?:
+    | 'auto'
+    | 'none'
+    | ((arg1: {
+        x: number;
+        y: number;
+        value: string;
+        width: number;
+        height: number;
+        name: string;
+        index: number;
+      }) => ReactNode);
 };
 
 export default function renderElements({
@@ -57,6 +70,7 @@ export default function renderElements({
   isHorizontalLayout,
   isBarRounded,
   isDarkMode,
+  renderLabel,
 }: Props): ReadonlyArray<ReactNode> {
   const { length } = elements;
   const lastElementPos = length > 1 ? length - 1 : 1;
@@ -67,13 +81,51 @@ export default function renderElements({
     ? [0, 4, 4, 0]
     : [4, 4, 0, 0];
 
-  return elements.map((values, index) => {
+  return elements.map((values, idx) => {
     // @ts-expect-error - TS7053
-    const defaultColor = colorMap[index];
+    const defaultColor = colorMap[idx];
     const isBarElement = values.type === 'bar';
     const isLineElement = values.type === 'line';
 
     const opacityValue = isDarkMode ? 0.6 : 0.4;
+
+    const renderCustomizedLabel = ({
+      x,
+      y,
+      width,
+      value,
+      height,
+      name,
+      index,
+    }: {
+      x: number;
+      y: number;
+      value: string;
+      width: number;
+      height: number;
+      name: string;
+      index: number;
+    }) =>
+      renderLabel !== 'none' &&
+      renderLabel !== 'auto' &&
+      renderLabel?.({ x, y, width, value, height, name, index });
+
+    const renderDefaultLabel = (props: {
+      x: number;
+      y: number;
+      value: string;
+      width: number;
+      height: number;
+    }) => (
+      <BarLabel
+        height={props.height}
+        layout={isHorizontalLayout ? 'vertical' : 'horizontal'}
+        value={props.value}
+        width={props.width}
+        x={props.x}
+        y={props.y}
+      />
+    );
 
     // Recharts doesn't recognize wrappers on their components, therefore, needs to be build within ChartGraph
     if (isBarElement) {
@@ -93,12 +145,10 @@ export default function renderElements({
           shape={({ height, ...props }) => (
             <Rectangle
               {...props}
-              height={stacked && index !== 0 && height > 0 ? height - 2 : height}
+              height={stacked && idx !== 0 && height > 0 ? height - 2 : height}
               opacity={props.payload.opacity === 0.4 ? opacityValue : undefined}
               radius={
-                (lastElementPos !== index && stacked) || !isBarRounded
-                  ? squaredRadius
-                  : roundedRadius
+                (lastElementPos !== idx && stacked) || !isBarRounded ? squaredRadius : roundedRadius
               }
             />
           )}
@@ -107,7 +157,16 @@ export default function renderElements({
             ? { yAxisId: values.axis || 'left' }
             : { xAxisId: values.axis || 'bottom' })}
           stroke={hexColor(values.color || defaultColor)}
-        />
+        >
+          {renderLabel === 'none' ? undefined : (
+            <LabelList
+              // @ts-expect-error - TS2769
+              content={renderLabel === 'auto' ? renderDefaultLabel : renderCustomizedLabel}
+              dataKey={values.id}
+              position={isHorizontalLayout ? 'top' : 'right'}
+            />
+          )}
+        </RechartsBar>
       );
     }
 

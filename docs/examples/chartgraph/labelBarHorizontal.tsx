@@ -7,22 +7,16 @@ export default function Example() {
 
   const data = [
     {
-      name: '10-24',
-      Impressions: 1000,
-      CPM: 1050,
-      CPC: 1000,
+      name: 'Cars',
+      Price: 1000,
     },
     {
-      name: '25-50',
-      Impressions: 1000,
-      CPM: 1500,
-      CPC: 1000,
+      name: 'Decor',
+      Price: 800,
     },
     {
-      name: '50+',
-      Impressions: 1000,
-      CPM: 1050,
-      CPC: 1000,
+      name: 'Make up',
+      Price: 500,
     },
   ];
 
@@ -32,14 +26,12 @@ export default function Example() {
         accessibilityLabel="Example of a vertical bar chart"
         // @ts-expect-error - TS2322 - Type '{ name: string; Impressions: number; CPM: number; CPC: number; }[]' is not assignable to type 'readonly { [k: string]: number | undefined; [k: number]: number | undefined; }[]'.
         data={data}
-        elements={[
-          { type: 'bar', id: 'Impressions' },
-          { type: 'bar', id: 'CPM' },
-          { type: 'bar', id: 'CPC' },
-        ]}
+        elements={[{ type: 'bar', id: 'Price' }]}
+        layout="horizontal"
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
+        range={['auto', 'auto']}
         renderLabel="auto"
         title="Age"
         type="bar"
