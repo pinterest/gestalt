@@ -35,7 +35,6 @@ export default function InlineStyle(props: Props): null | ReactElement<'style'> 
   const content = String(css || '') || unsafeCSS || '';
   const hasContent = !!content;
 
-
   return hasContent ? (
     <style
       {...rest}
