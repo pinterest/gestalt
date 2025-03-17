@@ -1,3 +1,9 @@
+## 173.1.2 (Mar 17, 2025)
+
+### Patch
+
+- Internal: Bump @babel/runtime from 7.15.4 to 7.26.10 ([#4036](https://github.com/pinterest/gestalt/pull/4036)) - [Preview link](https://deploy-preview-4036--gestalt.netlify.app?devexample=true)
+
 ## 173.1.1 (Mar 10, 2025)
 
 ### Patch
