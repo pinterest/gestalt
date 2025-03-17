@@ -1,16 +1,9 @@
-import { Avatar, Flex, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { Avatar, Flex, Text } from 'gestalt';
 
 export default function Example() {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  const firstName = isInVRExperiment ? 'Sora' : 'Keerthi';
-  const fullName = isInVRExperiment ? 'Sora Suzuki' : 'Keerthi Singh';
-  const src = isInVRExperiment
-    ? 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg'
-    : 'https://i.ibb.co/ZfCZrY8/keerthi.jpg';
+  const firstName = 'Sora';
+  const fullName = 'Sora Suzuki';
+  const src = 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg';
 
   return (
     <Flex
