@@ -41,7 +41,7 @@ export default function Example() {
         src={src}
         verified
       />
-      <Box color="successBase" width={155}>
+      <Box width={155}>
         <Avatar
           accessibilityLabel={`${name}, Verified account`}
           name={name}
