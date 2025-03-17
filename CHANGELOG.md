@@ -1,3 +1,9 @@
+## 173.2.0 (Mar 17, 2025)
+
+### Minor
+
+- ChartGraph: added support to custom labels in bars + new ChartGraph.Label ([#4039](https://github.com/pinterest/gestalt/pull/4039)) - [Preview link](https://deploy-preview-4039--gestalt.netlify.app?devexample=true)
+
 ## 173.1.2 (Mar 17, 2025)
 
 ### Patch
