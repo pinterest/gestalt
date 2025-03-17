@@ -1,3 +1,9 @@
+## 173.2.1 (Mar 17, 2025)
+
+### Patch
+
+- Avatar: updates to verified icon ([#4040](https://github.com/pinterest/gestalt/pull/4040)) - [Preview link](https://deploy-preview-4040--gestalt.netlify.app?devexample=true)
+
 ## 173.2.0 (Mar 17, 2025)
 
 ### Minor
