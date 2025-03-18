@@ -88,8 +88,8 @@ export default function Tabs({
           indicator={indicator}
           isActive={activeTabIndex === index}
           onChange={onChange}
-          text={text}
           size={size}
+          text={text}
         />
       ))}
     </Flex>
