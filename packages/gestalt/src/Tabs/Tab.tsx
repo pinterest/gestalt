@@ -106,8 +106,8 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     }
   }
 
-  const underlineBottomPos = size === 'sm' ? 8 : 2
-  const paddingX = size === 'sm' ? 3 : 1.5
+  const underlineBottomPos = size === 'sm' ? 8 : 2;
+  const paddingX = size === 'sm' ? 3 : 1.5;
 
   return (
     <div
