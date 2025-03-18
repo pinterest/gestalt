@@ -8,17 +8,6 @@
   composes: solid from "./Borders.css";
   composes: transparentBorder from "./Borders.css";
   box-sizing: border-box;
-  width: min-content;
-}
-
-.tileWidth {
-  max-width: 196px;
-}
-
-@media (--g-sm) {
-  .tileWidth {
-    max-width: none;
-  }
 }
 
 .hovered {
