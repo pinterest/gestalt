@@ -4,12 +4,11 @@ import {
   Button,
   Checkbox,
   CompositeZIndex,
-  Fieldset,
   FixedZIndex,
   Flex,
   Layer,
   OverlayPanel,
-  RadioButton,
+  RadioGroup,
   Text,
   TextField,
 } from 'gestalt';
@@ -77,30 +76,25 @@ export default function Example() {
                   onChange={() => {}}
                   placeholder="Describe your audience"
                 />
-                <Fieldset legend="When adding this audience list to an ad group:">
-                  <Flex
-                    direction="column"
-                    gap={{
-                      row: 0,
-                      column: 3,
-                    }}
-                  >
-                    <RadioButton
-                      id="include-list"
-                      label="Include list"
-                      name="audience"
-                      onChange={() => {}}
-                      value="include"
-                    />
-                    <RadioButton
-                      id="exclude-list"
-                      label="Exclude list"
-                      name="audience"
-                      onChange={() => {}}
-                      value="include"
-                    />
-                  </Flex>
-                </Fieldset>
+                <RadioGroup id="bidding2" legend="Bidding">
+                  <RadioGroup.RadioButton
+                    checked
+                    helperText="Pinterest aims to get the most clicks for your budget"
+                    id="automatic"
+                    label="Automatic (recommended)"
+                    name="Automatic"
+                    onChange={() => {}}
+                    value="automatic"
+                  />
+                  <RadioGroup.RadioButton
+                    helperText="You control how much to bid at auction"
+                    id="custom"
+                    label="Custom"
+                    name="custom"
+                    onChange={() => {}}
+                    value="custom"
+                  />
+                </RadioGroup>
               </Flex>
               <Flex
                 direction="column"
@@ -119,44 +113,25 @@ export default function Example() {
                   To use a conversion source other than a Pinterest Tag, add a filter and configure
                   the source of this event.
                 </Text>
-                <Fieldset legend="Select conversion source:" legendDisplay="hidden">
-                  <Flex
-                    direction="column"
-                    gap={{
-                      row: 0,
-                      column: 3,
-                    }}
-                  >
-                    <RadioButton
-                      id="pinterest-tag"
-                      label="Pinterest Tag"
-                      name="source"
-                      onChange={() => {}}
-                      value="pin"
-                    />
-                    <RadioButton
-                      id="mobile-measurement"
-                      label="Mobile Measurement Partners (MMP)"
-                      name="source"
-                      onChange={() => {}}
-                      value="mmp"
-                    />
-                    <RadioButton
-                      id="conversion-upload"
-                      label="Conversion Upload"
-                      name="source"
-                      onChange={() => {}}
-                      value="conversion"
-                    />
-                    <RadioButton
-                      id="api"
-                      label="API"
-                      name="source"
-                      onChange={() => {}}
-                      value="api"
-                    />
-                  </Flex>
-                </Fieldset>
+                <RadioGroup id="bidding" legend="Bidding">
+                  <RadioGroup.RadioButton
+                    checked
+                    helperText="Pinterest aims to get the most clicks for your budget"
+                    id="automatic"
+                    label="Automatic (recommended)"
+                    name="Automatic"
+                    onChange={() => {}}
+                    value="automatic"
+                  />
+                  <RadioGroup.RadioButton
+                    helperText="You control how much to bid at auction"
+                    id="custom"
+                    label="Custom"
+                    name="custom"
+                    onChange={() => {}}
+                    value="custom"
+                  />
+                </RadioGroup>
               </Flex>
               <Flex
                 direction="column"
