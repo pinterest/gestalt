@@ -1,3 +1,9 @@
+## 174.0.0 (Mar 18, 2025)
+
+### Major
+
+- RadioButton: deprecate component ([#4043](https://github.com/pinterest/gestalt/pull/4043)) - [Preview link](https://deploy-preview-4043--gestalt.netlify.app?devexample=true)
+
 ## 173.2.2 (Mar 18, 2025)
 
 ### Patch
