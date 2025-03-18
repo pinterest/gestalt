@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import classnames from 'classnames';
-import Box from './Box';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import InternalDatapoint from './Datapoint/InternalDatapoint';
