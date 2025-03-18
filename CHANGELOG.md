@@ -1,3 +1,9 @@
+## 174.1.0 (Mar 18, 2025)
+
+### Minor
+
+- Tabs: supports large size `size="lg"` ([#4042](https://github.com/pinterest/gestalt/pull/4042)) - [Preview link](https://deploy-preview-4042--gestalt.netlify.app?devexample=true)
+
 ## 174.0.0 (Mar 18, 2025)
 
 ### Major
