@@ -176,7 +176,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           <MainSection.Card
             cardSize="md"
             sandpackExample={
-              <SandpackExample code={sizes} layout="column" name="Sizes" previewHeight={250} />
+              <SandpackExample code={sizes} layout="column" name="Size" previewHeight={250} />
             }
           />
         </MainSection.Subsection>
