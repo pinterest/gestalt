@@ -147,7 +147,8 @@ export default function TileData({
         onMouseEnter={handleOnMouseEnter}
         onMouseLeave={handleOnMouseLeave}
         onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
-        role="button" rounding={4}
+        role="button"
+        rounding={4}
       >
         <div
           className={classnames(styles.baseTile, {
