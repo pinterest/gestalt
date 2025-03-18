@@ -35,7 +35,7 @@ type TabProps = TabType & {
   dataTestId?: string;
   index: number;
   icon?: keyof typeof icons;
-
+  size?: 'sm' | 'lg';
   isActive: boolean;
   onChange: (arg1: {
     event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
@@ -63,7 +63,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     bgColor,
     href,
     icon,
-
+    size,
     indicator,
     id,
     index,
@@ -106,6 +106,9 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
     }
   }
 
+  const underlineBottomPos = size === 'sm' ? 8 : 2
+  const paddingX = size === 'sm' ? 3 : 1.5
+
   return (
     <div
       ref={isInVRExperiment ? undefined : ref}
@@ -141,7 +144,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
           <Box
             dangerouslySetInlineStyle={{ __style: { backgroundColor: color } }}
             height={isInVRExperiment ? 48 : undefined}
-            paddingX={isInVRExperiment ? 3 : 2}
+            paddingX={isInVRExperiment ? paddingX : 2}
             paddingY={2}
             position="relative"
             rounding={isInVRExperiment ? 4 : 2}
@@ -156,7 +159,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
               >
                 {icon ? <Icon accessibilityLabel="" color="default" icon={icon} size={12} /> : null}
 
-                <TextUI color="default" overflow="noWrap" size="md">
+                <TextUI color="default" overflow="noWrap" size={size === 'sm' ? 'md' : 'lg'}>
                   {text}
                 </TextUI>
 
@@ -182,7 +185,7 @@ const TabWithForwardRef = forwardRef<HTMLDivElement, TabProps>(function Tab(
               <Box
                 dangerouslySetInlineStyle={{
                   __style: {
-                    bottom: isInVRExperiment ? 8 : -3,
+                    bottom: isInVRExperiment ? underlineBottomPos : -3,
                     left: !isRtl && isInVRExperiment ? 12 : undefined,
                     right: isRtl && isInVRExperiment ? -12 : undefined,
                   },
