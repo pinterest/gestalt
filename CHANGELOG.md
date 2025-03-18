@@ -1,3 +1,9 @@
+## 173.2.2 (Mar 18, 2025)
+
+### Patch
+
+- TileData: removed width and max width definitions ([#4041](https://github.com/pinterest/gestalt/pull/4041)) - [Preview link](https://deploy-preview-4041--gestalt.netlify.app?devexample=true)
+
 ## 173.2.1 (Mar 17, 2025)
 
 ### Patch
