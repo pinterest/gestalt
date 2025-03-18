@@ -4,9 +4,8 @@ import {
   Box,
   Checkbox,
   Divider,
-  Fieldset,
   Flex,
-  RadioButton,
+  RadioGroup,
   SelectList,
   Text,
   TextField,
@@ -37,27 +36,25 @@ export default function Example() {
               <SelectList.Option label="Lead" value="Lead" />
             </SelectList>
             <Divider />
-            <Fieldset legend="Bidding">
-              <Flex direction="column" gap={{ column: 2, row: 0 }}>
-                <RadioButton
-                  checked
-                  id="automatic"
-                  label="Automatic (recommended)"
-                  name="Automatic"
-                  onChange={() => {}}
-                  subtext="Pinterest aims to get the most clicks for your budget"
-                  value="automatic"
-                />
-                <RadioButton
-                  id="custom"
-                  label="Custom"
-                  name="custom"
-                  onChange={() => {}}
-                  subtext="You control how much to bid at auction"
-                  value="custom"
-                />
-              </Flex>
-            </Fieldset>
+            <RadioGroup id="bidding" legend="Bidding">
+              <RadioGroup.RadioButton
+                checked
+                helperText="Pinterest aims to get the most clicks for your budget"
+                id="automatic"
+                label="Automatic (recommended)"
+                name="Automatic"
+                onChange={() => {}}
+                value="automatic"
+              />
+              <RadioGroup.RadioButton
+                helperText="You control how much to bid at auction"
+                id="custom"
+                label="Custom"
+                name="custom"
+                onChange={() => {}}
+                value="custom"
+              />
+            </RadioGroup>
             <Divider />
             <Checkbox
               id="checkbox"

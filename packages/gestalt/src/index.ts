@@ -56,7 +56,6 @@ import Pog from './Pog';
 import Popover from './Popover';
 import PopoverMessage from './PopoverMessage';
 import Pulsar from './Pulsar';
-import RadioButton from './RadioButton';
 import RadioGroup from './RadioGroup';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 import ScrollFetch from './ScrollFetch';
@@ -151,7 +150,6 @@ export {
   Popover,
   PopoverMessage,
   Pulsar,
-  RadioButton,
   RadioGroup,
   ScrollBoundaryContainer,
   ScrollFetch,
