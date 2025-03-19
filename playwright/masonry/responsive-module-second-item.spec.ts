@@ -206,7 +206,6 @@ test.describe('Masonry: Responsive Module For SecondItem layout', () => {
       );
 
       const gridItems = await getGridItems(page);
-      console.log('gridItems', gridItems.length);
 
       const responsiveModuleItem = gridItems[0];
       const boundingBoxResponsiveModuleItem = await responsiveModuleItem.boundingBox();
