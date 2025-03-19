@@ -17,11 +17,17 @@ import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
 import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
+import getColumnCount, {
+  DEFAULT_LAYOUT_DEFAULT_GUTTER,
+  FULL_WIDTH_DEFAULT_GUTTER,
+} from './Masonry/getColumnCount';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import {
+  calculateActualColumnSpan,
   ColumnSpanConfig,
+  ModulePositioningConfig,
   MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
   ResponsiveModuleConfig,
 } from './Masonry/multiColumnLayout';
@@ -171,11 +177,12 @@ type Props<T> = {
    */
   _dynamicHeightsV2Experiment?: boolean;
   /**
-   * Experimental prop to enable early bailout when positioning multicolumn modules
-   *
+   * Experimental prop to enable dynamic batch sizing and early bailout when positioning a module
+   * - Early bailout: How much whitespace is "good enough"
+   * - Dynamic batch sizing: How many items it can use. If this prop isn't used, it uses 5
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: (columnSpan: number) => number;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
 };
 
 type MasonryRef = {
@@ -341,7 +348,7 @@ function useFetchOnScroll({
       | undefined,
   ) => void;
   scrollTop: number;
-  scrollContainerElement: HTMLElement | Window | null | undefined;
+  scrollContainerElement: HTMLElement | Window | Window | null | undefined;
   width: number | null | undefined;
 }) {
   const isFetching = useRef<boolean>(false);
@@ -387,11 +394,11 @@ function useLayout<T>({
   _useRAF,
   _getColumnSpanConfig,
   _getResponsiveModuleConfigForSecondItem,
-  _earlyBailout,
+  _getModulePositioningConfig,
 }: {
   align: Align;
   columnWidth: number;
-  gutter?: number;
+  gutter: number;
   items: ReadonlyArray<T>;
   layout: Layout;
   measurementStore: Cache<T, number>;
@@ -407,6 +414,7 @@ function useLayout<T>({
   _measureAll?: boolean;
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
   _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _earlyBailout?: (columnSpan: number) => number;
 }): {
@@ -428,15 +436,40 @@ function useLayout<T>({
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
     _logTwoColWhitespace,
-    _earlyBailout,
+    _getModulePositioningConfig,
   });
 
-  const hasMultiColumnItems =
-    _getColumnSpanConfig &&
-    items
-      .filter((item) => item && !positionStore.has(item))
-      .some((item) => _getColumnSpanConfig(item) !== 1);
-  const itemToMeasureCount = hasMultiColumnItems ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1 : minCols;
+  const nextMultiColumnItem =
+    _getColumnSpanConfig && items.find((item) => _getColumnSpanConfig(item) !== 1);
+
+  let batchSize;
+  if (nextMultiColumnItem) {
+    if (width) {
+      const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
+      const responsiveModuleConfigForSecondItem =
+        _getResponsiveModuleConfigForSecondItem && items[1]
+          ? _getResponsiveModuleConfigForSecondItem(items[1])
+          : undefined;
+
+      const moduleSize = calculateActualColumnSpan({
+        columnCount: gridSize,
+        firstItem: items[0]!,
+        isFlexibleWidthItem: layout === 'flexible',
+        item: nextMultiColumnItem,
+        responsiveModuleConfigForSecondItem,
+        _getColumnSpanConfig,
+      });
+
+      const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
+        itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+      };
+      batchSize = itemsBatchSize;
+    } else {
+      batchSize = MULTI_COL_ITEMS_MEASURE_BATCH_SIZE;
+    }
+  }
+
+  const itemToMeasureCount = batchSize ? batchSize + 1 : minCols;
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
   const itemMeasurementsCount = itemMeasurements.length;
   const hasPendingMeasurements = itemMeasurementsCount < items.length;
@@ -645,7 +678,7 @@ function Masonry<T>(
   {
     align = 'center',
     columnWidth = 236,
-    gutterWidth: gutter,
+    gutterWidth,
     items,
     layout = 'basic',
     loadItems = () => {},
@@ -665,7 +698,7 @@ function Masonry<T>(
     _getResponsiveModuleConfigForSecondItem,
     _dynamicHeights,
     _dynamicHeightsV2Experiment,
-    _earlyBailout,
+    _getModulePositioningConfig,
   }: Props<T>,
   ref:
     | {
@@ -680,6 +713,14 @@ function Masonry<T>(
       setGridWrapperEl(el);
     }
   }, []);
+
+  const gutter: number = useMemo(() => {
+    let defaultGutter = DEFAULT_LAYOUT_DEFAULT_GUTTER;
+    if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+      defaultGutter = FULL_WIDTH_DEFAULT_GUTTER;
+    }
+    return gutterWidth ?? defaultGutter;
+  }, [gutterWidth, layout]);
 
   const measurementStore: Cache<T, number> = useMemo(
     () => measurementStoreProp || createMeasurementStore(),
@@ -755,11 +796,6 @@ function Masonry<T>(
                 const changedItem: T = items[idx]!;
                 const newHeight = contentRect.height;
 
-                let defaultGutter = 14;
-                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
-                  defaultGutter = 0;
-                }
-
                 if (_dynamicHeightsV2Experiment) {
                   triggerUpdate =
                     recalcHeightsV2({
@@ -768,7 +804,7 @@ function Masonry<T>(
                       newHeight,
                       positionStore,
                       measurementStore,
-                      gutterWidth: gutter ?? defaultGutter,
+                      gutter,
                     }) || triggerUpdate;
                 } else {
                   triggerUpdate =
@@ -787,15 +823,7 @@ function Masonry<T>(
             }
           })
         : undefined,
-    [
-      _dynamicHeights,
-      _dynamicHeightsV2Experiment,
-      items,
-      measurementStore,
-      positionStore,
-      gutter,
-      layout,
-    ],
+    [_dynamicHeights, _dynamicHeightsV2Experiment, items, measurementStore, positionStore, gutter],
   );
 
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
@@ -814,7 +842,7 @@ function Masonry<T>(
     _useRAF,
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
-    _earlyBailout,
+    _getModulePositioningConfig,
   });
 
   useFetchOnScroll({
