@@ -41,19 +41,6 @@
   composes: paddingY300 from "./boxWhitespace.css";
 }
 
-.social {
-  border: 1px solid var(--color-border-default) !important;
-  min-height: 48px;
-  width: 343px;
-}
-
-.socialVR {
-  border: 1px solid var(--sema-color-border-interactive) !important;
-  border-radius: var(--sema-rounding-400);
-  min-height: 48px;
-  width: 343px;
-}
-
 .smVr {
   border-radius: var(--rounding-200);
   min-height: 28px;
