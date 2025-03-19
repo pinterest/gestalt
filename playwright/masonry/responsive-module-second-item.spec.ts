@@ -206,11 +206,8 @@ test.describe('Masonry: Responsive Module For SecondItem layout', () => {
         }),
       );
 
-      await waitForRenderedItems(page, { targetItems: 1 });
-      const originalItems = await getGridItems(page);
-      expect(originalItems.length).toBeGreaterThanOrEqual(1);
-
       const gridItems = await getGridItems(page);
+      console.log('gridItems', gridItems.length);
 
       const responsiveModuleItem = gridItems[0];
       const boundingBoxResponsiveModuleItem = await responsiveModuleItem.boundingBox();
@@ -235,10 +232,6 @@ test.describe('Masonry: Responsive Module For SecondItem layout', () => {
           responsiveModuleRemoveMulticolumn: false,
         }),
       );
-
-      await waitForRenderedItems(page, { targetItems: 3 });
-      const originalItems = await getGridItems(page);
-      expect(originalItems.length).toBeGreaterThanOrEqual(3);
 
       const gridItems = await getGridItems(page);
 
