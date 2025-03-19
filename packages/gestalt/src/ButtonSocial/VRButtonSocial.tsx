@@ -4,8 +4,10 @@ import styles from './Buttonsocial.css';
 import Box from '../Box';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import Flex from '../Flex';
+import focusStyles from '../Focus.css';
 import Icon from '../Icon';
 import Text from '../Text';
+import useFocusVisible from '../useFocusVisible';
 
 const TYPE_OPTIONS = {
   'login': 'Login with',
@@ -123,6 +125,8 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
       break;
   }
 
+  const { isFocusVisible } = useFocusVisible();
+
   const textWithService = `${TYPE_OPTIONS[type]} ${SERVICES_OPTIONS[service]}`;
 
   const { colorSchemeName } = useColorScheme();
@@ -131,7 +135,9 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
 
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
 
-  const buttonClasses = classnames(styles.social, background);
+  const buttonClasses = classnames(styles.social, background, {
+    [focusStyles.accessibilityOutline]: isFocusVisible,
+  });
 
   return (
     <button

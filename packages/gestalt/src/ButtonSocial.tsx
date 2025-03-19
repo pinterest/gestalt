@@ -6,9 +6,11 @@ import VRButtonSocial from './ButtonSocial/VRButtonSocial';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
+import focusStyles from './Focus.css';
 import Icon from './Icon';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 
 const TYPE_OPTIONS = {
@@ -204,12 +206,16 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
+  const { isFocusVisible } = useFocusVisible();
 
   const buttonClasses = classnames(
     background,
     styles.social,
     touchableStyles.tapCompress,
     touchableStyles.tapTransition,
+    {
+      [focusStyles.accessibilityOutline]: isFocusVisible,
+    },
   );
 
   return (
