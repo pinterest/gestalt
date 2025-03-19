@@ -560,7 +560,7 @@ const componentData: ReadonlyArray<ComponentData> = [
         },
         alias: ['Toggle', 'Action Button', 'Toggle Switch'],
         description:
-          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioGroup, and Switch.',
         category: ['Actions'],
         status: {
           documentation: 'ready',
@@ -575,7 +575,7 @@ const componentData: ReadonlyArray<ComponentData> = [
         },
         alias: ['Toggle', 'Action Button', 'Toggle Switch'],
         description:
-          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioGroup, and Switch.',
         category: ['Actions'],
         status: {
           documentation: 'ready',
@@ -590,7 +590,7 @@ const componentData: ReadonlyArray<ComponentData> = [
         },
         alias: ['Toggle', 'Action Button', 'Toggle Switch'],
         description:
-          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioButton, and Switch.',
+          'The ButtonToggle is a larger alternative to selection components such as Checkbox, RadioGroup, and Switch.',
         category: ['Actions'],
         status: {
           documentation: 'ready',

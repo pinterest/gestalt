@@ -331,7 +331,7 @@ If additional functionality is needed in the menu, such as subtext, headers or c
 If users need the ability to choose an option by entering text to filter a long list of options, use ComboBox.
 
 **[RadioGroup](/web/radiogroup)**
-If users need the ability to choose between fewer than 4 options, use RadioButton.
+If users need the ability to choose between fewer than 4 options, use RadioGroup.
 
 **[Checkbox](/web/checkbox)**
 If users need the ability to choose between a yes/no option, use Checkbox.
