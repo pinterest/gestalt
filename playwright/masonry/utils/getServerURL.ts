@@ -18,6 +18,7 @@ type Options = {
   externalCache?: boolean;
   experimental?: boolean;
   finiteLength?: boolean;
+  fixedThreeColItems?: boolean;
   flexible?: boolean;
   logWhitespace?: boolean;
   manualFetch?: boolean;
