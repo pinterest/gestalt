@@ -1,3 +1,9 @@
+## 174.1.2 (Mar 19, 2025)
+
+### Patch
+
+- RadioGroup: fix in CSS file for width ([#4046](https://github.com/pinterest/gestalt/pull/4046)) - [Preview link](https://deploy-preview-4046--gestalt.netlify.app?devexample=true)
+
 ## 174.1.1 (Mar 19, 2025)
 
 ### Patch
