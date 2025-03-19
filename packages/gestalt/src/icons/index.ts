@@ -22,6 +22,7 @@ import alignTopCenter from './align-top-center.svg';
 import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
 import alphabetical from './alphabetical.svg';
+import amazon from './amazon.svg';
 import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
 import animate from './animate.svg';
@@ -72,6 +73,7 @@ import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
 import cardStack from './card-stack.svg';
+import cardStackRefresh from './card-stack-refresh.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
@@ -106,6 +108,7 @@ import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
+import creditCardPlus from './credit-card-plus.svg';
 import crop from './crop.svg';
 import crystalBall from './crystal-ball.svg';
 import cutout from './cutout.svg';
@@ -411,6 +414,7 @@ const icons = Object.freeze({
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
   'alphabetical': alphabetical,
+  'amazon': amazon,
   'android-share': androidShare,
   'angled-pin': angledPin,
   'animate': animate,
@@ -461,6 +465,7 @@ const icons = Object.freeze({
   'captions': captions,
   'captions-outline': captionsOutline,
   'card-stack': cardStack,
+  'card-stack-refresh': cardStackRefresh,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
@@ -495,6 +500,7 @@ const icons = Object.freeze({
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
+  'credit-card-plus': creditCardPlus,
   'crop': crop,
   'crystal-ball': crystalBall,
   'cutout': cutout,

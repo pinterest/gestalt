@@ -284,6 +284,12 @@
       "keywords": ["birthdate", "celebrate", "year"]
     },
     {
+      "name": "blur",
+      "categories": ["Creation"],
+      "description": "Indicates the ability to blur something.",
+      "keywords": ["soften", "fadecd s"]
+    },
+    {
       "name": "board",
       "categories": ["Utility and tools"],
       "description": "Indicates a board",
@@ -366,6 +372,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a collection of cards",
       "keywords": ["group"]
+    },
+    {
+      "name": "card-stack-refresh",
+      "categories": ["Object"],
+      "description": "Refreshes a collection of cards",
+      "keywords": ["group", "update", "new"]
     },
     {
       "name": "check",
