@@ -55,6 +55,7 @@ import audioPlaying from './ic_audio-playing_gestalt.svg';
 import bell from './ic_bell_gestalt.svg';
 import bellFill from './ic_bell-fill_gestalt.svg';
 import birthdayCake from './ic_birthday-cake_gestalt.svg';
+import blur from './ic_blur_gestalt.svg';
 import board from './ic_board_gestalt.svg';
 import boardStickerLarge from './ic_board-sticker-large_gestalt.svg';
 import boardStickerSmall from './ic_board-sticker-small_gestalt.svg';
@@ -447,6 +448,7 @@ const icons = Object.freeze({
   'bell': bell,
   'bell-fill': bellFill,
   'birthday-cake': birthdayCake,
+  'blur': blur,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,

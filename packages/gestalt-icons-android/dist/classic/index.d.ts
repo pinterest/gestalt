@@ -56,6 +56,7 @@ declare const icons: Readonly<{
     bell: any;
     'bell-fill': any;
     'birthday-cake': any;
+    blur: any;
     board: any;
     'board-sticker-large': any;
     'board-sticker-small': any;
