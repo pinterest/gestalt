@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
-import styles from './Buttonsocial.css';
+import styles from './ButtonSocial.css';
 import VRButtonSocial from './ButtonSocial/VRButtonSocial';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
