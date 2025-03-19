@@ -8,9 +8,6 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
-import email from '../../examples/buttonsocial/email';
-import facebook from '../../examples/buttonsocial/facebook';
-import google from '../../examples/buttonsocial/google';
 import main from '../../examples/buttonsocial/main';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
@@ -44,34 +41,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           />
         </MainSection.Subsection>
       </MainSection>
-      <MainSection name="Best practices">
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            description={`To make it clearer, you may want to change the label text to indicate that the ButtonToggle has been selected. For instance, changing "Follow" to "Following."`}
-            sandpackExample={<SandpackExample code={email} hideEditor name="content" />}
-            type="do"
-          />
-          <MainSection.Card
-            cardSize="md"
-            description="Make sure that the ButtonToggle(s) in your application are consistently styled and placed. This should also apply to their sizing, maintaining uniformity throughout the experience."
-            sandpackExample={<SandpackExample code={facebook} hideEditor name="Do Consistency" />}
-            type="do"
-          />
-          <MainSection.Card
-            cardSize="md"
-            description="Place the ButtonToggle(s) in a location where users would naturally expect to find them, taking into consideration the context. For instance, position it next to a related feature."
-            sandpackExample={<SandpackExample code={google} hideEditor name="Do Location" />}
-            type="do"
-          />
-          <MainSection.Card
-            cardSize="md"
-            description="If the ButtonToggle(s) trigger a significant action or irreversible change, it is recommended to include a confirmation, such as a ModalAlert message."
-            sandpackExample={<SandpackExample code={main} hideEditor name="Do Confirmation" />}
-            type="do"
-          />
-        </MainSection.Subsection>
-      </MainSection>
+      <MainSection name="Best practices" />
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Localization" />
@@ -114,10 +84,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 | 'signup';
               return (
                 <ButtonSocial
-                  accessibilityLabel="Login in Pinterest"
-                  href="https://pinterest.com"
                   service="google"
-                  target="blank"
                   type={typeOptions}
                 />
               );

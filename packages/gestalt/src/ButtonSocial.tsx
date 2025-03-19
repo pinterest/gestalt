@@ -65,6 +65,8 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
+  const { isFocusVisible } = useFocusVisible();
+
   let iconService = null;
 
   switch (service) {
@@ -206,7 +208,6 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
   const isDarkMode = colorSchemeName === 'darkMode';
 
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
-  const { isFocusVisible } = useFocusVisible();
 
   const buttonClasses = classnames(
     background,

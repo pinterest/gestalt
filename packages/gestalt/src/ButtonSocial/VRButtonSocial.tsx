@@ -56,6 +56,8 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
 ) {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
+  const { isFocusVisible } = useFocusVisible();
+
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <ButtonLink ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
@@ -124,8 +126,6 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
       iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
       break;
   }
-
-  const { isFocusVisible } = useFocusVisible();
 
   const textWithService = `${TYPE_OPTIONS[type]} ${SERVICES_OPTIONS[service]}`;
 
