@@ -1,3 +1,15 @@
+## 174.1.2 (Mar 19, 2025)
+
+### Patch
+
+- RadioGroup: fix in CSS file for width ([#4046](https://github.com/pinterest/gestalt/pull/4046)) - [Preview link](https://deploy-preview-4046--gestalt.netlify.app?devexample=true)
+
+## 174.1.1 (Mar 19, 2025)
+
+### Patch
+
+- Internal: [Snyk] Security upgrade react-cookie from 4.1.1 to 8.0.1 ([#4044](https://github.com/pinterest/gestalt/pull/4044)) - [Preview link](https://deploy-preview-4044--gestalt.netlify.app?devexample=true)
+
 ## 174.1.0 (Mar 18, 2025)
 
 ### Minor
