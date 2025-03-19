@@ -233,7 +233,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
     const { layout, gutterWidth } = props;
     let defaultGutter = DEFAULT_LAYOUT_DEFAULT_GUTTER;
-    if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+    if (layout && (layout === 'flexible' || layout === 'serverRenderedFlexible')) {
       defaultGutter = FULL_WIDTH_DEFAULT_GUTTER;
     }
     const gutter = gutterWidth ?? defaultGutter;
