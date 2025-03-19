@@ -82,22 +82,18 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             1. \`Apple\`
             2. \`Facebook \` 
             3. \`Google \` 
-            3. \`Email\``}
+            4. \`Email\``}
           title="Service"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew service={[1, 2, 3, 4]}>
+          <CombinationNew service={['apple', 'facebook', 'google', 'email']}>
             {({ service }) => {
-              const serviceCopy: 1 | 2 | 3 | 4 = service as 1 | 2 | 3 | 4;
-              return (
-                <ButtonSocial
-                  accessibilityLabel="Login in Pinterest"
-                  href="https://pinterest.com"
-                  service={serviceCopy}
-                  target="blank"
-                  text={3}
-                />
-              );
+              const serviceCopy: 'apple' | 'facebook' | 'google' | 'email' = service as
+                | 'apple'
+                | 'facebook'
+                | 'google'
+                | 'email';
+              return <ButtonSocial service={serviceCopy} type="continue" />;
             }}
           </CombinationNew>
         </MainSection.Subsection>
@@ -110,16 +106,19 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
           title="Text"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew text={[1, 2, 3]}>
-            {({ text }) => {
-              const textCopy: 1 | 2 | 3 = text as 1 | 2 | 3;
+          <CombinationNew type={['login', 'continue', 'signup']}>
+            {({ type }) => {
+              const typeOptions: 'login' | 'continue' | 'signup' = type as
+                | 'login'
+                | 'continue'
+                | 'signup';
               return (
                 <ButtonSocial
                   accessibilityLabel="Login in Pinterest"
                   href="https://pinterest.com"
-                  service={1}
+                  service="google"
                   target="blank"
-                  text={textCopy}
+                  type={typeOptions}
                 />
               );
             }}

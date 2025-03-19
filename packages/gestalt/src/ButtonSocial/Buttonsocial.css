@@ -1,12 +1,11 @@
 .social {
   align-items: center;
-  border-radius: var(--rounding-pill, 999px);
-  cursor: pointer;
+  border-radius: var(--sema-rounding-400, 16px);
   display: flex;
   gap: var(--sema-space-200, 8px);
   height: 48px;
-  padding: var(--Positive-space-300, 12px) var(--Positive-space-1100, 44px)
-    var(--Positive-space-300, 12px) var(--Positive-space-400, 16px);
+  padding: var(--sema-space-200, 8px) var(--sema-space-1100, 44px)
+    var(--sema-space-200, 8px) var(--sema-space-400, 16px);
   width: 343px;
 }
 
@@ -28,8 +27,4 @@
 .social:active {
   background: var(--sema-color-pressed-background-default, #ebebe5);
   border: 1px solid var(--sema-color-pressed-border-interactive, #585856);
-}
-
-.social:focus {
-  border: 1px solid var(--sema-color-pressed-border-interactive, #bdbd3f);
 }

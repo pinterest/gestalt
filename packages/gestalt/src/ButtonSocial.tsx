@@ -1,104 +1,59 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import getAriaLabel from './accessibility/getAriaLabel';
-import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import classnames from 'classnames';
 import Box from './Box';
+import styles from './Buttonsocial.css';
 import VRButtonSocial from './ButtonSocial/VRButtonSocial';
+import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
 import Icon from './Icon';
-import InternalLink from './Link/InternalLink';
+import touchableStyles from './TapArea.css';
 import Text from './Text';
 import useInExperiment from './useInExperiment';
 
-const TEXT_OPTIONS = {
-  1: 'Login with',
-  2: 'Continue with',
-  3: 'Sign up with',
+const TYPE_OPTIONS = {
+  'login': 'Login with',
+  'continue': 'Continue with',
+  'signup': 'Sign up with',
 };
 
 const SERVICES_OPTIONS = {
-  1: 'Apple',
-  2: 'Facebook',
-  3: 'Google',
-  4: 'Email',
+  'apple': 'Apple',
+  'facebook': 'Facebook',
+  'google': 'Google',
+  'email': 'Email',
 };
 
 type ButtonProps = {
-  /**
-   * Label to provide more context around ButtonLink’s function or purpose. See the [Accessibility guidelines](/foundations/accessibility) to learn more.,
-   */
-  accessibilityLabel?: string;
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
   dataTestId?: string;
   /**
-   * Indicates whether this component is hosted in a light or dark container.
-   * Used for improving focus ring color contrast.
+   * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.
    */
-  focusColor?: 'lightBackground' | 'darkBackground';
-  /**
-   * Default Buttons are sized by the text within the ButtonSocial whereas full-width Buttons expand to the full width of their container.
-   */
-  fullWidth?: boolean;
-  /**
-   * Use "-1" to remove ButtonSocial from keyboard navigation. See the [Accessibility guidelines](/foundations/accessibility) to learn more.
-   */
-  tabIndex?: -1 | 0;
-  /**
-     * Callback invoked when the user clicks (press and release) on ButtonSocial with the mouse or keyboard.
-       See [GlobalEventsHandlerProvider](/web/utilities/globaleventshandlerprovider#Link-handlers) to learn more about link navigation.
-     */
   onClick?: (arg1: {
-    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>;
-    dangerouslyDisableOnNavigation: () => void;
+    event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>;
   }) => void;
   /**
    * Text to render inside the ButtonSocial to convey the function and purpose of the ButtonSocial.
    */
-  text: keyof typeof TEXT_OPTIONS;
+  type: 'login' | 'continue' | 'signup';
   /**
    * Text to render inside the ButtonSocial to convey the function and purpose of the ButtonSocial.
    */
-  service: keyof typeof SERVICES_OPTIONS;
-  /**
-   * Specifies a link URL.
-   */
-  href: string;
-  /**
-   * Provides hints for SEO. See the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#rel) to learn more.
-   */
-  rel?: 'none' | 'nofollow';
-  /**
-     * Indicates the browsing context where an href will be opened:
-  - 'null' opens the anchor in the same window.
-  - 'blank' opens the anchor in a new window.
-  - 'self' opens an anchor in the same frame.
-     */
-  target?: null | 'self' | 'blank';
+  service: 'apple' | 'facebook' | 'google' | 'email';
 };
 
 /**
- * [ButtonSocial](https://gestalt.pinterest.systems/buttonlink) should be used only to enable users to sign-up or sign-in to Pinterest using other trusted services.
+ * [ButtonSocial](https://gestalt.pinterest.systems/buttonsocial) should be used only to enable users to sign-up or sign-in to Pinterest using other trusted services.
  *
  * ![ButtonSocial light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonSocial.spec.ts-snapshots/ButtonSocial-chromium-darwin.png)
  * ![ButtonSocial dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonSocial-dark.spec.ts-snapshots/ButtonSocial-dark-chromium-darwin.png)
  */
 
-const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(function ButtonSocial(
-  {
-    accessibilityLabel,
-    dataTestId,
-    focusColor,
-    fullWidth = false,
-    onClick,
-    tabIndex = 0,
-    text,
-    service,
-    href,
-    rel = 'none',
-    target = null,
-  }: ButtonProps,
+const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(function ButtonSocial(
+  { dataTestId, onClick, type, service }: ButtonProps,
   ref,
 ) {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
@@ -107,15 +62,14 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   // that renders <ButtonSocial ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
-  const color = 'white';
 
   let iconService = null;
 
   switch (service) {
-    case 1:
+    case 'apple':
       iconService = <Icon accessibilityLabel="" color="default" icon="apple" size={20} />;
       break;
-    case 2:
+    case 'facebook':
       iconService = (
         <svg
           fill="none"
@@ -132,7 +86,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
         </svg>
       );
       break;
-    case 3:
+    case 'google':
       iconService = (
         <svg
           fill="none"
@@ -165,7 +119,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
         </svg>
       );
       break;
-    case 4:
+    case 'email':
       iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
       break;
     default:
@@ -178,7 +132,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
-  const textWithService = `${TEXT_OPTIONS[text]} ${SERVICES_OPTIONS[service]}`;
+  const textWithService = `${TYPE_OPTIONS[type]} ${SERVICES_OPTIONS[service]}`;
 
   const {
     textLoginEmail,
@@ -239,72 +193,41 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
       break;
   }
 
-  const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
-
-  const ariaLabel = getAriaLabel({
-    target,
-    accessibilityLabel,
-    accessibilityNewTabLabel,
-  });
-
-  const handleClick = ({
-    event,
-    dangerouslyDisableOnNavigation,
-  }: {
-    dangerouslyDisableOnNavigation: () => void;
-    event: React.KeyboardEvent<HTMLAnchorElement> | React.MouseEvent<HTMLAnchorElement>;
-  }) =>
-    onClick
-      ? onClick({
-          event,
-          dangerouslyDisableOnNavigation: dangerouslyDisableOnNavigation ?? (() => {}),
-        })
-      : undefined;
+  const { colorSchemeName } = useColorScheme();
 
   if (isInVRExperiment) {
     return (
-      <VRButtonSocial
-        accessibilityLabel={accessibilityLabel}
-        dataTestId={dataTestId}
-        focusColor={focusColor}
-        fullWidth={fullWidth}
-        href={href}
-        onClick={onClick}
-        rel={rel}
-        service={service}
-        tabIndex={tabIndex}
-        target={target}
-        text={text}
-      />
+      <VRButtonSocial dataTestId={dataTestId} onClick={onClick} service={service} type={type} />
     );
   }
 
+  const isDarkMode = colorSchemeName === 'darkMode';
+
+  const background = isDarkMode ? styles.darkMode : styles.lightMode;
+
+  const buttonClasses = classnames(
+    background,
+    styles.social,
+    touchableStyles.tapCompress,
+    touchableStyles.tapTransition,
+  );
+
   return (
-    <InternalLink
-      ref={innerRef}
-      accessibilityLabel={ariaLabel}
-      colorClass={color}
-      dataTestId={dataTestId}
-      disabled={false}
-      focusColor={focusColor}
-      fullWidth={fullWidth}
-      href={href}
-      onClick={handleClick}
-      rel={rel}
-      selected={false}
-      size="social"
-      tabIndex={tabIndex}
-      target={target}
-      wrappedComponent="button"
+    <button
+      className={buttonClasses}
+      data-test-id={dataTestId}
+      onClick={(event) => onClick?.({ event })}
+      type="button"
     >
       <Box>
         <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-          <Box marginStart={4}>{iconService}</Box>
+          <Box>{iconService}</Box>
           <Box
             dangerouslySetInlineStyle={{
               __style: {
                 position: 'absolute',
                 left: '50%',
+                width: '100%',
                 transform: ' translate(-50%, -50%)',
               },
             }}
@@ -315,11 +238,10 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
           </Box>
         </Flex>
       </Box>
-      <NewTabAccessibilityLabel target={target} />
-    </InternalLink>
+    </button>
   );
 });
 
-ButtonLinkWithForwardRef.displayName = 'ButtonSocial';
+ButtonSocialWithForwardRef.displayName = 'ButtonSocial';
 
-export default ButtonLinkWithForwardRef;
+export default ButtonSocialWithForwardRef;

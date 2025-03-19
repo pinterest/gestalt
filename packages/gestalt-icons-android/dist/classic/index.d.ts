@@ -162,7 +162,6 @@ declare const icons: Readonly<{
     gift: any;
     globe: any;
     'globe-checked': any;
-    google: any;
     gmail: any;
     'graph-bar': any;
     'graph-pie': any;

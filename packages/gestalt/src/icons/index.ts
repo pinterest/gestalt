@@ -136,7 +136,6 @@ import faceSmileyOutline from './face-smiley-outline.svg';
 import faceSmileyPlus from './face-smiley-plus.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
-import facebookColor from './facebook-color.svg';
 import fade from './fade.svg';
 import fileBox from './file-box.svg';
 import fileUnknown from './file-unknown.svg';
@@ -163,7 +162,6 @@ import gift from './gift.svg';
 import globe from './globe.svg';
 import globeChecked from './globe-checked.svg';
 import gmail from './gmail.svg';
-import google from './google.svg';
 import graphBar from './graph-bar.svg';
 import graphPie from './graph-pie.svg';
 import hand from './hand.svg';
@@ -516,7 +514,6 @@ const icons = Object.freeze({
   'face-smiley-plus': faceSmileyPlus,
   'face-tryon': faceTryon,
   'facebook': facebook,
-  'facebook-color': facebookColor,
   'fade': fade,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
@@ -543,7 +540,6 @@ const icons = Object.freeze({
   'globe': globe,
   'globe-checked': globeChecked,
   'gmail': gmail,
-  'google': google,
   'graph-bar': graphBar,
   'graph-pie': graphPie,
   'hand': hand,
