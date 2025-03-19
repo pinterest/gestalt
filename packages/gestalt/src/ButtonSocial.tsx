@@ -232,7 +232,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
               },
             }}
           >
-            <Text align="center" color="default" size="300">
+            <Text align="center" color="default" size="300" weight='bold'>
               {textWithServiceTranslated}
             </Text>
           </Box>
