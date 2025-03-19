@@ -136,7 +136,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
 
   const buttonClasses = classnames(styles.social, background, {
-    [focusStyles.accessibilityOutline]: isFocusVisible,
+    [focusStyles.accessibilityOutlineButton]: isFocusVisible,
   });
 
   return (

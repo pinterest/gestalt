@@ -82,12 +82,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 | 'login'
                 | 'continue'
                 | 'signup';
-              return (
-                <ButtonSocial
-                  service="google"
-                  type={typeOptions}
-                />
-              );
+              return <ButtonSocial service="google" type={typeOptions} />;
             }}
           </CombinationNew>
         </MainSection.Subsection>

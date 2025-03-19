@@ -215,7 +215,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
     touchableStyles.tapCompress,
     touchableStyles.tapTransition,
     {
-      [focusStyles.accessibilityOutline]: isFocusVisible,
+      [focusStyles.accessibilityOutlineButton]: isFocusVisible,
     },
   );
 
