@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import getGridItems from './utils/getGridItems';
 import getServerURL from './utils/getServerURL';
+import waitForRenderedItems from './utils/waitForRenderedItems';
 
 test.describe('Masonry: Responsive Module For SecondItem layout', () => {
   test(`When there are 3 columns on the grid, and a multi-column item is on the first position, the responsive module should expand 2 columns`, async ({
@@ -205,6 +206,10 @@ test.describe('Masonry: Responsive Module For SecondItem layout', () => {
         }),
       );
 
+      await waitForRenderedItems(page, { targetItems: 1 });
+      const originalItems = await getGridItems(page);
+      expect(originalItems.length).toBeGreaterThanOrEqual(1);
+
       const gridItems = await getGridItems(page);
 
       const responsiveModuleItem = gridItems[0];
@@ -230,6 +235,10 @@ test.describe('Masonry: Responsive Module For SecondItem layout', () => {
           responsiveModuleRemoveMulticolumn: false,
         }),
       );
+
+      await waitForRenderedItems(page, { targetItems: 3 });
+      const originalItems = await getGridItems(page);
+      expect(originalItems.length).toBeGreaterThanOrEqual(3);
 
       const gridItems = await getGridItems(page);
 
