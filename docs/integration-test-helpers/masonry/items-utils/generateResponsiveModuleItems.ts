@@ -50,6 +50,13 @@ export default function generateResPonsiveModuleItems({
     itemType: 'normalItem',
   } as const;
 
+  const pin3 = {
+    name: `${name} ${3}`,
+    height: 200,
+    color: getRandomColor(getRandomNumber),
+    itemType: 'normalItem',
+  } as const;
+
   if (insertIntermediateItem && removeMulticolumnItem) {
     return [pin2, pin1];
   }
@@ -59,7 +66,7 @@ export default function generateResPonsiveModuleItems({
   }
 
   if (removeMulticolumnItem) {
-    return [pin1];
+    return [pin1, pin3];
   }
 
   return [pin0, pin1, pin2];
