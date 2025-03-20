@@ -695,8 +695,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const height = positions.length
         ? Math.max(...positions.map((pos) => pos.top + pos.height), this.maxHeight)
         : 0;
-      if (height > this.maxHeight) this.maxHeight = height;
-      // this.maxHeight = height;
+      if (height > this.maxHeight || !positions.length) this.maxHeight = height;
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>
