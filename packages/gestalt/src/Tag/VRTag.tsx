@@ -57,6 +57,10 @@ type Props = {
    * Indicates the tag is selected. This is purely visual and does not affect the behavior of the tag.
    */
   selected?: boolean;
+  /**
+   * Callback fired when the user click the tag. This handler should take care of state updates to render selected state.
+   */
+  onClick: (arg1: { event: React.MouseEvent<HTMLButtonElement> }) => void;
 };
 
 const applyDensityTheme = (size: 'sm' | 'md' | 'lg') => {
@@ -110,6 +114,7 @@ export default function Tag({
   size = 'md',
   text,
   type = 'default',
+  onClick,
   selected = false,
 }: Props) {
 
@@ -142,15 +147,17 @@ export default function Tag({
     styles[size],
   );
 
+  const hoverClass = `onClick${size}`
 
-  const removeIconClasses2 = classnames(
-    styles.closeButtonVR,
+  const onClickButtonClasses = classnames(
+    styles.clickButtonVR,
     styles[typeClass],
     touchableStyles.tapTransition,
     {
       [focusStyles.hideOutline]: !isFocusVisible,
       [focusStyles.accessibilityOutlineVR]: isFocusVisible,
     },
+    styles[hoverClass]
   );
 
   const { height, rounding, paddingX, paddingY, fontSize, iconSize, removeIconSize } =
@@ -174,34 +181,33 @@ export default function Tag({
       // @ts-expect-error - TS2322 - Type 'number' is not assignable to type '0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | "circle" | "pill" | undefined'.
       rounding={rounding}
     >
-      <Box alignItems="center" display="flex" height="100%" marginEnd={disabled ? 0 : 5}>
+      <Box alignItems="center" display="flex" height="100%" marginEnd={disabled ? 0 : 4}>
       {/* @ts-expect-error - TS2322 - Type '(arg1: { event: MouseEvent<HTMLButtonElement, MouseEvent>; }) => void' is not assignable to type 'MouseEventHandler<HTMLButtonElement>'. */}
-      <button className={removeIconClasses2} onClick={onRemove} type="button">
-      <Box alignItems="center" display="flex" height="100%">
+      <button className={onClickButtonClasses} onClick={onClick} type="button">
+        <Box alignItems="center" display="flex" height="100%">
 
-        {(type === 'error' || type === 'warning') && (
-          <Box marginEnd={1} marginStart={1}>
-            <IconCompact
-              accessibilityLabel={accessibilityLabels[type]}
-              color={fgColor}
-              icon={iconsByType[type]}
-              size={iconSize}
-            />
+          {(type === 'error' || type === 'warning') && (
+            <Box marginEnd={1} >
+              <IconCompact
+                accessibilityLabel={accessibilityLabels[type]}
+                color={fgColor}
+                icon={iconsByType[type]}
+                size={iconSize}
+              />
+            </Box>
+          )}
+
+          <Text
+            color={fgColor}
+            inline
+            lineClamp={1}
+            overflow="breakAll"
+            // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Size | undefined'.
+            size={fontSize}
+          >
+            {text}
+          </Text>
           </Box>
-        )}
-
-        <Text
-          color={fgColor}
-          inline
-          lineClamp={1}
-          overflow="breakAll"
-          // @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'Size | undefined'.
-          size={fontSize}
-        >
-          {text}
-        </Text>
-        </Box>
-
         </button>
 
         <Box>

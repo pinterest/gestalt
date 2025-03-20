@@ -43,15 +43,15 @@
 }
 
 .errorVR {
-  background-color: var(--color-background-error-weak);
+  background-color: var(--sema-color-background-error-weak);
 }
 
 .errorVR:hover {
-  background-color: var(--color-background-tag-error-hover);
+  background-color: var(--sema-color-hover-background-error-weak);
 }
 
 .errorVR:active {
-  background-color: var(--color-background-tag-error-active);
+  background-color: var(--sema-color-pressed-background-error-weak);
 }
 
 .warning {
@@ -71,11 +71,11 @@
 }
 
 .warningVR:hover {
-  background-color: var(--color-background-tag-warning-hover);
+  background-color: var(--sema-color-hover-background-warning-weak);
 }
 
 .warningVR:active {
-  background-color: var(--color-background-tag-warning-active);
+  background-color: var(--sema-color-pressed-background-warning-weak);
 }
 
 .selected {
@@ -92,11 +92,36 @@
   position: absolute;
 }
 
-.closeButtonVR {
+.clickButtonVR {
   composes: noBorder from "./Borders.css";
   composes: pointer from "./Cursor.css";
-  height: 100%;
+  border-radius: var(--sema-rounding-200, 8px);
+  margin-right: 2px;
   outline: none;
+}
+
+.onClickmd{
+  border-radius: var(--sema-rounding-200, 8px);
+  height: 32px;
+  margin-left: -7px;
+  padding-bottom:4px;
+  padding-left: 6px;
+  padding-top: 4px;
+}
+
+.onClicksm{
+  border-radius: var(--sema-rounding-200, 8px);
+  height: 24px;
+  margin-left: -7px;
+  padding-bottom:4px;
+  padding-top: 4px;
+}
+
+.onClicklg{
+  border-radius: var(--sema-rounding-200, 8px);
+  height: 48px;
+  margin-left: -11px;
+  padding-left: 12px;
 }
 
 html[dir="rtl"] .closeButton {

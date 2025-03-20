@@ -15,6 +15,7 @@ import dontIntermix from '../../examples/tag/dontIntermix';
 import doSuccinct from '../../examples/tag/doSuccinct';
 import localizationLabels from '../../examples/tag/localizationLabels';
 import main from '../../examples/tag/main';
+import selectedTag from '../../examples/tag/selectedTag';
 import sizesExample from '../../examples/tag/sizes';
 import variantDisabled from '../../examples/tag/variantDisabled';
 import variantDismissable from '../../examples/tag/variantDismissable';
@@ -169,6 +170,18 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         >
           <MainSection.Card
             sandpackExample={<SandpackExample code={variantWarning} name="Warning variant" />}
+          />
+        </MainSection.Subsection>
+
+
+        <MainSection.Subsection
+          description={`
+        Use \`selected\` to communicate the tag is selected
+        `}
+          title="Selected"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={selectedTag} name="Selected" />}
           />
         </MainSection.Subsection>
 
