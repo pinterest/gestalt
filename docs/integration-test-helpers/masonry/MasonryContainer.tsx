@@ -1,7 +1,7 @@
 import { Component, ComponentProps, createRef, ReactElement } from 'react';
 import {
   ColumnSpanConfig,
-  ResponsiveModuleConfig,
+  // ResponsiveModuleConfig,
 } from 'packages/gestalt/src/Masonry/multiColumnLayout';
 import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
