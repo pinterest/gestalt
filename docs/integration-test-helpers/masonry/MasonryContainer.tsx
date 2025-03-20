@@ -1,7 +1,7 @@
 import { Component, ComponentProps, createRef, ReactElement } from 'react';
 import {
   ColumnSpanConfig,
-  // ResponsiveModuleConfig,
+  ResponsiveModuleConfig,
 } from 'packages/gestalt/src/Masonry/multiColumnLayout';
 import { Masonry, MasonryV2 } from 'gestalt';
 import ExampleGridItem from './ExampleGridItem';
@@ -425,10 +425,10 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
               const columnSpan = item.columnSpan as ColumnSpanConfig | undefined;
               return columnSpan ?? 1;
             }}
-            // _getResponsiveModuleConfigForSecondItem={(item) => {
-            //   const responsiveModuleConfig = item.responsiveModuleConfig as ResponsiveModuleConfig;
-            //   return responsiveModuleConfig ?? 1;
-            // }}
+            _getResponsiveModuleConfigForSecondItem={(item) => {
+              const responsiveModuleConfig = item.responsiveModuleConfig as ResponsiveModuleConfig;
+              return responsiveModuleConfig ?? 1;
+            }}
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
