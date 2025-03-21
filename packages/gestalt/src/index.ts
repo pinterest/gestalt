@@ -3,6 +3,7 @@ import Accordion from './Accordion';
 import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
+import AvatarGroupCluster from './AvatarGroupCluster';
 import Badge from './Badge';
 import BannerCallout from './BannerCallout';
 import BannerOverlay from './BannerOverlay';
@@ -97,6 +98,7 @@ export {
   ActivationCard,
   Avatar,
   AvatarGroup,
+  AvatarGroupCluster,
   Badge,
   BannerCallout,
   BannerOverlay,
