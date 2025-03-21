@@ -119,6 +119,7 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'ActivationCard',
       'Avatar',
       'AvatarGroup',
+      'AvatarGroupCluster',
       'Badge',
       'BannerCallout',
       'BannerOverlay',

@@ -4,10 +4,10 @@ import PositioningWrapper from './PositioningWrapper';
 import AvatarFoundation from '../Avatar/Foundation';
 
 type Props = BaseStackType & {
-  showAddCollaboratorsButton: boolean;
+  showAddCollaboratorsButton?: boolean;
   count: number;
-  isHovered: boolean;
-  isPressed: boolean;
+  isHovered?: boolean;
+  isPressed?: boolean;
 };
 
 export default function AvatarGroupCollaboratorsCount({
