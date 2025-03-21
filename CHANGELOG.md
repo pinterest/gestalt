@@ -1,3 +1,9 @@
+## 174.2.1 (Mar 21, 2025)
+
+### Patch
+
+- SearchField: fix rtl in VR bug ([#4047](https://github.com/pinterest/gestalt/pull/4047)) - [Preview link](https://deploy-preview-4047--gestalt.netlify.app?devexample=true)
+
 ## 174.2.0 (Mar 20, 2025)
 
 ### Minor
