@@ -426,6 +426,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
               return columnSpan ?? 1;
             }}
             _getResponsiveModuleConfigForSecondItem={(item) => {
+              return item.responsiveModuleConfig as ResponsiveModuleConfig;
               const responsiveModuleConfig = item.responsiveModuleConfig as ResponsiveModuleConfig;
               return responsiveModuleConfig;
             }}
