@@ -426,9 +426,8 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
               return columnSpan ?? 1;
             }}
             _getResponsiveModuleConfigForSecondItem={(item) => {
-              return undefined;
               const responsiveModuleConfig = item.responsiveModuleConfig as ResponsiveModuleConfig;
-              return responsiveModuleConfig ?? undefined;
+              return responsiveModuleConfig;
             }}
             _logTwoColWhitespace={
               logWhitespace
