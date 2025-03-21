@@ -23,6 +23,7 @@ import BannerUpsell from '../../graphics/general/BannerUpsell.svg';
 import Button from '../../graphics/general/Button.svg';
 import ButtonGroup from '../../graphics/general/ButtonGroup.svg';
 import ButtonLink from '../../graphics/general/ButtonLink.svg';
+import ButtonSocial from '../../graphics/general/ButtonSocial.svg';
 import ButtonToggle from '../../graphics/general/ButtonToggle.svg';
 import Card from '../../graphics/general/Card.svg';
 import ChartGraph from '../../graphics/general/ChartGraph.svg';
@@ -541,6 +542,26 @@ const componentData: ReadonlyArray<ComponentData> = [
         },
         alias: ['Button Row', 'Action Bar'],
         description: 'ButtonGroup is used to display a series of buttons.',
+        category: ['Actions'],
+        status: {
+          documentation: 'ready',
+          figmaStatus: 'ready',
+          status: 'ready',
+        },
+      },
+    },
+  },
+  {
+    id: 'ButtonSocial',
+    platform: {
+      web: {
+        name: 'ButtonSocial',
+        visual: {
+          svg: <ButtonSocial />,
+        },
+        alias: ['Social', 'Action Button'],
+        description:
+          'ButtonSocial should be used only to enable users to sign-up or sign-in to Pinterest using other trusted services.',
         category: ['Actions'],
         status: {
           documentation: 'ready',
