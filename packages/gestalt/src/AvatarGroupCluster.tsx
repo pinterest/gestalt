@@ -64,6 +64,16 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
       ],
     } as const;
 
+    function getPositions() {
+      if (collaboratorsCount === 2) {
+        return positions[2];
+      }
+      if (collaboratorsCount === 3) {
+        return positions[3];
+      }
+      return positions[4];
+    }
+
     return (
       <Box padding={collaboratorsCount > 2 && size === 'md' ? 1 : undefined}>
         <Box
@@ -83,7 +93,7 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
                 borderRadius: '99%',
                 boxSizing: 'border-box',
                 position: 'absolute',
-                ...positions[collaboratorsCount > 4 ? 4 : collaboratorsCount][index],
+                ...getPositions()[index],
                 height: isPair ? dimensions[size].dimensionPair : dimensions[size].dimensionCluster,
                 width: isPair ? dimensions[size].dimensionPair : dimensions[size].dimensionCluster,
               }}
