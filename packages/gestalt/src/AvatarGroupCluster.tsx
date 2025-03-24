@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
-import { TOKEN_COLOR_BACKGROUND_DEFAULT } from 'gestalt-design-tokens';
+import classnames from 'classnames';
 import InternalAvatar from './Avatar/InternalAvatar';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
-import Box from './Box';
+import styles from './AvatarGroupCluster.css';
 
 type Props = {
   /**
@@ -83,24 +83,22 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
       return null;
     }
     return (
-      <Box padding={collaboratorsCount > 2 && size === 'md' ? 1 : undefined}>
-        <Box
+      <div className={classnames(collaboratorsCount > 2 && size === 'md' && styles.clusterPadding)}>
+        <div
           ref={ref}
-          dangerouslySetInlineStyle={{ __style: { isolation: 'isolate' } }}
-          height={dimensions[size].sizeDimension}
-          position="relative"
+          className={classnames(styles.cluster)}
           role="presentation"
-          width={dimensions[size].sizeDimension}
+          style={{
+            height: dimensions[size].sizeDimension,
+            width: dimensions[size].sizeDimension,
+          }}
         >
           {renderedCollaborators.map((user, index) => (
             <div
               key={user.src ?? user.name}
+              className={classnames(styles.avatarContainer)}
               style={{
                 zIndex: isRtl ? collaboratorsCount - 1 - index : undefined,
-                border: `2px solid ${TOKEN_COLOR_BACKGROUND_DEFAULT}`,
-                borderRadius: '99%',
-                boxSizing: 'border-box',
-                position: 'absolute',
                 ...getPositions()[index],
                 height: isPair ? dimensions[size].dimensionPair : dimensions[size].dimensionCluster,
                 width: isPair ? dimensions[size].dimensionPair : dimensions[size].dimensionCluster,
@@ -119,8 +117,8 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
               )}
             </div>
           ))}
-        </Box>
-      </Box>
+        </div>
+      </div>
     );
   },
 );

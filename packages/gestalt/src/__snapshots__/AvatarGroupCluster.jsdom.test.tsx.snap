@@ -4,15 +4,16 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +4 collaborators initial
 <body>
   <div>
     <div
-      class="box paddingX100 paddingY100"
+      class="clusterPadding"
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 40px; width: 40px;"
+        style="height: 40px; width: 40px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -51,7 +52,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +4 collaborators initial
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -90,7 +92,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +4 collaborators initial
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -129,7 +132,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +4 collaborators initial
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             aria-hidden="true"
@@ -183,15 +187,16 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +99 counter 1`] = `
 <body>
   <div>
     <div
-      class="box paddingX100 paddingY100"
+      class="clusterPadding"
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 40px; width: 40px;"
+        style="height: 40px; width: 40px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -228,7 +233,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +99 counter 1`] = `
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -265,7 +271,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +99 counter 1`] = `
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -302,7 +309,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with +99 counter 1`] = `
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             aria-hidden="true"
@@ -356,15 +364,16 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 2 collaborators initial 
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class=""
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 48px; width: 48px;"
+        style="height: 48px; width: 48px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 32px; width: 32px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 32px; width: 32px;"
         >
           <div
             class="box circle relative"
@@ -403,7 +412,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 2 collaborators initial 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 32px; width: 32px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 32px; width: 32px;"
         >
           <div
             class="box circle relative"
@@ -451,15 +461,16 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 3 collaborators initial 
 <body>
   <div>
     <div
-      class="box paddingX100 paddingY100"
+      class="clusterPadding"
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 40px; width: 40px;"
+        style="height: 40px; width: 40px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -498,7 +509,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 3 collaborators initial 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 50%; transform: translate(-50%, 0); height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; left: 50%; transform: translate(-50%, 0); height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -537,7 +549,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 3 collaborators initial 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -585,15 +598,16 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
 <body>
   <div>
     <div
-      class="box paddingX100 paddingY100"
+      class="clusterPadding"
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 40px; width: 40px;"
+        style="height: 40px; width: 40px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -632,7 +646,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -671,7 +686,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -710,7 +726,8 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -773,15 +790,16 @@ exports[`AvatarGroup renders rtl 1`] = `
       dir="rtl"
     >
       <div
-        class="box paddingX100 paddingY100"
+        class="clusterPadding"
       >
         <div
-          class="box relative"
+          class="cluster"
           role="presentation"
-          style="isolation: isolate; height: 40px; width: 40px;"
+          style="height: 40px; width: 40px;"
         >
           <div
-            style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+            class="avatarContainer"
+            style="bottom: 0px; left: 0px; height: 24px; width: 24px;"
           >
             <div
               class="box circle relative"
@@ -818,7 +836,8 @@ exports[`AvatarGroup renders rtl 1`] = `
             </div>
           </div>
           <div
-            style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+            class="avatarContainer"
+            style="top: 0px; left: 0px; height: 24px; width: 24px;"
           >
             <div
               class="box circle relative"
@@ -855,7 +874,8 @@ exports[`AvatarGroup renders rtl 1`] = `
             </div>
           </div>
           <div
-            style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+            class="avatarContainer"
+            style="top: 0px; right: 0px; height: 24px; width: 24px;"
           >
             <div
               class="box circle relative"
@@ -892,7 +912,8 @@ exports[`AvatarGroup renders rtl 1`] = `
             </div>
           </div>
           <div
-            style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+            class="avatarContainer"
+            style="bottom: 0px; right: 0px; height: 24px; width: 24px;"
           >
             <div
               aria-hidden="true"
@@ -947,15 +968,16 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with +4 collaborators images 
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class=""
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="height: 32px; width: 32px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -988,7 +1010,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with +4 collaborators images 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="top: 0px; left: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1021,7 +1044,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with +4 collaborators images 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1054,7 +1078,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with +4 collaborators images 
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 20px; width: 20px;"
         >
           <div
             aria-hidden="true"
@@ -1108,15 +1133,16 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 2 collaborators images 1
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class=""
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="height: 32px; width: 32px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -1149,7 +1175,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 2 collaborators images 1
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -1191,15 +1218,16 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 3 collaborators images 1
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class=""
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="height: 32px; width: 32px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1232,7 +1260,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 3 collaborators images 1
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 50%; transform: translate(-50%, 0); height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="top: 0px; left: 50%; transform: translate(-50%, 0); height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1265,7 +1294,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 3 collaborators images 1
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1307,15 +1337,16 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 4 collaborators images 1
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class=""
     >
       <div
-        class="box relative"
+        class="cluster"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="height: 32px; width: 32px;"
       >
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="bottom: 0px; left: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1348,7 +1379,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 4 collaborators images 1
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="top: 0px; left: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1381,7 +1413,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 4 collaborators images 1
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="top: 0px; right: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
@@ -1414,7 +1447,8 @@ exports[`AvatarGroup renders sm AvatarGroupCluster with 4 collaborators images 1
           </div>
         </div>
         <div
-          style="border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 20px; width: 20px;"
+          class="avatarContainer"
+          style="bottom: 0px; right: 0px; height: 20px; width: 20px;"
         >
           <div
             class="box circle relative"
