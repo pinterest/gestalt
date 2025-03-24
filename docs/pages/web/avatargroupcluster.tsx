@@ -24,7 +24,7 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description="AvatarGroupClusters accepts name, image and colors for each collaborators avatar"
+          description="AvatarGroupClusters accepts name, image and colors for each collaborator's avatar."
           title="Avatar"
         >
           <MainSection.Card sandpackExample={<SandpackExample code={avatar} name="avatar" />} />

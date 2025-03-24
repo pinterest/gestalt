@@ -1,110 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AvatarGroup renders md AvatarGroupCluster with +4 collaborators 1`] = `
+exports[`AvatarGroup renders md AvatarGroupCluster with +4 collaborators initials 1`] = `
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class="box paddingX100 paddingY100"
     >
       <div
         class="box relative"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
-      >
-        <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
-        >
-          <div
-            class="box circle relative"
-            data-test-id="gestalt-avatar-svg"
-            style="width: 100%;"
-          >
-            <div
-              class="box circle relative secondary"
-              style="padding-bottom: 100%;"
-            >
-              <div
-                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
-              >
-                <svg
-                  preserveAspectRatio="xMidYMid meet"
-                  version="1.1"
-                  viewBox="-50 -50 100 100"
-                  width="100%"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>
-                    D
-                  </title>
-                  <text
-                    class="text"
-                    dy="0.35em"
-                    fill="var(--color-text-default)"
-                    font-size="40px"
-                    text-anchor="middle"
-                  >
-                    D
-                  </text>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 20px; width: 20px;"
-        >
-          <div
-            class="box circle relative"
-            data-test-id="gestalt-avatar-svg"
-            style="width: 100%;"
-          >
-            <div
-              class="box circle relative secondary"
-              style="padding-bottom: 100%;"
-            >
-              <div
-                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
-              >
-                <svg
-                  preserveAspectRatio="xMidYMid meet"
-                  version="1.1"
-                  viewBox="-50 -50 100 100"
-                  width="100%"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>
-                    E
-                  </title>
-                  <text
-                    class="text"
-                    dy="0.35em"
-                    fill="var(--color-text-default)"
-                    font-size="40px"
-                    text-anchor="middle"
-                  >
-                    E
-                  </text>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`AvatarGroup renders md AvatarGroupCluster with 2 collaborators initial 1`] = `
-<body>
-  <div>
-    <div
-      class="box paddingXNaN paddingYNaN"
-    >
-      <div
-        class="box relative"
-        role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="isolation: isolate; height: 40px; width: 40px;"
       >
         <div
           style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
@@ -146,7 +51,359 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 2 collaborators initial 
           </div>
         </div>
         <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="box circle relative secondary"
+              style="padding-bottom: 100%;"
+            >
+              <div
+                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+              >
+                <svg
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.1"
+                  viewBox="-50 -50 100 100"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    B
+                  </title>
+                  <text
+                    class="text"
+                    dy="0.35em"
+                    fill="var(--color-text-default)"
+                    font-size="40px"
+                    text-anchor="middle"
+                  >
+                    B
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
           style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="box circle relative secondary"
+              style="padding-bottom: 100%;"
+            >
+              <div
+                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+              >
+                <svg
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.1"
+                  viewBox="-50 -50 100 100"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    C
+                  </title>
+                  <text
+                    class="text"
+                    dy="0.35em"
+                    fill="var(--color-text-default)"
+                    font-size="40px"
+                    text-anchor="middle"
+                  >
+                    C
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            aria-hidden="true"
+            class="box"
+            style="margin-inline-start: NaNpx;"
+          >
+            <div
+              class="box relative"
+              style="z-index: 1;"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box circle relative secondary"
+                  style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
+                >
+                  <div
+                    class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid meet"
+                      version="1.1"
+                      viewBox="-50 -50 100 100"
+                      width="100%"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <text
+                        class="text"
+                        dy="0.35em"
+                        fill="var(--color-text-default)"
+                        font-size="40px"
+                        text-anchor="middle"
+                      >
+                        2
+                      </text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders md AvatarGroupCluster with +99 counter 1`] = `
+<body>
+  <div>
+    <div
+      class="box paddingX100 paddingY100"
+    >
+      <div
+        class="box relative"
+        role="presentation"
+        style="isolation: isolate; height: 40px; width: 40px;"
+      >
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="box circle relative secondary"
+              style="padding-bottom: 100%;"
+            >
+              <div
+                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+              >
+                <svg
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.1"
+                  viewBox="-50 -50 100 100"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    1
+                  </title>
+                  <text
+                    class="text"
+                    dy="0.35em"
+                    fill="var(--color-text-default)"
+                    font-size="40px"
+                    text-anchor="middle"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="box circle relative secondary"
+              style="padding-bottom: 100%;"
+            >
+              <div
+                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+              >
+                <svg
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.1"
+                  viewBox="-50 -50 100 100"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    2
+                  </title>
+                  <text
+                    class="text"
+                    dy="0.35em"
+                    fill="var(--color-text-default)"
+                    font-size="40px"
+                    text-anchor="middle"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="box circle relative secondary"
+              style="padding-bottom: 100%;"
+            >
+              <div
+                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+              >
+                <svg
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.1"
+                  viewBox="-50 -50 100 100"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    3
+                  </title>
+                  <text
+                    class="text"
+                    dy="0.35em"
+                    fill="var(--color-text-default)"
+                    font-size="40px"
+                    text-anchor="middle"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+        >
+          <div
+            aria-hidden="true"
+            class="box"
+            style="margin-inline-start: NaNpx;"
+          >
+            <div
+              class="box relative"
+              style="z-index: 1;"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box circle relative secondary"
+                  style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
+                >
+                  <div
+                    class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid meet"
+                      version="1.1"
+                      viewBox="-50 -50 100 100"
+                      width="100%"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <text
+                        class="text"
+                        dy="0.35em"
+                        fill="var(--color-text-default)"
+                        font-size="40px"
+                        text-anchor="middle"
+                      >
+                        99+
+                      </text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders md AvatarGroupCluster with 2 collaborators initial 1`] = `
+<body>
+  <div>
+    <div
+      class="box paddingXNaN paddingYNaN"
+    >
+      <div
+        class="box relative"
+        role="presentation"
+        style="isolation: isolate; height: 48px; width: 48px;"
+      >
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 32px; width: 32px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="box circle relative secondary"
+              style="padding-bottom: 100%;"
+            >
+              <div
+                class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+              >
+                <svg
+                  preserveAspectRatio="xMidYMid meet"
+                  version="1.1"
+                  viewBox="-50 -50 100 100"
+                  width="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>
+                    A
+                  </title>
+                  <text
+                    class="text"
+                    dy="0.35em"
+                    fill="var(--color-text-default)"
+                    font-size="40px"
+                    text-anchor="middle"
+                  >
+                    A
+                  </text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 32px; width: 32px;"
         >
           <div
             class="box circle relative"
@@ -194,15 +451,15 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 3 collaborators initial 
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class="box paddingX100 paddingY100"
     >
       <div
         class="box relative"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="isolation: isolate; height: 40px; width: 40px;"
       >
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -241,7 +498,7 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 3 collaborators initial 
           </div>
         </div>
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 50%; transform: translate(-50%, 0); height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 50%; transform: translate(-50%, 0); height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -280,7 +537,7 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 3 collaborators initial 
           </div>
         </div>
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -328,15 +585,15 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
 <body>
   <div>
     <div
-      class="box paddingXNaN paddingYNaN"
+      class="box paddingX100 paddingY100"
     >
       <div
         class="box relative"
         role="presentation"
-        style="isolation: isolate; height: 32px; width: 32px;"
+        style="isolation: isolate; height: 40px; width: 40px;"
       >
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -375,7 +632,7 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
           </div>
         </div>
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -414,7 +671,7 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
           </div>
         </div>
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -453,7 +710,7 @@ exports[`AvatarGroup renders md AvatarGroupCluster with 4 collaborators initial 
           </div>
         </div>
         <div
-          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 20px; width: 20px;"
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
         >
           <div
             class="box circle relative"
@@ -506,6 +763,344 @@ exports[`AvatarGroup renders null for a single collaborator 1`] = `
 exports[`AvatarGroup renders null for none collaborators 1`] = `
 <body>
   <div />
+</body>
+`;
+
+exports[`AvatarGroup renders rtl 1`] = `
+<body>
+  <div>
+    <div
+      dir="rtl"
+    >
+      <div
+        class="box paddingX100 paddingY100"
+      >
+        <div
+          class="box relative"
+          role="presentation"
+          style="isolation: isolate; height: 40px; width: 40px;"
+        >
+          <div
+            style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 24px; width: 24px;"
+          >
+            <div
+              class="box circle relative"
+              data-test-id="gestalt-avatar-svg"
+              style="width: 100%;"
+            >
+              <div
+                class="box circle relative secondary"
+                style="padding-bottom: 100%;"
+              >
+                <div
+                  class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                >
+                  <svg
+                    preserveAspectRatio="xMidYMid meet"
+                    version="1.1"
+                    viewBox="-50 -50 100 100"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>
+                      1
+                    </title>
+                    <text
+                      class="text"
+                      dy="0.35em"
+                      fill="var(--color-text-default)"
+                      font-size="40px"
+                      text-anchor="middle"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 24px; width: 24px;"
+          >
+            <div
+              class="box circle relative"
+              data-test-id="gestalt-avatar-svg"
+              style="width: 100%;"
+            >
+              <div
+                class="box circle relative secondary"
+                style="padding-bottom: 100%;"
+              >
+                <div
+                  class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                >
+                  <svg
+                    preserveAspectRatio="xMidYMid meet"
+                    version="1.1"
+                    viewBox="-50 -50 100 100"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>
+                      2
+                    </title>
+                    <text
+                      class="text"
+                      dy="0.35em"
+                      fill="var(--color-text-default)"
+                      font-size="40px"
+                      text-anchor="middle"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 24px; width: 24px;"
+          >
+            <div
+              class="box circle relative"
+              data-test-id="gestalt-avatar-svg"
+              style="width: 100%;"
+            >
+              <div
+                class="box circle relative secondary"
+                style="padding-bottom: 100%;"
+              >
+                <div
+                  class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                >
+                  <svg
+                    preserveAspectRatio="xMidYMid meet"
+                    version="1.1"
+                    viewBox="-50 -50 100 100"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>
+                      3
+                    </title>
+                    <text
+                      class="text"
+                      dy="0.35em"
+                      fill="var(--color-text-default)"
+                      font-size="40px"
+                      text-anchor="middle"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 24px; width: 24px;"
+          >
+            <div
+              aria-hidden="true"
+              class="box"
+              style="margin-inline-start: NaNpx;"
+            >
+              <div
+                class="box relative"
+                style="z-index: 1;"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="box circle relative secondary"
+                    style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
+                  >
+                    <div
+                      class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                    >
+                      <svg
+                        preserveAspectRatio="xMidYMid meet"
+                        version="1.1"
+                        viewBox="-50 -50 100 100"
+                        width="100%"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <text
+                          class="text"
+                          dy="0.35em"
+                          fill="var(--color-text-default)"
+                          font-size="40px"
+                          text-anchor="middle"
+                        >
+                          99+
+                        </text>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`AvatarGroup renders sm AvatarGroupCluster with +4 collaborators images 1`] = `
+<body>
+  <div>
+    <div
+      class="box paddingXNaN paddingYNaN"
+    >
+      <div
+        class="box relative"
+        role="presentation"
+        style="isolation: isolate; height: 32px; width: 32px;"
+      >
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; left: 0px; height: 20px; width: 20px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="Mask circle willChangeTransform"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box relative"
+                  style="padding-bottom: 100%;"
+                >
+                  <img
+                    alt="A"
+                    class="img"
+                    fetchpriority="auto"
+                    loading="auto"
+                    src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
+                  />
+                </div>
+              </div>
+              <div
+                class="wash"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; left: 0px; height: 20px; width: 20px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="Mask circle willChangeTransform"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box relative"
+                  style="padding-bottom: 100%;"
+                >
+                  <img
+                    alt="B"
+                    class="img"
+                    fetchpriority="auto"
+                    loading="auto"
+                    src="https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg"
+                  />
+                </div>
+              </div>
+              <div
+                class="wash"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; top: 0px; right: 0px; height: 20px; width: 20px;"
+        >
+          <div
+            class="box circle relative"
+            data-test-id="gestalt-avatar-svg"
+            style="width: 100%;"
+          >
+            <div
+              class="Mask circle willChangeTransform"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box relative"
+                  style="padding-bottom: 100%;"
+                >
+                  <img
+                    alt="C"
+                    class="img"
+                    fetchpriority="auto"
+                    loading="auto"
+                    src="https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg"
+                  />
+                </div>
+              </div>
+              <div
+                class="wash"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          style="border: 2px solid #ffffff; border-radius: 99%; box-sizing: border-box; position: absolute; bottom: 0px; right: 0px; height: 20px; width: 20px;"
+        >
+          <div
+            aria-hidden="true"
+            class="box"
+            style="margin-inline-start: NaNpx;"
+          >
+            <div
+              class="box relative"
+              style="z-index: 1;"
+            >
+              <div
+                class=""
+              >
+                <div
+                  class="box circle relative secondary"
+                  style="padding-bottom: 100%; border-radius: 50%; outline: 1px solid rgb(255 255 255);"
+                >
+                  <div
+                    class="absolute bottom0 box justifyCenter left0 right0 top0 xsDisplayFlex"
+                  >
+                    <svg
+                      preserveAspectRatio="xMidYMid meet"
+                      version="1.1"
+                      viewBox="-50 -50 100 100"
+                      width="100%"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <text
+                        class="text"
+                        dy="0.35em"
+                        fill="var(--color-text-default)"
+                        font-size="40px"
+                        text-anchor="middle"
+                      >
+                        2
+                      </text>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 `;
 

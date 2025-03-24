@@ -40,7 +40,11 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
       },
     } as const;
 
-    const renderedCollaborators = displayCounter ? [...collaborators.slice(3)] : [...collaborators];
+    let renderedCollaborators = [...collaborators];
+
+    if (displayCounter) {
+      renderedCollaborators = renderedCollaborators.slice(0, 4);
+    }
 
     if (isRtl) {
       renderedCollaborators.reverse();
@@ -77,7 +81,6 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
     if (collaboratorsCount < 2) {
       return null;
     }
-
     return (
       <Box padding={collaboratorsCount > 2 && size === 'md' ? 1 : undefined}>
         <Box
