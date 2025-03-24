@@ -6,6 +6,8 @@ import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
+import avatar from '../../examples/avatargroupcluster/avatar';
+import counter from '../../examples/avatargroupcluster/counter';
 import main from '../../examples/avatargroupcluster/main';
 import size from '../../examples/avatargroupcluster/sizes';
 
@@ -22,10 +24,22 @@ export default function AvatarGroupPage({ generatedDocGen }: { generatedDocGen: 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description="AvatarGroup is available in 2 fixed sizes: `sm` and `md`."
+          description="AvatarGroupClusters accepts name, image and colors for each collaborators avatar"
+          title="Avatar"
+        >
+          <MainSection.Card sandpackExample={<SandpackExample code={avatar} name="avatar" />} />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="AvatarGroupCluster is available in 2 fixed sizes: `sm` and `md`."
           title="Size"
         >
           <MainSection.Card sandpackExample={<SandpackExample code={size} name="Size" />} />
+        </MainSection.Subsection>
+        <MainSection.Subsection
+          description="AvatarGroupCluster represents different cluster types for 2, 3, 4, and more than 4 collaborators. Above 4, a counter displays the amount of additional collaborator."
+          title="Counter"
+        >
+          <MainSection.Card sandpackExample={<SandpackExample code={counter} name="Counter" />} />
         </MainSection.Subsection>
       </MainSection>
 

@@ -74,6 +74,10 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
       return positions[4];
     }
 
+    if (collaboratorsCount < 2) {
+      return null;
+    }
+
     return (
       <Box padding={collaboratorsCount > 2 && size === 'md' ? 1 : undefined}>
         <Box
@@ -86,7 +90,7 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
         >
           {renderedCollaborators.map((user, index) => (
             <div
-              key={user.src}
+              key={user.src ?? user.name}
               style={{
                 zIndex: isRtl ? collaboratorsCount - 1 - index : undefined,
                 border: '2px solid #FFFFFF',
@@ -99,6 +103,7 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
               }}
             >
               {displayCounter && index === displayCounterIndex ? (
+                // @ts-expect-error - TS2741
                 <CollaboratorsCount
                   key={`avatargroupcluster-counter-${collaborators.length}`}
                   count={collaborators.length - 3}
