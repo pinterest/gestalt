@@ -24,30 +24,6 @@ export default function Example() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
 
-  const collaborators = [
-    {
-      name: 'Keerthi',
-      src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-    },
-    {
-      name: 'Alberto',
-      src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-    },
-    ...new Array(10),
-  ];
-
-  const collaboratorsVR = [
-    {
-      name: 'Fatima',
-      src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
-    },
-    {
-      name: 'Ayesha',
-      src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
-    },
-    ...new Array(10),
-  ];
-
   return;
   <Flex height="100%" width="100%">
     <Box height="200" marginTop={6} padding={2}>
@@ -56,7 +32,17 @@ export default function Example() {
         accessibilityExpanded={open}
         accessibilityLabel={`Collaborators: 'Fatima, Ayesha,'  and 10 more. Add collaborators to this board.`}
         addCollaborators
-        collaborators={collaboratorsVR}
+        collaborators={[
+          {
+            name: 'Fatima',
+            src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
+          },
+          {
+            name: 'Ayesha',
+            src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+          },
+          ...new Array(10),
+        ]}
         onClick={() => setOpen((value) => !value)}
         role="button"
         size="md"

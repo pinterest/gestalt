@@ -111,6 +111,7 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
                 <CollaboratorsCount
                   key={`avatargroupcluster-counter-${collaborators.length}`}
                   count={collaborators.length - 3}
+                  outline={false}
                   pileCount={0}
                 />
               ) : (
