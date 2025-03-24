@@ -82,7 +82,10 @@ export default function Example() {
               name: 'Alberto',
               src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
             },
-            { name: 'Kate', src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg' },
+            {
+              name: 'Kate',
+              src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
+            },
           ]}
         />
       </Flex>

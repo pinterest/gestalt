@@ -49,7 +49,7 @@ export default function Snapshot() {
               },
               {
                 name: 'Katie',
-                src: 'htthttps://i.ibb.co/NsK2w5y/Alberto.jpg',
+                src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
               },
             ]}
           />

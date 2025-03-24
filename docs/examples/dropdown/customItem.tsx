@@ -51,7 +51,11 @@ export default function CustomIconButtonPopoverExample() {
             >
               <Box width="100%">
                 <Flex alignItems="center" gap={2}>
-                  <Avatar name="Tia" size="md" src="https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg" />
+                  <Avatar
+                    name="Tia"
+                    size="md"
+                    src="https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg"
+                  />
                   <Flex direction="column">
                     <Text>Tia Marz</Text>
                     <Text color="subtle" size="200">

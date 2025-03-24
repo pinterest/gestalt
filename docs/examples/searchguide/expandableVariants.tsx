@@ -77,7 +77,12 @@ export default function Example() {
           selected={showAvatar}
           text="Avatar"
           thumbnail={{
-            avatar: <Avatar name="Keerthi" src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg" />,
+            avatar: (
+              <Avatar
+                name="Keerthi"
+                src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
+              />
+            ),
           }}
         />
         <SearchGuide
