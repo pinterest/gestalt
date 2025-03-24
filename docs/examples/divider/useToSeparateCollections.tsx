@@ -24,7 +24,7 @@ export default function Example() {
             <Heading accessibilityLevel="none" size="300">
               Public profile
             </Heading>
-            <Avatar name="Keerthi" size="lg" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
+            <Avatar name="Keerthi" size="lg" src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg" />
             <TextField id="first" label="First name" onChange={() => {}} value="Kate" />
             <TextField id="last" label="Last name" onChange={() => {}} value="Dommeti" />
           </Flex>

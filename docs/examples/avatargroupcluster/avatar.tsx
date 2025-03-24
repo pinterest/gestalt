@@ -20,7 +20,7 @@ export default function Example() {
             },
             {
               name: 'Katie',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
             },
           ]}
         />
@@ -40,7 +40,7 @@ export default function Example() {
             },
             {
               name: 'Katie',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
             },
           ]}
         />
@@ -60,7 +60,7 @@ export default function Example() {
             },
             {
               name: 'Katie',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
             },
           ]}
         />
@@ -79,10 +79,10 @@ export default function Example() {
               src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
             },
             {
-              name: 'Katie',
-              src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+              name: 'Alberto',
+              src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
             },
-            { name: 'Alberto', src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg' },
+            { name: 'Kate', src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg' },
           ]}
         />
       </Flex>

@@ -29,7 +29,7 @@ export default function Example() {
         <Toast
           text="2-factor authentication added for Sabina Romero"
           thumbnail={{
-            avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+            avatar: <Avatar name="Keerthi" src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg" />,
           }}
         />
       </Flex>

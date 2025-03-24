@@ -11,7 +11,7 @@ export default function Example() {
           <Avatar name="Keethi" />
         </Box>
         <Box column={4}>
-          <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
+          <Avatar name="Keerthi" src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg" />
         </Box>
       </Flex>
     </Box>

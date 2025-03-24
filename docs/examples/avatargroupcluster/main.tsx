@@ -47,7 +47,7 @@ export default function Example() {
           },
           {
             name: 'Katie',
-            src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+            src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
           },
         ]}
       />

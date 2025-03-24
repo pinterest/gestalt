@@ -161,7 +161,7 @@ describe('AvatarGroup', () => {
           color: 3,
           src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
         },
-        { name: 'D', color: 4, src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg' },
+        { name: 'D', color: 4, src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg' },
       ],
       size: 'sm',
     });
@@ -223,8 +223,8 @@ describe('AvatarGroup', () => {
           color: 3,
           src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
         },
-        { name: 'D', color: 4, src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg' },
-        { name: 'E', color: 5, src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg' },
+        { name: 'D', color: 4, src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg' },
+        { name: 'E', color: 5, src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg' },
       ],
       size: 'sm',
     });
