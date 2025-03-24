@@ -1,3 +1,9 @@
+## 174.2.2 (Mar 24, 2025)
+
+### Patch
+
+- Masonry: Fix scroll position glitch on load ([#4045](https://github.com/pinterest/gestalt/pull/4045)) - [Preview link](https://deploy-preview-4045--gestalt.netlify.app?devexample=true)
+
 ## 174.2.1 (Mar 21, 2025)
 
 ### Patch
