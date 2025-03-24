@@ -1,3 +1,9 @@
+## 174.3.0 (Mar 24, 2025)
+
+### Minor
+
+- AvatarGroupCluster: new component ([#4048](https://github.com/pinterest/gestalt/pull/4048)) - [Preview link](https://deploy-preview-4048--gestalt.netlify.app?devexample=true)
+
 ## 174.2.2 (Mar 24, 2025)
 
 ### Patch
