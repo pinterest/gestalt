@@ -1,14 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import {
-  AvatarGroup,
-  Box,
-  Flex,
-  Layer,
-  Popover,
-  SearchField,
-  Text,
-  useDangerouslyInGestaltExperiment,
-} from 'gestalt';
+import { AvatarGroup, Box, Flex, Layer, Popover, SearchField, Text } from 'gestalt';
 
 function SearchCollaboratorsField() {
   const ref = useRef<null | HTMLInputElement>(null);
@@ -32,10 +23,6 @@ function SearchCollaboratorsField() {
 export default function Example() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLDivElement>(null);
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
 
   const collaborators = [
     {
@@ -61,91 +48,39 @@ export default function Example() {
     ...new Array(10),
   ];
 
-  const names = isInVRExperiment ? 'Fatima, Ayesha,' : 'Keerthi, Alberto,';
-
-  return isInVRExperiment ? (
-    <Flex height="100%" width="100%">
-      <Box height="200" marginTop={6} padding={2}>
-        <AvatarGroup
-          ref={anchorRef}
-          accessibilityExpanded={open}
-          accessibilityLabel={`Collaborators: ${names} and 10 more. Add collaborators to this board.`}
-          addCollaborators
-          collaborators={collaboratorsVR}
-          onClick={() => setOpen((value) => !value)}
-          role="button"
-          size="md"
-        />
-      </Box>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size={500}
-          >
-            <Box
-              flex="grow"
-              marginBottom={8}
-              marginEnd={4}
-              marginStart={4}
-              marginTop={6}
-              width={360}
-            >
-              <Flex direction="column" gap={{ column: 4, row: 0 }}>
-                <Text align="center" color="default" weight="bold">
-                  Invite collaborators
-                </Text>
-                <SearchCollaboratorsField />
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </Flex>
-  ) : (
-    <Flex height="100%" width="100%">
-      <Box height="200" marginTop={6} padding={2}>
-        <AvatarGroup
-          ref={anchorRef}
-          accessibilityExpanded={open}
-          accessibilityLabel={`Collaborators: ${names} and 10 more. Add collaborators to this board.`}
-          addCollaborators
-          collaborators={isInVRExperiment ? collaboratorsVR : collaborators}
-          onClick={() => setOpen((value) => !value)}
-          role="button"
-          size="md"
-        />
-      </Box>
-      {open && (
-        <Layer>
-          <Popover
-            anchor={anchorRef.current}
-            idealDirection="down"
-            onDismiss={() => setOpen(false)}
-            positionRelativeToAnchor={false}
-            size="xl"
-          >
-            <Box
-              flex="grow"
-              marginBottom={8}
-              marginEnd={4}
-              marginStart={4}
-              marginTop={6}
-              width={360}
-            >
-              <Flex direction="column" gap={{ column: 6, row: 0 }}>
-                <Text align="center" color="default" weight="bold">
-                  Invite collaborators
-                </Text>
-                <SearchCollaboratorsField />
-              </Flex>
-            </Box>
-          </Popover>
-        </Layer>
-      )}
-    </Flex>
-  );
+  return;
+  <Flex height="100%" width="100%">
+    <Box height="200" marginTop={6} padding={2}>
+      <AvatarGroup
+        ref={anchorRef}
+        accessibilityExpanded={open}
+        accessibilityLabel={`Collaborators: 'Fatima, Ayesha,'  and 10 more. Add collaborators to this board.`}
+        addCollaborators
+        collaborators={collaboratorsVR}
+        onClick={() => setOpen((value) => !value)}
+        role="button"
+        size="md"
+      />
+    </Box>
+    {open && (
+      <Layer>
+        <Popover
+          anchor={anchorRef.current}
+          idealDirection="down"
+          onDismiss={() => setOpen(false)}
+          positionRelativeToAnchor={false}
+          size={500}
+        >
+          <Box flex="grow" marginBottom={8} marginEnd={4} marginStart={4} marginTop={6} width={360}>
+            <Flex direction="column" gap={{ column: 4, row: 0 }}>
+              <Text align="center" color="default" weight="bold">
+                Invite collaborators
+              </Text>
+              <SearchCollaboratorsField />
+            </Flex>
+          </Box>
+        </Popover>
+      </Layer>
+    )}
+  </Flex>;
 }
