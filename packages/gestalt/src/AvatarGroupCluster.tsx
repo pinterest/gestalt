@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { TOKEN_COLOR_BACKGROUND_DEFAULT } from 'gestalt-design-tokens';
 import InternalAvatar from './Avatar/InternalAvatar';
 import CollaboratorsCount from './AvatarGroup/CollaboratorsCount';
 import Box from './Box';
@@ -96,7 +97,7 @@ const AvatarGroupClusterWithForwardRef = forwardRef<HTMLDivElement, Props>(
               key={user.src ?? user.name}
               style={{
                 zIndex: isRtl ? collaboratorsCount - 1 - index : undefined,
-                border: '2px solid #FFFFFF',
+                border: `2px solid ${TOKEN_COLOR_BACKGROUND_DEFAULT}`,
                 borderRadius: '99%',
                 boxSizing: 'border-box',
                 position: 'absolute',

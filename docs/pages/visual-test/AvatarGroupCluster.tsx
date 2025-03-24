@@ -2,7 +2,7 @@ import { AvatarGroupCluster, Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
-     <Flex alignContent="center" gap={4} height="100%" justifyContent="center" wrap>
+    <Flex alignContent="center" gap={4} height="100%" justifyContent="center" wrap>
       <AvatarGroupCluster
         collaborators={[
           {
@@ -47,7 +47,7 @@ export default function Snapshot() {
           },
           {
             name: 'Katie',
-            src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
+            src: 'htthttps://i.ibb.co/NsK2w5y/Alberto.jpg',
           },
         ]}
       />
