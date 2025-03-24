@@ -425,10 +425,9 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
               const columnSpan = item.columnSpan as ColumnSpanConfig | undefined;
               return columnSpan ?? 1;
             }}
-            _getResponsiveModuleConfigForSecondItem={(item) => {
-              const responsiveModuleConfig = item?.responsiveModuleConfig;
-              return responsiveModuleConfig;
-            }}
+            _getResponsiveModuleConfigForSecondItem={(item) =>
+              item?.responsiveModuleConfig as ResponsiveModuleConfig
+            }
             _logTwoColWhitespace={
               logWhitespace
                 ? // eslint-disable-next-line no-console
