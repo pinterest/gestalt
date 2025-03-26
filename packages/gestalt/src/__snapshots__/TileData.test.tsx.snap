@@ -19,109 +19,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor01"
+            style={
+              Object {
+                "borderColor": "#003c96",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor01"
-              style={
-                Object {
-                  "borderColor": "#003c96",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -135,6 +100,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -164,109 +160,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor02"
+            style={
+              Object {
+                "borderColor": "#11a69c",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor02"
-              style={
-                Object {
-                  "borderColor": "#11a69c",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -280,6 +241,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -309,109 +301,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor03"
+            style={
+              Object {
+                "borderColor": "#924af7",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor03"
-              style={
-                Object {
-                  "borderColor": "#924af7",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -425,6 +382,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -454,109 +442,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor04"
+            style={
+              Object {
+                "borderColor": "#d17711",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor04"
-              style={
-                Object {
-                  "borderColor": "#d17711",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -570,6 +523,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -599,109 +583,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor05"
+            style={
+              Object {
+                "borderColor": "#0081fe",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor05"
-              style={
-                Object {
-                  "borderColor": "#0081fe",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -715,6 +664,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -744,109 +724,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor06"
+            style={
+              Object {
+                "borderColor": "#ff5383",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor06"
-              style={
-                Object {
-                  "borderColor": "#ff5383",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -860,6 +805,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -889,109 +865,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor07"
+            style={
+              Object {
+                "borderColor": "#00ab55",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor07"
-              style={
-                Object {
-                  "borderColor": "#00ab55",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -1005,6 +946,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -1034,109 +1006,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor08"
+            style={
+              Object {
+                "borderColor": "#400387",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor08"
-              style={
-                Object {
-                  "borderColor": "#400387",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -1150,6 +1087,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -1179,109 +1147,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor09"
+            style={
+              Object {
+                "borderColor": "#f2681f",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor09"
-              style={
-                Object {
-                  "borderColor": "#f2681f",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -1295,6 +1228,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -1324,109 +1288,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor10"
+            style={
+              Object {
+                "borderColor": "#005062",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor10"
-              style={
-                Object {
-                  "borderColor": "#005062",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -1440,6 +1369,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -1469,109 +1429,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor11"
+            style={
+              Object {
+                "borderColor": "#de2c62",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor11"
-              style={
-                Object {
-                  "borderColor": "#de2c62",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -1585,6 +1510,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -1614,109 +1570,74 @@ exports[`TileData TileData renders all colors as expected 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor12"
+            style={
+              Object {
+                "borderColor": "#660e00",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor12"
-              style={
-                Object {
-                  "borderColor": "#660e00",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              Text Impressions
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.23M
+                            Text Impressions
                             <div
                               className="box relative"
                               style={
@@ -1730,6 +1651,37 @@ exports[`TileData TileData renders all colors as expected 1`] = `
                               >
                                 ,
                               </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                    >
+                      <div
+                        className="FlexItem"
+                      >
+                        <div
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                        >
+                          1.23M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
+                          >
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
                             </div>
                           </div>
                         </div>
@@ -1760,109 +1712,74 @@ exports[`TileData TileData renders with tooltip 1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className="box"
+      aria-disabled={false}
+      className="tapTransition rounding4 accessibilityOutline pointer"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
     >
       <div
-        aria-disabled={false}
-        className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
+        className="baseTile dataVisualizationColor05"
+        style={
+          Object {
+            "borderColor": "#0081fe",
+          }
+        }
       >
         <div
-          className="baseTile tileWidth dataVisualizationColor05"
-          style={
-            Object {
-              "borderColor": "#0081fe",
-            }
-          }
+          className="Flex rowGap200 columnGap200 xsDirectionRow"
         >
           <div
-            className="Flex rowGap200 columnGap200 xsDirectionRow"
+            className="FlexItem"
           >
             <div
-              className="FlexItem"
+              className="Flex rowGap0 columnGap100 xsDirectionColumn"
             >
               <div
-                className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                  style={
+                    Object {
+                      "minHeight": 24,
+                    }
+                  }
                 >
                   <div
-                    className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                    style={
-                      Object {
-                        "minHeight": 24,
-                      }
-                    }
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="box"
+                      style={
+                        Object {
+                          "maxWidth": 135,
+                          "minHeight": "2em",
+                          "minWidth": 80,
+                        }
+                      }
                     >
                       <div
-                        className="box"
+                        className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                         style={
                           Object {
-                            "maxWidth": 135,
-                            "minHeight": "2em",
-                            "minWidth": 80,
+                            "WebkitLineClamp": 2,
                           }
                         }
                       >
-                        <div
-                          className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                          style={
-                            Object {
-                              "WebkitLineClamp": 2,
-                            }
-                          }
-                        >
-                          Text Impressions
-                          <div
-                            className="box relative"
-                            style={
-                              Object {
-                                "display": "inline",
-                              }
-                            }
-                          >
-                            <div
-                              className="box xsDisplayVisuallyHidden"
-                            >
-                              ,
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="FlexItem"
-                >
-                  <div
-                    className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                  >
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                      >
-                        1.23M
+                        Text Impressions
                         <div
                           className="box relative"
                           style={
@@ -1876,6 +1793,37 @@ exports[`TileData TileData renders with tooltip 1`] = `
                           >
                             ,
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                    >
+                      1.23M
+                      <div
+                        className="box relative"
+                        style={
+                          Object {
+                            "display": "inline",
+                          }
+                        }
+                      >
+                        <div
+                          className="box xsDisplayVisuallyHidden"
+                        >
+                          ,
                         </div>
                       </div>
                     </div>
@@ -1910,108 +1858,73 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor05"
+            style={
+              Object {
+                "borderColor": "#0081fe",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor05"
-              style={
-                Object {
-                  "borderColor": "#0081fe",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.43M
                             <div
                               className="box relative"
                               style={
@@ -2031,60 +1944,91 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="FlexItem"
-                >
                   <div
-                    className="box"
+                    className="FlexItem"
                   >
                     <div
-                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                     >
                       <div
-                        className="box paddingX100 relative"
+                        className="FlexItem"
                       >
                         <div
-                          className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
-                          style={
-                            Object {
-                              "backgroundColor": "#0081fe",
-                              "borderColor": "var(--color-transparent)",
-                            }
-                          }
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
                         >
-                          <svg
-                            aria-hidden={true}
-                            aria-label=""
-                            className="inverse icon iconBlock"
-                            height={8}
-                            role="img"
-                            viewBox="0 0 24 24"
-                            width={8}
+                          1.43M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
                           >
-                            <path
-                              d="test-file-stub"
-                            />
-                          </svg>
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
+                            </div>
+                          </div>
                         </div>
-                        <input
-                          aria-hidden={true}
-                          aria-invalid="false"
-                          checked={true}
-                          className="input sizeSm inputEnabled readOnly"
-                          disabled={true}
-                          id="readonly-checkbox-blah-:rg:"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          type="checkbox"
-                        />
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="box"
+                >
+                  <div
+                    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                  >
+                    <div
+                      className="box paddingX100 relative"
+                    >
+                      <div
+                        className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
+                        style={
+                          Object {
+                            "backgroundColor": "#0081fe",
+                            "borderColor": "var(--color-transparent)",
+                          }
+                        }
+                      >
+                        <svg
+                          aria-hidden={true}
+                          aria-label=""
+                          className="inverse icon iconBlock"
+                          height={8}
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width={8}
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        aria-hidden={true}
+                        aria-invalid="false"
+                        checked={true}
+                        className="input sizeSm inputEnabled readOnly"
+                        disabled={true}
+                        id="readonly-checkbox-blah-:rg:"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        type="checkbox"
+                      />
                     </div>
                   </div>
                 </div>
@@ -2110,108 +2054,73 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor05"
+            style={
+              Object {
+                "borderColor": "#0081fe",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor05"
-              style={
-                Object {
-                  "borderColor": "#0081fe",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.13M
                             <div
                               className="box relative"
                               style={
@@ -2231,60 +2140,91 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="FlexItem"
-                >
                   <div
-                    className="box"
+                    className="FlexItem"
                   >
                     <div
-                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                     >
                       <div
-                        className="box paddingX100 relative"
+                        className="FlexItem"
                       >
                         <div
-                          className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
-                          style={
-                            Object {
-                              "backgroundColor": "#0081fe",
-                              "borderColor": "var(--color-transparent)",
-                            }
-                          }
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
                         >
-                          <svg
-                            aria-hidden={true}
-                            aria-label=""
-                            className="inverse icon iconBlock"
-                            height={8}
-                            role="img"
-                            viewBox="0 0 24 24"
-                            width={8}
+                          1.13M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
                           >
-                            <path
-                              d="test-file-stub"
-                            />
-                          </svg>
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
+                            </div>
+                          </div>
                         </div>
-                        <input
-                          aria-hidden={true}
-                          aria-invalid="false"
-                          checked={true}
-                          className="input sizeSm inputEnabled readOnly"
-                          disabled={true}
-                          id="readonly-checkbox-blah-:rh:"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          type="checkbox"
-                        />
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="box"
+                >
+                  <div
+                    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                  >
+                    <div
+                      className="box paddingX100 relative"
+                    >
+                      <div
+                        className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
+                        style={
+                          Object {
+                            "backgroundColor": "#0081fe",
+                            "borderColor": "var(--color-transparent)",
+                          }
+                        }
+                      >
+                        <svg
+                          aria-hidden={true}
+                          aria-label=""
+                          className="inverse icon iconBlock"
+                          height={8}
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width={8}
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        aria-hidden={true}
+                        aria-invalid="false"
+                        checked={true}
+                        className="input sizeSm inputEnabled readOnly"
+                        disabled={true}
+                        id="readonly-checkbox-blah-:rh:"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        type="checkbox"
+                      />
                     </div>
                   </div>
                 </div>
@@ -2310,108 +2250,73 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
         onMouseLeave={[Function]}
       >
         <div
-          className="box"
+          aria-disabled={false}
+          className="tapTransition rounding4 accessibilityOutline pointer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyPress={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
         >
           <div
-            aria-disabled={false}
-            className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
-            role="button"
-            tabIndex={0}
+            className="baseTile dataVisualizationColor05"
+            style={
+              Object {
+                "borderColor": "#0081fe",
+              }
+            }
           >
             <div
-              className="baseTile tileWidth dataVisualizationColor05"
-              style={
-                Object {
-                  "borderColor": "#0081fe",
-                }
-              }
+              className="Flex rowGap200 columnGap200 xsDirectionRow"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap0 columnGap100 xsDirectionColumn"
                 >
                   <div
-                    className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                      style={
+                        Object {
+                          "minHeight": 24,
+                        }
+                      }
                     >
                       <div
-                        className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                        style={
-                          Object {
-                            "minHeight": 24,
-                          }
-                        }
+                        className="FlexItem"
                       >
                         <div
-                          className="FlexItem"
+                          className="box"
+                          style={
+                            Object {
+                              "maxWidth": 135,
+                              "minHeight": "2em",
+                              "minWidth": 80,
+                            }
+                          }
                         >
                           <div
-                            className="box"
+                            className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                             style={
                               Object {
-                                "maxWidth": 135,
-                                "minHeight": "2em",
-                                "minWidth": 80,
+                                "WebkitLineClamp": 2,
                               }
                             }
                           >
-                            <div
-                              className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                              style={
-                                Object {
-                                  "WebkitLineClamp": 2,
-                                }
-                              }
-                            >
-                              <div
-                                className="box relative"
-                                style={
-                                  Object {
-                                    "display": "inline",
-                                  }
-                                }
-                              >
-                                <div
-                                  className="box xsDisplayVisuallyHidden"
-                                >
-                                  ,
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                      >
-                        <div
-                          className="FlexItem"
-                        >
-                          <div
-                            className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                          >
-                            1.13M
                             <div
                               className="box relative"
                               style={
@@ -2431,60 +2336,91 @@ exports[`TileData TileData shows readonly checkboxes 1`] = `
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="FlexItem"
-                >
                   <div
-                    className="box"
+                    className="FlexItem"
                   >
                     <div
-                      className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                      className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                     >
                       <div
-                        className="box paddingX100 relative"
+                        className="FlexItem"
                       >
                         <div
-                          className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
-                          style={
-                            Object {
-                              "backgroundColor": "#0081fe",
-                              "borderColor": "var(--color-transparent)",
-                            }
-                          }
+                          className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
                         >
-                          <svg
-                            aria-hidden={true}
-                            aria-label=""
-                            className="inverse icon iconBlock"
-                            height={8}
-                            role="img"
-                            viewBox="0 0 24 24"
-                            width={8}
+                          1.13M
+                          <div
+                            className="box relative"
+                            style={
+                              Object {
+                                "display": "inline",
+                              }
+                            }
                           >
-                            <path
-                              d="test-file-stub"
-                            />
-                          </svg>
+                            <div
+                              className="box xsDisplayVisuallyHidden"
+                            >
+                              ,
+                            </div>
+                          </div>
                         </div>
-                        <input
-                          aria-hidden={true}
-                          aria-invalid="false"
-                          checked={true}
-                          className="input sizeSm inputEnabled readOnly"
-                          disabled={true}
-                          id="readonly-checkbox-blah-:ri:"
-                          onBlur={[Function]}
-                          onChange={[Function]}
-                          onClick={[Function]}
-                          onFocus={[Function]}
-                          onMouseDown={[Function]}
-                          onMouseEnter={[Function]}
-                          onMouseLeave={[Function]}
-                          onMouseUp={[Function]}
-                          type="checkbox"
-                        />
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="box"
+                >
+                  <div
+                    className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                  >
+                    <div
+                      className="box paddingX100 relative"
+                    >
+                      <div
+                        className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
+                        style={
+                          Object {
+                            "backgroundColor": "#0081fe",
+                            "borderColor": "var(--color-transparent)",
+                          }
+                        }
+                      >
+                        <svg
+                          aria-hidden={true}
+                          aria-label=""
+                          className="inverse icon iconBlock"
+                          height={8}
+                          role="img"
+                          viewBox="0 0 24 24"
+                          width={8}
+                        >
+                          <path
+                            d="test-file-stub"
+                          />
+                        </svg>
+                      </div>
+                      <input
+                        aria-hidden={true}
+                        aria-invalid="false"
+                        checked={true}
+                        className="input sizeSm inputEnabled readOnly"
+                        disabled={true}
+                        id="readonly-checkbox-blah-:ri:"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClick={[Function]}
+                        onFocus={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        onMouseUp={[Function]}
+                        type="checkbox"
+                      />
                     </div>
                   </div>
                 </div>
@@ -2511,109 +2447,74 @@ exports[`TileData TileData title truncates when really long 1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className="box"
+      aria-disabled={false}
+      className="tapTransition rounding4 accessibilityOutline pointer"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
     >
       <div
-        aria-disabled={false}
-        className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
+        className="baseTile dataVisualizationColor05"
+        style={
+          Object {
+            "borderColor": "#0081fe",
+          }
+        }
       >
         <div
-          className="baseTile tileWidth dataVisualizationColor05"
-          style={
-            Object {
-              "borderColor": "#0081fe",
-            }
-          }
+          className="Flex rowGap200 columnGap200 xsDirectionRow"
         >
           <div
-            className="Flex rowGap200 columnGap200 xsDirectionRow"
+            className="FlexItem"
           >
             <div
-              className="FlexItem"
+              className="Flex rowGap0 columnGap100 xsDirectionColumn"
             >
               <div
-                className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                  style={
+                    Object {
+                      "minHeight": 24,
+                    }
+                  }
                 >
                   <div
-                    className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                    style={
-                      Object {
-                        "minHeight": 24,
-                      }
-                    }
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="box"
+                      style={
+                        Object {
+                          "maxWidth": 135,
+                          "minHeight": "2em",
+                          "minWidth": 80,
+                        }
+                      }
                     >
                       <div
-                        className="box"
+                        className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                         style={
                           Object {
-                            "maxWidth": 135,
-                            "minHeight": "2em",
-                            "minWidth": 80,
+                            "WebkitLineClamp": 2,
                           }
                         }
                       >
-                        <div
-                          className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                          style={
-                            Object {
-                              "WebkitLineClamp": 2,
-                            }
-                          }
-                        >
-                          This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part
-                          <div
-                            className="box relative"
-                            style={
-                              Object {
-                                "display": "inline",
-                              }
-                            }
-                          >
-                            <div
-                              className="box xsDisplayVisuallyHidden"
-                            >
-                              ,
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="FlexItem"
-                >
-                  <div
-                    className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                  >
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                      >
-                        1.23M
+                        This is some super super super long text and you shouldn't be able to read the last part of it. It's going to use ellipsis to cutoff the last part
                         <div
                           className="box relative"
                           style={
@@ -2627,6 +2528,37 @@ exports[`TileData TileData title truncates when really long 1`] = `
                           >
                             ,
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                >
+                  <div
+                    className="FlexItem"
+                  >
+                    <div
+                      className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                    >
+                      1.23M
+                      <div
+                        className="box relative"
+                        style={
+                          Object {
+                            "display": "inline",
+                          }
+                        }
+                      >
+                        <div
+                          className="box xsDisplayVisuallyHidden"
+                        >
+                          ,
                         </div>
                       </div>
                     </div>
@@ -2655,105 +2587,70 @@ exports[`TileData Tiledata is disabled 1`] = `
     onMouseLeave={[Function]}
   >
     <div
-      className="box"
+      aria-disabled={true}
+      className="tapTransition rounding4"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={null}
     >
       <div
-        aria-disabled={true}
-        className="tapTransition rounding4 fullWidth"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyPress={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={null}
+        className="baseTile disabled"
+        style={Object {}}
       >
         <div
-          className="baseTile tileWidth disabled"
-          style={Object {}}
+          className="Flex rowGap200 columnGap200 xsDirectionRow"
         >
           <div
-            className="Flex rowGap200 columnGap200 xsDirectionRow"
+            className="FlexItem"
           >
             <div
-              className="FlexItem"
+              className="Flex rowGap0 columnGap100 xsDirectionColumn"
             >
               <div
-                className="Flex rowGap0 columnGap100 xsDirectionColumn"
+                className="FlexItem"
               >
                 <div
-                  className="FlexItem"
+                  className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+                  style={
+                    Object {
+                      "minHeight": 24,
+                    }
+                  }
                 >
                   <div
-                    className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                    style={
-                      Object {
-                        "minHeight": 24,
-                      }
-                    }
+                    className="FlexItem"
                   >
                     <div
-                      className="FlexItem"
+                      className="box"
+                      style={
+                        Object {
+                          "maxWidth": 135,
+                          "minHeight": "2em",
+                          "minWidth": 80,
+                        }
+                      }
                     >
                       <div
-                        className="box"
+                        className="subtle alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
                         style={
                           Object {
-                            "maxWidth": 135,
-                            "minHeight": "2em",
-                            "minWidth": 80,
+                            "WebkitLineClamp": 2,
                           }
                         }
                       >
-                        <div
-                          className="subtle alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                          style={
-                            Object {
-                              "WebkitLineClamp": 2,
-                            }
-                          }
-                        >
-                          Text Impressions
-                          <div
-                            className="box relative"
-                            style={
-                              Object {
-                                "display": "inline",
-                              }
-                            }
-                          >
-                            <div
-                              className="box xsDisplayVisuallyHidden"
-                            >
-                              ,
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="FlexItem"
-                >
-                  <div
-                    className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
-                  >
-                    <div
-                      className="FlexItem"
-                    >
-                      <div
-                        className="subtle alignStart breakWord Text fontSize400 fontWeightSemiBold"
-                      >
-                        1.23M
+                        Text Impressions
                         <div
                           className="box relative"
                           style={
@@ -2773,144 +2670,19 @@ exports[`TileData Tiledata is disabled 1`] = `
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="FlexItem"
-            >
               <div
-                className="box"
+                className="FlexItem"
               >
                 <div
-                  className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
+                  className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
                 >
                   <div
-                    className="box paddingX100 relative"
+                    className="FlexItem"
                   >
                     <div
-                      className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
-                      style={
-                        Object {
-                          "backgroundColor": "var(--color-gray-roboflow-300)",
-                          "borderColor": "var(--color-transparent)",
-                        }
-                      }
+                      className="subtle alignStart breakWord Text fontSize400 fontWeightSemiBold"
                     >
-                      <svg
-                        aria-hidden={true}
-                        aria-label=""
-                        className="inverse icon iconBlock"
-                        height={8}
-                        role="img"
-                        viewBox="0 0 24 24"
-                        width={8}
-                      >
-                        <path
-                          d="test-file-stub"
-                        />
-                      </svg>
-                    </div>
-                    <input
-                      aria-hidden={true}
-                      aria-invalid="false"
-                      checked={true}
-                      className="input sizeSm inputEnabled readOnly"
-                      disabled={true}
-                      id="readonly-checkbox-blah-:re:"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onClick={[Function]}
-                      onFocus={[Function]}
-                      onMouseDown={[Function]}
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
-                      onMouseUp={[Function]}
-                      type="checkbox"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`TileData renders 1`] = `
-<div
-  className="box"
->
-  <div
-    aria-disabled={false}
-    className="tapTransition rounding4 accessibilityOutline fullWidth pointer"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyPress={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchCancel={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="button"
-    tabIndex={0}
-  >
-    <div
-      className="baseTile tileWidth dataVisualizationColor05"
-      style={
-        Object {
-          "borderColor": "#0081fe",
-        }
-      }
-    >
-      <div
-        className="Flex rowGap200 columnGap200 xsDirectionRow"
-      >
-        <div
-          className="FlexItem"
-        >
-          <div
-            className="Flex rowGap0 columnGap100 xsDirectionColumn"
-          >
-            <div
-              className="FlexItem"
-            >
-              <div
-                className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
-                style={
-                  Object {
-                    "minHeight": 24,
-                  }
-                }
-              >
-                <div
-                  className="FlexItem"
-                >
-                  <div
-                    className="box"
-                    style={
-                      Object {
-                        "maxWidth": 135,
-                        "minHeight": "2em",
-                        "minWidth": 80,
-                      }
-                    }
-                  >
-                    <div
-                      className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
-                      style={
-                        Object {
-                          "WebkitLineClamp": 2,
-                        }
-                      }
-                    >
-                      Text Impressions
+                      1.23M
                       <div
                         className="box relative"
                         style={
@@ -2930,19 +2702,140 @@ exports[`TileData renders 1`] = `
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
             <div
-              className="FlexItem"
+              className="box"
             >
               <div
-                className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+                className="box marginEndN100 marginStartN100 xsDisplayFlex xsItemsStart"
               >
                 <div
-                  className="FlexItem"
+                  className="box paddingX100 relative"
                 >
                   <div
-                    className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                    className="checked borderSelected borderRadiusSm sizeSm check thickBorder"
+                    style={
+                      Object {
+                        "backgroundColor": "var(--color-gray-roboflow-300)",
+                        "borderColor": "var(--color-transparent)",
+                      }
+                    }
                   >
-                    1.23M
+                    <svg
+                      aria-hidden={true}
+                      aria-label=""
+                      className="inverse icon iconBlock"
+                      height={8}
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width={8}
+                    >
+                      <path
+                        d="test-file-stub"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    aria-hidden={true}
+                    aria-invalid="false"
+                    checked={true}
+                    className="input sizeSm inputEnabled readOnly"
+                    disabled={true}
+                    id="readonly-checkbox-blah-:re:"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseEnter={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseUp={[Function]}
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TileData renders 1`] = `
+<div
+  aria-disabled={false}
+  className="tapTransition rounding4 accessibilityOutline pointer"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+>
+  <div
+    className="baseTile dataVisualizationColor05"
+    style={
+      Object {
+        "borderColor": "#0081fe",
+      }
+    }
+  >
+    <div
+      className="Flex rowGap200 columnGap200 xsDirectionRow"
+    >
+      <div
+        className="FlexItem"
+      >
+        <div
+          className="Flex rowGap0 columnGap100 xsDirectionColumn"
+        >
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Flex rowGap100 columnGap0 xsDirectionRow xsItemsCenter"
+              style={
+                Object {
+                  "minHeight": 24,
+                }
+              }
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="box"
+                  style={
+                    Object {
+                      "maxWidth": 135,
+                      "minHeight": "2em",
+                      "minWidth": 80,
+                    }
+                  }
+                >
+                  <div
+                    className="default alignStart breakWord lineClamp Text fontSize200 fontWeightNormal"
+                    style={
+                      Object {
+                        "WebkitLineClamp": 2,
+                      }
+                    }
+                  >
+                    Text Impressions
                     <div
                       className="box relative"
                       style={
@@ -2956,6 +2849,37 @@ exports[`TileData renders 1`] = `
                       >
                         ,
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="FlexItem"
+          >
+            <div
+              className="Flex rowGap200 columnGap200 xsDirectionRow xsItemsCenter"
+            >
+              <div
+                className="FlexItem"
+              >
+                <div
+                  className="default alignStart breakWord Text fontSize400 fontWeightSemiBold"
+                >
+                  1.23M
+                  <div
+                    className="box relative"
+                    style={
+                      Object {
+                        "display": "inline",
+                      }
+                    }
+                  >
+                    <div
+                      className="box xsDisplayVisuallyHidden"
+                    >
+                      ,
                     </div>
                   </div>
                 </div>

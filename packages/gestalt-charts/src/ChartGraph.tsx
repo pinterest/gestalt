@@ -10,6 +10,7 @@ import {
 } from 'recharts';
 import { Box, Flex, useColorScheme, useDefaultLabel } from 'gestalt';
 import { TOKEN_COLOR_BORDER_CONTAINER, TOKEN_OPACITY_100 } from 'gestalt-design-tokens';
+import BarLabel from './ChartGraph/BarLabel';
 import { ChartProvider } from './ChartGraph/ChartGraphContext';
 import EmptyBox from './ChartGraph/EmptyBox';
 import Header from './ChartGraph/Header';
@@ -47,8 +48,10 @@ type Props = {
    * The additional key-values represent one or more series of data presented on ChartGraph for each category or timestamp. A sequence of source data objects generate one or more series of data across categories or timestamps.
    */
   data: ReadonlyArray<{
-    // @ts-expect-error - TS2411 - Property 'name' of type 'string | number' is not assignable to 'string' index type 'number'.
+    // @ts-expect-error - TS2411
     name: string | number;
+    // @ts-expect-error - TS2411
+    opacity?: 1 | 0.4;
     [key: string]: number;
   }>;
   /**
@@ -58,7 +61,20 @@ type Props = {
    */
   elements: ReadonlyArray<{
     axis?: 'left' | 'right' | 'bottom' | 'top';
-    color?: '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12';
+    color?:
+      | '01'
+      | '02'
+      | '03'
+      | '04'
+      | '05'
+      | '06'
+      | '07'
+      | '08'
+      | '09'
+      | '10'
+      | '11'
+      | '12'
+      | 'neutral';
     id: string;
     precision?: 'exact' | 'estimate';
     type: 'line' | 'bar';
@@ -66,7 +82,6 @@ type Props = {
   /**
    * [HelpButton](https://gestalt.pinterest.systems/web/helpbutton) to be placed after the title for to provide supplemental support to the user. See the [header variant](https://gestalt.pinterest.systems/web/chartgraph#Header) to learn more.
    */
-
   helpButton?: ReactElement;
   /**
    * Callback fired when the Accessibility IconButton in ChartGraph is clicked. ChartGraph's visual patterns is a controlled feature. `onVisualPatternChange` is used to enable/disable visual patterns in ChartGraph.
@@ -150,6 +165,23 @@ type Props = {
     yAxisId: string;
     style?: 'default';
   }>;
+  /**
+   * Displays a label above the bar.
+   *
+   * See the [label variant](https://gestalt.pinterest.systems/web/chartgraph#Label) to learn more.
+   */
+  renderLabel?:
+    | 'auto'
+    | 'none'
+    | ((arg1: {
+        x: number;
+        y: number;
+        value: string;
+        width: number;
+        height: number;
+        index: number;
+        name: string;
+      }) => ReactNode);
   /**
    * Displays data about the datasets on hover over each data point.
    *
@@ -237,6 +269,7 @@ function ChartGraph({
   type = 'bar',
   referenceAreas = [],
   renderTooltip = 'auto',
+  renderLabel = 'none',
 }: Props) {
   // CONSTANTS
 
@@ -272,7 +305,7 @@ function ChartGraph({
   // Internally we match Recharts for easier development and comoprehension of Recharts docs
   const layout = LAYOUT_MAP[externalLayout];
 
-  const isRtl = document?.dir === 'rtl';
+  const isRtl = typeof document === 'undefined' ? false : document?.dir === 'rtl';
 
   const isVerticalLayout = ['vertical', 'verticalBiaxial'].includes(layout);
   const isHorizontalLayout = ['horizontal', 'horizontalBiaxial'].includes(layout);
@@ -347,6 +380,8 @@ function ChartGraph({
         // Interim true, until we have number
         isBarRounded:
           Math.sign(individualBarWidthEstimate) === -1 ? true : individualBarWidthEstimate > 10,
+        isDarkMode,
+        renderLabel,
       }),
     [
       elements,
@@ -356,6 +391,8 @@ function ChartGraph({
       visualPatternSelected,
       isHorizontalLayout,
       individualBarWidthEstimate,
+      isDarkMode,
+      renderLabel,
     ],
   );
 
@@ -372,8 +409,6 @@ function ChartGraph({
         isVerticalLayout,
         isTimeSeries,
         isVerticalBiaxialLayout,
-        isBar,
-        isCombo,
         range,
         tickFormatter,
         labelMap,
@@ -385,8 +420,6 @@ function ChartGraph({
       isVerticalLayout,
       isTimeSeries,
       isVerticalBiaxialLayout,
-      isBar,
-      isCombo,
       range,
       tickFormatter,
       labelMap,
@@ -535,6 +568,7 @@ function ChartGraph({
 }
 
 ChartGraph.LegendIcon = LegendIcon;
+ChartGraph.Label = BarLabel;
 
 ChartGraph.displayName = 'ChartGraph';
 

@@ -12,6 +12,7 @@ type GridSizeConfig = { 'sm': number; 'md': number; '_lg1'?: number; 'lg': numbe
 type GridSize = keyof GridSizeConfig;
 
 export type ColumnSpanConfig = number | GridSizeConfig;
+export type ResponsiveModuleConfig = number | { 'min': number; 'max': number } | undefined;
 
 // maps the number of columns to a grid breakpoint
 // sm: 2 columns
@@ -54,15 +55,57 @@ function getColumnSpanFromGridSize(columnSpanConfig: ColumnSpanConfig, gridSize:
   return columnSpanConfig[gridSize] ?? 1;
 }
 
+function getColumnSpanFromResponsiveModuleConfig(
+  columnCount: number,
+  firstItemColumnSpan: number,
+  responsiveModuleConfig: ResponsiveModuleConfig,
+): number {
+  if (typeof responsiveModuleConfig === 'number') {
+    return responsiveModuleConfig;
+  }
+  if (responsiveModuleConfig) {
+    const columnSpan = Math.max(
+      responsiveModuleConfig.min,
+      Math.min(responsiveModuleConfig.max, columnCount - firstItemColumnSpan),
+    );
+    return columnSpan;
+  }
+  return 1;
+}
+
 function calculateActualColumnSpan<T>(props: {
   columnCount: number;
+  firstItem: T;
+  isFlexibleWidthItem: boolean;
   item: T;
+  responsiveModuleConfigForSecondItem: ResponsiveModuleConfig;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): number {
-  const { columnCount, item, _getColumnSpanConfig } = props;
+  const {
+    columnCount,
+    item,
+    firstItem,
+    isFlexibleWidthItem,
+    _getColumnSpanConfig,
+    responsiveModuleConfigForSecondItem,
+  } = props;
   const columnSpanConfig = _getColumnSpanConfig(item);
   const gridSize = columnCountToGridSize(columnCount);
-  const columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
+  // By design, a flexible width module should always be placed at the second position in the grid
+  let columnSpan = getColumnSpanFromGridSize(columnSpanConfig, gridSize);
+
+  if (isFlexibleWidthItem) {
+    const firstItemColumnSpanConfig = _getColumnSpanConfig(firstItem);
+    const firstItemColumnSpan = getColumnSpanFromGridSize(firstItemColumnSpanConfig, gridSize);
+    const responsiveModuleColumnSpan = getColumnSpanFromResponsiveModuleConfig(
+      columnCount,
+      firstItemColumnSpan,
+      responsiveModuleConfigForSecondItem,
+    );
+
+    columnSpan = responsiveModuleColumnSpan;
+  }
+
   // a multi column item can never span more columns than there are in the grid
   return Math.min(columnSpan, columnCount);
 }
@@ -161,19 +204,25 @@ function calculateSplitIndex({
 
 export function initializeHeightsArray<T>({
   centerOffset,
+  checkIsFlexibleWidthItem,
   columnCount,
   columnWidthAndGutter,
+  firstItem,
   gutter,
   items,
   positionCache,
+  responsiveModuleConfigForSecondItem,
   _getColumnSpanConfig,
 }: {
   centerOffset: number;
+  checkIsFlexibleWidthItem: (item: T) => boolean;
   columnCount: number;
   columnWidthAndGutter: number;
+  firstItem: T;
   gutter: number;
   items: ReadonlyArray<T>;
   positionCache: Cache<T, Position> | null | undefined;
+  responsiveModuleConfigForSecondItem: ResponsiveModuleConfig;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
 }): ReadonlyArray<number> {
   const heights = new Array<number>(columnCount).fill(0);
@@ -183,7 +232,14 @@ export function initializeHeightsArray<T>({
       // we do Math.round here because both position.left and columnWidthAndGutter can be floating point numbers
       // in the case of fullWidthLayout (i.e. fluid grid)
       const col = Math.round((position.left - centerOffset) / columnWidthAndGutter);
-      const columnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
+      const columnSpan = calculateActualColumnSpan({
+        columnCount,
+        firstItem,
+        isFlexibleWidthItem: checkIsFlexibleWidthItem(item),
+        item,
+        responsiveModuleConfigForSecondItem,
+        _getColumnSpanConfig,
+      });
       // the height of the column is just the sum of the top and height of the item
       const absoluteHeight = position.top + position.height + gutter;
       for (let i = col; i < col + columnSpan; i += 1) {
@@ -516,18 +572,23 @@ function getGraphPositions<T>({
 
 function getPositionsWithMultiColumnItem<T>({
   multiColumnItem,
+  checkIsFlexibleWidthItem,
+  firstItem,
   itemsToPosition,
   heights,
   prevPositions,
   earlyBailout,
   columnCount,
   logWhitespace,
+  responsiveModuleConfigForSecondItem,
   _getColumnSpanConfig,
   _multiColPositionAlgoV2,
   ...commonGetPositionArgs
 }: {
   multiColumnItem: T;
   itemsToPosition: ReadonlyArray<T>;
+  checkIsFlexibleWidthItem: (item: T) => boolean;
+  firstItem: T;
   heights: ReadonlyArray<number>;
   prevPositions: ReadonlyArray<{
     item: T;
@@ -546,6 +607,7 @@ function getPositionsWithMultiColumnItem<T>({
   gutter: number;
   measurementCache: Cache<T, number>;
   positionCache: Cache<T, Position>;
+  responsiveModuleConfigForSecondItem: ResponsiveModuleConfig;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
   _multiColPositionAlgoV2?: boolean;
 }): {
@@ -560,7 +622,15 @@ function getPositionsWithMultiColumnItem<T>({
   // This is the index inside the items to position array
   const multiColumnIndex = itemsToPosition.indexOf(multiColumnItem);
   const oneColumnItems = itemsToPosition.filter(
-    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig }) === 1,
+    (item) =>
+      calculateActualColumnSpan({
+        columnCount,
+        firstItem,
+        isFlexibleWidthItem: checkIsFlexibleWidthItem(item),
+        item,
+        responsiveModuleConfigForSecondItem,
+        _getColumnSpanConfig,
+      }) === 1,
   );
 
   // The empty columns can be different from columnCount if there are
@@ -569,7 +639,10 @@ function getPositionsWithMultiColumnItem<T>({
 
   const multiColumnItemColumnSpan = calculateActualColumnSpan({
     columnCount,
+    firstItem,
+    isFlexibleWidthItem: checkIsFlexibleWidthItem(multiColumnItem),
     item: multiColumnItem,
+    responsiveModuleConfigForSecondItem,
     _getColumnSpanConfig,
   });
 
@@ -681,7 +754,9 @@ const multiColumnLayout = <T>({
   measurementCache,
   positionCache,
   earlyBailout,
+  originalItems,
   _getColumnSpanConfig,
+  _getResponsiveModuleConfigForSecondItem,
   _multiColPositionAlgoV2,
 }: {
   items: ReadonlyArray<T>;
@@ -697,12 +772,27 @@ const multiColumnLayout = <T>({
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
+  originalItems: ReadonlyArray<T>;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
+  _getResponsiveModuleConfigForSecondItem: (item: T) => ResponsiveModuleConfig;
   _multiColPositionAlgoV2?: boolean;
 }): ReadonlyArray<Position> => {
+  const firstItem = originalItems[0]!;
+  const secondItem = originalItems[1]!;
+  const responsiveModuleConfigForSecondItem = _getResponsiveModuleConfigForSecondItem(secondItem);
+  const checkIsFlexibleWidthItem = (item: T) =>
+    !!responsiveModuleConfigForSecondItem && item === secondItem;
+
   if (!items.every((item) => measurementCache.has(item))) {
     return items.map((item) => {
-      const itemColumnSpan = calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig });
+      const itemColumnSpan = calculateActualColumnSpan({
+        columnCount,
+        firstItem,
+        isFlexibleWidthItem: checkIsFlexibleWidthItem(item),
+        item,
+        responsiveModuleConfigForSecondItem,
+        _getColumnSpanConfig,
+      });
       if (itemColumnSpan > 1) {
         const columnSpan = Math.min(itemColumnSpan, columnCount);
         return offscreen(columnWidth * columnSpan + gutter * (columnSpan - 1));
@@ -716,11 +806,14 @@ const multiColumnLayout = <T>({
   // the total height of each column
   const heights = initializeHeightsArray({
     centerOffset,
+    checkIsFlexibleWidthItem,
     columnCount,
     columnWidthAndGutter,
+    firstItem,
     gutter,
     items,
     positionCache,
+    responsiveModuleConfigForSecondItem,
     _getColumnSpanConfig,
   });
 
@@ -728,7 +821,15 @@ const multiColumnLayout = <T>({
   const itemsWithoutPositions = items.filter((item) => !positionCache?.has(item));
 
   const multiColumnItems = itemsWithoutPositions.filter(
-    (item) => calculateActualColumnSpan({ columnCount, item, _getColumnSpanConfig }) > 1,
+    (item) =>
+      calculateActualColumnSpan({
+        columnCount,
+        firstItem,
+        isFlexibleWidthItem: checkIsFlexibleWidthItem(item),
+        item,
+        responsiveModuleConfigForSecondItem,
+        _getColumnSpanConfig,
+      }) > 1,
   );
 
   const commonGetPositionArgs = {
@@ -772,11 +873,14 @@ const multiColumnLayout = <T>({
         getPositionsWithMultiColumnItem({
           multiColumnItem: multiColumnItems[i]!,
           itemsToPosition,
+          checkIsFlexibleWidthItem,
+          firstItem,
           heights: acc.heights,
           prevPositions: acc.positions,
           earlyBailout,
           logWhitespace,
           columnCount,
+          responsiveModuleConfigForSecondItem,
           _getColumnSpanConfig,
           _multiColPositionAlgoV2,
           ...commonGetPositionArgs,

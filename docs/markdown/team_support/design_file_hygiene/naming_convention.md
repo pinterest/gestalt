@@ -9,7 +9,7 @@ By ensuring file hygiene, we level up the quality of our design files, making it
  
 ## Components 
 All components should use the [PascalCase](https://www.theserverside.com/definition/Pascal-case) convention matching our docs and codebase style. 
-(e.g., ComboBox, IconButton, RadioButton)
+(e.g., ComboBox, IconButton, RadioGroup)
 
 The platform name is added to the end of the component name starting with a "."; it helps to facilitate the search in our assets panel. The platform name uses a lower-case convention 
 (e.g, Toast.web)

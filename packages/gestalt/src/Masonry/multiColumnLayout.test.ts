@@ -1,5 +1,8 @@
 import MeasurementStore from './MeasurementStore';
-import multiColumnLayout, { initializeHeightsArray } from './multiColumnLayout';
+import multiColumnLayout, {
+  initializeHeightsArray,
+  ResponsiveModuleConfig,
+} from './multiColumnLayout';
 import { Position } from './types';
 
 type Item = {
@@ -10,6 +13,7 @@ type Item = {
 };
 
 const getColumnSpanConfig = (item: Item) => item.columnSpan ?? 1;
+const defaultGetResponsiveModuleConfig = (): ResponsiveModuleConfig => undefined;
 
 describe('one column layout test cases', () => {
   test('empty', () => {
@@ -21,7 +25,9 @@ describe('one column layout test cases', () => {
       items,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
     expect(positions).toEqual([]);
   });
@@ -43,7 +49,9 @@ describe('one column layout test cases', () => {
       columnCount: 3,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
     expect(positions).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
@@ -70,7 +78,9 @@ describe('one column layout test cases', () => {
       columnCount: 2,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
     expect(positions).toEqual([
       { top: 0, height: 100, left: 0, width: 236 },
@@ -102,7 +112,9 @@ describe('one column layout test cases', () => {
       columnCount: 4,
       measurementCache: measurementStore,
       positionCache,
+      originalItems: items,
       _getColumnSpanConfig: getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
     });
 
     const pin2Position = positions[2];
@@ -143,7 +155,9 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     // perform single column layout first since we expect two column items on second page+ currently
@@ -241,7 +255,9 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     let mockItems: any;
@@ -351,7 +367,9 @@ describe('multi column layout test cases', () => {
         measurementCache: measurementStore,
         positionCache,
         earlyBailout,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     items.forEach((item: any) => {
@@ -390,7 +408,9 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     let mockItems: any;
@@ -461,7 +481,9 @@ describe('multi column layout test cases', () => {
         centerOffset: 92,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     let mockItems: any;
@@ -532,7 +554,9 @@ describe('multi column layout test cases', () => {
         columnCount: 4,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     const multiColumnModuleIndex = 2;
@@ -566,7 +590,9 @@ describe('multi column layout test cases', () => {
         centerOffset: 99,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     const columnSpan = 5;
@@ -635,7 +661,9 @@ describe('multi column layout test cases', () => {
         centerOffset: 92,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     const positions = layout(items);
@@ -699,7 +727,9 @@ describe('multi column layout test cases', () => {
           centerOffset: 30,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
         });
 
       // perform single column layout first since we expect two column items on second page+ currently
@@ -757,7 +787,9 @@ describe('multi column layout test cases', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
         });
 
       layout(mockItems);
@@ -827,7 +859,9 @@ describe('multi column layout test cases', () => {
           centerOffset: 0,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
           _multiColPositionAlgoV2,
           logWhitespace,
         });
@@ -926,7 +960,9 @@ describe('responsive module layout test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) => (item.name === 'Pin 10' ? 2 : 1),
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     const columnCounts = [2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -965,6 +1001,7 @@ describe('responsive module layout test cases', () => {
         gutter: 0,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: (item: Item) =>
           item.name === 'Pin 10'
             ? {
@@ -975,6 +1012,7 @@ describe('responsive module layout test cases', () => {
                 xl: 9,
               }
             : 1,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
 
     const getExpectedColumnSpan = (columnCount: number): number => {
@@ -1003,6 +1041,367 @@ describe('responsive module layout test cases', () => {
       expect(positionCache.get(items[10])?.width).toEqual(240 * expectedColumnSpan);
       positionCache.reset();
     });
+  });
+});
+
+describe('flex-width module test cases', () => {
+  test('sets one column width if _getResponsiveModuleConfigForSecondItem is set for an item not in second position', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: (item: Item) =>
+          item.name === 'Pin 0'
+            ? {
+                sm: 2,
+                md: 2,
+                _lg1: 3,
+                lg: 3,
+                xl: 4,
+              }
+            : 1,
+        _getResponsiveModuleConfigForSecondItem: (item: Item) =>
+          item.name === 'Pin 2' ? { min: 2, max: 6 } : undefined,
+      });
+
+    layout(8);
+    expect(positionCache.get(items[2])?.left).toEqual(960);
+    expect(positionCache.get(items[2])?.width).toEqual(240);
+    positionCache.reset();
+  });
+
+  test('sets flexible width if _getResponsiveModuleConfigForSecondItem is set for an item in second position', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: (item: Item) =>
+          item.name === 'Pin 0'
+            ? {
+                sm: 2,
+                md: 2,
+                _lg1: 3,
+                lg: 3,
+                xl: 4,
+              }
+            : 1,
+        _getResponsiveModuleConfigForSecondItem: (item: Item) =>
+          item.name === 'Pin 1' ? { min: 2, max: 6 } : undefined,
+      });
+
+    layout(8);
+    expect(positionCache.get(items[1])?.left).toEqual(720);
+    expect(positionCache.get(items[1])?.width).toEqual(240 * 5);
+    positionCache.reset();
+  });
+
+  test('tests max width for flexible width item works correctly', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: (item: Item) =>
+          item.name === 'Pin 0'
+            ? {
+                sm: 2,
+                md: 2,
+                _lg1: 3,
+                lg: 3,
+                xl: 4,
+              }
+            : 1,
+        _getResponsiveModuleConfigForSecondItem: (item: Item) =>
+          item.name === 'Pin 1' ? { min: 2, max: 5 } : undefined,
+      });
+
+    layout(10);
+    expect(positionCache.get(items[1])).toEqual({
+      height: 200,
+      left: 960,
+      top: 0,
+      width: 240 * 5,
+    });
+    expect(positionCache.get(items[2])).toEqual({
+      height: 200,
+      left: 2160,
+      top: 0,
+      width: 240,
+    });
+    positionCache.reset();
+  });
+
+  test('sets min width for flexible width item if it does not fit first row', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: (item: Item) =>
+          item.name === 'Pin 0'
+            ? {
+                sm: 2,
+                md: 2,
+                _lg1: 3,
+                lg: 3,
+                xl: 4,
+              }
+            : 1,
+        _getResponsiveModuleConfigForSecondItem: (item: Item) =>
+          item.name === 'Pin 1' ? { min: 2, max: 5 } : undefined,
+      });
+
+    layout(3);
+    expect(positionCache.get(items[1])).toEqual({
+      height: 200,
+      left: 0,
+      top: 200,
+      width: 240 * 2,
+    });
+    positionCache.reset();
+  });
+
+  test('tests _getColumnSpanConfig does not conflict with _getResponsiveModuleConfigForSecondItem when its not set', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: (item: Item) =>
+          item.name === 'Pin 1'
+            ? {
+                sm: 2,
+                md: 2,
+                _lg1: 3,
+                lg: 3,
+                xl: 4,
+              }
+            : 1,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+      });
+
+    layout(6);
+    expect(positionCache.get(items[1])).toEqual({
+      height: 200,
+      left: 240,
+      top: 0,
+      width: 240 * 3,
+    });
+    positionCache.reset();
+  });
+
+  test('sets preference to _getResponsiveModuleConfigForSecondItem when _getColumnSpanConfig is also set', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: (item: Item) =>
+          item.name === 'Pin 1'
+            ? {
+                sm: 2,
+                md: 2,
+                _lg1: 3,
+                lg: 3,
+                xl: 4,
+              }
+            : 1,
+        _getResponsiveModuleConfigForSecondItem: (item: Item) =>
+          item.name === 'Pin 1' ? { min: 2, max: 5 } : undefined,
+      });
+
+    layout(6);
+    expect(positionCache.get(items[1])).toEqual({
+      height: 200,
+      left: 240,
+      top: 0,
+      width: 240 * 5,
+    });
+    positionCache.reset();
+  });
+
+  test('flexible width works correctly when _getColumnSpanConfig is not set', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, Item, Item, Item, Item, Item, Item, Item, Item, Item] = [
+      { 'name': 'Pin 0', 'height': 200, 'color': '#E230BA' },
+      { 'name': 'Pin 1', 'height': 200, 'color': '#F67076' },
+      { 'name': 'Pin 2', 'height': 200, 'color': '#FAB032' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#EDF21D' },
+      { 'name': 'Pin 4', 'height': 200, 'color': '#CF4509' },
+      { 'name': 'Pin 5', 'height': 200, 'color': '#230BAF' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#67076F' },
+      { 'name': 'Pin 7', 'height': 200, 'color': '#AB032E' },
+      { 'name': 'Pin 8', 'height': 200, 'color': '#DF21DC' },
+      { 'name': 'Pin 9', 'height': 200, 'color': '#F45098' },
+      { 'name': 'Pin 10', 'height': 200, 'color': '#30BAF6' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = (columnCount: number) =>
+      multiColumnLayout({
+        items,
+        columnWidth: 240,
+        columnCount,
+        gutter: 0,
+        measurementCache: measurementStore,
+        positionCache,
+        originalItems: items,
+        _getColumnSpanConfig: () => 1,
+        _getResponsiveModuleConfigForSecondItem: (item: Item) =>
+          item.name === 'Pin 1' ? { min: 2, max: 5 } : undefined,
+      });
+
+    layout(6);
+    expect(positionCache.get(items[1])).toEqual({
+      height: 200,
+      left: 240,
+      top: 0,
+      width: 240 * 5,
+    });
+    positionCache.reset();
   });
 });
 
@@ -1049,7 +1448,9 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
     const positions = layout(items);
     expect(positions).toEqual([
@@ -1080,11 +1481,14 @@ describe('initializeHeightsArray', () => {
 
     const heights = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: columnWidth + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -1134,7 +1538,9 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
     const positions = layout(items);
     expect(positions).toEqual([
@@ -1165,11 +1571,14 @@ describe('initializeHeightsArray', () => {
 
     const heights = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: columnWidth + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -1259,7 +1668,9 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
     const positions = layout(items);
     expect(positions).toEqual([
@@ -1290,11 +1701,14 @@ describe('initializeHeightsArray', () => {
 
     const heights = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: columnWidth + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 
@@ -1309,16 +1723,21 @@ describe('initializeHeightsArray', () => {
         centerOffset: 1,
         measurementCache: measurementStore,
         positionCache: positionCacheInt,
+        originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
+        _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
       });
     layoutInt(items);
     const heightsInt = initializeHeightsArray({
       centerOffset: 1,
+      checkIsFlexibleWidthItem: () => false,
       columnCount: 9,
       columnWidthAndGutter: Math.floor(columnWidth) + gutter,
+      firstItem: items[0]!,
       gutter,
       items,
       positionCache: positionCacheInt,
+      responsiveModuleConfigForSecondItem: undefined,
       _getColumnSpanConfig: getColumnSpanConfig,
     });
 

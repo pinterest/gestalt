@@ -40,6 +40,7 @@ export default function Example() {
         onVisualPatternChange={() =>
           setVisualPatternSelected((value) => (value === 'default' ? 'visualPattern' : 'default'))
         }
+        renderLabel="auto"
         title="Age"
         type="bar"
         // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"disabled" | "default" | "visualPattern"'.

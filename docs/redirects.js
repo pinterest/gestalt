@@ -41,7 +41,6 @@ const webComponents = [
   'pog',
   'popover',
   'pulsar',
-  'radiobutton',
   'radiogroup',
   'searchfield',
   'segmentedcontrol',
@@ -264,6 +263,16 @@ const misc = [
   {
     source: '/web/module',
     destination: '/web/accordion',
+    permanent: true,
+  },
+  {
+    source: '/web/radiobutton',
+    destination: '/web/radiogroup',
+    permanent: true,
+  },
+  {
+    source: '/web/popovereducational',
+    destination: '/web/popovermessage',
     permanent: true,
   },
   {

@@ -17,7 +17,6 @@ type Props = {
   accessibilityLabel?: string;
   anchor: HTMLElement;
   bgColor?: 'blue' | 'darkGray' | 'white';
-  border?: boolean;
   caret?: boolean;
   children?: ReactNode;
   onKeyDown?: (arg1: { event: React.KeyboardEvent<HTMLElement> }) => void;
@@ -41,7 +40,6 @@ export default function Controller({
   accessibilityLabel,
   anchor,
   bgColor,
-  border,
   caret,
   children,
   id,
@@ -81,7 +79,6 @@ export default function Controller({
         accessibilityLabel={accessibilityLabel}
         anchor={anchor}
         bgColor={bgColor}
-        border={border}
         caret={caret}
         forceDirection={forceDirection}
         hideWhenReferenceHidden={hideWhenReferenceHidden}

@@ -1,14 +1,7 @@
-import { Avatar, Flex, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { Avatar, Flex, Text } from 'gestalt';
 
 export default function Example() {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  const src = isInVRExperiment
-    ? 'https://i.pinimg.com/564x/b9/f0/56/b9f0561e2d7927fa427f2306a41bce11.jpg'
-    : 'https://i.ibb.co/jVR29XV/stock5.jpg';
+  const src = 'https://i.pinimg.com/564x/b9/f0/56/b9f0561e2d7927fa427f2306a41bce11.jpg';
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">

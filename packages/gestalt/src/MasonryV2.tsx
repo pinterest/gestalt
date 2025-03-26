@@ -20,7 +20,11 @@ import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  ColumnSpanConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+  ResponsiveModuleConfig,
+} from './Masonry/multiColumnLayout';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
 import throttle from './throttle';
@@ -145,6 +149,19 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future.
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  /**
+   * Experimental prop to define the minimum and maximum limit a flexible width module could span.
+   * This used to enable multi-column flexible width support ONLY ON SECOND ITEM OF THE ARRAY OF ITEMS.
+   * Also, for the flexible width to work, the _getColumnSpanConfig prop should be set.
+   * _getResponsiveModuleConfigForSecondItem is a function that takes an individual grid item as an input and returns a ResponsiveModuleConfig.
+   * ResponsiveModuleConfig can be one of the following:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which sets the minimum and maximum limits a multi-column item could span filling the empty columns in the first row of the grid (flexible width).
+   * - Undefined, which is used to indicate that this prop isn't set.
+   *
+   * This is an experimental prop and may be removed or changed in the future.
+   */
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
@@ -364,11 +381,13 @@ function useLayout<T>({
   minCols,
   positionStore,
   width,
+  maxHeight,
   heightUpdateTrigger,
   _logTwoColWhitespace,
   _measureAll,
   _useRAF,
   _getColumnSpanConfig,
+  _getResponsiveModuleConfigForSecondItem,
   _earlyBailout,
   _multiColPositionAlgoV2,
 }: {
@@ -381,6 +400,7 @@ function useLayout<T>({
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
+  maxHeight: number;
   heightUpdateTrigger: number;
   _logTwoColWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
@@ -390,6 +410,7 @@ function useLayout<T>({
   _measureAll?: boolean;
   _useRAF?: boolean;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _earlyBailout?: (columnSpan: number) => number;
   _multiColPositionAlgoV2?: boolean;
 }): {
@@ -409,6 +430,7 @@ function useLayout<T>({
     minCols,
     width,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     _logTwoColWhitespace,
     _earlyBailout,
     _multiColPositionAlgoV2,
@@ -488,7 +510,10 @@ function useLayout<T>({
 
   // Math.max() === -Infinity when there are no positions
   const height = positions.length
-    ? Math.max(...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)))
+    ? Math.max(
+        ...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)),
+        maxHeight,
+      )
     : 0;
 
   return {
@@ -645,6 +670,7 @@ function Masonry<T>(
     _measureAll,
     _useRAF,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     _dynamicHeights,
     _dynamicHeightsV2Experiment,
     _earlyBailout,
@@ -780,6 +806,8 @@ function Masonry<T>(
     ],
   );
 
+  const maxHeightRef = useRef(0);
+
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
     align,
     columnWidth,
@@ -790,13 +818,18 @@ function Masonry<T>(
     minCols,
     positionStore,
     width,
+    maxHeight: maxHeightRef.current,
     heightUpdateTrigger,
     _logTwoColWhitespace,
     _measureAll,
     _useRAF,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
     _earlyBailout,
   });
+  useEffect(() => {
+    maxHeightRef.current = height;
+  }, [height]);
 
   useFetchOnScroll({
     containerHeight,

@@ -1,15 +1,8 @@
-import { Flex, Image, Mask, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { Flex, Image, Mask } from 'gestalt';
 
 export default function Example() {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  const alt = isInVRExperiment ? 'Ayesha Avatar' : 'Keerthi Avatar';
-  const src = isInVRExperiment
-    ? 'https://i.pinimg.com/originals/50/ce/c4/50cec4ca4c65131580c540c65548e0a3.jpg'
-    : 'https://i.ibb.co/ZfCZrY8/keerthi.jpg';
+  const alt = 'Ayesha Avatar';
+  const src = 'https://i.pinimg.com/originals/50/ce/c4/50cec4ca4c65131580c540c65548e0a3.jpg';
 
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">

@@ -1,0 +1,15 @@
+.clusterPadding {
+  padding: var(--space-100);
+}
+
+.cluster {
+  isolation: isolate;
+  position: relative;
+}
+
+.avatarContainer {
+  border: 2px solid var(--color-background-default);
+  border-radius: var(--rounding-circle);
+  box-sizing: border-box;
+  position: absolute;
+}
