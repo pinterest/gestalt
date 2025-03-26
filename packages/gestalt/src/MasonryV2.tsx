@@ -439,39 +439,43 @@ function useLayout<T>({
     _getModulePositioningConfig,
   });
 
+  const itemsWithoutMeasurementsBatch = items.filter((item) => !measurementStore.has(item));
   const nextMultiColumnItem =
-    _getColumnSpanConfig && items.find((item) => _getColumnSpanConfig(item) !== 1);
+    _getColumnSpanConfig &&
+    itemsWithoutMeasurementsBatch.find((item) => _getColumnSpanConfig(item) !== 1);
+  const nextMultiColumnItemIndex = itemsWithoutMeasurementsBatch.indexOf(nextMultiColumnItem!);
 
   let batchSize;
   if (nextMultiColumnItem) {
-    if (width) {
-      const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
-      const responsiveModuleConfigForSecondItem =
-        _getResponsiveModuleConfigForSecondItem && items[1]
-          ? _getResponsiveModuleConfigForSecondItem(items[1])
-          : undefined;
+    const responsiveModuleConfigForSecondItem =
+      _getResponsiveModuleConfigForSecondItem && items[1]
+        ? _getResponsiveModuleConfigForSecondItem(items[1])
+        : undefined;
+    const isFlexibleWidthItem =
+      !!responsiveModuleConfigForSecondItem && nextMultiColumnItem === items[1];
+    if (isFlexibleWidthItem)
+      if (width) {
+        const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
+        const moduleSize = calculateActualColumnSpan({
+          columnCount: gridSize,
+          firstItem: items[0]!,
+          isFlexibleWidthItem,
+          item: nextMultiColumnItem,
+          responsiveModuleConfigForSecondItem,
+          _getColumnSpanConfig,
+        });
 
-      const isFlexibleWidthItem =
-        !!responsiveModuleConfigForSecondItem && nextMultiColumnItem === items[1];
-      const moduleSize = calculateActualColumnSpan({
-        columnCount: gridSize,
-        firstItem: items[0]!,
-        isFlexibleWidthItem,
-        item: nextMultiColumnItem,
-        responsiveModuleConfigForSecondItem,
-        _getColumnSpanConfig,
-      });
-
-      const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
-        itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
-      };
-      batchSize = itemsBatchSize;
-    } else {
-      batchSize = MULTI_COL_ITEMS_MEASURE_BATCH_SIZE;
-    }
+        const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
+          itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+        };
+        batchSize = itemsBatchSize;
+      } else {
+        batchSize = MULTI_COL_ITEMS_MEASURE_BATCH_SIZE;
+      }
   }
 
-  const itemToMeasureCount = batchSize ? batchSize + 1 : minCols;
+  const itemToMeasureCount =
+    batchSize && nextMultiColumnItemIndex <= batchSize ? batchSize + 1 : minCols;
   const itemMeasurements = items.filter((item) => measurementStore.has(item));
   const itemMeasurementsCount = itemMeasurements.length;
   const hasPendingMeasurements = itemMeasurementsCount < items.length;

@@ -680,10 +680,11 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
-      const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
+      const itemsWithoutMeasurements = items.filter((item) => !measurementStore.has(item));
       const nextMultiColumnItem =
         _getColumnSpanConfig &&
-        itemsWithoutPositions.find((item) => _getColumnSpanConfig(item) !== 1);
+        itemsWithoutMeasurements.find((item) => _getColumnSpanConfig(item) !== 1);
+      const nextMultiColumnItemIndex = itemsWithoutMeasurements.indexOf(nextMultiColumnItem!);
 
       let batchSize;
       if (nextMultiColumnItem) {
@@ -704,15 +705,18 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
           _getColumnSpanConfig,
         });
 
-        const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
-          itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
-        };
-        batchSize = itemsBatchSize;
+        if (!isFlexibleWidthItem) {
+          const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
+            itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+          };
+          batchSize = itemsBatchSize;
+        }
       }
 
       // If there are multicolumn items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
       // we need the batch size (number of one column items for the graph) + 1 (multicolumn item)
-      const itemsToMeasureCount = batchSize ? batchSize + 1 : minCols;
+      const itemsToMeasureCount =
+        batchSize && nextMultiColumnItemIndex <= batchSize ? batchSize + 1 : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
