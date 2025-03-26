@@ -19,6 +19,7 @@ export default function getLayoutAlgorithm<T>({
   _getResponsiveModuleConfigForSecondItem,
   _logTwoColWhitespace,
   _earlyBailout,
+  _multiColPositionAlgoV2,
 }: {
   align: Align;
   columnWidth: number | undefined;
@@ -37,6 +38,7 @@ export default function getLayoutAlgorithm<T>({
     columnSpan: number,
   ) => void;
   _earlyBailout?: (columnSpan: number) => number;
+  _multiColPositionAlgoV2?: boolean;
 }): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
@@ -50,6 +52,7 @@ export default function getLayoutAlgorithm<T>({
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem,
+      _multiColPositionAlgoV2,
       earlyBailout: _earlyBailout,
     });
   }
@@ -77,6 +80,7 @@ export default function getLayoutAlgorithm<T>({
     originalItems: items,
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
+    _multiColPositionAlgoV2,
     earlyBailout: _earlyBailout,
   });
 }

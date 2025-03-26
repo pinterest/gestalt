@@ -389,6 +389,7 @@ function useLayout<T>({
   _getColumnSpanConfig,
   _getResponsiveModuleConfigForSecondItem,
   _earlyBailout,
+  _multiColPositionAlgoV2,
 }: {
   align: Align;
   columnWidth: number;
@@ -411,6 +412,7 @@ function useLayout<T>({
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _earlyBailout?: (columnSpan: number) => number;
+  _multiColPositionAlgoV2?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -431,6 +433,7 @@ function useLayout<T>({
     _getResponsiveModuleConfigForSecondItem,
     _logTwoColWhitespace,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   });
 
   const hasMultiColumnItems =
