@@ -25,6 +25,9 @@ type Options = {
   noScroll?: boolean;
   offsetTop?: number;
   realisticPinHeights?: boolean;
+  responsiveModuleSecondItem?: boolean;
+  responsiveModuleInsertIntermediate?: boolean;
+  responsiveModuleRemoveMulticolumn?: boolean;
   scrollContainer?: boolean;
   twoColItems?: boolean;
   virtualBoundsBottom?: number;
