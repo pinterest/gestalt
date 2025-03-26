@@ -1,0 +1,92 @@
+{
+  "sema": {
+    "font": {
+      "lineheight": {
+        "XL": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.140}"
+        },
+        "LG": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.130}"
+        },
+        "MD": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.120}"
+        },
+        "SM": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.120}"
+        },
+        "XS": {
+          "type": "lineHeights",
+          "value": "{base.font.lineheight.120}"
+        },
+        "heading": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "43px"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "34px"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "24px"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "21px"
+          },
+          "XXS": {
+            "type": "lineHeights",
+            "value": "18px"
+          }
+        },
+        "UI": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "24px"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "19px"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "17px"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "14px"
+          }
+        },
+        "body": {
+          "LG": {
+            "type": "lineHeights",
+            "value": "26px"
+          },
+          "MD": {
+            "type": "lineHeights",
+            "value": "21px"
+          },
+          "SM": {
+            "type": "lineHeights",
+            "value": "18px"
+          },
+          "XS": {
+            "type": "lineHeights",
+            "value": "16px"
+          }
+        },
+        "compact": {
+          "XS": {
+            "type": "lineHeights",
+            "value": "14px"
+          }
+        }
+      }
+    }
+  }
+}

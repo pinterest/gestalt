@@ -1,0 +1,278 @@
+{
+  "sema": {
+    "color": {
+      "pressed": {
+        "background": {
+          "default": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "primary": {
+            "type": "color",
+            "value": "{base.color.pressed.red.300}"
+          },
+          "secondary": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.100}"
+          },
+          "tertiary": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.250}"
+          },
+          "selected": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          },
+          "education": {
+            "type": "color",
+            "value": "{base.color.pressed.blue.400}"
+          },
+          "elevation": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "scrim": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.50}"
+          },
+          "inverse": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          },
+          "light": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "dark": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          },
+          "info": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.blue.400}"
+            },
+            "weak": {
+              "type": "color",
+              "value": "{base.color.pressed.blue.100}"
+            }
+          },
+          "neutral": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.grayscale.250}"
+            },
+            "weak": {
+              "type": "color",
+              "value": "{base.color.pressed.grayscale.150}"
+            }
+          },
+          "recommendation": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.purple.400}"
+            },
+            "weak": {
+              "type": "color",
+              "value": "{base.color.pressed.purple.100}"
+            }
+          },
+          "success": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.green.400}"
+            },
+            "weak": {
+              "type": "color",
+              "value": "{base.color.pressed.green.100}"
+            }
+          },
+          "warning": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.orange.500}"
+            },
+            "weak": {
+              "type": "color",
+              "value": "{base.color.pressed.orange.100}"
+            }
+          },
+          "error": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.red.400}"
+            },
+            "weak": {
+              "type": "color",
+              "value": "{base.color.pressed.red.100}"
+            }
+          },
+          "wash": {
+            "default": {
+              "type": "color",
+              "value": "{base.color.pressed.grayscale.0}"
+            },
+            "dark": {
+              "value": "rgba(57,57,55,0.9)",
+              "type": "color"
+            },
+            "light": {
+              "type": "color",
+              "value": "{base.color.pressed.grayscale.0}"
+            },
+            "image": {
+              "tint": {
+                "value": "rgba(57,57,55,0.14)",
+                "type": "color"
+              }
+            },
+            "scrims": {
+              "default": {
+                "value": "rgba(88,88,86,0.5)",
+                "type": "color"
+              },
+              "opaque": {
+                "value": "rgba(216,215,207,0.9)",
+                "type": "color"
+              }
+            }
+          }
+        },
+        "border": {
+          "decorative": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.150}"
+          },
+          "interactive": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.250}"
+          },
+          "selected": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          },
+          "success": {
+            "type": "color",
+            "value": "{base.color.pressed.green.400}"
+          },
+          "error": {
+            "type": "color",
+            "value": "{base.color.pressed.red.400}"
+          },
+          "inverse": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          }
+        },
+        "text": {
+          "default": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          },
+          "neutral": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.350}"
+          },
+          "subtle": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.300}"
+          },
+          "link": {
+            "type": "color",
+            "value": "{base.color.pressed.blue.500}"
+          },
+          "info": {
+            "type": "color",
+            "value": "{base.color.pressed.blue.500}"
+          },
+          "recommendation": {
+            "type": "color",
+            "value": "{base.color.pressed.purple.500}"
+          },
+          "success": {
+            "type": "color",
+            "value": "{base.color.pressed.green.500}"
+          },
+          "warning": {
+            "type": "color",
+            "value": "{base.color.pressed.orange.500}"
+          },
+          "error": {
+            "type": "color",
+            "value": "{base.color.pressed.red.500}"
+          },
+          "primary": {
+            "type": "color",
+            "value": "{base.color.pressed.red.300}"
+          },
+          "inverse": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "light": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "dark": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          }
+        },
+        "icon": {
+          "default": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          },
+          "neutral": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.350}"
+          },
+          "subtle": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.300}"
+          },
+          "link": {
+            "value": "{base.color.pressed.blue.500}",
+            "type": "color"
+          },
+          "info": {
+            "type": "color",
+            "value": "{base.color.pressed.blue.500}"
+          },
+          "recommendation": {
+            "type": "color",
+            "value": "{base.color.pressed.purple.500}"
+          },
+          "success": {
+            "type": "color",
+            "value": "{base.color.pressed.green.500}"
+          },
+          "warning": {
+            "type": "color",
+            "value": "{base.color.pressed.orange.500}"
+          },
+          "error": {
+            "type": "color",
+            "value": "{base.color.pressed.red.500}"
+          },
+          "primary": {
+            "type": "color",
+            "value": "{base.color.pressed.red.300}"
+          },
+          "inverse": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "light": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.0}"
+          },
+          "dark": {
+            "type": "color",
+            "value": "{base.color.pressed.grayscale.500}"
+          }
+        }
+      }
+    }
+  }
+}
