@@ -80,6 +80,7 @@ export default function TestPage({
     flexible,
     logWhitespace,
     manualFetch,
+    multiColPositionAlgoV2,
     multiColTest,
     noScroll,
     offsetTop,
@@ -102,6 +103,7 @@ export default function TestPage({
   const flexibleValue = booleanize(flexible ?? '');
   const logWhitespaceValue = booleanize(logWhitespace ?? '');
   const manualFetchValue = booleanize(manualFetch ?? '');
+  const multiColPositionAlgoV2Value = booleanize(multiColPositionAlgoV2 ?? '');
   const multiColTestValue = booleanize(multiColTest ?? '');
   const noScrollValue = booleanize(noScroll ?? '');
   const offsetTopValue = Number(offsetTop);
@@ -157,6 +159,7 @@ export default function TestPage({
           manualFetch={manualFetchValue}
           MasonryComponent={experimentalValue ? MasonryV2 : Masonry}
           measurementStore={measurementStore}
+          multiColPositionAlgoV2={multiColPositionAlgoV2Value}
           multiColTest={multiColTestValue}
           noScroll={noScrollValue}
           offsetTop={offsetTopValue}

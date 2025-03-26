@@ -21,6 +21,7 @@ type Options = {
   flexible?: boolean;
   logWhitespace?: boolean;
   manualFetch?: boolean;
+  multiColPositionAlgoV2?: boolean;
   multiColTest?: boolean;
   noScroll?: boolean;
   offsetTop?: number;
