@@ -1,3 +1,4 @@
+import { DEFAULT_LAYOUT_DEFAULT_GUTTER } from './getColumnCount';
 import uniformRowLayout from './uniformRowLayout';
 
 const stubCache = (
@@ -27,6 +28,7 @@ describe.each([false, true])('Uniform Row layout tests', (flexible) => {
   test('empty', () => {
     const layout = uniformRowLayout({
       cache: stubCache(),
+      gutter: 0,
       width: 500,
     });
 
@@ -41,6 +43,7 @@ describe.each([false, true])('Uniform Row layout tests', (flexible) => {
         c: 100,
       }),
       flexible,
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       minCols: 2,
       width: 900,
     });
@@ -68,6 +71,7 @@ describe.each([false, true])('Uniform Row layout tests', (flexible) => {
         c: 100,
       }),
       flexible,
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       width: 250,
       minCols: 1,
     });
@@ -87,6 +91,7 @@ describe.each([false, true])('Uniform Row layout tests', (flexible) => {
         c: 100,
       }),
       flexible,
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       minCols: 2,
       width: 900,
     });
@@ -115,6 +120,7 @@ describe.each([false, true])('Uniform Row layout tests', (flexible) => {
         d: 100,
       }),
       flexible,
+      gutter: DEFAULT_LAYOUT_DEFAULT_GUTTER,
       width: 800,
     });
 
