@@ -19,29 +19,6 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
-      <MainSection name="Usage guidelines">
-        <MainSection.Subsection columns={2}>
-          <MainSection.Card
-            cardSize="md"
-            description={`
-          - User login via social media or email
-        `}
-            title="When to use"
-            type="do"
-          />
-          <MainSection.Card
-            cardSize="md"
-            description={`
-            - If you need a button for a non-social media action.
-            - When a more generic button component would suffice.
-            - If the action does not involve user authentication or social media interaction.
-        `}
-            title="When not to use"
-            type="don't"
-          />
-        </MainSection.Subsection>
-      </MainSection>
-      <MainSection name="Best practices" />
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
       <MainSection name="Localization" />

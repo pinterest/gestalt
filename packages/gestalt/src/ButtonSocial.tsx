@@ -6,25 +6,9 @@ import VRButtonSocial from './ButtonSocial/VRButtonSocial';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
-import focusStyles from './Focus.css';
 import Icon from './Icon';
-import touchableStyles from './TapArea.css';
 import Text from './Text';
-import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
-
-const TYPE_OPTIONS = {
-  'login': 'Login with',
-  'continue': 'Continue with',
-  'signup': 'Sign up with',
-};
-
-const SERVICES_OPTIONS = {
-  'apple': 'Apple',
-  'facebook': 'Facebook',
-  'google': 'Google',
-  'email': 'Email',
-};
 
 type ButtonProps = {
   /**
@@ -54,18 +38,16 @@ type ButtonProps = {
  * ![ButtonSocial dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonSocial-dark.spec.ts-snapshots/ButtonSocial-dark-chromium-darwin.png)
  */
 
-const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(function ButtonSocial(
-  { dataTestId, onClick, type, service }: ButtonProps,
+const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(function ButtonSocial(
+  { dataTestId, onClick, type, service },
   ref,
 ) {
-  const innerRef = useRef<null | HTMLAnchorElement>(null);
+  const innerRef = useRef<null | HTMLButtonElement>(null);
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
-  // that renders <ButtonSocial ref={inputRef} /> to call inputRef.current.focus()
-  // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
+  // that renders <Button ref={inputRef} /> to call inputRef.current.focus()
+  // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
-
-  const { isFocusVisible } = useFocusVisible();
 
   let iconService = null;
 
@@ -136,8 +118,6 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
 
-  const textWithService = `${TYPE_OPTIONS[type]} ${SERVICES_OPTIONS[service]}`;
-
   const {
     textLoginEmail,
     textLoginFacebook,
@@ -153,49 +133,31 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
     textSignupApple,
   } = useDefaultLabelContext('ButtonSocial');
 
-  let textWithServiceTranslated = '';
-
-  switch (textWithService) {
-    case 'Login with Apple':
-      textWithServiceTranslated = textLoginApple;
-      break;
-    case 'Login with Facebook':
-      textWithServiceTranslated = textLoginFacebook;
-      break;
-    case 'Login with Google':
-      textWithServiceTranslated = textLoginGoogle;
-      break;
-    case 'Login with Email':
-      textWithServiceTranslated = textLoginEmail;
-      break;
-    case 'Continue with Apple':
-      textWithServiceTranslated = textContinueApple;
-      break;
-    case 'Continue with Facebook':
-      textWithServiceTranslated = textContinueFacebook;
-      break;
-    case 'Continue with Google':
-      textWithServiceTranslated = textContinueGoogle;
-      break;
-    case 'Continue with Email':
-      textWithServiceTranslated = textContinueEmail;
-      break;
-    case 'Sign up with Apple':
-      textWithServiceTranslated = textSignupApple;
-      break;
-    case 'Sign up with Facebook':
-      textWithServiceTranslated = textSignupFacebook;
-      break;
-    case 'Sign up with Google':
-      textWithServiceTranslated = textSignupGoogle;
-      break;
-    case 'Sign up with Email':
-      textWithServiceTranslated = textSignupEmail;
-      break;
-    default:
-      textWithServiceTranslated = textSignupEmail;
-      break;
+  const message = { 
+    apple: 
+    {
+      signup: textSignupApple, 
+      continue: textContinueApple, 
+      login: textLoginApple, 
+    },
+    facebook: {
+      signup: textSignupFacebook, 
+      continue: textContinueFacebook, 
+      login: textLoginFacebook, 
+    },
+    google: {
+      signup: textSignupGoogle, 
+      continue: textContinueGoogle, 
+      login: textLoginGoogle, 
+    },
+    email: {
+      signup: textSignupEmail, 
+      continue: textContinueEmail, 
+      login: textLoginEmail,
+    },
   }
+
+  const textWithService = message[service][type]
 
   const { colorSchemeName } = useColorScheme();
 
@@ -212,11 +174,6 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
   const buttonClasses = classnames(
     background,
     styles.social,
-    touchableStyles.tapCompress,
-    touchableStyles.tapTransition,
-    {
-      [focusStyles.accessibilityOutlineButton]: isFocusVisible,
-    },
   );
 
   return (
@@ -226,9 +183,9 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
       onClick={(event) => onClick?.({ event })}
       type="button"
     >
-      <Box>
-        <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-          <Box>{iconService}</Box>
+        <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">  
+
+          {iconService}
           <Box
             dangerouslySetInlineStyle={{
               __style: {
@@ -240,11 +197,11 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
             }}
           >
             <Text align="center" color="default" size="300" weight="bold">
-              {textWithServiceTranslated}
+              {textWithService}
             </Text>
           </Box>
         </Flex>
-      </Box>
+
     </button>
   );
 });

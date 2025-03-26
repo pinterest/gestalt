@@ -1,35 +1,21 @@
 .social {
   align-items: center;
-  border-radius: var(--rounding-pill, 999px);
+  border-radius: var(--rounding-pill);
   cursor: pointer;
   display: flex;
-  gap: var(--sema-space-200, 8px);
+  gap: var(--space-200);
   height: 48px;
-  padding: var(--Positive-space-300, 12px) var(--Positive-space-1100, 44px)
-    var(--Positive-space-300, 12px) var(--Positive-space-400, 16px);
+  padding: var(--space-300) var(--space-1100)
+    var(--space-300) var(--space-400);
   width: 343px;
 }
 
 .darkMode {
-  background: var(--sema-color-background-default, #000);
-  border: 1px solid var(--sema-color-border-interactive, #c2c2b6);
+  background: var(--color-background-default);
+  border: 1px solid var(--color-border-interactive, #c2c2b6);
 }
 
 .lightMode {
   background: var(--background-color-background-default, #fff);
   border: 1px solid var(--border-color-border-default, #767676);
-}
-
-.social:hover {
-  background: var(--sema-color-hover-background-default, #f8f7f2);
-  border: 1px solid var(--sema-color-hover-border-interactive, #626260);
-}
-
-.social:active {
-  background: var(--sema-color-pressed-background-default, #ebebe5);
-  border: 1px solid var(--sema-color-pressed-border-interactive, #585856);
-}
-
-.social:focus {
-  border: 1px solid var(--sema-color-pressed-border-interactive, #bdbd3f);
 }

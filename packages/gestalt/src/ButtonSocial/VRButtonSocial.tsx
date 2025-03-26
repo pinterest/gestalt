@@ -1,26 +1,14 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
-import styles from './Buttonsocial.css';
+import styles from './VRButtonSocial.css';
 import Box from '../Box';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
+import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import focusStyles from '../Focus.css';
 import Icon from '../Icon';
 import Text from '../Text';
 import useFocusVisible from '../useFocusVisible';
-
-const TYPE_OPTIONS = {
-  'login': 'Login with',
-  'continue': 'Continue with',
-  'signup': 'Sign up with',
-};
-
-const SERVICES_OPTIONS = {
-  'apple': 'Apple',
-  'facebook': 'Facebook',
-  'google': 'Google',
-  'email': 'Email',
-};
 
 type ButtonProps = {
   /**
@@ -50,17 +38,17 @@ type ButtonProps = {
  * ![ButtonLink dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonLink-dark.spec.ts-snapshots/ButtonLink-dark-chromium-darwin.png)
  */
 
-const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(function ButtonLink(
-  { dataTestId, onClick, type, service }: ButtonProps,
+const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(function ButtonLink(
+  { dataTestId, onClick, type, service },
   ref,
 ) {
-  const innerRef = useRef<null | HTMLAnchorElement>(null);
+  const innerRef = useRef<null | HTMLButtonElement>(null);
 
   const { isFocusVisible } = useFocusVisible();
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <ButtonLink ref={inputRef} /> to call inputRef.current.focus()
-  // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
+  // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
   let iconService = null;
@@ -127,7 +115,48 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
       break;
   }
 
-  const textWithService = `${TYPE_OPTIONS[type]} ${SERVICES_OPTIONS[service]}`;
+  const {
+    textLoginEmail,
+    textLoginFacebook,
+    textLoginGoogle,
+    textLoginApple,
+    textContinueEmail,
+    textContinueFacebook,
+    textContinueGoogle,
+    textContinueApple,
+    textSignupEmail,
+    textSignupFacebook,
+    textSignupGoogle,
+    textSignupApple,
+  } = useDefaultLabelContext('ButtonSocial');
+
+
+  const message = { 
+    apple: 
+    {
+      signup: textSignupApple, 
+      continue: textContinueApple, 
+      login: textLoginApple, 
+    },
+    facebook: {
+      signup: textSignupFacebook, 
+      continue: textContinueFacebook, 
+      login: textLoginFacebook, 
+    },
+    google: {
+      signup: textSignupGoogle, 
+      continue: textContinueGoogle, 
+      login: textLoginGoogle, 
+    },
+    email: {
+      signup: textSignupEmail, 
+      continue: textContinueEmail, 
+      login: textLoginEmail,
+    },
+  }
+
+  const textWithService = message[service][type]
+
 
   const { colorSchemeName } = useColorScheme();
 
@@ -136,7 +165,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
 
   const buttonClasses = classnames(styles.social, background, {
-    [focusStyles.accessibilityOutlineButton]: isFocusVisible,
+    [focusStyles.accessibilityOutlineButtonSocial]: isFocusVisible,
   });
 
   return (
@@ -146,9 +175,8 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
       onClick={(event) => onClick?.({ event })}
       type="button"
     >
-      <Box>
         <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
-          <Box>{iconService}</Box>
+          {iconService}
           <Box
             dangerouslySetInlineStyle={{
               __style: {
@@ -163,7 +191,6 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(fu
             </Text>
           </Box>
         </Flex>
-      </Box>
     </button>
   );
 });
