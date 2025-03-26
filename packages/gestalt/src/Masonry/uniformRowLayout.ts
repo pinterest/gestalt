@@ -1,4 +1,5 @@
 import { Cache } from './Cache';
+import getColumnCount from './getColumnCount';
 import { Position } from './types';
 
 const offscreen = (width: number, height: number = Infinity) => ({
@@ -22,11 +23,13 @@ function calculateColumnCountAndWidth({
   width: number;
 }) {
   if (flexible) {
-    const colguess = Math.floor(width / idealColumnWidth);
-    const columnCount = Math.max(
-      Math.floor((width - colguess * gutter) / idealColumnWidth),
+    const columnCount = getColumnCount({
+      gutter,
+      columnWidth: idealColumnWidth,
+      width,
       minCols,
-    );
+      layout: 'uniformRowFlexible',
+    });
     const columnWidth = Math.floor(width / columnCount) - gutter;
     const columnWidthAndGutter = columnWidth + gutter;
     return {
@@ -37,7 +40,13 @@ function calculateColumnCountAndWidth({
   }
 
   const columnWidthAndGutter = idealColumnWidth + gutter;
-  const columnCount = Math.max(Math.floor((width + gutter) / columnWidthAndGutter), minCols);
+  const columnCount = getColumnCount({
+    gutter,
+    columnWidth: idealColumnWidth,
+    width,
+    minCols,
+    layout: 'uniformRow',
+  });
   return {
     columnCount,
     columnWidth: idealColumnWidth,

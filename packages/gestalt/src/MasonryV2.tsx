@@ -348,7 +348,7 @@ function useFetchOnScroll({
       | undefined,
   ) => void;
   scrollTop: number;
-  scrollContainerElement: HTMLElement | Window | Window | null | undefined;
+  scrollContainerElement: HTMLElement | Window | null | undefined;
   width: number | null | undefined;
 }) {
   const isFetching = useRef<boolean>(false);
@@ -451,10 +451,12 @@ function useLayout<T>({
           ? _getResponsiveModuleConfigForSecondItem(items[1])
           : undefined;
 
+      const isFlexibleWidthItem =
+        !!responsiveModuleConfigForSecondItem && nextMultiColumnItem === items[1];
       const moduleSize = calculateActualColumnSpan({
         columnCount: gridSize,
         firstItem: items[0]!,
-        isFlexibleWidthItem: layout === 'flexible',
+        isFlexibleWidthItem,
         item: nextMultiColumnItem,
         responsiveModuleConfigForSecondItem,
         _getColumnSpanConfig,
@@ -716,7 +718,7 @@ function Masonry<T>(
 
   const gutter: number = useMemo(() => {
     let defaultGutter = DEFAULT_LAYOUT_DEFAULT_GUTTER;
-    if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
+    if (layout && (layout === 'flexible' || layout === 'serverRenderedFlexible')) {
       defaultGutter = FULL_WIDTH_DEFAULT_GUTTER;
     }
     return gutterWidth ?? defaultGutter;

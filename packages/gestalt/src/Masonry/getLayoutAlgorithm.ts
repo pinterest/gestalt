@@ -9,6 +9,16 @@ import {
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
+export function getIsFlexibleLayout({
+  layout,
+  width,
+}: {
+  layout: Layout;
+  width: number | null | undefined;
+}): boolean {
+  return layout === 'flexible' || (layout === 'serverRenderedFlexible' && width !== null);
+}
+
 export default function getLayoutAlgorithm<T>({
   align,
   columnWidth,
@@ -42,7 +52,7 @@ export default function getLayoutAlgorithm<T>({
     columnSpan: number,
   ) => void;
 }): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
-  if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
+  if (getIsFlexibleLayout({ layout, width })) {
     return fullWidthLayout({
       gutter,
       layout,

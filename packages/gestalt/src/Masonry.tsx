@@ -693,10 +693,12 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
             ? _getResponsiveModuleConfigForSecondItem(items[1])
             : undefined;
 
+        const isFlexibleWidthItem =
+          !!responsiveModuleConfigForSecondItem && nextMultiColumnItem === items[1];
         const moduleSize = calculateActualColumnSpan({
           columnCount: gridSize,
           firstItem: items[0]!,
-          isFlexibleWidthItem: layout === 'flexible',
+          isFlexibleWidthItem,
           item: nextMultiColumnItem,
           responsiveModuleConfigForSecondItem,
           _getColumnSpanConfig,

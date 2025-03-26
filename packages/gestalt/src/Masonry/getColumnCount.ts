@@ -1,3 +1,4 @@
+import { getIsFlexibleLayout } from './getLayoutAlgorithm';
 import { Layout } from './types';
 
 export const FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH = 240;
@@ -18,22 +19,18 @@ export default function getColumnCount({
   minCols: number;
   layout: Layout;
 }): number {
-  if (layout === 'flexible' || (layout === 'serverRenderedFlexible' && width !== null)) {
+  if (getIsFlexibleLayout({ layout, width }) || layout === 'uniformRowFlexible') {
     // "This is kind of crazy!" - you
     // Yes, indeed. The "guessing" here is meant to replicate the pass that the
     // original implementation takes with CSS.
-    const idealColumnWidth =
-      typeof columnWidth === 'undefined'
-        ? FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH
-        : columnWidth;
-    const idealGutter = typeof gutter === 'undefined' ? FULL_WIDTH_DEFAULT_GUTTER : gutter;
+    const idealColumnWidth = columnWidth ?? FULL_WIDTH_LAYOUT_DEFAULT_IDEAL_COLUMN_WIDTH;
+    const idealGutter = gutter ?? FULL_WIDTH_DEFAULT_GUTTER;
     const colguess = Math.floor(width / idealColumnWidth);
     return Math.max(Math.floor((width - colguess * idealGutter) / idealColumnWidth), minCols);
   }
 
-  const idealGutter = typeof gutter === 'undefined' ? DEFAULT_LAYOUT_DEFAULT_GUTTER : gutter;
-  const idealColumnWidth =
-    typeof columnWidth === 'undefined' ? DEFAULT_LAYOUT_DEFAULT_COLUMN_WIDTH : columnWidth;
+  const idealGutter = gutter ?? DEFAULT_LAYOUT_DEFAULT_GUTTER;
+  const idealColumnWidth = columnWidth ?? DEFAULT_LAYOUT_DEFAULT_COLUMN_WIDTH;
   const columnWidthAndGutter = idealColumnWidth + idealGutter;
   return Math.max(Math.floor((width + idealGutter) / columnWidthAndGutter), minCols);
 }
