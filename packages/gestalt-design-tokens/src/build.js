@@ -21,7 +21,7 @@ registerTokenFilters(StyleDictionary);
 registerTokenTransforms(StyleDictionary);
 registerTokenTransformGroups(StyleDictionary);
 
-['classic', 'vr-theme', 'vr-theme-web-mapping'].forEach((theme) =>
+['classic', 'vr-theme', 'vr-theme-web-mapping', 'calico'].forEach((theme) =>
   ['light', 'dark'].forEach((mode) => {
     // THIS NEEDS A CLEANUP BUT INTERIM SOLUTION 'default' MUST BE LAST
     ['ck', 'ja', 'tall', 'th', 'vi', 'default'].forEach((lang) => {
