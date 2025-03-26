@@ -126,15 +126,15 @@ function getAdjacentColumnHeightDeltas(
   _multiColPositionAlgoV2?: boolean,
 ): ReadonlyArray<number> {
   if (_multiColPositionAlgoV2) {
-    const adjacentDelataArea = [];
+    const adjacentDelataTotal = [];
     for (let i = 0; i < heights.length - (columnSpan - 1); i += 1) {
       const heightSegment = heights.slice(i, i + columnSpan);
       const maxHeight = Math.max(...heightSegment);
-      const whitespaceVolume = heightSegment.reduce((acc, height) => acc + maxHeight - height, 0);
-      adjacentDelataArea.push(whitespaceVolume);
+      const totalWhitespace = heightSegment.reduce((acc, height) => acc + maxHeight - height, 0);
+      adjacentDelataTotal.push(totalWhitespace);
     }
 
-    return adjacentDelataArea;
+    return adjacentDelataTotal;
   }
 
   const adjacentHeightDeltas = [];
