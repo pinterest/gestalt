@@ -915,11 +915,13 @@ describe('multi column layout test cases', () => {
           columnWidth: 240,
           columnCount: 5,
           centerOffset: 0,
+          logWhitespace,
           measurementCache: measurementStore,
           positionCache,
+          originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
           _multiColPositionAlgoV2,
-          logWhitespace,
         });
 
       layout(mockItems);
