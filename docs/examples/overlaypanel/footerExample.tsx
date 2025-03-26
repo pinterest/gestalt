@@ -4,12 +4,11 @@ import {
   Box,
   Button,
   CompositeZIndex,
-  Fieldset,
   FixedZIndex,
   Flex,
   Layer,
   OverlayPanel,
-  RadioButton,
+  RadioGroup,
   Text,
 } from 'gestalt';
 
@@ -72,45 +71,25 @@ export default function Example() {
                 items={[
                   {
                     children: (
-                      <Fieldset
-                        legend="What bid campaign do you want to run?"
-                        legendDisplay="hidden"
-                      >
-                        <Flex
-                          direction="column"
-                          gap={{
-                            row: 0,
-                            column: 2,
-                          }}
-                        >
-                          <RadioButton
-                            checked
-                            id="favoriteDog"
-                            label="No change"
-                            name="favorite"
-                            onChange={() => {}}
-                            value="dogs"
-                          />
-                          <RadioButton
-                            checked={false}
-                            id="favoriteCat"
-                            label="Automatic (recommended)"
-                            name="favorite"
-                            onChange={() => {}}
-                            subtext="Pinterest aims to get the most clicks for your budget"
-                            value="cats"
-                          />
-                          <RadioButton
-                            checked={false}
-                            id="favoritePlants"
-                            label="Custom"
-                            name="favorite"
-                            onChange={() => {}}
-                            subtext="You control how much to bid at auctions"
-                            value="plants"
-                          />
-                        </Flex>
-                      </Fieldset>
+                      <RadioGroup id="bidding" legend="Bidding">
+                        <RadioGroup.RadioButton
+                          checked
+                          helperText="Pinterest aims to get the most clicks for your budget"
+                          id="automatic"
+                          label="Automatic (recommended)"
+                          name="Automatic"
+                          onChange={() => {}}
+                          value="automatic"
+                        />
+                        <RadioGroup.RadioButton
+                          helperText="You control how much to bid at auction"
+                          id="custom"
+                          label="Custom"
+                          name="custom"
+                          onChange={() => {}}
+                          value="custom"
+                        />
+                      </RadioGroup>
                     ),
                     summary: ['Custom'],
                     title: 'Bid',

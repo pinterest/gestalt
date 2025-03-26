@@ -1,18 +1,32 @@
-import { Avatar, Flex, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { Avatar, Box, Flex } from 'gestalt';
 
 export default function Example() {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  const name = isInVRExperiment ? 'Sora' : 'Shanice';
-  const src = isInVRExperiment
-    ? 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg'
-    : 'https://i.ibb.co/7tGKGvb/shanice.jpg';
+  const name = 'Sora';
+  const src = 'https://i.pinimg.com/originals/ab/c5/4a/abc54abd85df131e90ca6b372368b738.jpg';
 
   return (
-    <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
+    <Flex alignItems="center" gap={2} height="100%" justifyContent="center" width="100%">
+      <Avatar
+        accessibilityLabel={`${name}, Verified account`}
+        name={name}
+        size="xs"
+        src={src}
+        verified
+      />
+      <Avatar
+        accessibilityLabel={`${name}, Verified account`}
+        name={name}
+        size="sm"
+        src={src}
+        verified
+      />
+      <Avatar
+        accessibilityLabel={`${name}, Verified account`}
+        name={name}
+        size="md"
+        src={src}
+        verified
+      />
       <Avatar
         accessibilityLabel={`${name}, Verified account`}
         name={name}
@@ -20,6 +34,22 @@ export default function Example() {
         src={src}
         verified
       />
+      <Avatar
+        accessibilityLabel={`${name}, Verified account`}
+        name={name}
+        size="xl"
+        src={src}
+        verified
+      />
+      <Box width={155}>
+        <Avatar
+          accessibilityLabel={`${name}, Verified account`}
+          name={name}
+          size="fit"
+          src={src}
+          verified
+        />
+      </Box>
     </Flex>
   );
 }

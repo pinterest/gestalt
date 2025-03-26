@@ -32,6 +32,8 @@ import barHorizontal from '../../examples/chartgraph/barHorizontal';
 import biaxial from '../../examples/chartgraph/biaxial';
 import colors from '../../examples/chartgraph/colors';
 import combo from '../../examples/chartgraph/combo';
+import customLabelBarColumn from '../../examples/chartgraph/customLabelBarColumn';
+import customLabelBarHorizontal from '../../examples/chartgraph/customLabelBarHorizontal';
 import customTooltip from '../../examples/chartgraph/customTooltip';
 import decalBars from '../../examples/chartgraph/decalBars';
 import decalLines from '../../examples/chartgraph/decalLines';
@@ -41,6 +43,8 @@ import doLimit from '../../examples/chartgraph/doLimit';
 import dontBiaxial from '../../examples/chartgraph/dontBiaxial';
 import dontLimit from '../../examples/chartgraph/dontLimit';
 import doSameColor from '../../examples/chartgraph/doSameColor';
+import labelBarColumn from '../../examples/chartgraph/labelBarColumn';
+import labelBarHorizontal from '../../examples/chartgraph/labelBarHorizontal';
 import layout from '../../examples/chartgraph/layout';
 import legend from '../../examples/chartgraph/legend';
 import line from '../../examples/chartgraph/line';
@@ -447,6 +451,54 @@ Props: \`legend\`
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={legend} layout="column" name="Legend" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`Pending.
+
+Props: \`renderLabel\`
+          `}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelBarColumn} layout="column" name="Auto label column" />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={labelBarHorizontal}
+                layout="column"
+                name="Auto label horizontal"
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={customLabelBarColumn}
+                layout="column"
+                name="Custom label column"
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={customLabelBarHorizontal}
+                layout="column"
+                name="Custom label horizontal"
+              />
+            }
           />
         </MainSection.Subsection>
 

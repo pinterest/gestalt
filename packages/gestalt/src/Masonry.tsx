@@ -304,6 +304,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
   scrollContainer: ScrollContainer | null | undefined;
 
+  maxHeight: number = 0;
+
   /**
    * Delays resize handling in case the scroll container is still being resized.
    */
@@ -725,8 +727,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
-        ? Math.max(...positions.map((pos) => pos.top + pos.height))
+        ? Math.max(...positions.map((pos) => pos.top + pos.height), this.maxHeight)
         : 0;
+      if (height > this.maxHeight || !positions.length) this.maxHeight = height;
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>

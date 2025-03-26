@@ -60,7 +60,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           <MainSection.Card
             cardSize="md"
             description={`
-            - Avoid using the ButtonToggle when a simpler Checkbox, RadioButton, or Switch can be used instead.
+            - Avoid using the ButtonToggle when a simpler Checkbox, RadioGroup, or Switch can be used instead.
             - Do not use ButtonToggle in replacement of a Button, it should only be used for selected and unselected functionality
         `}
             title="When not to use"

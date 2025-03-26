@@ -1,15 +1,8 @@
-import { Avatar, Flex, Text, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { Avatar, Flex, Text } from 'gestalt';
 
 export default function Example() {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  const name = isInVRExperiment ? 'Ayesha Rashad' : 'Shanice Byles';
-  const src = isInVRExperiment
-    ? 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg'
-    : 'https://i.ibb.co/7tGKGvb/shanice.jpg';
+  const name = 'Ayesha Rashad';
+  const src = 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg';
 
   return (
     <Flex

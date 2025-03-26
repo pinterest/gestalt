@@ -3,6 +3,7 @@ import Accordion from './Accordion';
 import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
+import AvatarGroupCluster from './AvatarGroupCluster';
 import Badge from './Badge';
 import BannerCallout from './BannerCallout';
 import BannerOverlay from './BannerOverlay';
@@ -56,7 +57,6 @@ import Pog from './Pog';
 import Popover from './Popover';
 import PopoverMessage from './PopoverMessage';
 import Pulsar from './Pulsar';
-import RadioButton from './RadioButton';
 import RadioGroup from './RadioGroup';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 import ScrollFetch from './ScrollFetch';
@@ -98,6 +98,7 @@ export {
   ActivationCard,
   Avatar,
   AvatarGroup,
+  AvatarGroupCluster,
   Badge,
   BannerCallout,
   BannerOverlay,
@@ -151,7 +152,6 @@ export {
   Popover,
   PopoverMessage,
   Pulsar,
-  RadioButton,
   RadioGroup,
   ScrollBoundaryContainer,
   ScrollFetch,

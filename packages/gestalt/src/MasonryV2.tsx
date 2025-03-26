@@ -388,6 +388,7 @@ function useLayout<T>({
   minCols,
   positionStore,
   width,
+  maxHeight,
   heightUpdateTrigger,
   _logTwoColWhitespace,
   _measureAll,
@@ -405,6 +406,7 @@ function useLayout<T>({
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
+  maxHeight: number;
   heightUpdateTrigger: number;
   _logTwoColWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
@@ -544,7 +546,10 @@ function useLayout<T>({
 
   // Math.max() === -Infinity when there are no positions
   const height = positions.length
-    ? Math.max(...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)))
+    ? Math.max(
+        ...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)),
+        maxHeight,
+      )
     : 0;
 
   return {
@@ -832,6 +837,8 @@ function Masonry<T>(
     [_dynamicHeights, _dynamicHeightsV2Experiment, items, measurementStore, positionStore, gutter],
   );
 
+  const maxHeightRef = useRef(0);
+
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
     align,
     columnWidth,
@@ -842,6 +849,7 @@ function Masonry<T>(
     minCols,
     positionStore,
     width,
+    maxHeight: maxHeightRef.current,
     heightUpdateTrigger,
     _logTwoColWhitespace,
     _measureAll,
@@ -850,6 +858,9 @@ function Masonry<T>(
     _getResponsiveModuleConfigForSecondItem,
     _getModulePositioningConfig,
   });
+  useEffect(() => {
+    maxHeightRef.current = height;
+  }, [height]);
 
   useFetchOnScroll({
     containerHeight,
