@@ -3466,7 +3466,7 @@ exports[`visual refresh tokens uses visual refresh dark mode theme when specifie
   --color-background-popover-primary: #2e2e2d;
   --color-background-popover-education: #7cbede;
   --color-background-searchguide-default-10: #6d4270;
-  --color-background-searchguide-default-11: #000000;
+  --color-background-searchguide-default-11: #757570;
   --color-background-searchguide-default-01: #007db8;
   --color-background-searchguide-default-02: #517d3b;
   --color-background-searchguide-default-03: #f06d22;
