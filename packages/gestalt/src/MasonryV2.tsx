@@ -678,6 +678,7 @@ function Masonry<T>(
     _dynamicHeights,
     _dynamicHeightsV2Experiment,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   }: Props<T>,
   ref:
     | {
@@ -830,6 +831,7 @@ function Masonry<T>(
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   });
   useEffect(() => {
     maxHeightRef.current = height;
