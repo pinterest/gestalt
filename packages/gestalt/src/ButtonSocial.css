@@ -5,8 +5,7 @@
   display: flex;
   gap: var(--space-200);
   height: 48px;
-  padding: var(--space-300) var(--space-1100)
-    var(--space-300) var(--space-400);
+  padding: var(--space-300) var(--space-1100) var(--space-300) var(--space-400);
   width: 343px;
 }
 

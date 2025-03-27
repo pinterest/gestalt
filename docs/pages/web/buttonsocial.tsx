@@ -17,7 +17,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
         <SandpackExample code={main} hideEditor name="Main ButtonSocial example" />
       </PageHeader>
 
-      <GeneratedPropTable generatedDocGen={generatedDocGen} />
+      {/* <GeneratedPropTable generatedDocGen={generatedDocGen} /> */}
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
@@ -25,20 +25,23 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
 
       <MainSection name="Variants">
         <MainSection.Subsection
-          description={`ButtonSocial has 4 different services:
+          description={`ButtonSocial has 5 different services:
             1. \`Apple\`
             2. \`Facebook \` 
             3. \`Google \` 
-            4. \`Email\``}
+            4. \`Line \` 
+            5. \`Email\``
+          }
           title="Service"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew service={['apple', 'facebook', 'google', 'email']}>
+          <CombinationNew service={['apple', 'facebook', 'google','line', 'email']}>
             {({ service }) => {
-              const serviceCopy: 'apple' | 'facebook' | 'google' | 'email' = service as
+              const serviceCopy: 'apple' | 'facebook' | 'google'| 'line' | 'email' = service as
                 | 'apple'
                 | 'facebook'
                 | 'google'
+                | 'line'
                 | 'email';
               return <ButtonSocial service={serviceCopy} type="continue" />;
             }}

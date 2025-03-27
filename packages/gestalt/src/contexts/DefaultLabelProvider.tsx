@@ -36,14 +36,17 @@ export type DefaultLabelContextType = {
     textLoginFacebook: string;
     textLoginGoogle: string;
     textLoginApple: string;
+    textLoginLine: string;
     textContinueEmail: string;
     textContinueFacebook: string;
     textContinueGoogle: string;
     textContinueApple: string;
+    textContinueLine: string;
     textSignupEmail: string;
     textSignupFacebook: string;
     textSignupGoogle: string;
     textSignupApple: string;
+    textSignupLine: string;
   };
   ChartGraph: {
     accessibilityLabelPrefixText: string;
@@ -180,14 +183,17 @@ export const fallbackLabels: DefaultLabelContextType = {
     textLoginFacebook: 'Login with Facebook',
     textLoginGoogle: 'Login with Google',
     textLoginApple: 'Login with Apple',
+    textLoginLine: 'Login with Line',
     textContinueEmail: 'Continue with Email',
     textContinueFacebook: 'Continue with Facebook',
     textContinueGoogle: 'Continue with Google',
     textContinueApple: 'Continue with Apple',
+    textContinueLine: 'Continue with Line',
     textSignupEmail: 'Sign up with Email',
     textSignupFacebook: 'Sign up with Facebook',
     textSignupGoogle: 'Sign up with Google',
     textSignupApple: 'Sign up with Apple',
+    textSignupLine: 'Sign up with Line',
   },
   ChartGraph: {
     accessibilityLabelPrefixText: 'ChartGraph',
