@@ -10,8 +10,10 @@ import VRButtonSocial from './ButtonSocial/VRButtonSocial';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
 import Flex from './Flex';
+import focusStyles from './Focus.css';
 import Icon from './Icon';
 import Text from './Text';
+import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 
 type ButtonProps = {
@@ -131,6 +133,9 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   const { colorSchemeName } = useColorScheme();
 
+    const { isFocusVisible } = useFocusVisible();
+  
+
   if (isInVRExperiment) {
     return (
       <VRButtonSocial dataTestId={dataTestId} onClick={onClick} service={service} type={type} />
@@ -141,7 +146,9 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
 
-  const buttonClasses = classnames(background, styles.social);
+  const buttonClasses = classnames(background, styles.social,{
+    [focusStyles.accessibilityOutlineButtonSocial]: isFocusVisible,
+  });
 
   return (
     <button
