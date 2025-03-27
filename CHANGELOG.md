@@ -1,3 +1,9 @@
+## 174.3.3 (Mar 27, 2025)
+
+### Patch
+
+- Masonry: Fix the props on Masonry V2 ([#4052](https://github.com/pinterest/gestalt/pull/4052)) - [Preview link](https://deploy-preview-4052--gestalt.netlify.app?devexample=true)
+
 ## 174.3.2 (Mar 26, 2025)
 
 ### Patch
