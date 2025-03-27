@@ -176,6 +176,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _earlyBailout?: (columnSpan: number) => number;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type MasonryRef = {
