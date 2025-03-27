@@ -1,3 +1,15 @@
+## 174.3.2 (Mar 26, 2025)
+
+### Patch
+
+- Masonry: Multi-column position algorithm V2 ([#4016](https://github.com/pinterest/gestalt/pull/4016)) - [Preview link](https://deploy-preview-4016--gestalt.netlify.app?devexample=true)
+
+## 174.3.1 (Mar 26, 2025)
+
+### Patch
+
+- SearchGuide: (mWeb) update color variant "11" to match figma in dark mode ([#4050](https://github.com/pinterest/gestalt/pull/4050)) - [Preview link](https://deploy-preview-4050--gestalt.netlify.app?devexample=true)
+
 ## 174.3.0 (Mar 24, 2025)
 
 ### Minor
