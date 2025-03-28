@@ -4,6 +4,10 @@ import { useColorScheme } from './ColorSchemeProvider';
 import useDesignTokens from './useDesignTokens';
 import useInExperiment from '../useInExperiment';
 
+const CLASSIC = 'classic';
+const VISUALREFRESH = 'visualrefresh';
+const CALICO01 = 'calico01';
+
 /**
  * APPENDS TOKENS AS INJECTED CSS TOKENS
  */
@@ -11,7 +15,7 @@ const useThemeToStyles = ({
   forceTheme,
   languageMode = 'default',
 }: {
-  forceTheme?: 'classic' | 'visualrefresh' | 'calico01';
+  forceTheme?: typeof CLASSIC | typeof VISUALREFRESH | typeof CALICO01;
   languageMode?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
 }) => {
   // GET COLOR SCHEME MODE
@@ -20,17 +24,19 @@ const useThemeToStyles = ({
   const tokens = useDesignTokens({ forceTheme });
 
   // DEFINE THEME UNDER EXPERIMENT
-  const isVR = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const isVR =
+    useInExperiment({
+      webExperimentName: 'web_gestalt_visualrefresh',
+      mwebExperimentName: 'web_gestalt_visualrefresh',
+    }) || forceTheme === VISUALREFRESH;
 
-  const isCalico01 = useInExperiment({
-    webExperimentName: 'web_gestalt_calico01',
-    mwebExperimentName: 'web_gestalt_calico01',
-  });
+  const isCalico01 =
+    useInExperiment({
+      webExperimentName: 'web_gestalt_calico01',
+      mwebExperimentName: 'web_gestalt_calico01',
+    }) || forceTheme === CALICO01;
 
-  const isClassic = forceTheme === 'classic' || (!isVR && !isCalico01);
+  const isClassic = forceTheme === CLASSIC || !(isVR || isCalico01);
 
   // BUILD STYLE SHEET FROM TOKENS FILES
   let styles = '';
@@ -41,7 +47,6 @@ const useThemeToStyles = ({
   if (!isClassic) {
     styles += `  --gestalt-line-height: ${languageMode}Mode;\n`;
   }
-
   // BUILDS TOKENS
   const colorSchemeModeTokenSet = colorSchemeMode === 'darkMode' ? tokens.dark : tokens.light;
   // @ts-expect-error - TS7053
