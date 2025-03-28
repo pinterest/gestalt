@@ -21,6 +21,7 @@ import ComboBox from './ComboBox';
 import Container from './Container';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider';
 import DefaultLabelProvider, { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import DesignTokensProvider from './contexts/DesignTokensProvider'
 import DeviceTypeProvider, { useDeviceType } from './contexts/DeviceTypeProvider';
 import ExperimentProvider from './contexts/ExperimentProvider';
 import GlobalEventsHandlerProvider, {
@@ -118,6 +119,7 @@ export {
   Container,
   Datapoint,
   DefaultLabelProvider,
+  DesignTokensProvider,
   DeviceTypeProvider,
   Divider,
   Dropdown,
