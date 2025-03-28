@@ -2,10 +2,10 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import Box from './Box';
 import styles from './ButtonSocial.css';
-import AppleIcon from './ButtonSocial/AppleIcon'
+import AppleIcon from './ButtonSocial/AppleIcon';
 import FacebookIcon from './ButtonSocial/FacebookIcon';
 import GoogleIcon from './ButtonSocial/GoogleIcon';
-import LineIcon from './ButtonSocial/LineIcon'
+import LineIcon from './ButtonSocial/LineIcon';
 import VRButtonSocial from './ButtonSocial/VRButtonSocial';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
@@ -34,7 +34,7 @@ type ButtonProps = {
   /**
    * Text to render inside the ButtonSocial to convey the function and purpose of the ButtonSocial.
    */
-  service: 'apple' | 'facebook' | 'google' | 'email' | 'line' ;
+  service: 'apple' | 'facebook' | 'google' | 'email' | 'line';
 };
 
 /**
@@ -59,7 +59,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   switch (service) {
     case 'apple':
-      iconService = <AppleIcon/>
+      iconService = <AppleIcon />;
       break;
     case 'facebook':
       iconService = <FacebookIcon />;
@@ -71,7 +71,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
       iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
       break;
     case 'line':
-      iconService = <LineIcon/>
+      iconService = <LineIcon />;
       break;
     default:
       iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
@@ -133,8 +133,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   const { colorSchemeName } = useColorScheme();
 
-    const { isFocusVisible } = useFocusVisible();
-  
+  const { isFocusVisible } = useFocusVisible();
 
   if (isInVRExperiment) {
     return (
@@ -146,7 +145,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
 
-  const buttonClasses = classnames(background, styles.social,styles.rtl,{
+  const buttonClasses = classnames(background, styles.social, styles.rtl, {
     [focusStyles.accessibilityOutlineButtonSocial]: isFocusVisible,
   });
 

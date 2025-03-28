@@ -30,14 +30,13 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
             2. \`Facebook \` 
             3. \`Google \` 
             4. \`Line \` 
-            5. \`Email\``
-          }
+            5. \`Email\``}
           title="Service"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
-          <CombinationNew service={['apple', 'facebook', 'google','line', 'email']}>
+          <CombinationNew service={['apple', 'facebook', 'google', 'line', 'email']}>
             {({ service }) => {
-              const serviceCopy: 'apple' | 'facebook' | 'google'| 'line' | 'email' = service as
+              const serviceCopy: 'apple' | 'facebook' | 'google' | 'line' | 'email' = service as
                 | 'apple'
                 | 'facebook'
                 | 'google'

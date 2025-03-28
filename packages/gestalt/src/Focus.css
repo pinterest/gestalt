@@ -20,7 +20,6 @@
   outline-offset: 0;
 }
 
-
 .accessibilityOutlineLightBackground:focus {
   outline: 2px solid var(--sema-color-border-focus-outer-default);
   outline-offset: 0;

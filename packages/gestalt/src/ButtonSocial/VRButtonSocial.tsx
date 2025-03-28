@@ -31,7 +31,7 @@ type ButtonProps = {
   /**
    * Text to render inside the ButtonSocial to convey the function and purpose of the ButtonSocial.
    */
-  service: 'apple' | 'facebook' | 'google' | 'email'| 'line';
+  service: 'apple' | 'facebook' | 'google' | 'email' | 'line';
 };
 
 /**
@@ -69,8 +69,8 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
     case 'email':
       iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
       break;
-   case 'line':
-        iconService = <LineIcon/>
+    case 'line':
+      iconService = <LineIcon />;
       break;
     default:
       iconService = <Icon accessibilityLabel="" color="default" icon="gmail" size={20} />;
