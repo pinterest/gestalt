@@ -17,6 +17,7 @@ import Mask from '../Mask';
 import Spinner from '../Spinner';
 import Text from '../Text';
 import useInExperiment from '../useInExperiment';
+import DesignTokensProvider from '../contexts/DesignTokensProvider';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
@@ -198,16 +199,15 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
         />
       ) : null}
       {type === 'success' ? (
-        <ColorSchemeProvider
-          colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}
-          id="icon-toast-success"
-        >
-          <Icon
-            accessibilityLabel={accessibilityIconSuccessLabel}
-            color={isInExperiment ? 'default' : 'success'}
-            icon="workflow-status-ok"
-            size={SIZE_ICON}
-          />
+        <ColorSchemeProvider colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}>
+          <DesignTokensProvider id="icon-toast-success">
+            <Icon
+              accessibilityLabel={accessibilityIconSuccessLabel}
+              color={isInExperiment ? 'default' : 'success'}
+              icon="workflow-status-ok"
+              size={SIZE_ICON}
+            />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       ) : null}
       {type === 'progress' ? (

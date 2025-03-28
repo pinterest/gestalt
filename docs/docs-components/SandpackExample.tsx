@@ -260,7 +260,7 @@ export default function SandpackExample({
           root.render(
             <StrictMode>
               <ExperimentProvider value={${JSON.stringify(experimentsObj)}}>
-                <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
+                <ColorSchemeProvider colorScheme="${exampleColorScheme}">
                   <Box color="default" height="100%" width="100%">
                     <App />
                   </Box>
