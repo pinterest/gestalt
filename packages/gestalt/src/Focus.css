@@ -3,6 +3,23 @@
   outline-offset: 0;
 }
 
+.accessibilityOutlineButton:focus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
+.accessibilityOutlineButtonSocialVR:focus {
+  border: 1px solid var(--sema-color-border-focus-outer-default);
+  outline: 1px solid var(--sema-color-border-focus-outer-default);
+  outline-offset: 0;
+}
+
+.accessibilityOutlineButtonSocial:focus {
+  border: 1px solid var(--color-border-focus);
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
 .accessibilityOutlineLightBackground:focus {
   outline: 2px solid var(--sema-color-border-focus-outer-default);
   outline-offset: 0;
