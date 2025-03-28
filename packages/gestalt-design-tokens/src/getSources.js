@@ -75,32 +75,34 @@ function getSources({ theme, modeTheme, platform, language }) {
     ];
   }
 
+  const tokenPath = theme == 'calico' ? 'calico' : 'vr-theme'
+
   return [
-    'tokens/vr-theme/base/color/default.json',
-    'tokens/vr-theme/base/text/font.json',
-    'tokens/vr-theme/base/opacity.json',
-    'tokens/vr-theme/base/rounding.json',
-    'tokens/vr-theme/base/space.json',
-    'tokens/vr-theme/base/lineheight.json',
-    'tokens/vr-theme/base/motion.json',
-    `tokens/vr-theme/sema/color/${modeTheme}/default.json`,
-    `tokens/vr-theme/sema/elevation/${modeTheme}.json`,
-    'tokens/vr-theme/sema/text/font.json',
+    `tokens${tokenPath}base/color/default.json`,
+    `tokens${tokenPath}base/text/font.json`,
+    `tokens${tokenPath}base/opacity.json`,
+    `tokens${tokenPath}base/rounding.json`,
+    `tokens${tokenPath}base/space.json`,
+    `tokens${tokenPath}base/lineheight.json`,
+    `tokens${tokenPath}base/motion.json`,
+    `tokens${tokenPath}sema/color/${modeTheme}/default.json`,
+    `tokens${tokenPath}sema/elevation/${modeTheme}.json`,
+    `tokens${tokenPath}sema/text/font.json`,
     ...getComponentTokenSources(),
     ...(platform === 'web'
       ? [
-          'tokens/vr-theme/base/color/pressed.json',
-          'tokens/vr-theme/base/color/hover.json',
-          `tokens/vr-theme/sema/color/${modeTheme}/hover.json`,
-          `tokens/vr-theme/sema/color/${modeTheme}/pressed.json`,
+          `tokens${tokenPath}base/color/pressed.json`,
+          `tokens${tokenPath}base/color/hover.json`,
+          `tokens${tokenPath}sema/color/${modeTheme}/hover.json`,
+          `tokens${tokenPath}sema/color/${modeTheme}/pressed.json`,
         ]
       : []),
-    'tokens/vr-theme/sema/elevation.json',
-    'tokens/vr-theme/sema/opacity.json',
-    'tokens/vr-theme/sema/rounding.json',
-    'tokens/vr-theme/sema/space.json',
-    `tokens/vr-theme/sema/text/language/${language}.json`,
-    'tokens/vr-theme/sema/motion.json',
+    `tokens${tokenPath}sema/elevation.json`,
+    `tokens${tokenPath}sema/opacity.json`,
+    `tokens${tokenPath}sema/rounding.json`,
+    `tokens${tokenPath}sema/space.json`,
+    `tokens${tokenPath}sema/text/language/${language}.json`,
+    `tokens${tokenPath}sema/motion.json`,
     ...(theme === 'vr-theme-web-mapping'
       ? [
           `tokens/vr-theme-web-mapping/base-color-dataviz-${modeTheme}.json`,

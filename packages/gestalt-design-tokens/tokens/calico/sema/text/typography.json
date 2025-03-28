@@ -1,0 +1,303 @@
+{
+  "sema": {
+    "typography": {
+      "heading": {
+        "LG": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.heading.LG}",
+            "fontWeight": "{sema.font.weight.heading.LG}",
+            "fontSize": "{sema.font.size.heading.LG}",
+            "lineHeight": "{sema.font.lineheight.heading.LG}",
+            "textDecoration": "{sema.font.textdecoration.heading.LG}",
+            "letterSpacing": "{sema.font.letterspacing.heading.LG}"
+          }
+        },
+        "MD": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.heading.MD}",
+            "fontWeight": "{sema.font.weight.heading.MD}",
+            "fontSize": "{sema.font.size.heading.MD}",
+            "lineHeight": "{sema.font.lineheight.heading.MD}",
+            "textDecoration": "{sema.font.textdecoration.heading.MD}",
+            "letterSpacing": "{sema.font.letterspacing.heading.MD}"
+          }
+        },
+        "SM": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.heading.SM}",
+            "fontWeight": "{sema.font.weight.heading.SM}",
+            "fontSize": "{sema.font.size.heading.SM}",
+            "lineHeight": "{sema.font.lineheight.heading.SM}",
+            "textDecoration": "{sema.font.textdecoration.heading.SM}",
+            "letterSpacing": "{sema.font.letterspacing.heading.SM}"
+          }
+        },
+        "XS": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.heading.XS}",
+            "fontWeight": "{sema.font.weight.heading.XS}",
+            "fontSize": "{sema.font.size.heading.XS}",
+            "lineHeight": "{sema.font.lineheight.heading.XS}",
+            "textDecoration": "{sema.font.textdecoration.heading.XS}",
+            "letterSpacing": "{sema.font.letterspacing.heading.XS}"
+          }
+        },
+        "XXS": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.heading.XXS}",
+            "fontWeight": "{sema.font.weight.heading.XXS}",
+            "fontSize": "{sema.font.size.heading.XXS}",
+            "lineHeight": "{sema.font.lineheight.heading.XXS}",
+            "textDecoration": "{sema.font.textdecoration.heading.XXS}",
+            "letterSpacing": "{sema.font.letterspacing.heading.XXS}"
+          }
+        }
+      },
+      "UI": {
+        "LG": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.UI.LG}",
+            "fontWeight": "{sema.font.weight.UI.LG}",
+            "fontSize": "{sema.font.size.UI.LG}",
+            "lineHeight": "{sema.font.lineheight.UI.LG}",
+            "textDecoration": "{sema.font.textdecoration.UI.LG}",
+            "letterSpacing": "{sema.font.letterspacing.UI.LG}"
+          }
+        },
+        "MD": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.UI.MD}",
+            "fontWeight": "{sema.font.weight.UI.MD}",
+            "fontSize": "{sema.font.size.UI.MD}",
+            "lineHeight": "{sema.font.lineheight.UI.MD}",
+            "textDecoration": "{sema.font.textdecoration.UI.MD}",
+            "letterSpacing": "{sema.font.letterspacing.UI.MD}"
+          }
+        },
+        "SM": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.UI.SM}",
+            "fontWeight": "{sema.font.weight.UI.SM}",
+            "fontSize": "{sema.font.size.UI.SM}",
+            "lineHeight": "{sema.font.lineheight.UI.SM}",
+            "textDecoration": "{sema.font.textdecoration.UI.SM}",
+            "letterSpacing": "{sema.font.letterspacing.UI.SM}"
+          }
+        },
+        "XS": {
+          "type": "typography",
+          "value": {
+            "fontFamily": "{sema.font.family.UI.XS}",
+            "fontWeight": "{sema.font.weight.UI.XS}",
+            "fontSize": "{sema.font.size.UI.XS}",
+            "lineHeight": "{sema.font.lineheight.UI.XS}",
+            "textDecoration": "{sema.font.textdecoration.UI.XS}",
+            "letterSpacing": "{sema.font.letterspacing.UI.XS}"
+          }
+        }
+      },
+      "body": {
+        "LG": {
+          "default": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.LG}",
+              "fontWeight": "{sema.font.weight.body.LG.default}",
+              "fontSize": "{sema.font.size.body.LG}",
+              "lineHeight": "{sema.font.lineheight.body.LG}",
+              "textDecoration": "{sema.font.textdecoration.body.LG.default}",
+              "paragraphSpacing": "{sema.font.size.body.LG}",
+              "letterSpacing": "{sema.font.letterspacing.body.LG}"
+            }
+          },
+          "link": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.LG}",
+              "fontWeight": "{sema.font.weight.body.LG.default}",
+              "fontSize": "{sema.font.size.body.LG}",
+              "lineHeight": "{sema.font.lineheight.body.LG}",
+              "textDecoration": "{sema.font.textdecoration.body.LG.link}",
+              "paragraphSpacing": "{sema.font.size.body.LG}",
+              "letterSpacing": "{sema.font.letterspacing.body.LG}"
+            }
+          },
+          "emphasis": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.LG}",
+              "fontWeight": "{sema.font.weight.body.LG.emphasis}",
+              "fontSize": "{sema.font.size.body.LG}",
+              "lineHeight": "{sema.font.lineheight.body.LG}",
+              "textDecoration": "{sema.font.textdecoration.body.LG.emphasis}",
+              "paragraphSpacing": "{sema.font.size.body.LG}",
+              "letterSpacing": "{sema.font.letterspacing.body.LG}"
+            }
+          }
+        },
+        "MD": {
+          "default": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.MD}",
+              "fontWeight": "{sema.font.weight.body.MD.default}",
+              "fontSize": "{sema.font.size.body.MD}",
+              "lineHeight": "{sema.font.lineheight.body.MD}",
+              "textDecoration": "{sema.font.textdecoration.body.MD.default}",
+              "paragraphSpacing": "{sema.font.size.body.MD}",
+              "letterSpacing": "{sema.font.letterspacing.body.MD}"
+            }
+          },
+          "link": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.MD}",
+              "fontWeight": "{sema.font.weight.body.MD.default}",
+              "fontSize": "{sema.font.size.body.MD}",
+              "lineHeight": "{sema.font.lineheight.body.MD}",
+              "textDecoration": "{sema.font.textdecoration.body.MD.link}",
+              "paragraphSpacing": "{sema.font.size.body.MD}",
+              "letterSpacing": "{sema.font.letterspacing.body.MD}"
+            }
+          },
+          "emphasis": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.MD}",
+              "fontWeight": "{sema.font.weight.body.MD.emphasis}",
+              "fontSize": "{sema.font.size.body.MD}",
+              "lineHeight": "{sema.font.lineheight.body.MD}",
+              "textDecoration": "{sema.font.textdecoration.body.MD.emphasis}",
+              "paragraphSpacing": "{sema.font.size.body.MD}",
+              "letterSpacing": "{sema.font.letterspacing.body.MD}"
+            }
+          }
+        },
+        "SM": {
+          "default": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.SM}",
+              "fontWeight": "{sema.font.weight.body.SM.default}",
+              "fontSize": "{sema.font.size.body.SM}",
+              "lineHeight": "{sema.font.lineheight.body.SM}",
+              "textDecoration": "{sema.font.textdecoration.body.SM.default}",
+              "paragraphSpacing": "{sema.font.size.body.SM}",
+              "letterSpacing": "{sema.font.letterspacing.body.SM}"
+            }
+          },
+          "link": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.SM}",
+              "fontWeight": "{sema.font.weight.body.SM.default}",
+              "fontSize": "{sema.font.size.body.SM}",
+              "lineHeight": "{sema.font.lineheight.body.SM}",
+              "textDecoration": "{sema.font.textdecoration.body.SM.link}",
+              "paragraphSpacing": "{sema.font.size.body.SM}",
+              "letterSpacing": "{sema.font.letterspacing.body.SM}"
+            }
+          },
+          "emphasis": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.SM}",
+              "fontWeight": "{sema.font.weight.body.SM.emphasis}",
+              "fontSize": "{sema.font.size.body.SM}",
+              "lineHeight": "{sema.font.lineheight.body.SM}",
+              "textDecoration": "{sema.font.textdecoration.body.SM.emphasis}",
+              "paragraphSpacing": "{sema.font.size.body.SM}",
+              "letterSpacing": "{sema.font.letterspacing.body.SM}"
+            }
+          }
+        },
+        "XS": {
+          "default": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.XS}",
+              "fontWeight": "{sema.font.weight.body.XS.default}",
+              "fontSize": "{sema.font.size.body.XS}",
+              "lineHeight": "{sema.font.lineheight.body.XS}",
+              "textDecoration": "{sema.font.textdecoration.body.XS.default}",
+              "paragraphSpacing": "{sema.font.size.body.XS}",
+              "letterSpacing": "{sema.font.letterspacing.body.XS}"
+            }
+          },
+          "link": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.XS}",
+              "fontWeight": "{sema.font.weight.body.XS.default}",
+              "fontSize": "{sema.font.size.body.XS}",
+              "lineHeight": "{sema.font.lineheight.body.XS}",
+              "textDecoration": "{sema.font.textdecoration.body.XS.link}",
+              "paragraphSpacing": "{sema.font.size.body.XS}",
+              "letterSpacing": "{sema.font.letterspacing.body.XS}"
+            }
+          },
+          "emphasis": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.body.XS}",
+              "fontWeight": "{sema.font.weight.body.XS.emphasis}",
+              "fontSize": "{sema.font.size.body.XS}",
+              "lineHeight": "{sema.font.lineheight.body.XS}",
+              "textDecoration": "{sema.font.textdecoration.body.XS.emphasis}",
+              "paragraphSpacing": "{sema.font.size.body.XS}",
+              "letterSpacing": "{sema.font.letterspacing.body.XS}"
+            }
+          }
+        }
+      },
+      "compact": {
+        "XS": {
+          "default": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.compact.XS}",
+              "fontWeight": "{sema.font.weight.compact.XS.default}",
+              "fontSize": "{sema.font.size.compact.XS}",
+              "lineHeight": "{sema.font.lineheight.compact.XS}",
+              "textDecoration": "{sema.font.textdecoration.compact.XS.default}",
+              "paragraphSpacing": "{sema.font.size.compact.XS}",
+              "letterSpacing": "{sema.font.letterspacing.compact.XS}"
+            }
+          },
+          "link": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.compact.XS}",
+              "fontWeight": "{sema.font.weight.compact.XS.default}",
+              "fontSize": "{sema.font.size.compact.XS}",
+              "lineHeight": "{sema.font.lineheight.compact.XS}",
+              "textDecoration": "{sema.font.textdecoration.compact.XS.link}",
+              "paragraphSpacing": "{sema.font.size.compact.XS}",
+              "letterSpacing": "{sema.font.letterspacing.compact.XS}"
+            }
+          },
+          "emphasis": {
+            "type": "typography",
+            "value": {
+              "fontFamily": "{sema.font.family.compact.XS}",
+              "fontWeight": "{sema.font.weight.compact.XS.emphasis}",
+              "fontSize": "{sema.font.size.compact.XS}",
+              "lineHeight": "{sema.font.lineheight.compact.XS}",
+              "textDecoration": "{sema.font.textdecoration.compact.XS.emphasis}",
+              "paragraphSpacing": "{sema.font.size.compact.XS}",
+              "letterSpacing": "{sema.font.letterspacing.compact.XS}"
+            }
+          }
+        }
+      }
+    }
+  }
+}

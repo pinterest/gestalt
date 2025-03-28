@@ -1,0 +1,10 @@
+{
+  "base": {
+    "space": {
+      "unit": {
+        "value": "4px",
+        "type": "other"
+      }
+    }
+  }
+}

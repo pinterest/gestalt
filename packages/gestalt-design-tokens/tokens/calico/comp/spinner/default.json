@@ -1,0 +1,44 @@
+{
+  "comp": {
+    "spinner": {
+      "color": {
+        "background": {
+          "1": {
+            "type": "color",
+            "value": "#c85bd2"
+          },
+          "2": {
+            "type": "color",
+            "value": "#e57534"
+          },
+          "3": {
+            "type": "color",
+            "value": "#22a596"
+          }
+        }
+      },
+      "motion": {
+        "enter": {
+          "duration": {
+            "type": "other",
+            "value": "{base.motion.duration.300}"
+          },
+          "easing": {
+            "type": "other",
+            "value": "{base.motion.easing.enter}"
+          }
+        },
+        "exit": {
+          "duration": {
+            "type": "other",
+            "value": "{base.motion.duration.150}"
+          },
+          "easing": {
+            "type": "other",
+            "value": "{base.motion.easing.enter}"
+          }
+        }
+      }
+    }
+  }
+}
