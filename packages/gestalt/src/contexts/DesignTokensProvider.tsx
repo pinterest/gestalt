@@ -9,13 +9,13 @@ import useInExperiment from '../useInExperiment';
  */
 const useThemeToStyles = ({
   forceTheme,
-  language,
+  languageMode = 'default',
 }: {
   forceTheme?: 'classic' | 'visualrefresh' | 'calico01';
-  language?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
+  languageMode?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
 }) => {
   // GET COLOR SCHEME MODE
-  const themeColorScheme = useColorScheme();
+  const { colorSchemeName: colorSchemeMode } = useColorScheme();
   // GET DEFAULT DESIGN SYSTEM TOKEN SET OR APPLICABLE FROM EXPERIMENT
   const tokens = useDesignTokens({ forceTheme });
 
@@ -36,37 +36,25 @@ const useThemeToStyles = ({
   let styles = '';
 
   // ADDS METADATA
-  Object.keys(themeColorScheme).forEach((key) => {
-    styles += `  --gestalt-theme: ${tokens.name};\n`;
-    // @ts-expect-error - TS7053
-    styles += `  --gestalt-color-scheme: ${themeColorScheme[key]};\n`;
-    styles += `  --gestalt-line-height: ${language}Mode;\n`;
-  });
+  styles += `  --gestalt-theme: ${tokens.name};\n`;
+  styles += `  --gestalt-color-scheme: ${colorSchemeMode};\n`;
+  if (!isClassic) {
+    styles += `  --gestalt-line-height: ${languageMode}Mode;\n`;
+  }
 
   // BUILDS TOKENS
-  if (themeColorScheme.colorSchemeName === 'darkMode') {
-    Object.keys(tokens.dark).forEach((key) => {
-      if (!isClassic && key.match(/lineheight/)) {
-        // @ts-expect-error - TS7053
-        styles += `  --${key}: ${tokens[language][key]};\n`;
-      } else {
-        // @ts-expect-error - TS7053
-        styles += `  --${key}: ${tokens.dark[key]};\n`;
-      }
-    });
-  } else {
-    Object.keys(tokens.light).forEach((key) => {
-      if (!isClassic && key.match(/lineheight/)) {
-        // @ts-expect-error - TS7053
-        styles += `  --${key}: ${tokens[language][key]};\n`;
-      } else {
-        styles += `  --${key}: ${
-          // @ts-expect-error - TS7053
-          tokens.light[key]
-        };\n`;
-      }
-    });
-  }
+  const colorSchemeModeTokenSet = colorSchemeMode === 'darkMode' ? tokens.dark : tokens.light;
+  // @ts-expect-error - TS7053
+  const languageModeTokenSet = languageMode ? tokens[languageMode] : '';
+
+  Object.keys(colorSchemeModeTokenSet).forEach((key) => {
+    if (!isClassic && key.match(/lineheight/)) {
+      styles += `  --${key}: ${languageModeTokenSet[key]};\n`;
+    } else {
+      // @ts-expect-error - TS7053
+      styles += `  --${key}: ${colorSchemeModeTokenSet[key]};\n`;
+    }
+  });
 
   return styles;
 };
@@ -82,11 +70,14 @@ type Props = {
    */
   id?: string | null | undefined;
   /**
-   * Sets the line height for the selected language.
+   * Sets the language mode that manages the line height for the selected language.
    */
   languageMode?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
-  __forceTheme?: 'classic' | 'visualrefresh' | 'calico01';
-  __rootSelector?: string;
+  /**
+   * Forces a theme. It should be accompanied of a root selector. It allows applying a theme on delimited sections.
+   */
+  forceTheme?: 'classic' | 'visualrefresh' | 'calico01';
+  rootSelector?: string;
 };
 
 /**
@@ -96,28 +87,19 @@ export default function DesignTokensProvider({
   children,
   id,
   languageMode = 'default',
-  __forceTheme,
-  __rootSelector = '',
+  forceTheme,
+  rootSelector = '',
 }: Props) {
-  const [languageLineHeight, setLanguageLineHeight] = useState(languageMode);
-
   const className = id ? `__gestaltTheme${id}` : undefined;
-  const root = __rootSelector ? `:root .${__rootSelector}` : ':root';
-  const selector = id ? `.${className}` : root;
-
-  useEffect(() => {
-    setLanguageLineHeight(languageMode);
-  }, [languageMode]);
-
-  const styles = useThemeToStyles({ language: languageLineHeight, forceTheme: __forceTheme });
+  const root = rootSelector ? `:root .${rootSelector}` : ':root';
 
   return (
     <Fragment>
       <style
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: `${selector} {
-${styles} }`,
+          __html: `${id ? `.${className}` : root} {
+${useThemeToStyles({ languageMode, forceTheme })} }`,
         }}
       />
       <div className={classnames(className)}>{children}</div>
