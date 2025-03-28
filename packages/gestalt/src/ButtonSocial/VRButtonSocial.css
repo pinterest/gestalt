@@ -9,6 +9,10 @@
   width: 343px;
 }
 
+html:not([dir="ltr"]) .rtl {
+  padding: var(--space-300) var(--space-400) var(--space-300) var(--space-1100);
+}
+
 .darkMode {
   background: var(--sema-color-background-default, #000);
   border: 1px solid var(--sema-color-border-interactive, #c2c2b6);

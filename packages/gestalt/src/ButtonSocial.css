@@ -14,6 +14,10 @@
   border: 1px solid var(--color-border-interactive, #c2c2b6);
 }
 
+html:not([dir="ltr"]) .rtl {
+  padding: var(--space-300) var(--space-400) var(--space-300) var(--space-1100);
+}
+
 .lightMode {
   background: var(--background-color-background-default, #fff);
   border: 1px solid var(--border-color-border-default, #767676);

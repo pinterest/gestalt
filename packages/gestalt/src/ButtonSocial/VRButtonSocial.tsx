@@ -131,7 +131,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   const background = isDarkMode ? styles.darkMode : styles.lightMode;
 
-  const buttonClasses = classnames(styles.social, background, {
+  const buttonClasses = classnames(styles.social, background, styles.rtl, {
     [focusStyles.accessibilityOutlineButtonSocialVR]: isFocusVisible,
   });
 
