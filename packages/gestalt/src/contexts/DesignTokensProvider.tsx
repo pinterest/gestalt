@@ -74,21 +74,24 @@ type Props = {
    */
   languageMode?: 'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi';
   /**
-   * Forces a theme. It should be accompanied of a root selector. It allows applying a theme on delimited sections.
+   * Forces a theme. It allows applying a theme on delimited sections. It should be accompanied of a root selector.
    */
   forceTheme?: 'classic' | 'visualrefresh' | 'calico01';
+  /**
+   * Forces a theme. It allows applying a theme on delimited sections. It should be accompanied of forceTheme.
+   */
   rootSelector?: string;
 };
 
 /**
- * [DesignTokensProvider](https://gestalt.pinterest.systems/web/utilities/designtokensprovider).
+ * [DesignTokensProvider](https://gestalt.pinterest.systems/web/utilities/designtokensprovider) is a stylesheet containing Gestalt' design system tokens. It manages themes and modes. It's dependent on parent providers: ExperimentProvider and [ColorSchemeProvider](https://gestalt.pinterest.systems/web/utilities/colorschemeprovider)
  */
 export default function DesignTokensProvider({
   children,
   id,
   languageMode = 'default',
   forceTheme,
-  rootSelector = '',
+  rootSelector,
 }: Props) {
   const root = rootSelector ? `:root .${rootSelector}` : ':root';
 
