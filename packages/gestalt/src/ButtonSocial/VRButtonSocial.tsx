@@ -10,7 +10,7 @@ import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import focusStyles from '../Focus.css';
 import Icon from '../Icon';
-import Text from '../Text';
+import TextUI from '../TextUI';
 import useFocusVisible from '../useFocusVisible';
 
 type ButtonProps = {
@@ -153,9 +153,9 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
             },
           }}
         >
-          <Text align="center" color="default" size="300">
+          <TextUI align="center" color="default" size="md">
             {textWithService}
-          </Text>
+          </TextUI>
         </Box>
       </Flex>
     </button>
