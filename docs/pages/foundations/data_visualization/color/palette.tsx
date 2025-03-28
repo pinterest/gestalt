@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, Flex, Heading, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Heading, Text } from 'gestalt';
 import {
   TOKEN_COLOR_DATA_VISUALIZATION_01,
   TOKEN_COLOR_DATA_VISUALIZATION_02,
@@ -62,43 +62,45 @@ const EXTENDED_STEPS = [
 
 function SemanticThemeExample({ colorScheme }: { colorScheme: 'light' | 'dark' }) {
   return (
-    <ColorSchemeProvider colorScheme={colorScheme} id={colorScheme}>
-      <Box color="default" padding={4}>
-        <Flex
-          direction="column"
-          gap={{
-            row: 0,
-            column: 4,
-          }}
-        >
-          <Heading size="400">{capitalizeFirstLetter(colorScheme)} mode</Heading>
-          <Flex direction="column">
-            <ColorTile
-              description="Success (Graph)"
-              textColor={colorScheme}
-              token={TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_GRAPH}
-            />
-            <ColorTile
-              description="Success (Text/Icon)"
-              textColor={colorScheme}
-              token={TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_TEXT}
-            />
+    <ColorSchemeProvider colorScheme={colorScheme}>
+      <DesignTokensProvider id={colorScheme}>
+        <Box color="default" padding={4}>
+          <Flex
+            direction="column"
+            gap={{
+              row: 0,
+              column: 4,
+            }}
+          >
+            <Heading size="400">{capitalizeFirstLetter(colorScheme)} mode</Heading>
+            <Flex direction="column">
+              <ColorTile
+                description="Success (Graph)"
+                textColor={colorScheme}
+                token={TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_GRAPH}
+              />
+              <ColorTile
+                description="Success (Text/Icon)"
+                textColor={colorScheme}
+                token={TOKEN_COLOR_DATA_VISUALIZATION_SUCCESS_TEXT}
+              />
+            </Flex>
+            <Flex direction="column">
+              <ColorTile
+                description="Error (Graph)"
+                textColor={colorScheme}
+                token={TOKEN_COLOR_DATA_VISUALIZATION_ERROR_GRAPH}
+              />
+              <ColorTile
+                description="Error (Text/Icon)"
+                textColor={colorScheme}
+                token={TOKEN_COLOR_DATA_VISUALIZATION_ERROR_TEXT}
+              />
+            </Flex>
           </Flex>
-          <Flex direction="column">
-            <ColorTile
-              description="Error (Graph)"
-              textColor={colorScheme}
-              token={TOKEN_COLOR_DATA_VISUALIZATION_ERROR_GRAPH}
-            />
-            <ColorTile
-              description="Error (Text/Icon)"
-              textColor={colorScheme}
-              token={TOKEN_COLOR_DATA_VISUALIZATION_ERROR_TEXT}
-            />
-          </Flex>
-        </Flex>
-        <Flex />
-      </Box>
+          <Flex />
+        </Box>
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }
@@ -153,72 +155,76 @@ export default function ColorPage() {
         name="12-Color categorical palette"
       >
         <MainSection.Subsection title="Light mode">
-          <ColorSchemeProvider colorScheme="light" id="light">
-            <Box color="default" display="inlineBlock" padding={4}>
-              <Flex
-                gap={{
-                  row: 4,
-                  column: 8,
-                }}
-                wrap
-              >
+          <ColorSchemeProvider colorScheme="light">
+            <DesignTokensProvider id="light">
+              <Box color="default" display="inlineBlock" padding={4}>
                 <Flex
-                  direction="column"
                   gap={{
-                    row: 0,
-                    column: 4,
+                    row: 4,
+                    column: 8,
                   }}
+                  wrap
                 >
-                  <Text weight="bold">Main palette</Text>
-                  {getColorTiles(MAIN_STEPS)}
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 4,
+                    }}
+                  >
+                    <Text weight="bold">Main palette</Text>
+                    {getColorTiles(MAIN_STEPS)}
+                  </Flex>
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 4,
+                    }}
+                  >
+                    <Text weight="bold">Extended palette</Text>
+                    {getColorTiles(EXTENDED_STEPS)}
+                  </Flex>
                 </Flex>
-                <Flex
-                  direction="column"
-                  gap={{
-                    row: 0,
-                    column: 4,
-                  }}
-                >
-                  <Text weight="bold">Extended palette</Text>
-                  {getColorTiles(EXTENDED_STEPS)}
-                </Flex>
-              </Flex>
-            </Box>
+              </Box>
+            </DesignTokensProvider>
           </ColorSchemeProvider>
         </MainSection.Subsection>
         <MainSection.Subsection title="Dark mode">
-          <ColorSchemeProvider colorScheme="dark" id="dark">
-            <Box color="default" display="inlineBlock" padding={4}>
-              <Flex
-                flex="none"
-                gap={{
-                  row: 4,
-                  column: 8,
-                }}
-                wrap
-              >
+          <ColorSchemeProvider colorScheme="dark">
+            <DesignTokensProvider id="dark">
+              <Box color="default" display="inlineBlock" padding={4}>
                 <Flex
-                  direction="column"
+                  flex="none"
                   gap={{
-                    row: 0,
-                    column: 4,
+                    row: 4,
+                    column: 8,
                   }}
+                  wrap
                 >
-                  <Text weight="bold">Main palette</Text>
-                  {getColorTiles(MAIN_STEPS, 'dark')}
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 4,
+                    }}
+                  >
+                    <Text weight="bold">Main palette</Text>
+                    {getColorTiles(MAIN_STEPS, 'dark')}
+                  </Flex>
+                  <Flex
+                    direction="column"
+                    gap={{
+                      row: 0,
+                      column: 4,
+                    }}
+                  >
+                    <Text weight="bold">Extended palette</Text>
+                    {getColorTiles(EXTENDED_STEPS, 'dark')}
+                  </Flex>
                 </Flex>
-                <Flex
-                  direction="column"
-                  gap={{
-                    row: 0,
-                    column: 4,
-                  }}
-                >
-                  <Text weight="bold">Extended palette</Text>
-                  {getColorTiles(EXTENDED_STEPS, 'dark')}
-                </Flex>
-              </Flex>
-            </Box>
+              </Box>
+            </DesignTokensProvider>
           </ColorSchemeProvider>
         </MainSection.Subsection>
       </MainSection>

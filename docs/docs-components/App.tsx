@@ -1,6 +1,6 @@
 import { ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { ColorSchemeProvider, GlobalEventsHandlerProvider } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider, GlobalEventsHandlerProvider } from 'gestalt';
 import { AppContextConsumer, AppContextProvider } from './appContext';
 import AppLayout from './AppLayout';
 import DocsExperimentProvider from './contexts/DocsExperimentProvider';
@@ -75,13 +75,15 @@ export default function App({ children, files }: Props) {
         <AppContextConsumer>
           {({ colorScheme }) => (
             <ColorSchemeProvider colorScheme={colorScheme}>
-              <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
-                <NavigationContextProvider>
-                  <LocalFilesProvider files={files}>
-                    <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
-                  </LocalFilesProvider>
-                </NavigationContextProvider>
-              </GlobalEventsHandlerProvider>
+              <DesignTokensProvider>
+                <GlobalEventsHandlerProvider linkHandlers={{ onNavigation: useOnNavigation }}>
+                  <NavigationContextProvider>
+                    <LocalFilesProvider files={files}>
+                      <AppLayout colorScheme={colorScheme}>{children}</AppLayout>
+                    </LocalFilesProvider>
+                  </NavigationContextProvider>
+                </GlobalEventsHandlerProvider>
+              </DesignTokensProvider>
             </ColorSchemeProvider>
           )}
         </AppContextConsumer>
