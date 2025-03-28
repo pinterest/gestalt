@@ -1,11 +1,11 @@
-import { Fragment, ReactNode, useEffect, useState } from 'react';
+import { Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
 import { useColorScheme } from './ColorSchemeProvider';
 import useDesignTokens from './useDesignTokens';
 import useInExperiment from '../useInExperiment';
 
 /**
- * Appends tokens as injected CSS tokens
+ * APPENDS TOKENS AS INJECTED CSS TOKENS
  */
 const useThemeToStyles = ({
   forceTheme,
@@ -90,7 +90,6 @@ export default function DesignTokensProvider({
   forceTheme,
   rootSelector = '',
 }: Props) {
-  const className = id ? `__gestaltTheme${id}` : undefined;
   const root = rootSelector ? `:root .${rootSelector}` : ':root';
 
   return (
@@ -98,11 +97,11 @@ export default function DesignTokensProvider({
       <style
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: `${id ? `.${className}` : root} {
+          __html: `${id ? `.__gestaltTheme${id}` : root} {
 ${useThemeToStyles({ languageMode, forceTheme })} }`,
         }}
       />
-      <div className={classnames(className)}>{children}</div>
+      {id ? <div className={classnames(`__gestaltTheme${id}`)}>{children}</div> : children}
     </Fragment>
   );
 }
