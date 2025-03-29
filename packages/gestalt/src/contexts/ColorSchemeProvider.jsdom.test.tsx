@@ -230,7 +230,6 @@ describe('visual refresh tokens', () => {
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light">
-          {' '}
           <DesignTokensProvider languageMode="th">
             <ThemeAwareComponent />
           </DesignTokensProvider>

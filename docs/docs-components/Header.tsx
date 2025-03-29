@@ -9,6 +9,7 @@ import {
   Flex,
   IconButton,
   Link,
+  SelectList,
   Sticky,
   Tabs,
   Text,
@@ -51,7 +52,7 @@ function Header() {
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
-  const { setExperiments } = useAppContext();
+  const { setExperiments, experiments } = useAppContext();
 
   const mainNavigationTabs = useMemo(
     () => getTabs(componentPlatformFilteredBy),
@@ -198,13 +199,26 @@ function Header() {
             {showVRToggle && (
               <ButtonToggle
                 iconStart="sparkle"
-                onClick={() => setExperiments(isInVRExperiment ? '' : 'Tokens')}
+                onClick={() => setExperiments(isInVRExperiment ? '' : 'VR01Tokens')}
                 selected={isInVRExperiment}
                 size="sm"
                 text={isInVRExperiment ? 'VR on' : 'VR off'}
               />
             )}
 
+            <SelectList
+              id="theming"
+              label="Select experimental theming"
+              onChange={({ value }) => setExperiments(value)} value={experiments}
+            >
+              {[
+                { label: 'Visual Refresh', value: 'VR01Tokens' },
+                { label: 'Calico 01', value: 'CA01Tokens' },
+                { label: 'Classic', value: 'classic' },
+              ].map(({ label, value }) => (
+                <SelectList.Option key={label} label={label} value={value} />
+              ))}
+            </SelectList>
             {devExampleMode === 'development' ? (
               <Badge
                 position="middle"
