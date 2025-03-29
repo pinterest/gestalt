@@ -11,6 +11,7 @@ import {
 import Box from '../Box';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import DesignTokensProvider from '../contexts/DesignTokensProvider';
 import Icon, { IconColor } from '../Icon';
 import Link from '../Link';
 import Mask from '../Mask';
@@ -198,16 +199,15 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
         />
       ) : null}
       {type === 'success' ? (
-        <ColorSchemeProvider
-          colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}
-          id="icon-toast-success"
-        >
-          <Icon
-            accessibilityLabel={accessibilityIconSuccessLabel}
-            color={isInExperiment ? 'default' : 'success'}
-            icon="workflow-status-ok"
-            size={SIZE_ICON}
-          />
+        <ColorSchemeProvider colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}>
+          <DesignTokensProvider id="icon-toast-success">
+            <Icon
+              accessibilityLabel={accessibilityIconSuccessLabel}
+              color={isInExperiment ? 'default' : 'success'}
+              icon="workflow-status-ok"
+              size={SIZE_ICON}
+            />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       ) : null}
       {type === 'progress' ? (

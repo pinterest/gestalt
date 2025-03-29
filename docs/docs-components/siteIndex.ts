@@ -108,9 +108,9 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
         pages: [
           'ColorSchemeProvider',
           'DefaultLabelProvider',
+          'DesignTokensProvider',
           'DeviceTypeProvider',
           'GlobalEventsHandlerProvider',
-          'ScrollBoundaryContainer',
           'useFocusVisible',
           'useReducedMotion',
         ],

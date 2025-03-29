@@ -1,5 +1,6 @@
 import { act, render, screen } from '@testing-library/react';
 import ColorSchemeProvider, { useColorScheme } from './ColorSchemeProvider';
+import DesignTokensProvider from './DesignTokensProvider';
 import ExperimentProvider from './ExperimentProvider';
 
 function ThemeAwareComponent() {
@@ -8,27 +9,37 @@ function ThemeAwareComponent() {
 }
 
 describe('ColorSchemeProvider', () => {
-  it('renders child content in a div', () => {
-    const { container } = render(<ColorSchemeProvider>Child 1</ColorSchemeProvider>);
+  it('renders child content in a div with id', () => {
+    const { container } = render(
+      <ColorSchemeProvider>
+        <DesignTokensProvider id="testId">Child 1</DesignTokensProvider>
+      </ColorSchemeProvider>,
+    );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('div')).toMatchInlineSnapshot(`
-        <div
-          class=""
-        >
-          Child 1
-        </div>
-      `);
+      <div
+        class="__gestaltThemetestId"
+      >
+        Child 1
+      </div>
+    `);
   });
 
   it('renders styling for light mode when no color scheme specified', () => {
-    const { container } = render(<ColorSchemeProvider>Content</ColorSchemeProvider>);
+    const { container } = render(
+      <ColorSchemeProvider>
+        <DesignTokensProvider>Content</DesignTokensProvider>
+      </ColorSchemeProvider>,
+    );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 
   it('renders styling for light mode when specified', () => {
     const { container } = render(
-      <ColorSchemeProvider colorScheme="light">Content</ColorSchemeProvider>,
+      <ColorSchemeProvider colorScheme="light">
+        <DesignTokensProvider>Content</DesignTokensProvider>
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
@@ -36,7 +47,9 @@ describe('ColorSchemeProvider', () => {
 
   it('renders styling for dark mode when specified', () => {
     const { container } = render(
-      <ColorSchemeProvider colorScheme="dark">Content</ColorSchemeProvider>,
+      <ColorSchemeProvider colorScheme="dark">
+        <DesignTokensProvider>Content</DesignTokensProvider>
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
@@ -44,14 +57,20 @@ describe('ColorSchemeProvider', () => {
 
   it('renders styling with media query when userPreference', () => {
     const { container } = render(
-      <ColorSchemeProvider colorScheme="userPreference">Content</ColorSchemeProvider>,
+      <ColorSchemeProvider colorScheme="userPreference">
+        <DesignTokensProvider>Content</DesignTokensProvider>
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
   });
 
   it('renders styling with a custom class if has an id', () => {
-    const { container } = render(<ColorSchemeProvider id="testId">Content</ColorSchemeProvider>);
+    const { container } = render(
+      <ColorSchemeProvider>
+        <DesignTokensProvider id="testId">Content</DesignTokensProvider>
+      </ColorSchemeProvider>,
+    );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
@@ -68,7 +87,9 @@ describe('useColorScheme', () => {
   it('uses light mode theme when specified', () => {
     render(
       <ColorSchemeProvider colorScheme="light">
-        <ThemeAwareComponent />
+        <DesignTokensProvider>
+          <ThemeAwareComponent />
+        </DesignTokensProvider>
       </ColorSchemeProvider>,
     );
     expect(screen.getByText('lightMode')).toBeTruthy();
@@ -77,7 +98,9 @@ describe('useColorScheme', () => {
   it('uses dark mode theme when specified', () => {
     render(
       <ColorSchemeProvider colorScheme="dark">
-        <ThemeAwareComponent />
+        <DesignTokensProvider>
+          <ThemeAwareComponent />
+        </DesignTokensProvider>
       </ColorSchemeProvider>,
     );
     expect(screen.getByText('darkMode')).toBeTruthy();
@@ -101,7 +124,9 @@ describe('useColorScheme', () => {
     });
     render(
       <ColorSchemeProvider colorScheme="userPreference">
-        <ThemeAwareComponent />
+        <DesignTokensProvider>
+          <ThemeAwareComponent />
+        </DesignTokensProvider>
       </ColorSchemeProvider>,
     );
     expect(screen.getByText('lightMode')).toBeTruthy();
@@ -118,7 +143,9 @@ describe('visual refresh tokens', () => {
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light">
-          <ThemeAwareComponent />
+          <DesignTokensProvider>
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );
@@ -133,7 +160,9 @@ describe('visual refresh tokens', () => {
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="dark">
-          <ThemeAwareComponent />
+          <DesignTokensProvider>
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );
@@ -147,8 +176,10 @@ describe('visual refresh tokens', () => {
       <ExperimentProvider
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
-        <ColorSchemeProvider colorScheme="light" language="tall">
-          <ThemeAwareComponent />
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider languageMode="tall">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );
@@ -162,8 +193,11 @@ describe('visual refresh tokens', () => {
       <ExperimentProvider
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
-        <ColorSchemeProvider colorScheme="light" language="ck">
-          <ThemeAwareComponent />
+        <ColorSchemeProvider colorScheme="light">
+          {' '}
+          <DesignTokensProvider languageMode="ck">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );
@@ -177,8 +211,11 @@ describe('visual refresh tokens', () => {
       <ExperimentProvider
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
-        <ColorSchemeProvider colorScheme="light" language="ja">
-          <ThemeAwareComponent />
+        <ColorSchemeProvider colorScheme="light">
+          {' '}
+          <DesignTokensProvider languageMode="ja">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );
@@ -192,8 +229,11 @@ describe('visual refresh tokens', () => {
       <ExperimentProvider
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
-        <ColorSchemeProvider colorScheme="light" language="th">
-          <ThemeAwareComponent />
+        <ColorSchemeProvider colorScheme="light">
+          {' '}
+          <DesignTokensProvider languageMode="th">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );
@@ -207,8 +247,11 @@ describe('visual refresh tokens', () => {
       <ExperimentProvider
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
-        <ColorSchemeProvider colorScheme="light" language="vi">
-          <ThemeAwareComponent />
+        <ColorSchemeProvider colorScheme="light">
+          {' '}
+          <DesignTokensProvider languageMode="vi">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </ExperimentProvider>,
     );

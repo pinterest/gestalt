@@ -124,7 +124,7 @@ export default function YearInReview2022() {
 
   return (
     <div className="year-in-review">
-      <ColorSchemeProvider colorScheme="light" id="gestalt-yir">
+      <ColorSchemeProvider colorScheme="light">
         <Flex direction="column" flex="grow">
           <Box
             left
