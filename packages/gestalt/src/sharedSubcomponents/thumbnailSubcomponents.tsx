@@ -11,13 +11,13 @@ import {
 import Box from '../Box';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import DesignTokensProvider from '../contexts/DesignTokensProvider';
 import Icon, { IconColor } from '../Icon';
 import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';
 import Text from '../Text';
 import useInExperiment from '../useInExperiment';
-import DesignTokensProvider from '../contexts/DesignTokensProvider';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
