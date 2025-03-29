@@ -1,3 +1,9 @@
+## 175.0.0 (Mar 29, 2025)
+
+### Major
+
+- ColorSchemeProvider: Refactor ColorSchemeProvider & separated concerns into DesignTokensProvider ([#4054](https://github.com/pinterest/gestalt/pull/4054)) - [Preview link](https://deploy-preview-4054--gestalt.netlify.app?devexample=true)
+
 ## 174.3.3 (Mar 27, 2025)
 
 ### Patch
