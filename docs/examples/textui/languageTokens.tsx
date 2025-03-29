@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, ColorSchemeProvider, DesignTokensProvider,Flex, SelectList, TextUI } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, SelectList, TextUI } from 'gestalt';
 
 export default function Example() {
   const [language, setLanguage] = useState<'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi'>(

@@ -1,12 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  Box,
-  ColorSchemeProvider,
-  DesignTokensProvider,
-  Flex,
-  SelectList,
-  Text,
-} from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, SelectList, Text } from 'gestalt';
 
 export default function Example() {
   const [scheme, setScheme] = useState<'light' | 'dark' | 'userPreference'>('light');
