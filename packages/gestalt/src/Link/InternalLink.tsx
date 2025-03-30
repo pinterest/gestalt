@@ -14,8 +14,6 @@ import useFocusVisible from '../useFocusVisible';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type Props = {
   accessibilityCurrent?: AriaCurrent;
   accessibilityLabel?: string;

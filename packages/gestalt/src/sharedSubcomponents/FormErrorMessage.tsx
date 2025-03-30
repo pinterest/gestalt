@@ -8,8 +8,6 @@ import IconCompact from '../IconCompact';
 import Text from '../Text';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type SizeType = 'sm' | 'md' | 'lg';
 
 type Props = {

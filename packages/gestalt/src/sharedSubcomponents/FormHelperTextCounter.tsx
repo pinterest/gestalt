@@ -7,8 +7,6 @@ import Text from '../Text';
 import { MaxLength } from '../TextField';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type Props = {
   maxLength: MaxLength;
   currentLength?: number;

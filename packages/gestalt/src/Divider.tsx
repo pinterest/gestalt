@@ -15,10 +15,7 @@ export default function Divider({}: Record<any, any>) {
 
   return (
     <hr
-      className={classnames(
-        styles.divider,
-        theme.MAIN ? styles.VRborderColor : styles.borderColor,
-      )}
+      className={classnames(styles.divider, theme.MAIN ? styles.VRborderColor : styles.borderColor)}
     />
   );
 }

@@ -152,7 +152,6 @@ export default function BannerSlim({
   primaryAction,
   type = 'neutral',
 }: Props) {
-
   const theme = useExperimentalTheme();
 
   const isBare = type.endsWith('Bare');

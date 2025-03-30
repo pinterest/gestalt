@@ -8,8 +8,6 @@ import useFocusVisible from '../useFocusVisible';
 import useTapFeedback from '../useTapFeedback';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type Props = {
   accessibilityLabel: string;
   accessibilityControls?: string;

@@ -12,8 +12,6 @@ import useTapFeedback from '../useTapFeedback';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 import { Indexable } from '../zIndex';
 
-;
-
 type Props = {
   accessibilityLabel: string;
   accessibilityControls?: string;

@@ -6,8 +6,6 @@ import icons from '../icons/index';
 import compactIconsVR from '../icons-vr-theme/compact/index';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type Props = {
   accessibilityLabel?: string;
   active?: boolean;

@@ -8,8 +8,6 @@ import InternalIconCompactButton from '../IconButton/InternalIconCompactButton';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
 type Role = 'dialog' | 'listbox' | 'menu' | 'tooltip';

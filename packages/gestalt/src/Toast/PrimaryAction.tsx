@@ -3,8 +3,6 @@ import Button from '../Button';
 import ButtonLink from '../ButtonLink';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 type Props =
   | {
       accessibilityLabel: string;

@@ -7,8 +7,6 @@ import useDebouncedCallback from '../useDebouncedCallback';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 import { Indexable } from '../zIndex';
 
-;
-
 const noop = () => {};
 const TIMEOUT = 100;
 

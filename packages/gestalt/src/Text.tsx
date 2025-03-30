@@ -150,16 +150,12 @@ const TextWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
       [styles.sm]: theme.MAIN && size === '200',
       [styles.xs]: theme.MAIN && size === '100',
       [styles.lgDefault]:
-        theme.MAIN &&
-        (size === '400' || size === '500' || size === '600') &&
-        weight === 'normal',
+        theme.MAIN && (size === '400' || size === '500' || size === '600') && weight === 'normal',
       [styles.mdDefault]: theme.MAIN && size === '300' && weight === 'normal',
       [styles.smDefault]: theme.MAIN && size === '200' && weight === 'normal',
       [styles.xsDefault]: theme.MAIN && size === '100' && weight === 'normal',
       [styles.lgEmphasis]:
-        theme.MAIN &&
-        (size === '400' || size === '500' || size === '600') &&
-        weight === 'bold',
+        theme.MAIN && (size === '400' || size === '500' || size === '600') && weight === 'bold',
       [styles.mdEmphasis]: theme.MAIN && size === '300' && weight === 'bold',
       [styles.smEmphasis]: theme.MAIN && size === '200' && weight === 'bold',
       [styles.xsEmphasis]: theme.MAIN && size === '100' && weight === 'bold',

@@ -7,8 +7,6 @@ import styles from './ColorPicker.css';
 import Box from '../Box';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
-;
-
 const outlineWidth = 2;
 
 const heights = {

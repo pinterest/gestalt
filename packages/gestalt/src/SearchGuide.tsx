@@ -225,8 +225,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   });
 
   const variant = thumbnail ? thumbnailVariant : textVariant;
-  const inBackgroundGradient =
-    !theme.MAIN && typeof color !== 'string' && Array.isArray(color);
+  const inBackgroundGradient = !theme.MAIN && typeof color !== 'string' && Array.isArray(color);
 
   return (
     <button

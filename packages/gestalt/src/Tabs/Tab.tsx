@@ -22,8 +22,6 @@ import useFocusVisible from '../useFocusVisible';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 import useInteractiveStates from '../utils/useInteractiveStates';
 
-;
-
 type TabType = {
   notificationAccessibilityLabel?: string;
   href: string;

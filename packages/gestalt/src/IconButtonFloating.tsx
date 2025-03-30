@@ -85,7 +85,7 @@ const IconButtonFloatingWithForwardRef = forwardRef<HTMLButtonElement, Props>(
     }: Props,
     ref,
   ) {
-  const theme = useExperimentalTheme();
+    const theme = useExperimentalTheme();
 
     return (
       <Box borderStyle="shadow" color="default" rounding={theme.MAIN ? 4 : 'circle'}>

@@ -12,7 +12,7 @@ export default function useTapScaleAnimation() {
   });
 
   return {
-    MAIN: isInVR01Experiment ?? isInCA1Experiment,
+    MAIN: isInVR01Experiment || isInCA1Experiment,
     VR01: isInVR01Experiment,
     CA01: isInCA1Experiment,
   };

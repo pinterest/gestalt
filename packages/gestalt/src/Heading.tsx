@@ -134,8 +134,7 @@ export default function Heading({
   );
 
   const headingLevel =
-    accessibilityLevel ||
-    (!theme.MAIN ? defaultHeadingLevels[size] : defaultHeadingLevelsVR[size]);
+    accessibilityLevel || (!theme.MAIN ? defaultHeadingLevels[size] : defaultHeadingLevelsVR[size]);
 
   let newProps = { className: cs };
   if (id) {

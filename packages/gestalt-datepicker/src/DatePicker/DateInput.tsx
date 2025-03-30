@@ -1,11 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import {
-  Box,
-  Icon,
-  TapArea,
-  TextField,
-  useDefaultLabel,
-} from 'gestalt';
+import { Box, Icon, TapArea, TextField, useDefaultLabel } from 'gestalt';
 import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
