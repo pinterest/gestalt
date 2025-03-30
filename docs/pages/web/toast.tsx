@@ -1,6 +1,5 @@
 import desktop from 'docs/examples/toast/desktop';
 import mobile from 'docs/examples/toast/mobile';
-import { useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
