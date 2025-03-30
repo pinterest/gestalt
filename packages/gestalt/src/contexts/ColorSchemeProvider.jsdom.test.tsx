@@ -9,7 +9,6 @@ function ThemeAwareComponent() {
 }
 
 describe('ColorSchemeProvider', () => {
-  
   it('renders child content in a div with id', () => {
     const { container } = render(
       <ColorSchemeProvider>
@@ -241,7 +240,6 @@ describe('visual refresh tokens', () => {
   });
 
   it('uses visual refresh with vi line height', () => {
-
     const { container } = render(
       <ExperimentProvider
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}

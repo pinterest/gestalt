@@ -79,8 +79,6 @@ export default function Badge({
 }: Props) {
   const theme = useExperimentalTheme();
 
-    
-  
   const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
   const dataTestIdText = dataTestId && `${dataTestId}-text`;
   const dataTestIdTooltip = dataTestId && `${dataTestId}-tooltip`;
