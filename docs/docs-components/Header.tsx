@@ -3,12 +3,12 @@ import { useRouter } from 'next/router';
 import {
   Badge,
   Box,
-  ButtonToggle,
   CompositeZIndex,
   FixedZIndex,
   Flex,
   IconButton,
   Link,
+  SelectList,
   Sticky,
   Tabs,
   Text,
@@ -35,7 +35,6 @@ function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
       text: 'Components',
     },
     { href: '/team_support/overview', text: 'Team support' },
-    { href: '/whats_new', text: "What's new" },
   ];
 }
 
@@ -51,7 +50,13 @@ function Header() {
     webExperimentName: 'web_gestalt_visualrefresh',
     mwebExperimentName: 'web_gestalt_visualrefresh',
   });
-  const { setExperiments } = useAppContext();
+
+  const isInCalico01Experiment = useDangerouslyInGestaltExperiment({
+    webExperimentName: 'web_gestalt_calico01',
+    mwebExperimentName: 'web_gestalt_calico01',
+  });
+
+  const { setExperiments, experiments } = useAppContext();
 
   const mainNavigationTabs = useMemo(
     () => getTabs(componentPlatformFilteredBy),
@@ -85,8 +90,8 @@ function Header() {
   );
 
   useEffect(() => {
-    if (isInVRExperiment) setShowVRToggle(true);
-  }, [isInVRExperiment]);
+    if (isInVRExperiment || isInCalico01Experiment) setShowVRToggle(true);
+  }, [isInVRExperiment, isInCalico01Experiment]);
 
   useEffect(() => {
     const isDeployPreviewEnvironment =
@@ -196,15 +201,23 @@ function Header() {
         <Box display={isMobileSearchExpandedOpen ? 'none' : 'flex'} paddingX={2}>
           <Flex alignItems="center" gap={3}>
             {showVRToggle && (
-              <ButtonToggle
-                iconStart="sparkle"
-                onClick={() => setExperiments(isInVRExperiment ? '' : 'Tokens')}
-                selected={isInVRExperiment}
-                size="sm"
-                text={isInVRExperiment ? 'VR on' : 'VR off'}
-              />
+              <Box width={300}>
+                <SelectList
+                  id="theming"
+                  label="Select experimental theming"
+                  onChange={({ value }) => setExperiments(value)}
+                  value={experiments}
+                >
+                  {[
+                    { label: 'Visual Refresh', value: 'VR01Tokens' },
+                    { label: 'Calico 01', value: 'CA01Tokens' },
+                    { label: 'Classic', value: 'classic' },
+                  ].map(({ label, value }) => (
+                    <SelectList.Option key={label} label={label} value={value} />
+                  ))}
+                </SelectList>
+              </Box>
             )}
-
             {devExampleMode === 'development' ? (
               <Badge
                 position="middle"
