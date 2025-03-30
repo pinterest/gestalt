@@ -1,3 +1,9 @@
+## 175.0.2 (Mar 30, 2025)
+
+### Patch
+
+- Docs: refactor to enable CALICO theme from selector in Gestalt Docs ([#4055](https://github.com/pinterest/gestalt/pull/4055)) - [Preview link](https://deploy-preview-4055--gestalt.netlify.app?devexample=true)
+
 ## 175.0.1 (Mar 30, 2025)
 
 ### Patch
