@@ -1,6 +1,6 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable gestalt/only-valid-tokens */
-import useExperimentalTheme from './useExperimentalTheme';
+import { useExperimentalTheme } from 'gestalt';
 
 export default function DocsVisualRefreshTypographyStyle() {
   const theme = useExperimentalTheme();

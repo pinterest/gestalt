@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { Locale } from 'date-fns/locale';
-import { useGlobalEventsHandler } from 'gestalt';
+import { useExperimentalTheme,useGlobalEventsHandler } from 'gestalt';
 import InternalDateField from './DateField/InternalDateField';
 import VRInternalDateField from './DateField/VRInternalDateField';
-import useExperimentalTheme from './utils/useExperimentalTheme';
 
 export type Props = {
   /**

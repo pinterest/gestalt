@@ -12,6 +12,7 @@ import {
   Sticky,
   Tabs,
   Text,
+  useExperimentalTheme,
 } from 'gestalt';
 import { useAppContext } from './appContext';
 import trackButtonClick from './buttons/trackButtonClick';
@@ -20,7 +21,6 @@ import DocSearch from './DocSearch';
 import { convertNamesForURL, isComponentsActiveSection } from './DocsSideNavigation';
 import GestaltLogo from './GestaltLogo';
 import { useNavigationContext } from './navigationContext';
-import useExperimentalTheme from './useExperimentalTheme';
 
 const PAGE_HEADER_ZINDEX: FixedZIndex = new FixedZIndex(10);
 

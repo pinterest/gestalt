@@ -1,8 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef } from 'react';
-import { Box, Icon, TapArea, TextField, useDefaultLabel } from 'gestalt';
+import { Box, Icon, TapArea, TextField, useDefaultLabel, useExperimentalTheme } from 'gestalt';
 import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
-import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
 // Datepicker takes this props and then funnels them to DatePickerTextField.

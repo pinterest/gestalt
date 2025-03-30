@@ -9,11 +9,10 @@ import {
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { limitShift, shift } from '@floating-ui/react';
-import { Box, Icon, Label, Text, useDefaultLabel } from 'gestalt';
+import { Box, Icon, Label, Text, useDefaultLabel, useExperimentalTheme } from 'gestalt';
 import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
-import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type InternalProps = Props & {
   inline?: ComponentProps<typeof ReactDatePicker>['inline'];

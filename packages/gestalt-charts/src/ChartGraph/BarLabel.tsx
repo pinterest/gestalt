@@ -1,6 +1,6 @@
+import { useExperimentalTheme } from 'gestalt';
 import { TOKEN_COLOR_ICON_INFO, TOKEN_COLOR_TEXT_DEFAULT } from 'gestalt-design-tokens';
 import InlineStyle from './InlineStyle';
-import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 function BarLabel({
   icon,
