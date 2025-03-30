@@ -5,7 +5,9 @@ import {
 } from 'gestalt-design-tokens';
 import styles from './ColorPicker.css';
 import Box from '../Box';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
+
+;
 
 const outlineWidth = 2;
 
@@ -72,16 +74,13 @@ export type Props = {
 };
 
 export default function ColorPicker({ colors, selected, isHovered, isFocused, size }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-  const vrFocus = isFocused && isInVRExperiment;
+  const theme = useExperimentalTheme();
+  const vrFocus = isFocused && theme.MAIN;
   const hasBorder = isHovered || selected || vrFocus || isFocused;
   const filtersContainerHeightPx = heights[size] - (hasBorder ? outlineWidth : 0);
   const filtersContainerWidthPx = widths[size] - (hasBorder ? outlineWidth : 0);
   const outlineStyle = `${
-    outlineWidth + ((selected && isFocused) || (!isInVRExperiment && isFocused) ? 2 : 0)
+    outlineWidth + ((selected && isFocused) || (!theme.MAIN && isFocused) ? 2 : 0)
   }px solid ${getOutlineColor(isHovered, selected, isFocused)}`;
 
   return (
@@ -93,7 +92,7 @@ export default function ColorPicker({ colors, selected, isHovered, isFocused, si
           ? {
               __style: {
                 outline: outlineStyle,
-                outlineOffset: isInVRExperiment || !isFocused ? outlineWidth : 0,
+                outlineOffset: theme.MAIN || !isFocused ? outlineWidth : 0,
                 margin: outlineWidth / 2,
               },
             }
@@ -104,7 +103,7 @@ export default function ColorPicker({ colors, selected, isHovered, isFocused, si
       justifyContent="center"
       overflow="hidden"
       rounding={
-        isInVRExperiment
+        theme.MAIN
           ? ((rounding[size] / 4) as
               | 0
               | 2

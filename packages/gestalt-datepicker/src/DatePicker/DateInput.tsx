@@ -4,11 +4,11 @@ import {
   Icon,
   TapArea,
   TextField,
-  useDangerouslyInGestaltExperiment,
   useDefaultLabel,
 } from 'gestalt';
 import VRDateInput from './VRDateInput';
 import styles from '../DatePicker.css';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 // InjectedProps are props that Datepicker adds on to DatePickerTextField.
 // Datepicker takes this props and then funnels them to DatePickerTextField.
@@ -63,12 +63,9 @@ const DateInputWithForwardRef = forwardRef<HTMLInputElement, Props>(function Dat
   useImperativeHandle(ref, () => innerRef.current);
   const { openCalendar } = useDefaultLabel('DatePicker');
 
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRDateInput
         ref={innerRef}

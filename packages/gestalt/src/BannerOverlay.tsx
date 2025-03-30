@@ -17,7 +17,7 @@ import {
   Message,
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
@@ -126,10 +126,7 @@ export default function BannerOverlay({
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('BannerOverlay');
@@ -211,8 +208,8 @@ export default function BannerOverlay({
               ) : null}
               <Flex.Item flex="grow">
                 <Flex direction="row" gap={4} justifyContent="between">
-                  {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
-                  {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
+                  {title && !theme.MAIN ? <Text weight="bold">{title}</Text> : null}
+                  {title && theme.MAIN ? <Heading size="300">{title}</Heading> : null}
                   {onDismiss && (
                     <Flex.Item alignSelf={title ? 'end' : 'start'}>
                       <InternalDismissButton
@@ -323,8 +320,8 @@ export default function BannerOverlay({
             ) : null}
             <Flex.Item flex="grow">
               <Flex direction="column">
-                {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
-                {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
+                {title && !theme.MAIN ? <Text weight="bold">{title}</Text> : null}
+                {title && theme.MAIN ? <Heading size="300">{title}</Heading> : null}
                 <Message
                   text={isMessageTextNode ? undefined : messageTextElement}
                   textColor={DEFAULT_COLORS.textColor}
@@ -343,7 +340,7 @@ export default function BannerOverlay({
                     onClick={secondaryAction.onClick}
                     rel={secondaryAction?.rel}
                     role="link"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                     target={secondaryAction?.target}
                   />
                 ) : null}
@@ -355,7 +352,7 @@ export default function BannerOverlay({
                     label={secondaryAction.label}
                     onClick={secondaryAction.onClick}
                     role="button"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                   />
                 ) : null}
 
@@ -368,7 +365,7 @@ export default function BannerOverlay({
                     onClick={primaryAction.onClick}
                     rel={primaryAction?.rel}
                     role="link"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                     target={primaryAction?.target}
                   />
                 ) : null}
@@ -380,7 +377,7 @@ export default function BannerOverlay({
                     label={primaryAction.label}
                     onClick={primaryAction.onClick}
                     role="button"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                   />
                 ) : null}
               </Flex>

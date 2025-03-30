@@ -5,7 +5,9 @@ import Icon from '../Icon';
 import IconCompact from '../IconCompact';
 import Text from '../Text';
 import { MaxLength } from '../TextField';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
+
+;
 
 type Props = {
   maxLength: MaxLength;
@@ -18,10 +20,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
 
   const [width, setWidth] = useState<undefined | number>(undefined);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   useEffect(() => {
     const containerWidth = ref?.current?.getBoundingClientRect().width;
@@ -71,7 +70,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
               {maxLength?.errorAccessibilityLabel}
             </Box>
             <Box alignItems="center" aria-hidden display="flex" height="100%">
-              {isInVRExperiment ? (
+              {theme.MAIN ? (
                 <IconCompact accessibilityLabel="" color={textColor} icon={iconVR} size={12} />
               ) : (
                 <Icon accessibilityLabel="" color={textColor} icon={icon} size={16} />
@@ -79,7 +78,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
             </Box>
           </Fragment>
         ) : (
-          <Box width={isInVRExperiment ? 12 : 16} />
+          <Box width={theme.MAIN ? 12 : 16} />
         )}
         <Flex justifyContent="end" width={width}>
           <Text align="end" color={maxLengthReached || disabled ? textColor : 'subtle'} size="100">

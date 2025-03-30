@@ -9,7 +9,7 @@ import TapArea from './TapArea';
 import TextUI from './TextUI';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
@@ -77,10 +77,10 @@ export default function Badge({
   type = 'info',
   tooltip,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
+
+    
+  
   const dataTestIdIcon = dataTestId && `${dataTestId}-icon`;
   const dataTestIdText = dataTestId && `${dataTestId}-text`;
   const dataTestIdTooltip = dataTestId && `${dataTestId}-tooltip`;
@@ -89,7 +89,7 @@ export default function Badge({
 
   const shouldUseTooltip = tooltip?.text;
 
-  const ICON_MAP = isInVRExperiment
+  const ICON_MAP = theme.MAIN
     ? Object.freeze({
         'info': 'compact-info-circle-fill',
         'error': 'compact-workflow-status-problem',
@@ -116,7 +116,7 @@ export default function Badge({
     'error': 'error',
     'warning': 'warning',
     'success': 'success',
-    'neutral': isInVRExperiment ? 'default' : 'inverse',
+    'neutral': theme.MAIN ? 'default' : 'inverse',
     'recommendation': 'recommendation',
     'darkWash': 'light',
     'lightWash': 'dark',
@@ -127,7 +127,7 @@ export default function Badge({
     'error': 'error',
     'warning': 'warning',
     'success': 'success',
-    'neutral': isInVRExperiment ? 'default' : 'inverse',
+    'neutral': theme.MAIN ? 'default' : 'inverse',
     'recommendation': 'recommendation',
     'darkWash': 'light',
     'lightWash': 'dark',
@@ -146,7 +146,7 @@ export default function Badge({
     <Flex alignItems="center" gap={{ row: 1, column: 0 }}>
       {shouldUseTooltip ? (
         <Box alignContent="center" display="flex" height="100%">
-          {isInVRExperiment ? (
+          {theme.MAIN ? (
             <IconCompact
               accessibilityLabel=""
               color={COLOR_ICON_MAP[type]}
@@ -169,7 +169,7 @@ export default function Badge({
       ) : null}
       <Box alignContent="center" display="flex">
         <TextUI
-          color={isInVRExperiment || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
+          color={theme.MAIN || type.endsWith('Wash') ? COLOR_TEXT_MAP[type] : 'inverse'}
           dataTestId={dataTestIdText}
           inline
           size="sm"
@@ -180,7 +180,7 @@ export default function Badge({
     </Flex>
   );
 
-  if (isInVRExperiment)
+  if (theme.MAIN)
     return shouldUseTooltip ? (
       <Tooltip
         accessibilityLabel=""

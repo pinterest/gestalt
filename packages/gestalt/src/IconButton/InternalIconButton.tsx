@@ -8,9 +8,11 @@ import touchableStyles from '../TapArea.css';
 import TextUI from '../TextUI';
 import Tooltip from '../Tooltip';
 import useFocusVisible from '../useFocusVisible';
-import useInExperiment from '../useInExperiment';
 import useTapFeedback from '../useTapFeedback';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 import { Indexable } from '../zIndex';
+
+;
 
 type Props = {
   accessibilityLabel: string;
@@ -88,10 +90,7 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
   // @ts-expect-error - TS2322 - Type 'HTMLButtonElement | null' is not assignable to type 'HTMLButtonElement'.
   useImperativeHandle(ref, () => innerRef.current);
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const {
     compressStyle,
@@ -127,8 +126,8 @@ const InternalIconButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(fu
   });
 
   const divStyles = classnames(styles.button, touchableStyles.tapTransition, {
-    [styles.disabled]: disabled && !isInVRExperiment,
-    [styles.disabledVr]: disabled && isInVRExperiment,
+    [styles.disabled]: disabled && !theme.MAIN,
+    [styles.disabledVr]: disabled && theme.MAIN,
     [styles.enabled]: !disabled,
     [touchableStyles.tapCompress]: !disabled && isTapping,
   });

@@ -4,8 +4,10 @@ import Layer from '../Layer';
 import Controller from '../Popover/Controller';
 import Text from '../Text';
 import useDebouncedCallback from '../useDebouncedCallback';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 import { Indexable } from '../zIndex';
+
+;
 
 const noop = () => {};
 const TIMEOUT = 100;
@@ -88,10 +90,7 @@ export default function InternalTooltip({
 
   const mouseLeaveDelay = link ? TIMEOUT : 0;
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   useEffect(() => {
     if (disabled === true) {
@@ -156,7 +155,7 @@ export default function InternalTooltip({
         <Layer zIndex={zIndex}>
           <Controller
             anchor={anchor}
-            bgColor={isInVRExperiment ? undefined : 'darkGray'}
+            bgColor={theme.MAIN ? undefined : 'darkGray'}
             caret={false}
             disablePortal
             hideWhenReferenceHidden
@@ -167,7 +166,7 @@ export default function InternalTooltip({
             shouldFocus={false}
           >
             <Box
-              color={isInVRExperiment ? 'inverse' : undefined}
+              color={theme.MAIN ? 'inverse' : undefined}
               maxWidth={180}
               onBlur={link ? handleTextMouseLeave : undefined}
               onFocus={link ? handleTextMouseEnter : undefined}

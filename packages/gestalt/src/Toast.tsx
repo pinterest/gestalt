@@ -17,7 +17,7 @@ import {
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 import isComponentNode from './utils/isComponentNode';
 

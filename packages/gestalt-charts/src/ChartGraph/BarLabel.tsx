@@ -1,6 +1,6 @@
-import { useDangerouslyInGestaltExperiment } from 'gestalt';
 import { TOKEN_COLOR_ICON_INFO, TOKEN_COLOR_TEXT_DEFAULT } from 'gestalt-design-tokens';
 import InlineStyle from './InlineStyle';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 function BarLabel({
   icon,
@@ -19,18 +19,15 @@ function BarLabel({
   width: number;
   height: number;
 }) {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   let dPath;
   let VRdPathVR;
 
   if (icon === 'ribbon') {
-    VRdPathVR =
-      'M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6m7.96 1.21a9 9 0 1 0-15.91 0L2.32 19.6a2.27 2.27 0 0 0 2.91 2.74l1.76-.6 1.07 1.3a2.26 2.26 0 0 0 3.92-.84l.01-.04.01.04a2.26 2.26 0 0 0 3.92.85l1.07-1.3 1.76.59a2.27 2.27 0 0 0 2.9-2.74zm-2.35 2.83.8 3.02-2.41-.8-1.47 1.77-.6-2.24q2.07-.46 3.68-1.75m-7.55 1.75-.6 2.24L8 18.25l-2.42.8.81-3.01a9 9 0 0 0 3.67 1.75M6 9a6 6 0 1 1 12 0A6 6 0 0 1 6 9';
     dPath =
+      'M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6m7.96 1.21a9 9 0 1 0-15.91 0L2.32 19.6a2.27 2.27 0 0 0 2.91 2.74l1.76-.6 1.07 1.3a2.26 2.26 0 0 0 3.92-.84l.01-.04.01.04a2.26 2.26 0 0 0 3.92.85l1.07-1.3 1.76.59a2.27 2.27 0 0 0 2.9-2.74zm-2.35 2.83.8 3.02-2.41-.8-1.47 1.77-.6-2.24q2.07-.46 3.68-1.75m-7.55 1.75-.6 2.24L8 18.25l-2.42.8.81-3.01a9 9 0 0 0 3.67 1.75M6 9a6 6 0 1 1 12 0A6 6 0 0 1 6 9';
+    VRdPathVR =
       'M12 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10M9 9a3 3 0 1 1 6 0 3 3 0 0 1-6 0m10.48 5a9 9 0 1 0-14.97 0l-1.7 6.4a1.7 1.7 0 0 0 2.5 1.92l1.94-1.12 1.12 1.95a1.7 1.7 0 0 0 3.12-.42l.51-1.88.5 1.88a1.7 1.7 0 0 0 3.13.42l1.12-1.95 1.95 1.12a1.7 1.7 0 0 0 2.5-1.92zM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9m14.08 11.24-3.06-1.77-1.77 3.06-.97-3.62c1.75-.25 3.34-1 4.61-2.1zm-9.33 1.3-1.77-3.07-3.06 1.77L6.1 15.8a9 9 0 0 0 4.6 2.1z';
   }
 
@@ -66,7 +63,7 @@ function BarLabel({
 "
       />
       <text
-        className={isInVRExperiment ? 'VRbodySM' : 'bodySM'}
+        className={theme.MAIN ? 'VRbodySM' : 'bodySM'}
         fill={TOKEN_COLOR_TEXT_DEFAULT}
         textAnchor={icon ? undefined : 'middle'}
         x={layout === 'vertical' ? xHorizontalPosText : xVerticalPosText}
@@ -85,7 +82,7 @@ function BarLabel({
           x={layout === 'vertical' ? xHorizontalPosIcon : xVerticalPosIcon}
           y={layout === 'vertical' ? yHorizontalPosIcon : yVerticalPosIcon}
         >
-          <path d={isInVRExperiment ? dPath : VRdPathVR} />
+          <path d={theme.MAIN ? VRdPathVR : dPath} />
         </svg>
       )}
     </g>
