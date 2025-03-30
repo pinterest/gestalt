@@ -17,9 +17,9 @@ import {
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import styles from './Toast.css';
 import PrimaryAction from './Toast/PrimaryAction';
-import useExperimentalTheme from './utils/useExperimentalTheme';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
 import isComponentNode from './utils/isComponentNode';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const DEFAULT_COLORS = {
   containerColor: 'inverse',
@@ -120,10 +120,8 @@ export default function Toast({
   thumbnail,
   type = 'default',
 }: Props) {
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
+
   const responsiveMinWidth = useResponsiveMinWidth();
   const isMobileWidth = responsiveMinWidth === 'xs';
 
@@ -132,7 +130,7 @@ export default function Toast({
     useDefaultLabelContext('Toast');
 
   const { containerColor, textColor, iconColor } =
-    isInExperiment && type === 'progress'
+    theme.MAIN && type === 'progress'
       ? {
           containerColor: 'inverse',
           textColor: 'inverse',
@@ -173,16 +171,16 @@ export default function Toast({
         dangerouslySetInlineStyle={{
           __style: {
             paddingInlineStart: TOKEN_ROUNDING_400,
-            paddingInlineEnd: isInExperiment ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
+            paddingInlineEnd: theme.MAIN ? TOKEN_ROUNDING_300 : TOKEN_ROUNDING_400,
           },
         }}
-        display={isInExperiment ? 'flex' : undefined}
-        minHeight={isInExperiment ? 60 : undefined}
+        display={theme.MAIN ? 'flex' : undefined}
+        minHeight={theme.MAIN ? 60 : undefined}
         paddingY={3}
         rounding={4}
         width="100%"
       >
-        <Flex alignItems="center" gap={isInExperiment ? { column: 2, row: 3 } : 4}>
+        <Flex alignItems="center" gap={theme.MAIN ? { column: 2, row: 3 } : 4}>
           {isDefaultToast && _dangerouslySetThumbnail ? (
             <Flex.Item flex="none">{_dangerouslySetThumbnail}</Flex.Item>
           ) : null}

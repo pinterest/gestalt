@@ -7,8 +7,8 @@ export default function useExperimentalTheme() {
   });
 
   const isInCA1Experiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
+    webExperimentName: 'web_gestalt_calico01',
+    mwebExperimentName: 'web_gestalt_calico01',
   });
 
   return {

@@ -7,8 +7,8 @@ export default function useTapScaleAnimation() {
   });
 
   const isInCA1Experiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
+    webExperimentName: 'web_gestalt_calico01',
+    mwebExperimentName: 'web_gestalt_calico01',
   });
 
   return {
