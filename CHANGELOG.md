@@ -1,3 +1,9 @@
+## 175.0.1 (Mar 30, 2025)
+
+### Patch
+
+- Internal: Bump @babel/helpers from 7.10.4 to 7.27.0 ([#4053](https://github.com/pinterest/gestalt/pull/4053)) - [Preview link](https://deploy-preview-4053--gestalt.netlify.app?devexample=true)
+
 ## 175.0.0 (Mar 29, 2025)
 
 ### Major
