@@ -1,4 +1,3 @@
-import { useDangerouslyInGestaltExperiment } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import docGen, { DocGen } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -10,7 +9,6 @@ import PageHeader from '../../docs-components/PageHeader';
 import QualityChecklist from '../../docs-components/QualityChecklist';
 import SandpackExample from '../../docs-components/SandpackExample';
 import colorExample from '../../examples/avatar/colorExample';
-import containerExample from '../../examples/avatar/containerExample';
 import ideasExample from '../../examples/avatar/ideasExample';
 import mainExample from '../../examples/avatar/mainExample';
 import nameExample from '../../examples/avatar/nameExample';
@@ -23,10 +21,6 @@ import sizingExample from '../../examples/avatar/sizingExample';
 import verifiedExample from '../../examples/avatar/verifiedExample';
 
 export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
 
   return (
     <Page title={generatedDocGen?.displayName}>
@@ -213,22 +207,6 @@ export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGe
             sandpackExample={<SandpackExample code={sizingExample} name="Sizing variant" />}
           />
         </MainSection.Subsection>
-        {!isInVRExperiment && (
-          <MainSection.Subsection
-            description={`
-                Avatars without a \`size\` prop will expand to fit the width of their parent container. A common use case is to achieve column-based sizing.
-
-                Resize the browser to see these Avatar change to match the width of the \`Column\` they have been placed in.
-              `}
-            title="Container-based sizes"
-          >
-            <MainSection.Card
-              sandpackExample={
-                <SandpackExample code={containerExample} name="Container-based variant" />
-              }
-            />
-          </MainSection.Subsection>
-        )}
         <MainSection.Subsection
           description={`
     If there is no image source provided to the Avatar, the first character of

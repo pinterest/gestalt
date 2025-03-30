@@ -36,10 +36,6 @@ import success from '../../examples/toast/success';
 import textOnly from '../../examples/toast/textOnly';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
-  const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
@@ -239,8 +235,7 @@ Note that \`dismissButton.accessibilityLabel\` is optional as DefaultLabelProvid
         <MainSection.Subsection
           columns={2}
           description={`
-The \`text\` prop accepts either a string or [Text](/web/text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines. ${
-            isInExperiment ? '' : 'Regular strings are subject to two-line truncation.'
+The \`text\` prop accepts either a string or [Text](/web/text). Use a string for guide toasts without any visual style. Toast will handle the text style and adherence to design guidelines.'
           }
 
 If  confirmation toast's text with more complex style is required, such as bold text, inline links, or no truncation, use Text to wrap your message with any additional Text or Link usages contained within. When passing in your own Text component for \`text\`, do not specify \`color\` on Text. Toast will automatically pick the correct text color for the given \`type\`.
