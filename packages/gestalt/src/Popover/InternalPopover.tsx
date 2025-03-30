@@ -6,7 +6,7 @@ import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import Flex from '../Flex';
 import InternalIconCompactButton from '../IconButton/InternalIconCompactButton';
 import InternalDismissButton from '../sharedSubcomponents/InternalDismissButton';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Color = 'blue' | 'white' | 'darkGray';
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'flexible' | number;
@@ -62,10 +62,7 @@ export default function InternalPopover({
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('Popover');
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   if (!anchor) {
     return null;
@@ -96,7 +93,7 @@ export default function InternalPopover({
       {showDismissButton && (
         <Flex direction="column">
           <Box alignSelf="end" padding={2}>
-            {isInVRExperiment ? (
+            {theme.MAIN ? (
               <InternalIconCompactButton
                 accessibilityLabel={
                   accessibilityDismissButtonLabel ?? accessibilityDismissButtonLabelDefault

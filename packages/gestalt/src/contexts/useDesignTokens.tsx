@@ -8,7 +8,7 @@ import vrTall from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variabl
 import vrTh from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-font-lineheight-th.json';
 import vrVi from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-font-lineheight-vi.json';
 import vrLight from 'gestalt-design-tokens/dist/json/vr-theme-web-mapping/variables-light.json';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const themes = {
   classic: { name: 'classic', light: classicLight, dark: classicDark },
@@ -41,26 +41,18 @@ const useDesignTokens = ({
 }: {
   forceTheme?: 'classic' | 'visualrefresh' | 'calico01';
 }) => {
-  const isVR = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  const isCalico01 = useInExperiment({
-    webExperimentName: 'web_gestalt_calico01',
-    mwebExperimentName: 'web_gestalt_calico01',
-  });
+  let selectedTheme: 'classic' | 'visualrefresh' | 'calico01' = forceTheme ?? 'classic';
 
-  let theme: 'classic' | 'visualrefresh' | 'calico01' = forceTheme ?? 'classic';
-
-  if (!forceTheme && isVR) {
-    theme = 'visualrefresh';
+  if (!forceTheme && theme.VR01) {
+    selectedTheme = 'visualrefresh';
   }
-  if (!forceTheme && isCalico01) {
-    theme = 'calico01';
+  if (!forceTheme && theme.CA01) {
+    selectedTheme = 'calico01';
   }
 
-  return themes[theme];
+  return themes[selectedTheme];
 };
 
 export default useDesignTokens;

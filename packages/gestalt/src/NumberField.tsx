@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, ReactNode } from 'react';
 import InternalTextField from './TextField/InternalTextField';
 import VRInternalTextField from './TextField/VRInternalTextField';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 // <input> deals with strings, but we only want numbers for this component.
 // So we parse what we get from InternalTextField and we stringify what we give it.
@@ -167,12 +167,9 @@ const NumberFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function N
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRInternalTextField
         ref={ref}

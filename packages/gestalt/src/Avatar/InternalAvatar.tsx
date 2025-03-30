@@ -12,7 +12,7 @@ import Icon from '../Icon';
 import IconCompact from '../IconCompact';
 import Image from '../Image';
 import Mask from '../Mask';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const sizes = {
   xs: 24,
@@ -44,10 +44,7 @@ type Props = {
 };
 
 function InternalAvatar(props: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const {
     accessibilityLabel,
     color,
@@ -68,7 +65,7 @@ function InternalAvatar(props: Props) {
     xs: TOKEN_SPACE_0,
     sm: TOKEN_SPACE_0,
     md: TOKEN_SPACE_0,
-    lg: isInVRExperiment ? 'var(--sema-space-50)' : '2px',
+    lg: theme.MAIN ? 'var(--sema-space-50)' : '2px',
     xl: '5px',
     fit: TOKEN_SPACE_0,
   } as const;
@@ -78,7 +75,7 @@ function InternalAvatar(props: Props) {
       dangerouslySetInlineStyle={{
         __style: outline
           ? {
-              outline: isInVRExperiment
+              outline: theme.MAIN
                 ? '1px solid var(--sema-color-border-inverse)'
                 : '1px solid rgb(255 255 255)',
             }
@@ -94,8 +91,8 @@ function InternalAvatar(props: Props) {
         <Mask rounding="circle" wash>
           <div
             className={classnames({
-              [avatarStyles.imageHovered]: isInVRExperiment && isHovered,
-              [avatarStyles.imagePressed]: isInVRExperiment && isPressed,
+              [avatarStyles.imageHovered]: theme.MAIN && isHovered,
+              [avatarStyles.imagePressed]: theme.MAIN && isPressed,
             })}
           >
             <Image
@@ -127,7 +124,7 @@ function InternalAvatar(props: Props) {
                 ? {
                     bottom: verifiedIconPadding[size],
                     right: verifiedIconPadding[size],
-                    outline: isInVRExperiment
+                    outline: theme.MAIN
                       ? '1px solid var(--sema-color-background-default)'
                       : `1px solid ${TOKEN_COLOR_BACKGROUND_DEFAULT}`,
                   }

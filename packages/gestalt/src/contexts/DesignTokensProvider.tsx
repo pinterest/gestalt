@@ -2,7 +2,7 @@ import { Fragment, ReactNode } from 'react';
 import classnames from 'classnames';
 import { useColorScheme } from './ColorSchemeProvider';
 import useDesignTokens from './useDesignTokens';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const CLASSIC = 'classic';
 const VISUALREFRESH = 'visualrefresh';
@@ -24,17 +24,12 @@ const useThemeToStyles = ({
   const tokens = useDesignTokens({ forceTheme });
 
   // DEFINE THEME UNDER EXPERIMENT
-  const isVR =
-    useInExperiment({
-      webExperimentName: 'web_gestalt_visualrefresh',
-      mwebExperimentName: 'web_gestalt_visualrefresh',
-    }) || forceTheme === VISUALREFRESH;
 
-  const isCalico01 =
-    useInExperiment({
-      webExperimentName: 'web_gestalt_calico01',
-      mwebExperimentName: 'web_gestalt_calico01',
-    }) || forceTheme === CALICO01;
+  const theme = useExperimentalTheme();
+
+  const isVR = theme.VR01 || forceTheme === VISUALREFRESH;
+
+  const isCalico01 = theme.CA01 || forceTheme === CALICO01;
 
   const isClassic = forceTheme === CLASSIC || !(isVR || isCalico01);
 

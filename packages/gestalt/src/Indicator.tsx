@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import styles from './Indicator.css';
 import TextUI from './TextUI';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -35,10 +35,7 @@ export default function Indicator({
   dataTestId,
   position = 'middle',
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   if (count === undefined) {
     return (
@@ -65,8 +62,8 @@ export default function Indicator({
     >
       <div
         className={classnames(styles.counter, {
-          [styles.marginTop]: !isInVRExperiment,
-          [styles.border]: isInVRExperiment,
+          [styles.marginTop]: !theme.MAIN,
+          [styles.border]: theme.MAIN,
         })}
       >
         <TextUI align="center" color="light" size="xs">

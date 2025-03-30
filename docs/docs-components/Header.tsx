@@ -12,7 +12,7 @@ import {
   Sticky,
   Tabs,
   Text,
-  useDangerouslyInGestaltExperiment,
+  useExperimentalTheme,
 } from 'gestalt';
 import { useAppContext } from './appContext';
 import trackButtonClick from './buttons/trackButtonClick';
@@ -39,22 +39,13 @@ function getTabs(componentPlatform: 'web' | 'android' | 'ios') {
 }
 
 function Header() {
+  const theme = useExperimentalTheme();
   const router = useRouter();
   const { isSidebarOpen, setIsSidebarOpen, componentPlatformFilteredBy } = useNavigationContext();
   const [isMobileSearchExpandedOpen, setMobileSearchExpanded] = useState(false);
   const [showVRToggle, setShowVRToggle] = useState(false);
 
   const searchAnchorRef = useRef<null | HTMLButtonElement | HTMLAnchorElement>(null);
-
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  const isInCalico01Experiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_calico01',
-    mwebExperimentName: 'web_gestalt_calico01',
-  });
 
   const { setExperiments, experiments } = useAppContext();
 
@@ -90,8 +81,8 @@ function Header() {
   );
 
   useEffect(() => {
-    if (isInVRExperiment || isInCalico01Experiment) setShowVRToggle(true);
-  }, [isInVRExperiment, isInCalico01Experiment]);
+    if (theme.MAIN) setShowVRToggle(true);
+  }, [theme]);
 
   useEffect(() => {
     const isDeployPreviewEnvironment =

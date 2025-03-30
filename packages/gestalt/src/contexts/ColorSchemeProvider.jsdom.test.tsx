@@ -194,7 +194,6 @@ describe('visual refresh tokens', () => {
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light">
-          {' '}
           <DesignTokensProvider languageMode="ck">
             <ThemeAwareComponent />
           </DesignTokensProvider>
@@ -212,7 +211,6 @@ describe('visual refresh tokens', () => {
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light">
-          {' '}
           <DesignTokensProvider languageMode="ja">
             <ThemeAwareComponent />
           </DesignTokensProvider>
@@ -247,7 +245,127 @@ describe('visual refresh tokens', () => {
         value={{ 'web_gestalt_visualrefresh': { anyEnabled: true, group: 'enabled' } }}
       >
         <ColorSchemeProvider colorScheme="light">
-          {' '}
+          <DesignTokensProvider languageMode="vi">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+});
+
+describe('calico 01 tokens', () => {
+  it('uses calico 01 light mode theme when specified', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider>
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses calico 01 dark mode theme when specified', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="dark">
+          <DesignTokensProvider>
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses calico 01 with tall line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider languageMode="tall">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses calico 01 with ck line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider languageMode="ck">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses calico 01 with ja line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider languageMode="ja">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses calico 01 with th line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider languageMode="th">
+            <ThemeAwareComponent />
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
+      </ExperimentProvider>,
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    expect(container.querySelector('style')).toMatchSnapshot();
+  });
+
+  it('uses calico 01 with vi line height', () => {
+    const { container } = render(
+      <ExperimentProvider
+        value={{ 'web_gestalt_calico01': { anyEnabled: true, group: 'enabled' } }}
+      >
+        <ColorSchemeProvider colorScheme="light">
           <DesignTokensProvider languageMode="vi">
             <ThemeAwareComponent />
           </DesignTokensProvider>

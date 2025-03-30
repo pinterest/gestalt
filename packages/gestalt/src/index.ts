@@ -90,6 +90,7 @@ import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useReducedMotion from './useReducedMotion';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import Video from './Video';
 import WashAnimated from './WashAnimated';
 import { CompositeZIndex, FixedZIndex } from './zIndex';
@@ -187,6 +188,7 @@ export {
   useInExperiment as useDangerouslyInGestaltExperiment,
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
+  useExperimentalTheme,
   useFocusVisible,
   useGlobalEventsHandlerContext as useGlobalEventsHandler,
   useReducedMotion,

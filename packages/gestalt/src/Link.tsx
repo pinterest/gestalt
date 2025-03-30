@@ -21,8 +21,8 @@ import Text from './Text';
 import styles from './Text.css';
 import typographyStyles from './Typography.css';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const externalLinkIconMap = {
   '100': 12,
@@ -164,10 +164,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
 ): ReactElement {
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
@@ -263,7 +260,7 @@ const LinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function Link(
     <a
       ref={innerRef}
       aria-label={ariaLabel}
-      className={isInVRExperiment ? VRclassName : className}
+      className={theme.MAIN ? VRclassName : className}
       data-test-id={dataTestId}
       href={href}
       id={id}

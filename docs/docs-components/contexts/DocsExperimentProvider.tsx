@@ -10,12 +10,7 @@ import { useAppContext } from '../appContext';
 
 const enabledExperiments = {
   VR01Tokens: ['web_gestalt_visualrefresh', 'web_gestalt_visualrefresh'],
-  CA01Tokens: [
-    'web_gestalt_calico01',
-    'web_gestalt_calico01',
-    'web_gestalt_visualrefresh',
-    'web_gestalt_visualrefresh',
-  ],
+  CA01Tokens: ['web_gestalt_calico01', 'web_gestalt_calico01'],
 } as const;
 
 type ExperimentKey = keyof typeof enabledExperiments;

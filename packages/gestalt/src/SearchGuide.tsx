@@ -8,8 +8,8 @@ import styles from './SearchGuide.css';
 import touchableStyles from './TapArea.css';
 import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -103,10 +103,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
@@ -132,7 +129,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
 
   const colorClassname = typeof color === 'string' ? styles[colorClass[color]!] : null;
 
-  const style = isInVRExperiment
+  const style = theme.MAIN
     ? classnames(styles.searchguideVr, touchableStyles.tapTransition, {
         [focusStyles.hideOutline]: !isFocusVisible,
         [styles.vrFocused]: isFocusVisible,
@@ -166,23 +163,23 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
     <Box marginEnd={3}>
       <Flex
         alignItems="center"
-        gap={{ row: isInVRExperiment ? 3 : 2, column: 0 }}
+        gap={{ row: theme.MAIN ? 3 : 2, column: 0 }}
         justifyContent="center"
       >
         {'avatar' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
+          <Box aria-hidden marginStart={theme.MAIN ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
         {'avatarGroup' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
+          <Box aria-hidden marginStart={theme.MAIN ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
         )}
         {'image' in thumbnail && (
           <div
             className={
-              isInVRExperiment
+              theme.MAIN
                 ? classnames(styles.imageDivVr, { [styles.selectedVr]: selected })
                 : styles.imageDiv
             }
@@ -204,7 +201,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   );
 
   const textVariant = (
-    <Box paddingX={isInVRExperiment ? 4 : 5}>
+    <Box paddingX={theme.MAIN ? 4 : 5}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {textComponent}
         {expandable ? expandableIcon : null}
@@ -228,8 +225,7 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
   });
 
   const variant = thumbnail ? thumbnailVariant : textVariant;
-  const inBackgroundGradient =
-    !isInVRExperiment && typeof color !== 'string' && Array.isArray(color);
+  const inBackgroundGradient = !theme.MAIN && typeof color !== 'string' && Array.isArray(color);
 
   return (
     <button
@@ -268,13 +264,13 @@ const SearchGuideWithForwardRef = forwardRef<HTMLButtonElement, Props>(function 
       <div
         className={classnames(
           styles.childrenDiv,
-          isInVRExperiment && thumbnail && 'image' in thumbnail && styles.imageThumbnailMask,
-          isInVRExperiment && selected && styles.selectedVr,
-          isInVRExperiment && !selected && typeof color === 'string' && colorClassname,
+          theme.MAIN && thumbnail && 'image' in thumbnail && styles.imageThumbnailMask,
+          theme.MAIN && selected && styles.selectedVr,
+          theme.MAIN && !selected && typeof color === 'string' && colorClassname,
           { [touchableStyles.tapCompress]: isTapping },
         )}
         style={
-          isInVRExperiment && !selected && typeof color !== 'string' && Array.isArray(color)
+          theme.MAIN && !selected && typeof color !== 'string' && Array.isArray(color)
             ? {
                 backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
               }
