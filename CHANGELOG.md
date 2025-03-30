@@ -1,3 +1,9 @@
+## 175.0.3 (Mar 30, 2025)
+
+### Patch
+
+- Internal: refactor experimental theme consumption ([#4056](https://github.com/pinterest/gestalt/pull/4056)) - [Preview link](https://deploy-preview-4056--gestalt.netlify.app?devexample=true)
+
 ## 175.0.2 (Mar 30, 2025)
 
 ### Patch
