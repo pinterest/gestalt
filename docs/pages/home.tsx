@@ -12,7 +12,6 @@ import Design from '../graphics/home-page/design.svg';
 import Development from '../graphics/home-page/development.svg';
 import HeroGraphic from '../graphics/home-page/HeroGraphic';
 import HowToWork from '../graphics/home-page/how-to-work-with-us.svg';
-import Roadmap from '../graphics/home-page/roadmap.svg';
 
 export default function HomePage() {
   return (
@@ -95,15 +94,6 @@ export default function HomePage() {
               href="/foundations/overview"
               image={<Color />}
               title="Foundations"
-            />
-
-            <IllustrationCard
-              backgroundColor={TOKEN_COLOR_TEAL_SPABATTICAL_450}
-              description="What we plan to build and update in the short and long term"
-              headingLevel={3}
-              href="/roadmap"
-              image={<Roadmap />}
-              title="Road map"
             />
           </IllustrationSection>
         </Flex>
