@@ -21,7 +21,6 @@ import sizingExample from '../../examples/avatar/sizingExample';
 import verifiedExample from '../../examples/avatar/verifiedExample';
 
 export default function AvatarPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
-
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader
