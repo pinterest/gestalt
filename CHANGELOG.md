@@ -1,3 +1,9 @@
+## 175.0.4 (Mar 31, 2025)
+
+### Patch
+
+- Docs: adds DesignTokensProvider to Sandpack code editor ([#4058](https://github.com/pinterest/gestalt/pull/4058)) - [Preview link](https://deploy-preview-4058--gestalt.netlify.app?devexample=true)
+
 ## 175.0.3 (Mar 30, 2025)
 
 ### Patch
