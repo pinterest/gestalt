@@ -1,3 +1,9 @@
+## 175.1.0 (Mar 31, 2025)
+
+### Minor
+
+- Toast: Compact icons ([#4060](https://github.com/pinterest/gestalt/pull/4060)) - [Preview link](https://deploy-preview-4060--gestalt.netlify.app?devexample=true)
+
 ## 175.0.6 (Mar 31, 2025)
 
 ### Patch
