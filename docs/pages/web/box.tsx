@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider,Flex, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
@@ -79,13 +79,14 @@ function ColorSchemeLayout({ children }: ColorCardProps) {
       }}
     >
       {['light', 'dark'].map((scheme) => (
-        // @ts-expect-error - TS2322 - Type 'string' is not assignable to type '"light" | "dark" | "userPreference"'.
-        <ColorSchemeProvider key={scheme} colorScheme={scheme} id={scheme}>
-          <Box alignItems="center" color="default" direction="column" display="flex" padding={4}>
-            {children}
-            <Text>{scheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
-          </Box>
-        </DesignTokensProvider></ColorSchemeProvider>
+        <ColorSchemeProvider key={scheme} colorScheme={(scheme as 'light') || 'dark'}>
+          <DesignTokensProvider id={scheme}>
+            <Box alignItems="center" color="default" direction="column" display="flex" padding={4}>
+              {children}
+              <Text>{scheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
+            </Box>
+          </DesignTokensProvider>
+        </ColorSchemeProvider>
       ))}
     </Flex>
   );

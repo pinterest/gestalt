@@ -192,7 +192,7 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
               size={SIZE_ICON}
             />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       ) : null}
       {type === 'progress' ? (
         <Spinner accessibilityLabel={accessibilityProcessingLabel} color="default" show size="sm" />

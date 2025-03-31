@@ -13,7 +13,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider>
         <DesignTokensProvider id="testId">Child 1</DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('div')).toMatchInlineSnapshot(`
@@ -29,7 +29,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider>
         <DesignTokensProvider>Content</DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
@@ -39,7 +39,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="light">
         <DesignTokensProvider>Content</DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
@@ -49,7 +49,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="dark">
         <DesignTokensProvider>Content</DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider colorScheme="userPreference">
         <DesignTokensProvider>Content</DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('style')).toMatchSnapshot();
@@ -69,7 +69,7 @@ describe('ColorSchemeProvider', () => {
     const { container } = render(
       <ColorSchemeProvider>
         <DesignTokensProvider id="testId">Content</DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
     expect(container.querySelector('.__gestaltThemetestId')).toBeTruthy();
@@ -90,7 +90,7 @@ describe('useColorScheme', () => {
         <DesignTokensProvider>
           <ThemeAwareComponent />
         </DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     expect(screen.getByText('lightMode')).toBeTruthy();
   });
@@ -101,7 +101,7 @@ describe('useColorScheme', () => {
         <DesignTokensProvider>
           <ThemeAwareComponent />
         </DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     expect(screen.getByText('darkMode')).toBeTruthy();
   });
@@ -127,7 +127,7 @@ describe('useColorScheme', () => {
         <DesignTokensProvider>
           <ThemeAwareComponent />
         </DesignTokensProvider>
-      </DesignTokensProvider></ColorSchemeProvider>,
+      </ColorSchemeProvider>,
     );
     expect(screen.getByText('lightMode')).toBeTruthy();
     // @ts-expect-error - TS2769 - No overload matches this call.
@@ -146,7 +146,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider>
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -163,7 +163,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider>
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -180,7 +180,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider languageMode="tall">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -197,7 +197,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider languageMode="ck">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -214,7 +214,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider languageMode="ja">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -231,7 +231,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider languageMode="th">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -248,7 +248,7 @@ describe('visual refresh tokens', () => {
           <DesignTokensProvider languageMode="vi">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -267,7 +267,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider>
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -284,7 +284,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider>
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -301,7 +301,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider languageMode="tall">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -318,7 +318,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider languageMode="ck">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -335,7 +335,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider languageMode="ja">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -352,7 +352,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider languageMode="th">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 
@@ -369,7 +369,7 @@ describe('calico 01 tokens', () => {
           <DesignTokensProvider languageMode="vi">
             <ThemeAwareComponent />
           </DesignTokensProvider>
-        </DesignTokensProvider></ColorSchemeProvider>
+        </ColorSchemeProvider>
       </ExperimentProvider>,
     );
 

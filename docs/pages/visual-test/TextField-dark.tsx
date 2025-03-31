@@ -1,4 +1,4 @@
-import { ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 import TextFieldScreenshot from './TextField';
 
 export default function Screenshot() {
