@@ -205,7 +205,7 @@ When ButtonToggle is currently active or selected.
             {({ size }) => (
               <ButtonToggle
                 accessibilityLabel={`Example size ${size}`}
-                color="transparent"
+                color="primary"
                 selected={false}
                 size={size}
                 text="Follow"
@@ -216,9 +216,9 @@ When ButtonToggle is currently active or selected.
 
         <MainSection.Subsection
           description={`
-1. Red (Primary)
+1. SecondaryStrong
     High emphasis, used for the Save action.
-2. Transparent
+2. Primary
     Low emphasis when placed on dark/image backgrounds, used for actions in that context.
 `}
           title="Color"

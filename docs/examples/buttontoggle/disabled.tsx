@@ -8,8 +8,8 @@ export default function Example() {
         <ButtonToggle disabled selected size="lg" text="Following" />
       </ButtonGroup>
       <ButtonGroup>
-        <ButtonToggle color="red" disabled selected={false} size="lg" text="Save" />
-        <ButtonToggle color="red" disabled selected size="lg" text="Saved" />
+        <ButtonToggle color="secondaryStrong" disabled selected={false} size="lg" text="Save" />
+        <ButtonToggle color="secondaryStrong" disabled selected size="lg" text="Saved" />
       </ButtonGroup>
       <ButtonGroup>
         <ButtonToggle

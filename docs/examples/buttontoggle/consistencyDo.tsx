@@ -10,7 +10,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonGroup>
         <ButtonToggle
-          color="red"
+          color="secondaryStrong"
           iconStart="pin"
           onClick={() => setSaved((value) => !value)}
           selected={saved}

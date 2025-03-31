@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { ComponentProps, forwardRef, useImperativeHandle,useRef } from 'react';
 import classnames from 'classnames';
 import borderStyles from './Borders.css';
 import styles from './ButtonToggle.css';
@@ -9,7 +9,9 @@ import { useGlobalEventsHandlerContext } from './contexts/GlobalEventsHandlerPro
 import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
+import IconCompact from './IconCompact';
 import icons from './icons/index';
+import compactIconsVR from './icons-vr-theme/compact/index';
 import touchableStyles from './TapArea.css';
 import Text from './Text';
 import TextUI from './TextUI';
@@ -20,8 +22,9 @@ import useInteractiveStates from './utils/useInteractiveStates';
 import useTapScaleAnimation from './utils/useTapScaleAnimation';
 
 const DEFAULT_TEXT_COLORS = {
-  red: 'inverse',
-  transparent: 'default',
+  secondaryStrong: 'inverse',
+  secondarySubtle: 'inverse',
+  primary: 'default',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -64,7 +67,7 @@ type Props = {
    *
    * This prop also accepts an array of 4 skin tones (`skinTone1`, `skinTone2`, ..., `skinTone16`) to create a color picker. See the [Color Picker Variant](https://gestalt.pinterest.systems/web/buttontoggle#Color-Picker) for details on proper usage.
    */
-  color?: 'red' | 'transparent' | readonly [SkinColor, SkinColor, SkinColor, SkinColor];
+  color?: 'secondaryStrong' | 'secondarySubtle' | 'primary' | readonly [SkinColor, SkinColor, SkinColor, SkinColor];
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/afut/#priority) before using this prop.
    */
@@ -84,7 +87,7 @@ type Props = {
   /**
    * An icon displayed before the text to help clarify the usage of ButtonToggle.
    */
-  iconStart?: keyof typeof icons;
+  iconStart?: keyof typeof icons |keyof typeof compactIconsVR;
   /**
    * Callback invoked when ButtonToggle loses focus.
    */
@@ -126,7 +129,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   {
     accessibilityLabel,
     accessibilityExpanded,
-    color = 'transparent',
+    color = 'primary',
     dataTestId,
     disabled = false,
     hasDropdown,
@@ -180,7 +183,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   const { colorSchemeName } = useColorScheme();
   // We need to make a few exceptions for accessibility reasons in darkMode for red buttons
   const isDarkMode = colorSchemeName === 'darkMode';
-  const isDarkModeRed = isDarkMode && color === 'red';
+  const isDarkModesecondary = isDarkMode && color === 'secondaryStrong';
   const { isFocusVisible } = useFocusVisible();
 
   const buttonToggleAnimation = useTapScaleAnimation();
@@ -191,8 +194,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         [styles.rounding300]: size === 'md',
         [styles.rounding400]: size === 'lg',
         [styles.activeBorderVr]: !disabled,
-        [styles.disabledBorderVr]: disabled && (color !== 'transparent' || selected),
-        [styles.disabledTransparentBorderVr]: disabled && color === 'transparent' && !selected,
+        [styles.disabledBorderVr]: disabled && (color !== 'primary' || selected),
+        [styles.disabledprimaryBorderVr]: disabled && color === 'primary' && !selected,
       }
     : {
         [styles.rounding600]: !graphicSrc,
@@ -312,11 +315,13 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [buttonToggleAnimation.classes]: theme.MAIN,
     [touchableStyles.tapTransition]: !theme.MAIN,
     [styles.compact]: text.length === 0,
-    [styles.disabled]: disabled && (color !== 'red' || selected),
-    [styles.disabledRed]: disabled && color === 'red' && !selected,
-    [styles.disabledTransparent]: disabled && color === 'transparent' && !selected,
+    [styles.disabled]: disabled && (color !== 'secondaryStrong' || selected),
+    [styles.disabledRed]: disabled && color === 'secondaryStrong' && !selected,
+    [styles.disabledprimary]: disabled && color === 'primary' && !selected,
     [styles.enabled]: !disabled,
-    [borderStyles.noBorder]: color === 'red' && !selected,
+    [borderStyles.noBorder]: color === 'secondaryStrong' && !selected,
+    [styles.selected]: !disabled &&  color !== 'secondarySubtle' && selected,
+    [styles.selectedsecondarySubtle]: !disabled &&  color === 'secondarySubtle' && selected,
     [styles.selected]: !disabled && selected,
     [styles.selectedDisabled]: disabled && selected,
     [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,
@@ -326,14 +331,17 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[color]]: !disabled && !selected,
     [styles.interactiveBorder]:
-      !disabled && !selected && !isFocused && color === 'transparent' && theme.MAIN,
+      !disabled && !selected && !isFocused && color === 'primary' && theme.MAIN,
   });
+
+  const isCompactIcon = iconStart?.includes('compact')
 
   const textColor =
     (disabled && 'disabled') ||
+    (selected && color==='secondarySubtle' && 'default') ||
     (selected && 'inverse') ||
     (selected && 'default') ||
-    (isDarkModeRed && 'default') ||
+    (isDarkModesecondary && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
   const content = graphicSrc ? (
@@ -344,11 +352,19 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       gap={{ row: theme.MAIN ? 1.5 : 2, column: 0 }}
       justifyContent="center"
     >
-      {iconStart && (
+      {iconStart && !isCompactIcon && (
         <Icon
           accessibilityLabel=""
           color={textColor as IconColor}
-          icon={iconStart}
+        icon={iconStart as ComponentProps<typeof Icon>['icon']}
+          size={SIZE_NAME_TO_PIXEL[size]}
+        />
+      )}
+        {iconStart && isCompactIcon && (
+        <IconCompact
+          accessibilityLabel=""
+          color={textColor as IconColor}
+          icon={iconStart as ComponentProps<typeof IconCompact>['icon']}
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       )}

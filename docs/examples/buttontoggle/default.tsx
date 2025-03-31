@@ -5,7 +5,7 @@ export default function Example() {
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonGroup>
         <ButtonToggle selected={false} size="lg" text="Follow" />
-        <ButtonToggle color="red" selected={false} size="lg" text="Save" />
+        <ButtonToggle color="secondaryStrong" selected={false} size="lg" text="Save" />
         <ButtonToggle
           graphicSrc="https://s.pinimg.com/webapp/protective-8fad3fab.svg"
           selected={false}

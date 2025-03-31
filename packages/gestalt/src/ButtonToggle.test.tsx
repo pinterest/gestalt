@@ -5,15 +5,15 @@ import Icon from './Icon';
 describe('<ButtonToggle />', () => {
   test('Custom color', () => {
     const instance = create(
-      <ButtonToggle color="transparent" selected={false} text="Hello World" />,
+      <ButtonToggle color="primary" selected={false} text="Hello World" />,
     ).root;
     expect(instance.find((element: any) => element.type === 'div').props.className).toContain(
-      'transparent',
+      'primary',
     );
   });
   test('Disabled state', () => {
     const instance = create(
-      <ButtonToggle color="red" disabled selected={false} text="Save" />,
+      <ButtonToggle color="secondaryStrong" disabled selected={false} text="Save" />,
     ).root;
     const { className } = instance.find((element: any) => element.type === 'div').props;
     expect(className).toContain('disabled');
@@ -22,7 +22,7 @@ describe('<ButtonToggle />', () => {
 
   test('iconStart', async () => {
     const instance = create(
-      <ButtonToggle color="transparent" iconStart="sparkle" selected={false} text="Default" />,
+      <ButtonToggle color="primary" iconStart="sparkle" selected={false} text="Default" />,
     ).root;
 
     // eslint-disable-next-line testing-library/await-async-query -- False positive due to 'findBy' prefix, findByType does not return a Promise!
@@ -30,9 +30,9 @@ describe('<ButtonToggle />', () => {
     expect(icon.props.icon).toBe('sparkle');
   });
 
-  test('Default darkGray text color on transparent background', () => {
+  test('Default darkGray text color on primary background', () => {
     const instance = create(
-      <ButtonToggle color="transparent" selected={false} text="Hello World" />,
+      <ButtonToggle color="primary" selected={false} text="Hello World" />,
     ).root;
     expect(
       instance.findAll((element: any) => element.type === 'div')[3]?.props.className,

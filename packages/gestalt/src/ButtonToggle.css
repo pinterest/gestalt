@@ -149,6 +149,11 @@
   background-color: var(--color-background-button-selected-default);
 }
 
+.selectedsecondarySubtle{
+  composes: borderColorSelected from "./Borders.css";
+  background-color: var(--color-background-button-tertiary-default);
+}
+
 .selectedDisabled {
   composes: sizeLg from "./Borders.css";
   background-color: var(--color-background-button-disabled-default);
@@ -171,26 +176,38 @@
 
 /* COLORS */
 
-.red {
+.secondaryStrong {
   background-color: var(--color-background-button-primary-default);
 }
 
-.red:hover {
+.secondaryStrong:hover {
   background-color: var(--color-background-button-primary-hover);
 }
 
-.red:active {
+.secondaryStrong:active {
   background-color: var(--color-background-button-primary-active);
 }
 
-.transparent {
+.secondarySubtle {
+  background-color: var(--color-background-button-primary-default);
+}
+
+.secondarySubtle:hover {
+  background-color: var(--color-background-button-primary-hover);
+}
+
+.secondarySubtle:active {
+  background-color: var(--color-background-button-primary-active);
+}
+
+.primary {
   background-color: var(--color-background-button-tertiary-default);
 }
 
-.transparent:hover {
+.primary:hover {
   background-color: var(--color-background-button-tertiary-default);
 }
 
-.transparent:active {
+.primary:active {
   background-color: var(--color-background-button-tertiary-default);
 }
