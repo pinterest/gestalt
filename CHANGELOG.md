@@ -1,3 +1,9 @@
+## 175.0.6 (Mar 31, 2025)
+
+### Patch
+
+- Internal: fixes dark mode adding DesignTokensProvider ([#4059](https://github.com/pinterest/gestalt/pull/4059)) - [Preview link](https://deploy-preview-4059--gestalt.netlify.app?devexample=true)
+
 ## 175.0.5 (Mar 31, 2025)
 
 ### Patch
