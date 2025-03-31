@@ -195,7 +195,7 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
       accessibilityLabel={accessibilityIconSuccessLabel}
       color="default"
       icon="compact-check-circle-fill"
-      size={SIZE_ICON}
+      size={SIZE_ICON_VR}
     />
   ) : (
     <Icon
