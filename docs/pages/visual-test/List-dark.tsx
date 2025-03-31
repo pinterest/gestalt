@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, List } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider><DesignTokensProvider>
       <Box color="default" padding={1}>
         <List label="This application will be able to" type="unordered">
           <List.Item text="Access your follows and followers" />
@@ -10,6 +10,6 @@ export default function Snapshot() {
           <List.Item text="Follow things for you" />
         </List>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

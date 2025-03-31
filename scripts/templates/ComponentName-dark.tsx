@@ -3,8 +3,8 @@ import { ColorSchemeProvider, ComponentName } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <ComponentName />
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, TableOfContents } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={2} width={300}>
         <TableOfContents title="Page Contents">
           <TableOfContents.Item active href="#section-1" label="Section 1" />
@@ -10,6 +10,6 @@ export default function Snapshot() {
           <TableOfContents.Item active={false} href="#section-3" label="Section 3" />
         </TableOfContents>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -10,6 +10,6 @@ export default function Snapshot() {
           <List.Item text="Follow things for you" />
         </List>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

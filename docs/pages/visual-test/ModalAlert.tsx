@@ -26,6 +26,6 @@ export default function Snapshot() {
           <Text>Children</Text>
         </ModalAlert>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

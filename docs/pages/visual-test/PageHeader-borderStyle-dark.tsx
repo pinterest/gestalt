@@ -2,7 +2,7 @@ import { Box, Button, ColorSchemeProvider, Dropdown, PageHeader } from 'gestalt'
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" height={100} width="100vw">
         <PageHeader
           borderStyle="sm"
@@ -20,6 +20,6 @@ export default function Snapshot() {
           title="Product groups"
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

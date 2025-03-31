@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, ModalAlert, Text } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" height={360} padding={1} width={360}>
         <ModalAlert
           accessibilityDismissButtonLabel="test"
@@ -26,6 +26,6 @@ export default function Snapshot() {
           <Text>Children</Text>
         </ModalAlert>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

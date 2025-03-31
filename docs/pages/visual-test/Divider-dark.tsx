@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Divider, Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box borderStyle="shadow" color="default" display="inlineBlock" padding={1}>
         <Flex
           direction="column"
@@ -16,6 +16,6 @@ export default function Snapshot() {
           <Box height={25} width={150} />
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

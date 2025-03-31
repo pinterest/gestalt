@@ -3,8 +3,8 @@ import SegmentedControlSnapshot from './SegmentedControl';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider><DesignTokensProvider>
       <SegmentedControlSnapshot />
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

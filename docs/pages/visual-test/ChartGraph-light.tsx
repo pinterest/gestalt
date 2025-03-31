@@ -1,9 +1,9 @@
-import { Box, ColorSchemeProvider } from 'gestalt';
+import { Box, ColorSchemeProvider , DesignTokensProvider} from 'gestalt';
 import { ChartGraph } from 'gestalt-charts';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="light">
+    <ColorSchemeProvider colorScheme="light">    <DesignTokensProvider>
       <Box width={200}>
         <ChartGraph
           accessibilityLabel="Example of Bar chart"
@@ -33,6 +33,6 @@ export default function Snapshot() {
           visualPatternSelected="default"
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

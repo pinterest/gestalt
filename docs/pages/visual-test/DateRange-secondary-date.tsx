@@ -31,6 +31,6 @@ export default function Snapshot() {
           secondaryDateValue={{ startDate: compStartDate, endDate: compEndDate }}
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

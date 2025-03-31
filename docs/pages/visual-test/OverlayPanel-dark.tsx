@@ -2,7 +2,7 @@ import { Box, Button, ColorSchemeProvider, Flex, OverlayPanel, Text } from 'gest
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" height={360} padding={1} width={360}>
         <OverlayPanel
           accessibilityDismissButtonLabel="Test"
@@ -19,6 +19,6 @@ export default function Snapshot() {
           <Text>Children</Text>
         </OverlayPanel>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

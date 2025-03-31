@@ -16,6 +16,6 @@ export default function Snapshot() {
           onSubmit={() => {}}
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

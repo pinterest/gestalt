@@ -1,8 +1,8 @@
-import { Badge, Box, ColorSchemeProvider, Flex } from 'gestalt';
+import { Badge, Box, ColorSchemeProvider, DesignTokensProvider,Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">    <DesignTokensProvider>
       <Box color="default" padding={1}>
         <Flex gap={{ row: 4, column: 2 }} width={400} wrap>
           <Badge text="Success badge" type="success" />
@@ -21,6 +21,6 @@ export default function Snapshot() {
           </Box>
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

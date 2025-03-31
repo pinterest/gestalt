@@ -2,10 +2,10 @@ import { ColorSchemeProvider, DeviceTypeProvider, SheetMobile } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <DeviceTypeProvider deviceType="mobile">
         <SheetMobile heading="Heading" onDismiss={() => {}} subHeading="SubHeading" />
       </DeviceTypeProvider>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

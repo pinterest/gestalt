@@ -1,8 +1,8 @@
-import { Box, ButtonGroup, ButtonToggle, ColorSchemeProvider } from 'gestalt';
+import { Box, ButtonGroup, ButtonToggle, ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">     <DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <ButtonGroup>
           <ButtonToggle color="transparent" iconStart="sparkle" selected={false} text="Follow" />
@@ -42,6 +42,6 @@ export default function Snapshot() {
           />
         </ButtonGroup>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

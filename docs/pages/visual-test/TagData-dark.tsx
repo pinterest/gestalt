@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Flex, TagData } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex gap={2}>
           <TagData onRemove={() => {}} showCheckbox text="CPM" />
@@ -17,6 +17,6 @@ export default function Snapshot() {
           />
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

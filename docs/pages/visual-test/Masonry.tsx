@@ -40,6 +40,6 @@ export default function Snapshot() {
           renderItem={({ data }) => <GridComponent data={data} />}
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

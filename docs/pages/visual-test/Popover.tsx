@@ -35,6 +35,6 @@ export default function Snapshot() {
           </Popover>
         )}
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

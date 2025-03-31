@@ -43,6 +43,6 @@ export default function Snapshot() {
           </SideNavigation.Group>
         </SideNavigation>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

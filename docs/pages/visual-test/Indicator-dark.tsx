@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Flex, Indicator } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex alignItems="center" gap={6} height="100%" justifyContent="center" width="100%">
           <Indicator accessibilityLabel="Visit the Gestalt documentation" />
@@ -12,6 +12,6 @@ export default function Snapshot() {
           <Indicator accessibilityLabel="Visit the Gestalt documentation" count={100} />
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

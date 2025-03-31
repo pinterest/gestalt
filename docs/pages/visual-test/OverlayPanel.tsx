@@ -19,6 +19,6 @@ export default function Snapshot() {
           <Text>Children</Text>
         </OverlayPanel>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

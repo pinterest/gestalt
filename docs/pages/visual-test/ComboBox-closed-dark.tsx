@@ -1,10 +1,13 @@
-import { ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 import ComboBoxClosedSnapshot from './ComboBox-closed';
 
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <ComboBoxClosedSnapshot />
+      {' '}
+      <DesignTokensProvider>
+        <ComboBoxClosedSnapshot />
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }

@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Tabs } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1} width={300}>
         <Tabs
           activeTabIndex={0}
@@ -14,6 +14,6 @@ export default function Snapshot() {
           ]}
         />{' '}
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

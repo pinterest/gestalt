@@ -10,6 +10,6 @@ export default function Snapshot() {
           <TableOfContents.Item active={false} href="#section-3" label="Section 3" />
         </TableOfContents>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

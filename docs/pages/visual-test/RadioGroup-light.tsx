@@ -21,6 +21,6 @@ export default function Snapshot() {
           />{' '}
         </RadioGroup>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

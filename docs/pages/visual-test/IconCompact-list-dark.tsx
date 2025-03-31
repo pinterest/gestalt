@@ -3,7 +3,7 @@ import icons from 'gestalt/src/icons/compact';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" height={2000} width={2000}>
         <Flex
           gap={{
@@ -22,6 +22,6 @@ export default function Snapshot() {
           ))}
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

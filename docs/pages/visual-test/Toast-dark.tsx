@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Image, Toast } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default">
         <Toast
           primaryAction={{
@@ -25,6 +25,6 @@ export default function Snapshot() {
           }}
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

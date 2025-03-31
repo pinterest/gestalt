@@ -23,6 +23,6 @@ export default function Snapshot() {
           <Text size="600">Text size 600</Text>
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

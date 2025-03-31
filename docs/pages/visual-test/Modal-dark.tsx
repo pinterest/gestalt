@@ -2,7 +2,7 @@ import { Box, Button, ColorSchemeProvider, Flex, Modal, Text } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" height={360} padding={1} width={360}>
         <Modal
           accessibilityModalLabel="Label"
@@ -21,6 +21,6 @@ export default function Snapshot() {
           <Text>Text</Text>
         </Modal>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

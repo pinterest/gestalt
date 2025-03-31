@@ -2,7 +2,7 @@ import { Avatar, Box, Button, ColorSchemeProvider, Flex, Link, Text, WashAnimate
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
           <Box column={12} maxWidth={236} padding={8}>
@@ -24,6 +24,6 @@ export default function Snapshot() {
           </Box>
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

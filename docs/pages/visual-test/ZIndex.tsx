@@ -37,6 +37,6 @@ export default function Snapshot() {
           </Box>
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

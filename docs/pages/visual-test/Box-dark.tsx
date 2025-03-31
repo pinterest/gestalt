@@ -1,8 +1,8 @@
-import { Box, ColorSchemeProvider, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider,Text } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">    <DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={4}>
         <Box
           alignItems="center"
@@ -17,6 +17,6 @@ export default function Snapshot() {
           <Text>A Box with elevation</Text>
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

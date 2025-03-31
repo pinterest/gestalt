@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Flex, Label, Switch, Text } from 'gestalt';
 
 export default function Screenshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex
           direction="column"
@@ -75,6 +75,6 @@ export default function Screenshot() {
           </Flex>
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

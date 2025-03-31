@@ -85,7 +85,7 @@ function ColorSchemeLayout({ children }: ColorCardProps) {
             {children}
             <Text>{scheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
           </Box>
-        </ColorSchemeProvider>
+        </DesignTokensProvider></ColorSchemeProvider>
       ))}
     </Flex>
   );

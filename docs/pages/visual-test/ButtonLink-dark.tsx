@@ -1,8 +1,8 @@
-import { Box, ButtonLink, ColorSchemeProvider } from 'gestalt';
+import { Box, ButtonLink, ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">     <DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <ButtonLink
           accessibilityLabel="Visit Pinterest"
@@ -15,6 +15,6 @@ export default function Snapshot() {
           text="Visit Pinterest"
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

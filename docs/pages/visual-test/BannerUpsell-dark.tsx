@@ -1,8 +1,8 @@
-import { BannerUpsell, Box, ColorSchemeProvider, Icon } from 'gestalt';
+import { BannerUpsell, Box, ColorSchemeProvider, DesignTokensProvider,Icon } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">    <DesignTokensProvider>
       <Box color="default" padding={5}>
         <BannerUpsell
           dismissButton={{
@@ -23,6 +23,6 @@ export default function Snapshot() {
           title="Give $30, get $60 in ads credit"
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

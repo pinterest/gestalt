@@ -5,7 +5,7 @@ export default function Snapshot() {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<null | HTMLAnchorElement | HTMLButtonElement>(null);
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" height={250} padding={4} width={300}>
         <Flex justifyContent="center">
           <IconButton
@@ -46,6 +46,6 @@ export default function Snapshot() {
           )}
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

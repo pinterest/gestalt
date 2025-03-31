@@ -3,8 +3,8 @@ import TextFieldScreenshot from './TextField';
 
 export default function Screenshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <TextFieldScreenshot />
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Image } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Box height={84} width={84}>
           <Image
@@ -14,6 +14,6 @@ export default function Snapshot() {
           />
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

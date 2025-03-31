@@ -6,7 +6,7 @@ export default function Snapshot() {
   const [open, setOpen] = useState(false);
 
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" height={150} padding={1} width={300}>
         <Flex justifyContent="center" width="100%">
           <IconButton
@@ -35,6 +35,6 @@ export default function Snapshot() {
           </Popover>
         )}
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -5,6 +5,6 @@ export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="light">
       <ComponentName />
-    </ColorSchemeProvider>
+    </DesignTokensProvider></DesignTokensProvider></ColorSchemeProvider>
   );
 }

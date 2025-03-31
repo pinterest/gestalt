@@ -229,6 +229,6 @@ export default function Snapshot() {
       >
         <Masonry columnWidth={170} gutterWidth={20} items={_items} renderItem={_renderItem} />
       </div>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

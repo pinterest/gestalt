@@ -1,8 +1,8 @@
-import { BannerSlim, Box, ColorSchemeProvider, Flex } from 'gestalt';
+import { BannerSlim, Box, ColorSchemeProvider, DesignTokensProvider,Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">    <DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex
           direction="column"
@@ -41,6 +41,6 @@ export default function Snapshot() {
           ))}
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

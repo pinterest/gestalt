@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, SideNavigation } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <SideNavigation accessibilityLabel="Icons example">
           <SideNavigation.TopItem
@@ -43,6 +43,6 @@ export default function Snapshot() {
           </SideNavigation.Group>
         </SideNavigation>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, TextCompact } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock">
         <Box padding={1}>
           <TextCompact>TextCompact weight default</TextCompact>
@@ -11,6 +11,6 @@ export default function Snapshot() {
           <TextCompact weight="emphasis">TextCompact weight emphasis</TextCompact>
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

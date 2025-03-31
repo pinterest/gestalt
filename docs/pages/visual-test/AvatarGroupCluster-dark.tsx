@@ -1,8 +1,8 @@
-import { AvatarGroupCluster, Box, ColorSchemeProvider, Flex } from 'gestalt';
+import { AvatarGroupCluster, Box, ColorSchemeProvider, DesignTokensProvider,Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark">    <DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex alignContent="center" gap={4} height="100%" justifyContent="center" wrap>
           <AvatarGroupCluster
@@ -55,6 +55,6 @@ export default function Snapshot() {
           />
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

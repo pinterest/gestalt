@@ -19,6 +19,6 @@ export default function Snapshot() {
           <Text>Content</Text>
         </SheetMobile>
       </DeviceTypeProvider>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

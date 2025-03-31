@@ -47,6 +47,6 @@ export default function Snapshot() {
           )}
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

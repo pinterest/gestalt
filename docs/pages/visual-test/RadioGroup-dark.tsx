@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, RadioGroup } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <RadioGroup id="testing-example" legend="Favorite pet">
           <RadioGroup.RadioButton
@@ -21,6 +21,6 @@ export default function Snapshot() {
           />
         </RadioGroup>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

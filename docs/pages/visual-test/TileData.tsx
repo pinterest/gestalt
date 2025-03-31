@@ -12,6 +12,6 @@ export default function Snapshot() {
           value="1.23M"
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

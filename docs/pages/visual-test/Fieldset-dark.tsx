@@ -2,7 +2,7 @@ import { Box, Checkbox, ColorSchemeProvider, Fieldset, Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" padding={4}>
         <Fieldset id="fieldset-error-message" legend="What languages would you like to learn?">
           <Flex
@@ -29,6 +29,6 @@ export default function Snapshot() {
           </Flex>
         </Fieldset>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

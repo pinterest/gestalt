@@ -29,6 +29,6 @@ export default function Snapshot() {
           />
         )}
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -235,6 +235,6 @@ export default function Snapshot() {
           renderItem={_renderItem}
         />
       </div>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

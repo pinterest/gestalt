@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Heading } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock">
         <Box padding={1}>
           <Heading size="100">Heading size 100</Heading>
@@ -23,6 +23,6 @@ export default function Snapshot() {
           <Heading size="600">Heading size 600</Heading>
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

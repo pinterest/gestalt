@@ -3,7 +3,7 @@ import { DateRange } from 'gestalt-datepicker';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" padding={2} width={675}>
         <DateRange
           dateValue={{
@@ -16,6 +16,6 @@ export default function Snapshot() {
           onSubmit={() => {}}
         />
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

@@ -21,6 +21,6 @@ export default function Snapshot() {
           <Text>Text</Text>
         </Modal>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

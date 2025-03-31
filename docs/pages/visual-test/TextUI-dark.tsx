@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, TextUI } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock">
         <Box padding={1}>
           <TextUI size="xs">TextUI size xs</TextUI>
@@ -17,6 +17,6 @@ export default function Snapshot() {
           <TextUI size="lg">TextUI size lg</TextUI>
         </Box>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }

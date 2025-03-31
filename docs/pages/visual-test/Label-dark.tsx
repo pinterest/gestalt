@@ -2,7 +2,7 @@ import { Box, ColorSchemeProvider, Flex, Label, Switch, Text } from 'gestalt';
 
 export default function Snapshot() {
   return (
-    <ColorSchemeProvider colorScheme="dark">
+    <ColorSchemeProvider colorScheme="dark"><DesignTokensProvider>
       <Box color="default" display="inlineBlock" padding={1}>
         <Flex
           gap={{
@@ -18,6 +18,6 @@ export default function Snapshot() {
           <Switch id="switchExample" onChange={() => {}} />
         </Flex>
       </Box>
-    </ColorSchemeProvider>
+    </DesignTokensProvider></ColorSchemeProvider>
   );
 }
