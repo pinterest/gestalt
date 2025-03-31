@@ -257,7 +257,6 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
         sectionName: 'Design tokens',
         pages: ['Overview', 'Component tokens'],
       },
-
       'Elevation',
       {
         sectionName: 'Forms',
@@ -289,10 +288,6 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'Screen sizes',
       'Typography',
     ],
-  },
-  {
-    sectionName: 'Blog',
-    pages: ['2023 Q3 Newsletter', '2023 Q2 Newsletter', '2023 Q1 Newsletter'],
   },
   {
     sectionName: 'Team support',
