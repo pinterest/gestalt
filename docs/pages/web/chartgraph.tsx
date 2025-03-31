@@ -1,5 +1,6 @@
 import { BannerSlim, Box } from 'gestalt';
 import {
+  TOKEN_COLOR_BACKGROUND_CHARTGRAPH_NEUTRAL,
   TOKEN_COLOR_DATA_VISUALIZATION_01,
   TOKEN_COLOR_DATA_VISUALIZATION_02,
   TOKEN_COLOR_DATA_VISUALIZATION_03,
@@ -31,6 +32,8 @@ import barHorizontal from '../../examples/chartgraph/barHorizontal';
 import biaxial from '../../examples/chartgraph/biaxial';
 import colors from '../../examples/chartgraph/colors';
 import combo from '../../examples/chartgraph/combo';
+import customLabelBarColumn from '../../examples/chartgraph/customLabelBarColumn';
+import customLabelBarHorizontal from '../../examples/chartgraph/customLabelBarHorizontal';
 import customTooltip from '../../examples/chartgraph/customTooltip';
 import decalBars from '../../examples/chartgraph/decalBars';
 import decalLines from '../../examples/chartgraph/decalLines';
@@ -40,11 +43,15 @@ import doLimit from '../../examples/chartgraph/doLimit';
 import dontBiaxial from '../../examples/chartgraph/dontBiaxial';
 import dontLimit from '../../examples/chartgraph/dontLimit';
 import doSameColor from '../../examples/chartgraph/doSameColor';
+import labelBarColumn from '../../examples/chartgraph/labelBarColumn';
+import labelBarHorizontal from '../../examples/chartgraph/labelBarHorizontal';
 import layout from '../../examples/chartgraph/layout';
 import legend from '../../examples/chartgraph/legend';
 import line from '../../examples/chartgraph/line';
 import localizationLabels from '../../examples/chartgraph/localizationLabels';
 import main from '../../examples/chartgraph/main';
+import neutral from '../../examples/chartgraph/neutral';
+import opacity from '../../examples/chartgraph/opacity';
 import precision from '../../examples/chartgraph/precision';
 import range from '../../examples/chartgraph/range';
 import referenceArea from '../../examples/chartgraph/referenceArea';
@@ -448,6 +455,66 @@ Props: \`legend\`
         </MainSection.Subsection>
 
         <MainSection.Subsection
+          description={`Pending.
+
+Props: \`renderLabel\`
+          `}
+          title="Label"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample code={labelBarColumn} layout="column" name="Auto label column" />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={labelBarHorizontal}
+                layout="column"
+                name="Auto label horizontal"
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={customLabelBarColumn}
+                layout="column"
+                name="Custom label column"
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={customLabelBarHorizontal}
+                layout="column"
+                name="Custom label horizontal"
+              />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description={`In cases where we need another shade of a color to highlight some data, use opacity to create that variation in tint. Only available in bar charts.
+
+Props: \`data\`
+          `}
+          title="Opacity"
+        >
+          <MainSection.Card
+            sandpackExample={<SandpackExample code={opacity} layout="column" name="Opacity" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
           description={`Use to highlight an area in a graph for extra context. A common example is showing when data isn’t available.
 
 Props: \`referenceAreas\`
@@ -478,10 +545,13 @@ Props: \`elements=[{..., type:'line', precision='estimate'}]\`
           description={`Colors on data series are set automatically for best contrast.
 
 If different graphs need to be compared simultaneously, see example below, color in time series can be set in the \`elements\` prop setting each color \`color='01'\` individually.
+
+
+Use neutral tones for less prioritized data, it can help other colors stand out and guide users' attention to key data points.
         `}
           title="Colors"
         >
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; cardSize: "xs"; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 */}
           <CombinationNew cardSize="xs" color={['01', '02', '03', '04', '05', '06']}>
             {({ color }) => {
               function getToken(value: string): string {
@@ -516,7 +586,7 @@ If different graphs need to be compared simultaneously, see example below, color
               );
             }}
           </CombinationNew>
-          {/* @ts-expect-error - TS2322 - Type '{ children: ({ color }: { [key: string]: any; }) => Element; cardSize: "xs"; color: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}
+          {/* @ts-expect-error - TS2322 */}
           <CombinationNew cardSize="xs" color={['07', '08', '09', '10', '11', '12']}>
             {({ color }) => {
               function getToken(value: string): string {
@@ -551,6 +621,20 @@ If different graphs need to be compared simultaneously, see example below, color
               );
             }}
           </CombinationNew>
+          {/* @ts-expect-error - TS2322 */}
+          <CombinationNew cardSize="xs" color={['neutral']}>
+            {() => (
+              <Box
+                dangerouslySetInlineStyle={{
+                  __style: {
+                    backgroundColor: TOKEN_COLOR_BACKGROUND_CHARTGRAPH_NEUTRAL,
+                  },
+                }}
+                height={80}
+                width={80}
+              />
+            )}
+          </CombinationNew>
           <MainSection.Card
             cardSize="lg"
             sandpackExample={
@@ -558,6 +642,18 @@ If different graphs need to be compared simultaneously, see example below, color
                 code={colors}
                 layout="column"
                 name="Colors"
+                previewHeight={EXTRA_LARGE_HEIGHT}
+              />
+            }
+          />
+
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={neutral}
+                layout="column"
+                name="Neutral colors"
                 previewHeight={EXTRA_LARGE_HEIGHT}
               />
             }

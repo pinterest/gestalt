@@ -4,8 +4,8 @@ import focusStyles from './Focus.css';
 import getRoundingClassName, { Rounding } from './getRoundingClassName';
 import styles from './TapArea.css';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from './useTapFeedback';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type FocusEventHandler = (arg1: { event: React.FocusEvent<HTMLDivElement> }) => void;
 
@@ -200,10 +200,7 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
   // @ts-expect-error - TS2322 - Type 'HTMLDivElement | null' is not assignable to type 'HTMLDivElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -224,17 +221,17 @@ const TapAreaWithForwardRef = forwardRef<HTMLDivElement, Props>(function TapArea
 
   const buttonRoleClasses = classnames(styles.tapTransition, getRoundingClassName(rounding), {
     [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-    [focusStyles.accessibilityOutline]: !isInVRExperiment && !disabled && isFocusVisible,
+    [focusStyles.accessibilityOutline]: !theme.MAIN && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineLightBackground]:
-      isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+      theme.MAIN && focusColor === 'lightBackground' && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineDarkBackground]:
-      isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+      theme.MAIN && focusColor === 'darkBackground' && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineBorder]:
-      isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+      theme.MAIN && innerFocusColor === 'default' && !disabled && !isFocusVisible,
     [focusStyles.accessibilityOutlineBorderDefault]:
-      isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+      theme.MAIN && innerFocusColor === 'default' && !disabled && isFocusVisible,
     [focusStyles.accessibilityOutlineBorderInverse]:
-      isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
+      theme.MAIN && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
     [styles.fullHeight]: fullHeight,
     [styles.fullWidth]: fullWidth,
     [styles.copy]: mouseCursor === 'copy' && !disabled,

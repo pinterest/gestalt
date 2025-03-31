@@ -2,9 +2,10 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import Box from '../Box';
 import Flex from '../Flex';
 import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import Text from '../Text';
 import { MaxLength } from '../TextField';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Props = {
   maxLength: MaxLength;
@@ -17,10 +18,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
 
   const [width, setWidth] = useState<undefined | number>(undefined);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   useEffect(() => {
     const containerWidth = ref?.current?.getBoundingClientRect().width;
@@ -32,6 +30,8 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
   const maxLengthReached = (currentLength ?? 0) >= (maxLength.characterCount ?? 0);
 
   let icon: 'workflow-status-warning' | 'workflow-status-problem' = 'workflow-status-warning';
+  let iconVR: 'compact-workflow-status-warning' | 'compact-workflow-status-problem' =
+    'compact-workflow-status-warning';
   let textColor: 'warning' | 'error' | 'disabled' = 'warning';
 
   if (
@@ -40,6 +40,7 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
     currentLength > maxLength?.characterCount
   ) {
     icon = 'workflow-status-problem';
+    iconVR = 'compact-workflow-status-problem';
     textColor = 'error';
   }
 
@@ -67,16 +68,15 @@ export default function FormHelperTextCounter({ disabled, currentLength, maxLeng
               {maxLength?.errorAccessibilityLabel}
             </Box>
             <Box alignItems="center" aria-hidden display="flex" height="100%">
-              <Icon
-                accessibilityLabel=""
-                color={textColor}
-                icon={icon}
-                size={isInVRExperiment ? 12 : 16}
-              />
+              {theme.MAIN ? (
+                <IconCompact accessibilityLabel="" color={textColor} icon={iconVR} size={12} />
+              ) : (
+                <Icon accessibilityLabel="" color={textColor} icon={icon} size={16} />
+              )}
             </Box>
           </Fragment>
         ) : (
-          <Box width={isInVRExperiment ? 12 : 16} />
+          <Box width={theme.MAIN ? 12 : 16} />
         )}
         <Flex justifyContent="end" width={width}>
           <Text align="end" color={maxLengthReached || disabled ? textColor : 'subtle'} size="100">

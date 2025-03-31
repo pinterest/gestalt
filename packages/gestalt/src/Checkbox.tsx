@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, ReactNode } from 'react';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
 import VRInternalCheckbox from './Checkbox/VRInternalCheckbox';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -63,7 +63,7 @@ type Props = {
 };
 
 /**
- * [Checkbox](https://gestalt.pinterest.systems/web/checkbox) is used for multiple choice selection. They are independent of each other in a list, and therefore, different from [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), one selection does not affect other checkboxes in the same list.
+ * [Checkbox](https://gestalt.pinterest.systems/web/checkbox) is used for multiple choice selection. They are independent of each other in a list, and therefore, different from [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup), one selection does not affect other checkboxes in the same list.
  *
  * ![Checkbox light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Checkbox.spec.ts-snapshots/Checkbox-chromium-darwin.png)
  * ![Checkbox dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/Checkbox-dark.spec.ts-snapshots/Checkbox-dark-chromium-darwin.png)
@@ -88,12 +88,9 @@ const CheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Chec
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRInternalCheckbox
         ref={ref}

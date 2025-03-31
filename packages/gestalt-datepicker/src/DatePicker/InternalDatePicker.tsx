@@ -9,14 +9,7 @@ import {
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { limitShift, shift } from '@floating-ui/react';
-import {
-  Box,
-  Icon,
-  Label,
-  Text,
-  useDangerouslyInGestaltExperiment,
-  useDefaultLabel,
-} from 'gestalt';
+import { Box, Icon, Label, Text, useDefaultLabel, useExperimentalTheme } from 'gestalt';
 import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
@@ -62,6 +55,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       selectLists,
       size,
       value: controlledValue,
+      _overrideRangeDateFix,
     }: InternalProps,
     ref,
   ): ReactElement {
@@ -72,10 +66,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
 
     const { nextMonth, previousMonth } = useDefaultLabel('DatePicker');
 
-    const isInVRExperiment = useDangerouslyInGestaltExperiment({
-      webExperimentName: 'web_gestalt_visualrefresh',
-      mwebExperimentName: 'web_gestalt_visualrefresh',
-    });
+    const theme = useExperimentalTheme();
     // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
     const [uncontrolledValue, setUncontrolledValue] = useState<Date | null | undefined>(null);
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -113,9 +104,13 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
       left: 'left',
     } as const;
 
+    // This logic is making the component uncontrolled and causes unexpected behaviour. We need to deprecate it when all instances of DatePicker set _overrideRangeDateFix to true
+    const controlledMaxDate = rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate;
+    const controlledMinDate = rangeSelector === 'start' ? minDate : rangeStartDate || minDate;
+
     return (
       <div className="_gestalt">
-        {label && !isInVRExperiment && !inline && (
+        {label && !theme.MAIN && !inline && (
           <Label htmlFor={id}>
             <Box marginBottom={2}>
               <Text size="100">{label}</Text>
@@ -151,8 +146,8 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
           includeDates={includeDates && [...includeDates]}
           inline={inline}
           locale={updatedLocale}
-          maxDate={rangeSelector === 'end' ? maxDate : rangeEndDate || maxDate}
-          minDate={rangeSelector === 'start' ? minDate : rangeStartDate || minDate}
+          maxDate={_overrideRangeDateFix ? maxDate : controlledMaxDate}
+          minDate={_overrideRangeDateFix ? minDate : controlledMinDate}
           nextMonthButtonLabel={
             <Icon accessibilityLabel={nextMonth} color="default" icon="arrow-forward" size={16} />
           }

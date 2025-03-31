@@ -4,9 +4,9 @@ import styles from './FormErrorMessage.css';
 import helperTextStyles from './FormHelperText.css';
 import Box from '../Box';
 import Flex from '../Flex';
-import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import Text from '../Text';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
@@ -15,6 +15,7 @@ type Props = {
   text?: ReactNode;
   size?: SizeType;
   noPadding?: boolean;
+  marginTop?: boolean;
 };
 
 export default function FormErrorMessage({
@@ -22,32 +23,31 @@ export default function FormErrorMessage({
   size,
   text = '',
   noPadding: noStartPadding,
+  marginTop,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     <div
       className={classnames({
+        [helperTextStyles.marginTop]: marginTop,
         // none
         [helperTextStyles.noStartPadding]: noStartPadding,
         // sm
-        [helperTextStyles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noStartPadding,
-        [helperTextStyles.sm_topPadding]: !isInVRExperiment && size === 'sm',
-        [helperTextStyles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noStartPadding,
-        [helperTextStyles.vr_sm_topPadding]: isInVRExperiment && size === 'sm',
+        [helperTextStyles.sm_startPadding]: !theme.MAIN && size === 'sm' && !noStartPadding,
+        [helperTextStyles.sm_topPadding]: !theme.MAIN && size === 'sm',
+        [helperTextStyles.vr_sm_startPadding]: theme.MAIN && size === 'sm' && !noStartPadding,
+        [helperTextStyles.vr_sm_topPadding]: theme.MAIN && size === 'sm',
         // md
-        [helperTextStyles.md_startPadding]: !isInVRExperiment && size === 'md' && !noStartPadding,
-        [helperTextStyles.md_topPadding]: !isInVRExperiment && size === 'md',
-        [helperTextStyles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noStartPadding,
-        [helperTextStyles.vr_md_topPadding]: isInVRExperiment && size === 'md',
+        [helperTextStyles.md_startPadding]: !theme.MAIN && size === 'md' && !noStartPadding,
+        [helperTextStyles.md_topPadding]: !theme.MAIN && size === 'md',
+        [helperTextStyles.vr_md_startPadding]: theme.MAIN && size === 'md' && !noStartPadding,
+        [helperTextStyles.vr_md_topPadding]: theme.MAIN && size === 'md',
         // lg
-        [helperTextStyles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noStartPadding,
-        [helperTextStyles.lg_topPadding]: !isInVRExperiment && size === 'lg',
-        [helperTextStyles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noStartPadding,
-        [helperTextStyles.vr_lg_topPadding]: isInVRExperiment && size === 'lg',
+        [helperTextStyles.lg_startPadding]: !theme.MAIN && size === 'lg' && !noStartPadding,
+        [helperTextStyles.lg_topPadding]: !theme.MAIN && size === 'lg',
+        [helperTextStyles.vr_lg_startPadding]: theme.MAIN && size === 'lg' && !noStartPadding,
+        [helperTextStyles.vr_lg_topPadding]: theme.MAIN && size === 'lg',
       })}
       id={id}
     >
@@ -58,19 +58,19 @@ export default function FormErrorMessage({
            */}
           <Box role="alert">
             <Flex
-              alignItems={isInVRExperiment ? 'start' : 'center'}
-              gap={size === 'sm' || isInVRExperiment ? 1 : 2}
+              alignItems={theme.MAIN ? 'start' : 'center'}
+              gap={size === 'sm' || theme.MAIN ? 1 : 2}
             >
               <Box
                 dangerouslySetInlineStyle={{
-                  __style: isInVRExperiment ? { marginTop: '2px' } : {},
+                  __style: theme.MAIN ? { marginTop: '2px' } : {},
                 }}
               >
-                <Icon
+                <IconCompact
                   accessibilityLabel=""
                   color="error"
-                  icon="workflow-status-problem"
-                  size={isInVRExperiment || size === 'sm' ? 12 : 16}
+                  icon="compact-workflow-status-problem"
+                  size={theme.MAIN || size === 'sm' ? 12 : 16}
                 />
               </Box>
               {text}

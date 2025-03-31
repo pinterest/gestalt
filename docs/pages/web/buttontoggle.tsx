@@ -1,6 +1,6 @@
 import colorpicker from 'docs/examples/buttontoggle/colorpicker';
 import thumbnail from 'docs/examples/buttontoggle/thumbnail';
-import { ButtonToggle, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { ButtonToggle } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen, DocType } from '../../docs-components/docgen';
@@ -28,11 +28,6 @@ import selected from '../../examples/buttontoggle/selected';
 const PREVIEW_HEIGHT = 300;
 
 export default function DocsPage({ generatedDocGen }: DocType) {
-  const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   return (
     <Page title={generatedDocGen?.displayName}>
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
@@ -60,7 +55,7 @@ export default function DocsPage({ generatedDocGen }: DocType) {
           <MainSection.Card
             cardSize="md"
             description={`
-            - Avoid using the ButtonToggle when a simpler Checkbox, RadioButton, or Switch can be used instead.
+            - Avoid using the ButtonToggle when a simpler Checkbox, RadioGroup, or Switch can be used instead.
             - Do not use ButtonToggle in replacement of a Button, it should only be used for selected and unselected functionality
         `}
             title="When not to use"
@@ -194,21 +189,15 @@ When ButtonToggle is currently active or selected.
         </MainSection.Subsection>
 
         <MainSection.Subsection
-          description={`ButtonToggle is available in 3 fixed sizes. ${
-            isInExperiment ? `` : `The ButtonToggle text has always a fixed size of 16px`
-          }:
-1. \`lg\` (48px)
-    Large is the only size that should be used on Pinner surfaces. ${
-      isInExperiment ? 'The text size is 16px.' : ''
-    }
-2. \`md\` (${isInExperiment ? '36' : '40'}px)
-    Medium is used on more dense UI such as business surfaces or internal tools. ${
-      isInExperiment ? 'The text size is 14px.' : ''
-    }
-3. \`sm\` (${isInExperiment ? '28' : '32'}px)
-    Small should be used sparingly and only in places where the UI is very dense. ${
-      isInExperiment ? 'The text size is 12px.' : ''
-    }`}
+          description={`ButtonToggle is available in 3 fixed sizes:
+1. \`lg\`
+    Large is the only size that should be used on Pinner surfaces.
+
+2. \`md\`
+    Medium is used on more dense UI such as business surfaces or internal tools.
+
+3. \`sm\`
+    Small should be used sparingly and only in places where the UI is very dense.`}
           title="Size"
         >
           {/* @ts-expect-error - TS2322 - Type '{ children: ({ size }: { [key: string]: any; }) => Element; size: string[]; }' is not assignable to type 'IntrinsicAttributes & Props'. */}

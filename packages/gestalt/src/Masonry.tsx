@@ -8,7 +8,11 @@ import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
-import { ColumnSpanConfig, MULTI_COL_ITEMS_MEASURE_BATCH_SIZE } from './Masonry/multiColumnLayout';
+import {
+  ColumnSpanConfig,
+  MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+  ResponsiveModuleConfig,
+} from './Masonry/multiColumnLayout';
 import ScrollContainer from './Masonry/ScrollContainer';
 import { getElementHeight, getRelativeScrollTop, getScrollPos } from './Masonry/scrollUtils';
 import { Align, Layout, Position } from './Masonry/types';
@@ -95,7 +99,7 @@ type Props<T> = {
    *
    * This is required if the grid is expected to be scrollable.
    */
-  scrollContainer?: () => HTMLElement;
+  scrollContainer?: () => HTMLElement | Window;
   /**
    * If `virtualize` is enabled, Masonry will only render items that fit in the viewport, plus some buffer. `virtualBoundsBottom` allows customization of the buffer size below the viewport, specified in pixels.
    */
@@ -132,6 +136,19 @@ type Props<T> = {
    */
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   /**
+   * Experimental prop to define the minimum and maximum limit a flexible width module could span.
+   * This used to enable multi-column flexible width support ONLY ON SECOND ITEM OF THE ARRAY OF ITEMS.
+   * Also, for the flexible width to work, the _getColumnSpanConfig prop should be set.
+   * _getResponsiveModuleConfigForSecondItem is a function that takes an individual grid item as an input and returns a ResponsiveModuleConfig.
+   * ResponsiveModuleConfig can be one of the following:
+   * - A number, which indicates a static number of columns the item should span
+   * - An object, which sets the minimum and maximum limits a multi-column item could span filling the empty columns in the first row of the grid (flexible width).
+   * - Undefined, which is used to indicate that this prop isn't set.
+   *
+   * This is an experimental prop and may be removed or changed in the future.
+   */
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
+  /**
    * Experimental flag to enable dynamic heights on items. This only works if multi column items are enabled.
    */
   _dynamicHeights?: boolean;
@@ -147,6 +164,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _earlyBailout?: (columnSpan: number) => number;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type State<T> = {
@@ -278,6 +299,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
   insertAnimationFrame: number | null = null;
 
   scrollContainer: ScrollContainer | null | undefined;
+
+  maxHeight: number = 0;
 
   /**
    * Delays resize handling in case the scroll container is still being resized.
@@ -567,7 +590,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       scrollContainer,
       _logTwoColWhitespace,
       _getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem,
       _earlyBailout,
+      _multiColPositionAlgoV2,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -583,8 +608,10 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       minCols,
       width,
       _getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem,
       _logTwoColWhitespace,
       _earlyBailout,
+      _multiColPositionAlgoV2,
     });
 
     let gridBody;
@@ -672,8 +699,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
-        ? Math.max(...positions.map((pos) => pos.top + pos.height))
+        ? Math.max(...positions.map((pos) => pos.top + pos.height), this.maxHeight)
         : 0;
+      if (height > this.maxHeight || !positions.length) this.maxHeight = height;
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>

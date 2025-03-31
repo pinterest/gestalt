@@ -398,7 +398,7 @@
             "value": "{base.color.purple.500.value}"
           },
           "11": {
-            "value": "{base.color.grayscale.500.value}"
+            "value": "{base.color.grayscale.250.value}"
           }
         },
         "hover": {
@@ -469,6 +469,16 @@
           },
           "11": {
             "value": "{base.color.pressed.grayscale.500.value}"
+          }
+        }
+      },
+      "segmentedcontrol": {
+        "container": {
+          "value": "{sema.color.background.elevation.value}"
+        },
+        "tab": {
+          "selected": {
+            "value": "{sema.color.background.default.value}"
           }
         }
       },

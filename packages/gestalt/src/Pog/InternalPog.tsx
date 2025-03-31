@@ -1,8 +1,10 @@
 import classnames from 'classnames';
 import styles from './InternalPog.css';
 import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import icons from '../icons/index';
-import useInExperiment from '../useInExperiment';
+import compactIconsVR from '../icons-vr-theme/compact/index';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Props = {
   accessibilityLabel?: string;
@@ -24,7 +26,7 @@ type Props = {
   };
   focused?: boolean;
   hovered?: boolean;
-  icon?: keyof typeof icons;
+  icon?: keyof typeof icons | keyof typeof compactIconsVR;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   padding?: 1 | 2 | 3 | 4 | 5;
   rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
@@ -48,12 +50,9 @@ export default function InternalPog({
   selected = false,
   size = 'md',
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  const SIZE_NAME_TO_PADDING_PIXEL = isInVRExperiment
+  const SIZE_NAME_TO_PADDING_PIXEL = theme.MAIN
     ? ({
         xs: 6,
         sm: 6,
@@ -74,8 +73,8 @@ export default function InternalPog({
   const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
     xs: 12,
     sm: 16,
-    md: isInVRExperiment ? 16 : 18,
-    lg: isInVRExperiment ? 24 : 20,
+    md: theme.MAIN ? 16 : 18,
+    lg: theme.MAIN ? 24 : 20,
     xl: 24,
     56: 24,
   } as const;
@@ -97,8 +96,8 @@ export default function InternalPog({
     red: 'white',
     transparent: 'darkGray',
     transparentDarkBackground: 'white',
-    transparentDarkGray: isInVRExperiment ? 'light' : 'white',
-    washLight: isInVRExperiment ? 'dark' : 'darkGray',
+    transparentDarkGray: theme.MAIN ? 'light' : 'white',
+    washLight: theme.MAIN ? 'dark' : 'darkGray',
     white: 'darkGray',
     elevation: 'darkGray',
   } as const;
@@ -109,6 +108,8 @@ export default function InternalPog({
   const paddingInPx = padding ? padding * 4 : SIZE_NAME_TO_PADDING_PIXEL[size];
 
   const sizeInPx = iconSizeInPx + paddingInPx * 2;
+
+  const isCompact = icon && icon in compactIconsVR;
 
   const inlineStyle = {
     height: sizeInPx,
@@ -164,25 +165,46 @@ export default function InternalPog({
   });
 
   return (
-    <div className={isInVRExperiment ? vrClasses : classes} style={inlineStyle}>
-      <Icon
-        accessibilityLabel={accessibilityLabel || ''}
-        color={
-          isInVRExperiment &&
-          // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
-          disabled &&
-          !(
-            !selected &&
-            (bgColor === 'washLight' || bgColor === 'transparentDarkGray') &&
-            (color === 'white' || color === 'light')
-          )
-            ? 'disabled'
-            : OLD_TO_NEW_COLOR_MAP[color]
-        }
-        dangerouslySetSvgPath={dangerouslySetSvgPath}
-        icon={icon}
-        size={iconSizeInPx}
-      />
+    <div className={theme.MAIN ? vrClasses : classes} style={inlineStyle}>
+      {isCompact ? (
+        <IconCompact
+          accessibilityLabel={accessibilityLabel || ''}
+          color={
+            theme.MAIN &&
+            // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
+            disabled &&
+            !(
+              !selected &&
+              (bgColor === 'washLight' || bgColor === 'transparentDarkGray') &&
+              (color === 'white' || color === 'light')
+            )
+              ? 'disabled'
+              : OLD_TO_NEW_COLOR_MAP[color]
+          }
+          dangerouslySetSvgPath={dangerouslySetSvgPath}
+          icon={icon as keyof typeof compactIconsVR}
+          size={iconSizeInPx}
+        />
+      ) : (
+        <Icon
+          accessibilityLabel={accessibilityLabel || ''}
+          color={
+            theme.MAIN &&
+            // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
+            disabled &&
+            !(
+              !selected &&
+              (bgColor === 'washLight' || bgColor === 'transparentDarkGray') &&
+              (color === 'white' || color === 'light')
+            )
+              ? 'disabled'
+              : OLD_TO_NEW_COLOR_MAP[color]
+          }
+          dangerouslySetSvgPath={dangerouslySetSvgPath}
+          icon={icon as keyof typeof icons}
+          size={iconSizeInPx}
+        />
+      )}
     </div>
   );
 }

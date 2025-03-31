@@ -12,13 +12,12 @@ import Flex from './Flex';
 import Heading from './Heading';
 import InternalDismissButton from './sharedSubcomponents/InternalDismissButton';
 import {
-  AvatarThumbnail,
   IconThumbnail,
   ImageThumbnail,
   Message,
 } from './sharedSubcomponents/thumbnailSubcomponents';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { Indexable } from './zIndex';
 
 const DEFAULT_COLORS = {
@@ -95,10 +94,7 @@ type Props = {
   /**
    * An optional thumbnail to display next to the text.
    */
-  thumbnail?:
-    | { image: ReactElement; avatar?: never; icon?: never }
-    | { image?: never; avatar: ReactElement; icon?: never }
-    | { image?: never; avatar?: never; icon: ReactElement };
+  thumbnail?: { image: ReactElement; icon?: never } | { image?: never; icon: ReactElement };
   /**
    *  Heading of BannerOverlay. Content should be [localized](https://gestalt.pinterest.systems/web/banneroverlay#Localization). See the [Text variant](https://gestalt.pinterest.systems/web/banneroverlay#Text) to learn more.
    */
@@ -130,10 +126,7 @@ export default function BannerOverlay({
 
   const isMobileDevice = useDeviceType() === 'mobile';
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { accessibilityDismissButtonLabel: accessibilityDismissButtonLabelDefault } =
     useDefaultLabelContext('BannerOverlay');
@@ -213,13 +206,10 @@ export default function BannerOverlay({
               {thumbnail?.icon && checkDisplayName(thumbnail.icon, 'Icon') ? (
                 <IconThumbnail thumbnail={thumbnail.icon} />
               ) : null}
-              {thumbnail?.avatar && checkDisplayName(thumbnail.avatar, 'Avatar') ? (
-                <AvatarThumbnail thumbnail={thumbnail.avatar} />
-              ) : null}
               <Flex.Item flex="grow">
                 <Flex direction="row" gap={4} justifyContent="between">
-                  {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
-                  {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
+                  {title && !theme.MAIN ? <Text weight="bold">{title}</Text> : null}
+                  {title && theme.MAIN ? <Heading size="300">{title}</Heading> : null}
                   {onDismiss && (
                     <Flex.Item alignSelf={title ? 'end' : 'start'}>
                       <InternalDismissButton
@@ -321,20 +311,17 @@ export default function BannerOverlay({
           width={`calc(100% - ${TOKEN_SPACE_800}`}
           zIndex={zIndex}
         >
-          <Flex gap={4}>
+          <Flex alignItems="center" gap={4}>
             {thumbnail?.image && checkDisplayName(thumbnail.image, 'Image') ? (
               <ImageThumbnail thumbnail={thumbnail.image} />
             ) : null}
             {thumbnail?.icon && checkDisplayName(thumbnail.icon, 'Icon') ? (
               <IconThumbnail thumbnail={thumbnail.icon} />
             ) : null}
-            {thumbnail?.avatar && checkDisplayName(thumbnail.avatar, 'Avatar') ? (
-              <AvatarThumbnail thumbnail={thumbnail.avatar} />
-            ) : null}
             <Flex.Item flex="grow">
               <Flex direction="column">
-                {title && !isInVRExperiment ? <Text weight="bold">{title}</Text> : null}
-                {title && isInVRExperiment ? <Heading size="300">{title}</Heading> : null}
+                {title && !theme.MAIN ? <Text weight="bold">{title}</Text> : null}
+                {title && theme.MAIN ? <Heading size="300">{title}</Heading> : null}
                 <Message
                   text={isMessageTextNode ? undefined : messageTextElement}
                   textColor={DEFAULT_COLORS.textColor}
@@ -353,7 +340,7 @@ export default function BannerOverlay({
                     onClick={secondaryAction.onClick}
                     rel={secondaryAction?.rel}
                     role="link"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                     target={secondaryAction?.target}
                   />
                 ) : null}
@@ -365,7 +352,7 @@ export default function BannerOverlay({
                     label={secondaryAction.label}
                     onClick={secondaryAction.onClick}
                     role="button"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                   />
                 ) : null}
 
@@ -378,7 +365,7 @@ export default function BannerOverlay({
                     onClick={primaryAction.onClick}
                     rel={primaryAction?.rel}
                     role="link"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                     target={primaryAction?.target}
                   />
                 ) : null}
@@ -390,7 +377,7 @@ export default function BannerOverlay({
                     label={primaryAction.label}
                     onClick={primaryAction.onClick}
                     role="button"
-                    size={isInVRExperiment ? 'md' : 'sm'}
+                    size={theme.MAIN ? 'md' : 'sm'}
                   />
                 ) : null}
               </Flex>

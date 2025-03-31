@@ -145,6 +145,12 @@
       "keywords": ["text", "sequence", "letter", "formatting"]
     },
     {
+      "name": "amazon",
+      "categories": ["Logo"],
+      "description": "Symbolizes amazon or its subsidiaries",
+      "keywords": ["aws"]
+    },
+    {
       "name": "android-share",
       "categories": ["Platform specific"],
       "description": "On Android, indicates the ability to share an element",
@@ -278,6 +284,12 @@
       "keywords": ["birthdate", "celebrate", "year"]
     },
     {
+      "name": "blur",
+      "categories": ["Creation"],
+      "description": "Indicates the ability to blur something.",
+      "keywords": ["soften", "fadecd s"]
+    },
+    {
       "name": "board",
       "categories": ["Utility and tools"],
       "description": "Indicates a board",
@@ -360,6 +372,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a collection of cards",
       "keywords": ["group"]
+    },
+    {
+      "name": "card-stack-refresh",
+      "categories": ["Object"],
+      "description": "Refreshes a collection of cards",
+      "keywords": ["group", "update", "new"]
     },
     {
       "name": "check",
@@ -467,6 +485,12 @@
       "keywords": ["settings", "gear", "nut"]
     },
     {
+      "name": "cog-fill",
+      "categories": ["Controls"],
+      "description": "Indicates setting options are available.",
+      "keywords": ["settings", "gear", "nut"]
+    },
+    {
       "name": "collapse",
       "categories": [],
       "description": "Description pending",
@@ -521,6 +545,12 @@
       "keywords": ["direction", "explore"]
     },
     {
+      "name": "compass-fill",
+      "categories": ["Object"],
+      "description": "Indicates directions or exploration",
+      "keywords": ["direction", "explore"]
+    },
+    {
       "name": "compose",
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to compose a new content",
@@ -543,6 +573,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates a credit card option is available as a payment method",
       "keywords": ["payment"]
+    },
+    {
+      "name": "credit-card-plus",
+      "categories": ["Commerce"],
+      "description": "Indicates the ability to add a payment method or credit/debit card.",
+      "keywords": ["debit", "add", "payment"]
     },
     {
       "name": "crop",
@@ -706,6 +742,12 @@
       "categories": [],
       "description": "Description pending",
       "keywords": []
+    },
+    {
+      "name": "ferris-wheel",
+      "categories": ["Object"],
+      "description": "Indicates Coachella",
+      "keywords": ["festival"]
     },
     {
       "name": "file-box",
@@ -935,6 +977,12 @@
       "keywords": ["orientation", "picture", "photo"]
     },
     {
+      "name": "imessage",
+      "categories": ["Logo"],
+      "description": "Indicates a message from the imessage application",
+      "keywords": ["apple", "messaging"]
+    },
+    {
       "name": "impressum",
       "categories": ["Utility and tools"],
       "description": "Indicates a legal statement of ownership/authorship",
@@ -975,6 +1023,12 @@
       "categories": ["Social"],
       "description": "Indicates the Instagram service",
       "keywords": ["social", "service", "share"]
+    },
+    {
+      "name": "instagram-stories",
+      "categories": ["Logo"],
+      "description": "Indicates branding for instagram stories",
+      "keywords": ["ig", "story"]
     },
     {
       "name": "invoice",
@@ -1301,6 +1355,12 @@
       "keywords": ["move", "reorganize"]
     },
     {
+      "name": "qr-code",
+      "categories": ["Technology"],
+      "description": "Indicates a scannable qr code",
+      "keywords": ["authentication", "quick", "response", "barcode"]
+    },
+    {
       "name": "question-mark",
       "categories": ["Utility and tools"],
       "description": "Indicates help is available",
@@ -1470,6 +1530,12 @@
       "keywords": ["cart", "buying"]
     },
     {
+      "name": "shopping-bag-fill",
+      "categories": ["Commerce"],
+      "description": "Indicates a shopping bag on shopping experience.",
+      "keywords": ["cart", "buying"]
+    },
+    {
       "name": "shrink",
       "categories": [],
       "description": "Description pending",
@@ -1558,6 +1624,18 @@
       "categories": [],
       "description": "Description pending",
       "keywords": []
+    },
+    {
+      "name": "square-plus",
+      "categories": ["navigation"],
+      "description": "Indicates the ability to create or add content.",
+      "keywords": ["add", "create", "new"]
+    },
+    {
+      "name": "square-plus-fill",
+      "categories": ["navigation"],
+      "description": "Indicates the ability to create or add content.",
+      "keywords": ["add", "create", "new"]
     },
     {
       "name": "star",
@@ -1723,6 +1801,12 @@
       "keywords": ["kerning"]
     },
     {
+      "name": "threads",
+      "categories": ["Logo"],
+      "description": "Indicates branding for the threads app",
+      "keywords": ["ig", "instagram"]
+    },
+    {
       "name": "thumbs-down",
       "categories": ["Reactions and ratings"],
       "description": "Indicates a dislike reaction",
@@ -1793,6 +1877,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to change the view type to default",
       "keywords": ["square", "grid"]
+    },
+    {
+      "name": "view-type-default-fill",
+      "categories": ["Toggle"],
+      "description": "Indicates the ability to change the view type to default.",
+      "keywords": ["square", "grid", "categories"]
     },
     {
       "name": "view-type-dense",

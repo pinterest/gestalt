@@ -4,7 +4,7 @@ import stylesText from './Text.css';
 import { semanticColors } from './textTypes';
 import styles from './TextUI.css';
 import typographyStyle from './Typography.css';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -101,10 +101,7 @@ const TextUIWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
 ): ReactElement {
   const colorClass = semanticColors.includes(color) && stylesText[color];
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
@@ -133,17 +130,17 @@ const TextUIWithForwardRef = forwardRef<HTMLDivElement, Props>(function Text(
     italic && typographyStyle.fontStyleItalic,
     isNotNullish(lineClamp) && typographyStyle.lineClamp,
     {
-      [stylesText.Text]: !isInVRExperiment,
-      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment,
-      [typographyStyle.fontSize400]: !isInVRExperiment && size === 'lg',
-      [typographyStyle.fontSize300]: !isInVRExperiment && size === 'md',
-      [typographyStyle.fontSize200]: !isInVRExperiment && size === 'sm',
-      [typographyStyle.fontSize100]: !isInVRExperiment && size === 'xs',
-      [styles.textUI]: isInVRExperiment,
-      [styles.lg]: isInVRExperiment && size === 'lg',
-      [styles.md]: isInVRExperiment && size === 'md',
-      [styles.sm]: isInVRExperiment && size === 'sm',
-      [styles.xs]: isInVRExperiment && size === 'xs',
+      [stylesText.Text]: !theme.MAIN,
+      [typographyStyle.fontWeightSemiBold]: !theme.MAIN,
+      [typographyStyle.fontSize400]: !theme.MAIN && size === 'lg',
+      [typographyStyle.fontSize300]: !theme.MAIN && size === 'md',
+      [typographyStyle.fontSize200]: !theme.MAIN && size === 'sm',
+      [typographyStyle.fontSize100]: !theme.MAIN && size === 'xs',
+      [styles.textUI]: theme.MAIN,
+      [styles.lg]: theme.MAIN && size === 'lg',
+      [styles.md]: theme.MAIN && size === 'md',
+      [styles.sm]: theme.MAIN && size === 'sm',
+      [styles.xs]: theme.MAIN && size === 'xs',
     },
   );
 

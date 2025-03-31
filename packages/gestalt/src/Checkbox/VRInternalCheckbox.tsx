@@ -1,16 +1,8 @@
-import {
-  ComponentProps,
-  forwardRef,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import { forwardRef, ReactElement, ReactNode, useEffect, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import styles from './InternalCheckbox.css';
 import Box from '../Box';
-import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import Label from '../Label';
 import FormErrorMessage from '../sharedSubcomponents/FormErrorMessage';
 import FormHelperText from '../sharedSubcomponents/FormHelperText';
@@ -128,6 +120,7 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
             [styles.vrBorderRadiusMd]: size === 'md',
             [styles.focus]: isFocused && isFocusVisible,
             // bg
+            [styles.enabled]: !disabled && unchecked,
             [styles.disabled]: disabled,
             [styles.checked]: !unchecked && !disabled,
             [styles.error]: errorMessage && unchecked,
@@ -162,14 +155,10 @@ const InternalCheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(funct
               })}
               style={{ width: checked || indeterminate ? iconSizes[size] : 0 }}
             >
-              <Icon
+              <IconCompact
                 accessibilityLabel=""
                 color={disabled ? 'disabled' : 'inverse'}
-                icon={
-                  indeterminate
-                    ? ('compact-dash' as ComponentProps<typeof Icon>['icon'])
-                    : ('compact-check' as ComponentProps<typeof Icon>['icon'])
-                }
+                icon={indeterminate ? 'compact-dash' : 'compact-check'}
                 size={iconSizes[size]}
               />
             </div>

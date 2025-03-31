@@ -6,7 +6,8 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
-import useInExperiment from './useInExperiment';
+import useFocusVisible from './useFocusVisible';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
@@ -125,11 +126,10 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const innerRef = useRef<null | HTMLAnchorElement>(null);
+
+  const { isFocusVisible } = useFocusVisible();
 
   // When using both forwardRef and innerRef, React.useimperativehandle() allows a parent component
   // that renders <IconButton ref={inputRef} /> to call inputRef.current.focus()
@@ -184,7 +184,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         focusColor={focusColor}
-        focused={isInVRExperiment && isFocused}
+        focused={theme.MAIN && isFocused && isFocusVisible}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

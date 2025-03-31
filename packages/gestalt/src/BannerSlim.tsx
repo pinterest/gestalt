@@ -10,7 +10,7 @@ import IconButton from './IconButton';
 import Link from './Link';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type HelperLinkType = {
   accessibilityLabel: string;
@@ -152,10 +152,7 @@ export default function BannerSlim({
   primaryAction,
   type = 'neutral',
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const isBare = type.endsWith('Bare');
   const isDefault = type === 'neutral';
@@ -239,7 +236,7 @@ export default function BannerSlim({
               accessibilityLabel={iconAccessibilityLabel ?? getDefaultIconAccessibilityLabel()}
               color={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.iconColor}
               icon={MESSAGING_TYPE_ATTRIBUTES[status[type]]?.icon}
-              size={isInVRExperiment ? 20 : 16}
+              size={theme.MAIN ? 20 : 16}
             />
           </Flex.Item>
         )}
@@ -264,10 +261,10 @@ export default function BannerSlim({
                 </Text>
               </div>
             ) : null}
-            {message && typeof message !== 'string' ? (
+            {typeof message !== 'string' ? (
               <div>
                 <Text ref={referenceRef} inline />
-                {cloneElement(message, { ref: targetRef })}
+                {typeof message !== 'string' && cloneElement(message, { ref: targetRef })}
               </div>
             ) : null}
           </Box>
@@ -278,7 +275,7 @@ export default function BannerSlim({
             <Flex alignItems="center" gap={{ row: 4, column: 0 }}>
               {primaryAction && (
                 <Box display="none" flex="none" mdDisplay="flex">
-                  <PrimaryAction isInVRExperiment={isInVRExperiment} {...primaryAction} />
+                  <PrimaryAction isInVRExperiment={theme.MAIN} {...primaryAction} />
                 </Box>
               )}
 
@@ -297,7 +294,7 @@ export default function BannerSlim({
       </Flex>
       {!isBare && primaryAction && (
         <Box alignSelf="end" display="flex" flex="none" marginTop={4} mdDisplay="none">
-          <PrimaryAction isInVRExperiment={isInVRExperiment} {...primaryAction} />
+          <PrimaryAction isInVRExperiment={theme.MAIN} {...primaryAction} />
         </Box>
       )}
     </Box>

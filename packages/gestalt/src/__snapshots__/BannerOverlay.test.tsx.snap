@@ -140,7 +140,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -380,7 +380,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem"
@@ -563,7 +563,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"
@@ -689,7 +689,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"
@@ -815,7 +815,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"
@@ -941,7 +941,7 @@ Array [
       }
     >
       <div
-        className="Flex rowGap400 columnGap400 xsDirectionRow"
+        className="Flex rowGap400 columnGap400 xsDirectionRow xsItemsCenter"
       >
         <div
           className="FlexItem flexGrow"

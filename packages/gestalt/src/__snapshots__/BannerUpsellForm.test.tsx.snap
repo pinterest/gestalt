@@ -10,7 +10,7 @@ exports[`BannerUpsellForm renders 1`] = `
   }
 >
   <div
-    className="Flex rowGap200 columnGap0 flexWrap justifyEnd xsDirectionRow"
+    className="Flex rowGap200 columnGap0 justifyEnd xsDirectionRow"
   >
     <div
       className="FlexItem flexGrow"
@@ -41,7 +41,7 @@ exports[`BannerUpsellForm renders 1`] = `
       </div>
     </div>
     <div
-      className="FlexItem"
+      className="FlexItem flexNone"
     >
       <button
         aria-label="Submit button"

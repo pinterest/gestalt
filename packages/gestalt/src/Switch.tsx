@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import focusStyles from './Focus.css';
 import styles from './Switch.css';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useInteractiveStates from './utils/useInteractiveStates';
 
 type Props = {
@@ -38,10 +38,7 @@ type Props = {
  *
  */
 export default function Switch({ disabled = false, id, name, onChange, switched = false }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -54,14 +51,14 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
   const { isFocusVisible } = useFocusVisible();
 
   const switchStyles = classnames(styles.switch, {
-    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !isInVRExperiment,
-    [styles.focus]: isFocused && isFocusVisible && isInVRExperiment,
+    [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !theme.MAIN,
+    [styles.focus]: isFocused && isFocusVisible && theme.MAIN,
     [styles.disabledSelected]: disabled && switched,
     [styles.disabledUnselected]: disabled && !switched,
     [styles.enabledSelected]: !disabled && switched,
     [styles.enabledUnselected]:
-      !disabled && !switched && !(isFocused && isFocusVisible && isInVRExperiment),
-    [styles.borderColorTransition]: !isInVRExperiment,
+      !disabled && !switched && !(isFocused && isFocusVisible && theme.MAIN),
+    [styles.borderColorTransition]: !theme.MAIN,
   });
 
   const sliderStyles = classnames(styles.slider, {
@@ -94,7 +91,7 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
         onFocus={handleOnFocus}
         type="checkbox"
       />
-      <div className={isInVRExperiment ? sliderVrStyles : sliderStyles} />
+      <div className={theme.MAIN ? sliderVrStyles : sliderStyles} />
     </div>
   );
 }

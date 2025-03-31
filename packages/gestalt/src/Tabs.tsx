@@ -1,7 +1,8 @@
 import { LegacyRef, ReactNode } from 'react';
 import Flex from './Flex';
+import icons from './icons/index';
 import Tab from './Tabs/Tab';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -25,6 +26,10 @@ type Props = {
     dangerouslyDisableOnNavigation: () => void;
   }) => void;
   /**
+   * See the [size variant](https://gestalt.pinterest.systems/web/tabs#Size) variant to learn more.
+   */
+  size?: 'sm' | 'lg';
+  /**
    * The array of tabs to be displayed. The active tab (as indicated by `activeTabIndex`) will be underlined. Use the optional `indicator` field to show a notification of new items on the tab — see the [indicator variant](https://gestalt.pinterest.systems/web/tabs#Indicator) to learn more. Though `text` currently accepts a React.Node, this is deprecated and will be replaced by a simple `string` type soon.
    */
   tabs: ReadonlyArray<{
@@ -34,6 +39,7 @@ type Props = {
     indicator?: 'dot' | number;
     ref?: LegacyRef<HTMLDivElement> | undefined;
     text: ReactNode;
+    icon?: keyof typeof icons;
   }>;
   /**
    * By default, tabs will all try to fit onto one line. Use this prop to allow the items to wrap onto multiple lines, from top to bottom.
@@ -53,33 +59,33 @@ export default function Tabs({
   bgColor = 'default',
   onChange,
   tabs,
+  size = 'sm',
   wrap,
   dataTestId,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     <Flex
       alignItems="center"
-      gap={isInVRExperiment ? undefined : { row: 4, column: 0 }}
+      gap={theme.MAIN ? undefined : { row: 4, column: 0 }}
       justifyContent="start"
       wrap={wrap}
     >
-      {tabs.map(({ href, id, indicator, ref, text }, index) => (
+      {tabs.map(({ href, id, indicator, ref, text, icon }, index) => (
         <Tab
           key={id || `${href}_${index}`}
           ref={ref}
           bgColor={bgColor}
           dataTestId={dataTestId}
           href={href}
+          icon={icon}
           id={id}
           index={index}
           indicator={indicator}
           isActive={activeTabIndex === index}
           onChange={onChange}
+          size={size}
           text={text}
         />
       ))}

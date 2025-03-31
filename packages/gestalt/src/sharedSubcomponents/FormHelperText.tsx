@@ -4,7 +4,7 @@ import FormHelperTextCounter from './FormHelperTextCounter';
 import Flex from '../Flex';
 import Text from '../Text';
 import { MaxLength } from '../TextField';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type SizeType = 'sm' | 'md' | 'lg';
 
@@ -16,6 +16,7 @@ type Props = {
   currentLength?: number;
   size?: SizeType;
   disabled?: boolean;
+  marginTop?: boolean;
 };
 
 export default function FormHelperText({
@@ -26,34 +27,33 @@ export default function FormHelperText({
   maxLength,
   size,
   noPadding: noStartPadding,
+  marginTop,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     // id is required for all helper texts accompanying an individual form element, not for groups of form elements such as RadioGroup.
 
     <div
       className={classnames({
+        [styles.marginTop]: marginTop,
         // none
-        [styles.noStartPadding]: !isInVRExperiment && noStartPadding,
+        [styles.noStartPadding]: !theme.MAIN && noStartPadding,
         // sm
-        [styles.sm_startPadding]: !isInVRExperiment && size === 'sm' && !noStartPadding,
-        [styles.sm_topPadding]: !isInVRExperiment && size === 'sm',
-        [styles.vr_sm_startPadding]: isInVRExperiment && size === 'sm' && !noStartPadding,
-        [styles.vr_sm_topPadding]: isInVRExperiment && size === 'sm',
+        [styles.sm_startPadding]: !theme.MAIN && size === 'sm' && !noStartPadding,
+        [styles.sm_topPadding]: !theme.MAIN && size === 'sm',
+        [styles.vr_sm_startPadding]: theme.MAIN && size === 'sm' && !noStartPadding,
+        [styles.vr_sm_topPadding]: theme.MAIN && size === 'sm',
         // md
-        [styles.md_startPadding]: !isInVRExperiment && size === 'md' && !noStartPadding,
-        [styles.md_topPadding]: !isInVRExperiment && size === 'md',
-        [styles.vr_md_startPadding]: isInVRExperiment && size === 'md' && !noStartPadding,
-        [styles.vr_md_topPadding]: isInVRExperiment && size === 'md',
+        [styles.md_startPadding]: !theme.MAIN && size === 'md' && !noStartPadding,
+        [styles.md_topPadding]: !theme.MAIN && size === 'md',
+        [styles.vr_md_startPadding]: theme.MAIN && size === 'md' && !noStartPadding,
+        [styles.vr_md_topPadding]: theme.MAIN && size === 'md',
         // lg
-        [styles.lg_startPadding]: !isInVRExperiment && size === 'lg' && !noStartPadding,
-        [styles.lg_topPadding]: !isInVRExperiment && size === 'lg',
-        [styles.vr_lg_startPadding]: isInVRExperiment && size === 'lg' && !noStartPadding,
-        [styles.vr_lg_topPadding]: isInVRExperiment && size === 'lg',
+        [styles.lg_startPadding]: !theme.MAIN && size === 'lg' && !noStartPadding,
+        [styles.lg_topPadding]: !theme.MAIN && size === 'lg',
+        [styles.vr_lg_startPadding]: theme.MAIN && size === 'lg' && !noStartPadding,
+        [styles.vr_lg_topPadding]: theme.MAIN && size === 'lg',
       })}
       id={id}
     >

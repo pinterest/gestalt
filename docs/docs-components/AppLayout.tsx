@@ -16,12 +16,8 @@ import SkipToContent from './SkipToContent';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_WITH_MARGIN = 90;
-const fullWidthPages = ['home', 'whats_new', 'roadmap'];
-const fullBleedNoNavigationPages = [
-  '/year_in_review_2022',
-  '/year_in_review_2023',
-  'integration-test',
-];
+const fullWidthPages = ['home'];
+const fullBleedNoNavigationPages = ['integration-test'];
 
 type Props = {
   children?: ReactNode;

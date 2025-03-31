@@ -108,9 +108,9 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
         pages: [
           'ColorSchemeProvider',
           'DefaultLabelProvider',
+          'DesignTokensProvider',
           'DeviceTypeProvider',
           'GlobalEventsHandlerProvider',
-          'ScrollBoundaryContainer',
           'useFocusVisible',
           'useReducedMotion',
         ],
@@ -119,6 +119,7 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'ActivationCard',
       'Avatar',
       'AvatarGroup',
+      'AvatarGroupCluster',
       'Badge',
       'BannerCallout',
       'BannerOverlay',
@@ -167,9 +168,8 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'PageHeader',
       'Pog',
       'Popover',
-      'PopoverEducational',
+      'PopoverMessage',
       'Pulsar',
-      'RadioButton',
       'RadioGroup',
       'SearchField',
       'SearchGuide',
@@ -258,7 +258,6 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
         sectionName: 'Design tokens',
         pages: ['Overview', 'Component tokens'],
       },
-
       'Elevation',
       {
         sectionName: 'Forms',
@@ -290,10 +289,6 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       'Screen sizes',
       'Typography',
     ],
-  },
-  {
-    sectionName: 'Blog',
-    pages: ['2023 Q3 Newsletter', '2023 Q2 Newsletter', '2023 Q1 Newsletter'],
   },
   {
     sectionName: 'Team support',

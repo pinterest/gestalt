@@ -22,6 +22,7 @@ import alignTopCenter from './align-top-center.svg';
 import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
 import alphabetical from './alphabetical.svg';
+import amazon from './amazon.svg';
 import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
 import animate from './animate.svg';
@@ -54,6 +55,7 @@ import audioPlaying from './audio-playing.svg';
 import bell from './bell.svg';
 import bellFill from './bell-fill.svg';
 import birthdayCake from './birthday-cake.svg';
+import blur from './blur.svg';
 import board from './board.svg';
 import boardStickerLarge from './board-sticker-large.svg';
 import boardStickerSmall from './board-sticker-small.svg';
@@ -72,6 +74,7 @@ import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
 import cardStack from './card-stack.svg';
+import cardStackRefresh from './card-stack-refresh.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
@@ -91,6 +94,7 @@ import cloudServer from './cloud-server.svg';
 import code from './code.svg';
 import codeCheck from './code-check.svg';
 import cog from './cog.svg';
+import cogFill from './cog-fill.svg';
 import collage from './collage.svg';
 import collapse from './collapse.svg';
 import color from './color.svg';
@@ -99,11 +103,13 @@ import colorPicker from './color-picker.svg';
 import colorSolid from './color-solid.svg';
 import colorSplit from './color-split.svg';
 import compass from './compass.svg';
+import compassFill from './compass-fill.svg';
 import compose from './compose.svg';
 import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
+import creditCardPlus from './credit-card-plus.svg';
 import crop from './crop.svg';
 import crystalBall from './crystal-ball.svg';
 import cutout from './cutout.svg';
@@ -137,6 +143,7 @@ import faceSmileyPlus from './face-smiley-plus.svg';
 import faceTryon from './face-tryon.svg';
 import facebook from './facebook.svg';
 import fade from './fade.svg';
+import ferrisWheel from './ferris-wheel.svg';
 import fileBox from './file-box.svg';
 import fileUnknown from './file-unknown.svg';
 import fillOpaque from './fill-opaque.svg';
@@ -177,6 +184,7 @@ import home from './home.svg';
 import homeFill from './home-fill.svg';
 import ideaPin from './idea-pin.svg';
 import imagePortrait from './image-portrait.svg';
+import imessage from './imessage.svg';
 import impressum from './impressum.svg';
 import indent from './indent.svg';
 import infoCircle from './info-circle.svg';
@@ -184,6 +192,7 @@ import information from './information.svg';
 import insightsAudience from './insights-audience.svg';
 import insightsConversion from './insights-conversion.svg';
 import instagram from './instagram.svg';
+import instagramStories from './instagram-stories.svg';
 import invoice from './invoice.svg';
 import kakaoTalk from './kakao-talk.svg';
 import key from './key.svg';
@@ -249,6 +258,7 @@ import pincode from './pincode.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
 import protect from './protect.svg';
+import qrCode from './qr-code.svg';
 import questionMark from './question-mark.svg';
 import recordLimit from './record-limit.svg';
 import recordLimit5 from './record-limit-5.svg';
@@ -281,6 +291,7 @@ import shadows from './shadows.svg';
 import shapes from './shapes.svg';
 import share from './share.svg';
 import shoppingBag from './shopping-bag.svg';
+import shoppingBagFill from './shopping-bag-fill.svg';
 import shrink from './shrink.svg';
 import shuffles from './shuffles.svg';
 import skintone from './skintone.svg';
@@ -307,6 +318,8 @@ import speed1X from './speed-1x.svg';
 import speedDoubleX from './speed-2x.svg';
 import speedTripleX from './speed-3x.svg';
 import spread from './spread.svg';
+import squarePlus from './square-plus.svg';
+import squarePlusFill from './square-plus-fill.svg';
 import star from './star.svg';
 import starHalf from './star-half.svg';
 import starOutline from './star-outline.svg';
@@ -337,6 +350,7 @@ import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
 import textSpacing from './text-spacing.svg';
 import textSticker from './text-sticker.svg';
+import threads from './threads.svg';
 import thumbsDown from './thumbs-down.svg';
 import thumbsUp from './thumbs-up.svg';
 import timer from './timer.svg';
@@ -354,6 +368,7 @@ import videoAdvance10Seconds from './video-advance-10-seconds.svg';
 import videoCamera from './video-camera.svg';
 import videoRewind10Seconds from './video-rewind-10-seconds.svg';
 import viewTypeDefault from './view-type-default.svg';
+import viewTypeDefaultFill from './view-type-default-fill.svg';
 import viewTypeDense from './view-type-dense.svg';
 import viewTypeList from './view-type-list.svg';
 import viewTypeSparse from './view-type-sparse.svg';
@@ -400,6 +415,7 @@ const icons = Object.freeze({
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
   'alphabetical': alphabetical,
+  'amazon': amazon,
   'android-share': androidShare,
   'angled-pin': angledPin,
   'animate': animate,
@@ -432,6 +448,7 @@ const icons = Object.freeze({
   'bell': bell,
   'bell-fill': bellFill,
   'birthday-cake': birthdayCake,
+  'blur': blur,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
@@ -450,6 +467,7 @@ const icons = Object.freeze({
   'captions': captions,
   'captions-outline': captionsOutline,
   'card-stack': cardStack,
+  'card-stack-refresh': cardStackRefresh,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
@@ -469,6 +487,7 @@ const icons = Object.freeze({
   'code': code,
   'code-check': codeCheck,
   'cog': cog,
+  'cog-fill': cogFill,
   'collage': collage,
   'collapse': collapse,
   'color': color,
@@ -477,11 +496,13 @@ const icons = Object.freeze({
   'color-solid': colorSolid,
   'color-split': colorSplit,
   'compass': compass,
+  'compass-fill': compassFill,
   'compose': compose,
   'contrast': contrast,
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
+  'credit-card-plus': creditCardPlus,
   'crop': crop,
   'crystal-ball': crystalBall,
   'cutout': cutout,
@@ -515,6 +536,7 @@ const icons = Object.freeze({
   'face-tryon': faceTryon,
   'facebook': facebook,
   'fade': fade,
+  'ferris-wheel': ferrisWheel,
   'file-box': fileBox,
   'file-unknown': fileUnknown,
   'fill-opaque': fillOpaque,
@@ -555,6 +577,7 @@ const icons = Object.freeze({
   'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
+  'imessage': imessage,
   'impressum': impressum,
   'indent': indent,
   'info-circle': infoCircle,
@@ -562,6 +585,7 @@ const icons = Object.freeze({
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
+  'instagram-stories': instagramStories,
   'invoice': invoice,
   'kakao-talk': kakaoTalk,
   'key': key,
@@ -627,6 +651,7 @@ const icons = Object.freeze({
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
+  'qr-code': qrCode,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
@@ -659,6 +684,7 @@ const icons = Object.freeze({
   'shapes': shapes,
   'share': share,
   'shopping-bag': shoppingBag,
+  'shopping-bag-fill': shoppingBagFill,
   'shrink': shrink,
   'shuffles': shuffles,
   'skintone': skintone,
@@ -685,6 +711,8 @@ const icons = Object.freeze({
   'speed-2x': speedDoubleX,
   'speed-3x': speedTripleX,
   'spread': spread,
+  'square-plus': squarePlus,
+  'square-plus-fill': squarePlusFill,
   'star': star,
   'star-half': starHalf,
   'star-outline': starOutline,
@@ -715,6 +743,7 @@ const icons = Object.freeze({
   'text-small': textSmall,
   'text-spacing': textSpacing,
   'text-sticker': textSticker,
+  'threads': threads,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,
@@ -732,6 +761,7 @@ const icons = Object.freeze({
   'video-camera': videoCamera,
   'video-rewind-10-seconds': videoRewind10Seconds,
   'view-type-default': viewTypeDefault,
+  'view-type-default-fill': viewTypeDefaultFill,
   'view-type-dense': viewTypeDense,
   'view-type-list': viewTypeList,
   'view-type-sparse': viewTypeSparse,

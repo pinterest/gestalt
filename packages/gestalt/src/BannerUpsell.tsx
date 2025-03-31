@@ -1,6 +1,7 @@
 import { Children, ComponentProps, ReactElement, ReactNode } from 'react';
 import classnames from 'classnames';
 import styles from './BannerUpsell.css';
+import VRBannerUpsell from './BannerUpsell/VRBannerUpsell';
 import BannerUpsellForm from './BannerUpsellForm';
 import Box from './Box';
 import Button from './Button';
@@ -12,6 +13,7 @@ import Image from './Image';
 import Mask from './Mask';
 import Text from './Text';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 export type ActionDataType =
   | {
@@ -123,7 +125,7 @@ type Props = {
   /**
    * Brief title summarizing the BannerUpsell. Content should be [localized](https://gestalt.pinterest.systems/web/bannerupsell#Localization).
    */
-  title?: string;
+  title: string;
 };
 
 /**
@@ -148,7 +150,7 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-
+  const theme = useExperimentalTheme();
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
@@ -175,6 +177,20 @@ export default function BannerUpsell({
       <span className={classnames(textColorOverrideStyles, textAligmentOverrideStyles)}>
         {message}
       </span>
+    );
+  }
+  if (theme.MAIN) {
+    return (
+      <VRBannerUpsell
+        dismissButton={dismissButton}
+        imageData={imageData}
+        message={message}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
+        title={title}
+      >
+        {children}
+      </VRBannerUpsell>
     );
   }
 
@@ -275,7 +291,7 @@ export default function BannerUpsell({
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}
-            padding={4}
+            padding={theme.MAIN ? undefined : 4}
             size="sm"
           />
         </div>

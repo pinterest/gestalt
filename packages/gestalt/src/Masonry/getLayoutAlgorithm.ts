@@ -1,7 +1,7 @@
 import { Cache } from './Cache';
 import defaultLayout from './defaultLayout';
 import fullWidthLayout from './fullWidthLayout';
-import { ColumnSpanConfig } from './multiColumnLayout';
+import { ColumnSpanConfig, ResponsiveModuleConfig } from './multiColumnLayout';
 import { Align, Layout, Position } from './types';
 import uniformRowLayout from './uniformRowLayout';
 
@@ -16,8 +16,10 @@ export default function getLayoutAlgorithm<T>({
   positionStore,
   width,
   _getColumnSpanConfig,
+  _getResponsiveModuleConfigForSecondItem,
   _logTwoColWhitespace,
   _earlyBailout,
+  _multiColPositionAlgoV2,
 }: {
   align: Align;
   columnWidth: number | undefined;
@@ -29,12 +31,14 @@ export default function getLayoutAlgorithm<T>({
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
+  _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _logTwoColWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
     numberOfIterations: number,
     columnSpan: number,
   ) => void;
   _earlyBailout?: (columnSpan: number) => number;
+  _multiColPositionAlgoV2?: boolean;
 }): (items: ReadonlyArray<T>) => ReadonlyArray<Position> {
   if ((layout === 'flexible' || layout === 'serverRenderedFlexible') && width !== null) {
     return fullWidthLayout({
@@ -44,8 +48,11 @@ export default function getLayoutAlgorithm<T>({
       minCols,
       idealColumnWidth: columnWidth,
       width,
+      originalItems: items,
       logWhitespace: _logTwoColWhitespace,
       _getColumnSpanConfig,
+      _getResponsiveModuleConfigForSecondItem,
+      _multiColPositionAlgoV2,
       earlyBailout: _earlyBailout,
     });
   }
@@ -70,7 +77,10 @@ export default function getLayoutAlgorithm<T>({
     minCols,
     rawItemCount: items.length,
     width,
+    originalItems: items,
     _getColumnSpanConfig,
+    _getResponsiveModuleConfigForSecondItem,
+    _multiColPositionAlgoV2,
     earlyBailout: _earlyBailout,
   });
 }

@@ -1,7 +1,3 @@
-.border {
-  border: 1px solid currentColor;
-}
-
 .maxDimensions {
   max-height: 90vh;
   max-width: 90vw;

@@ -2,46 +2,56 @@ import { ReactElement } from 'react';
 import Box from './Box';
 import Flex from './Flex';
 import Icon from './Icon';
+import IconCompact from './IconCompact';
 import OverridingSpan from './sharedSubcomponents/OverridingSpan';
 import Text from './Text';
 import isComponentNode from './utils/isComponentNode';
 
 const ICON_COLOR_MAP = {
   canceled: {
-    icon: 'workflow-status-canceled',
+    icon: 'compact-workflow-status-canceled',
     color: 'subtle',
+    compact: true,
   },
   halted: {
-    icon: 'workflow-status-halted',
+    icon: 'compact-workflow-status-halted',
     color: 'default',
+    compact: true,
   },
   inProgress: {
-    icon: 'workflow-status-in-progress',
+    icon: 'compact-workflow-status-in-progress',
     color: 'success',
+    compact: true,
   },
   locked: {
-    icon: 'lock',
+    icon: 'compact-lock',
     color: 'subtle',
+    compact: true,
   },
   ok: {
-    icon: 'workflow-status-ok',
+    icon: 'compact-check-circle-fill',
     color: 'success',
+    compact: true,
   },
   problem: {
-    icon: 'workflow-status-problem',
+    icon: 'compact-workflow-status-problem',
     color: 'error',
+    compact: true,
   },
   unstarted: {
-    icon: 'workflow-status-unstarted',
+    icon: 'compact-workflow-status-unstarted',
     color: 'default',
+    compact: true,
   },
   queued: {
     icon: 'workflow-status-queued',
     color: 'default',
+    compact: false,
   },
   warning: {
-    icon: 'workflow-status-warning',
+    icon: 'compact-workflow-status-warning',
     color: 'warning',
+    compact: true,
   },
 } as const;
 
@@ -83,13 +93,22 @@ type Props = {
  *
  */
 export default function Status({ accessibilityLabel, subtext, title, type }: Props) {
-  const { icon, color } = ICON_COLOR_MAP[type];
+  const { icon, color, compact } = ICON_COLOR_MAP[type];
   const isTextNode = title && isComponentNode({ text: title, components: ['Text'] });
 
   return (
     <Flex direction="column">
       <Flex alignItems="center" gap={{ row: 2, column: 0 }}>
-        <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
+        {compact ? (
+          <IconCompact
+            accessibilityLabel={accessibilityLabel ?? ''}
+            color={color}
+            icon={icon}
+            size={16}
+          />
+        ) : (
+          <Icon accessibilityLabel={accessibilityLabel ?? ''} color={color} icon={icon} size={16} />
+        )}
         {isTextNode && <OverridingSpan size="200" textElement={title ?? ''} />}
         {!isTextNode && title && <Text size="200">{title}</Text>}
       </Flex>

@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import classnames from 'classnames';
-import { TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER } from 'gestalt-design-tokens';
+import {
+  TOKEN_COLOR_BACKGROUND_AVATAR_PLACEHOLDER,
+  TOKEN_COLOR_BACKGROUND_DEFAULT,
+  TOKEN_SPACE_0,
+} from 'gestalt-design-tokens';
 import avatarStyles from './AvatarFoundation.css';
 import DefaultAvatar from './DefaultAvatar';
 import Box from '../Box';
 import Icon from '../Icon';
+import IconCompact from '../IconCompact';
 import Image from '../Image';
 import Mask from '../Mask';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const sizes = {
   xs: 24,
@@ -15,6 +20,15 @@ const sizes = {
   md: 48,
   lg: 64,
   xl: 120,
+} as const;
+
+const verifiedIconSizes = {
+  xs: 14,
+  sm: 14,
+  md: 14,
+  lg: 16,
+  xl: 24,
+  fit: 14,
 } as const;
 
 type Props = {
@@ -30,10 +44,7 @@ type Props = {
 };
 
 function InternalAvatar(props: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const {
     accessibilityLabel,
     color,
@@ -50,13 +61,22 @@ function InternalAvatar(props: Props) {
   const width = size === 'fit' ? '100%' : sizes[size];
   const height = size === 'fit' ? '' : sizes[size];
 
+  const verifiedIconPadding = {
+    xs: TOKEN_SPACE_0,
+    sm: TOKEN_SPACE_0,
+    md: TOKEN_SPACE_0,
+    lg: theme.MAIN ? 'var(--sema-space-50)' : '2px',
+    xl: '5px',
+    fit: TOKEN_SPACE_0,
+  } as const;
+
   return (
     <Box
       dangerouslySetInlineStyle={{
         __style: outline
           ? {
-              outline: isInVRExperiment
-                ? '2px solid var(--sema-color-border-inverse)'
+              outline: theme.MAIN
+                ? '1px solid var(--sema-color-border-inverse)'
                 : '1px solid rgb(255 255 255)',
             }
           : {},
@@ -71,8 +91,8 @@ function InternalAvatar(props: Props) {
         <Mask rounding="circle" wash>
           <div
             className={classnames({
-              [avatarStyles.imageHovered]: isInVRExperiment && isHovered,
-              [avatarStyles.imagePressed]: isInVRExperiment && isPressed,
+              [avatarStyles.imageHovered]: theme.MAIN && isHovered,
+              [avatarStyles.imagePressed]: theme.MAIN && isPressed,
             })}
           >
             <Image
@@ -97,21 +117,39 @@ function InternalAvatar(props: Props) {
 
       {verified && (
         <Box
+          color="default"
           dangerouslySetInlineStyle={{
-            __style: {
-              bottom: '4%',
-              right: '4%',
-            },
+            __style:
+              size === 'xl'
+                ? {
+                    bottom: verifiedIconPadding[size],
+                    right: verifiedIconPadding[size],
+                    outline: theme.MAIN
+                      ? '1px solid var(--sema-color-background-default)'
+                      : `1px solid ${TOKEN_COLOR_BACKGROUND_DEFAULT}`,
+                  }
+                : {
+                    bottom: verifiedIconPadding[size],
+                    right: verifiedIconPadding[size],
+                  },
           }}
-          height="25%"
-          minHeight={12}
-          minWidth={12}
+          height={size === 'fit' ? '25%' : verifiedIconSizes[size]}
+          minHeight={size === 'fit' ? verifiedIconSizes[size] : undefined}
+          minWidth={size === 'fit' ? verifiedIconSizes[size] : undefined}
           position="absolute"
-          width="25%"
+          rounding="circle"
+          width={size === 'fit' ? '25%' : verifiedIconSizes[size]}
         >
-          <Box color="default" height="100%" rounding="circle" width="100%">
-            <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle" size="100%" />
-          </Box>
+          {size === 'xl' ? (
+            <Icon accessibilityLabel="" color="brandPrimary" icon="check-circle-fill" size="100%" />
+          ) : (
+            <IconCompact
+              accessibilityLabel=""
+              color="brandPrimary"
+              icon="compact-check-circle-fill"
+              size="100%"
+            />
+          )}
         </Box>
       )}
     </Box>

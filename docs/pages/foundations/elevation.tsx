@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Text } from 'gestalt';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
@@ -32,22 +32,24 @@ function ColorCard({
         column: 4,
       }}
     >
-      <ColorSchemeProvider colorScheme={colorScheme} id={id}>
-        <Box color="default" padding={6}>
-          <Box
-            alignItems="center"
-            borderStyle={borderStyle}
-            color={color}
-            dangerouslySetInlineStyle={dangerouslySetInlineStyle}
-            display="flex"
-            height={300}
-            justifyContent="center"
-            rounding={3}
-            width={300}
-          >
-            <Text>{colorScheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
+      <ColorSchemeProvider colorScheme={colorScheme}>
+        <DesignTokensProvider id={id}>
+          <Box color="default" padding={6}>
+            <Box
+              alignItems="center"
+              borderStyle={borderStyle}
+              color={color}
+              dangerouslySetInlineStyle={dangerouslySetInlineStyle}
+              display="flex"
+              height={300}
+              justifyContent="center"
+              rounding={3}
+              width={300}
+            >
+              <Text>{colorScheme === 'light' ? 'Light mode' : 'Dark mode'}</Text>
+            </Box>
           </Box>
-        </Box>
+        </DesignTokensProvider>
       </ColorSchemeProvider>
       <Text>{description}</Text>
     </Flex>

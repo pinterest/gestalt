@@ -47,7 +47,7 @@
   border: 2px solid var(--sema-color-border-focus-inner-inverse);
 }
 
-.accessibilityOutlineFocusWithin .accessibilityOutline:focus {
+.accessibilityOutlineFocusWithin:focus {
   outline: 0;
 }
 
@@ -56,6 +56,15 @@
   outline-offset: 0;
 }
 
+.accessibilityVROutlineFocus {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 0;
+}
+
 .hideOutline:focus {
+  outline: 0;
+}
+
+.hideOutlineWithin a:focus {
   outline: 0;
 }

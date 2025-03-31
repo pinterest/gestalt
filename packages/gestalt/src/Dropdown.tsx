@@ -12,6 +12,7 @@ import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';
 import PartialPage from './SheetMobile/PartialPage';
 import { DirectionOptionType } from './utils/keyboardNavigation';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { Indexable } from './zIndex';
 
 const KEYS = {
@@ -176,7 +177,13 @@ export default function Dropdown({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
+  const theme = useExperimentalTheme();
+
   const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null | undefined>(
+    isMobile ? undefined : 0,
+  );
+
+  const [focusedItemIndex, setFocusedItemIndex] = useState<number | null | undefined>(
     isMobile ? undefined : 0,
   );
 
@@ -223,7 +230,8 @@ export default function Dropdown({
     if (cursorOption) {
       const item = cursorOption.option;
 
-      setHoveredItemIndex(cursorIndex);
+      setFocusedItemIndex(cursorIndex);
+      setHoveredItemIndex(null);
 
       if (direction === KEYS.ENTER && !cursorOption.disabled) {
         cursorOption.onSelect?.({
@@ -237,14 +245,14 @@ export default function Dropdown({
   const onKeyDown = ({ event }: { event: React.KeyboardEvent<HTMLElement> }) => {
     const { keyCode } = event;
     if (keyCode === UP_ARROW) {
-      handleKeyNavigation(event, KEYS.UP, hoveredItemIndex);
+      handleKeyNavigation(event, KEYS.UP, focusedItemIndex);
       event.preventDefault();
     } else if (keyCode === DOWN_ARROW) {
-      handleKeyNavigation(event, KEYS.DOWN, hoveredItemIndex);
+      handleKeyNavigation(event, KEYS.DOWN, focusedItemIndex);
       event.preventDefault();
     } else if (keyCode === ENTER) {
       event.stopPropagation();
-      handleKeyNavigation(event, KEYS.ENTER, hoveredItemIndex);
+      handleKeyNavigation(event, KEYS.ENTER, focusedItemIndex);
     } else if ([ESCAPE, TAB].includes(keyCode)) {
       anchor?.focus();
       onDismiss?.();
@@ -272,7 +280,9 @@ export default function Dropdown({
             <DropdownContextProvider
               value={{
                 id,
+                focusedItemIndex,
                 hoveredItemIndex,
+                setFocusedItemIndex,
                 setHoveredItemIndex,
                 setOptionRef,
               }}
@@ -308,13 +318,20 @@ export default function Dropdown({
         direction="column"
         display="flex"
         flex="grow"
-        margin={2}
+        margin={theme.MAIN ? 3 : 2}
         maxHeight={maxHeight}
       >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}
 
         <DropdownContextProvider
-          value={{ id, hoveredItemIndex, setHoveredItemIndex, setOptionRef }}
+          value={{
+            id,
+            hoveredItemIndex,
+            setHoveredItemIndex,
+            setFocusedItemIndex,
+            setOptionRef,
+            focusedItemIndex,
+          }}
         >
           {renderChildrenWithIndex(dropdownChildrenArray)}
         </DropdownContextProvider>

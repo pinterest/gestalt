@@ -2,7 +2,7 @@ import { ReactNode, useState } from 'react';
 import classnames from 'classnames';
 import { TOKEN_COLOR_BACKGROUND_FORMFIELD_PRIMARY } from 'gestalt-design-tokens';
 import Box from './Box';
-import Icon from './Icon';
+import IconCompact from './IconCompact';
 import layout from './Layout.css';
 import styles from './SelectList.css';
 import SelectListGroup from './SelectList/SelectListGroup';
@@ -12,7 +12,7 @@ import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -104,10 +104,7 @@ function SelectList({
 }: Props) {
   const [focused, setFocused] = useState(false);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const handleOnChange: (event: React.ChangeEvent<HTMLSelectElement>) => void = (event) => {
     if (value !== event.target.value) {
@@ -156,7 +153,7 @@ function SelectList({
     ariaDescribedby = `${id}-helperText`;
   }
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRSelectList
         dataTestId={dataTestId}
@@ -202,10 +199,10 @@ function SelectList({
           right
           top
         >
-          <Icon
+          <IconCompact
             accessibilityLabel=""
             color={disabled ? 'subtle' : 'default'}
-            icon="arrow-down"
+            icon="compact-chevron-down"
             size={12}
           />
         </Box>

@@ -1,9 +1,3 @@
-/*
-
-FLOW TYPES
-
-*/
-
 export type DangerouslySetInlineStyle = {
   __style: {
     [key: string]: string | number | undefined;

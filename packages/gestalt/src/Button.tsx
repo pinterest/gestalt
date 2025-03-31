@@ -1,9 +1,9 @@
 import { forwardRef, Fragment, ReactNode, useImperativeHandle, useRef } from 'react';
 import classnames from 'classnames';
 import NewTabAccessibilityLabel from './accessibility/NewTabAccessibilityLabel';
+import Box from './Box';
 import styles from './Button.css';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
-import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Icon, { IconColor } from './Icon';
 import icons from './icons/index';
@@ -11,8 +11,8 @@ import touchableStyles from './TapArea.css';
 import Text from './Text';
 import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -91,8 +91,13 @@ type Props = {
    */
   iconStart?: keyof typeof icons;
   /**
+   * Visually truncate the text to the specified number of lines. This also adds the `title` attribute if `children` is a string, which displays the full text on hover in most browsers. See the [truncation variant](https://gestalt.pinterest.systems/web/button#Truncation) for more details.
+   */
+  lineClamp?: 1;
+  /**
    * The name attribute specifies the name of the button element. The name attribute is used to reference form-data after the form has been submitted and for [testing](https://testing-library.com/docs/queries/about/#priority).
    */
+
   name?: string;
   /**
    * Callback invoked when the user clicks (press and release) on Button with the mouse or keyboard.
@@ -125,52 +130,43 @@ type Props = {
 };
 
 function InternalButtonContent({
+  iconStart,
+  iconEnd,
+  size = 'md',
   target,
   text,
   textColor,
-  iconStart,
-  iconEnd,
-  size,
 }: {
   target?: Target;
   text: ReactNode;
   textColor: IconColor;
   iconStart?: keyof typeof icons;
   iconEnd?: keyof typeof icons;
-  size: string;
+  size?: 'sm' | 'md' | 'lg';
 }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
   return (
     <Fragment>
-      <Flex
-        alignItems="center"
-        gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
-        justifyContent="center"
-      >
-        {iconStart && (
+      {iconStart && (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginEnd={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor as IconColor}
             icon={iconStart}
-            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        )}
-        {text}
-        {iconEnd ? (
+        </Box>
+      )}
+      {text}
+      {iconEnd ? (
+        <Box height={SIZE_NAME_TO_PIXEL[size]} marginStart={1.5} width={SIZE_NAME_TO_PIXEL[size]}>
           <Icon
             accessibilityLabel=""
             color={textColor}
             icon={iconEnd}
-            // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ readonly sm: 10; readonly md: 12; readonly lg: 12; }'.
             size={SIZE_NAME_TO_PIXEL[size]}
           />
-        ) : null}
-      </Flex>
+        </Box>
+      ) : null}
       <NewTabAccessibilityLabel target={target} />
     </Fragment>
   );
@@ -198,6 +194,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     iconEnd,
     iconStart,
     name,
+    lineClamp,
     onClick,
     selected = false,
     size = 'md',
@@ -207,10 +204,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const textSizes: {
     [key: string]: '100' | '200' | '300' | '400' | '500' | '600';
@@ -254,14 +248,15 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
+  const colorClass = color === 'transparentWhiteText' && !theme.MAIN ? 'transparent' : color;
   const { isFocusVisible } = useFocusVisible();
 
-  const sharedTypeClasses = isInVRExperiment
+  const sharedTypeClasses = theme.MAIN
     ? classnames(styles.buttonVr, {
         [styles.smVr]: size === 'sm',
         [styles.mdVr]: size === 'md',
         [styles.lgVr]: size === 'lg',
+        [styles.border]: true,
         [styles.inline]: !fullWidth,
         [styles.block]: fullWidth,
         [focusStyles.hideOutline]: !disabled && !isFocusVisible,
@@ -276,7 +271,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       });
 
-  const baseTypeClasses = isInVRExperiment
+  const baseTypeClasses = theme.MAIN
     ? classnames(sharedTypeClasses, touchableStyles.tapTransition, {
         [styles.selected]: !disabled && selected,
         [styles.disabled]: disabled,
@@ -297,7 +292,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const parentButtonClasses = classnames(
     sharedTypeClasses,
     styles.parentButton,
-    isInVRExperiment && {
+    theme.MAIN && {
       [styles[colorClass]]: !disabled && !selected,
     },
   );
@@ -308,15 +303,28 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     (disabled && 'disabled') ||
     (selected && 'inverse') ||
     (isDarkModeRed && 'default') ||
-    (isInVRExperiment && isDarkMode && color === 'blue' && 'default') ||
+    (theme.MAIN && isDarkMode && color === 'blue' && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
-  const buttonText = isInVRExperiment ? (
-    <TextUI align="center" color={textColor} overflow="normal" size={textSizesVR[size]}>
+  const buttonText = theme.MAIN ? (
+    <TextUI
+      align="center"
+      color={textColor}
+      lineClamp={lineClamp}
+      overflow="normal"
+      size={textSizesVR[size]}
+    >
       {text}
     </TextUI>
   ) : (
-    <Text align="center" color={textColor} overflow="normal" size={textSizes[size]} weight="bold">
+    <Text
+      align="center"
+      color={textColor}
+      lineClamp={lineClamp}
+      overflow="normal"
+      size={textSizes[size]}
+      weight="bold"
+    >
       {text}
     </Text>
   );
@@ -340,7 +348,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         onTouchMove={handleTouchMove}
         // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchStart={handleTouchStart}
-        style={isInVRExperiment ? compressStyle || undefined : undefined}
+        style={theme.MAIN ? compressStyle || undefined : undefined}
         // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
         tabIndex={disabled ? null : tabIndex}
         type="submit"
@@ -383,7 +391,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       onTouchMove={handleTouchMove}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
-      style={isInVRExperiment ? compressStyle || undefined : undefined}
+      style={theme.MAIN ? compressStyle || undefined : undefined}
       // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       type="button"

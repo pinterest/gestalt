@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Badge, Box, ColorSchemeProvider, Flex, Table, Text } from 'gestalt';
+import { Badge, Box, ColorSchemeProvider, DesignTokensProvider, Flex, Table, Text } from 'gestalt';
 import tokensDark from 'gestalt-design-tokens/dist/js/classic/tokens_dark';
 import { TokenExample } from './TokenExample';
 
@@ -166,10 +166,12 @@ export default function TokenTable({ name, id, darkValues, category, excludedIte
 
             <Table.Cell>
               {darkValues ? (
-                <ColorSchemeProvider colorScheme="light" id="light">
-                  <Box borderStyle="shadow" color="default" marginBottom={2} padding={2}>
-                    <TokenExample category={category} token={token} />
-                  </Box>
+                <ColorSchemeProvider colorScheme="light">
+                  <DesignTokensProvider id="light">
+                    <Box borderStyle="shadow" color="default" marginBottom={2} padding={2}>
+                      <TokenExample category={category} token={token} />
+                    </Box>
+                  </DesignTokensProvider>
                 </ColorSchemeProvider>
               ) : (
                 <Box marginBottom={2} padding={2}>
@@ -181,10 +183,12 @@ export default function TokenTable({ name, id, darkValues, category, excludedIte
 
             {darkValues && (
               <Table.Cell>
-                <ColorSchemeProvider colorScheme="dark" id="dark">
-                  <Box borderStyle="sm" color="default" marginBottom={2} padding={2}>
-                    <TokenExample category={category} token={token} />
-                  </Box>
+                <ColorSchemeProvider colorScheme="dark">
+                  <DesignTokensProvider id="dark">
+                    <Box borderStyle="sm" color="default" marginBottom={2} padding={2}>
+                      <TokenExample category={category} token={token} />
+                    </Box>
+                  </DesignTokensProvider>
                 </ColorSchemeProvider>
                 <MetaData
                   darkModeSupport={darkTokenMap.get(token.name)?.darkModeSupport}

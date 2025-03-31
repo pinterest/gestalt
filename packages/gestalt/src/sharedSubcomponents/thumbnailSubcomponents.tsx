@@ -11,12 +11,13 @@ import {
 import Box from '../Box';
 import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProvider';
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
+import DesignTokensProvider from '../contexts/DesignTokensProvider';
 import Icon, { IconColor } from '../Icon';
 import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';
 import Text from '../Text';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
@@ -42,10 +43,7 @@ export function Message({
   };
   type?: 'default' | 'success' | 'error' | 'progress';
 }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const isError = type === 'error';
   const textRef = useRef<null | HTMLDivElement>(null);
   const [ellipsisActive, setEllipsisActive] = useState(false);
@@ -72,8 +70,8 @@ export function Message({
     };
   }, [checkEllipsisActive]);
 
-  const isTruncated = !textElement && text && ellipsisActive && !isInVRExperiment;
-  const isTruncatedWithHelperLink = isTruncated && helperLink && !isInVRExperiment;
+  const isTruncated = !textElement && text && ellipsisActive && !theme.MAIN;
+  const isTruncatedWithHelperLink = isTruncated && helperLink && !theme.MAIN;
 
   return (
     <Fragment>
@@ -84,21 +82,17 @@ export function Message({
           align="start"
           color={textColor}
           inline
-          lineClamp={isInVRExperiment ? undefined : 2}
+          lineClamp={theme.MAIN ? undefined : 2}
           size="300"
           // Set title prop manually if text is truncated
           title={isTruncated && typeof text === 'string' ? text : undefined}
-          weight={isError && !isInVRExperiment ? 'bold' : undefined}
+          weight={isError && !theme.MAIN ? 'bold' : undefined}
         >
           {text}
           {helperLink ? (
             <Fragment>
               {' '}
-              <Text
-                color={textColor}
-                inline
-                weight={isError && !isInVRExperiment ? 'bold' : undefined}
-              >
+              <Text color={textColor} inline weight={isError && !theme.MAIN ? 'bold' : undefined}>
                 <Link
                   accessibilityLabel={helperLink.accessibilityLabel}
                   display="inlineBlock"
@@ -132,17 +126,14 @@ export function Message({
 }
 
 export function ImageThumbnail({ thumbnail }: { thumbnail: ReactElement }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     <Box aria-hidden>
       <Mask
-        height={isInVRExperiment ? 40 : SIZE_THUMBNAIL}
+        height={theme.MAIN ? 40 : SIZE_THUMBNAIL}
         rounding={2}
-        width={isInVRExperiment ? 40 : SIZE_THUMBNAIL}
+        width={theme.MAIN ? 40 : SIZE_THUMBNAIL}
       >
         {thumbnail}
       </Mask>
@@ -157,14 +148,11 @@ export function IconThumbnail({
   thumbnail: ReactElement;
   overrideColor?: IconColor;
 }) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   return (
     <Box aria-hidden>
       {cloneElement(thumbnail, {
-        size: isInVRExperiment ? 32 : SIZE_ICON,
+        size: theme.MAIN ? 32 : SIZE_ICON,
         color: overrideColor ?? thumbnail.props.color,
       })}
     </Box>
@@ -182,10 +170,7 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
     accessibilityIconErrorLabel,
     accessibilityProcessingLabel,
   } = useDefaultLabelContext('Toast');
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     <Fragment>
@@ -198,16 +183,15 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
         />
       ) : null}
       {type === 'success' ? (
-        <ColorSchemeProvider
-          colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}
-          id="icon-toast-success"
-        >
-          <Icon
-            accessibilityLabel={accessibilityIconSuccessLabel}
-            color={isInExperiment ? 'default' : 'success'}
-            icon="workflow-status-ok"
-            size={SIZE_ICON}
-          />
+        <ColorSchemeProvider colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}>
+          <DesignTokensProvider id="icon-toast-success">
+            <Icon
+              accessibilityLabel={accessibilityIconSuccessLabel}
+              color={theme.MAIN ? 'default' : 'success'}
+              icon="workflow-status-ok"
+              size={SIZE_ICON}
+            />
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       ) : null}
       {type === 'progress' ? (

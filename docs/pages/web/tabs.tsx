@@ -14,8 +14,10 @@ import dontFilterContent from '../../examples/tabs/dontFilterContent';
 import dontHide from '../../examples/tabs/dontHide';
 import dontTruncateLabels from '../../examples/tabs/dontTruncateLabels';
 import doOrderByRelevance from '../../examples/tabs/doOrderByRelevance';
+import icon from '../../examples/tabs/icons';
 import indicator from '../../examples/tabs/indicator';
 import mainExample from '../../examples/tabs/mainExample';
+import sizes from '../../examples/tabs/sizes';
 import wrapping from '../../examples/tabs/wrapping';
 
 export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen }) {
@@ -170,6 +172,15 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       />
 
       <MainSection name="Variants">
+        <MainSection.Subsection title="Sizes">
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={sizes} layout="column" name="Size" previewHeight={250} />
+            }
+          />
+        </MainSection.Subsection>
+
         <MainSection.Subsection
           description="Wrapping to multiple lines is available for tight spaces on desktop interfaces where horizontal scrolling is harder and less accessible."
           title="Wrapping"
@@ -200,6 +211,18 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
                 name="Indicator"
                 previewHeight={250}
               />
+            }
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description="Tabs support an icon displayed next to the label"
+          title="Icon"
+        >
+          <MainSection.Card
+            cardSize="md"
+            sandpackExample={
+              <SandpackExample code={icon} layout="column" name="Icon" previewHeight={250} />
             }
           />
         </MainSection.Subsection>
