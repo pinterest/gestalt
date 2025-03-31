@@ -13,6 +13,7 @@ import ColorSchemeProvider, { useColorScheme } from '../contexts/ColorSchemeProv
 import { useDefaultLabelContext } from '../contexts/DefaultLabelProvider';
 import DesignTokensProvider from '../contexts/DesignTokensProvider';
 import Icon, { IconColor } from '../Icon';
+import IconCompact from '../IconCompact';
 import Link from '../Link';
 import Mask from '../Mask';
 import Spinner from '../Spinner';
@@ -21,6 +22,7 @@ import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const SIZE_THUMBNAIL = 32;
 const SIZE_ICON = 24;
+const SIZE_ICON_VR = 20;
 
 export function Message({
   text,
@@ -172,26 +174,44 @@ export function TypeThumbnail({ type }: { type: 'default' | 'success' | 'error' 
   } = useDefaultLabelContext('Toast');
   const theme = useExperimentalTheme();
 
+  const errorIcon = theme.MAIN ? (
+    <IconCompact
+      accessibilityLabel={accessibilityIconErrorLabel}
+      color="inverse"
+      icon="compact-workflow-status-problem"
+      size={SIZE_ICON_VR}
+    />
+  ) : (
+    <Icon
+      accessibilityLabel={accessibilityIconErrorLabel}
+      color="inverse"
+      icon="workflow-status-problem"
+      size={SIZE_ICON}
+    />
+  );
+
+  const successIcon = theme.MAIN ? (
+    <IconCompact
+      accessibilityLabel={accessibilityIconSuccessLabel}
+      color="default"
+      icon="compact-check-circle-fill"
+      size={SIZE_ICON_VR}
+    />
+  ) : (
+    <Icon
+      accessibilityLabel={accessibilityIconSuccessLabel}
+      color="success"
+      icon="workflow-status-ok"
+      size={SIZE_ICON}
+    />
+  );
+
   return (
     <Fragment>
-      {type === 'error' ? (
-        <Icon
-          accessibilityLabel={accessibilityIconErrorLabel}
-          color="inverse"
-          icon="workflow-status-problem"
-          size={SIZE_ICON}
-        />
-      ) : null}
+      {type === 'error' ? errorIcon : null}
       {type === 'success' ? (
         <ColorSchemeProvider colorScheme={colorSchemeName === 'darkMode' ? 'light' : 'dark'}>
-          <DesignTokensProvider id="icon-toast-success">
-            <Icon
-              accessibilityLabel={accessibilityIconSuccessLabel}
-              color={theme.MAIN ? 'default' : 'success'}
-              icon="workflow-status-ok"
-              size={SIZE_ICON}
-            />
-          </DesignTokensProvider>
+          <DesignTokensProvider id="icon-toast-success">{successIcon}</DesignTokensProvider>
         </ColorSchemeProvider>
       ) : null}
       {type === 'progress' ? (
