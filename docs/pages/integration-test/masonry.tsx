@@ -1,7 +1,7 @@
 import { ReactElement, useEffect, useState } from 'react';
 import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
-import { ColorSchemeProvider, Masonry, MasonryV2 } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider, Masonry, MasonryV2 } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
 import generateMultiColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateMultiColumnExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
@@ -146,32 +146,34 @@ export default function TestPage({
 
   return (
     <ColorSchemeProvider colorScheme={darkModeValue ? 'dark' : 'light'}>
-      <MaybeLazyHydrate ssrOnly={ssrOnly}>
-        <MasonryContainer
-          constrained={constrainedValue}
-          dynamicHeights={dynamicHeightsValue}
-          dynamicHeightsV2={dynamicHeightsV2Value}
-          externalCache={externalCacheValue}
-          finiteLength={finiteLengthValue}
-          flexible={flexibleValue}
-          initialItems={getInitialItems()}
-          logWhitespace={logWhitespaceValue}
-          manualFetch={manualFetchValue}
-          MasonryComponent={experimentalValue ? MasonryV2 : Masonry}
-          measurementStore={measurementStore}
-          multiColPositionAlgoV2={multiColPositionAlgoV2Value}
-          multiColTest={multiColTestValue}
-          noScroll={noScrollValue}
-          offsetTop={offsetTopValue}
-          pinHeightsSample={realisticPinHeightsValue ? pinHeightsSample : undefined}
-          positionStore={positionStore}
-          scrollContainer={scrollContainerValue}
-          twoColItems={twoColItemsValue}
-          virtualBoundsBottom={virtualBoundsBottomValue}
-          virtualBoundsTop={virtualBoundsTopValue}
-          virtualize={virtualizeValue}
-        />
-      </MaybeLazyHydrate>
+      <DesignTokensProvider>
+        <MaybeLazyHydrate ssrOnly={ssrOnly}>
+          <MasonryContainer
+            constrained={constrainedValue}
+            dynamicHeights={dynamicHeightsValue}
+            dynamicHeightsV2={dynamicHeightsV2Value}
+            externalCache={externalCacheValue}
+            finiteLength={finiteLengthValue}
+            flexible={flexibleValue}
+            initialItems={getInitialItems()}
+            logWhitespace={logWhitespaceValue}
+            manualFetch={manualFetchValue}
+            MasonryComponent={experimentalValue ? MasonryV2 : Masonry}
+            measurementStore={measurementStore}
+            multiColPositionAlgoV2={multiColPositionAlgoV2Value}
+            multiColTest={multiColTestValue}
+            noScroll={noScrollValue}
+            offsetTop={offsetTopValue}
+            pinHeightsSample={realisticPinHeightsValue ? pinHeightsSample : undefined}
+            positionStore={positionStore}
+            scrollContainer={scrollContainerValue}
+            twoColItems={twoColItemsValue}
+            virtualBoundsBottom={virtualBoundsBottomValue}
+            virtualBoundsTop={virtualBoundsTopValue}
+            virtualize={virtualizeValue}
+          />
+        </MaybeLazyHydrate>
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }
