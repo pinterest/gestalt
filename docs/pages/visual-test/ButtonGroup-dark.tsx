@@ -3,7 +3,6 @@ import { Box, Button, ButtonGroup, ColorSchemeProvider, DesignTokensProvider } f
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      {' '}
       <DesignTokensProvider>
         <Box color="default" display="inlineBlock" padding={1}>
           <ButtonGroup>

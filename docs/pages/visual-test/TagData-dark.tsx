@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, DesignTokensProvider,Flex, TagData } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, TagData } from 'gestalt';
 
 export default function Snapshot() {
   return (

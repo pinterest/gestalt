@@ -3,7 +3,6 @@ import { AvatarGroup, Box, ColorSchemeProvider, DesignTokensProvider } from 'ges
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      {' '}
       <DesignTokensProvider>
         <Box color="default" display="inlineBlock" padding={1}>
           <AvatarGroup

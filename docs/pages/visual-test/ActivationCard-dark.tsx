@@ -1,4 +1,4 @@
-import { ActivationCard, Box, ColorSchemeProvider, DesignTokensProvider,Flex } from 'gestalt';
+import { ActivationCard, Box, ColorSchemeProvider, DesignTokensProvider, Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (

@@ -1,4 +1,4 @@
-import { Box, Collage, ColorSchemeProvider, DesignTokensProvider,Image, Mask } from 'gestalt';
+import { Box, Collage, ColorSchemeProvider, DesignTokensProvider, Image, Mask } from 'gestalt';
 
 export default function Snapshot() {
   return (

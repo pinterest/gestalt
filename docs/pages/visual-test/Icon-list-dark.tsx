@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, DesignTokensProvider,Flex, Icon, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Icon, Text } from 'gestalt';
 import icons from '../../../packages/gestalt/src/icons/index';
 
 export default function Snapshot() {

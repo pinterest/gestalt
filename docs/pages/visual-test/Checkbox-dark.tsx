@@ -1,9 +1,8 @@
-import { Box, Checkbox, ColorSchemeProvider, DesignTokensProvider,Flex } from 'gestalt';
+import { Box, Checkbox, ColorSchemeProvider, DesignTokensProvider, Flex } from 'gestalt';
 
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      {' '}
       <DesignTokensProvider>
         <Box color="default" display="inlineBlock" padding={1}>
           <Flex

@@ -13,7 +13,6 @@ import {
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="light">
-      {' '}
       <DesignTokensProvider>
         <Box color="default" display="inlineBlock" padding={1}>
           <Flex alignItems="center" height="100%" justifyContent="center" width="100%">

@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, DesignTokensProvider,TextUI } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, TextUI } from 'gestalt';
 
 export default function Snapshot() {
   return (

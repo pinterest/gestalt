@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, DesignTokensProvider,Masonry, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Masonry, Text } from 'gestalt';
 
 const dataObject = [
   { height: 100, name: 'Pin 1' },

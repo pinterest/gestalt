@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Box, Button, ColorSchemeProvider, DesignTokensProvider,Flex, Pulsar } from 'gestalt';
+import { Box, Button, ColorSchemeProvider, DesignTokensProvider, Flex, Pulsar } from 'gestalt';
 
 export default function Snapshot() {
   const anchorRef = useRef<null | HTMLElement>(null);

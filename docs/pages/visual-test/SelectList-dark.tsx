@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, DesignTokensProvider,SelectList } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, SelectList } from 'gestalt';
 
 export default function Screenshot() {
   return (

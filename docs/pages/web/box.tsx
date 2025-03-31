@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Box, ColorSchemeProvider, DesignTokensProvider,Flex, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Text } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { DocGen } from '../../docs-components/docgen';
