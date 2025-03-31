@@ -1791,7 +1791,11 @@ describe('dynamic batch sizing', () => {
         { name: 'Pin 11', height: 640, color: '#7D8471' },
         { name: 'Pin 12', height: 500, color: '#3B3C36' },
         { name: 'Pin 13', height: 660, color: '#015D52' },
-        { name: 'Pin 14', height: 450, color: '#4A192C', columnSpan },
+        { name: 'Pin 14', height: 660, color: '#922B3E' },
+        { name: 'Pin 15', height: 660, color: '#B32821' },
+        { name: 'Pin 16', height: 660, color: '#25221B' },
+        { name: 'Pin 17', height: 660, color: '#FF7514' },
+        { name: 'Pin 18', height: 450, color: '#4A192C', columnSpan },
       ];
 
       items.forEach((item: any) => {
