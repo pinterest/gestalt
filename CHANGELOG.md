@@ -1,3 +1,9 @@
+## 175.0.5 (Mar 31, 2025)
+
+### Patch
+
+- Docs: cleanup of old pages ([#4057](https://github.com/pinterest/gestalt/pull/4057)) - [Preview link](https://deploy-preview-4057--gestalt.netlify.app?devexample=true)
+
 ## 175.0.4 (Mar 31, 2025)
 
 ### Patch
