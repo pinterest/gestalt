@@ -14,7 +14,7 @@ import focusStyles from './Focus.css';
 import Icon from './Icon';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type ButtonProps = {
   /**
@@ -78,10 +78,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
       break;
   }
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const {
     textLoginEmail,
@@ -135,7 +132,7 @@ const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(fu
 
   const { isFocusVisible } = useFocusVisible();
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRButtonSocial dataTestId={dataTestId} onClick={onClick} service={service} type={type} />
     );
