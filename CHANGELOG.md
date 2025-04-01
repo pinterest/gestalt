@@ -1,3 +1,9 @@
+## 175.3.0 (Apr 1, 2025)
+
+### Minor
+
+- Button: new button social ([#3994](https://github.com/pinterest/gestalt/pull/3994)) - [Preview link](https://deploy-preview-3994--gestalt.netlify.app?devexample=true)
+
 ## 175.2.0 (Apr 1, 2025)
 
 ### Minor
