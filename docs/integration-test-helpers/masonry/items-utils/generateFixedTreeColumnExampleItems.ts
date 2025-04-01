@@ -12,7 +12,7 @@ type ExampleItem = {
   name: string;
 };
 
-export default function generateFiexedTreeColumnExampleItems({
+export default function generateFixedTreeColumnExampleItems({
   name = 'Pin',
 }: Args): ReadonlyArray<ExampleItem> {
   const getRandomNumber = getRandomNumberGenerator(6);
