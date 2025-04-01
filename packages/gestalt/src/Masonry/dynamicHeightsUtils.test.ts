@@ -494,4 +494,105 @@ describe('dynamic heights on masonry', () => {
       expect(newPos).toEqual(expectedPos[index]);
     });
   });
+
+  test('item height increases more than next item height, should not cause an overlap when there is a multi-column affected', () => {
+    const measurementStore = new MeasurementStore<Record<any, any>, number>();
+    const positionCache = new MeasurementStore<Record<any, any>, Position>();
+    const items: readonly [Item, Item, ...Item[]] = [
+      { 'name': 'Pin 0', 'height': 250, 'color': '#EAE6CA' },
+      { 'name': 'Pin 1', 'height': 150, 'color': '#AEA04B' },
+      { 'name': 'Pin 2', 'height': 400, 'color': '#C51D34' },
+      { 'name': 'Pin 3', 'height': 200, 'color': '#063971' },
+      { 'name': 'Pin 4', 'height': 250, 'color': '#7F7679' },
+      { 'name': 'Pin 5', 'height': 250, 'color': '#CDA434' },
+      { 'name': 'Pin 6', 'height': 200, 'color': '#FF2301' },
+      { 'name': 'Pin 7', 'height': 400, 'color': '#F44611' },
+      { 'name': 'Pin 8', 'height': 450, 'color': '#D0D0D0' },
+      { 'name': 'Pin 9', 'height': 150, 'color': '#A52019', columnSpan: 3 },
+      { 'name': 'Pin 10', 'height': 350, 'color': '#CF3476' },
+      { 'name': 'Pin 11', 'height': 400, 'color': '#474B4E' },
+      { 'name': 'Pin 12', 'height': 250, 'color': '#F6F6F6' },
+      { 'name': 'Pin 13', 'height': 315, 'color': '#2F4538' },
+      { 'name': 'Pin 14', 'height': 255, 'color': '#D84B20' },
+    ];
+    items.forEach((item: any) => {
+      measurementStore.set(item, item.height);
+    });
+
+    const layout = defaultLayout({
+      gutter,
+      columnWidth: 236,
+      align: 'start',
+      measurementCache: measurementStore,
+      positionCache,
+      layout: 'basic',
+      minCols: 5,
+      rawItemCount: items.length,
+      width: 236 * 5,
+      _getColumnSpanConfig: getColumnSpanConfig,
+      originalItems: items,
+    });
+
+    const positions = layout(items);
+
+    const expectedOriginalPos = [
+      { top: 0, left: 0, width: 236, height: 250 },
+      { top: 0, left: 236, width: 236, height: 150 },
+      { top: 0, left: 472, width: 236, height: 400 },
+      { top: 0, left: 708, width: 236, height: 200 },
+      { top: 0, left: 944, width: 236, height: 250 },
+      { top: 150, left: 236, width: 236, height: 250 },
+      { top: 200, left: 708, width: 236, height: 200 },
+      { top: 250, left: 0, width: 236, height: 400 },
+      { top: 250, left: 944, width: 236, height: 450 },
+      { top: 400, left: 236, width: 708, height: 150 },
+      { top: 550, left: 236, width: 236, height: 350 },
+      { top: 550, left: 472, width: 236, height: 400 },
+      { top: 550, left: 708, width: 236, height: 250 },
+      { top: 650, left: 0, width: 236, height: 315 },
+      { top: 700, left: 944, width: 236, height: 255 },
+    ];
+
+    items.forEach((_, index) => {
+      const originalPos = positions[index]!;
+      expect(originalPos).toEqual(expectedOriginalPos[index]);
+    });
+
+    const changedItemIndex = 3; // Pin 3
+    const heightDelta = 400;
+    const itemHeight = items[changedItemIndex]!.height;
+    const changedItemIndexNewHeight = itemHeight + heightDelta;
+
+    recalcHeights({
+      items,
+      changedItem: items[changedItemIndex],
+      newHeight: changedItemIndexNewHeight,
+      positionStore: positionCache,
+      measurementStore,
+      gutter,
+    });
+
+    const expectedPos = [
+      { top: 0, left: 0, width: 236, height: 250 },
+      { top: 0, left: 236, width: 236, height: 150 },
+      { top: 0, left: 472, width: 236, height: 400 },
+      { top: 0, left: 708, width: 236, height: 600 },
+      { top: 0, left: 944, width: 236, height: 250 },
+      { top: 150, left: 236, width: 236, height: 250 },
+      { top: 600, left: 708, width: 236, height: 200 },
+      { top: 250, left: 0, width: 236, height: 400 },
+      { top: 250, left: 944, width: 236, height: 450 },
+      { top: 800, left: 236, width: 708, height: 150 },
+      { top: 950, left: 236, width: 236, height: 350 },
+      { top: 950, left: 472, width: 236, height: 400 },
+      { top: 950, left: 708, width: 236, height: 250 },
+      { top: 650, left: 0, width: 236, height: 315 },
+      { top: 700, left: 944, width: 236, height: 255 },
+    ];
+
+    items.forEach((item, index) => {
+      const newPos = positionCache.get(item);
+      expect(newPos).toEqual(expectedPos[index]);
+    });
+  });
 });
