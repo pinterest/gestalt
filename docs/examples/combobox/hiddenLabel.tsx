@@ -51,7 +51,7 @@ export default function Example() {
   return (
     <Box padding={2}>
       <Flex direction="column" gap={4}>
-        <Heading size="500">
+        <Heading size="600">
           Discover this week&apos;s top searched trends across all categories
         </Heading>
         <Text inline>

@@ -76,7 +76,7 @@ export default function ScrollBoundaryContainerExample() {
                   >
                     <Box padding={3}>
                       {/* @ts-expect-error - TS2322 - Type 'string' is not assignable to type 'TextAlignType | undefined'. */}
-                      <Heading align={alignText} color="light" size="600">
+                      <Heading align={alignText} color="light" size="700">
                         Tropic greens: The taste of Petrol and Porcelain
                       </Heading>
                     </Box>

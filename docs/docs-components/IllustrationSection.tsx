@@ -21,7 +21,7 @@ export default function IllustrationSection({
     <IllustrationContainer justifyContent="center">
       <Flex direction="column" gap={6} maxWidth={1200} width="100%">
         {title && (
-          <Heading accessibilityLevel={2} size="500">
+          <Heading accessibilityLevel={2} size="600">
             {title}
           </Heading>
         )}

@@ -13,7 +13,7 @@ export default function Example() {
         paddingY={4}
       >
         {/* This is replacing an actual PageHeader so we don't run into accessibility error in the page */}
-        <Heading accessibilityLevel="none" size="500">
+        <Heading accessibilityLevel="none" size="600">
           Tag manager
         </Heading>
       </Box>
