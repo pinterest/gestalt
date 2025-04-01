@@ -26,12 +26,12 @@ export default function Example() {
           <Heading size="400">こんにちは</Heading>
         </span>
 
-        <Heading size="600">Heading size 500</Heading>
+        <Heading size="600">Heading size 600</Heading>
         <span lang="ja">
           <Heading size="600">こんにちは</Heading>
         </span>
 
-        <Heading size="700">Heading size 600</Heading>
+        <Heading size="700">Heading size 700</Heading>
         <span lang="ja">
           <Heading size="700">こんにちは</Heading>
         </span>
