@@ -3,7 +3,7 @@ import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, DesignTokensProvider, Masonry, MasonryV2 } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
-import generateFiexedTreeColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateFiexedTreeColumnExampleItems';
+import generateFiexedTreeColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateFixedTreeColumnExampleItems';
 import generateMultiColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateMultiColumnExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
 import getRandomNumberGenerator from '../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator';
