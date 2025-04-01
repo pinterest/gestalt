@@ -6,7 +6,12 @@ export default function TapAreaExample() {
       <Box borderStyle="sm" rounding={4} width={170}>
         <TapArea rounding={4}>
           <Box alignItems="center" direction="column" display="flex" padding={3}>
-            <Avatar name="Alberto" size="xl" src="https://i.ibb.co/NsK2w5y/Alberto.jpg" verified />
+            <Avatar
+              name="Alberto"
+              size="xl"
+              src="https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg"
+              verified
+            />
             <Text weight="bold">Alberto&apos;s Profile</Text>
           </Box>
         </TapArea>

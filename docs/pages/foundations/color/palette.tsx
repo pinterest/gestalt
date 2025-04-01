@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Box, ColorSchemeProvider, Flex, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BLACK_COSMICORE_900,
   TOKEN_COLOR_BLUE_SKYCICLE_300,
@@ -131,21 +131,23 @@ function ColorSchemeCard({ children, colorScheme }: ColorCardProps) {
         column: 0,
       }}
     >
-      <ColorSchemeProvider key={colorScheme} colorScheme={colorScheme} id={colorScheme}>
-        <Box color="default" padding={4}>
-          <Flex
-            direction="column"
-            gap={{
-              row: 0,
-              column: 4,
-            }}
-          >
-            <Text color="default" size="400" weight="bold">
-              {colorScheme === 'light' ? 'Light mode' : 'Dark mode'}
-            </Text>
-            {children}
-          </Flex>
-        </Box>
+      <ColorSchemeProvider key={colorScheme} colorScheme={colorScheme}>
+        <DesignTokensProvider id={colorScheme}>
+          <Box color="default" padding={4}>
+            <Flex
+              direction="column"
+              gap={{
+                row: 0,
+                column: 4,
+              }}
+            >
+              <Text color="default" size="400" weight="bold">
+                {colorScheme === 'light' ? 'Light mode' : 'Dark mode'}
+              </Text>
+              {children}
+            </Flex>
+          </Box>
+        </DesignTokensProvider>
       </ColorSchemeProvider>
     </Flex>
   );

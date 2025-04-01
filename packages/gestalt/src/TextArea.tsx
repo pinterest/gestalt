@@ -9,7 +9,7 @@ import FormLabel from './sharedSubcomponents/FormLabel';
 import TagArea from './TagArea/TagArea';
 import styles from './TextArea.css';
 import VRTextArea from './TextArea/VRTextArea';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const ROW_HEIGHT = 24;
 const INPUT_PADDING_WITH_TAGS = 20;
@@ -135,12 +135,9 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
   const [focused, setFocused] = useState(false);
   const [currentLength, setCurrentLength] = useState(value?.length ?? 0);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  const defaultRows = isInVRExperiment ? 2 : 3;
+  const defaultRows = theme.MAIN ? 2 : 3;
 
   const overridenRows = rows ?? defaultRows;
 
@@ -227,7 +224,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
     maxHeight: overridenRows * ROW_HEIGHT + INPUT_PADDING_WITH_TAGS,
   } as const;
 
-  if (isInVRExperiment && !tags)
+  if (theme.MAIN && !tags)
     return (
       <VRTextArea
         ref={ref}
@@ -252,7 +249,7 @@ const TextAreaWithForwardRef = forwardRef<HTMLTextAreaElement, Props>(function T
       />
     );
 
-  if (isInVRExperiment && tags)
+  if (theme.MAIN && tags)
     return (
       <TagArea
         ref={ref}

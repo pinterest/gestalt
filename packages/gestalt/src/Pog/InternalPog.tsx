@@ -4,7 +4,7 @@ import Icon from '../Icon';
 import IconCompact from '../IconCompact';
 import icons from '../icons/index';
 import compactIconsVR from '../icons-vr-theme/compact/index';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Props = {
   accessibilityLabel?: string;
@@ -50,12 +50,9 @@ export default function InternalPog({
   selected = false,
   size = 'md',
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  const SIZE_NAME_TO_PADDING_PIXEL = isInVRExperiment
+  const SIZE_NAME_TO_PADDING_PIXEL = theme.MAIN
     ? ({
         xs: 6,
         sm: 6,
@@ -76,8 +73,8 @@ export default function InternalPog({
   const SIZE_NAME_TO_ICON_SIZE_PIXEL = {
     xs: 12,
     sm: 16,
-    md: isInVRExperiment ? 16 : 18,
-    lg: isInVRExperiment ? 24 : 20,
+    md: theme.MAIN ? 16 : 18,
+    lg: theme.MAIN ? 24 : 20,
     xl: 24,
     56: 24,
   } as const;
@@ -99,8 +96,8 @@ export default function InternalPog({
     red: 'white',
     transparent: 'darkGray',
     transparentDarkBackground: 'white',
-    transparentDarkGray: isInVRExperiment ? 'light' : 'white',
-    washLight: isInVRExperiment ? 'dark' : 'darkGray',
+    transparentDarkGray: theme.MAIN ? 'light' : 'white',
+    washLight: theme.MAIN ? 'dark' : 'darkGray',
     white: 'darkGray',
     elevation: 'darkGray',
   } as const;
@@ -168,12 +165,12 @@ export default function InternalPog({
   });
 
   return (
-    <div className={isInVRExperiment ? vrClasses : classes} style={inlineStyle}>
+    <div className={theme.MAIN ? vrClasses : classes} style={inlineStyle}>
       {isCompact ? (
         <IconCompact
           accessibilityLabel={accessibilityLabel || ''}
           color={
-            isInVRExperiment &&
+            theme.MAIN &&
             // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
             disabled &&
             !(
@@ -192,7 +189,7 @@ export default function InternalPog({
         <Icon
           accessibilityLabel={accessibilityLabel || ''}
           color={
-            isInVRExperiment &&
+            theme.MAIN &&
             // Disabled icons should always use the disabled token, except for washLight and transparentDarkGray with white or light icons when unselected
             disabled &&
             !(

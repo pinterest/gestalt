@@ -176,6 +176,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _earlyBailout?: (columnSpan: number) => number;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type MasonryRef = {
@@ -381,6 +385,7 @@ function useLayout<T>({
   minCols,
   positionStore,
   width,
+  maxHeight,
   heightUpdateTrigger,
   _logTwoColWhitespace,
   _measureAll,
@@ -388,6 +393,7 @@ function useLayout<T>({
   _getColumnSpanConfig,
   _getResponsiveModuleConfigForSecondItem,
   _earlyBailout,
+  _multiColPositionAlgoV2,
 }: {
   align: Align;
   columnWidth: number;
@@ -398,6 +404,7 @@ function useLayout<T>({
   minCols: number;
   positionStore: Cache<T, Position>;
   width: number | null | undefined;
+  maxHeight: number;
   heightUpdateTrigger: number;
   _logTwoColWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
@@ -409,6 +416,7 @@ function useLayout<T>({
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _earlyBailout?: (columnSpan: number) => number;
+  _multiColPositionAlgoV2?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -429,6 +437,7 @@ function useLayout<T>({
     _getResponsiveModuleConfigForSecondItem,
     _logTwoColWhitespace,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   });
 
   const hasMultiColumnItems =
@@ -505,7 +514,10 @@ function useLayout<T>({
 
   // Math.max() === -Infinity when there are no positions
   const height = positions.length
-    ? Math.max(...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)))
+    ? Math.max(
+        ...positions.map((pos) => (pos && pos.top >= 0 ? pos.top + pos.height : 0)),
+        maxHeight,
+      )
     : 0;
 
   return {
@@ -666,6 +678,7 @@ function Masonry<T>(
     _dynamicHeights,
     _dynamicHeightsV2Experiment,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   }: Props<T>,
   ref:
     | {
@@ -798,6 +811,8 @@ function Masonry<T>(
     ],
   );
 
+  const maxHeightRef = useRef(0);
+
   const { hasPendingMeasurements, height, positions, updateMeasurement } = useLayout<T>({
     align,
     columnWidth,
@@ -808,6 +823,7 @@ function Masonry<T>(
     minCols,
     positionStore,
     width,
+    maxHeight: maxHeightRef.current,
     heightUpdateTrigger,
     _logTwoColWhitespace,
     _measureAll,
@@ -815,7 +831,11 @@ function Masonry<T>(
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
     _earlyBailout,
+    _multiColPositionAlgoV2,
   });
+  useEffect(() => {
+    maxHeightRef.current = height;
+  }, [height]);
 
   useFetchOnScroll({
     containerHeight,

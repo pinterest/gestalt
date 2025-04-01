@@ -14,6 +14,7 @@ const fullWidthLayout = <T>({
   measurementCache,
   _getColumnSpanConfig,
   _getResponsiveModuleConfigForSecondItem,
+  _multiColPositionAlgoV2,
   ...otherProps
 }: {
   idealColumnWidth?: number;
@@ -25,6 +26,7 @@ const fullWidthLayout = <T>({
   originalItems: ReadonlyArray<T>;
   _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
   _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
+  _multiColPositionAlgoV2?: boolean;
   earlyBailout?: (columnSpan: number) => number;
   logWhitespace?: (
     additionalWhitespace: ReadonlyArray<number>,
@@ -64,6 +66,7 @@ const fullWidthLayout = <T>({
           _getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem:
             _getResponsiveModuleConfigForSecondItem ?? defaultGetResponsiveModuleConfig,
+          _multiColPositionAlgoV2,
           ...otherProps,
         })
       : items.reduce<Array<any>>((acc, item) => {

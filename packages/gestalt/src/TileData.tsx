@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import classnames from 'classnames';
-import Box from './Box';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
 import { useColorScheme } from './contexts/ColorSchemeProvider';
 import InternalDatapoint from './Datapoint/InternalDatapoint';
@@ -133,13 +132,6 @@ export default function TileData({
 
   const checkboxId = useId();
 
-  const getClasses = () =>
-    classnames(styles.baseTile, styles.tileWidth, {
-      [styles.hovered]: isHovered,
-      [styles.disabled]: disabled,
-      [styles[`dataVisualizationColor${color}`]]: selected && !disabled,
-    });
-
   const tileStyle = selected && !disabled ? colorStyles : {};
   const checkBoxStyle = getCheckboxColors({
     state: { hovered: isHovered, selected: !!selected, disabled },
@@ -148,42 +140,48 @@ export default function TileData({
 
   return (
     <MaybeTooltip disabled={disabled} tooltip={tooltip}>
-      <Box>
-        <TapArea
-          disabled={disabled}
-          onBlur={handleOnBlur}
-          onMouseEnter={handleOnMouseEnter}
-          onMouseLeave={handleOnMouseLeave}
-          onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
-          role="button"
-          rounding={4}
+      <TapArea
+        disabled={disabled}
+        fullWidth={false}
+        onBlur={handleOnBlur}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+        onTap={({ event }) => onTap?.({ event, id, selected: !selected })}
+        role="button"
+        rounding={4}
+      >
+        <div
+          className={classnames(styles.baseTile, {
+            [styles.hovered]: isHovered,
+            [styles.disabled]: disabled,
+            [styles[`dataVisualizationColor${color}`]]: selected && !disabled,
+          })}
+          style={tileStyle}
         >
-          <div className={getClasses()} style={tileStyle}>
-            <Flex direction="row" gap={2}>
-              <InternalDatapoint
-                disabled={disabled}
-                lineClamp={2}
-                maxTitleWidth={135}
-                minTitleWidth={80}
-                numTitleRows={2}
-                title={title}
-                trend={trend}
-                trendSentiment={trendSentiment}
-                value={value}
+          <Flex direction="row" gap={2}>
+            <InternalDatapoint
+              disabled={disabled}
+              lineClamp={2}
+              maxTitleWidth={135}
+              minTitleWidth={80}
+              numTitleRows={2}
+              title={title}
+              trend={trend}
+              trendSentiment={trendSentiment}
+              value={value}
+            />
+            {showCheckbox && (
+              <InternalCheckbox
+                checked={selected}
+                id={`readonly-checkbox-blah-${checkboxId}`}
+                readOnly
+                size="sm"
+                style={checkBoxStyle}
               />
-              {showCheckbox && (
-                <InternalCheckbox
-                  checked={selected}
-                  id={`readonly-checkbox-blah-${checkboxId}`}
-                  readOnly
-                  size="sm"
-                  style={checkBoxStyle}
-                />
-              )}
-            </Flex>
-          </div>
-        </TapArea>
-      </Box>
+            )}
+          </Flex>
+        </div>
+      </TapArea>
     </MaybeTooltip>
   );
 }

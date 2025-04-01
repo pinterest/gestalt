@@ -1,12 +1,7 @@
-import { Avatar, Flex, useDangerouslyInGestaltExperiment } from 'gestalt';
+import { Avatar, Flex } from 'gestalt';
 
 export default function Example() {
-  const isInVRExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
-
-  return isInVRExperiment ? (
+  return (
     <Flex
       alignContent="center"
       gap={{ row: 4, column: 0 }}
@@ -32,20 +27,6 @@ export default function Example() {
         size="xl"
         src="https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg"
       />
-    </Flex>
-  ) : (
-    <Flex
-      alignContent="center"
-      gap={{ row: 4, column: 0 }}
-      height="100%"
-      justifyContent="center"
-      wrap
-    >
-      <Avatar name="Keerthi" size="xs" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
-      <Avatar name="Alberto" size="sm" />
-      <Avatar name="Keerthi" size="md" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" verified />
-      <Avatar name="Alberto" size="lg" />
-      <Avatar name="Keerthi" size="xl" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />
     </Flex>
   );
 }

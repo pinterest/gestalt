@@ -116,7 +116,7 @@
 }
 
 html[dir="rtl"] .md_inputStartPadding {
-  padding-left: calc(
+  padding-right: calc(
     var(--sema-space-300) + var(--sema-space-200) + var(--sema-space-400) -
       var(--sema-space-25)
   );
@@ -190,7 +190,7 @@ html:not([dir="rtl"]) .md_endClearButtonWrapper {
   right: calc(var(--sema-space-300) - var(--sema-space-150));
 }
 
-html[dir="rtl"] .md_ClearButtonWrapper {
+html[dir="rtl"] .md_endClearButtonWrapper {
   left: calc(var(--sema-space-300) - var(--sema-space-150));
 }
 
@@ -298,6 +298,6 @@ html:not([dir="rtl"]) .lg_endClearButtonWrapper {
   right: calc(var(--sema-space-400) - var(--sema-space-150));
 }
 
-html[dir="rtl"] .lg_ClearButtonWrapper {
+html[dir="rtl"] .lg_endClearButtonWrapper {
   left: calc(var(--sema-space-400) - var(--sema-space-150));
 }

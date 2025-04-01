@@ -1,10 +1,12 @@
-import { ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 import TagVisualSnapshot from './Tag';
 
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <TagVisualSnapshot />
+      <DesignTokensProvider>
+        <TagVisualSnapshot />
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }

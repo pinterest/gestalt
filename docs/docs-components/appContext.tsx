@@ -50,18 +50,24 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
   const textDirection: DirectionScheme = cookies[textDirectionKey] === 'rtl' ? 'rtl' : 'ltr';
 
   const experiments: Experiments = cookies[experimentsKey] ?? [];
+
   const devExampleMode: DevExampleMode =
     cookies[devExampleModeKey] === 'development' ? 'development' : 'default';
 
   const setColorScheme = (newColorScheme: ColorScheme) =>
     setCookies(colorSchemeKey, newColorScheme);
+
   const setPropTableVariant = (variant: PropTableVariant) =>
     setCookies(propTableVariantKey, variant);
+
   const setTextDirection = (direction: DirectionScheme) => setCookies(textDirectionKey, direction);
+
   const setExperiments = (component: Experiments) => {
     setCookies(experimentsKey, component);
   };
+
   const setDevExampleMode = (state: DevExampleMode) => setCookies(devExampleModeKey, state);
+
   const router = useRouter();
 
   const [helixBot] = useState(router.query.helixbot && router.query.helixbot === 'true');

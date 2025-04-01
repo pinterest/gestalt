@@ -42,7 +42,7 @@ exports[`AvatarGroup renders AvatarGroup button with addCollaborators button 1`]
                         class="img"
                         fetchpriority="auto"
                         loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                       />
                     </div>
                   </div>
@@ -149,7 +149,7 @@ exports[`AvatarGroup renders AvatarGroup link with addCollaborators button 1`] =
                           class="img"
                           fetchpriority="auto"
                           loading="auto"
-                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                          src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                         />
                       </div>
                     </div>
@@ -251,7 +251,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                         class="img"
                         fetchpriority="auto"
                         loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                       />
                     </div>
                   </div>
@@ -295,7 +295,7 @@ exports[`AvatarGroup renders display-only AvatarGroup with counter 1`] = `
                         class="img"
                         fetchpriority="auto"
                         loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                       />
                     </div>
                   </div>
@@ -471,7 +471,7 @@ exports[`AvatarGroup renders fit display-only AvatarGroup with image 1`] = `
                           class="img"
                           fetchpriority="auto"
                           loading="auto"
-                          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                          src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                         />
                       </div>
                     </div>
@@ -533,7 +533,7 @@ exports[`AvatarGroup renders md display-only AvatarGroup with image 1`] = `
                         class="img"
                         fetchpriority="auto"
                         loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                       />
                     </div>
                   </div>
@@ -594,7 +594,7 @@ exports[`AvatarGroup renders sm display-only AvatarGroup with image 1`] = `
                         class="img"
                         fetchpriority="auto"
                         loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                       />
                     </div>
                   </div>
@@ -655,7 +655,7 @@ exports[`AvatarGroup renders xs display-only AvatarGroup with image 1`] = `
                         class="img"
                         fetchpriority="auto"
                         loading="auto"
-                        src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+                        src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
                       />
                     </div>
                   </div>

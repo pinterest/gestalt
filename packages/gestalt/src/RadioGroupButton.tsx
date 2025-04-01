@@ -7,13 +7,13 @@ import Flex from './Flex';
 import focusStyles from './Focus.css';
 import Label from './Label';
 import layoutStyles from './Layout.css';
-import styles from './RadioButton.css';
 import { useRadioGroupContext } from './RadioGroup/Context';
 import RadioButton from './RadioGroup/RadioButton';
+import styles from './RadioGroupButton.css';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useTapScaleAnimation from './utils/useTapScaleAnimation';
 
 type BadgeType = {
@@ -105,10 +105,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
     }: Props,
     ref,
   ) {
-    const isInVRExperiment = useInExperiment({
-      webExperimentName: 'web_gestalt_visualrefresh',
-      mwebExperimentName: 'web_gestalt_visualrefresh',
-    });
+    const theme = useExperimentalTheme();
 
     const { parentName } = useRadioGroupContext();
 
@@ -119,7 +116,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
     const [focused, setFocused] = useState(false);
     const [hovered, setHover] = useState(false);
 
-    if (isInVRExperiment) {
+    if (theme.MAIN) {
       return (
         <RadioButton
           ref={ref}
@@ -152,7 +149,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
       borderColor = styles.BorderDisabledChecked;
     } else if (!disabled && checked) {
       borderColor = styles.BorderSelected;
-    } else if (!disabled && hovered && !isInVRExperiment) {
+    } else if (!disabled && hovered && !theme.MAIN) {
       borderColor = styles.BorderHovered;
     }
 
@@ -176,7 +173,7 @@ const RadioGroupButtonWithForwardRef = forwardRef<HTMLInputElement, Props>(
       );
     }
 
-    const radioButtonStyles = isInVRExperiment
+    const radioButtonStyles = theme.MAIN
       ? classnames(
           styleSize,
           layoutStyles.relative,
