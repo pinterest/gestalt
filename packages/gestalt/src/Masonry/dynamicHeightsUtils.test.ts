@@ -59,7 +59,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: items[changedItemIndex].height + heightDelta,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     items.forEach((item, index) => {
@@ -116,7 +116,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: items[changedItemIndex].height - heightDelta,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     items.forEach((item, index) => {
@@ -171,7 +171,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: items[changedItemIndex].height - heightDelta,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     items.forEach((item, index) => {
@@ -227,7 +227,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: firstItemNewHeight,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const changedItemIndex2 = 1;
@@ -238,7 +238,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: items[changedItemIndex2].height + heightDelta,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const twoColItemIndex = 2;
@@ -331,7 +331,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: changedItemIndexNewHeight,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const expectedPos = [
@@ -408,7 +408,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: changedItemIndexNewHeight,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const expectedPos = [
@@ -478,7 +478,7 @@ describe('dynamic heights on masonry', () => {
       newHeight: changedItemIndexNewHeight,
       positionStore: positionCache,
       measurementStore,
-      gutterWidth: gutter,
+      gutter,
     });
 
     const expectedPos = [
