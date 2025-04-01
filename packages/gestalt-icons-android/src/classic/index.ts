@@ -59,6 +59,7 @@ import blur from './ic_blur_gestalt.svg';
 import board from './ic_board_gestalt.svg';
 import boardStickerLarge from './ic_board-sticker-large_gestalt.svg';
 import boardStickerSmall from './ic_board-sticker-small_gestalt.svg';
+import bold from './ic_bold_gestalt.svg';
 import border from './ic_border_gestalt.svg';
 import borderShadow from './ic_border-shadow_gestalt.svg';
 import briefcase from './ic_briefcase_gestalt.svg';
@@ -87,6 +88,7 @@ import circleEllipsis from './ic_circle-ellipsis_gestalt.svg';
 import circleInformationFill from './ic_circle-information-fill_gestalt.svg';
 import circleInitializing from './ic_circle-initializing_gestalt.svg';
 import clear from './ic_clear_gestalt.svg';
+import clipboard from './ic_clipboard_gestalt.svg';
 import clips from './ic_clips_gestalt.svg';
 import clock from './ic_clock_gestalt.svg';
 import clockChecked from './ic_clock-checked_gestalt.svg';
@@ -115,6 +117,7 @@ import crystalBall from './ic_crystal-ball_gestalt.svg';
 import cutout from './ic_cutout_gestalt.svg';
 import dash from './ic_dash_gestalt.svg';
 import dataSource from './ic_data-source_gestalt.svg';
+import deselect from './ic_deselect_gestalt.svg';
 import design from './ic_design_gestalt.svg';
 import desktop from './ic_desktop_gestalt.svg';
 import diagnostics from './ic_diagnostics_gestalt.svg';
@@ -194,6 +197,7 @@ import insightsConversion from './ic_insights-conversion_gestalt.svg';
 import instagram from './ic_instagram_gestalt.svg';
 import instagramStories from './ic_instagram-stories_gestalt.svg';
 import invoice from './ic_invoice_gestalt.svg';
+import italics from './ic_italics_gestalt.svg';
 import kakaoTalk from './ic_kakao-talk_gestalt.svg';
 import key from './ic_key_gestalt.svg';
 import knoop from './ic_knoop_gestalt.svg';
@@ -206,6 +210,7 @@ import lightningBoltCircle from './ic_lightning-bolt-circle_gestalt.svg';
 import link from './ic_link_gestalt.svg';
 import linkBroken from './ic_link-broken_gestalt.svg';
 import lips from './ic_lips_gestalt.svg';
+import listBullets from './ic_list-bullets_gestalt.svg';
 import listNumbered from './ic_list-numbered_gestalt.svg';
 import listNumberedRtl from './ic_list-numbered-rtl_gestalt.svg';
 import location from './ic_location_gestalt.svg';
@@ -260,6 +265,7 @@ import play from './ic_play_gestalt.svg';
 import protect from './ic_protect_gestalt.svg';
 import qrCode from './ic_qr-code_gestalt.svg';
 import questionMark from './ic_question-mark_gestalt.svg';
+import quote from './ic_quote_gestalt.svg';
 import recordLimit from './ic_record-limit_gestalt.svg';
 import recordLimit5 from './ic_record-limit-5_gestalt.svg';
 import recordLimit10 from './ic_record-limit-10_gestalt.svg';
@@ -359,6 +365,7 @@ import timer10 from './ic_timer-10_gestalt.svg';
 import tint from './ic_tint_gestalt.svg';
 import trashCan from './ic_trash-can_gestalt.svg';
 import trending from './ic_trending_gestalt.svg';
+import underline from './ic_underline_gestalt.svg';
 import undo from './ic_undo_gestalt.svg';
 import unlock from './ic_unlock_gestalt.svg';
 import uploadFeed from './ic_upload-feed_gestalt.svg';
@@ -452,6 +459,7 @@ const icons = Object.freeze({
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
+  'bold': bold,
   'border': border,
   'border-shadow': borderShadow,
   'briefcase': briefcase,
@@ -480,6 +488,7 @@ const icons = Object.freeze({
   'circle-information-fill': circleInformationFill,
   'circle-initializing': circleInitializing,
   'clear': clear,
+  'clipboard': clipboard,
   'clips': clips,
   'clock': clock,
   'clock-checked': clockChecked,
@@ -508,6 +517,7 @@ const icons = Object.freeze({
   'cutout': cutout,
   'dash': dash,
   'data-source': dataSource,
+  'deselect': deselect,
   'design': design,
   'desktop': desktop,
   'diagnostics': diagnostics,
@@ -587,6 +597,7 @@ const icons = Object.freeze({
   'instagram': instagram,
   'instagram-stories': instagramStories,
   'invoice': invoice,
+  'italics': italics,
   'kakao-talk': kakaoTalk,
   'key': key,
   'knoop': knoop,
@@ -599,6 +610,7 @@ const icons = Object.freeze({
   'link': link,
   'link-broken': linkBroken,
   'lips': lips,
+  'list-bullets': listBullets,
   'list-numbered': listNumbered,
   'list-numbered-rtl': listNumberedRtl,
   'location': location,
@@ -653,6 +665,7 @@ const icons = Object.freeze({
   'protect': protect,
   'qr-code': qrCode,
   'question-mark': questionMark,
+  'quote': quote,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
   'record-limit-15': recordLimit15,
@@ -752,6 +765,7 @@ const icons = Object.freeze({
   'tint': tint,
   'trash-can': trashCan,
   'trending': trending,
+  'underline': underline,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,

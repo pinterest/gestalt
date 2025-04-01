@@ -59,6 +59,7 @@ import blur from './blur.svg';
 import board from './board.svg';
 import boardStickerLarge from './board-sticker-large.svg';
 import boardStickerSmall from './board-sticker-small.svg';
+import bold from './bold.svg';
 import border from './border.svg';
 import borderShadow from './border-shadow.svg';
 import briefcase from './briefcase.svg';
@@ -87,6 +88,7 @@ import circleEllipsis from './circle-ellipsis.svg';
 import circleInformationFill from './circle-information-fill.svg';
 import circleInitializing from './circle-initializing.svg';
 import clear from './clear.svg';
+import clipboard from './clipboard.svg';
 import clips from './clips.svg';
 import clock from './clock.svg';
 import clockChecked from './clock-checked.svg';
@@ -115,6 +117,7 @@ import crystalBall from './crystal-ball.svg';
 import cutout from './cutout.svg';
 import dash from './dash.svg';
 import dataSource from './data-source.svg';
+import deselect from './deselect.svg';
 import design from './design.svg';
 import desktop from './desktop.svg';
 import diagnostics from './diagnostics.svg';
@@ -194,6 +197,7 @@ import insightsConversion from './insights-conversion.svg';
 import instagram from './instagram.svg';
 import instagramStories from './instagram-stories.svg';
 import invoice from './invoice.svg';
+import italics from './italics.svg';
 import kakaoTalk from './kakao-talk.svg';
 import key from './key.svg';
 import knoop from './knoop.svg';
@@ -206,6 +210,7 @@ import lightningBoltCircle from './lightning-bolt-circle.svg';
 import link from './link.svg';
 import linkBroken from './link-broken.svg';
 import lips from './lips.svg';
+import listBullets from './list-bullets.svg';
 import listNumbered from './list-numbered.svg';
 import listNumberedRtl from './list-numbered-rtl.svg';
 import location from './location.svg';
@@ -260,6 +265,7 @@ import play from './play.svg';
 import protect from './protect.svg';
 import qrCode from './qr-code.svg';
 import questionMark from './question-mark.svg';
+import quote from './quote.svg';
 import recordLimit from './record-limit.svg';
 import recordLimit5 from './record-limit-5.svg';
 import recordLimit10 from './record-limit-10.svg';
@@ -359,6 +365,7 @@ import timer10 from './timer-10.svg';
 import tint from './tint.svg';
 import trashCan from './trash-can.svg';
 import trending from './trending.svg';
+import underline from './underline.svg';
 import undo from './undo.svg';
 import unlock from './unlock.svg';
 import uploadFeed from './upload-feed.svg';
@@ -452,6 +459,7 @@ const icons = Object.freeze({
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
+  'bold': bold,
   'border': border,
   'border-shadow': borderShadow,
   'briefcase': briefcase,
@@ -480,6 +488,7 @@ const icons = Object.freeze({
   'circle-information-fill': circleInformationFill,
   'circle-initializing': circleInitializing,
   'clear': clear,
+  'clipboard': clipboard,
   'clips': clips,
   'clock': clock,
   'clock-checked': clockChecked,
@@ -508,6 +517,7 @@ const icons = Object.freeze({
   'cutout': cutout,
   'dash': dash,
   'data-source': dataSource,
+  'deselect': deselect,
   'design': design,
   'desktop': desktop,
   'diagnostics': diagnostics,
@@ -587,6 +597,7 @@ const icons = Object.freeze({
   'instagram': instagram,
   'instagram-stories': instagramStories,
   'invoice': invoice,
+  'italics': italics,
   'kakao-talk': kakaoTalk,
   'key': key,
   'knoop': knoop,
@@ -599,6 +610,7 @@ const icons = Object.freeze({
   'link': link,
   'link-broken': linkBroken,
   'lips': lips,
+  'list-bullets': listBullets,
   'list-numbered': listNumbered,
   'list-numbered-rtl': listNumberedRtl,
   'location': location,
@@ -653,6 +665,7 @@ const icons = Object.freeze({
   'protect': protect,
   'qr-code': qrCode,
   'question-mark': questionMark,
+  'quote': quote,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
   'record-limit-15': recordLimit15,
@@ -752,6 +765,7 @@ const icons = Object.freeze({
   'tint': tint,
   'trash-can': trashCan,
   'trending': trending,
+  'underline': underline,
   'undo': undo,
   'unlock': unlock,
   'upload-feed': uploadFeed,

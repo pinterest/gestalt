@@ -296,6 +296,12 @@
       "keywords": ["layout", "grid"]
     },
     {
+      "name": "bold",
+      "categories": ["Formatting"],
+      "description": "Indicates the ability to bold text",
+      "keywords": ["font", "markdown"]
+    },
+    {
       "name": "briefcase",
       "categories": ["Utility and tools"],
       "description": "Indicates business manager and business-related tasks",
@@ -449,6 +455,12 @@
       "keywords": ["erase", "x", "delete"]
     },
     {
+      "name": "clipboard",
+      "categories": ["Object"],
+      "description": "Indicates the ability to paste something",
+      "keywords": ["paste", "copy"]
+    },
+    {
       "name": "clock",
       "categories": ["Time"],
       "description": "Indicates time",
@@ -513,6 +525,42 @@
       "categories": ["Utility and tools"],
       "description": "Indicates color split",
       "keywords": ["dual"]
+    },
+    {
+      "name": "compact-angled-pin",
+      "categories": ["Object"],
+      "description": "Indicates the number of times a Pin was saved to a board.",
+      "keywords": ["diagonal"]
+    },
+    {
+      "name": "compact-ellipsis",
+      "categories": ["navigation"],
+      "description": "Indicates an overflow menu.",
+      "keywords": ["...", "kebab", "more", "overflow", "menu", "meatballs"]
+    },
+    {
+      "name": "compact-maximize",
+      "categories": ["Arrows"],
+      "description": "Indicates the ability to maximize the view.",
+      "keywords": ["increase", "expand"]
+    },
+    {
+      "name": "compact-mute",
+      "categories": ["Controls"],
+      "description": "Indicates the ability to mute the audio.",
+      "keywords": ["sound", "off", "audio", "volume"]
+    },
+    {
+      "name": "compact-sound",
+      "categories": ["Controls"],
+      "description": "Indicates the ability to turn the audio on.",
+      "keywords": ["audio", "volume"]
+    },
+    {
+      "name": "compact-sound-slash",
+      "categories": ["Controls"],
+      "description": "Indicates the ability to mute audio.",
+      "keywords": ["audio", "volume", "off", "media", "mute"]
     },
     {
       "name": "compact-workflow-status-canceled",
@@ -603,6 +651,12 @@
       "categories": ["Ads and measurement", "Utility and tools"],
       "description": "Indicates a data source for API conversion insights or a general database icon",
       "keywords": ["database", "conversion", "insights", "ad"]
+    },
+    {
+      "name": "deselect",
+      "categories": ["Creation"],
+      "description": "Indicates the ability to deselect something",
+      "keywords": ["remove", "selection", "minus"]
     },
     {
       "name": "desktop",
@@ -1037,6 +1091,12 @@
       "keywords": ["receipt", "billing", "payment"]
     },
     {
+      "name": "italics",
+      "categories": ["Formatting"],
+      "description": "Indicates the ability to italicize text",
+      "keywords": ["font", "markdown"]
+    },
+    {
       "name": "kakao-talk",
       "categories": ["Brand"],
       "description": "Indicates Kakao Talk service or feature.",
@@ -1101,6 +1161,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates the ability to try a lipstick color",
       "keywords": ["mouth", "lipstick"]
+    },
+    {
+      "name": "list-bullets",
+      "categories": ["Formatting"],
+      "description": "Represents a bulleted list or the ability to add a bulleted list",
+      "keywords": ["dots", "markdown"]
     },
     {
       "name": "list-numbered",
@@ -1365,6 +1431,12 @@
       "categories": ["Utility and tools"],
       "description": "Indicates help is available",
       "keywords": ["help", "support"]
+    },
+    {
+      "name": "quote",
+      "categories": ["Formatting"],
+      "description": "Indicates the ability to add a quotation style",
+      "keywords": ["quotation", "mark", "markdown"]
     },
     {
       "name": "reddit",
@@ -1835,6 +1907,12 @@
       "categories": ["Ads and measurement"],
       "description": "Indicates trends",
       "keywords": ["arrow up"]
+    },
+    {
+      "name": "underline",
+      "categories": ["Formatting"],
+      "description": "Indicates the ability to underline text",
+      "keywords": ["font", "markdown"]
     },
     {
       "name": "upload-feed",
