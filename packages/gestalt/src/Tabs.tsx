@@ -2,7 +2,7 @@ import { LegacyRef, ReactNode } from 'react';
 import Flex from './Flex';
 import icons from './icons/index';
 import Tab from './Tabs/Tab';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -63,15 +63,12 @@ export default function Tabs({
   wrap,
   dataTestId,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     <Flex
       alignItems="center"
-      gap={isInVRExperiment ? undefined : { row: 4, column: 0 }}
+      gap={theme.MAIN ? undefined : { row: 4, column: 0 }}
       justifyContent="start"
       wrap={wrap}
     >

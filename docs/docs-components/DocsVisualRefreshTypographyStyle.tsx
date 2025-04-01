@@ -1,14 +1,11 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable gestalt/only-valid-tokens */
-import { useDangerouslyInGestaltExperiment } from 'gestalt';
+import { useExperimentalTheme } from 'gestalt';
 
 export default function DocsVisualRefreshTypographyStyle() {
-  const isInExperiment = useDangerouslyInGestaltExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  return isInExperiment ? (
+  return theme.MAIN ? (
     <style
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{

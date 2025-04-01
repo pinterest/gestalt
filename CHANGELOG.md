@@ -1,3 +1,63 @@
+## 175.1.0 (Mar 31, 2025)
+
+### Minor
+
+- Toast: Compact icons ([#4060](https://github.com/pinterest/gestalt/pull/4060)) - [Preview link](https://deploy-preview-4060--gestalt.netlify.app?devexample=true)
+
+## 175.0.6 (Mar 31, 2025)
+
+### Patch
+
+- Internal: fixes dark mode adding DesignTokensProvider ([#4059](https://github.com/pinterest/gestalt/pull/4059)) - [Preview link](https://deploy-preview-4059--gestalt.netlify.app?devexample=true)
+
+## 175.0.5 (Mar 31, 2025)
+
+### Patch
+
+- Docs: cleanup of old pages ([#4057](https://github.com/pinterest/gestalt/pull/4057)) - [Preview link](https://deploy-preview-4057--gestalt.netlify.app?devexample=true)
+
+## 175.0.4 (Mar 31, 2025)
+
+### Patch
+
+- Docs: adds DesignTokensProvider to Sandpack code editor ([#4058](https://github.com/pinterest/gestalt/pull/4058)) - [Preview link](https://deploy-preview-4058--gestalt.netlify.app?devexample=true)
+
+## 175.0.3 (Mar 30, 2025)
+
+### Patch
+
+- Internal: refactor experimental theme consumption ([#4056](https://github.com/pinterest/gestalt/pull/4056)) - [Preview link](https://deploy-preview-4056--gestalt.netlify.app?devexample=true)
+
+## 175.0.2 (Mar 30, 2025)
+
+### Patch
+
+- Docs: refactor to enable CALICO theme from selector in Gestalt Docs ([#4055](https://github.com/pinterest/gestalt/pull/4055)) - [Preview link](https://deploy-preview-4055--gestalt.netlify.app?devexample=true)
+
+## 175.0.1 (Mar 30, 2025)
+
+### Patch
+
+- Internal: Bump @babel/helpers from 7.10.4 to 7.27.0 ([#4053](https://github.com/pinterest/gestalt/pull/4053)) - [Preview link](https://deploy-preview-4053--gestalt.netlify.app?devexample=true)
+
+## 175.0.0 (Mar 29, 2025)
+
+### Major
+
+- ColorSchemeProvider: Refactor ColorSchemeProvider & separated concerns into DesignTokensProvider ([#4054](https://github.com/pinterest/gestalt/pull/4054)) - [Preview link](https://deploy-preview-4054--gestalt.netlify.app?devexample=true)
+
+## 174.3.3 (Mar 27, 2025)
+
+### Patch
+
+- Masonry: Fix the props on Masonry V2 ([#4052](https://github.com/pinterest/gestalt/pull/4052)) - [Preview link](https://deploy-preview-4052--gestalt.netlify.app?devexample=true)
+
+## 174.3.2 (Mar 26, 2025)
+
+### Patch
+
+- Masonry: Multi-column position algorithm V2 ([#4016](https://github.com/pinterest/gestalt/pull/4016)) - [Preview link](https://deploy-preview-4016--gestalt.netlify.app?devexample=true)
+
 ## 174.3.1 (Mar 26, 2025)
 
 ### Patch

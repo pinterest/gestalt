@@ -10,7 +10,7 @@ import VRSearchField from './SearchField/VRSearchField';
 import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormLabel from './sharedSubcomponents/FormLabel';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type UnionRefs = HTMLDivElement | HTMLAnchorElement;
 
@@ -124,10 +124,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { accessibilityClearButtonLabel: accessibilityDefaultClearButtonLabel } =
     useDefaultLabelContext('SearchField');
@@ -187,7 +184,7 @@ const SearchFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function S
     },
     errorMessage ? formElement.errored : formElement.normal,
   );
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRSearchField
         ref={ref}

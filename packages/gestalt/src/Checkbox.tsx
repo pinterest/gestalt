@@ -1,7 +1,7 @@
 import { forwardRef, ReactElement, ReactNode } from 'react';
 import InternalCheckbox from './Checkbox/InternalCheckbox';
 import VRInternalCheckbox from './Checkbox/VRInternalCheckbox';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -88,12 +88,9 @@ const CheckboxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Chec
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRInternalCheckbox
         ref={ref}

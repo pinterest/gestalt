@@ -11,8 +11,8 @@ import touchableStyles from './TapArea.css';
 import Text from './Text';
 import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -204,10 +204,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const textSizes: {
     [key: string]: '100' | '200' | '300' | '400' | '500' | '600';
@@ -251,10 +248,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const isDarkMode = colorSchemeName === 'darkMode';
   const isDarkModeRed = isDarkMode && color === 'red';
 
-  const colorClass = color === 'transparentWhiteText' && !isInVRExperiment ? 'transparent' : color;
+  const colorClass = color === 'transparentWhiteText' && !theme.MAIN ? 'transparent' : color;
   const { isFocusVisible } = useFocusVisible();
 
-  const sharedTypeClasses = isInVRExperiment
+  const sharedTypeClasses = theme.MAIN
     ? classnames(styles.buttonVr, {
         [styles.smVr]: size === 'sm',
         [styles.mdVr]: size === 'md',
@@ -274,7 +271,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         [focusStyles.accessibilityOutline]: !disabled && isFocusVisible,
       });
 
-  const baseTypeClasses = isInVRExperiment
+  const baseTypeClasses = theme.MAIN
     ? classnames(sharedTypeClasses, touchableStyles.tapTransition, {
         [styles.selected]: !disabled && selected,
         [styles.disabled]: disabled,
@@ -295,7 +292,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
   const parentButtonClasses = classnames(
     sharedTypeClasses,
     styles.parentButton,
-    isInVRExperiment && {
+    theme.MAIN && {
       [styles[colorClass]]: !disabled && !selected,
     },
   );
@@ -306,10 +303,10 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
     (disabled && 'disabled') ||
     (selected && 'inverse') ||
     (isDarkModeRed && 'default') ||
-    (isInVRExperiment && isDarkMode && color === 'blue' && 'default') ||
+    (theme.MAIN && isDarkMode && color === 'blue' && 'default') ||
     DEFAULT_TEXT_COLORS[color];
 
-  const buttonText = isInVRExperiment ? (
+  const buttonText = theme.MAIN ? (
     <TextUI
       align="center"
       color={textColor}
@@ -351,7 +348,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
         onTouchMove={handleTouchMove}
         // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
         onTouchStart={handleTouchStart}
-        style={isInVRExperiment ? compressStyle || undefined : undefined}
+        style={theme.MAIN ? compressStyle || undefined : undefined}
         // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
         tabIndex={disabled ? null : tabIndex}
         type="submit"
@@ -394,7 +391,7 @@ const ButtonWithForwardRef = forwardRef<HTMLButtonElement, Props>(function Butto
       onTouchMove={handleTouchMove}
       // @ts-expect-error - TS2322 - Type '(arg1: TouchEvent<HTMLDivElement>) => void' is not assignable to type 'TouchEventHandler<HTMLButtonElement>'.
       onTouchStart={handleTouchStart}
-      style={isInVRExperiment ? compressStyle || undefined : undefined}
+      style={theme.MAIN ? compressStyle || undefined : undefined}
       // @ts-expect-error - TS2322 - Type '0 | -1 | null' is not assignable to type 'number | undefined'.
       tabIndex={disabled ? null : tabIndex}
       type="button"

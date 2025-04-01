@@ -23,8 +23,8 @@ import Text from './Text';
 import IconButtonEnd from './TextField/IconButtonEnd';
 import InternalTextField from './TextField/InternalTextField';
 import VRInternalTextField from './TextField/VRInternalTextField';
-import useInExperiment from './useInExperiment';
 import handleContainerScrolling, { DirectionOptionType, KEYS } from './utils/keyboardNavigation';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { Indexable } from './zIndex';
 
 type Size = 'sm' | 'md' | 'lg';
@@ -187,10 +187,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
     noResultText: noResultTextDefault,
   } = useDefaultLabelContext('ComboBox');
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   // ==== REFS ====
 
@@ -449,7 +446,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         position="relative"
         role="combobox"
       >
-        {isInVRExperiment && !tags && (
+        {theme.MAIN && !tags && (
           <VRInternalTextField
             ref={innerRef}
             accessibilityActiveDescendant={
@@ -496,7 +493,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             value={controlledInputValue ?? textfieldInput}
           />
         )}
-        {isInVRExperiment && tags && selectedTags && (
+        {theme.MAIN && tags && selectedTags && (
           <TagArea
             // @ts-expect-error - TS2322
             // add accessibilityControls once the option list element exists
@@ -547,7 +544,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             value={controlledInputValue ?? textfieldInput}
           />
         )}
-        {!isInVRExperiment && (
+        {!theme.MAIN && (
           <InternalTextField
             // add accessibilityControls once the option list element exists
             ref={innerRef}

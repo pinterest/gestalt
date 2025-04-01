@@ -811,16 +811,19 @@ describe('multi column layout test cases', () => {
 
   test.each([
     // This will be on top row so we expect 0 whitespace
-    [1, 2, [0, 0]],
+    [1, 2, false, [0, 0]],
     // This will be on second row first column
-    [5, 3, [0, 5, 5]],
+    [5, 3, false, [0, 5, 5]],
     // This will be on second row first column
-    [5, 4, [35, 40, 40, 0]],
+    [5, 4, false, [35, 40, 40, 0]],
+    // This will be on third row first column testing new position algorithm
+    [5, 4, true, [0, 5, 5, 65]],
   ])(
     'logging function returns whitespace deltas correctly',
     (
       multiColumnModuleIndex: number,
       columnSpan: number,
+      _multiColPositionAlgoV2: boolean,
       expectedWhitespace: ReadonlyArray<number>,
     ) => {
       const measurementStore = new MeasurementStore<Record<any, any>, number>();
@@ -861,7 +864,66 @@ describe('multi column layout test cases', () => {
           originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+          _multiColPositionAlgoV2,
           logWhitespace,
+        });
+
+      layout(mockItems);
+
+      expect(logWhitespace.mock.calls).toHaveLength(1);
+      expect(logWhitespace.mock.calls[0][0]).toHaveLength(columnSpan);
+      expect(logWhitespace.mock.calls[0][0]).toStrictEqual(expectedWhitespace);
+    },
+  );
+
+  test.each([
+    // This will be on second row first column with the previos algorithm
+    [4, 3, false, [0, 100, 180]],
+    // This will be on second row second column with the new algorithm
+    [4, 3, true, [20, 100, 0]],
+  ])(
+    'logging function returns whitespace deltas correctly comparing the two algorithms',
+    (
+      multiColumnModuleIndex: number,
+      columnSpan: number,
+      _multiColPositionAlgoV2: boolean,
+      expectedWhitespace: ReadonlyArray<number>,
+    ) => {
+      const measurementStore = new MeasurementStore<Record<any, any>, number>();
+      const positionCache = new MeasurementStore<Record<any, any>, Position>();
+      const items = [
+        { name: 'Pin 0', height: 250, color: '#67076F' },
+        { name: 'Pin 1', height: 150, color: '#DF21DC' },
+        { name: 'Pin 2', height: 70, color: '#FAB032' },
+        { name: 'Pin 3', height: 170, color: '#F45098' },
+        { name: 'Pin 4', height: 100, color: '#67076F' },
+      ];
+
+      const mockItems = [
+        ...items.slice(0, multiColumnModuleIndex),
+        { ...items[multiColumnModuleIndex]!, columnSpan },
+        ...items.slice(multiColumnModuleIndex + 1),
+      ];
+      mockItems.forEach((item: any) => {
+        measurementStore.set(item, item.height);
+      });
+
+      const logWhitespace = jest.fn();
+
+      const layout = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter: 0,
+          columnWidth: 240,
+          columnCount: 5,
+          centerOffset: 0,
+          logWhitespace,
+          measurementCache: measurementStore,
+          positionCache,
+          originalItems: items,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+          _multiColPositionAlgoV2,
         });
 
       layout(mockItems);

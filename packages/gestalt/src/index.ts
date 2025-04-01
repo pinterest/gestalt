@@ -21,6 +21,7 @@ import ComboBox from './ComboBox';
 import Container from './Container';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider';
 import DefaultLabelProvider, { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import DesignTokensProvider from './contexts/DesignTokensProvider';
 import DeviceTypeProvider, { useDeviceType } from './contexts/DeviceTypeProvider';
 import ExperimentProvider from './contexts/ExperimentProvider';
 import GlobalEventsHandlerProvider, {
@@ -89,6 +90,7 @@ import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useReducedMotion from './useReducedMotion';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import Video from './Video';
 import WashAnimated from './WashAnimated';
 import { CompositeZIndex, FixedZIndex } from './zIndex';
@@ -118,6 +120,7 @@ export {
   Container,
   Datapoint,
   DefaultLabelProvider,
+  DesignTokensProvider,
   DeviceTypeProvider,
   Divider,
   Dropdown,
@@ -185,6 +188,7 @@ export {
   useInExperiment as useDangerouslyInGestaltExperiment,
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
+  useExperimentalTheme,
   useFocusVisible,
   useGlobalEventsHandlerContext as useGlobalEventsHandler,
   useReducedMotion,

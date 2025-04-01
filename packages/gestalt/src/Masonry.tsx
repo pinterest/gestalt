@@ -170,6 +170,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type State<T> = {
@@ -595,6 +599,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem,
       _getModulePositioningConfig,
+      _multiColPositionAlgoV2,
     } = this.props;
     const { gutter, hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -613,6 +618,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getResponsiveModuleConfigForSecondItem,
       _logTwoColWhitespace,
       _getModulePositioningConfig,
+      _multiColPositionAlgoV2,
     });
 
     let gridBody;

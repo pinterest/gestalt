@@ -1,10 +1,12 @@
-import { ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 import ModuleVisualTest from './Accordion';
 
 export default function Screenshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <ModuleVisualTest />
+      <DesignTokensProvider>
+        <ModuleVisualTest />
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }

@@ -183,6 +183,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type MasonryRef = {
@@ -396,6 +400,7 @@ function useLayout<T>({
   _getColumnSpanConfig,
   _getResponsiveModuleConfigForSecondItem,
   _getModulePositioningConfig,
+  _multiColPositionAlgoV2,
 }: {
   align: Align;
   columnWidth: number;
@@ -419,6 +424,7 @@ function useLayout<T>({
   _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
   _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
   _earlyBailout?: (columnSpan: number) => number;
+  _multiColPositionAlgoV2?: boolean;
 }): {
   height: number;
   hasPendingMeasurements: boolean;
@@ -439,6 +445,7 @@ function useLayout<T>({
     _getResponsiveModuleConfigForSecondItem,
     _logTwoColWhitespace,
     _getModulePositioningConfig,
+    _multiColPositionAlgoV2,
   });
 
   const itemsWithoutMeasurementsBatch = items.filter((item) => !measurementStore.has(item));
@@ -710,6 +717,7 @@ function Masonry<T>(
     _dynamicHeights,
     _dynamicHeightsV2Experiment,
     _getModulePositioningConfig,
+    _multiColPositionAlgoV2,
   }: Props<T>,
   ref:
     | {
@@ -857,6 +865,7 @@ function Masonry<T>(
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
     _getModulePositioningConfig,
+    _multiColPositionAlgoV2,
   });
   useEffect(() => {
     maxHeightRef.current = height;
