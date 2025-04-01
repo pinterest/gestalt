@@ -1,4 +1,4 @@
-import { Box, ColorSchemeProvider, Masonry, Text } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Masonry, Text } from 'gestalt';
 
 const dataObject = [
   { height: 100, name: 'Pin 1' },
@@ -31,15 +31,17 @@ function GridComponent({
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="light">
-      <Box color="default" display="inlineBlock" padding={1} width={300}>
-        <Masonry
-          columnWidth={50}
-          gutterWidth={3}
-          items={dataObject}
-          minCols={1}
-          renderItem={({ data }) => <GridComponent data={data} />}
-        />
-      </Box>
+      <DesignTokensProvider>
+        <Box color="default" display="inlineBlock" padding={1} width={300}>
+          <Masonry
+            columnWidth={50}
+            gutterWidth={3}
+            items={dataObject}
+            minCols={1}
+            renderItem={({ data }) => <GridComponent data={data} />}
+          />
+        </Box>
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }

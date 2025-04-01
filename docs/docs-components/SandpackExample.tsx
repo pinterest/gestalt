@@ -250,7 +250,7 @@ export default function SandpackExample({
           code: `import React, { StrictMode } from "react";
           import { createRoot } from "react-dom/client";
           import "./styles.css";
-          import { Box, ColorSchemeProvider, ExperimentProvider } from 'gestalt';
+          import { Box, ColorSchemeProvider, ExperimentProvider, DesignTokensProvider } from 'gestalt';
           import App from "./App";
 
           const html = document.querySelector('html');
@@ -260,10 +260,12 @@ export default function SandpackExample({
           root.render(
             <StrictMode>
               <ExperimentProvider value={${JSON.stringify(experimentsObj)}}>
-                <ColorSchemeProvider colorScheme="${exampleColorScheme}" fullDimensions>
-                  <Box color="default" height="100%" width="100%">
-                    <App />
-                  </Box>
+                <ColorSchemeProvider colorScheme="${exampleColorScheme}">
+                  <DesignTokensProvider>
+                    <Box color="default" height="100%" width="100%">
+                      <App />
+                    </Box>
+                  </DesignTokensProvider>
                 </ColorSchemeProvider>
               </ExperimentProvider>
             </StrictMode>

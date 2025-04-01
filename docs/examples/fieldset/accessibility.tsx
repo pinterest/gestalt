@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Fieldset, Flex, RadioButton, TextField } from 'gestalt';
+import { Flex, RadioGroup, TextField } from 'gestalt';
 
 export default function Example() {
   const [favorite, setFavorite] = useState('');
@@ -25,9 +25,9 @@ export default function Example() {
             type="email"
             value={email}
           />
-          <Fieldset legend="Favorite pet">
+          <RadioGroup id="pet" legend="Favorite pet">
             <Flex direction="column" gap={2}>
-              <RadioButton
+              <RadioGroup.RadioButton
                 checked={favorite === 'dogs'}
                 id="favoriteDogA11y"
                 label="Dogs"
@@ -35,7 +35,7 @@ export default function Example() {
                 onChange={() => setFavorite('dogs')}
                 value="dogs"
               />
-              <RadioButton
+              <RadioGroup.RadioButton
                 checked={favorite === 'cats'}
                 id="favoriteCatA11y"
                 label="Cats"
@@ -43,7 +43,7 @@ export default function Example() {
                 onChange={() => setFavorite('cats')}
                 value="cats"
               />
-              <RadioButton
+              <RadioGroup.RadioButton
                 checked={favorite === 'plants'}
                 id="favoritePlantsA11y"
                 label="Plants"
@@ -52,7 +52,7 @@ export default function Example() {
                 value="plants"
               />
             </Flex>
-          </Fieldset>
+          </RadioGroup>
         </Flex>
       </form>
     </Flex>

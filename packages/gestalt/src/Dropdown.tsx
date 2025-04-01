@@ -11,8 +11,8 @@ import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from './keyCodes';
 import Layer from './Layer';
 import InternalPopover from './Popover/InternalPopover';
 import PartialPage from './SheetMobile/PartialPage';
-import useInExperiment from './useInExperiment';
 import { DirectionOptionType } from './utils/keyboardNavigation';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { Indexable } from './zIndex';
 
 const KEYS = {
@@ -177,10 +177,7 @@ export default function Dropdown({
   const deviceType = useDeviceType();
   const isMobile = deviceType === 'mobile';
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null | undefined>(
     isMobile ? undefined : 0,
@@ -321,7 +318,7 @@ export default function Dropdown({
         direction="column"
         display="flex"
         flex="grow"
-        margin={isInVRExperiment ? 3 : 2}
+        margin={theme.MAIN ? 3 : 2}
         maxHeight={maxHeight}
       >
         {Boolean(headerContent) && <Box padding={2}>{headerContent}</Box>}

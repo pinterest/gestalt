@@ -39,7 +39,6 @@ test.describe('Masonry: fetch more', () => {
       selectors.scrollContainer,
     );
 
-    // @ts-expect-error - TS2349 - This expression is not callable. | TS7006 - Parameter 'node' implicitly has an 'any' type.
     await scrollContainer.evaluate((node) => node.scrollBy(0, 400));
     await waitForRenderedItems(page, { targetItems: 6 });
 
@@ -48,7 +47,6 @@ test.describe('Masonry: fetch more', () => {
     expect(fetchCount).toBe(0);
 
     // Scroll a little more. This should finally trigger the fetch bounds.
-    // @ts-expect-error - TS2349 - This expression is not callable. | TS7006 - Parameter 'node' implicitly has an 'any' type.
     await scrollContainer.evaluate((node) => node.scrollBy(0, 800));
     await waitForRenderedItems(page, { targetItems: 15 });
 

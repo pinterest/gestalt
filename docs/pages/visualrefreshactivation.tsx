@@ -1,21 +1,26 @@
-import { BannerSlimExperiment } from '../docs-components/BannerSlimExperiment';
+import { SelectList } from 'gestalt';
+import { useAppContext } from '../docs-components/appContext';
 import Page from '../docs-components/Page';
-import PageHeader from '../docs-components/PageHeader';
 
 export default function DesignTokensPage() {
+  const { setExperiments, experiments } = useAppContext();
+
   return (
     <Page hideEditLink hideSideNav title="Visual refresh experimentation">
-      <PageHeader
-        bannerSlimExperiment={
-          <BannerSlimExperiment
-            componentName="Tokens"
-            description="enable a visual refresh in Gestalt. Typography and icons are also under the experiment"
-            pullRequest={3616}
-          />
-        }
-        name="Visual refresh experimentation"
-        type="guidelines"
-      />
+      <SelectList
+        id="theming"
+        label="Select experimental theming"
+        onChange={({ value }) => setExperiments(value)}
+        value={experiments}
+      >
+        {[
+          { label: 'Visual Refresh', value: 'VR01Tokens' },
+          { label: 'Calico 01', value: 'CA01Tokens' },
+          { label: 'Classic', value: 'classic' },
+        ].map(({ label, value }) => (
+          <SelectList.Option key={label} label={label} value={value} />
+        ))}
+      </SelectList>
     </Page>
   );
 }

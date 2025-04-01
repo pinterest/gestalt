@@ -7,7 +7,7 @@ import InternalIcon from './Icon/InternalIcon';
 import styles from './Spinner.css';
 import VRSpinner from './Spinner/VRSpinner';
 import TextUI from './TextUI';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const SIZE_NAME_TO_PIXEL = {
   sm: 32,
@@ -59,12 +59,9 @@ export default function Spinner({
   const { accessibilityLabel: accessibilityLabelDefault } = useDefaultLabelContext('Spinner');
   const id = useId();
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRSpinner
         accessibilityLabel={accessibilityLabel}

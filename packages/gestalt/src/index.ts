@@ -3,6 +3,7 @@ import Accordion from './Accordion';
 import ActivationCard from './ActivationCard';
 import Avatar from './Avatar';
 import AvatarGroup from './AvatarGroup';
+import AvatarGroupCluster from './AvatarGroupCluster';
 import Badge from './Badge';
 import BannerCallout from './BannerCallout';
 import BannerOverlay from './BannerOverlay';
@@ -20,6 +21,7 @@ import ComboBox from './ComboBox';
 import Container from './Container';
 import ColorSchemeProvider, { useColorScheme } from './contexts/ColorSchemeProvider';
 import DefaultLabelProvider, { useDefaultLabelContext } from './contexts/DefaultLabelProvider';
+import DesignTokensProvider from './contexts/DesignTokensProvider';
 import DeviceTypeProvider, { useDeviceType } from './contexts/DeviceTypeProvider';
 import ExperimentProvider from './contexts/ExperimentProvider';
 import GlobalEventsHandlerProvider, {
@@ -56,7 +58,6 @@ import Pog from './Pog';
 import Popover from './Popover';
 import PopoverMessage from './PopoverMessage';
 import Pulsar from './Pulsar';
-import RadioButton from './RadioButton';
 import RadioGroup from './RadioGroup';
 import ScrollBoundaryContainer from './ScrollBoundaryContainer';
 import ScrollFetch from './ScrollFetch';
@@ -89,6 +90,7 @@ import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
 import useInExperiment from './useInExperiment';
 import useReducedMotion from './useReducedMotion';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import Video from './Video';
 import WashAnimated from './WashAnimated';
 import { CompositeZIndex, FixedZIndex } from './zIndex';
@@ -98,6 +100,7 @@ export {
   ActivationCard,
   Avatar,
   AvatarGroup,
+  AvatarGroupCluster,
   Badge,
   BannerCallout,
   BannerOverlay,
@@ -117,6 +120,7 @@ export {
   Container,
   Datapoint,
   DefaultLabelProvider,
+  DesignTokensProvider,
   DeviceTypeProvider,
   Divider,
   Dropdown,
@@ -151,7 +155,6 @@ export {
   Popover,
   PopoverMessage,
   Pulsar,
-  RadioButton,
   RadioGroup,
   ScrollBoundaryContainer,
   ScrollFetch,
@@ -185,6 +188,7 @@ export {
   useInExperiment as useDangerouslyInGestaltExperiment,
   useDefaultLabelContext as useDefaultLabel,
   useDeviceType,
+  useExperimentalTheme,
   useFocusVisible,
   useGlobalEventsHandlerContext as useGlobalEventsHandler,
   useReducedMotion,

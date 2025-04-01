@@ -12,7 +12,7 @@ import formElement from './sharedSubcomponents/FormElement.css';
 import FormErrorMessage from './sharedSubcomponents/FormErrorMessage';
 import FormHelperText from './sharedSubcomponents/FormHelperText';
 import FormLabel from './sharedSubcomponents/FormLabel';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -104,10 +104,7 @@ function SelectList({
 }: Props) {
   const [focused, setFocused] = useState(false);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const handleOnChange: (event: React.ChangeEvent<HTMLSelectElement>) => void = (event) => {
     if (value !== event.target.value) {
@@ -156,7 +153,7 @@ function SelectList({
     ariaDescribedby = `${id}-helperText`;
   }
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRSelectList
         dataTestId={dataTestId}

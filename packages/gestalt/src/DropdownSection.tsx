@@ -3,7 +3,7 @@ import Box from './Box';
 import styles from './Dropdown.css';
 import Text from './Text';
 import TextUI from './TextUI';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -20,22 +20,19 @@ type Props = {
  * Use [Dropdown.Section](https://gestalt.pinterest.systems/web/dropdown#Dropdown.Section) to create hierarchy within a single Dropdown.
  */
 export default function DropdownSection({ label, children }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   return (
     <div
       aria-label={label}
-      className={isInVRExperiment ? styles.VRDropdownSection : styles.DropdownSection}
+      className={theme.MAIN ? styles.VRDropdownSection : styles.DropdownSection}
     >
       <Box
         display="flex"
-        paddingX={isInVRExperiment ? 3 : 2}
-        paddingY={isInVRExperiment ? 2 : 2}
+        paddingX={theme.MAIN ? 3 : 2}
+        paddingY={theme.MAIN ? 2 : 2}
         role="presentation"
       >
-        {isInVRExperiment ? (
+        {theme.MAIN ? (
           <TextUI color="subtle" size="xs">
             {label}
           </TextUI>

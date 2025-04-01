@@ -5,7 +5,7 @@ import Flex from './Flex';
 import InternalLink from './Link/InternalLink';
 import styles from './SearchGuide.css';
 import TextUI from './TextUI';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -99,10 +99,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
@@ -135,17 +132,17 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     <Box marginEnd={3}>
       <Flex alignItems="center" gap={{ row: 2, column: 0 }} justifyContent="center">
         {'avatar' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
+          <Box aria-hidden marginStart={theme.MAIN ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatar, { size: 'fit', outline: true })}
           </Box>
         )}
         {'avatarGroup' in thumbnail && (
-          <Box aria-hidden marginStart={isInVRExperiment ? 2 : 1} minWidth={32}>
+          <Box aria-hidden marginStart={theme.MAIN ? 2 : 1} minWidth={32}>
             {cloneElement(thumbnail.avatarGroup, { size: 'sm' })}
           </Box>
         )}
         {'image' in thumbnail && (
-          <div className={isInVRExperiment ? styles.imageDivVr : styles.imageDiv}>
+          <div className={theme.MAIN ? styles.imageDivVr : styles.imageDiv}>
             {cloneElement(thumbnail.image, { fit: 'cover' })}
           </div>
         )}
@@ -189,7 +186,7 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
     <InternalLink
       ref={innerRef}
       aria-label={accessibilityLabel}
-      colorClass={isInVRExperiment ? undefined : colorClassname}
+      colorClass={theme.MAIN ? undefined : colorClassname}
       dataTestId={dataTestId}
       href={href}
       onClick={handleClick}
@@ -201,10 +198,10 @@ const SearchGuideLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(funct
       <div
         className={classnames(
           styles.childrenDiv,
-          isInVRExperiment && typeof color === 'string' && styles[colorClass[color]!],
+          theme.MAIN && typeof color === 'string' && styles[colorClass[color]!],
         )}
         style={
-          isInVRExperiment && typeof color !== 'string' && Array.isArray(color)
+          theme.MAIN && typeof color !== 'string' && Array.isArray(color)
             ? {
                 backgroundImage: `linear-gradient(0.25turn, ${color.join(', ')})`,
               }

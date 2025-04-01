@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Box, ColorSchemeProvider, Flex, Image, Masonry } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Image, Masonry } from 'gestalt';
 import { TOKEN_COLOR_GRAY_ROBOFLOW_300 } from 'gestalt-design-tokens';
 
 const styles = {
@@ -219,22 +219,24 @@ export default function Snapshot() {
 
   return (
     <ColorSchemeProvider colorScheme="light">
-      <div
-        ref={scrollContainerRef}
-        style={{
-          overflowY: 'scroll',
-          minHeight: '150vh', // Force content to be taller than viewport
-          width: '100vw',
-        }}
-      >
-        <Masonry
-          columnWidth={170}
-          gutterWidth={20}
-          items={_items}
-          layout="uniformRow"
-          renderItem={_renderItem}
-        />
-      </div>
+      <DesignTokensProvider>
+        <div
+          ref={scrollContainerRef}
+          style={{
+            overflowY: 'scroll',
+            minHeight: '150vh', // Force content to be taller than viewport
+            width: '100vw',
+          }}
+        >
+          <Masonry
+            columnWidth={170}
+            gutterWidth={20}
+            items={_items}
+            layout="uniformRow"
+            renderItem={_renderItem}
+          />
+        </div>
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }

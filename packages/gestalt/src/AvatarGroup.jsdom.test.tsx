@@ -58,7 +58,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       size: 'xs',
@@ -71,7 +71,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       size: 'sm',
@@ -84,7 +84,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
     });
@@ -96,7 +96,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       size: 'fit',
@@ -121,7 +121,7 @@ describe('AvatarGroup', () => {
     const { baseElement } = renderCmp({
       collaborators: Array(5).fill({
         name: 'Keerthi',
-        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+        src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
       }),
     });
     expect(screen.getByText('3')).toBeVisible();
@@ -132,7 +132,7 @@ describe('AvatarGroup', () => {
     renderCmp({
       collaborators: Array(102).fill({
         name: 'Keerthi',
-        src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+        src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
       }),
     });
     expect(screen.queryAllByAltText('Keerthi')).toHaveLength(2);
@@ -144,7 +144,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       addCollaborators: true,
@@ -158,7 +158,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       addCollaborators: true,
@@ -188,7 +188,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       onClick: onClickMock,
@@ -220,7 +220,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       onClick: onClickMock,
@@ -252,7 +252,7 @@ describe('AvatarGroup', () => {
       collaborators: [
         {
           name: 'Keerthi',
-          src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+          src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
         },
       ],
       onClick: onClickMock,

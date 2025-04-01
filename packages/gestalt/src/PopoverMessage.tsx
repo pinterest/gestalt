@@ -6,7 +6,7 @@ import Flex from './Flex';
 import InternalPopover from './Popover/InternalPopover';
 import styles from './PopoverMessage.css';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { Indexable } from './zIndex';
 
 type Size = 'sm' | 'flexible';
@@ -145,10 +145,7 @@ export default function PopoverMessage({
   size = 'sm',
   zIndex,
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   if (!anchor) {
     return null;
@@ -191,7 +188,7 @@ export default function PopoverMessage({
         {children ??
           (message ? (
             <Box padding={4} tabIndex={0}>
-              <Flex direction="column" gap={isInVRExperiment ? 4 : 3}>
+              <Flex direction="column" gap={theme.MAIN ? 4 : 3}>
                 {textElement}
                 {primaryAction && type === 'education' ? (
                   <Flex.Item alignSelf="end" flex="grow">

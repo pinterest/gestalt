@@ -11,8 +11,8 @@ import searchGuideStyles from '../SearchGuide.css';
 import touchableStyles from '../TapArea.css';
 import styles from '../Text.css';
 import useFocusVisible from '../useFocusVisible';
-import useInExperiment from '../useInExperiment';
 import useTapFeedback, { keyPressShouldTriggerTap } from '../useTapFeedback';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Props = {
   accessibilityCurrent?: AriaCurrent;
@@ -115,10 +115,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     width: innerRef?.current?.clientWidth,
   });
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { isFocusVisible } = useFocusVisible();
 
@@ -133,13 +130,13 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
     styles.noUnderline,
     touchableStyles.tapTransition,
     isTapArea ? getRoundingClassName(rounding || 0) : undefined,
-    !isTapArea && !isInVRExperiment ? getRoundingClassName('pill') : undefined,
+    !isTapArea && !theme.MAIN ? getRoundingClassName('pill') : undefined,
     {
       [touchableStyles.tapCompress]: !disabled && tapStyle === 'compress' && isTapping,
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !theme.MAIN,
     },
-    isButton && !isInVRExperiment
+    isButton && !theme.MAIN
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
@@ -153,7 +150,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [buttonStyles.lg]: size === 'lg',
         }
       : {},
-    isButton && isInVRExperiment
+    isButton && theme.MAIN
       ? {
           [layoutStyles.inlineFlex]: !fullWidth,
           [layoutStyles.flex]: fullWidth,
@@ -183,15 +180,15 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
           [touchableStyles.fullHeight]: fullHeight,
           [touchableStyles.fullWidth]: fullWidth,
           [focusStyles.accessibilityOutlineLightBackground]:
-            isInVRExperiment && focusColor === 'lightBackground' && !disabled && isFocusVisible,
+            theme.MAIN && focusColor === 'lightBackground' && !disabled && isFocusVisible,
           [focusStyles.accessibilityOutlineDarkBackground]:
-            isInVRExperiment && focusColor === 'darkBackground' && !disabled && isFocusVisible,
+            theme.MAIN && focusColor === 'darkBackground' && !disabled && isFocusVisible,
           [focusStyles.accessibilityOutlineBorder]:
-            isInVRExperiment && innerFocusColor === 'default' && !disabled && !isFocusVisible,
+            theme.MAIN && innerFocusColor === 'default' && !disabled && !isFocusVisible,
           [focusStyles.accessibilityOutlineBorderDefault]:
-            isInVRExperiment && innerFocusColor === 'default' && !disabled && isFocusVisible,
+            theme.MAIN && innerFocusColor === 'default' && !disabled && isFocusVisible,
           [focusStyles.accessibilityOutlineBorderInverse]:
-            isInVRExperiment && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
+            theme.MAIN && innerFocusColor === 'inverse' && !disabled && isFocusVisible,
         }
       : {},
     isTapArea && mouseCursor
@@ -211,14 +208,14 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   const searchGuideClassNames = classnames(
     styles.noUnderline,
     touchableStyles.tapTransition,
-    isSearchGuide && isInVRExperiment
+    isSearchGuide && theme.MAIN
       ? {
           [searchGuideStyles.searchguideVr]: true,
           [focusStyles.hideOutline]: !isFocusVisible,
           [searchGuideStyles.vrFocused]: isFocusVisible,
         }
       : {},
-    isSearchGuide && !isInVRExperiment
+    isSearchGuide && !theme.MAIN
       ? {
           [searchGuideStyles[colorClass as keyof typeof searchGuideStyles]]:
             typeof colorClass === 'string',
@@ -248,7 +245,7 @@ const InternalLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(function
   };
 
   const inBackgroundGradient =
-    !isInVRExperiment && typeof colorClass !== 'string' && Array.isArray(colorClass);
+    !theme.MAIN && typeof colorClass !== 'string' && Array.isArray(colorClass);
   const isCompressed = tapStyle === 'compress' && compressStyle && !disabled;
   return (
     <a

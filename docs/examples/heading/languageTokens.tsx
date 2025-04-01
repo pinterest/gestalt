@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, ColorSchemeProvider, Flex, Heading, SelectList } from 'gestalt';
+import { Box, ColorSchemeProvider, DesignTokensProvider, Flex, Heading, SelectList } from 'gestalt';
 
 export default function Example() {
   const [language, setLanguage] = useState<'default' | 'tall' | 'ck' | 'ja' | 'th' | 'vi'>(
@@ -46,19 +46,16 @@ export default function Example() {
             <SelectList.Option key={label} label={label} value={value} />
           ))}
         </SelectList>
-        <ColorSchemeProvider
-          colorScheme="light"
-          fullDimensions
-          id="localizationLanaguage"
-          language={language}
-        >
-          <Flex direction="column" gap={1}>
-            <Heading size="200">{content[language]}</Heading>
-            <Heading size="300">{content[language]}</Heading>
-            <Heading size="400">{content[language]}</Heading>
-            <Heading size="500">{content[language]}</Heading>
-            <Heading size="600">{content[language]}</Heading>
-          </Flex>
+        <ColorSchemeProvider colorScheme="light">
+          <DesignTokensProvider id="localizationLanaguage" languageMode={language}>
+            <Flex direction="column" gap={1}>
+              <Heading size="200">{content[language]}</Heading>
+              <Heading size="300">{content[language]}</Heading>
+              <Heading size="400">{content[language]}</Heading>
+              <Heading size="500">{content[language]}</Heading>
+              <Heading size="600">{content[language]}</Heading>
+            </Flex>
+          </DesignTokensProvider>
         </ColorSchemeProvider>
       </Flex>
     </Box>
