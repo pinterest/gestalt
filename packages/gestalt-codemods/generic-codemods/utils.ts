@@ -118,6 +118,16 @@ const checkComponentName = ({
       nodepath.parentPath.parentPath.value.name?.property?.name === subcomponentName
     : nodepath.parentPath.parentPath.value.name?.name === componentName;
 
+const getNumericString = (value: string) => {
+  let newValue = value;
+
+  if (value.startsWith('_')) {
+    newValue = value.replace('_', '');
+  }
+
+  return newValue;
+};
+
 /**
  * filterJSXByAttribute: Returns a collection containing the Gestalt JSX components with matching prop/value attributes
  */
@@ -137,8 +147,10 @@ const filterJSXByAttribute = ({
   value?: string | number | boolean;
 }): Collection => {
   if (typeof value === 'string') {
+    const newValue = getNumericString(value);
+
     return jSXCollection
-      .find(j.JSXAttribute, { name: { name: prop }, value: { value } })
+      .find(j.JSXAttribute, { name: { name: prop }, value: { value: newValue } })
       .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
   }
 
@@ -199,7 +211,7 @@ const buildAttributeFromValue = ({
 }) => {
   switch (typeof value) {
     case 'string':
-      return j.jsxAttribute(j.jsxIdentifier(prop), j.stringLiteral(value));
+      return j.jsxAttribute(j.jsxIdentifier(prop), j.stringLiteral(getNumericString(value)));
     case 'number':
       return j.jsxAttribute(
         j.jsxIdentifier(prop),
