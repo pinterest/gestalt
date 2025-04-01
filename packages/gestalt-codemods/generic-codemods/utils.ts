@@ -1,6 +1,5 @@
 import { NodePath } from 'ast-types/lib/node-path';
 import { API, ASTPath, Collection, FileInfo, JSCodeshift } from 'jscodeshift/src/core';
-import { describe } from 'jscodeshift-helper';
 
 /**
  *
