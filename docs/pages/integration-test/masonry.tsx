@@ -3,6 +3,7 @@ import LazyHydrate from 'react-lazy-hydration';
 import { useRouter } from 'next/router';
 import { ColorSchemeProvider, DesignTokensProvider, Masonry, MasonryV2 } from 'gestalt';
 import generateExampleItems from '../../integration-test-helpers/masonry/items-utils/generateExampleItems';
+import generateFixedTreeColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateFixedTreeColumnExampleItems';
 import generateMultiColumnExampleItems from '../../integration-test-helpers/masonry/items-utils/generateMultiColumnExampleItems';
 import generateRealisticExampleItems from '../../integration-test-helpers/masonry/items-utils/generateRealisticExampleItems';
 import getRandomNumberGenerator from '../../integration-test-helpers/masonry/items-utils/getRandomNumberGenerator';
@@ -78,6 +79,7 @@ export default function TestPage({
     experimental,
     finiteLength,
     flexible,
+    fixedThreeColItems,
     logWhitespace,
     manualFetch,
     multiColPositionAlgoV2,
@@ -101,6 +103,7 @@ export default function TestPage({
   const experimentalValue = booleanize(experimental ?? '');
   const finiteLengthValue = booleanize(finiteLength ?? '');
   const flexibleValue = booleanize(flexible ?? '');
+  const fixedThreeColItemsValue = booleanize(fixedThreeColItems ?? '');
   const logWhitespaceValue = booleanize(logWhitespace ?? '');
   const manualFetchValue = booleanize(manualFetch ?? '');
   const multiColPositionAlgoV2Value = booleanize(multiColPositionAlgoV2 ?? '');
@@ -134,6 +137,9 @@ export default function TestPage({
   const getInitialItems = () => {
     if (multiColTestValue) {
       return generateMultiColumnExampleItems({ name: 'MultiColTest' });
+    }
+    if (fixedThreeColItemsValue) {
+      return generateFixedTreeColumnExampleItems({ name: 'FixedThreeColItems' });
     }
     if (realisticPinHeightsValue) {
       return generateRealisticExampleItems({
