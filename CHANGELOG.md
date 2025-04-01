@@ -1,3 +1,9 @@
+## 176.0.1 (Apr 1, 2025)
+
+### Patch
+
+- Masonry: Add integration test for dynamic heights v2 and masonry testing page ([#4021](https://github.com/pinterest/gestalt/pull/4021)) - [Preview link](https://deploy-preview-4021--gestalt.netlify.app?devexample=true)
+
 ## 176.0.0 (Apr 1, 2025)
 
 ### Major
