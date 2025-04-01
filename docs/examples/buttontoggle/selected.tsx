@@ -4,8 +4,9 @@ export default function Example() {
   return (
     <Flex alignItems="center" height="100%" justifyContent="center" width="100%">
       <ButtonGroup>
-        <ButtonToggle selected size="lg" text="Following" />
-        <ButtonToggle color="secondaryStrong" selected size="lg" text="Saved" />
+        <ButtonToggle selected size="lg" text="primary" />
+        <ButtonToggle color="secondaryStrong" selected size="lg" text="secondaryStrong" />
+        <ButtonToggle color="secondarySubtle" selected size="lg" text="secondarySubtle" />
         <ButtonToggle
           graphicSrc="https://s.pinimg.com/webapp/protective-8fad3fab.svg"
           selected

@@ -22,9 +22,9 @@ import useInteractiveStates from './utils/useInteractiveStates';
 import useTapScaleAnimation from './utils/useTapScaleAnimation';
 
 const DEFAULT_TEXT_COLORS = {
-  secondaryStrong: 'inverse',
-  secondarySubtle: 'inverse',
-  primary: 'default',
+  secondaryStrong: 'default',
+  secondarySubtle: 'default',
+  primary: 'inverse',
 } as const;
 
 const SIZE_NAME_TO_PIXEL = {
@@ -320,8 +320,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.disabledprimary]: disabled && color === 'primary' && !selected,
     [styles.enabled]: !disabled,
     [borderStyles.noBorder]: color === 'secondaryStrong' && !selected,
-    [styles.selected]: !disabled &&  color !== 'secondarySubtle' && selected,
     [styles.selectedsecondarySubtle]: !disabled &&  color === 'secondarySubtle' && selected,
+    [styles.selected]: !disabled &&  color !== 'secondarySubtle' && selected,
     [styles.selected]: !disabled && selected,
     [styles.selectedDisabled]: disabled && selected,
     [styles.thumbnailDark]: graphicSrc && isDarkMode !== selected,

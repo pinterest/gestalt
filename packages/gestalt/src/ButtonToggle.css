@@ -151,7 +151,7 @@
 
 .selectedsecondarySubtle{
   composes: borderColorSelected from "./Borders.css";
-  background-color: var(--color-background-button-tertiary-default);
+  background-color: var(--color-background-default);
 }
 
 .selectedDisabled {
@@ -177,37 +177,39 @@
 /* COLORS */
 
 .secondaryStrong {
-  background-color: var(--color-background-button-primary-default);
+  background-color: var(--color-background-button-secondary-default);
+  border: none;
 }
 
 .secondaryStrong:hover {
-  background-color: var(--color-background-button-primary-hover);
+  background-color: var(--color-background-button-secondary-hover);
 }
 
 .secondaryStrong:active {
-  background-color: var(--color-background-button-primary-active);
+  background-color: var(--color-background-button-secondary-active);
 }
 
 .secondarySubtle {
-  background-color: var(--color-background-button-primary-default);
+  background-color: var(--color-background-button-secondary-default);
+  border: none;
 }
 
 .secondarySubtle:hover {
-  background-color: var(--color-background-button-primary-hover);
+  background-color: var(--color-background-button-secondary-hover);
 }
 
 .secondarySubtle:active {
-  background-color: var(--color-background-button-primary-active);
+  background-color: var(--color-background-button-secondary-active);
 }
 
 .primary {
-  background-color: var(--color-background-button-tertiary-default);
+  background-color: var(--color-background-button-primary-default);
 }
 
 .primary:hover {
-  background-color: var(--color-background-button-tertiary-default);
+  background-color: var(--color-background-button-primary-hover);
 }
 
 .primary:active {
-  background-color: var(--color-background-button-tertiary-default);
+  background-color: var(--color-background-button-primary-active);
 }
