@@ -1,5 +1,6 @@
 import { NodePath } from 'ast-types/lib/node-path';
 import { API, ASTPath, Collection, FileInfo, JSCodeshift } from 'jscodeshift/src/core';
+import { describe } from 'jscodeshift-helper';
 
 /**
  *
@@ -143,7 +144,7 @@ const filterJSXByAttribute = ({
   }
 
   if (typeof value === 'number') {
-    return jSXCollection
+    const a = jSXCollection
       .find(j.JSXAttribute, {
         value: {
           type: 'JSXExpressionContainer',
@@ -154,6 +155,8 @@ const filterJSXByAttribute = ({
         },
       })
       .filter((nodepath) => checkComponentName({ nodepath, componentName, subcomponentName }));
+    describe(a);
+    return a;
   }
 
   if (typeof value === 'boolean') {

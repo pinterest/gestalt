@@ -42,6 +42,7 @@
  */
 
 import { API, FileInfo } from 'jscodeshift/src/core';
+import { describe } from 'jscodeshift-helper';
 import {
   buildAttributeFromValue,
   buildReplaceWithModifiedAttributes,

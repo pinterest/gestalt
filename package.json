@@ -75,6 +75,7 @@
     "jest-environment-jsdom": "^28.0.2",
     "jest-fail-on-console": "^2.4.2",
     "jscodeshift": "^17.3.0",
+    "jscodeshift-helper": "^1.0.0",
     "lint-staged": "^10.4.0",
     "lottie-react": "^2.3.1",
     "netlify-cli": "^7.1.0",
