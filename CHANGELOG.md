@@ -1,3 +1,9 @@
+## 176.0.3 (Apr 1, 2025)
+
+### Patch
+
+- Masonry: Flexible modules unit tests and integration tests ([#4037](https://github.com/pinterest/gestalt/pull/4037)) - [Preview link](https://deploy-preview-4037--gestalt.netlify.app?devexample=true)
+
 ## 176.0.2 (Apr 1, 2025)
 
 ### Patch
