@@ -1,3 +1,9 @@
+## 176.0.2 (Apr 1, 2025)
+
+### Patch
+
+- Masonry: Add unit test to verify the overlap bug on dynamic heights v2 is fixed ([#4017](https://github.com/pinterest/gestalt/pull/4017)) - [Preview link](https://deploy-preview-4017--gestalt.netlify.app?devexample=true)
+
 ## 176.0.1 (Apr 1, 2025)
 
 ### Patch
