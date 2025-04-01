@@ -1,3 +1,9 @@
+## 175.1.1 (Apr 1, 2025)
+
+### Patch
+
+- Internal: fixing codemods ([#4061](https://github.com/pinterest/gestalt/pull/4061)) - [Preview link](https://deploy-preview-4061--gestalt.netlify.app?devexample=true)
+
 ## 175.1.0 (Mar 31, 2025)
 
 ### Minor
