@@ -350,11 +350,13 @@ describe('multi column layout test cases', () => {
 
     const gutter = 5;
 
-    const earlyBailout = (columnSpan: number) => {
-      if (columnSpan <= 3) {
-        return 2 * gutter;
+    const getModulePositioningConfig = (_: number, moduleSize: number) => {
+      let whitespaceThreshold = 3 * gutter;
+      if (moduleSize <= 3) {
+        whitespaceThreshold = 2 * gutter;
       }
-      return 3 * gutter;
+
+      return { itemsBatchSize: 5, whitespaceThreshold };
     };
 
     const layout = (itemsToLayout: readonly Item[]) =>
@@ -366,7 +368,7 @@ describe('multi column layout test cases', () => {
         centerOffset: 20,
         measurementCache: measurementStore,
         positionCache,
-        earlyBailout,
+        _getModulePositioningConfig: getModulePositioningConfig,
         originalItems: items,
         _getColumnSpanConfig: getColumnSpanConfig,
         _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
@@ -1787,4 +1789,136 @@ describe('initializeHeightsArray', () => {
     const newTops = newPositionsByColumns.map((column: any) => column[0].top);
     expect(newTops).toEqual(heights);
   });
+});
+
+describe('dynamic batch sizing', () => {
+  test.each([
+    {
+      columnCount: 4,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 0,
+      iterationsLimit: 10000,
+    },
+    {
+      columnCount: 5,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 0,
+      iterationsLimit: 10000,
+    },
+    {
+      columnCount: 7,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 0,
+      iterationsLimit: 10000,
+    },
+    {
+      columnCount: 9,
+      columnSpan: 3,
+      itemsBatchSize: 7,
+      whitespaceThreshold: 0,
+      iterationsLimit: 10000,
+    },
+  ])(
+    'the batch sizing is changed dinamically',
+    ({
+      columnCount,
+      columnSpan,
+      itemsBatchSize,
+      whitespaceThreshold,
+      iterationsLimit,
+    }: {
+      columnCount: number;
+      columnSpan: number;
+      itemsBatchSize: number;
+      whitespaceThreshold: number;
+      iterationsLimit: number;
+    }) => {
+      const measurementStore = new MeasurementStore<Record<any, any>, number>();
+      const positionCache = new MeasurementStore<Record<any, any>, Position>();
+      const items = [
+        { name: 'Pin 0', height: 450, color: '#E230BA' },
+        { name: 'Pin 1', height: 500, color: '#FAB032' },
+        { name: 'Pin 2', height: 700, color: '#EDF21D' },
+        { name: 'Pin 3', height: 440, color: '#CF4509' },
+        { name: 'Pin 4', height: 580, color: '#230BAF' },
+        { name: 'Pin 5', height: 700, color: '#67076F' },
+        { name: 'Pin 6', height: 615, color: '#AB032E' },
+        { name: 'Pin 7', height: 500, color: '#DF21DC' },
+        { name: 'Pin 8', height: 430, color: '#F45098' },
+        { name: 'Pin 9', height: 630, color: '#A67406' },
+        { name: 'Pin 10', height: 350, color: '#F67076' },
+        { name: 'Pin 11', height: 640, color: '#7D8471' },
+        { name: 'Pin 12', height: 500, color: '#3B3C36' },
+        { name: 'Pin 13', height: 660, color: '#015D52' },
+        { name: 'Pin 14', height: 660, color: '#922B3E' },
+        { name: 'Pin 15', height: 660, color: '#B32821' },
+        { name: 'Pin 16', height: 660, color: '#25221B' },
+        { name: 'Pin 17', height: 660, color: '#FF7514' },
+        { name: 'Pin 18', height: 450, color: '#4A192C', columnSpan },
+      ];
+
+      items.forEach((item: any) => {
+        measurementStore.set(item, item.height);
+      });
+
+      const gutter = 15;
+
+      const getModulePositioningConfig = (_gridSize: number, _moduleSize: number) => ({
+        itemsBatchSize,
+        whitespaceThreshold,
+        iterationsLimit,
+      });
+      const logWhitespace = jest.fn();
+
+      const layoutWithoutDinamicBatchSize = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter,
+          columnWidth: 240,
+          columnCount,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+          logWhitespace,
+          originalItems: items,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+        });
+      const layoutWithDinamicBatchSize = (itemsToLayout: Item[]) =>
+        multiColumnLayout({
+          items: itemsToLayout,
+          gutter,
+          columnWidth: 240,
+          columnCount,
+          centerOffset: 0,
+          measurementCache: measurementStore,
+          positionCache,
+          logWhitespace,
+          originalItems: items,
+          _getColumnSpanConfig: getColumnSpanConfig,
+          _getModulePositioningConfig: getModulePositioningConfig,
+          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+        });
+
+      layoutWithoutDinamicBatchSize(items);
+      positionCache.reset();
+      layoutWithDinamicBatchSize(items);
+
+      const totalWhitespaceStatic = logWhitespace.mock.calls[0][0].reduce(
+        (acc: number, whitespace: number) => acc + whitespace,
+        0,
+      );
+      const totalWhitespaceDynamic = logWhitespace.mock.calls[1][0].reduce(
+        (acc: number, whitespace: number) => acc + whitespace,
+        0,
+      );
+
+      expect(logWhitespace.mock.calls).toHaveLength(2);
+      expect(logWhitespace.mock.calls[0][0]).toHaveLength(columnSpan);
+      expect(totalWhitespaceStatic).toBeGreaterThanOrEqual(totalWhitespaceDynamic);
+    },
+  );
 });

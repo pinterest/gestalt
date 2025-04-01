@@ -48,11 +48,11 @@ function getDelta(
 function getNewDelta<T>({
   multicolumCurrentPosition,
   allPreviousItems,
-  gutterWidth,
+  gutter,
 }: {
   multicolumCurrentPosition: Position;
   allPreviousItems: ReadonlyArray<{ item: T; position: Position }>;
-  gutterWidth: number;
+  gutter: number;
 }): number {
   let closestItem: { item: T; position: Position };
   allPreviousItems.forEach(({ item, position }) => {
@@ -83,7 +83,7 @@ function getNewDelta<T>({
     closestItem!.position.top +
     closestItem!.position.height -
     multicolumCurrentPosition.top +
-    gutterWidth;
+    gutter;
   return actualDelta;
 }
 
@@ -93,14 +93,14 @@ function recalcHeights<T>({
   newHeight,
   positionStore,
   measurementStore,
-  gutterWidth,
+  gutter,
 }: {
   items: ReadonlyArray<T>;
   changedItem: T;
   newHeight: number;
   positionStore: Cache<T, Position>;
   measurementStore: Cache<T, number>;
-  gutterWidth: number;
+  gutter: number;
 }): boolean {
   const changedItemPosition = positionStore.get(changedItem);
   const positionStoreOriginal: Cache<T, Position> = Masonry.createMeasurementStore();
@@ -168,7 +168,7 @@ function recalcHeights<T>({
           const newDelta = getNewDelta({
             multicolumCurrentPosition,
             allPreviousItems,
-            gutterWidth,
+            gutter,
           });
           deltasStack.push({
             left: position.left,
