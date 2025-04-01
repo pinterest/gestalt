@@ -33,7 +33,7 @@ exports[`Modal Desktop Modal renders 1`] = `
                 class="box justifyCenter paddingX600 paddingY600"
               >
                 <h1
-                  class="Heading fontSize500 default alignCenter breakWord"
+                  class="Heading fontSize600 default alignCenter breakWord"
                 >
                   Heading
                 </h1>
