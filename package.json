@@ -74,7 +74,7 @@
     "jest": "28.0.3",
     "jest-environment-jsdom": "^28.0.2",
     "jest-fail-on-console": "^2.4.2",
-    "jscodeshift": "^0.11.0",
+    "jscodeshift": "^17.3.0",
     "lint-staged": "^10.4.0",
     "lottie-react": "^2.3.1",
     "netlify-cli": "^7.1.0",
@@ -103,7 +103,7 @@
   "resolutions": {
     "ansi-regex": "5.0.1",
     "bl": "4.0.3",
-    "browserslist": "4.16.5",
+    "browserslist": "4.24.4",
     "cssnano": "6.0.3",
     "css-select": "4.1.3",
     "glob-parent": "5.1.2",
