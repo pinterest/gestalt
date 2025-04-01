@@ -11,7 +11,6 @@ export default function DocsPage() {
   return (
     <Page hideSideNav title="About us">
       <PageHeader name="About us" type="guidelines" />
-
       <MainSection
         description={`
         Pinterest’s design system includes foundational standards, component documentation and guidelines to enable high-quality experiences for millions of people.
@@ -102,7 +101,7 @@ export default function DocsPage() {
       </MainSection>
       <MainSection name="Gestalt is for everyone making Pinterest’s product" showHeading={false}>
         <Flex direction="column" gap={2}>
-          <Heading accessibilityLevel={2} size="500">
+          <Heading accessibilityLevel={2} size="600">
             Gestalt is for everyone making Pinterest’s product
           </Heading>
           <Box maxWidth={816}>
@@ -114,7 +113,7 @@ export default function DocsPage() {
       </MainSection>
       <MainSection name="We’re available in Slack, office hours and events" showHeading={false}>
         <Flex direction="column" gap={2}>
-          <Heading accessibilityLevel={2} size="500">
+          <Heading accessibilityLevel={2} size="600">
             We’re ready to help in Slack, office hours and events
           </Heading>
           <Box maxWidth={816}>

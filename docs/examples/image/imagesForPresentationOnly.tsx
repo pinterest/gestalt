@@ -23,7 +23,7 @@ export default function Example() {
             src="https://i.ibb.co/FY2MKr5/stock6.jpg"
           />
         </Box>
-        <Heading align="center" size="600">
+        <Heading align="center" size="700">
           Article Title
         </Heading>
       </Box>

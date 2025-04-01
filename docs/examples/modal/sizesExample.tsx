@@ -46,7 +46,7 @@ export default function SizesExample() {
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
-              footer={<Heading size="500">Footer</Heading>}
+              footer={<Heading size="600">Footer</Heading>}
               heading="Small modal"
               onDismiss={() => {
                 // @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
@@ -54,7 +54,7 @@ export default function SizesExample() {
               }}
               size="sm"
             >
-              <Heading size="500">Children</Heading>
+              <Heading size="600">Children</Heading>
             </Modal>
           </Layer>
         )}
@@ -71,7 +71,7 @@ export default function SizesExample() {
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
-              footer={<Heading size="500">Footer</Heading>}
+              footer={<Heading size="600">Footer</Heading>}
               heading="Medium modal"
               onDismiss={() => {
                 // @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
@@ -80,7 +80,7 @@ export default function SizesExample() {
               size="md"
             >
               <Box padding={6}>
-                <Heading size="500">Children</Heading>
+                <Heading size="600">Children</Heading>
               </Box>
             </Modal>
           </Layer>
@@ -98,7 +98,7 @@ export default function SizesExample() {
           <Layer zIndex={zIndex}>
             <Modal
               accessibilityModalLabel="View default padding and styling"
-              footer={<Heading size="500">Footer</Heading>}
+              footer={<Heading size="600">Footer</Heading>}
               heading="Large modal"
               onDismiss={() => {
                 // @ts-expect-error - TS2554 - Expected 0 arguments, but got 1.
@@ -107,7 +107,7 @@ export default function SizesExample() {
               size="lg"
             >
               <Box padding={6}>
-                <Heading size="500">Children</Heading>
+                <Heading size="600">Children</Heading>
               </Box>
             </Modal>
           </Layer>

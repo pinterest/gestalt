@@ -122,9 +122,8 @@ export default function Example() {
           </SideNavigation.Section>
         </SideNavigation>
       </div>
-
       <Box height={800} padding={4}>
-        <Heading size="500">Page main content</Heading>
+        <Heading size="600">Page main content</Heading>
       </Box>
     </Box>
   );

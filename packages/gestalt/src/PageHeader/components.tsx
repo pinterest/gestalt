@@ -39,7 +39,7 @@ export function PageHeaderTitle({
         display="none"
         smDisplay="block"
       >
-        <Heading accessibilityLevel={1} lineClamp={1} overflow="breakAll" size="500">
+        <Heading accessibilityLevel={1} lineClamp={1} overflow="breakAll" size="600">
           {title}
         </Heading>
       </Box>

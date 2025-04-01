@@ -4,7 +4,7 @@ export default function Example() {
   return (
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={4}>
-        <Heading accessibilityLevel="none" size="500">
+        <Heading accessibilityLevel="none" size="600">
           Asynchronous Analytics Endpoints
         </Heading>
         <List

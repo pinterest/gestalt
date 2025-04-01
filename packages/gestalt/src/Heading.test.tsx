@@ -2,7 +2,7 @@ import { create } from 'react-test-renderer';
 import Heading from './Heading';
 
 test('Heading large', () => {
-  const tree = create(<Heading size="600" />).toJSON();
+  const tree = create(<Heading size="700" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

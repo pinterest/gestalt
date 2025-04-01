@@ -27,10 +27,9 @@ export default function Example() {
           </Box>
         </Box>
       </Flex>
-
       <Flex height="100%" width="100%">
         <Box as="article" borderStyle="sm" color="successBase" column={6} padding={2} width="100%">
-          <Heading color="light" size="500">
+          <Heading color="light" size="600">
             Article 1
           </Heading>
           <Text color="light" weight="bold">

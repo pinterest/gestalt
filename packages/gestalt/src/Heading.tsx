@@ -3,7 +3,6 @@ import cx from 'classnames';
 import styles from './Heading.css';
 import colors from './Text.css';
 import { semanticColors } from './textTypes';
-import typographyStyle from './Typography.css';
 import useExperimentalTheme from './utils/useExperimentalTheme';
 
 function isNotNullish(val?: number | null): boolean {
@@ -15,8 +14,8 @@ const defaultHeadingLevels = {
   '200': 5,
   '300': 4,
   '400': 3,
-  '500': 2,
-  '600': 1,
+  '600': 2,
+  '700': 1,
 } as const;
 
 const defaultHeadingLevelsVR = {
@@ -24,13 +23,13 @@ const defaultHeadingLevelsVR = {
   '200': 5,
   '300': 4,
   '400': 3,
-  '500': 2,
-  '600': 1,
+  '600': 2,
+  '700': 1,
 } as const;
 
 type AccessibilityLevel = 1 | 2 | 3 | 4 | 5 | 6 | 'none';
 type Overflow = 'normal' | 'breakWord' | 'breakAll';
-type Size = '100' | '200' | '300' | '400' | '500' | '600';
+type Size = '100' | '200' | '300' | '400' | '600' | '700';
 
 type Props = {
   /**
@@ -93,18 +92,18 @@ export default function Heading({
   lineClamp,
   id,
   overflow = 'breakWord',
-  size = '600',
+  size = '700',
 }: Props) {
   const theme = useExperimentalTheme();
 
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
-      return typographyStyle.breakAll;
+      return styles.breakAll;
     }
 
     // default to breakWord if lineClamp is set
     if (overflow === 'breakWord' || isNotNullish(lineClamp)) {
-      return typographyStyle.breakWord;
+      return styles.breakWord;
     }
 
     return undefined;
@@ -114,23 +113,23 @@ export default function Heading({
     {
       [styles.Heading]: !theme.MAIN,
       [styles.HeadingVR]: theme.MAIN,
-      [typographyStyle[`fontSize${size}`]]: !theme.MAIN,
-      [styles.lg]: theme.MAIN && size === '600',
-      [styles.md]: theme.MAIN && size === '500',
+      [styles[`fontSize${size}`]]: !theme.MAIN,
+      [styles.lg]: theme.MAIN && size === '700',
+      [styles.md]: theme.MAIN && size === '600',
       [styles.sm]: theme.MAIN && size === '400',
       [styles.xs]: theme.MAIN && size === '300',
       [styles.xxs]: theme.MAIN && (size === '200' || size === '100'),
     },
     color && semanticColors.includes(color) && colors[color],
-    align === 'center' && typographyStyle.alignCenter,
+    align === 'center' && styles.alignCenter,
     // @ts-expect-error - TS2367 - This condition will always return 'false' since the types '"center" | "start" | "end" | "forceLeft" | "forceRight"' and '"justify"' have no overlap.
-    align === 'justify' && typographyStyle.alignJustify,
-    align === 'start' && typographyStyle.alignStart,
-    align === 'end' && typographyStyle.alignEnd,
-    align === 'forceLeft' && typographyStyle.alignForceLeft,
-    align === 'forceRight' && typographyStyle.alignForceRight,
+    align === 'justify' && styles.alignJustify,
+    align === 'start' && styles.alignStart,
+    align === 'end' && styles.alignEnd,
+    align === 'forceLeft' && styles.alignForceLeft,
+    align === 'forceRight' && styles.alignForceRight,
     getWordBreakStyle(),
-    isNotNullish(lineClamp) && typographyStyle.lineClamp,
+    isNotNullish(lineClamp) && styles.lineClamp,
   );
 
   const headingLevel =
