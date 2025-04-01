@@ -925,7 +925,7 @@ describe('multi column layout test cases', () => {
           positionCache,
           originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
-          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+          _getResponsiveModuleConfigForSecondItem: getResponsiveModuleConfig,
           _multiColPositionAlgoV2,
         });
 
@@ -2174,7 +2174,7 @@ describe('dynamic batch sizing', () => {
           logWhitespace,
           originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
-          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+          _getResponsiveModuleConfigForSecondItem: getResponsiveModuleConfig,
         });
       const layoutWithDinamicBatchSize = (itemsToLayout: Item[]) =>
         multiColumnLayout({
@@ -2189,7 +2189,7 @@ describe('dynamic batch sizing', () => {
           originalItems: items,
           _getColumnSpanConfig: getColumnSpanConfig,
           _getModulePositioningConfig: getModulePositioningConfig,
-          _getResponsiveModuleConfigForSecondItem: defaultGetResponsiveModuleConfig,
+          _getResponsiveModuleConfigForSecondItem: getResponsiveModuleConfig,
         });
 
       layoutWithoutDinamicBatchSize(items);
