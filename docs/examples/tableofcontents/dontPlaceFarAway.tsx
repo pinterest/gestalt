@@ -26,7 +26,7 @@ export default function Example() {
         <Flex direction="column" flex="grow" gap={2} width="360px">
           <Heading>Your dashboard</Heading>
 
-          <Heading id="section-1" size="500">
+          <Heading id="section-1" size="600">
             Section 1
           </Heading>
           <Text>
@@ -35,7 +35,7 @@ export default function Example() {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </Text>
 
-          <Heading id="section-2" size="500">
+          <Heading id="section-2" size="600">
             Section 2
           </Heading>
           <Text>
@@ -44,7 +44,7 @@ export default function Example() {
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </Text>
 
-          <Heading id="section-3" size="500">
+          <Heading id="section-3" size="600">
             Section 3
           </Heading>
           <Text>

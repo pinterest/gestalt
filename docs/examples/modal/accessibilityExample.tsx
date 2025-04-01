@@ -43,7 +43,7 @@ export default function AccessibilityExample() {
             }
             heading={
               <Flex justifyContent="between">
-                <Heading accessibilityLevel={1} size="500">
+                <Heading accessibilityLevel={1} size="600">
                   Pick claim option
                 </Heading>
                 <IconButton

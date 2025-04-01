@@ -130,7 +130,7 @@ export default function ResourcesFooter() {
             column: 4,
           }}
         >
-          <Heading size="500">Resources</Heading>
+          <Heading size="600">Resources</Heading>
           <Flex
             gap={{
               row: 4,

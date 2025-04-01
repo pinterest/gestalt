@@ -6,7 +6,7 @@ export default function Example() {
       <Box color="secondary" height="90%" padding={5} rounding={4} width="90%">
         <Flex alignItems="start" direction="column" height="100%" justifyContent="start">
           <Flex direction="column" gap={1}>
-            <Heading size="500">Performance</Heading>
+            <Heading size="600">Performance</Heading>
             <Text size="300">Showing data from the last 30 days</Text>
           </Flex>
 

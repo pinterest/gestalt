@@ -136,7 +136,7 @@ export default function PropTable({
 
   return (
     <Card
-      headingSize={proptableName ? '400' : '500'}
+      headingSize={proptableName ? '400' : '600'}
       id={propsId}
       name={proptableName ? `${proptableName} Props` : 'Props'}
       toggle={

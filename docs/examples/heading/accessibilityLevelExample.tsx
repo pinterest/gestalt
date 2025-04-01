@@ -4,7 +4,7 @@ export default function Example() {
   return (
     <Box alignItems="center" display="flex" height="100%" justifyContent="center" padding={8}>
       <Flex direction="column" gap={{ column: 4, row: 0 }}>
-        <Heading accessibilityLevel={2} size="500">
+        <Heading accessibilityLevel={2} size="600">
           Medium heading level 2
         </Heading>
         <Heading accessibilityLevel={3} size="400">

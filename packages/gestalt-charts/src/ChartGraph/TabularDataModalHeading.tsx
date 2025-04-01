@@ -13,7 +13,7 @@ export default function TabularDataModalHeading({ title, toggleTabularDataModal 
   return (
     <Flex direction="column">
       <Flex justifyContent="between">
-        <Heading accessibilityLevel={1} size="500">
+        <Heading accessibilityLevel={1} size="600">
           {title}
         </Heading>
         {deviceType !== 'mobile' ? (

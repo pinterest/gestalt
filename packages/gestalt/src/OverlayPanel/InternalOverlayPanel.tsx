@@ -217,7 +217,7 @@ export default function InternalOverlayPanel({
                         justifyContent="start"
                         padding={PADDING_BOINTS}
                       >
-                        <Heading accessibilityLevel={1} size="500">
+                        <Heading accessibilityLevel={1} size="600">
                           {heading}
                         </Heading>
                       </Box>
