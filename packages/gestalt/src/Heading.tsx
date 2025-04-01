@@ -4,7 +4,7 @@ import styles from './Heading.css';
 import colors from './Text.css';
 import { semanticColors } from './textTypes';
 import typographyStyle from './Typography.css';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -95,10 +95,7 @@ export default function Heading({
   overflow = 'breakWord',
   size = '600',
 }: Props) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const getWordBreakStyle = (): string | undefined => {
     if (overflow === 'breakAll') {
@@ -115,14 +112,14 @@ export default function Heading({
 
   const cs = cx(
     {
-      [styles.Heading]: !isInVRExperiment,
-      [styles.HeadingVR]: isInVRExperiment,
-      [typographyStyle[`fontSize${size}`]]: !isInVRExperiment,
-      [styles.lg]: isInVRExperiment && size === '600',
-      [styles.md]: isInVRExperiment && size === '500',
-      [styles.sm]: isInVRExperiment && size === '400',
-      [styles.xs]: isInVRExperiment && size === '300',
-      [styles.xxs]: isInVRExperiment && (size === '200' || size === '100'),
+      [styles.Heading]: !theme.MAIN,
+      [styles.HeadingVR]: theme.MAIN,
+      [typographyStyle[`fontSize${size}`]]: !theme.MAIN,
+      [styles.lg]: theme.MAIN && size === '600',
+      [styles.md]: theme.MAIN && size === '500',
+      [styles.sm]: theme.MAIN && size === '400',
+      [styles.xs]: theme.MAIN && size === '300',
+      [styles.xxs]: theme.MAIN && (size === '200' || size === '100'),
     },
     color && semanticColors.includes(color) && colors[color],
     align === 'center' && typographyStyle.alignCenter,
@@ -137,8 +134,7 @@ export default function Heading({
   );
 
   const headingLevel =
-    accessibilityLevel ||
-    (!isInVRExperiment ? defaultHeadingLevels[size] : defaultHeadingLevelsVR[size]);
+    accessibilityLevel || (!theme.MAIN ? defaultHeadingLevels[size] : defaultHeadingLevelsVR[size]);
 
   let newProps = { className: cs };
   if (id) {

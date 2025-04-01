@@ -77,7 +77,12 @@ export default function Example() {
           selected={showAvatar}
           text="Avatar"
           thumbnail={{
-            avatar: <Avatar name="Keerthi" src="https://i.ibb.co/ZfCZrY8/keerthi.jpg" />,
+            avatar: (
+              <Avatar
+                name="Keerthi"
+                src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
+              />
+            ),
           }}
         />
         <SearchGuide
@@ -98,11 +103,11 @@ export default function Example() {
                 collaborators={[
                   {
                     name: 'Keerthi',
-                    src: 'https://i.ibb.co/ZfCZrY8/keerthi.jpg',
+                    src: 'https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg',
                   },
                   {
                     name: 'Alberto',
-                    src: 'https://i.ibb.co/NsK2w5y/Alberto.jpg',
+                    src: 'https://i.pinimg.com/originals/c5/5c/ac/c55caca43a7c16766215ec165b649c1c.jpg',
                   },
                   {
                     name: 'Enio',

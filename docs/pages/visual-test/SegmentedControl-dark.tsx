@@ -1,10 +1,12 @@
-import { ColorSchemeProvider } from 'gestalt';
+import { ColorSchemeProvider, DesignTokensProvider } from 'gestalt';
 import SegmentedControlSnapshot from './SegmentedControl';
 
 export default function Snapshot() {
   return (
     <ColorSchemeProvider colorScheme="dark">
-      <SegmentedControlSnapshot />
+      <DesignTokensProvider>
+        <SegmentedControlSnapshot />
+      </DesignTokensProvider>
     </ColorSchemeProvider>
   );
 }

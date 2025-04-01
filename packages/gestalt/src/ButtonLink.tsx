@@ -10,7 +10,7 @@ import icons from './icons/index';
 import InternalLink from './Link/InternalLink';
 import Text from './Text';
 import TextUI from './TextUI';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 const DEFAULT_TEXT_COLORS = {
   blue: 'inverse',
@@ -163,10 +163,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
   // @ts-expect-error - TS2322 - Type 'HTMLAnchorElement | null' is not assignable to type 'HTMLAnchorElement'.
   useImperativeHandle(ref, () => innerRef.current);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { accessibilityNewTabLabel } = useDefaultLabelContext('Link');
 
@@ -237,7 +234,7 @@ const ButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, ButtonProps>(func
           />
         </Box>
       ) : null}
-      {isInVRExperiment ? (
+      {theme.MAIN ? (
         <TextUI
           align="center"
           color={textColor}

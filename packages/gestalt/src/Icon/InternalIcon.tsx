@@ -5,7 +5,7 @@ import compactIconsClassic from '../icons/compact/index';
 import icons from '../icons/index';
 import compactIconsVR from '../icons-vr-theme/compact/index';
 import vrIcons from '../icons-vr-theme/index';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 export type IconColor =
   | 'default'
@@ -55,17 +55,14 @@ function InternalIcon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const getIconPath = (iconToUse?: IconName) => {
     const iconName = iconToUse;
 
     if (!iconName) return undefined;
 
-    if (isInExperiment) {
+    if (theme.MAIN) {
       if (iconName in vrIcons) {
         return vrIcons[iconName as keyof typeof vrIcons];
       }

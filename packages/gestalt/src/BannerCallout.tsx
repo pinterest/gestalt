@@ -10,8 +10,8 @@ import Icon from './Icon';
 import IconButton from './IconButton';
 import MESSAGING_TYPE_ATTRIBUTES from './MESSAGING_TYPE_ATTRIBUTES';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 export type ActionDataType =
   | {
@@ -196,10 +196,7 @@ export default function BannerCallout({
     iconAccessibilityLabelWarning,
   } = useDefaultLabelContext('BannerCallout');
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const getDefaultIconAccessibilityLabel = () => {
     switch (type) {
@@ -218,7 +215,7 @@ export default function BannerCallout({
     }
   };
 
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRBannerCallout
         dismissButton={dismissButton}

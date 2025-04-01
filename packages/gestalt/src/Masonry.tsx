@@ -164,6 +164,10 @@ type Props<T> = {
    * This is an experimental prop and may be removed or changed in the future
    */
   _earlyBailout?: (columnSpan: number) => number;
+  /**
+   * Experimental flag to enable new multi column position layout algorithm
+   */
+  _multiColPositionAlgoV2?: boolean;
 };
 
 type State<T> = {
@@ -295,6 +299,8 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
   insertAnimationFrame: number | null = null;
 
   scrollContainer: ScrollContainer | null | undefined;
+
+  maxHeight: number = 0;
 
   /**
    * Delays resize handling in case the scroll container is still being resized.
@@ -586,6 +592,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem,
       _earlyBailout,
+      _multiColPositionAlgoV2,
     } = this.props;
     const { hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
@@ -604,6 +611,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getResponsiveModuleConfigForSecondItem,
       _logTwoColWhitespace,
       _earlyBailout,
+      _multiColPositionAlgoV2,
     });
 
     let gridBody;
@@ -691,8 +699,9 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       const measuringPositions = getPositions(itemsToMeasure);
       // Math.max() === -Infinity when there are no positions
       const height = positions.length
-        ? Math.max(...positions.map((pos) => pos.top + pos.height))
+        ? Math.max(...positions.map((pos) => pos.top + pos.height), this.maxHeight)
         : 0;
+      if (height > this.maxHeight || !positions.length) this.maxHeight = height;
 
       gridBody = (
         <div ref={this.setGridWrapperRef} style={{ width: '100%' }}>

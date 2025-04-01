@@ -30,7 +30,7 @@ export default function IncludeProfilePictureExample() {
           fit="cover"
           naturalHeight={1}
           naturalWidth={1}
-          src="https://i.ibb.co/ZfCZrY8/keerthi.jpg"
+          src="https://i.pinimg.com/originals/bf/bc/27/bfbc27685d81eb9a8f65c201ea661f0e.jpg"
         />
       }
       title="My apps"

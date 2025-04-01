@@ -22,6 +22,7 @@ import alignTopCenter from './ic_align-top-center_gestalt.svg';
 import alignTopLeft from './ic_align-top-left_gestalt.svg';
 import alignTopRight from './ic_align-top-right_gestalt.svg';
 import alphabetical from './ic_alphabetical_gestalt.svg';
+import amazon from './ic_amazon_gestalt.svg';
 import androidShare from './ic_android-share_gestalt.svg';
 import angledPin from './ic_angled-pin_gestalt.svg';
 import animate from './ic_animate_gestalt.svg';
@@ -54,6 +55,7 @@ import audioPlaying from './ic_audio-playing_gestalt.svg';
 import bell from './ic_bell_gestalt.svg';
 import bellFill from './ic_bell-fill_gestalt.svg';
 import birthdayCake from './ic_birthday-cake_gestalt.svg';
+import blur from './ic_blur_gestalt.svg';
 import board from './ic_board_gestalt.svg';
 import boardStickerLarge from './ic_board-sticker-large_gestalt.svg';
 import boardStickerSmall from './ic_board-sticker-small_gestalt.svg';
@@ -72,6 +74,7 @@ import canonicalPin from './ic_canonical-pin_gestalt.svg';
 import captions from './ic_captions_gestalt.svg';
 import captionsOutline from './ic_captions-outline_gestalt.svg';
 import cardStack from './ic_card-stack_gestalt.svg';
+import cardStackRefresh from './ic_card-stack-refresh_gestalt.svg';
 import check from './ic_check_gestalt.svg';
 import checkCircle from './ic_check-circle_gestalt.svg';
 import checkCircleFill from './ic_check-circle-fill_gestalt.svg';
@@ -106,6 +109,7 @@ import contrast from './ic_contrast_gestalt.svg';
 import conversionTag from './ic_conversion-tag_gestalt.svg';
 import copyToClipboard from './ic_copy-to-clipboard_gestalt.svg';
 import creditCard from './ic_credit-card_gestalt.svg';
+import creditCardPlus from './ic_credit-card-plus_gestalt.svg';
 import crop from './ic_crop_gestalt.svg';
 import crystalBall from './ic_crystal-ball_gestalt.svg';
 import cutout from './ic_cutout_gestalt.svg';
@@ -180,6 +184,7 @@ import home from './ic_home_gestalt.svg';
 import homeFill from './ic_home-fill_gestalt.svg';
 import ideaPin from './ic_idea-pin_gestalt.svg';
 import imagePortrait from './ic_image-portrait_gestalt.svg';
+import imessage from './ic_imessage_gestalt.svg';
 import impressum from './ic_impressum_gestalt.svg';
 import indent from './ic_indent_gestalt.svg';
 import infoCircle from './ic_info-circle_gestalt.svg';
@@ -187,6 +192,7 @@ import information from './ic_information_gestalt.svg';
 import insightsAudience from './ic_insights-audience_gestalt.svg';
 import insightsConversion from './ic_insights-conversion_gestalt.svg';
 import instagram from './ic_instagram_gestalt.svg';
+import instagramStories from './ic_instagram-stories_gestalt.svg';
 import invoice from './ic_invoice_gestalt.svg';
 import kakaoTalk from './ic_kakao-talk_gestalt.svg';
 import key from './ic_key_gestalt.svg';
@@ -252,6 +258,7 @@ import pincode from './ic_pincode_gestalt.svg';
 import pinterest from './ic_pinterest_gestalt.svg';
 import play from './ic_play_gestalt.svg';
 import protect from './ic_protect_gestalt.svg';
+import qrCode from './ic_qr-code_gestalt.svg';
 import questionMark from './ic_question-mark_gestalt.svg';
 import recordLimit from './ic_record-limit_gestalt.svg';
 import recordLimit5 from './ic_record-limit-5_gestalt.svg';
@@ -343,6 +350,7 @@ import textSize from './ic_text-size_gestalt.svg';
 import textSmall from './ic_text-small_gestalt.svg';
 import textSpacing from './ic_text-spacing_gestalt.svg';
 import textSticker from './ic_text-sticker_gestalt.svg';
+import threads from './ic_threads_gestalt.svg';
 import thumbsDown from './ic_thumbs-down_gestalt.svg';
 import thumbsUp from './ic_thumbs-up_gestalt.svg';
 import timer from './ic_timer_gestalt.svg';
@@ -407,6 +415,7 @@ const icons = Object.freeze({
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
   'alphabetical': alphabetical,
+  'amazon': amazon,
   'android-share': androidShare,
   'angled-pin': angledPin,
   'animate': animate,
@@ -439,6 +448,7 @@ const icons = Object.freeze({
   'bell': bell,
   'bell-fill': bellFill,
   'birthday-cake': birthdayCake,
+  'blur': blur,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
@@ -457,6 +467,7 @@ const icons = Object.freeze({
   'captions': captions,
   'captions-outline': captionsOutline,
   'card-stack': cardStack,
+  'card-stack-refresh': cardStackRefresh,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
@@ -491,6 +502,7 @@ const icons = Object.freeze({
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
+  'credit-card-plus': creditCardPlus,
   'crop': crop,
   'crystal-ball': crystalBall,
   'cutout': cutout,
@@ -565,6 +577,7 @@ const icons = Object.freeze({
   'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
+  'imessage': imessage,
   'impressum': impressum,
   'indent': indent,
   'info-circle': infoCircle,
@@ -572,6 +585,7 @@ const icons = Object.freeze({
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
+  'instagram-stories': instagramStories,
   'invoice': invoice,
   'kakao-talk': kakaoTalk,
   'key': key,
@@ -637,6 +651,7 @@ const icons = Object.freeze({
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
+  'qr-code': qrCode,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
@@ -728,6 +743,7 @@ const icons = Object.freeze({
   'text-small': textSmall,
   'text-spacing': textSpacing,
   'text-sticker': textSticker,
+  'threads': threads,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,

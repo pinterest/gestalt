@@ -17,7 +17,7 @@ import Text from '../Text';
 import { FontWeight } from '../textTypes';
 import TextUI from '../TextUI';
 import useFocusVisible from '../useFocusVisible';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 export type OptionItemType = {
   label: string;
@@ -105,18 +105,15 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
 
     const { isFocusVisible } = useFocusVisible();
 
-    const isInVRExperiment = useInExperiment({
-      webExperimentName: 'web_gestalt_visualrefresh',
-      mwebExperimentName: 'web_gestalt_visualrefresh',
-    });
+    const theme = useExperimentalTheme();
 
     const className = classnames(getRoundingClassName(2), focusStyles.hideOutlineWithin, {
-      [styles.hovered]: isInVRExperiment && index === hoveredItemIndex,
+      [styles.hovered]: theme.MAIN && index === hoveredItemIndex,
       [focusStyles.hideOutline]: index !== focusedItemIndex || index === hoveredItemIndex,
       [focusStyles.accessibilityOutlineFocus]:
-        !isInVRExperiment && index === focusedItemIndex && isFocusVisible,
+        !theme.MAIN && index === focusedItemIndex && isFocusVisible,
       [focusStyles.accessibilityVROutlineFocus]:
-        isInVRExperiment && index === focusedItemIndex && isFocusVisible,
+        theme.MAIN && index === focusedItemIndex && isFocusVisible,
       [tapAreaStyles.fullWidth]: true,
       [tapAreaStyles.pointer]: !disabled,
       [tapAreaStyles.noDrop]: disabled,
@@ -143,7 +140,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             ) : null}
             {children || (
               <Fragment>
-                {isInVRExperiment ? (
+                {theme.MAIN ? (
                   <TextUI
                     color={textColor}
                     inline
@@ -165,7 +162,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
                   </Text>
                 )}
                 {badge && !disabled && (
-                  <Box marginStart={2} marginTop={isInVRExperiment ? undefined : 1}>
+                  <Box marginStart={2} marginTop={theme.MAIN ? undefined : 1}>
                     {/* Adds a pause for screen reader users between the text content */}
                     <Box display="visuallyHidden">{`, `}</Box>
                     <Badge text={badge.text} type={badge.type || 'info'} />
@@ -174,12 +171,12 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
               </Fragment>
             )}
           </Flex>
-          {option.subtext && isInVRExperiment ? (
+          {option.subtext && theme.MAIN ? (
             <TextUI color={disabled ? 'disabled' : 'subtle'} size="xs">
               {option.subtext}
             </TextUI>
           ) : null}
-          {option.subtext && !isInVRExperiment ? (
+          {option.subtext && !theme.MAIN ? (
             <Text color={disabled ? 'disabled' : 'subtle'} size="200">
               {option.subtext}
             </Text>
@@ -198,10 +195,10 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
               accessibilityLabel="Selected item"
               color="default"
               icon="check"
-              size={isInVRExperiment ? 16 : 12}
+              size={theme.MAIN ? 16 : 12}
             />
           ) : (
-            <Box minWidth={isInVRExperiment ? 16 : 12} />
+            <Box minWidth={theme.MAIN ? 16 : 12} />
           )}
         </Box>
         {iconEnd && (
@@ -216,7 +213,7 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
             <AccessibilityLinkActionIcon
               color={textColor}
               icon={iconEnd}
-              size={isInVRExperiment ? 16 : 12}
+              size={theme.MAIN ? 16 : 12}
             />
           </Box>
         )}
@@ -260,14 +257,12 @@ const OptionItemWithForwardRef = forwardRef<HTMLElement | null | undefined, Prop
       >
         <Box
           color={
-            index === hoveredItemIndex && !disabled && !isInVRExperiment
-              ? 'secondary'
-              : 'transparent'
+            index === hoveredItemIndex && !disabled && !theme.MAIN ? 'secondary' : 'transparent'
           }
           direction="column"
           display="flex"
-          paddingX={isInVRExperiment ? 3 : 2}
-          paddingY={isInVRExperiment ? 2 : 2}
+          paddingX={theme.MAIN ? 3 : 2}
+          paddingY={theme.MAIN ? 2 : 2}
           rounding={2}
         >
           {href && !disabled ? (

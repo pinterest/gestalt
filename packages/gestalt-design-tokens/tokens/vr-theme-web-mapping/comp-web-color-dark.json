@@ -398,7 +398,7 @@
             "value": "{base.color.purple.500.value}"
           },
           "11": {
-            "value": "{base.color.grayscale.500.value}"
+            "value": "{base.color.grayscale.250.value}"
           }
         },
         "hover": {

@@ -4,7 +4,7 @@ import stylesText from './Text.css';
 import styles from './TextCompact.css';
 import { semanticColors } from './textTypes';
 import typographyStyle from './Typography.css';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 function isNotNullish(val?: number | null): boolean {
   return val !== null && val !== undefined;
@@ -94,10 +94,7 @@ const TextCompactWithForwardRef = forwardRef<HTMLDivElement, Props>(function Tex
   }: Props,
   ref,
 ): ReactElement {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const colorClass = semanticColors.includes(color) && stylesText[color];
 
@@ -128,13 +125,13 @@ const TextCompactWithForwardRef = forwardRef<HTMLDivElement, Props>(function Tex
     italic && typographyStyle.fontStyleItalic,
     isNotNullish(lineClamp) && typographyStyle.lineClamp,
     {
-      [stylesText.Text]: !isInVRExperiment,
-      [typographyStyle.fontSize100]: !isInVRExperiment,
-      [typographyStyle.fontWeightSemiBold]: !isInVRExperiment && weight === 'emphasis',
-      [typographyStyle.fontWeightNormal]: !isInVRExperiment && weight === 'default',
-      [styles.textCompact]: isInVRExperiment,
-      [styles.default]: isInVRExperiment && weight === 'default',
-      [styles.emphasis]: isInVRExperiment && weight === 'emphasis',
+      [stylesText.Text]: !theme.MAIN,
+      [typographyStyle.fontSize100]: !theme.MAIN,
+      [typographyStyle.fontWeightSemiBold]: !theme.MAIN && weight === 'emphasis',
+      [typographyStyle.fontWeightNormal]: !theme.MAIN && weight === 'default',
+      [styles.textCompact]: theme.MAIN,
+      [styles.default]: theme.MAIN && weight === 'default',
+      [styles.emphasis]: theme.MAIN && weight === 'emphasis',
     },
   );
 

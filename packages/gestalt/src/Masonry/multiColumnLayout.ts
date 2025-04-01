@@ -123,7 +123,20 @@ function getAdjacentWhitespaceOnIndex(
 function getAdjacentColumnHeightDeltas(
   heights: ReadonlyArray<number>,
   columnSpan: number,
+  _multiColPositionAlgoV2?: boolean,
 ): ReadonlyArray<number> {
+  if (_multiColPositionAlgoV2) {
+    const adjacentDeltaTotal = [];
+    for (let i = 0; i < heights.length - (columnSpan - 1); i += 1) {
+      const heightSegment = heights.slice(i, i + columnSpan);
+      const maxHeight = Math.max(...heightSegment);
+      const totalWhitespace = heightSegment.reduce((acc, height) => acc + maxHeight - height, 0);
+      adjacentDeltaTotal.push(totalWhitespace);
+    }
+
+    return adjacentDeltaTotal;
+  }
+
   const adjacentHeightDeltas = [];
   for (let i = 0; i < heights.length - 1; i += 1) {
     adjacentHeightDeltas.push(Math.abs(heights[i]! - heights[i + 1]!));
@@ -327,6 +340,7 @@ function getMultiColItemPosition<T>({
   columnSpan,
   measurementCache,
   fitsFirstRow,
+  _multiColPositionAlgoV2,
 }: {
   centerOffset: number;
   columnWidth: number;
@@ -338,6 +352,7 @@ function getMultiColItemPosition<T>({
   measurementCache: Cache<T, number>;
   positionCache?: Cache<T, Position>;
   fitsFirstRow: boolean;
+  _multiColPositionAlgoV2?: boolean;
 }): {
   additionalWhitespace: ReadonlyArray<number> | null;
   heights: ReadonlyArray<number>;
@@ -357,7 +372,11 @@ function getMultiColItemPosition<T>({
   const heightAndGutter = getHeightAndGutter(height, gutter);
 
   // Find height deltas for each column as compared to the next column
-  const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights, columnSpan);
+  const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(
+    heights,
+    columnSpan,
+    _multiColPositionAlgoV2,
+  );
   const lowestAdjacentColumnHeightDeltaIndex = fitsFirstRow
     ? heights.indexOf(0)
     : adjacentColumnHeightDeltas.indexOf(Math.min(...adjacentColumnHeightDeltas));
@@ -406,6 +425,7 @@ function getGraphPositions<T>({
   heights,
   whitespaceThreshold,
   columnSpan,
+  _multiColPositionAlgoV2,
   ...commonGetPositionArgs
 }: {
   items: ReadonlyArray<T>;
@@ -416,6 +436,7 @@ function getGraphPositions<T>({
   }>;
   whitespaceThreshold?: number;
   columnSpan: number;
+  _multiColPositionAlgoV2?: boolean;
   centerOffset: number;
   columnWidth: number;
   columnWidthAndGutter: number;
@@ -439,7 +460,11 @@ function getGraphPositions<T>({
   } as const;
   graph.addNode(startNodeData);
 
-  const startingAdjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(heights, columnSpan);
+  const startingAdjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(
+    heights,
+    columnSpan,
+    _multiColPositionAlgoV2,
+  );
   const startingLowestAdjacentColumnHeightDelta = Math.min(...startingAdjacentColumnHeightDeltas);
 
   // Recursive function to add possible layouts to the graph
@@ -479,7 +504,11 @@ function getGraphPositions<T>({
       positions: updatedPositions,
     } as const;
 
-    const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(updatedHeights, columnSpan);
+    const adjacentColumnHeightDeltas = getAdjacentColumnHeightDeltas(
+      updatedHeights,
+      columnSpan,
+      _multiColPositionAlgoV2,
+    );
     const lowestAdjacentColumnHeightDelta = Math.min(...adjacentColumnHeightDeltas);
 
     graph.addNode(paintedItemData);
@@ -553,6 +582,7 @@ function getPositionsWithMultiColumnItem<T>({
   logWhitespace,
   responsiveModuleConfigForSecondItem,
   _getColumnSpanConfig,
+  _multiColPositionAlgoV2,
   ...commonGetPositionArgs
 }: {
   multiColumnItem: T;
@@ -579,6 +609,7 @@ function getPositionsWithMultiColumnItem<T>({
   positionCache: Cache<T, Position>;
   responsiveModuleConfigForSecondItem: ResponsiveModuleConfig;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
+  _multiColPositionAlgoV2?: boolean;
 }): {
   positions: ReadonlyArray<{
     item: T;
@@ -615,7 +646,7 @@ function getPositionsWithMultiColumnItem<T>({
     _getColumnSpanConfig,
   });
 
-  // Skip the graph logic if the two column item can be displayed on the first row,
+  // Skip the graph logic if the multi column item can be displayed on the first row,
   // this means graphBatch is empty and multi column item is positioned on its
   // original position (twoColumnIndex)
   const fitsFirstRow = emptyColumns >= multiColumnItemColumnSpan + multiColumnIndex;
@@ -661,6 +692,7 @@ function getPositionsWithMultiColumnItem<T>({
     heights: paintedItemHeights,
     whitespaceThreshold,
     columnSpan: multiColumnItemColumnSpan,
+    _multiColPositionAlgoV2,
     ...commonGetPositionArgs,
   });
 
@@ -674,6 +706,7 @@ function getPositionsWithMultiColumnItem<T>({
     heights: winningNode.heights,
     columnSpan: multiColumnItemColumnSpan,
     fitsFirstRow,
+    _multiColPositionAlgoV2,
     ...commonGetPositionArgs,
   });
 
@@ -724,6 +757,7 @@ const multiColumnLayout = <T>({
   originalItems,
   _getColumnSpanConfig,
   _getResponsiveModuleConfigForSecondItem,
+  _multiColPositionAlgoV2,
 }: {
   items: ReadonlyArray<T>;
   gutter?: number;
@@ -741,6 +775,7 @@ const multiColumnLayout = <T>({
   originalItems: ReadonlyArray<T>;
   _getColumnSpanConfig: (item: T) => ColumnSpanConfig;
   _getResponsiveModuleConfigForSecondItem: (item: T) => ResponsiveModuleConfig;
+  _multiColPositionAlgoV2?: boolean;
 }): ReadonlyArray<Position> => {
   const firstItem = originalItems[0]!;
   const secondItem = originalItems[1]!;
@@ -807,8 +842,8 @@ const multiColumnLayout = <T>({
   } as const;
 
   if (multiColumnItems.length > 0) {
-    const batchSize = multiColumnItems.length;
-    const batches = Array.from({ length: batchSize }, (): ReadonlyArray<T> => []).map(
+    const batchNumber = multiColumnItems.length;
+    const batches = Array.from({ length: batchNumber }, (): ReadonlyArray<T> => []).map(
       (batch, i) => {
         const startIndex = i === 0 ? 0 : itemsWithoutPositions.indexOf(multiColumnItems[i]!);
         const endIndex =
@@ -847,6 +882,7 @@ const multiColumnLayout = <T>({
           columnCount,
           responsiveModuleConfigForSecondItem,
           _getColumnSpanConfig,
+          _multiColPositionAlgoV2,
           ...commonGetPositionArgs,
         }),
       { heights: paintedItemHeights, positions: paintedItemPositions },

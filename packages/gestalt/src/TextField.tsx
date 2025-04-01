@@ -5,7 +5,7 @@ import IconButtonEnd from './TextField/IconButtonEnd';
 import InternalTextField, { autoCompleteType } from './TextField/InternalTextField';
 import VRIconButtonEnd from './TextField/VRIconButtonEnd';
 import VRInternalTextField from './TextField/VRInternalTextField';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 export type MaxLength = {
   characterCount: number;
@@ -159,10 +159,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
    */
   const [type, setType] = useState<Type>(typeProp);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   useEffect(() => {
     setType(typeProp);
@@ -174,7 +171,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
   const { accessibilityHidePasswordLabel, accessibilityShowPasswordLabel } =
     useDefaultLabelContext('TextField');
 
-  if (isInVRExperiment && !tags) {
+  if (theme.MAIN && !tags) {
     return (
       <VRInternalTextField
         ref={ref}
@@ -229,7 +226,7 @@ const TextFieldWithForwardRef = forwardRef<HTMLInputElement, Props>(function Tex
     );
   }
 
-  if (isInVRExperiment && tags)
+  if (theme.MAIN && tags)
     return (
       <TagArea
         // @ts-expect-error - TS2322

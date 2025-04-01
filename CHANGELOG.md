@@ -1,3 +1,141 @@
+## 175.1.0 (Mar 31, 2025)
+
+### Minor
+
+- Toast: Compact icons ([#4060](https://github.com/pinterest/gestalt/pull/4060)) - [Preview link](https://deploy-preview-4060--gestalt.netlify.app?devexample=true)
+
+## 175.0.6 (Mar 31, 2025)
+
+### Patch
+
+- Internal: fixes dark mode adding DesignTokensProvider ([#4059](https://github.com/pinterest/gestalt/pull/4059)) - [Preview link](https://deploy-preview-4059--gestalt.netlify.app?devexample=true)
+
+## 175.0.5 (Mar 31, 2025)
+
+### Patch
+
+- Docs: cleanup of old pages ([#4057](https://github.com/pinterest/gestalt/pull/4057)) - [Preview link](https://deploy-preview-4057--gestalt.netlify.app?devexample=true)
+
+## 175.0.4 (Mar 31, 2025)
+
+### Patch
+
+- Docs: adds DesignTokensProvider to Sandpack code editor ([#4058](https://github.com/pinterest/gestalt/pull/4058)) - [Preview link](https://deploy-preview-4058--gestalt.netlify.app?devexample=true)
+
+## 175.0.3 (Mar 30, 2025)
+
+### Patch
+
+- Internal: refactor experimental theme consumption ([#4056](https://github.com/pinterest/gestalt/pull/4056)) - [Preview link](https://deploy-preview-4056--gestalt.netlify.app?devexample=true)
+
+## 175.0.2 (Mar 30, 2025)
+
+### Patch
+
+- Docs: refactor to enable CALICO theme from selector in Gestalt Docs ([#4055](https://github.com/pinterest/gestalt/pull/4055)) - [Preview link](https://deploy-preview-4055--gestalt.netlify.app?devexample=true)
+
+## 175.0.1 (Mar 30, 2025)
+
+### Patch
+
+- Internal: Bump @babel/helpers from 7.10.4 to 7.27.0 ([#4053](https://github.com/pinterest/gestalt/pull/4053)) - [Preview link](https://deploy-preview-4053--gestalt.netlify.app?devexample=true)
+
+## 175.0.0 (Mar 29, 2025)
+
+### Major
+
+- ColorSchemeProvider: Refactor ColorSchemeProvider & separated concerns into DesignTokensProvider ([#4054](https://github.com/pinterest/gestalt/pull/4054)) - [Preview link](https://deploy-preview-4054--gestalt.netlify.app?devexample=true)
+
+## 174.3.3 (Mar 27, 2025)
+
+### Patch
+
+- Masonry: Fix the props on Masonry V2 ([#4052](https://github.com/pinterest/gestalt/pull/4052)) - [Preview link](https://deploy-preview-4052--gestalt.netlify.app?devexample=true)
+
+## 174.3.2 (Mar 26, 2025)
+
+### Patch
+
+- Masonry: Multi-column position algorithm V2 ([#4016](https://github.com/pinterest/gestalt/pull/4016)) - [Preview link](https://deploy-preview-4016--gestalt.netlify.app?devexample=true)
+
+## 174.3.1 (Mar 26, 2025)
+
+### Patch
+
+- SearchGuide: (mWeb) update color variant "11" to match figma in dark mode ([#4050](https://github.com/pinterest/gestalt/pull/4050)) - [Preview link](https://deploy-preview-4050--gestalt.netlify.app?devexample=true)
+
+## 174.3.0 (Mar 24, 2025)
+
+### Minor
+
+- AvatarGroupCluster: new component ([#4048](https://github.com/pinterest/gestalt/pull/4048)) - [Preview link](https://deploy-preview-4048--gestalt.netlify.app?devexample=true)
+
+## 174.2.2 (Mar 24, 2025)
+
+### Patch
+
+- Masonry: Fix scroll position glitch on load ([#4045](https://github.com/pinterest/gestalt/pull/4045)) - [Preview link](https://deploy-preview-4045--gestalt.netlify.app?devexample=true)
+
+## 174.2.1 (Mar 21, 2025)
+
+### Patch
+
+- SearchField: fix rtl in VR bug ([#4047](https://github.com/pinterest/gestalt/pull/4047)) - [Preview link](https://deploy-preview-4047--gestalt.netlify.app?devexample=true)
+
+## 174.2.0 (Mar 20, 2025)
+
+### Minor
+
+- Icon: New Icons [GESTALT-8749] ([#4038](https://github.com/pinterest/gestalt/pull/4038)) - [Preview link](https://deploy-preview-4038--gestalt.netlify.app?devexample=true)
+
+## 174.1.2 (Mar 19, 2025)
+
+### Patch
+
+- RadioGroup: fix in CSS file for width ([#4046](https://github.com/pinterest/gestalt/pull/4046)) - [Preview link](https://deploy-preview-4046--gestalt.netlify.app?devexample=true)
+
+## 174.1.1 (Mar 19, 2025)
+
+### Patch
+
+- Internal: [Snyk] Security upgrade react-cookie from 4.1.1 to 8.0.1 ([#4044](https://github.com/pinterest/gestalt/pull/4044)) - [Preview link](https://deploy-preview-4044--gestalt.netlify.app?devexample=true)
+
+## 174.1.0 (Mar 18, 2025)
+
+### Minor
+
+- Tabs: supports large size `size="lg"` ([#4042](https://github.com/pinterest/gestalt/pull/4042)) - [Preview link](https://deploy-preview-4042--gestalt.netlify.app?devexample=true)
+
+## 174.0.0 (Mar 18, 2025)
+
+### Major
+
+- RadioButton: deprecate component ([#4043](https://github.com/pinterest/gestalt/pull/4043)) - [Preview link](https://deploy-preview-4043--gestalt.netlify.app?devexample=true)
+
+## 173.2.2 (Mar 18, 2025)
+
+### Patch
+
+- TileData: removed width and max width definitions ([#4041](https://github.com/pinterest/gestalt/pull/4041)) - [Preview link](https://deploy-preview-4041--gestalt.netlify.app?devexample=true)
+
+## 173.2.1 (Mar 17, 2025)
+
+### Patch
+
+- Avatar: updates to verified icon ([#4040](https://github.com/pinterest/gestalt/pull/4040)) - [Preview link](https://deploy-preview-4040--gestalt.netlify.app?devexample=true)
+
+## 173.2.0 (Mar 17, 2025)
+
+### Minor
+
+- ChartGraph: added support to custom labels in bars + new ChartGraph.Label ([#4039](https://github.com/pinterest/gestalt/pull/4039)) - [Preview link](https://deploy-preview-4039--gestalt.netlify.app?devexample=true)
+
+## 173.1.2 (Mar 17, 2025)
+
+### Patch
+
+- Internal: Bump @babel/runtime from 7.15.4 to 7.26.10 ([#4036](https://github.com/pinterest/gestalt/pull/4036)) - [Preview link](https://deploy-preview-4036--gestalt.netlify.app?devexample=true)
+
 ## 173.1.1 (Mar 10, 2025)
 
 ### Patch

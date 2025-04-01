@@ -22,6 +22,7 @@ import alignTopCenter from './align-top-center.svg';
 import alignTopLeft from './align-top-left.svg';
 import alignTopRight from './align-top-right.svg';
 import alphabetical from './alphabetical.svg';
+import amazon from './amazon.svg';
 import androidShare from './android-share.svg';
 import angledPin from './angled-pin.svg';
 import animate from './animate.svg';
@@ -54,6 +55,7 @@ import audioPlaying from './audio-playing.svg';
 import bell from './bell.svg';
 import bellFill from './bell-fill.svg';
 import birthdayCake from './birthday-cake.svg';
+import blur from './blur.svg';
 import board from './board.svg';
 import boardStickerLarge from './board-sticker-large.svg';
 import boardStickerSmall from './board-sticker-small.svg';
@@ -72,6 +74,7 @@ import canonicalPin from './canonical-pin.svg';
 import captions from './captions.svg';
 import captionsOutline from './captions-outline.svg';
 import cardStack from './card-stack.svg';
+import cardStackRefresh from './card-stack-refresh.svg';
 import check from './check.svg';
 import checkCircle from './check-circle.svg';
 import checkCircleFill from './check-circle-fill.svg';
@@ -106,6 +109,7 @@ import contrast from './contrast.svg';
 import conversionTag from './conversion-tag.svg';
 import copyToClipboard from './copy-to-clipboard.svg';
 import creditCard from './credit-card.svg';
+import creditCardPlus from './credit-card-plus.svg';
 import crop from './crop.svg';
 import crystalBall from './crystal-ball.svg';
 import cutout from './cutout.svg';
@@ -180,6 +184,7 @@ import home from './home.svg';
 import homeFill from './home-fill.svg';
 import ideaPin from './idea-pin.svg';
 import imagePortrait from './image-portrait.svg';
+import imessage from './imessage.svg';
 import impressum from './impressum.svg';
 import indent from './indent.svg';
 import infoCircle from './info-circle.svg';
@@ -187,6 +192,7 @@ import information from './information.svg';
 import insightsAudience from './insights-audience.svg';
 import insightsConversion from './insights-conversion.svg';
 import instagram from './instagram.svg';
+import instagramStories from './instagram-stories.svg';
 import invoice from './invoice.svg';
 import kakaoTalk from './kakao-talk.svg';
 import key from './key.svg';
@@ -252,6 +258,7 @@ import pincode from './pincode.svg';
 import pinterest from './pinterest.svg';
 import play from './play.svg';
 import protect from './protect.svg';
+import qrCode from './qr-code.svg';
 import questionMark from './question-mark.svg';
 import recordLimit from './record-limit.svg';
 import recordLimit5 from './record-limit-5.svg';
@@ -343,6 +350,7 @@ import textSize from './text-size.svg';
 import textSmall from './text-small.svg';
 import textSpacing from './text-spacing.svg';
 import textSticker from './text-sticker.svg';
+import threads from './threads.svg';
 import thumbsDown from './thumbs-down.svg';
 import thumbsUp from './thumbs-up.svg';
 import timer from './timer.svg';
@@ -407,6 +415,7 @@ const icons = Object.freeze({
   'align-top-left': alignTopLeft,
   'align-top-right': alignTopRight,
   'alphabetical': alphabetical,
+  'amazon': amazon,
   'android-share': androidShare,
   'angled-pin': angledPin,
   'animate': animate,
@@ -439,6 +448,7 @@ const icons = Object.freeze({
   'bell': bell,
   'bell-fill': bellFill,
   'birthday-cake': birthdayCake,
+  'blur': blur,
   'board': board,
   'board-sticker-large': boardStickerLarge,
   'board-sticker-small': boardStickerSmall,
@@ -457,6 +467,7 @@ const icons = Object.freeze({
   'captions': captions,
   'captions-outline': captionsOutline,
   'card-stack': cardStack,
+  'card-stack-refresh': cardStackRefresh,
   'check': check,
   'check-circle': checkCircle,
   'check-circle-fill': checkCircleFill,
@@ -491,6 +502,7 @@ const icons = Object.freeze({
   'conversion-tag': conversionTag,
   'copy-to-clipboard': copyToClipboard,
   'credit-card': creditCard,
+  'credit-card-plus': creditCardPlus,
   'crop': crop,
   'crystal-ball': crystalBall,
   'cutout': cutout,
@@ -565,6 +577,7 @@ const icons = Object.freeze({
   'home-fill': homeFill,
   'idea-pin': ideaPin,
   'image-portrait': imagePortrait,
+  'imessage': imessage,
   'impressum': impressum,
   'indent': indent,
   'info-circle': infoCircle,
@@ -572,6 +585,7 @@ const icons = Object.freeze({
   'insights-audience': insightsAudience,
   'insights-conversion': insightsConversion,
   'instagram': instagram,
+  'instagram-stories': instagramStories,
   'invoice': invoice,
   'kakao-talk': kakaoTalk,
   'key': key,
@@ -637,6 +651,7 @@ const icons = Object.freeze({
   'pinterest': pinterest,
   'play': play,
   'protect': protect,
+  'qr-code': qrCode,
   'question-mark': questionMark,
   'record-limit': recordLimit,
   'record-limit-10': recordLimit10,
@@ -728,6 +743,7 @@ const icons = Object.freeze({
   'text-small': textSmall,
   'text-spacing': textSpacing,
   'text-sticker': textSticker,
+  'threads': threads,
   'thumbs-down': thumbsDown,
   'thumbs-up': thumbsUp,
   'timer': timer,

@@ -14,8 +14,8 @@ import touchableStyles from './TapArea.css';
 import Text from './Text';
 import TextUI from './TextUI';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
 import useTapFeedback from './useTapFeedback';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useInteractiveStates from './utils/useInteractiveStates';
 import useTapScaleAnimation from './utils/useTapScaleAnimation';
 
@@ -116,7 +116,7 @@ type Props = {
 };
 
 /**
- * [ButtonToggle](https://gestalt.pinterest.systems/web/buttontoggle) is a larger alternative to selection components such as [Checkbox](https://gestalt.pinterest.systems/web/checkbox), [RadioButton](https://gestalt.pinterest.systems/web/radiobutton), and [Switch](https://gestalt.pinterest.systems/web/switch). It enables users to choose between two states - selected or unselected.
+ * [ButtonToggle](https://gestalt.pinterest.systems/web/buttontoggle) is a larger alternative to selection components such as [Checkbox](https://gestalt.pinterest.systems/web/checkbox), [RadioGroup](https://gestalt.pinterest.systems/web/radiogroup), and [Switch](https://gestalt.pinterest.systems/web/switch). It enables users to choose between two states - selected or unselected.
  *
  * ![ButtonToggle light mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle.spec.ts-snapshots/ButtonToggle-chromium-darwin.png)
  * ![ButtonToggle dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonToggle-dark.spec.ts-snapshots/ButtonToggle-dark-chromium-darwin.png)
@@ -145,10 +145,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   if (text.length === 0 && accessibilityLabel === undefined)
     throw new Error('ButtonToggle: When text is empty, accessibilityLabel is required.');
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const innerRef = useRef<null | HTMLButtonElement>(null);
 
@@ -188,7 +185,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
 
   const buttonToggleAnimation = useTapScaleAnimation();
 
-  const borderClasses = isInVRExperiment
+  const borderClasses = theme.MAIN
     ? {
         [styles.rounding200]: size === 'sm',
         [styles.rounding300]: size === 'md',
@@ -205,13 +202,13 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
       };
 
   const sharedTypeClasses = classnames(
-    isInVRExperiment ? styles.buttonVr : styles.button,
+    theme.MAIN ? styles.buttonVr : styles.button,
     borderClasses,
     {
       [focusStyles.hideOutline]: !disabled && !isFocusVisible,
-      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !isInVRExperiment,
+      [focusStyles.accessibilityOutline]: !disabled && isFocusVisible && !theme.MAIN,
       [styles.accessibilityOutlineLightBackground]:
-        !disabled && isFocused && isFocusVisible && isInVRExperiment,
+        !disabled && isFocused && isFocusVisible && theme.MAIN,
     },
   );
 
@@ -221,7 +218,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   };
 
   const sizeStyles = classnames(
-    isInVRExperiment
+    theme.MAIN
       ? {
           [styles.lgVr]: size === 'lg' && !graphicSrc,
           [styles.mdVr]: size === 'md' && !graphicSrc,
@@ -265,24 +262,24 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           onFocus?.({ event });
         }}
         onKeyDown={(e) => {
-          if (isInVRExperiment) {
+          if (theme.MAIN) {
             buttonToggleAnimation.handleKeyDown(e);
           }
         }}
         onKeyUp={(e) => {
-          if (isInVRExperiment) {
+          if (theme.MAIN) {
             buttonToggleAnimation.handleKeyUp(e);
           }
         }}
         onMouseDown={() => {
           handleMouseDown();
-          if (isInVRExperiment) buttonToggleAnimation.handleMouseDown();
+          if (theme.MAIN) buttonToggleAnimation.handleMouseDown();
         }}
         onMouseEnter={handleOnMouseEnter}
         onMouseLeave={handleOnMouseLeave}
         onMouseUp={() => {
           handleMouseUp();
-          if (isInVRExperiment) buttonToggleAnimation.handleMouseUp();
+          if (theme.MAIN) buttonToggleAnimation.handleMouseUp();
         }}
         onTouchCancel={handleTouchCancel}
         onTouchEnd={handleTouchEnd}
@@ -295,7 +292,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         <div
           ref={buttonToggleAnimation.elementRef}
           className={classnames({
-            [buttonToggleAnimation.classes]: isInVRExperiment,
+            [buttonToggleAnimation.classes]: theme.MAIN,
           })}
         >
           <ColorPicker
@@ -312,8 +309,8 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   }
 
   const childrenDivClasses = classnames(sharedTypeClasses, sizeStyles, styles.childrenDiv, {
-    [buttonToggleAnimation.classes]: isInVRExperiment,
-    [touchableStyles.tapTransition]: !isInVRExperiment,
+    [buttonToggleAnimation.classes]: theme.MAIN,
+    [touchableStyles.tapTransition]: !theme.MAIN,
     [styles.compact]: text.length === 0,
     [styles.disabled]: disabled && (color !== 'red' || selected),
     [styles.disabledRed]: disabled && color === 'red' && !selected,
@@ -329,7 +326,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
     [styles.thumbnailSm]: size === 'sm' && graphicSrc,
     [styles[color]]: !disabled && !selected,
     [styles.interactiveBorder]:
-      !disabled && !selected && !isFocused && color === 'transparent' && isInVRExperiment,
+      !disabled && !selected && !isFocused && color === 'transparent' && theme.MAIN,
   });
 
   const textColor =
@@ -344,7 +341,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
   ) : (
     <Flex
       alignItems="center"
-      gap={{ row: isInVRExperiment ? 1.5 : 2, column: 0 }}
+      gap={{ row: theme.MAIN ? 1.5 : 2, column: 0 }}
       justifyContent="center"
     >
       {iconStart && (
@@ -355,7 +352,7 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
           size={SIZE_NAME_TO_PIXEL[size]}
         />
       )}
-      {isInVRExperiment ? (
+      {theme.MAIN ? (
         <TextUI align="center" color={textColor} overflow="breakWord" size={textSizesVR[size]}>
           {text}
         </TextUI>
@@ -406,22 +403,22 @@ const ButtonToggleWithForwardRef = forwardRef<HTMLButtonElement, Props>(function
         onFocus?.({ event });
       }}
       onKeyDown={(e) => {
-        if (isInVRExperiment) {
+        if (theme.MAIN) {
           buttonToggleAnimation.handleKeyDown(e);
         }
       }}
       onKeyUp={(e) => {
-        if (isInVRExperiment) {
+        if (theme.MAIN) {
           buttonToggleAnimation.handleKeyUp(e);
         }
       }}
       onMouseDown={() => {
         handleMouseDown();
-        if (isInVRExperiment) buttonToggleAnimation.handleMouseDown();
+        if (theme.MAIN) buttonToggleAnimation.handleMouseDown();
       }}
       onMouseUp={() => {
         handleMouseUp();
-        if (isInVRExperiment) buttonToggleAnimation.handleMouseUp();
+        if (theme.MAIN) buttonToggleAnimation.handleMouseUp();
       }}
       onTouchCancel={handleTouchCancel}
       onTouchEnd={handleTouchEnd}
