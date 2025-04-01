@@ -5,11 +5,17 @@ import styles from './Masonry.css';
 import { Cache } from './Masonry/Cache';
 import recalcHeights from './Masonry/dynamicHeightsUtils';
 import recalcHeightsV2 from './Masonry/dynamicHeightsV2Utils';
+import getColumnCount, {
+  DEFAULT_LAYOUT_DEFAULT_GUTTER,
+  FULL_WIDTH_DEFAULT_GUTTER,
+} from './Masonry/getColumnCount';
 import getLayoutAlgorithm from './Masonry/getLayoutAlgorithm';
 import ItemResizeObserverWrapper from './Masonry/ItemResizeObserverWrapper';
 import MeasurementStore from './Masonry/MeasurementStore';
 import {
+  calculateActualColumnSpan,
   ColumnSpanConfig,
+  ModulePositioningConfig,
   MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
   ResponsiveModuleConfig,
 } from './Masonry/multiColumnLayout';
@@ -157,13 +163,13 @@ type Props<T> = {
    */
   _dynamicHeightsV2Experiment?: boolean;
   /**
-  /**
-   *
-   * Experimental prop to enable early bailout when positioning multicolumn modules
+   * Experimental prop to enable dynamic batch sizing and early bailout when positioning a module
+   * - Early bailout: How much whitespace is "good enough"
+   * - Dynamic batch sizing: How many items it can use. If this prop isn't used, it uses 5
    *
    * This is an experimental prop and may be removed or changed in the future
    */
-  _earlyBailout?: (columnSpan: number) => number;
+  _getModulePositioningConfig?: (gridSize: number, moduleSize: number) => ModulePositioningConfig;
   /**
    * Experimental flag to enable new multi column position layout algorithm
    */
@@ -171,6 +177,7 @@ type Props<T> = {
 };
 
 type State<T> = {
+  gutter: number;
   hasPendingMeasurements: boolean;
   isFetching: boolean;
   items: ReadonlyArray<T>;
@@ -228,6 +235,13 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
 
     this.positionStore = props.positionStore || Masonry.createMeasurementStore();
 
+    const { layout, gutterWidth } = props;
+    let defaultGutter = DEFAULT_LAYOUT_DEFAULT_GUTTER;
+    if (layout && (layout === 'flexible' || layout === 'serverRenderedFlexible')) {
+      defaultGutter = FULL_WIDTH_DEFAULT_GUTTER;
+    }
+    const gutter = gutterWidth ?? defaultGutter;
+
     this.resizeObserver =
       /* eslint-disable-next-line no-underscore-dangle */
       props._dynamicHeights && typeof window !== 'undefined' && this.positionStore
@@ -240,13 +254,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                 const changedItem: T = this.state.items[idx]!;
                 const newHeight = contentRect.height;
 
-                // TODO: DefaultGutter comes from getLayoutAlgorithm and their utils, everything should be in one place (this.gutter?)
-                const { layout, gutterWidth } = this.props;
-                let defaultGutter = 14;
-                if ((layout && layout === 'flexible') || layout === 'serverRenderedFlexible') {
-                  defaultGutter = 0;
-                }
-
                 /* eslint-disable-next-line no-underscore-dangle */
                 if (props._dynamicHeightsV2Experiment) {
                   triggerUpdate =
@@ -256,7 +263,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
                       newHeight,
                       positionStore: this.positionStore,
                       measurementStore: this.state.measurementStore,
-                      gutterWidth: gutterWidth ?? defaultGutter,
+                      gutter,
                     }) || triggerUpdate;
                 } else {
                   triggerUpdate =
@@ -277,6 +284,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
         : undefined;
 
     this.state = {
+      gutter,
       hasPendingMeasurements: props.items.some((item) => !!item && !measurementStore.has(item)),
       isFetching: false,
       items: props.items,
@@ -582,7 +590,6 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     const {
       align = 'center',
       columnWidth,
-      gutterWidth: gutter,
       items,
       layout = 'basic',
       minCols,
@@ -591,10 +598,10 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _logTwoColWhitespace,
       _getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem,
-      _earlyBailout,
+      _getModulePositioningConfig,
       _multiColPositionAlgoV2,
     } = this.props;
-    const { hasPendingMeasurements, measurementStore, width } = this.state;
+    const { gutter, hasPendingMeasurements, measurementStore, width } = this.state;
     const { positionStore } = this;
 
     const getPositions = getLayoutAlgorithm({
@@ -610,7 +617,7 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
       _getColumnSpanConfig,
       _getResponsiveModuleConfigForSecondItem,
       _logTwoColWhitespace,
-      _earlyBailout,
+      _getModulePositioningConfig,
       _multiColPositionAlgoV2,
     });
 
@@ -681,16 +688,43 @@ export default class Masonry<T> extends ReactComponent<Props<T>, State<T>> {
     } else {
       // Full layout is possible
       const itemsToRender = items.filter((item) => item && measurementStore.has(item));
-      const itemsWithoutPositions = items.filter((item) => item && !positionStore.has(item));
-      const hasMultiColumnItems =
+      const itemsWithoutMeasurements = items.filter((item) => !measurementStore.has(item));
+      const nextMultiColumnItem =
         _getColumnSpanConfig &&
-        itemsWithoutPositions.some((item) => _getColumnSpanConfig(item) !== 1);
+        itemsWithoutMeasurements.find((item) => _getColumnSpanConfig(item) !== 1);
+      const nextMultiColumnItemIndex = itemsWithoutMeasurements.indexOf(nextMultiColumnItem!);
 
-      // If there are 2-col items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
-      // we need the batch size (number of one column items for the graph) + 1 (two column item)
-      const itemsToMeasureCount = hasMultiColumnItems
-        ? MULTI_COL_ITEMS_MEASURE_BATCH_SIZE + 1
-        : minCols;
+      let batchSize;
+      if (nextMultiColumnItem) {
+        const gridSize = getColumnCount({ gutter, columnWidth, width, minCols, layout });
+        const responsiveModuleConfigForSecondItem =
+          _getResponsiveModuleConfigForSecondItem && items[1]
+            ? _getResponsiveModuleConfigForSecondItem(items[1])
+            : undefined;
+
+        const isFlexibleWidthItem =
+          !!responsiveModuleConfigForSecondItem && nextMultiColumnItem === items[1];
+        const moduleSize = calculateActualColumnSpan({
+          columnCount: gridSize,
+          firstItem: items[0]!,
+          isFlexibleWidthItem,
+          item: nextMultiColumnItem,
+          responsiveModuleConfigForSecondItem,
+          _getColumnSpanConfig,
+        });
+
+        if (!isFlexibleWidthItem) {
+          const { itemsBatchSize } = _getModulePositioningConfig?.(gridSize, moduleSize) || {
+            itemsBatchSize: MULTI_COL_ITEMS_MEASURE_BATCH_SIZE,
+          };
+          batchSize = itemsBatchSize;
+        }
+      }
+
+      // If there are multicolumn items, we need to measure more items to ensure we have enough possible layouts to find a suitable one
+      // we need the batch size (number of one column items for the graph) + 1 (multicolumn item)
+      const itemsToMeasureCount =
+        batchSize && nextMultiColumnItemIndex <= batchSize ? batchSize + 1 : minCols;
       const itemsToMeasure = items
         .filter((item) => item && !measurementStore.has(item))
         .slice(0, itemsToMeasureCount);
