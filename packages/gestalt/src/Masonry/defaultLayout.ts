@@ -48,6 +48,7 @@ const defaultLayout =
     measurementCache,
     _getColumnSpanConfig,
     _getResponsiveModuleConfigForSecondItem,
+    _multiColPositionAlgoV2,
     ...otherProps
   }: {
     columnWidth?: number;
@@ -62,6 +63,7 @@ const defaultLayout =
     measurementCache: Cache<T, number>;
     _getColumnSpanConfig?: (item: T) => ColumnSpanConfig;
     _getResponsiveModuleConfigForSecondItem?: (item: T) => ResponsiveModuleConfig;
+    _multiColPositionAlgoV2?: boolean;
     earlyBailout?: (columnSpan: number) => number;
     logWhitespace?: (
       additionalWhitespace: ReadonlyArray<number>,
@@ -100,6 +102,7 @@ const defaultLayout =
           _getColumnSpanConfig,
           _getResponsiveModuleConfigForSecondItem:
             _getResponsiveModuleConfigForSecondItem ?? defaultGetResponsiveModuleConfig,
+          _multiColPositionAlgoV2,
           ...otherProps,
         })
       : items.map((item) => {

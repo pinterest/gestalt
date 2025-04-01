@@ -5,7 +5,7 @@ import Flex from './Flex';
 import { RadioGroupContextProvider } from './RadioGroup/Context';
 import style from './RadioGroup/RadioButton.css';
 import RadioGroupButton from './RadioGroupButton';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 type Props = {
   /**
@@ -67,10 +67,7 @@ function RadioGroup({
     if (radioGroupHandlers?.onRender) radioGroupHandlers?.onRender();
   }, [radioGroupHandlers]);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   return (
     <RadioGroupContextProvider value={{ parentName: 'RadioGroup' }}>
@@ -86,7 +83,7 @@ function RadioGroup({
           direction={direction}
           gap={direction === 'row' ? { column: 0, row: 4 } : { column: 2, row: 0 }}
         >
-          {isInVRExperiment && direction === 'column' ? (
+          {theme.MAIN && direction === 'column' ? (
             <div className={style.wrapper}>{children}</div>
           ) : (
             children

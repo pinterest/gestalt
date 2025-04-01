@@ -15,7 +15,7 @@ import MaybeTooltip from './sharedSubcomponents/MaybeTooltip';
 import TapArea from './TapArea';
 import Text from './Text';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import { CompositeZIndex, FixedZIndex, Indexable } from './zIndex';
 
 type LinkType = {
@@ -101,10 +101,7 @@ export default function HelpButton({
   // Define where the focused content stays
   const [innerModalFocus, setInnerModalFocus] = useState(false);
 
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const { colorSchemeName } = useColorScheme();
   const popoverId = useId();
   const { tooltipMessage } = useDefaultLabelContext('HelpButton');
@@ -148,14 +145,14 @@ export default function HelpButton({
 
   const toggleView = () => setOpen((currVal) => !currVal);
 
-  let bgIconColor: ComponentProps<typeof Box>['color'] = isInVRExperiment ? 'default' : 'tertiary';
-  let iconColor: ComponentProps<typeof Icon>['color'] = isInVRExperiment ? 'subtle' : 'inverse';
+  let bgIconColor: ComponentProps<typeof Box>['color'] = theme.MAIN ? 'default' : 'tertiary';
+  let iconColor: ComponentProps<typeof Icon>['color'] = theme.MAIN ? 'subtle' : 'inverse';
 
-  if (!isInVRExperiment && (open || hovered || focused)) {
+  if (!theme.MAIN && (open || hovered || focused)) {
     bgIconColor = 'selected';
   }
 
-  if (isInVRExperiment && (open || hovered || focused)) {
+  if (theme.MAIN && (open || hovered || focused)) {
     iconColor = 'default';
   }
 
@@ -194,8 +191,8 @@ export default function HelpButton({
           ref={textRef}
           className={classnames({
             [focusStyles.hideOutline]: !isFocusVisible,
-            [focusStyles.accessibilityOutline]: !isInVRExperiment && isFocusVisible,
-            [styles.focused]: isInVRExperiment && isFocusVisible,
+            [focusStyles.accessibilityOutline]: !theme.MAIN && isFocusVisible,
+            [styles.focused]: theme.MAIN && isFocusVisible,
           })}
           id={`helpButtonText-${popoverId}`}
           // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
@@ -208,7 +205,7 @@ export default function HelpButton({
           )}
         </div>
         {link && link?.href && (
-          <Box display="block" marginTop={isInVRExperiment ? 5 : 3} width="100%">
+          <Box display="block" marginTop={theme.MAIN ? 5 : 3} width="100%">
             <Text>
               <Link
                 ref={link.ref}
@@ -248,7 +245,7 @@ export default function HelpButton({
           accessibilityExpanded={open}
           accessibilityLabel={accessibilityLabel}
           fullWidth={false}
-          innerFocusColor={isInVRExperiment ? 'default' : undefined}
+          innerFocusColor={theme.MAIN ? 'default' : undefined}
           onBlur={() => setFocused(false)}
           onFocus={() => setFocused(true)}
           onKeyDown={handleTapAreaKeyDown}
@@ -274,7 +271,7 @@ export default function HelpButton({
               accessibilityLabel=""
               color={iconColor}
               icon="question-mark"
-              size={isInVRExperiment ? 16 : 8}
+              size={theme.MAIN ? 16 : 8}
             />
           </Box>
         </TapArea>

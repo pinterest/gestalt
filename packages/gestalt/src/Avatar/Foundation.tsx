@@ -8,7 +8,7 @@ import Box from '../Box';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import icons from '../icons/index';
 import vrIcons from '../icons-vr-theme/index';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
 
@@ -31,10 +31,7 @@ function ResponsiveFitSizeBox({
   isPressed,
   outline,
 }: ResponsiveFitSizeBoxProps) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
@@ -44,11 +41,11 @@ function ResponsiveFitSizeBox({
       ? getAvatarColorToken('default', isHovered, isPressed, isDarkMode)
       : getAvatarColorToken(color || 'default', isHovered, isPressed, isDarkMode);
 
-  return isInVRExperiment ? (
+  return theme.MAIN ? (
     <div
       className={classnames({
         [avatarStyles.container]: true,
-        [avatarStyles.outlineVR]: isInVRExperiment && outline,
+        [avatarStyles.outlineVR]: theme.MAIN && outline,
       })}
       role="button"
       style={{
@@ -114,10 +111,7 @@ export default function AvatarFoundation({
   translate,
   content = 'text',
 }: AvatarFoundationProps) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
@@ -134,7 +128,7 @@ export default function AvatarFoundation({
         <svg
           preserveAspectRatio="xMidYMid meet"
           version="1.1"
-          viewBox={isInVRExperiment ? '-25 -25 50 50' : '-50 -50 100 100'}
+          viewBox={theme.MAIN ? '-25 -25 50 50' : '-50 -50 100 100'}
           width="100%"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -143,13 +137,13 @@ export default function AvatarFoundation({
             className={classnames(
               translate && avatarGroupStyles[translate], // if addCollaborator button is present, translateX moves numbers closer to the edge
               {
-                [avatarStyles.text]: !isInVRExperiment,
-                [avatarStyles.vrText]: isInVRExperiment,
+                [avatarStyles.text]: !theme.MAIN,
+                [avatarStyles.vrText]: theme.MAIN,
               },
             )}
             dy="0.35em"
             fill={TOKEN_COLOR_TEXT_DEFAULT}
-            fontSize={!isInVRExperiment ? fontSize : undefined}
+            fontSize={!theme.MAIN ? fontSize : undefined}
             textAnchor={textAnchor}
           >
             {children}
@@ -160,8 +154,8 @@ export default function AvatarFoundation({
         <svg
           className={classnames({
             [avatarStyles.icon]: true,
-            [avatarStyles.iconFillDefault]: isInVRExperiment && !isDarkMode,
-            [avatarStyles.iconFillDarkMode]: isInVRExperiment && isDarkMode,
+            [avatarStyles.iconFillDefault]: theme.MAIN && !isDarkMode,
+            [avatarStyles.iconFillDarkMode]: theme.MAIN && isDarkMode,
           })}
           preserveAspectRatio="xMidYMid meet" // percentual width to the parent container, reduces icon to 20px on a 48px parent container and keeps proportions upon resizing
           role="img" // full icon size
@@ -171,7 +165,7 @@ export default function AvatarFoundation({
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>
-          <path d={(isInVRExperiment ? vrIcons : icons)['person-add']} />
+          <path d={(theme.MAIN ? vrIcons : icons)['person-add']} />
         </svg>
       ) : null}
     </ResponsiveFitSizeBox>

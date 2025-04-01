@@ -6,7 +6,7 @@ import Box from './Box';
 import Flex from './Flex';
 import TapArea from './TapArea';
 import TapAreaLink from './TapAreaLink';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useInteractiveStates from './utils/useInteractiveStates';
 
 const MAX_COLLABORATOR_AVATARS = 3;
@@ -88,10 +88,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
   props: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const {
     accessibilityLabel,
@@ -190,7 +187,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     </Box>
   );
 
-  if (!isInVRExperiment && role === 'link' && href) {
+  if (!theme.MAIN && role === 'link' && href) {
     return (
       <TapAreaLink
         ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
@@ -214,7 +211,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     );
   }
 
-  if (!isInVRExperiment && role === 'button' && onClick) {
+  if (!theme.MAIN && role === 'button' && onClick) {
     return (
       <TapArea
         ref={ref as React.LegacyRef<HTMLDivElement> | undefined}
@@ -239,7 +236,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     );
   }
 
-  if (isInVRExperiment && role === 'link' && href) {
+  if (theme.MAIN && role === 'link' && href) {
     return (
       <TapAreaLink
         ref={ref as React.LegacyRef<HTMLAnchorElement> | undefined}
@@ -262,7 +259,7 @@ const AvatarGroupWithForwardRef = forwardRef<UnionRefs, Props>(function AvatarGr
     );
   }
 
-  if (isInVRExperiment && role === 'button' && onClick) {
+  if (theme.MAIN && role === 'button' && onClick) {
     return (
       <TapArea
         ref={ref as React.LegacyRef<HTMLDivElement> | undefined}

@@ -7,7 +7,7 @@ import InternalLink from './Link/InternalLink';
 import Pog from './Pog';
 import Tooltip from './Tooltip';
 import useFocusVisible from './useFocusVisible';
-import useInExperiment from './useInExperiment';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 import useInteractiveStates from './utils/useInteractiveStates';
 import { Indexable } from './zIndex';
 
@@ -126,10 +126,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
   }: Props,
   ref,
 ) {
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   const innerRef = useRef<null | HTMLAnchorElement>(null);
 
   const { isFocusVisible } = useFocusVisible();
@@ -187,7 +184,7 @@ const IconButtonLinkWithForwardRef = forwardRef<HTMLAnchorElement, Props>(functi
         bgColor={bgColor}
         dangerouslySetSvgPath={dangerouslySetSvgPath}
         focusColor={focusColor}
-        focused={isInVRExperiment && isFocused && isFocusVisible}
+        focused={theme.MAIN && isFocused && isFocusVisible}
         hovered={!disabled && isHovered}
         icon={icon}
         iconColor={iconColor}

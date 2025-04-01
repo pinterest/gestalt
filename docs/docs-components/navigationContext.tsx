@@ -52,8 +52,6 @@ function NavigationContextProvider({ children }: { children?: ReactNode }) {
     currentSiteSection = 'Components';
   } else if (pathname.includes('/foundations/')) {
     currentSiteSection = 'Foundations';
-  } else if (pathname.includes('/roadmap/')) {
-    currentSiteSection = 'Roadmap';
   } else {
     currentSiteSection = 'Get started';
   }

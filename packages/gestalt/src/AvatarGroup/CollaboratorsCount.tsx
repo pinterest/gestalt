@@ -4,10 +4,11 @@ import PositioningWrapper from './PositioningWrapper';
 import AvatarFoundation from '../Avatar/Foundation';
 
 type Props = BaseStackType & {
-  showAddCollaboratorsButton: boolean;
+  showAddCollaboratorsButton?: boolean;
   count: number;
-  isHovered: boolean;
-  isPressed: boolean;
+  isHovered?: boolean;
+  isPressed?: boolean;
+  outline?: boolean;
 };
 
 export default function AvatarGroupCollaboratorsCount({
@@ -18,6 +19,7 @@ export default function AvatarGroupCollaboratorsCount({
   isPressed,
   count,
   size,
+  outline = true,
 }: Props) {
   const isOverNineCount = count > 9;
   const isAbove99Count = count > 99;
@@ -35,7 +37,7 @@ export default function AvatarGroupCollaboratorsCount({
           isCollaboratorCount
           isHovered={isHovered}
           isPressed={isPressed}
-          outline
+          outline={outline}
           textAnchor="middle"
           // @ts-expect-error - TS2322 - Type 'string | undefined' is not assignable to type '"translateX10" | undefined'.
           translate={translate}

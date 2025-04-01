@@ -15,8 +15,7 @@ export const STATUS_DESCRIPTION = Object.freeze({
   notAvailable: { title: 'Not available', description: 'Not currently available or planned.' },
   planned: {
     title: 'Planned',
-    description:
-      'Slotted for an upcoming sprint or in the process of being updated. For details on planned work, visit the Roadmap page.',
+    description: 'Slotted for an upcoming sprint or in the process of being updated.',
   },
   deprecated: { title: 'Deprecated', description: 'No longer supported by Gestalt.' },
 });

@@ -12,8 +12,8 @@ import IconButton from './IconButton';
 import Image from './Image';
 import Mask from './Mask';
 import Text from './Text';
-import useInExperiment from './useInExperiment';
 import useResponsiveMinWidth from './useResponsiveMinWidth';
+import useExperimentalTheme from './utils/useExperimentalTheme';
 
 export type ActionDataType =
   | {
@@ -150,10 +150,7 @@ export default function BannerUpsell({
   const hasActions = Boolean(primaryAction || secondaryAction);
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
-  const isInVRExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
   let messageElement: ReactNode;
 
   if (typeof message === 'string') {
@@ -182,7 +179,7 @@ export default function BannerUpsell({
       </span>
     );
   }
-  if (isInVRExperiment) {
+  if (theme.MAIN) {
     return (
       <VRBannerUpsell
         dismissButton={dismissButton}
@@ -294,7 +291,7 @@ export default function BannerUpsell({
             icon="cancel"
             iconColor="darkGray"
             onClick={dismissButton.onDismiss}
-            padding={isInVRExperiment ? undefined : 4}
+            padding={theme.MAIN ? undefined : 4}
             size="sm"
           />
         </div>

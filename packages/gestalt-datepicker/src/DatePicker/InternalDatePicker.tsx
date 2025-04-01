@@ -9,14 +9,7 @@ import {
 } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { limitShift, shift } from '@floating-ui/react';
-import {
-  Box,
-  Icon,
-  Label,
-  Text,
-  useDangerouslyInGestaltExperiment,
-  useDefaultLabel,
-} from 'gestalt';
+import { Box, Icon, Label, Text, useDefaultLabel, useExperimentalTheme } from 'gestalt';
 import DateInput from './DateInput';
 import { Props } from '../DatePicker';
 import styles from '../DatePicker.css';
@@ -73,10 +66,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
 
     const { nextMonth, previousMonth } = useDefaultLabel('DatePicker');
 
-    const isInVRExperiment = useDangerouslyInGestaltExperiment({
-      webExperimentName: 'web_gestalt_visualrefresh',
-      mwebExperimentName: 'web_gestalt_visualrefresh',
-    });
+    const theme = useExperimentalTheme();
     // This state is only used if the component is uncontrolled or value === undefined. If uncontrolled, DatePicker manages the selected Date value internally
     const [uncontrolledValue, setUncontrolledValue] = useState<Date | null | undefined>(null);
     // We keep month in state to trigger a re-render when month changes since height will vary by where days fall
@@ -120,7 +110,7 @@ const InternalDatePickerWithForwardRef = forwardRef<HTMLInputElement, InternalPr
 
     return (
       <div className="_gestalt">
-        {label && !isInVRExperiment && !inline && (
+        {label && !theme.MAIN && !inline && (
           <Label htmlFor={id}>
             <Box marginBottom={2}>
               <Text size="100">{label}</Text>

@@ -49,6 +49,8 @@ type Props<T> = {
   manualFetch?: boolean;
   // External measurement store.
   measurementStore: MasonryProps<T>['measurementStore'];
+  // Enable new multi column layout algorithm
+  multiColPositionAlgoV2?: boolean;
   // Tests multicolumn item position inside the feed.
   multiColTest?: boolean;
   // Prevent scrolling on Masonry
@@ -349,6 +351,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
       virtualBoundsBottom,
       virtualBoundsTop,
       virtualize,
+      multiColPositionAlgoV2,
     } = this.props;
 
     const { hasScrollContainer, mountGrid, items } = this.state;
@@ -434,6 +437,7 @@ export default class MasonryContainer extends Component<Props<Record<any, any>>,
                   (whitespace) => console.log('Whitespace above 2-col module:', whitespace)
                 : undefined
             }
+            _multiColPositionAlgoV2={multiColPositionAlgoV2}
             columnWidth={columnWidth}
             gutterWidth={0}
             items={items}

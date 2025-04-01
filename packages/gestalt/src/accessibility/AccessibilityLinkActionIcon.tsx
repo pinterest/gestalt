@@ -5,7 +5,7 @@ import Icon from '../Icon';
 import styles from '../Icon.css';
 import icons from '../icons/index';
 import vrIcons from '../icons-vr-theme/index';
-import useInExperiment from '../useInExperiment';
+import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Props = {
   color?: ComponentProps<typeof Icon>['color'];
@@ -16,10 +16,7 @@ type Props = {
 export default function AccessibilityLinkActionIcon({ size, color, icon = 'visit' }: Props) {
   const { accessibilityNewTabLabel, accessibilityDownloadLabel } = useDefaultLabelContext('Link');
 
-  const isInExperiment = useInExperiment({
-    webExperimentName: 'web_gestalt_visualrefresh',
-    mwebExperimentName: 'web_gestalt_visualrefresh',
-  });
+  const theme = useExperimentalTheme();
 
   const classNames = classnames(
     styles.rtlSupport,
@@ -42,7 +39,7 @@ export default function AccessibilityLinkActionIcon({ size, color, icon = 'visit
   return (
     <svg className={classNames} height={size} role="img" viewBox="0 0 24 24" width={size}>
       <title>{titleLabel}</title>
-      <path d={(isInExperiment ? vrIcons : icons)[icon ?? 'visit']} />
+      <path d={(theme.MAIN ? vrIcons : icons)[icon ?? 'visit']} />
     </svg>
   );
 }
