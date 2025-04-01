@@ -19,7 +19,7 @@ const defaultHeadingLevels = {
 } as const;
 
 const defaultHeadingLevelsVR = {
-  '100': 6,
+  '100': 5,
   '200': 5,
   '300': 4,
   '400': 3,
