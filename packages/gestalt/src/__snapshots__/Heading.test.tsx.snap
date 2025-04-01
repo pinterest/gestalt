@@ -8,13 +8,13 @@ exports[`Heading default overflow 1`] = `
 
 exports[`Heading large 1`] = `
 <h1
-  className="Heading fontSize600 default alignStart breakWord"
+  className="Heading fontSize700 default alignStart breakWord"
 />
 `;
 
 exports[`Heading lineClamp adds a title when the children are text only 1`] = `
 <h1
-  className="Heading fontSize600 default alignStart breakWord lineClamp"
+  className="Heading fontSize700 default alignStart breakWord lineClamp"
   style={
     Object {
       "WebkitLineClamp": 1,
@@ -28,7 +28,7 @@ exports[`Heading lineClamp adds a title when the children are text only 1`] = `
 
 exports[`Heading lineClamp does not add a title when the children are objects 1`] = `
 <h1
-  className="Heading fontSize600 default alignStart breakWord lineClamp"
+  className="Heading fontSize700 default alignStart breakWord lineClamp"
 >
   <div>
     Breakup reading:

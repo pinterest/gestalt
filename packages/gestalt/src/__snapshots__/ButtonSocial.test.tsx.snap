@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonSocial Renders apple service with login 1`] = `
+<button
+  className="lightMode social rtl accessibilityOutlineButtonSocial"
+  onClick={[Function]}
+  type="button"
+>
+  <div
+    className="Flex rowGap0 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="default icon iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+    <div
+      className="box"
+      style={
+        Object {
+          "left": "50%",
+          "position": "absolute",
+          "transform": " translate(-50%, 0%)",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
+      >
+        Login with Email
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`ButtonSocial Renders email service 1`] = `
+<button
+  className="lightMode social rtl accessibilityOutlineButtonSocial"
+  onClick={[Function]}
+  type="button"
+>
+  <div
+    className="Flex rowGap0 columnGap0 justifyCenter xsDirectionRow xsItemsCenter"
+  >
+    <svg
+      aria-hidden={true}
+      aria-label=""
+      className="default icon iconBlock"
+      height={20}
+      role="img"
+      viewBox="0 0 24 24"
+      width={20}
+    >
+      <path
+        d="test-file-stub"
+      />
+    </svg>
+    <div
+      className="box"
+      style={
+        Object {
+          "left": "50%",
+          "position": "absolute",
+          "transform": " translate(-50%, 0%)",
+          "width": "100%",
+        }
+      }
+    >
+      <div
+        className="default alignCenter breakWord Text fontSize300 fontWeightSemiBold"
+      >
+        Continue with Email
+      </div>
+    </div>
+  </div>
+</button>
+`;

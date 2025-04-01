@@ -1,13 +1,41 @@
+/* Classic */
+
 .Heading {
   composes: antialiased sansSerif fontWeightSemiBold from "./Typography.css";
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-bottom: var(--space-0);
+  margin-top: var(--space-0);
 }
+
+.fontSize100 {
+  font-size: var(--font-size-100);
+}
+
+.fontSize200 {
+  font-size: var(--font-size-200);
+}
+
+.fontSize300 {
+  font-size: var(--font-size-300);
+}
+
+.fontSize400 {
+  font-size: var(--font-size-400);
+}
+
+.fontSize600 {
+  font-size: var(--font-size-500);
+}
+
+.fontSize700 {
+  font-size: var(--font-size-600);
+}
+
+/* Visual Refresh */
 
 .HeadingVR {
   composes: antialiased from "./Typography.css";
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-bottom: var(--sema-space-0);
+  margin-top: var(--sema-space-0);
 }
 
 .lg {
@@ -53,4 +81,46 @@
   letter-spacing: var(--sema-font-letterspacing-heading-xxs);
   line-height: var(--sema-font-lineheight-heading-xxs);
   text-decoration: var(--sema-font-textdecoration-heading-xxs);
+}
+
+/* Shared */
+
+/* overflow */
+
+.breakWord {
+  /* Use word-wrap internally as a result of existing usage (e.g. Instances of Text can break with word-break. E.g TileData) */
+  word-wrap: break-word;
+}
+
+.breakAll {
+  word-break: break-all;
+}
+
+/* alignment */
+
+.alignCenter {
+  text-align: center;
+}
+
+html:not([dir="rtl"]) .alignStart,
+html[dir="rtl"] .alignEnd,
+.alignForceLeft {
+  text-align: left;
+}
+
+html:not([dir="rtl"]) .alignEnd,
+html[dir="rtl"] .alignStart,
+.alignForceRight {
+  text-align: right;
+}
+
+.alignJustify {
+  text-align: justify;
+}
+
+.lineClamp {
+  -webkit-box-orient: vertical; /* stylelint-disable-line property-no-vendor-prefix */
+  display: -webkit-box; /* stylelint-disable-line value-no-vendor-prefix */
+  max-width: 100%;
+  overflow: hidden;
 }

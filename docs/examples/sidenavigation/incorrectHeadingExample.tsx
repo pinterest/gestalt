@@ -25,7 +25,7 @@ export default function Example() {
         />
       </SideNavigation>
       <Box paddingX={4}>
-        <Heading accessibilityLevel="none" size="500">
+        <Heading accessibilityLevel="none" size="600">
           Tag manager
         </Heading>
       </Box>

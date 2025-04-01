@@ -12,7 +12,7 @@ type Props = {
     tooltipText: string;
   };
   description?: string;
-  headingSize?: '400' | '500';
+  headingSize?: '400' | '600';
   id?: string;
   name: string;
   toggle?: ReactNode;
@@ -41,7 +41,7 @@ export default function Card({
   children,
   badge,
   description,
-  headingSize = '500',
+  headingSize = '600',
   id,
   name,
   toggle,

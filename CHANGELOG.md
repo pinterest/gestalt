@@ -1,3 +1,15 @@
+## 176.0.0 (Apr 1, 2025)
+
+### Major
+
+- Heading: deprecating size 500, moving 500 to 600 and 600 to 700 ([#4062](https://github.com/pinterest/gestalt/pull/4062)) - [Preview link](https://deploy-preview-4062--gestalt.netlify.app?devexample=true)
+
+## 175.3.0 (Apr 1, 2025)
+
+### Minor
+
+- Button: new button social ([#3994](https://github.com/pinterest/gestalt/pull/3994)) - [Preview link](https://deploy-preview-3994--gestalt.netlify.app?devexample=true)
+
 ## 175.2.0 (Apr 1, 2025)
 
 ### Minor

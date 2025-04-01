@@ -52,8 +52,8 @@ export default function Example() {
               <Heading size="200">{content[language]}</Heading>
               <Heading size="300">{content[language]}</Heading>
               <Heading size="400">{content[language]}</Heading>
-              <Heading size="500">{content[language]}</Heading>
               <Heading size="600">{content[language]}</Heading>
+              <Heading size="700">{content[language]}</Heading>
             </Flex>
           </DesignTokensProvider>
         </ColorSchemeProvider>

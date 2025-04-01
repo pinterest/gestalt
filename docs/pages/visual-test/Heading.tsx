@@ -17,10 +17,10 @@ export default function Snapshot() {
         <Heading size="400">Heading size 400</Heading>
       </Box>
       <Box padding={1}>
-        <Heading size="500">Heading size 500</Heading>
+        <Heading size="600">Heading size 500</Heading>
       </Box>
       <Box padding={1}>
-        <Heading size="600">Heading size 600</Heading>
+        <Heading size="700">Heading size 600</Heading>
       </Box>
     </Fragment>
   );
