@@ -1,3 +1,9 @@
+## 175.2.0 (Apr 1, 2025)
+
+### Minor
+
+- Masonry: Enable dynamic batches ([#4035](https://github.com/pinterest/gestalt/pull/4035)) - [Preview link](https://deploy-preview-4035--gestalt.netlify.app?devexample=true)
+
 ## 175.1.1 (Apr 1, 2025)
 
 ### Patch
