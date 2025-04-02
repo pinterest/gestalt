@@ -16,7 +16,7 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample code={main} hideEditor name="Main ButtonSocial example" />
       </PageHeader>
-      
+
       <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />

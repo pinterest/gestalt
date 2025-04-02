@@ -45,7 +45,7 @@ type Props = {
  */
 
 const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonSocial(
-  { dataTestId, onClick, type, service }:Props,
+  { dataTestId, onClick, type, service }: Props,
   ref,
 ) {
   const innerRef = useRef<null | HTMLButtonElement>(null);
