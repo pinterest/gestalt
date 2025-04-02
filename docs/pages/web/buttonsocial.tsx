@@ -2,6 +2,7 @@ import { ButtonSocial } from 'gestalt';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import CombinationNew from '../../docs-components/CombinationNew';
 import docGen, { type DocGen } from '../../docs-components/docgen';
+import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
 import MainSection from '../../docs-components/MainSection';
 import Page from '../../docs-components/Page';
 import PageHeader from '../../docs-components/PageHeader';
@@ -15,6 +16,8 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: DocGen 
       <PageHeader description={generatedDocGen?.description} name={generatedDocGen?.displayName}>
         <SandpackExample code={main} hideEditor name="Main ButtonSocial example" />
       </PageHeader>
+      
+      <GeneratedPropTable generatedDocGen={generatedDocGen} />
 
       <AccessibilitySection name={generatedDocGen?.displayName} />
 
