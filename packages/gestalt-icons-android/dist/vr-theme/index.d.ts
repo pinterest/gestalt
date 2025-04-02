@@ -60,6 +60,7 @@ declare const icons: Readonly<{
     board: any;
     'board-sticker-large': any;
     'board-sticker-small': any;
+    bold: any;
     border: any;
     'border-shadow': any;
     briefcase: any;
@@ -88,6 +89,7 @@ declare const icons: Readonly<{
     'circle-information-fill': any;
     'circle-initializing': any;
     clear: any;
+    clipboard: any;
     clips: any;
     clock: any;
     'clock-checked': any;
@@ -116,6 +118,7 @@ declare const icons: Readonly<{
     cutout: any;
     dash: any;
     'data-source': any;
+    deselect: any;
     design: any;
     desktop: any;
     diagnostics: any;
@@ -195,6 +198,7 @@ declare const icons: Readonly<{
     instagram: any;
     'instagram-stories': any;
     invoice: any;
+    italics: any;
     'kakao-talk': any;
     key: any;
     knoop: any;
@@ -207,6 +211,7 @@ declare const icons: Readonly<{
     link: any;
     'link-broken': any;
     lips: any;
+    'list-bullets': any;
     'list-numbered': any;
     'list-numbered-rtl': any;
     location: any;
@@ -261,6 +266,7 @@ declare const icons: Readonly<{
     protect: any;
     'qr-code': any;
     'question-mark': any;
+    quote: any;
     'record-limit': any;
     'record-limit-10': any;
     'record-limit-15': any;
@@ -360,6 +366,7 @@ declare const icons: Readonly<{
     tint: any;
     'trash-can': any;
     trending: any;
+    underline: any;
     undo: any;
     unlock: any;
     'upload-feed': any;
