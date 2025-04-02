@@ -190,7 +190,7 @@ export default function Modal({
   return (
     <StopScrollBehavior>
       <TrapFocusBehavior>
-        <div aria-label={accessibilityModalLabel} className={modalStyles.container} role={role}>
+        <div aria-label={accessibilityModalLabel} aria-modal="true" className={modalStyles.container} role={role}>
           <Backdrop closeOnOutsideClick={closeOnOutsideClick} onClick={handleOutsideClick}>
             <div
               className={classnames(modalStyles.wrapper, focusStyles.hideOutline)}
