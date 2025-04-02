@@ -1,3 +1,9 @@
+## 176.0.4 (Apr 2, 2025)
+
+### Patch
+
+- Button: Fixing docs ([#4065](https://github.com/pinterest/gestalt/pull/4065)) - [Preview link](https://deploy-preview-4065--gestalt.netlify.app?devexample=true)
+
 ## 176.0.3 (Apr 1, 2025)
 
 ### Patch
