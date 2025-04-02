@@ -441,8 +441,6 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
       <Box
         aria-autocomplete="list"
         aria-expanded={showOptionsList}
-        aria-haspopup
-        aria-owns={id}
         position="relative"
         role="combobox"
       >
