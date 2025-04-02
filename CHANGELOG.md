@@ -1,3 +1,9 @@
+## 176.1.0 (Apr 2, 2025)
+
+### Minor
+
+- Icon: Add 13 new icons [GESTALT-8752] ([#4064](https://github.com/pinterest/gestalt/pull/4064)) - [Preview link](https://deploy-preview-4064--gestalt.netlify.app?devexample=true)
+
 ## 176.0.4 (Apr 2, 2025)
 
 ### Patch
