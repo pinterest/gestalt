@@ -16,7 +16,7 @@ import Text from './Text';
 import useFocusVisible from './useFocusVisible';
 import useExperimentalTheme from './utils/useExperimentalTheme';
 
-type ButtonProps = {
+type Props = {
   /**
    * Available for testing purposes, if needed. Consider [better queries](https://testing-library.com/docs/queries/about/#priority) before using this prop.
    */
@@ -44,8 +44,8 @@ type ButtonProps = {
  * ![ButtonSocial dark mode](https://raw.githubusercontent.com/pinterest/gestalt/master/playwright/visual-test/ButtonSocial-dark.spec.ts-snapshots/ButtonSocial-dark-chromium-darwin.png)
  */
 
-const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, ButtonProps>(function ButtonSocial(
-  { dataTestId, onClick, type, service },
+const ButtonSocialWithForwardRef = forwardRef<HTMLButtonElement, Props>(function ButtonSocial(
+  { dataTestId, onClick, type, service }: Props,
   ref,
 ) {
   const innerRef = useRef<null | HTMLButtonElement>(null);
