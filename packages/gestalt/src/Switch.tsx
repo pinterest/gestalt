@@ -54,10 +54,13 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
     [focusStyles.accessibilityOutlineFocus]: isFocused && isFocusVisible && !theme.MAIN,
     [styles.focus]: isFocused && isFocusVisible && theme.MAIN,
     [styles.disabledSelected]: disabled && switched,
-    [styles.disabledUnselected]: disabled && !switched,
+    [styles.disabledUnselectedClassic]: disabled && !switched  && !theme.MAIN,
+    [styles.disabledUnselected]: disabled && !switched  && theme.MAIN,
     [styles.enabledSelected]: !disabled && switched,
+    [styles.enabledUnselectedClassic]:
+      !disabled && !switched && !(isFocused && isFocusVisible) && !theme.MAIN,
     [styles.enabledUnselected]:
-      !disabled && !switched && !(isFocused && isFocusVisible && theme.MAIN),
+      !disabled && !switched && !(isFocused && isFocusVisible) && theme.MAIN,
     [styles.borderColorTransition]: !theme.MAIN,
   });
 
@@ -69,9 +72,12 @@ export default function Switch({ disabled = false, id, name, onChange, switched 
   });
 
   const sliderVrStyles = classnames(styles.sliderVr, {
-    [styles.sliderVrOn]: switched,
-    [styles.sliderVrOff]: !switched,
-    [styles.disabledSlider]: disabled && !switched,
+    [styles.sliderVrOnClassic]: switched && !theme.MAIN,
+    [styles.sliderVrOn]: switched && theme.MAIN,
+    [styles.sliderVrOffClassic]: !switched && !theme.MAIN,
+    [styles.sliderVrOff]: !switched && theme.MAIN,
+    [styles.disabledSliderClassic]: disabled && !switched && !theme.MAIN,
+    [styles.disabledSlider]: disabled && !switched && theme.MAIN,
   });
 
   const inputStyles = classnames(styles.checkbox, {
