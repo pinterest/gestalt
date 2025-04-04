@@ -7,8 +7,7 @@
   height: 48px;
   isolation: isolate;
   min-width: 60px;
-  padding-left: var(--space-100);
-  padding-right: var(--space-100);
+  padding: var(--space-0) var(--space-100);
 }
 
 .searchguideVr {
