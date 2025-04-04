@@ -29,7 +29,7 @@ html[dir="rtl"] .switch {
   transform: rotateY(180deg);
 }
 
-.enabledUnselectedClassic{
+.enabledUnselectedClassic {
   background-color: var(--color-background-switch-default-unselected);
   border-color: var(--color-border-switch-default-unselected);
 }
@@ -80,15 +80,14 @@ html[dir="rtl"] .switch {
   padding: var(--space-0) var(--space-100);
 }
 
-.disabledUnselectedClassic{
+.disabledUnselectedClassic {
   background-color: var(--color-background-switch-disabled-unselected);
   border-color: var(--color-border-switch-disabled-unselected);
 }
 
-
 .disabledUnselected {
   background-color: var(--base-color-grayscale-100);
-  border:none;
+  border: none;
 }
 
 .disabledSelected {
@@ -127,7 +126,7 @@ html[dir="rtl"] .switch {
   width: var(--g-slider-height-on);
 }
 
-.sliderVrOnClassic{
+.sliderVrOnClassic {
   background-color: var(--sema-color-background-default);
   height: var(--g-slider-height-on-classic);
   margin: 2px;
@@ -149,7 +148,7 @@ html[dir="rtl"] .switch {
   width: var(--g-slider-height-off);
 }
 
-.sliderVrOffClassic{
+.sliderVrOffClassic {
   background-color: var(--sema-color-background-inverse);
   height: var(--g-slider-height-off-classic);
   margin: 3px;
@@ -163,7 +162,7 @@ html[dir="rtl"] .switch {
   background-color: var(--base-color-grayscale-0);
 }
 
-.disabledSliderClassic{
+.disabledSliderClassic {
   background-color: var(--color-background-switch-disabled-selected);
 }
 
