@@ -1,3 +1,9 @@
+## 176.1.1 (Apr 7, 2025)
+
+### Patch
+
+- Docs: remove icons page ([#4070](https://github.com/pinterest/gestalt/pull/4070)) - [Preview link](https://deploy-preview-4070--gestalt.netlify.app?devexample=true)
+
 ## 176.1.0 (Apr 2, 2025)
 
 ### Minor
