@@ -1,3 +1,9 @@
+## 176.1.2 (Apr 7, 2025)
+
+### Patch
+
+- Docs: fix in redirect ([#4071](https://github.com/pinterest/gestalt/pull/4071)) - [Preview link](https://deploy-preview-4071--gestalt.netlify.app?devexample=true)
+
 ## 176.1.1 (Apr 7, 2025)
 
 ### Patch
