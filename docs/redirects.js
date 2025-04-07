@@ -236,6 +236,11 @@ const misc = [
     permanent: true,
   },
   {
+    source: '/foundations/iconography/library',
+    destination: 'http://pinch.pinadmin.com/iconLibrary',
+    permanent: true,
+  },
+  {
     source: '/iconography',
     destination: '/foundations/iconography/usage',
     permanent: true,

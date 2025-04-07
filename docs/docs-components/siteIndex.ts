@@ -265,7 +265,7 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
       },
       {
         sectionName: 'Iconography',
-        pages: ['Library', 'Custom and brand icons', 'Usage', 'Creating icons'],
+        pages: ['Custom and brand icons', 'Usage', 'Creating icons'],
       },
       'Illustration',
       {
