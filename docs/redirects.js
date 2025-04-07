@@ -238,6 +238,7 @@ const misc = [
   {
     source: '/foundations/iconography/library',
     destination: 'http://pinch.pinadmin.com/iconLibrary',
+    basePath: false,
     permanent: true,
   },
   {
