@@ -415,7 +415,7 @@ representations of time. In RTL, decide whether to show circular or horizontal d
           />
           <MainSection.Subsection
             description={`
-          **[Iconography guidelines](https://gestalt.pinterest.systems/foundations/iconography/library)**
+          **[Iconography guidelines](http://pinch.pinadmin.com/iconLibrary)**
           Usage guidelines and best practices for our product icon library
           `}
           />

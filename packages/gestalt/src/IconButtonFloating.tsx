@@ -33,7 +33,7 @@ type Props = {
    */
   disabled?: boolean;
   /**
-   * Icon displayed in IconButtonFloating to convey the behavior of the component. Refer to our [iconography library](https://gestalt.pinterest.systems/foundations/iconography/library) to see available icons.
+   * Icon displayed in IconButtonFloating to convey the behavior of the component. Refer to our [iconography library](http://pinch.pinadmin.com/iconLibrary) to see available icons.
    */
   icon: keyof typeof icons;
   /**

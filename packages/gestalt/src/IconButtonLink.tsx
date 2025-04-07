@@ -50,7 +50,7 @@ type Props = {
   /**
    * SVG icon from the Gestalt icon library to use within Icon.
    *
-   * See the [icon library](https://gestalt.pinterest.systems/foundations/iconography/library) to explore available options.
+   * See the [icon library](http://pinch.pinadmin.com/iconLibrary) to explore available options.
    */
   icon?: keyof typeof icons;
   /**
