@@ -69,7 +69,7 @@ Some icons might need to be removed because they don’t apply to an RTL languag
         />
         <MainSection.Subsection
           description={`
-          **[Iconography guidelines](https://gestalt.pinterest.systems/foundations/iconography/library)**
+          **[Iconography guidelines](http://pinch.pinadmin.com/iconLibrary)**
           Usage guidelines and best practices for our product icon library
           `}
         />

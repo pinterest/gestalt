@@ -48,7 +48,7 @@ type Props = {
    */
   hovered?: boolean;
   /**
-   * Icon displayed in Pog to convey the behavior of the component. Refer to the [iconography](https://gestalt.pinterest.systems/foundations/iconography/library) guidelines regarding the available icon options.
+   * Icon displayed in Pog to convey the behavior of the component. Refer to the [iconography](http://pinch.pinadmin.com/iconLibrary) guidelines regarding the available icon options.
    */
   icon?: keyof typeof icons;
   /**
