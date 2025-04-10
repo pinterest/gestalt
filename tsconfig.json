@@ -42,6 +42,6 @@
     { "path": "./packages/gestalt-codemods" },
     { "path": "./packages/gestalt-datepicker" },
     { "path": "./packages/gestalt-charts" },
-    { "path": "./docs" },
+    { "path": "./docs" }
   ]
 }
