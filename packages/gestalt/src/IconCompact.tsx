@@ -60,7 +60,7 @@ type Props = {
 };
 
 // @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
-const IconNames: ReadonlyArray<keyof typeof compactIconsVR> = Object.keys(compactIconsVR);
+const IconNames: ReadonlyArray<keyof typeof compactIconsClassic> = Object.keys(compactIconsClassic);
 
 /**
  * [Icons](https://gestalt.pinterest.systems/web/icon) are the symbolic representation of an action or information, providing visual context and improving usability. These icons have a 16x16 viewboxes and are used in places where space is limited. Refer to your designer for guidance on when to use Compact Icons.
