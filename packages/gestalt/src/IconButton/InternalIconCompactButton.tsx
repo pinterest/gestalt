@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
 import classnames from 'classnames';
 import styles from './InternalIconButton.css';
-import compactIconsVR from '../icons-vr-theme/compact/index';
+import compactIconsClassic from '../icons/compact/index';
 import InternalPogCompact from '../Pog/InternalPogCompact';
 import touchableStyles from '../TapArea.css';
 import useFocusVisible from '../useFocusVisible';
@@ -30,7 +30,7 @@ type Props = {
   };
   dataTestId?: string;
   disabled?: boolean;
-  icon?: keyof typeof compactIconsVR;
+  icon?: keyof typeof compactIconsClassic;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   name?: string;
   onClick?: (arg1: {

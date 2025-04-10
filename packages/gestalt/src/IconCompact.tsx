@@ -1,5 +1,5 @@
 import InternalIcon from './Icon/InternalIcon';
-import compactIconsVR from './icons-vr-theme/compact/index';
+import compactIconsClassic from './icons/compact/index';
 
 export type IconColor =
   | 'default'
@@ -38,7 +38,7 @@ type Props = {
    *
    * See the [icon library](http://pinch.pinadmin.com/iconLibrary) to explore available options.
    */
-  icon?: keyof typeof compactIconsVR;
+  icon?: keyof typeof compactIconsClassic;
   /**
    * Defines a new icon different from the built-in Gestalt icons.
    *
