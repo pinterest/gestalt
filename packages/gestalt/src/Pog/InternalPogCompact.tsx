@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import styles from './InternalPog.css';
 import IconCompact from '../IconCompact';
-import compactIconsVR from '../icons-vr-theme/compact/index';
+import compactIconsClassic from '../icons/compact/index';
 
 type Props = {
   accessibilityLabel?: string;
@@ -23,7 +23,7 @@ type Props = {
   };
   focused?: boolean;
   hovered?: boolean;
-  icon?: keyof typeof compactIconsVR;
+  icon?: keyof typeof compactIconsClassic;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   padding?: 1 | 2 | 3 | 4 | 5;
   rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';

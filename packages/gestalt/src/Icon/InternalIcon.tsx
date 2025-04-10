@@ -3,9 +3,6 @@ import { flipOnRtlIconNames, swapOnRtlIconNames } from './RTLIconList';
 import styles from '../Icon.css';
 import compactIconsClassic from '../icons/compact/index';
 import icons from '../icons/index';
-import compactIconsVR from '../icons-vr-theme/compact/index';
-import vrIcons from '../icons-vr-theme/index';
-import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 export type IconColor =
   | 'default'
@@ -22,7 +19,7 @@ export type IconColor =
   | 'light'
   | 'dark';
 
-type IconName = keyof typeof icons | keyof typeof compactIconsVR;
+type IconName = keyof typeof icons | keyof typeof compactIconsClassic;
 type Props = {
   accessibilityDescribedby?: string;
   accessibilityLabel: string;
@@ -35,9 +32,6 @@ type Props = {
   inline?: boolean;
   size?: number | string;
 };
-
-// @ts-expect-error - TS2322 - Type 'string[]' is not assignable to type 'readonly ("replace" | "search" | "link" | "text" | "dash" | "3D" | "3D-move" | "360" | "accessibility" | "ad" | "ad-group" | "add" | "add-circle" | "add-layout" | "add-pin" | "add-section" | ... 317 more ... | "wave")[]'.
-const IconNames: ReadonlyArray<IconName> = Object.keys(icons);
 
 function InternalIcon({
   accessibilityDescribedby,
@@ -55,22 +49,11 @@ function InternalIcon({
     styles.icon,
     { [styles.iconBlock]: !inline },
   );
-  const theme = useExperimentalTheme();
 
   const getIconPath = (iconToUse?: IconName) => {
     const iconName = iconToUse;
 
     if (!iconName) return undefined;
-
-    if (theme.MAIN) {
-      if (iconName in vrIcons) {
-        return vrIcons[iconName as keyof typeof vrIcons];
-      }
-
-      if (iconName in compactIconsVR) {
-        return compactIconsVR[iconName as keyof typeof compactIconsVR];
-      }
-    }
 
     if (iconName in compactIconsClassic) {
       return compactIconsClassic[iconName as keyof typeof compactIconsClassic];
@@ -116,7 +99,7 @@ function InternalIcon({
   let viewBox = '0 0 24 24';
 
   // if it's a component icon use a 16x16 view box
-  if (iconToUse && iconToUse in compactIconsVR) {
+  if (iconToUse && iconToUse in compactIconsClassic) {
     viewBox = '0 0 16 16';
   }
 
@@ -137,8 +120,6 @@ function InternalIcon({
     </svg>
   );
 }
-
-InternalIcon.icons = IconNames;
 
 InternalIcon.displayName = 'InternalIcon';
 

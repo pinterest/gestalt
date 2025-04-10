@@ -7,7 +7,6 @@ import avatarGroupStyles from '../AvatarGroup.css';
 import Box from '../Box';
 import { useColorScheme } from '../contexts/ColorSchemeProvider';
 import icons from '../icons/index';
-import vrIcons from '../icons-vr-theme/index';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 const ICON_SIZE_RATIO = (20 / 48) * 100; // For pixel perfect icon button, we use the icon (20px) to parent container (48px) size ratio
@@ -165,7 +164,7 @@ export default function AvatarFoundation({
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Icon</title>
-          <path d={(theme.MAIN ? vrIcons : icons)['person-add']} />
+          <path d={icons['person-add']} />
         </svg>
       ) : null}
     </ResponsiveFitSizeBox>

@@ -2,8 +2,8 @@ import classnames from 'classnames';
 import styles from './InternalPog.css';
 import Icon from '../Icon';
 import IconCompact from '../IconCompact';
+import compactIconsClassic from '../icons/compact/index';
 import icons from '../icons/index';
-import compactIconsVR from '../icons-vr-theme/compact/index';
 import useExperimentalTheme from '../utils/useExperimentalTheme';
 
 type Props = {
@@ -26,7 +26,7 @@ type Props = {
   };
   focused?: boolean;
   hovered?: boolean;
-  icon?: keyof typeof icons | keyof typeof compactIconsVR;
+  icon?: keyof typeof icons | keyof typeof compactIconsClassic;
   iconColor?: 'gray' | 'darkGray' | 'red' | 'white' | 'brandPrimary' | 'light' | 'dark';
   padding?: 1 | 2 | 3 | 4 | 5;
   rounding?: '0' | '100' | '200' | '300' | '400' | '500' | 'circle';
@@ -109,7 +109,7 @@ export default function InternalPog({
 
   const sizeInPx = iconSizeInPx + paddingInPx * 2;
 
-  const isCompact = icon && icon in compactIconsVR;
+  const isCompact = icon && icon in compactIconsClassic;
 
   const inlineStyle = {
     height: sizeInPx,
@@ -182,7 +182,7 @@ export default function InternalPog({
               : OLD_TO_NEW_COLOR_MAP[color]
           }
           dangerouslySetSvgPath={dangerouslySetSvgPath}
-          icon={icon as keyof typeof compactIconsVR}
+          icon={icon as keyof typeof compactIconsClassic}
           size={iconSizeInPx}
         />
       ) : (

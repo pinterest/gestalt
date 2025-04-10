@@ -5,10 +5,6 @@ fullwidth: true
 ---
 <ImgContainer src="https://i.pinimg.com/originals/5c/e9/65/5ce965aac16951ef57b3a735bb41e823.jpg" alt="Four example icons in a row. Icons include share, check, back, and menu." />
 
-## Icon assets
-
-Download svg assets from our [Android icon GitHub repo](https://github.com/pinterest/gestalt/tree/master/packages/gestalt-icons-android).
-
 ## Usage guidelines
 
 <TwoCol>

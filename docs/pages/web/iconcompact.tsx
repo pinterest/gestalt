@@ -143,7 +143,7 @@ export async function getServerSideProps(): Promise<{
 }> {
   const generatedDocGen = await docGen('IconCompact');
   const overriddenDocGen = overrideTypes(generatedDocGen, {
-    icon: (IconCompact?.icons ?? []).map((icon) => `'${icon}'`).join(' | '),
+    icon: (IconCompact?.icons ?? []).map((icon) => `'${String(icon)}'`).join(' | '),
   });
 
   return {
