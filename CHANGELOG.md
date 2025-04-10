@@ -1,3 +1,9 @@
+## 177.0.0 (Apr 10, 2025)
+
+### Major
+
+- Internal: prep work for final legacy open source repo ([#4072](https://github.com/pinterest/gestalt/pull/4072)) - [Preview link](https://deploy-preview-4072--gestalt.netlify.app?devexample=true)
+
 ## 176.1.2 (Apr 7, 2025)
 
 ### Patch
