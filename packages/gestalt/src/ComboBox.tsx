@@ -130,7 +130,7 @@ type Props = {
   /**
    * The selected option in ComboBox for controlled components. See [controlled ComboBox](https://gestalt.pinterest.systems/web/combobox#Controlled-vs-Uncontrolled) variant to learn more.
    */
-  selectedOption?: OptionType;
+  selectedOption?: OptionType | ReadonlyArray<OptionType> | null;
   /**
    * Defines the height of ComboBox: sm: 32px, md: 40px, lg: 48px. See the [size variant](https://gestalt.pinterest.systems/web/ComboBox#Size) for more details.
    */
@@ -202,7 +202,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
 
   const [hoveredItemIndex, setHoveredItemIndex] = useState<null | number>(null);
   const [showOptionsList, setShowOptionsList] = useState<boolean>(false);
-  const [selectedItem, setSelectedItem] = useState<OptionType | null | undefined>(null);
+  const [selectedItems, setSelectedItems] = useState<ReadonlyArray<OptionType | null | undefined>>([]);
   const [suggestedOptions, setSuggestedOptions] = useState<ReadonlyArray<OptionType>>(options);
   const [textfieldInput, setTextfieldInput] = useState<string>('');
 
@@ -220,8 +220,8 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
 
   useEffect(() => {
     if (isNotControlled) {
-      if (!selectedItem) setHoveredItemIndex(null);
-      if (showOptionsList && !selectedItem) {
+      if (!selectedItems || selectedItems.length === 0) setHoveredItemIndex(null);
+      if (showOptionsList && (!selectedItems || selectedItems.length === 0)) {
         const filteredOptions = options.filter(({ label: optionLabel }) =>
           optionLabel.toLowerCase().includes(textfieldInput.toLowerCase()),
         );
@@ -230,7 +230,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         setSuggestedOptions(options);
       }
     }
-  }, [isNotControlled, options, selectedItem, showOptionsList, textfieldInput]);
+  }, [isNotControlled, options, selectedItems, showOptionsList, textfieldInput]);
 
   // ==== CONTROLLED COMBOBOX: Set all variables ====
 
@@ -239,8 +239,18 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
       if (!selectedOption) {
         setHoveredItemIndex(null);
       } else {
+        
         suggestedOptions.forEach((option, index) => {
-          if (option.value === selectedOption.value) setHoveredItemIndex(index);
+          const matches = (Array.isArray(selectedOption) ? selectedOption : [selectedOption]).filter(
+            ({ value }) => value === option.value,
+          );
+        
+          // Determine if the option is a current selected item
+        const isSelectedItem =
+        matches.length > 0 || JSON.stringify(option) === JSON.stringify(selectedOption);
+          if (isSelectedItem) {
+            setHoveredItemIndex(index);
+          }
         });
       }
       setSuggestedOptions(options);
@@ -274,12 +284,14 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
         }) => {
       onSelect?.({ event, item });
       if (isNotControlled) {
-        setSelectedItem(item);
+        setSelectedItems([...selectedItems, item]);
         setTextfieldInput(item.label);
       }
-      setShowOptionsList(false);
+      if (!Array.isArray(selectedOption)) {
+        setShowOptionsList(false);
+      }
     },
-    [isNotControlled, onSelect],
+    [isNotControlled, onSelect, selectedItems, selectedOption],
   );
 
   // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxItem ====
@@ -376,7 +388,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
     ({ event, value }: { event: React.ChangeEvent<HTMLInputElement>; value: string }) => {
       setHoveredItemIndex(null);
       if (isNotControlled) {
-        setSelectedItem(null);
+        setSelectedItems([]);
         setTextfieldInput(value);
       }
       if (showOptionsList === false) setShowOptionsList(true);
@@ -388,7 +400,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
   const handleOnClickIconButtonClear = useCallback(() => {
     setHoveredItemIndex(null);
     if (isNotControlled) {
-      setSelectedItem(null);
+      setSelectedItems([]);
       setTextfieldInput('');
       setSuggestedOptions(options);
     }
@@ -407,8 +419,14 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
   // ==== MAPPING ComboBoxItem ====
   const comboBoxItemList = useMemo(
     () =>
-      suggestedOptions.map(({ label: comboBoxItemlabel, subtext, value }, index) => {
-        const isSelectedValue = (selectedOption?.value ?? selectedItem?.value) === value;
+      suggestedOptions.map((option, index) => {
+          const matches = (Array.isArray(selectedOption) ? selectedOption : [selectedOption]).filter(
+            ({ value }) => value === option.value,
+          );
+        
+        // Determine if the option is a current selected item
+        const isSelectedValue =
+        matches.length > 0 || JSON.stringify(option) === JSON.stringify(selectedOption);
         return (
           <ComboBoxItem
             // eslint-disable-next-line react/no-array-index-key
@@ -418,11 +436,11 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
             index={index}
             isHovered={index === hoveredItemIndex}
             isSelected={isSelectedValue}
-            label={comboBoxItemlabel}
+            label={option.label}
             onSelect={handleSelectItem}
             setHoveredItemIndex={setHoveredItemIndex}
-            subtext={subtext}
-            value={value}
+            subtext={option.subtext}
+            value={option.value}
           />
         );
       }),
@@ -431,9 +449,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
       handleSelectItem,
       hoveredItemIndex,
       id,
-      selectedItem?.value,
-      selectedOption?.value,
-    ],
+      selectedOption],
   );
 
   return (
