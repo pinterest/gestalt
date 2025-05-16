@@ -23,7 +23,7 @@
     "history": "^5.0.0",
     "lz-string": "^1.4.5",
     "marked": "^4.0.10",
-    "next": "^12.3.0",
+    "next": "^14.2.26",
     "next-mdx-remote": "^4.0.2",
     "react": "^18.1.0",
     "react-cookie": "^8.0.1",
