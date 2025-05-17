@@ -7,6 +7,7 @@ const { getOctokit, context } = require('@actions/github');
 const prettier = require('prettier');
 const semver = require('semver');
 const shell = require('shelljs');
+const { spawnSync } = require('child_process');
 
 function packageDirectory(item) {
   return path.join(__dirname, '..', 'packages', item);
@@ -156,7 +157,8 @@ function cleanSource() {
     shell.exec(`find ${src} -type f -name "*.test.ts" -delete`);
     shell.exec(`find ${src} -type f -name "*.test.tsx" -delete`);
     shell.exec(`find ${src} -type d -name "__fixtures__" -exec rm -rf {} +`);
-    shell.exec(`find ${src} -type d -name "__snapshots__" -exec rm -rf {} +`);
+    const { spawnSync } = require('child_process');
+    spawnSync('find', [src, '-type', 'd', '-name', '__snapshots__', '-exec', 'rm', '-rf', '{}', '+'], { stdio: 'inherit' });
   });
 }
 
