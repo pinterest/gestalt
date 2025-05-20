@@ -109,4 +109,23 @@ describe('Modal', () => {
     expect(screen.getByLabelText('Bottom sheet')).toBeVisible();
     expect(screen.getByLabelText('Dismiss bottom sheet')).toBeVisible();
   });
+
+  test('Modal shows data test id when passed as a prop', ()=>{
+    render(
+      <Modal
+      accessibilityModalLabel="Test modal"
+      dataTestId="custom-modal-test-id"
+      heading="Heading"
+      onDismiss={() => {}}
+      size="sm"
+    >
+      Modal content
+    </Modal>
+
+    );
+
+    const modalContainer = screen.getByTestId('custom-modal-test-id');
+    expect(modalContainer).toBeInTheDocument();
+    expect(modalContainer).toBeVisible();
+  })
 });
