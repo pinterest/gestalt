@@ -1,3 +1,4 @@
+import expandableBorderlessDivider from 'docs/examples/accordion/expandableBorderlessDivider';
 import AccessibilitySection from '../../docs-components/AccessibilitySection';
 import { multipleDocGen, MultipleDocGenType } from '../../docs-components/docgen';
 import GeneratedPropTable from '../../docs-components/GeneratedPropTable';
@@ -161,6 +162,21 @@ export default function DocsPage({ generatedDocGen }: { generatedDocGen: Generat
           <MainSection.Card
             cardSize="lg"
             sandpackExample={<SandpackExample code={expandableGroup} name="Expandable Group" />}
+          />
+        </MainSection.Subsection>
+
+        <MainSection.Subsection
+          description="Borderless expandable items can be indented to make their divider lines flush with item text"
+          title="Expandable - Indented Divider"
+        >
+          <MainSection.Card
+            cardSize="lg"
+            sandpackExample={
+              <SandpackExample
+                code={expandableBorderlessDivider}
+                name="Expandable Borderless Divider"
+              />
+            }
           />
         </MainSection.Subsection>
 

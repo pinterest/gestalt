@@ -84,11 +84,11 @@ export default function Screenshot() {
         items={[
           {
             children: <Text size="200">Summary 1</Text>,
-            title: 'Title 1',
+            title: 'Title 1 - indented divider',
           },
           {
             children: <Text size="200">Summary 2</Text>,
-            title: 'Title 2',
+            title: 'Title 2 - indented divider',
           },
         ]}
         onExpandedChange={() => {}}

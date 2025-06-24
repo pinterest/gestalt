@@ -60,6 +60,10 @@ type Props = {
     type?: 'error' | 'info';
   }>;
   /**
+   * Whether to indent the divider between Accordion.Expandable items to make it flush with item text
+   */
+  indentDivider?: boolean;
+  /**
    * Callback executed whenever any accordion item is expanded or collapsed. It receives the index of the currently expanded accordion, or null if none are expanded. See [Expandable](https://gestalt.pinterest.systems/web/accordion#Expandable) variant to learn more.
    */
   onExpandedChange?: (arg1?: number | null | undefined) => void;
@@ -79,6 +83,7 @@ export default function AccordionExpandable({
   expandedIndex,
   id,
   items,
+  indentDivider = false,
   onExpandedChange,
   size = 'lg',
 }: Props) {
@@ -124,7 +129,7 @@ export default function AccordionExpandable({
           // eslint-disable-next-line react/no-array-index-key
           <Fragment key={index}>
             {index > 0 &&
-              (borderStyle === 'none' ? (
+              (indentDivider && borderStyle === 'none' ? (
                 <Box marginStart={padding}>
                   <Divider />
                 </Box>
