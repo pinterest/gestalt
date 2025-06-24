@@ -93,7 +93,7 @@ export default function AccordionExpandable({
   const { colorSchemeName } = useColorScheme();
   const isDarkMode = colorSchemeName === 'darkMode';
 
-  const { rounding } = applyModuleDensityStyle(size);
+  const { rounding, padding } = applyModuleDensityStyle(size);
 
   useEffect(() => {
     setExpandedId(getExpandedId(expandedIndex));
@@ -123,7 +123,14 @@ export default function AccordionExpandable({
         ) => (
           // eslint-disable-next-line react/no-array-index-key
           <Fragment key={index}>
-            {index > 0 && <Divider />}
+            {index > 0 &&
+              (borderStyle === 'none' ? (
+                <Box marginStart={padding}>
+                  <Divider />
+                </Box>
+              ) : (
+                <Divider />
+              ))}
             <AccordionExpandableItem
               accessibilityCollapseLabel={
                 accessibilityCollapseLabel ?? defaultAccessibilityCollapseLabel

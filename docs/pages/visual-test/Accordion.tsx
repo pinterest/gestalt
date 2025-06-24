@@ -74,6 +74,25 @@ export default function Screenshot() {
           size={size}
         />
       </Flex>
+      <Box marginTop={2} />
+      <Accordion.Expandable
+        accessibilityCollapseLabel="Collapse section"
+        accessibilityExpandLabel="Expand section"
+        borderStyle="none"
+        expandedIndex={0}
+        id="AccordionExample - borderless expandable"
+        items={[
+          {
+            children: <Text size="200">Summary 1</Text>,
+            title: 'Title 1',
+          },
+          {
+            children: <Text size="200">Summary 2</Text>,
+            title: 'Title 2',
+          },
+        ]}
+        onExpandedChange={() => {}}
+      />
     </Box>
   );
 }
