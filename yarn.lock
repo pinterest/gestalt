@@ -11789,9 +11789,9 @@ ipaddr.js@1.9.1:
   integrity sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
 
 ipx@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/ipx/-/ipx-1.3.1.tgz#2ff4aa9bc5be74f63cccd80d1df430fcc5e715b6"
-  integrity sha512-hWRLXdMDOz2q81T2x9lowFtAGO3E5b2HtC8xOOBTrlnxygHNaVrZqJ5c1P3T7tDkC3oCocYRRz0VBffvJKeQlw==
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/ipx/-/ipx-1.3.2.tgz#316752e839020f5fde092eb5424cf3f766bd8c89"
+  integrity sha512-C2lNT6S5AdPw9OT8gbqIKBwPW4KgGzUK4qKlYmG4UsVU/QtPvqvimd/EWx8flop3WpprTExGLaMsFxG46aHv9w==
   dependencies:
     "@fastify/accept-negotiator" "^1.1.0"
     consola "^3.2.3"
