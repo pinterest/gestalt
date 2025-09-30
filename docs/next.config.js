@@ -3,7 +3,17 @@ const redirects = require('./redirects');
 
 const root = path.join(__dirname, '../');
 
+// Set basePath from environment variable (e.g., BASE_PATH="/v1")
+const basePath = process.env.BASE_PATH;
+
 module.exports = {
+
+  // Only set basePath if the env var is defined
+  ...(basePath ? { basePath } : {}),
+  // Only set trailingSlash if basePath is defined
+  ...(basePath ? { trailingSlash: false } : {}),
+
+
   images: {
     domains: [
       'paper-attachments.dropbox.com',
