@@ -1,3 +1,9 @@
+## 177.0.1 (Oct 2, 2025)
+
+### Patch
+
+- Internal: Add support for dynamic basePath and trailingSlash in Next.js config ([#4085](https://github.com/pinterest/gestalt/pull/4085)) - [Preview link](https://deploy-preview-4085--gestalt.netlify.app?devexample=true)
+
 ## 177.0.0 (Apr 10, 2025)
 
 ### Major
