@@ -11,7 +11,6 @@ import DocsSideNavigation, { MIN_NAV_WIDTH_PX } from './DocsSideNavigation';
 import Footer from './Footer';
 import Header from './Header';
 import { useNavigationContext } from './navigationContext';
-import ResourcesFooter from './ResourcesFooter';
 import SkipToContent from './SkipToContent';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
@@ -121,6 +120,7 @@ export default function AppLayout({ children, colorScheme }: Props) {
             mdDisplay="flex"
             mdPadding={8}
             mdPaddingY={12}
+            minHeight="100%"
             padding={4}
             role="main"
             width="100%"
@@ -144,7 +144,6 @@ export default function AppLayout({ children, colorScheme }: Props) {
             }}
             role="contentinfo"
           >
-            {isHomePage && <ResourcesFooter />}
             <Divider />
             <Footer />
           </Box>
