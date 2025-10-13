@@ -1,4 +1,4 @@
-import { Box, ButtonLink, Flex, Heading, Text } from 'gestalt';
+import { Box, Flex, Heading, Text } from 'gestalt';
 import {
   TOKEN_COLOR_BLUE_SKYCICLE_450,
   TOKEN_COLOR_TEAL_SPABATTICAL_450,
@@ -34,8 +34,6 @@ export default function HomePage() {
                   We’re here to help you build experiences that inspire people to create the life
                   they love
                 </Text>
-
-                <ButtonLink href="/whats_new" text="See what's new" />
               </Flex>
               <Box
                 alignItems="center"
