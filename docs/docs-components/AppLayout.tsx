@@ -1,6 +1,6 @@
 import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex } from 'gestalt';
+import { Box, Button, DeviceTypeProvider, Divider, FixedZIndex, Flex, Icon, Text } from 'gestalt';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
@@ -16,6 +16,7 @@ import SkipToContent from './SkipToContent';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_WITH_MARGIN = 90;
+const BANNER_TEXT_MAX_WIDTH = 580;
 const fullWidthPages = ['home'];
 const fullBleedNoNavigationPages = ['integration-test'];
 
@@ -23,6 +24,44 @@ type Props = {
   children?: ReactNode;
   colorScheme?: 'light' | 'dark';
 };
+
+function Banner() {
+  return (
+    <Box
+      alignItems="center"
+      dangerouslySetInlineStyle={{
+        __style: { backgroundColor: '#EBEEFF' },
+      }}
+      direction="row"
+      display="flex"
+      justifyContent="between"
+      paddingX={8}
+      paddingY={6}
+      role="banner"
+    >
+      <Flex alignItems="baseline" direction="row" gap={4}>
+        <Icon
+          accessibilityLabel="Information"
+          color="info"
+          icon="circle-information-fill"
+          size={24}
+        />
+
+        <Flex direction="column" gap={1} maxWidth={BANNER_TEXT_MAX_WIDTH}>
+          <Text size="500" weight="bold">
+            This is Gestalt’s legacy documentation
+          </Text>
+
+          <Text color="dark">
+            Information might be outdated. For the latest documentation and support, visit Gestalt’s
+            new documentation website.
+          </Text>
+        </Flex>
+      </Flex>
+      <Button color="red" size="lg" text="Explore Gestalt 2.0" />
+    </Box>
+  );
+}
 
 export default function AppLayout({ children, colorScheme }: Props) {
   const { isMobile } = useDocsConfig();
@@ -57,6 +96,7 @@ export default function AppLayout({ children, colorScheme }: Props) {
 
   let pageContent = (
     <Box color="default" minHeight="100vh">
+      <Banner />
       <SkipToContent />
       <Header />
       {isSidebarOpen && (
