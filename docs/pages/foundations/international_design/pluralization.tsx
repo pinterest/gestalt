@@ -636,69 +636,6 @@ export default function FormsLayoutOverview() {
           name="Mapping to CLDR forms"
         />
 
-        <MainSection.Subsection description="en.properties" title="English" />
-        <Box marginBottom={10} marginTop={0}>
-          <embed
-            // @ts-expect-error - TS2322 - Type '{ allowFullScreen: true; height: string; src: string; style: { border: number; }; width: string; }' is not assignable to type 'DetailedHTMLProps<EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>'.
-            allowFullScreen
-            height="400"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A6%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            style={{ border: 0 }}
-            width="100%"
-          />
-        </Box>
-
-        <MainSection.Subsection description="fr.properties" title="French" />
-        <Box marginBottom={10} marginTop={0}>
-          <embed
-            // @ts-expect-error - TS2322 - Type '{ allowFullScreen: true; height: string; src: string; style: { border: number; }; width: string; }' is not assignable to type 'DetailedHTMLProps<EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>'.
-            allowFullScreen
-            height="400"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A21%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            style={{ border: 0 }}
-            width="100%"
-          />
-        </Box>
-
-        <MainSection.Subsection description="ja.properties" title="Japanese" />
-        <Box marginBottom={10} marginTop={0}>
-          <embed
-            // @ts-expect-error - TS2322 - Type '{ allowFullScreen: true; height: string; src: string; style: { border: number; }; width: string; }' is not assignable to type 'DetailedHTMLProps<EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>'.
-            allowFullScreen
-            height="400"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A26%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            style={{ border: 0 }}
-            width="100%"
-          />
-        </Box>
-
-        <MainSection.Subsection description="ru.properties" title="Russian" />
-        <Box marginBottom={10} marginTop={0}>
-          <embed
-            // @ts-expect-error - TS2322 - Type '{ allowFullScreen: true; height: string; src: string; style: { border: number; }; width: string; }' is not assignable to type 'DetailedHTMLProps<EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>'.
-            allowFullScreen
-            height="400"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A31%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            style={{ border: 0 }}
-            width="100%"
-          />
-        </Box>
-
-        <MainSection.Subsection
-          description="Also see the full documentation at [L10nMessages](https://l10nmessages.io/docs/icu4j/#pluralization---message-with-quantity), a Pinterest open source project."
-          title="Java Code Snippet"
-        />
-        <Box marginBottom={10} marginTop={0}>
-          <embed
-            // @ts-expect-error - TS2322 - Type '{ allowFullScreen: true; height: string; src: string; style: { border: number; }; width: string; }' is not assignable to type 'DetailedHTMLProps<EmbedHTMLAttributes<HTMLEmbedElement>, HTMLEmbedElement>'.
-            allowFullScreen
-            height="1000"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fg8UzEN5Mg4kMoljbuje33y%2FInternational-Design%3Ftype%3Ddesign%26node-id%3D11%253A33%26mode%3Ddesign%26t%3DzrO9UZUaSEHo73ga-1"
-            style={{ border: 0 }}
-            width="100%"
-          />
-        </Box>
-
         <MainSection
           description={`
         Each platform at Pinterest has a special function/macro to handle pluralization:
