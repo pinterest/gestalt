@@ -707,19 +707,6 @@ const componentData: ReadonlyArray<ComponentData> = [
           status: 'ready',
         },
       },
-      ios: {
-        name: 'Checkbox',
-        visual: {
-          svg: <Checkbox />,
-        },
-        description: 'Checkbox is used for multiple choice selection.',
-        category: ['Controls'],
-        status: {
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          status: 'ready',
-        },
-      },
     },
   },
   {

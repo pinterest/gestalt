@@ -14,9 +14,9 @@ import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
 
-function getPlatform(pathName: string): 'android' | 'ios' | 'web' {
+function getPlatform(pathName: string): 'android' | 'web' {
   if (pathName.startsWith('android')) return 'android';
-  if (pathName.startsWith('ios')) return 'ios';
+
   return 'web';
 }
 
@@ -37,7 +37,7 @@ type Props = {
     component: boolean;
   };
   pageSourceUrl: string;
-  platform: 'android' | 'ios' | 'web';
+  platform: 'android' | 'web';
 };
 
 export default function DocumentPage({ content, meta, pageSourceUrl, platform }: Props) {
@@ -61,7 +61,7 @@ export async function getStaticProps(context: {
     };
     content: Record<any, any>;
     pageSourceUrl: string;
-    platform: 'android' | 'ios' | 'web';
+    platform: 'android' | 'web';
   };
 }> {
   const { id } = context.params;

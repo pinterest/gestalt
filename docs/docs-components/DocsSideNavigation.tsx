@@ -14,11 +14,11 @@ export function convertNamesForURL(name: string): string {
 }
 
 export function isComponentsActiveSection(pathname: string): boolean {
-  return pathname.includes('/web/') || pathname.includes('/ios/') || pathname.includes('/android/');
+  return pathname.includes('/web/') || pathname.includes('/android/');
 }
 
 export default function DocsSideNavigation({ showBorder }: { showBorder?: boolean }) {
-  const [activeSection, setActiveSection] = useState(newSidebarIndex[0]);
+  const [activeSection, setActiveSection] = useState<siteIndexType>(newSidebarIndex[0]);
 
   const { isMobile } = useDocsConfig();
   const { pathname, query } = useRouter();
@@ -45,6 +45,7 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
     ? selectedTab === 'Components'
     : isComponentsActiveSection(dynamicUrlPath || pathname);
 
+  // TODO: What we have to use instead of Siwtcher component ? Since we will remove IOS and Andorid documentations
   const platformSwitcher = isComponentsSection ? (
     <SidebarPlatformSwitcher
       componentPlatformFilteredBy={componentPlatformFilteredBy}

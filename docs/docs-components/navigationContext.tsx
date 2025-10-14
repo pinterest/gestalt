@@ -5,7 +5,7 @@ import createHydra, { Hydra } from './createHydra';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
 
-export type ComponentPlatformFilteredBy = 'web' | 'ios' | 'android';
+export type ComponentPlatformFilteredBy = 'web' | 'android';
 
 export type NavigationContextType = {
   isSidebarOpen: boolean;
@@ -18,7 +18,6 @@ export type NavigationContextType = {
 
 const PLATFORM_MAP = {
   web: 'web',
-  ios: 'ios',
   android: 'android',
 } as const;
 
@@ -43,8 +42,6 @@ function NavigationContextProvider({ children }: { children?: ReactNode }) {
     currentPlatform = 'web';
   } else if (pathname.includes('/android/')) {
     currentPlatform = 'android';
-  } else if (pathname.includes('/ios/')) {
-    currentPlatform = 'ios';
   }
   let currentSiteSection = null;
 

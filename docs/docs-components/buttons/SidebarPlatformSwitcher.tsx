@@ -3,28 +3,22 @@ import { useRouter } from 'next/router';
 import { SegmentedControl } from 'gestalt';
 import trackButtonClick from './trackButtonClick';
 import AndroidLogo from '../../graphics/home-page/android-logo.svg';
-import AppleLogo from '../../graphics/home-page/apple-logo.svg';
 import { ComponentPlatformFilteredBy } from '../navigationContext';
 
 type Props = {
-  onClick: (platform: 'web' | 'android' | 'ios') => void;
+  onClick: (platform: 'web' | 'android') => void;
   componentPlatformFilteredBy: ComponentPlatformFilteredBy;
 };
 
 export default function SidebarPlatformSwitcher({ onClick, componentPlatformFilteredBy }: Props) {
   const PLATFORM_TO_INDEX_MAP = {
     web: 0,
-    ios: 1,
-    android: 2,
+    android: 1,
   } as const;
   const router = useRouter();
 
   // Do not change the order of these items
-  const items = [
-    'Web',
-    <AppleLogo key="apple" aria-label="ios platform" />,
-    <AndroidLogo key="android" aria-label="android platform" />,
-  ];
+  const items = ['Web', <AndroidLogo key="android" aria-label="android platform" />];
 
   // Updates both the cookie and the state that tracks the selected platform
   const onSelect = ({
