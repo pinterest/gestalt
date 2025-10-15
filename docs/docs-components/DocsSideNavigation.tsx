@@ -45,7 +45,6 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
     ? selectedTab === 'Components'
     : isComponentsActiveSection(dynamicUrlPath || pathname);
 
-  // TODO: What we have to use instead of Siwtcher component ? Since we will remove IOS and Andorid documentations
   const platformSwitcher = isComponentsSection ? (
     <SidebarPlatformSwitcher
       componentPlatformFilteredBy={componentPlatformFilteredBy}
