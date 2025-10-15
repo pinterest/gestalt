@@ -59,6 +59,7 @@ export default function AppLayout({ children, colorScheme }: Props) {
     <Box color="default" minHeight="100vh">
       <SkipToContent />
       <Header />
+      <p>Test</p>
       {isSidebarOpen && (
         <Fragment>
           {/* The <div> element has a child <button> element that allows keyboard interaction */}
