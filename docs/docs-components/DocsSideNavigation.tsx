@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Flex, SelectList, SideNavigation } from 'gestalt';
-import SidebarPlatformSwitcher from './buttons/SidebarPlatformSwitcher';
 import { useDocsConfig } from './contexts/DocsConfigProvider';
 import { useNavigationContext } from './navigationContext';
 import newSidebarIndex, { siteIndexType } from './siteIndex';
@@ -14,7 +13,7 @@ export function convertNamesForURL(name: string): string {
 }
 
 export function isComponentsActiveSection(pathname: string): boolean {
-  return pathname.includes('/web/') || pathname.includes('/android/');
+  return pathname.includes('/web/');
 }
 
 export default function DocsSideNavigation({ showBorder }: { showBorder?: boolean }) {
@@ -22,13 +21,8 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
 
   const { isMobile } = useDocsConfig();
   const { pathname, query } = useRouter();
-  const {
-    componentPlatformFilteredBy,
-    setComponentPlatformFilteredByCookie,
-    setIsSidebarOpen,
-    selectedTab,
-    setSelectedTab,
-  } = useNavigationContext();
+  const { componentPlatformFilteredBy, setIsSidebarOpen, selectedTab, setSelectedTab } =
+    useNavigationContext();
 
   // Find the section that corresponds to the top navigation
   // If it's the components section, find the section that is currently
@@ -44,13 +38,6 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
   const isComponentsSection = isMobile
     ? selectedTab === 'Components'
     : isComponentsActiveSection(dynamicUrlPath || pathname);
-
-  const platformSwitcher = isComponentsSection ? (
-    <SidebarPlatformSwitcher
-      componentPlatformFilteredBy={componentPlatformFilteredBy}
-      onClick={(platform) => setComponentPlatformFilteredByCookie(platform)}
-    />
-  ) : null;
 
   const header = isMobile ? (
     <Flex
@@ -77,11 +64,8 @@ export default function DocsSideNavigation({ showBorder }: { showBorder?: boolea
           <SelectList.Option key={label} label={label} value={value} />
         ))}
       </SelectList>
-      {platformSwitcher}
     </Flex>
-  ) : (
-    platformSwitcher
-  );
+  ) : null;
 
   useEffect(() => {
     const isComponentsCallback = (section: siteIndexType) =>

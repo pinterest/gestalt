@@ -1,9 +1,7 @@
 import { Platform } from '../types';
 
 const prettyPlatforms = {
-  android: 'Android',
   figma: 'Figma',
-  ios: 'iOS',
   web: 'Web',
 } as const;
 

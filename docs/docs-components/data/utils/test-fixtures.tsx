@@ -26,34 +26,6 @@ const mockComponentList: ReadonlyArray<ComponentData> = [
           status: 'ready',
         },
       },
-      android: {
-        name: 'Avatar',
-        visual: {
-          svg: <svg />,
-        },
-        alias: ['Pinner rep', 'Persona', 'User Image', 'Identifier', 'Identicon'],
-        description: 'Avatar is used to represent a user.',
-        category: ['Avatars'],
-        status: {
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          status: 'ready',
-        },
-      },
-      ios: {
-        name: 'Avatar',
-        visual: {
-          svg: <svg />,
-        },
-        alias: ['Pinner rep', 'Persona', 'User Image', 'Identifier', 'Identicon'],
-        description: 'Avatar is used to represent a user.',
-        category: ['Avatars'],
-        status: {
-          documentation: 'ready',
-          figmaStatus: 'ready',
-          status: 'planned',
-        },
-      },
     },
   },
   {
@@ -79,32 +51,6 @@ const mockComponentList: ReadonlyArray<ComponentData> = [
           figmaStatus: 'ready',
           responsive: 'ready',
           status: 'ready',
-        },
-      },
-      android: {
-        name: 'Badge',
-        visual: {
-          svg: <svg />,
-        },
-        alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
-        description: 'Badge is a label that indicates status or importance.',
-        category: ['Indicators'],
-        status: {
-          documentation: 'notAvailable',
-          status: 'planned',
-        },
-      },
-      ios: {
-        name: 'Badge',
-        visual: {
-          svg: <svg />,
-        },
-        alias: ['Lozenge', 'Label', 'Stamp', 'Flag'],
-        description: 'Badge is a label that indicates status or importance.',
-        category: ['Indicators'],
-        status: {
-          documentation: 'notAvailable',
-          status: 'planned',
         },
       },
     },

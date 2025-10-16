@@ -14,12 +14,6 @@ import ErrorBoundary from '../docs-components/ErrorBoundary';
 import MarkdownPage from '../docs-components/MarkdownPage';
 import { getAllMarkdownPosts, getDocByRoute } from '../utils/mdHelper';
 
-function getPlatform(pathName: string): 'android' | 'web' {
-  if (pathName.startsWith('android')) return 'android';
-
-  return 'web';
-}
-
 type MDXRemoteSerializeResult = {
   compiledSource: string;
   frontmatter?: {
@@ -37,7 +31,7 @@ type Props = {
     component: boolean;
   };
   pageSourceUrl: string;
-  platform: 'android' | 'web';
+  platform: 'web';
 };
 
 export default function DocumentPage({ content, meta, pageSourceUrl, platform }: Props) {
@@ -61,7 +55,7 @@ export async function getStaticProps(context: {
     };
     content: Record<any, any>;
     pageSourceUrl: string;
-    platform: 'android' | 'web';
+    platform: 'web';
   };
 }> {
   const { id } = context.params;
@@ -79,7 +73,7 @@ export async function getStaticProps(context: {
       meta,
       content: mdxSource,
       pageSourceUrl: `https://github.com/pinterest/gestalt/tree/master/docs/markdown/${pathName}.md`,
-      platform: getPlatform(pathName),
+      platform: 'web',
     },
   };
 }

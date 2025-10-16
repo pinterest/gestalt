@@ -53,7 +53,7 @@ type Props = {
   folderName?: string;
   margin?: 'default' | 'none';
   name: string;
-  platform?: 'android' | 'web';
+  platform?: 'web';
   bannerSlim?: ReactNode;
   type?: 'guidelines' | 'component' | 'utility';
   pdocsLink?: boolean;
