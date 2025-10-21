@@ -13,10 +13,11 @@ import Header from './Header';
 import { useNavigationContext } from './navigationContext';
 import ResourcesFooter from './ResourcesFooter';
 import SkipToContent from './SkipToContent';
+import useBannerResize, { SM_BREAKPOINT } from './useBannerResize';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_WITH_MARGIN = 90;
-const BANNER_TEXT_MAX_WIDTH = 580;
+
 const fullWidthPages = ['home'];
 const fullBleedNoNavigationPages = ['integration-test'];
 
@@ -26,39 +27,59 @@ type Props = {
 };
 
 function Banner() {
+  const { maxWidth: bannerTextMaxWidth, breakpoint } = useBannerResize();
+
+  const handleClick = () => {
+    window.location.href = 'https://gestalt.pinterest.systems';
+  };
+
+  const isSMBreakpoint = breakpoint === SM_BREAKPOINT;
+
   return (
     <Box
-      alignItems="center"
+      alignItems="end"
       dangerouslySetInlineStyle={{
         __style: { backgroundColor: '#EBEEFF' },
       }}
-      direction="row"
+      direction="column"
       display="flex"
       justifyContent="between"
-      paddingX={8}
-      paddingY={6}
+      paddingX={4}
+      paddingY={4}
       role="banner"
+      smAlignItems="center"
+      smDirection="row"
+      smPaddingX={8}
+      smPaddingY={6}
     >
-      <Flex alignItems="baseline" direction="row" gap={4}>
+      <Flex alignItems="start" direction="row" gap={isSMBreakpoint ? 1 : 4}>
         <Icon
           accessibilityLabel="Information"
           color="info"
           icon="circle-information-fill"
-          size={24}
+          size={isSMBreakpoint ? 16 : 24}
         />
 
-        <Flex direction="column" gap={1} maxWidth={BANNER_TEXT_MAX_WIDTH}>
-          <Text size="500" weight="bold">
+        <Flex direction="column" gap={1} maxWidth={bannerTextMaxWidth}>
+          <Text size={isSMBreakpoint ? '300' : '400'} weight="bold">
             This is Gestalt’s legacy documentation
           </Text>
 
-          <Text color="dark">
+          <Text size={isSMBreakpoint ? '200' : '300'}>
             Information might be outdated. For the latest documentation and support, visit Gestalt’s
             new documentation website.
           </Text>
         </Flex>
       </Flex>
-      <Button color="red" size="lg" text="Explore Gestalt 2.0" />
+
+      <Box marginTop={4} smMarginTop={0}>
+        <Button
+          color="red"
+          onClick={handleClick}
+          size={isSMBreakpoint ? 'sm' : 'lg'}
+          text="Explore Gestalt 2.0"
+        />
+      </Box>
     </Box>
   );
 }
