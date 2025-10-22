@@ -295,15 +295,6 @@ const siteIndex: readonly [siteIndexType, ...siteIndexType[]] = [
     pages: [
       'Overview',
       {
-        sectionName: 'Design contributions',
-        pages: [
-          'Design contributions overview',
-          'Contribution types and criteria',
-          'Process deep dive',
-          'Process diagrams',
-        ],
-      },
-      {
         sectionName: 'Design file hygiene',
         pages: ['Naming convention', 'Organizing layout', 'Figma branches', 'Design handoff'],
       },

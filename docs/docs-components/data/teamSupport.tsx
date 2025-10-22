@@ -1,16 +1,9 @@
 import { DesignOverview } from './types';
-import DesignContributionsTile from '../../graphics/team_support/design-contributions.svg';
 import DesignFileHygiene from '../../graphics/team_support/design-file-hygiene.svg';
 import GetHelpTile from '../../graphics/team_support/get-help.svg';
 import TrainingTile from '../../graphics/team_support/training.svg';
 
 const teamSupportTiles: ReadonlyArray<DesignOverview> = [
-  {
-    svg: <DesignContributionsTile />,
-    title: 'Design contributions',
-    description: 'Guidelines and resources for contributing designs to our system',
-    path: '/team_support/design_contributions/design_contributions_overview',
-  },
   {
     svg: <DesignFileHygiene />,
     title: 'Design file hygiene',
