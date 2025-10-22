@@ -17,24 +17,4 @@ describe('getByPlatform', () => {
       expect(names).toContain(name);
     });
   });
-
-  it('filters for ios components', () => {
-    const result = getByPlatform(mockComponentList, { platform: 'ios' });
-    expect(result).toHaveLength(2);
-    const names = result.map((component: any) => component.name);
-    const expectedNames = ['Avatar', 'Badge'];
-    expectedNames.forEach((name: any) => {
-      expect(names).toContain(name);
-    });
-  });
-
-  it('filters for android components', () => {
-    const result = getByPlatform(mockComponentList, { platform: 'android' });
-    expect(result).toHaveLength(2);
-    const names = result.map((component: any) => component.name);
-    const expectedNames = ['Avatar', 'Badge'];
-    expectedNames.forEach((name: any) => {
-      expect(names).toContain(name);
-    });
-  });
 });

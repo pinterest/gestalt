@@ -26,7 +26,7 @@ type Props = {
     component: boolean;
   };
   pageSourceUrl?: string;
-  platform: 'android' | 'ios' | 'web';
+  platform: 'web';
 };
 
 const isExternal: (arg1: string) => 'blank' | undefined = (href) => {

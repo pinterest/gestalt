@@ -7,16 +7,6 @@ const figmaLibraries = [
     url: 'https://www.figma.com/file/vjhfBsOtHw0wVg67vqwz1v/Gestalt-for-web',
     a11yLabel: 'Figma Web Library',
   },
-  {
-    title: 'iOS',
-    url: 'https://www.figma.com/file/AHcKJDgb7E7YswlgW1wY8E/Gestalt-for-iOS',
-    a11yLabel: 'Figma iOS Library',
-  },
-  {
-    title: 'Android',
-    url: 'https://www.figma.com/file/REw1COFYAktmVWrUBh3Ov8/Gestalt-for-Android',
-    a11yLabel: 'Figma Android Library',
-  },
 ];
 
 const figmaPlugins = [

@@ -321,26 +321,6 @@ const misc = [
     destination: '/web/bannercallout',
     permanent: true,
   },
-  {
-    source: '/ios/card/card',
-    destination: '/ios/module/module',
-    permanent: true,
-  },
-  {
-    source: '/ios/card/card.header',
-    destination: '/ios/module/module.header',
-    permanent: true,
-  },
-  {
-    source: '/ios/card/card.boards',
-    destination: '/ios/module/module.boards',
-    permanent: true,
-  },
-  {
-    source: '/ios/card/card.pins',
-    destination: '/ios/module/module.pins',
-    permanent: true,
-  },
 ];
 
 const redirects = [
