@@ -1,4 +1,3 @@
-import { Box, Flex, Link, Text } from 'gestalt';
 import MainSection from '../../../docs-components/MainSection';
 import Page from '../../../docs-components/Page';
 import PageHeader from '../../../docs-components/PageHeader';
@@ -77,35 +76,6 @@ Toasts can be used to:
         </MainSection.Subsection>
       </MainSection>
 
-      <MainSection name="What component should I use?">
-        <Flex direction="column" gap={4}>
-          <Text>
-            Here is a quick diagram to help you make a decision on what Messaging component to use.
-            If you don’t see it here, perhaps you need a related component.
-          </Text>
-
-          <Box>
-            <iframe
-              allowFullScreen
-              height="450"
-              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FXxaqjsGExBDWWs7HDRhaYW%2FMessaging-decision-tree-H2%3Fnode-id%3D102%253A1092"
-              style={{ border: 'none' }}
-              title="Messaging Figma decision tree"
-              width="100%"
-            />
-          </Box>
-
-          <Text>
-            <Link
-              externalLinkIcon="default"
-              href="https://www.figma.com/file/XxaqjsGExBDWWs7HDRhaYW/Messaging-decision-tree-H2?node-id=102%3A1092"
-              underline="always"
-            >
-              View in Figma
-            </Link>
-          </Text>
-        </Flex>
-      </MainSection>
       <MainSection name="Related">
         <MainSection.Subsection
           description={`
