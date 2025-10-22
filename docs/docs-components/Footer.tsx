@@ -8,7 +8,7 @@ const links: ReadonlyArray<{
 }> = [
   {
     title: 'Careers',
-    url: 'https://www.pinterestcareers.com/job-search-results/?keyword=gestalt',
+    url: 'https://www.pinterestcareers.com/',
     external: true,
   },
   {
