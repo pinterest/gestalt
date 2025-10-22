@@ -1,3 +1,9 @@
+## 177.0.2 (Oct 22, 2025)
+
+### Patch
+
+- Docs: Remove link button from Home page ([#4088](https://github.com/pinterest/gestalt/pull/4088)) - [Preview link](https://deploy-preview-4088--gestalt.netlify.app?devexample=true)
+
 ## 177.0.1 (Oct 2, 2025)
 
 ### Patch
