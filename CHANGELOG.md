@@ -1,3 +1,9 @@
+## 177.0.3 (Oct 22, 2025)
+
+### Patch
+
+- Docs: Remove design contribution page ([#4091](https://github.com/pinterest/gestalt/pull/4091)) - [Preview link](https://deploy-preview-4091--gestalt.netlify.app?devexample=true)
+
 ## 177.0.2 (Oct 22, 2025)
 
 ### Patch
