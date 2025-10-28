@@ -26,7 +26,7 @@ const useBannerResize = (): { maxWidth: number | string; breakpoint: string } =>
       } else if (containerWidth >= MD_BREAKPOINT_PX) {
         setMaxWidth(BANNER_TEXT_MD_MAX_WIDTH);
       } else if (containerWidth > SM_BREAKPOINT_PX) {
-        setMaxWidth(450);
+        setMaxWidth(BANNER_TEXT_MD_MAX_WIDTH);
       } else {
         setMaxWidth('100%');
       }

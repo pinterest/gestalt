@@ -1,6 +1,15 @@
 import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, Button, DeviceTypeProvider, Divider, FixedZIndex, Flex, Icon, Text } from 'gestalt';
+import {
+  Box,
+  ButtonLink,
+  DeviceTypeProvider,
+  Divider,
+  FixedZIndex,
+  Flex,
+  Icon,
+  Text,
+} from 'gestalt';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
@@ -28,10 +37,6 @@ type Props = {
 
 function Banner() {
   const { maxWidth: bannerTextMaxWidth, breakpoint } = useBannerResize();
-
-  const handleClick = () => {
-    window.location.href = 'https://gestalt.pinterest.systems';
-  };
 
   const isSMBreakpoint = breakpoint === SM_BREAKPOINT;
 
@@ -73,10 +78,11 @@ function Banner() {
       </Flex>
 
       <Box marginTop={4} smMarginTop={0}>
-        <Button
+        <ButtonLink
           color="red"
-          onClick={handleClick}
+          href="https://gestalt.pinterest.systems"
           size={isSMBreakpoint ? 'sm' : 'lg'}
+          target="blank"
           text="Explore Gestalt 2.0"
         />
       </Box>
