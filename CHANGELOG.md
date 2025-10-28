@@ -1,3 +1,9 @@
+## 177.0.5 (Oct 28, 2025)
+
+### Patch
+
+- Docs: Remove the 'What component should I use' section ([#4092](https://github.com/pinterest/gestalt/pull/4092)) - [Preview link](https://deploy-preview-4092--gestalt.netlify.app?devexample=true)
+
 ## 177.0.4 (Oct 28, 2025)
 
 ### Patch
