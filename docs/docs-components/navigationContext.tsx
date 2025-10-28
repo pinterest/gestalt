@@ -5,7 +5,7 @@ import createHydra, { Hydra } from './createHydra';
 
 const localStorageOrganizedByKey = 'gestalt-sidebar-organized-by-platform';
 
-export type ComponentPlatformFilteredBy = 'web' | 'ios' | 'android';
+export type ComponentPlatformFilteredBy = 'web';
 
 export type NavigationContextType = {
   isSidebarOpen: boolean;
@@ -18,8 +18,6 @@ export type NavigationContextType = {
 
 const PLATFORM_MAP = {
   web: 'web',
-  ios: 'ios',
-  android: 'android',
 } as const;
 
 const {
@@ -41,10 +39,6 @@ function NavigationContextProvider({ children }: { children?: ReactNode }) {
   // set that as the starting cookie
   if (pathname.includes('/web/')) {
     currentPlatform = 'web';
-  } else if (pathname.includes('/android/')) {
-    currentPlatform = 'android';
-  } else if (pathname.includes('/ios/')) {
-    currentPlatform = 'ios';
   }
   let currentSiteSection = null;
 
@@ -62,11 +56,12 @@ function NavigationContextProvider({ children }: { children?: ReactNode }) {
   // If that doesn't include a platform, use the cookie
   // If there's no cookie set, use 'web'
   const [componentPlatformFilteredBy, setComponentPlatformFilteredBy] = useState(
-    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ readonly web: "web"; readonly ios: "ios"; readonly android: "android"; }'.
+    // @ts-expect-error - TS7053 - Element implicitly has an 'any' type because expression of type 'any' can't be used to index type '{ readonly web: "web"; }'.
     PLATFORM_MAP[currentPlatform || cookies[localStorageOrganizedByKey] || 'web'],
   );
 
   // Set the cookie, and update the state
+  // TODO: Remove this once we remove the platform switcher
   const setComponentPlatformFilteredByCookie = (organizedBy: ComponentPlatformFilteredBy) => {
     setCookies(localStorageOrganizedByKey, organizedBy);
     setComponentPlatformFilteredBy(organizedBy);

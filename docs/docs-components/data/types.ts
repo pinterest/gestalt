@@ -37,12 +37,10 @@ export type ComponentCategory =
   | 'Text'
   | 'Utilities';
 
-export type Platform = 'android' | 'figma' | 'ios' | 'web';
+export type Platform = 'figma' | 'web';
 
 type PlatformObjType<T> = {
-  android?: T;
   figma?: T;
-  ios?: T;
   web?: T;
 };
 
