@@ -1,3 +1,9 @@
+## 177.0.6 (Oct 28, 2025)
+
+### Patch
+
+- Docs: Remove IOS and Android documentation pages ([#4089](https://github.com/pinterest/gestalt/pull/4089)) - [Preview link](https://deploy-preview-4089--gestalt.netlify.app?devexample=true)
+
 ## 177.0.5 (Oct 28, 2025)
 
 ### Patch
