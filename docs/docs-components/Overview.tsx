@@ -37,9 +37,6 @@ type ComponentsByCategory = { [K in CategoryOrderType]: ReadonlyArray<PlatformDa
 
 const headerCopyByPlatform = {
   web: 'Gestalt provides an extensive set of React components for use in building larger web experiences and patterns. They include interactive UI components and developer utilities to help with implemention.',
-  ios: 'Gestalt provides a growing set of interactive UI components for use in building larger iOS experiences and patterns.',
-  android:
-    'Gestalt provides a growing set of interactive UI components for use in building larger Android experiences and patterns.',
 } as const;
 
 type Props = {
