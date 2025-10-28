@@ -1,3 +1,9 @@
+## 177.0.4 (Oct 28, 2025)
+
+### Patch
+
+- Docs: Update the "Mapping to CLDR forms" section ([#4090](https://github.com/pinterest/gestalt/pull/4090)) - [Preview link](https://deploy-preview-4090--gestalt.netlify.app?devexample=true)
+
 ## 177.0.3 (Oct 22, 2025)
 
 ### Patch
