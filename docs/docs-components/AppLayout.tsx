@@ -1,6 +1,16 @@
 import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex, Sticky } from 'gestalt';
+import {
+  Box,
+  ButtonLink,
+  DeviceTypeProvider,
+  Divider,
+  FixedZIndex,
+  Flex,
+  Icon,
+  Sticky,
+  Text,
+} from 'gestalt';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
@@ -12,9 +22,11 @@ import Footer from './Footer';
 import Header from './Header';
 import { useNavigationContext } from './navigationContext';
 import SkipToContent from './SkipToContent';
+import useBannerResize, { SM_BREAKPOINT } from './useBannerResize';
 
 export const CONTENT_MAX_WIDTH_PX = 1200;
 const HEADER_HEIGHT_WITH_MARGIN = 90;
+
 const fullWidthPages = ['home'];
 const fullBleedNoNavigationPages = ['integration-test'];
 
@@ -22,6 +34,60 @@ type Props = {
   children?: ReactNode;
   colorScheme?: 'light' | 'dark';
 };
+
+function Banner() {
+  const { maxWidth: bannerTextMaxWidth, breakpoint } = useBannerResize();
+
+  const isSMBreakpoint = breakpoint === SM_BREAKPOINT;
+
+  return (
+    <Box
+      alignItems="end"
+      dangerouslySetInlineStyle={{
+        __style: { backgroundColor: '#EBEEFF' },
+      }}
+      direction="column"
+      display="flex"
+      justifyContent="between"
+      paddingX={4}
+      paddingY={4}
+      role="banner"
+      smAlignItems="center"
+      smDirection="row"
+      smPaddingX={8}
+      smPaddingY={6}
+    >
+      <Flex alignItems="start" direction="row" gap={isSMBreakpoint ? 1 : 4}>
+        <Icon
+          accessibilityLabel="Information"
+          color="info"
+          icon="circle-information-fill"
+          size={isSMBreakpoint ? 16 : 24}
+        />
+
+        <Flex direction="column" gap={1} maxWidth={bannerTextMaxWidth}>
+          <Text size={isSMBreakpoint ? '300' : '400'} weight="bold">
+            This is Gestalt’s legacy documentation
+          </Text>
+
+          <Text size={isSMBreakpoint ? '200' : '300'}>
+            Information might be outdated. For the latest documentation and support, visit Gestalt’s
+            new documentation website.
+          </Text>
+        </Flex>
+      </Flex>
+
+      <Box marginTop={4} smMarginTop={0}>
+        <ButtonLink
+          color="red"
+          href="https://gestalt.pinterest.systems"
+          size={isSMBreakpoint ? 'sm' : 'lg'}
+          text="Explore Gestalt 2.0"
+        />
+      </Box>
+    </Box>
+  );
+}
 
 export default function AppLayout({ children, colorScheme }: Props) {
   const { isMobile } = useDocsConfig();
@@ -62,6 +128,7 @@ export default function AppLayout({ children, colorScheme }: Props) {
       }}
       minHeight="100vh"
     >
+      <Banner />
       <Sticky top={0}>
         <SkipToContent />
         <Header />
