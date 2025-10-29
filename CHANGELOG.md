@@ -1,3 +1,9 @@
+## 177.0.7 (Oct 29, 2025)
+
+### Patch
+
+- Docs: Added new banner ([#4087](https://github.com/pinterest/gestalt/pull/4087)) - [Preview link](https://deploy-preview-4087--gestalt.netlify.app?devexample=true)
+
 ## 177.0.6 (Oct 28, 2025)
 
 ### Patch
