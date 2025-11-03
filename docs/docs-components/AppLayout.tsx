@@ -1,16 +1,6 @@
 import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import {
-  Box,
-  ButtonLink,
-  DeviceTypeProvider,
-  Divider,
-  FixedZIndex,
-  Flex,
-  Icon,
-  Sticky,
-  Text,
-} from 'gestalt';
+import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex, Icon, Sticky, Text } from 'gestalt';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
@@ -71,11 +61,14 @@ function Banner() {
           </Text>
 
           <Text size={isSMBreakpoint ? '200' : '300'}>
-            Information might be outdated. For the latest documentation and support, visit Gestalt’s
-            new documentation website.
+            Information might be outdated. Stay tuned for Gestalt’s new documentation website coming
+            soon.
           </Text>
         </Flex>
       </Flex>
+
+      {/*
+      Enable when the new documentation website is ready:
 
       <Box marginTop={4} smMarginTop={0}>
         <ButtonLink
@@ -85,6 +78,7 @@ function Banner() {
           text="Explore Gestalt 2.0"
         />
       </Box>
+      */}
     </Box>
   );
 }
