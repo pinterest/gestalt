@@ -1,3 +1,9 @@
+## 177.0.8 (Nov 3, 2025)
+
+### Patch
+
+- Docs: Update legacy banner content; hide button [UXE-202] ([#4093](https://github.com/pinterest/gestalt/pull/4093)) - [Preview link](https://deploy-preview-4093--gestalt.netlify.app?devexample=true)
+
 ## 177.0.7 (Oct 29, 2025)
 
 ### Patch
