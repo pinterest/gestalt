@@ -49,7 +49,7 @@
 }
 
 .focused {
-  composes: accessibilityOutlineFocus from "./Focus.css";
+  composes: accessibilityOutlineFocus from "../Focus.css";
 }
 
 .vrFocused {
