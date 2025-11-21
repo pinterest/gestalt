@@ -80,7 +80,13 @@ function Banner() {
       <Box marginTop={4} smMarginTop={0}>
         <ButtonLink
           color="red"
-          href="https://gestalt.pinterest.systems"
+          href="https://gestalt.pinterest.systems/"
+          onClick={({ event }) => {
+            event.preventDefault();
+            // TODO:GlobalEventsHandlerProvider isn't working as expected in AppLayout. 
+            // Remove this when a more appropriate fix is found.
+            window.location.href = 'https://gestalt.pinterest.systems/';
+          }}
           size={isSMBreakpoint ? 'sm' : 'lg'}
           text="Explore Gestalt 2.0"
         />
