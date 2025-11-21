@@ -71,8 +71,8 @@ function Banner() {
           </Text>
 
           <Text size={isSMBreakpoint ? '200' : '300'}>
-            Information might be outdated. Stay tuned for Gestalt’s new documentation website coming
-            soon.
+            Information might be outdated. For the latest documentation and support, visit Gestalt’s
+            new documentation website.
           </Text>
         </Flex>
       </Flex>
