@@ -1,6 +1,16 @@
 import { Fragment, ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Box, DeviceTypeProvider, Divider, FixedZIndex, Flex, Icon, Sticky, Text } from 'gestalt';
+import {
+  Box,
+  ButtonLink,
+  DeviceTypeProvider,
+  Divider,
+  FixedZIndex,
+  Flex,
+  Icon,
+  Sticky,
+  Text,
+} from 'gestalt';
 import {
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
@@ -66,10 +76,6 @@ function Banner() {
           </Text>
         </Flex>
       </Flex>
-
-      {/*
-      Enable when the new documentation website is ready:
-
       <Box marginTop={4} smMarginTop={0}>
         <ButtonLink
           color="red"
@@ -78,7 +84,6 @@ function Banner() {
           text="Explore Gestalt 2.0"
         />
       </Box>
-      */}
     </Box>
   );
 }
