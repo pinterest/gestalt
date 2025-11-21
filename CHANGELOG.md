@@ -1,3 +1,9 @@
+## 177.0.9 (Nov 21, 2025)
+
+### Patch
+
+- Docs: Re-enable legacy banner button for Gestalt 2.0 [UXE-229] ([#4095](https://github.com/pinterest/gestalt/pull/4095)) - [Preview link](https://deploy-preview-4095--gestalt.netlify.app?devexample=true)
+
 ## 177.0.8 (Nov 3, 2025)
 
 ### Patch
