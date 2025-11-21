@@ -1,3 +1,9 @@
+## 177.0.10 (Nov 21, 2025)
+
+### Patch
+
+- Docs: Remove root to home redirect ([#4097](https://github.com/pinterest/gestalt/pull/4097)) - [Preview link](https://deploy-preview-4097--gestalt.netlify.app?devexample=true)
+
 ## 177.0.9 (Nov 21, 2025)
 
 ### Patch
