@@ -1,3 +1,9 @@
+## 177.0.11 (Nov 22, 2025)
+
+### Patch
+
+- Docs: GlobalEventsHandlerProvider work around ([#4098](https://github.com/pinterest/gestalt/pull/4098)) - [Preview link](https://deploy-preview-4098--gestalt.netlify.app?devexample=true)
+
 ## 177.0.10 (Nov 21, 2025)
 
 ### Patch
