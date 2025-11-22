@@ -83,7 +83,7 @@ function Banner() {
           href="https://gestalt.pinterest.systems/"
           onClick={({ event }) => {
             event.preventDefault();
-            // TODO:GlobalEventsHandlerProvider isn't working as expected in AppLayout. 
+            // TODO:GlobalEventsHandlerProvider isn't working as expected in AppLayout.
             // Remove this when a more appropriate fix is found.
             window.location.href = 'https://gestalt.pinterest.systems/';
           }}
