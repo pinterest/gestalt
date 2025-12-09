@@ -1,3 +1,9 @@
+## 177.0.12 (Dec 9, 2025)
+
+### Patch
+
+- Docs: Update Banner component styling with design tokens ([#4100](https://github.com/pinterest/gestalt/pull/4100)) - [Preview link](https://deploy-preview-4100--gestalt.netlify.app?devexample=true)
+
 ## 177.0.11 (Nov 22, 2025)
 
 ### Patch
