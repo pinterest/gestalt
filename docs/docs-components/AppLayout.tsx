@@ -12,6 +12,7 @@ import {
   Text,
 } from 'gestalt';
 import {
+  TOKEN_COLOR_BACKGROUND_INFO_WEAK,
   TOKEN_COLOR_GRAY_ROBOFLOW_700,
   TOKEN_COLOR_ORANGE_FIRETINI_0,
 } from 'gestalt-design-tokens';
@@ -44,7 +45,7 @@ function Banner() {
     <Box
       alignItems="end"
       dangerouslySetInlineStyle={{
-        __style: { backgroundColor: '#EBEEFF' },
+        __style: { backgroundColor: `${TOKEN_COLOR_BACKGROUND_INFO_WEAK}` },
       }}
       direction="column"
       display="flex"
@@ -57,13 +58,25 @@ function Banner() {
       smPaddingX={8}
       smPaddingY={6}
     >
-      <Flex alignItems="start" direction="row" gap={isSMBreakpoint ? 1 : 4}>
-        <Icon
-          accessibilityLabel="Information"
-          color="info"
-          icon="circle-information-fill"
-          size={isSMBreakpoint ? 16 : 24}
-        />
+      <Flex
+        alignItems="start"
+        direction="row"
+        flex="grow"
+        gap={isSMBreakpoint ? 1 : 4}
+        minWidth={0}
+      >
+        <Box
+          dangerouslySetInlineStyle={{
+            __style: { paddingTop: '2px' },
+          }}
+        >
+          <Icon
+            accessibilityLabel="Information"
+            color="info"
+            icon="circle-information-fill"
+            size={isSMBreakpoint ? 16 : 24}
+          />
+        </Box>
 
         <Flex direction="column" gap={1} maxWidth={bannerTextMaxWidth}>
           <Text size={isSMBreakpoint ? '300' : '400'} weight="bold">
@@ -77,7 +90,14 @@ function Banner() {
         </Flex>
       </Flex>
 
-      <Box marginTop={4} smMarginTop={0}>
+      <Box
+        dangerouslySetInlineStyle={{
+          __style: { marginLeft: '10px' },
+        }}
+        flex="none"
+        marginTop={4}
+        smMarginTop={0}
+      >
         <ButtonLink
           color="red"
           href="https://gestalt.pinterest.systems/"
