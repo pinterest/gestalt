@@ -2,6 +2,7 @@ import { Fragment, Ref, useCallback, useEffect, useState } from 'react';
 import { Box, FixedZIndex, Icon, IconButton, Tooltip } from 'gestalt';
 
 const INPUT_ID = 'algolia-doc-search';
+const DEFAULT_VERSION = '/v1';
 
 function SearchBox({ popoverZIndex }: { popoverZIndex?: FixedZIndex }) {
   // Icon placement is copied directly from  SearchField
@@ -129,6 +130,21 @@ export default function DocSearch({
     }
   }, [isMobileSearchExpandedOpen]);
 
+  const addVersionToSearchResultURL = (url: string): string => {
+    try {
+      const parsedUrl = new URL(url);
+      const match = window.location.pathname.match(/^\/(v\d+)\b/);
+      const version = match ? `/${match[1]}` : DEFAULT_VERSION;
+
+      parsedUrl.pathname = parsedUrl.pathname.replace(/^\/v\d+\b/, '');
+      parsedUrl.pathname = version + parsedUrl.pathname;
+
+      return parsedUrl.toString();
+    } catch (e) {
+      return url;
+    }
+  };
+
   useEffect(() => {
     // @ts-expect-error - TS2339 - Property 'docsearch' does not exist on type 'Window & typeof globalThis'.
     if (typeof window === 'undefined' || !window.docsearch) {
@@ -141,6 +157,13 @@ export default function DocSearch({
       debug: false, // Set debug to true if you want to keep open and inspect the dropdown
       indexName: 'gestalt',
       inputSelector: `#${INPUT_ID}`,
+      transformData(hits: Array<{ url: string }>) {
+        const transformedHits = hits.map((hit) => ({
+          ...hit,
+          url: addVersionToSearchResultURL(hit.url),
+        }));
+        return transformedHits;
+      },
     });
   }, []);
 
