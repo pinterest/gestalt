@@ -143,7 +143,7 @@ export default function DocSearch({
     } catch (e) {
       return url;
     }
-  }
+  };
 
   useEffect(() => {
     // @ts-expect-error - TS2339 - Property 'docsearch' does not exist on type 'Window & typeof globalThis'.
