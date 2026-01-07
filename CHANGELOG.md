@@ -1,3 +1,9 @@
+## 177.0.13 (Jan 7, 2026)
+
+### Patch
+
+- Docs: Add DocSearch transformData prop ([#4101](https://github.com/pinterest/gestalt/pull/4101)) - [Preview link](https://deploy-preview-4101--gestalt.netlify.app?devexample=true)
+
 ## 177.0.12 (Dec 9, 2025)
 
 ### Patch
