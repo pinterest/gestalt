@@ -1,3 +1,17 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+> [!WARNING]
+> ## ⚠️ This Repository Is Deprecated
+>
+> **This project is no longer actively maintained and has reached end of life.**
+>
+> We are no longer accepting issues, pull requests, or providing support.
+> The code remains available for archival and reference purposes only.
+>
+> ➡️ **Please migrate to:** [new-repo-name](https://github.com/your-org/new-repo)
+>
+> _Last supported version: `v177.0.13` — Deprecated as of November 2025._
+
 # [Gestalt](https://gestalt.pinterest.systems/) &middot; [![NPM Version](https://img.shields.io/npm/v/gestalt.svg)](https://www.npmjs.com/package/gestalt) [![License](https://img.shields.io/npm/l/gestalt?style=flat)](https://github.com/pinterest/gestalt/blob/master/LICENSE)
 
 Gestalt is Pinterest’s design system. Our system includes a React component library with comprehensive guidelines, best practices, tools, and resources to support designers and engineers delivering a high-quality product.
