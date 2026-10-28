@@ -217,5 +217,8 @@
   "stackblitz": {
     "startCommand": "./scripts/stackblitz.sh"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "engines": {
+    "node": "24.x"
+  }
 }

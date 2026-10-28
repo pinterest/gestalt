@@ -16,10 +16,11 @@ jobs:
       matrix:
         shard: ['1/5', '2/5', '3/5', '4/5', '5/5']
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version-file: .nvmrc
+          check-latest: true
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile

@@ -23,13 +23,14 @@ jobs:
         run: |
           echo "::set-output name=labels::["prerelease release"]"
       - name: Checkout the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           persist-credentials: false
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version-file: .nvmrc
+          check-latest: true
       - name: Setup npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ALBERTO_NPM_PERSONAL_TOKEN }}
