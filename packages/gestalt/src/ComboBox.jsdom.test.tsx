@@ -420,4 +420,25 @@ describe('ComboBox', () => {
       expect(screen.getByLabelText(CLEAR)).toBeVisible();
     });
   });
+  test('ignores an option after becoming disabled while open', async () => {
+    const onSelect = jest.fn();
+    const props = {
+      id: 'fruit',
+      label: 'Fruit',
+      options: [
+        { label: 'Apple', value: 'apple' },
+        { label: 'Orange', value: 'orange' },
+      ],
+      onSelect,
+    };
+    const { rerender } = render(<ComboBox {...props} />);
+    await userEvent.click(screen.getByLabelText('Fruit'));
+    const option = screen.getByRole('option', { name: 'Orange' });
+
+    rerender(<ComboBox {...props} disabled />);
+    await userEvent.click(option);
+
+    expect(onSelect).not.toHaveBeenCalled();
+    expect(screen.getByLabelText('Fruit')).toHaveValue('');
+  });
 });
