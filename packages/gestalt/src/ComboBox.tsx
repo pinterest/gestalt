@@ -272,6 +272,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
           event: React.KeyboardEvent<HTMLElement>;
           item: OptionType;
         }) => {
+      if (disabled) return;
       onSelect?.({ event, item });
       if (isNotControlled) {
         setSelectedItem(item);
@@ -279,7 +280,7 @@ const ComboBoxWithForwardRef = forwardRef<HTMLInputElement, Props>(function Comb
       }
       setShowOptionsList(false);
     },
-    [isNotControlled, onSelect],
+    [disabled, isNotControlled, onSelect],
   );
 
   // ==== KEYBOARD NAVIGATION LOGIC: Keyboard navigation is handled by ComboBox while onClick selection is handled in ComboBoxItem ====
