@@ -1,6 +1,6 @@
 # Gestalt Design Tokens
 
-This package contains all of the design tokens used by the Pinterest Gestalt Design System. The tokens are built for multiple platforms using [Style Dictionary](https://amzn.github.io/style-dictionary).
+This package contains all of the design tokens used by the Pinterest Gestalt Design System. The tokens are built for multiple platforms using [Style Dictionary](https://v3.styledictionary.com/).
 
 To build the tokens, run the following command from within the package directory /gestalt-design-tokens:
 
@@ -80,4 +80,4 @@ Now let's make a change and see how that affects things. Open up `tokens/color/b
 
 **Huzzah!**
 
-Now go forth and create! This package is utilizing [Style Dictionary](https://amzn.github.io/style-dictionary). Take a look at all the built-in [transforms](https://amzn.github.io/style-dictionary/#/transforms?id=pre-defined-transforms) and [formats](https://amzn.github.io/style-dictionary/#/formats?id=pre-defined-formats).
+Now go forth and create! This package is utilizing [Style Dictionary](https://v3.styledictionary.com/). Take a look at all the built-in [transforms](https://v3.styledictionary.com/#/transforms?id=pre-defined-transforms) and [formats](https://v3.styledictionary.com/#/formats?id=pre-defined-formats).
